@@ -1,6 +1,6 @@
 # Debrid services comparison
 
-A comparison of available hosts and pricing for [AllDebrid](https://alldebrid.com/), [Real-Debrid](https://real-debrid.com/), [LinkSnappy](https://linksnappy.com/myaccount/status), [Premiumize](https://www.premiumize.me/services), [Debrid-Link](https://debrid-link.com/) and [TorBox](https://torbox.app/).
+A comparison of available hosts and pricing for [AllDebrid](https://alldebrid.com/), [Real-Debrid](https://real-debrid.com/), [LinkSnappy](https://linksnappy.com/myaccount/status), [Premiumize](https://www.premiumize.me/services), [Debrid-Link](https://debrid-link.com/), [TorBox](https://torbox.app/) and [Mega-Debrid](https://debrid-link.com).
 
 > For a better experience, I would suggest:
 [Web version of this comparision](https://debrid-services-comparison.netlify.app/)
