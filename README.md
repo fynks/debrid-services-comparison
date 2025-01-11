@@ -59,6 +59,7 @@ If you are signing up for any above service, Please consider buying from my refe
 - [Premiumize](https://www.premiumize.me/premium)
 - [LinkSnappy](https://linksnappy.com/myaccount/extend)
 - [Debrid-Link](https://debrid-link.com/premium)
+- [Mega-Debrid](https://www.mega-debrid.eu/index.php?page=offres)
 
 
 ## Available Hosts
