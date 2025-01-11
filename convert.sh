@@ -95,7 +95,4 @@ pandoc README.md \
 # Cleanup
 cleanup
 
-echo "✓ Conversion complete! Output saved as index.html"
-echo "→ Table of contents generated"
-echo "→ Dark mode support added"
-echo "→ Accessibility features implemented"
+echo "✓ Conversion complete! Output saved as docs/index.html"
