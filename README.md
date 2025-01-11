@@ -36,17 +36,16 @@ If you are signing up for any above service, Please consider buying from my refe
 - [Mega-Debrid](https://www.mega-debrid.eu/index.php?page=freeregister)
 
 ## Pricing
-| Plans      | AllDebrid                             | Debrid-Link | Real-Debrid | TorBox              | Premiumize                     | Linksnappy |
-| ---------- | ------------------------------------- | ----------- | ----------- | ------------------- | ------------------------------ | ---------- |
-| Free/Trial | 7 days*                               | Yes         | -           | 0$/month            | -                              | -          |
-| 7 Days     | -                                     | -           | -           | -                   | -                              | $4.99 USD  |
-| 15 Days    | -                                     | 3 €         | 3 €         | -                   | -                              | -          |
-| 30 Days    | 2.99€/mo(Recur) or 3.99€/mo(One time) | 4 €         | 4 €         | Starts from $2.1/mo | € 9.99 / mo                    | $12.99 USD |
-| 90 Days    | -                                     | 9 €         | 9 €         | -                   | € 8.33 / month (€ 24.99 total  | $29.99 USD |
-| 180 Days   | -                                     | 16 €        | 16 €        | -                   | € 5.75 / month (€ 69.99 total) | $54.99 USD |
-| 300 Days   | -                                     | 25 €        | -           | -                   | -                              | -          |
-|            |                                       |
 
+| Plans          | AllDebrid                           | Debrid-Link | Real-Debrid | TorBox              | Premiumize                   | Linksnappy | Mega-Debrid |
+| :------------- | :---------------------------------- | :---------- | :---------- | :------------------ | :--------------------------- | :--------- | :---------- |
+| **Free/Trial** | 7 days*                             | Yes         | -           | 0$/month            | -                            | -          | -           |
+| **7 Days**     | -                                   | -           | -           | -                   | -                            | $4.99 USD  | -           |
+| **15 Days**    | -                                   | 3 €         | 3 €         | -                   | -                            | -          | -           |
+| **30 Days**    | 2.99€/mo (Recur) / 3.99€ (One-time) | 4 €         | 4 €         | Starts from $2.1/mo | €9.99 / mo                   | $12.99 USD | 4 €         |
+| **90 Days**    | -                                   | 9 €         | 9 €         | -                   | €8.33 / month (€24.99 total) | $29.99 USD | 9 €         |
+| **180 Days**   | -                                   | 16 €        | 16 €        | -                   | €5.75 / month (€69.99 total) | $54.99 USD | 16 €        |
+| **300 Days**   | -                                   | 25 €        | -           | -                   | -                            | -          | -           |
 
 > [ * ] = 7 Days free trail at Alldebrid requires a phone verification.
 
