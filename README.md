@@ -33,6 +33,7 @@ If you are signing up for any above service, Please consider buying from my refe
 - [Premiumize](https://www.premiumize.me/register)
 - [LinkSnappy](https://linksnappy.com/home#Register)
 - [Debrid-Link](https://debrid-link.com/webapp/register)
+- [Mega-Debrid](https://www.mega-debrid.eu/index.php?page=freeregister)
 
 ## Pricing
 | Plans      | AllDebrid                             | Debrid-Link | Real-Debrid | TorBox                         | Premiumize                     | Linksnappy |
