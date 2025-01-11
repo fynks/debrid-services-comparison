@@ -298,6 +298,7 @@ If you are signing up for any above service, Please consider buying from my refe
 - [Premiumize](https://www.premiumize.me/services)
 - [TorBox](https://support.torbox.app/en/articles/9837721-supported-debrid-hosters)
 - [Debrid-Link](https://debrid-link.com/webapp/status)
+- [Mega-Debrid](https://www.mega-debrid.eu/index.php?page=hebergeurs)
 
 ---
-#### Last updated: December 13, 2024
+#### Last updated: January 11, 2025
