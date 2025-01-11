@@ -41,7 +41,7 @@ cat > template.html << 'EOL'
     </main>
 
     <footer role="contentinfo">
-        <p>Made with ❤️ by Fynks</p>
+        <p><a href="https://github.com/fynks/debrid-services-comparison">Source &#8599;</a> | Made with ❤️ by Fynks</p>
     </footer>
 
     <script>
