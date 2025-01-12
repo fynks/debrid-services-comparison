@@ -65,7 +65,7 @@ If you are signing up for any above service, Please consider buying from my refe
 ### File Hosts
 | **Service Name**            | **AllDebrid** | **Premiumize** | **RealDebrid** | **TorBox** | **Debrid-Link** | **LinkSnappy** | **Mega-Debrid** |
 | :-------------------------- | :------------ | :------------- | :------------- | :--------- | :-------------- | :------------- | :-------------- |
-| **1Fichier**                | Yes           | Yes            | Yes            | Yes        | Yes             | No             | No              |
+| **1Fichier**                | Yes           | Yes            | Yes            | Yes        | Yes             | No             | Yes             |
 | **1TV**                     | No            | No             | No             | No         | No              | No             | Yes             |
 | **2Giga.link**              | No            | No             | No             | No         | No              | No             | No              |
 | **4Shared**                 | Yes           | No             | Yes            | Yes        | No              | No             | No              |
