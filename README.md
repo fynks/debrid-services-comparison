@@ -289,8 +289,7 @@ If you are signing up for any above service, Please consider buying from my refe
 | **Wipfiles**                | No            | No             | Yes            | No         | No              | No             | No              |
 | **Workupload**              | No            | No             | No             | No         | Yes             | No             | No              |
 | **Worldbytez**              | Yes           | No             | Yes            | Yes        | Yes             | No             | No              |
-| **Wupfile / Salefiles**     | No            | Yes            | Yes            | No         | Yes             | Yes            | No              |
-| **Wupfile**                 | No            | No             | No             | Yes        | No              | No             | No              |
+| **Wupfile / Salefiles**     | No            | Yes            | Yes            | Yes        | Yes             | Yes            | Yes             |
 | **Xvidstage**               | No            | No             | No             | No         | No              | No             | Yes             |
 | **Yandex Disk**             | No            | No             | No             | Yes        | No              | No             | No              |
 | **Yandex Video**            | No            | No             | No             | Yes        | No              | No             | No              |
