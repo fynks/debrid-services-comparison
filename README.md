@@ -67,7 +67,6 @@ If you are signing up for any above service, Please consider buying from my refe
 | :-------------------------- | :------------ | :------------- | :------------- | :--------- | :-------------- | :------------- | :-------------- |
 | **1Fichier**                | Yes           | Yes            | Yes            | Yes        | Yes             | No             | Yes             |
 | **1TV**                     | No            | No             | No             | No         | No              | No             | Yes             |
-| **2Giga.link**              | No            | No             | No             | No         | No              | No             | No              |
 | **4Shared**                 | Yes           | No             | Yes            | Yes        | No              | No             | No              |
 | **ABCNews**                 | No            | No             | No             | No         | No              | No             | Yes             |
 | **Acast**                   | No            | No             | No             | No         | No              | No             | Yes             |
@@ -101,12 +100,11 @@ If you are signing up for any above service, Please consider buying from my refe
 | **Dailymail**               | No            | No             | No             | No         | No              | No             | Yes             |
 | **Dailymotion**             | Yes           | No             | Yes            | Yes        | No              | Yes            | No              |
 | **Dailyuploads**            | No            | No             | No             | Yes        | Yes             | No             | No              |
-| **Darikbox**                | No            | No             | No             | No         | Yes             | No             | No              |
+| **Darikibox**               | No            | No             | No             | No         | Yes             | No             | No              |
 | **Data Nodes**              | No            | No             | No             | Yes        | No              | No             | No              |
 | **DataFileHost**            | No            | No             | No             | No         | No              | No             | No              |
 | **DCTP**                    | No            | No             | No             | No         | No              | No             | Yes             |
-| **DDowload / DDL.to**       | Yes           | No             | Yes            | No         | Yes             | Yes            | No              |
-| **ddownload.com**           | No            | No             | No             | No         | No              | No             | No              |
+| **DDowload / DDL.to**       | Yes           | No             | Yes            | No         | Yes             | Yes            | Yes             |
 | **DDownload10**             | No            | No             | No             | Yes        | No              | No             | No              |
 | **Discovery Channel**       | No            | No             | No             | No         | No              | No             | Yes             |
 | **Dotsub**                  | No            | No             | No             | No         | No              | No             | Yes             |
@@ -211,16 +209,14 @@ If you are signing up for any above service, Please consider buying from my refe
 | **Paramount+**              | No            | No             | No             | Yes        | No              | No             | No              |
 | **Pinkbike**                | No            | No             | No             | No         | No              | No             | Yes             |
 | **Piwi+**                   | No            | No             | No             | No         | No              | No             | Yes             |
-| **Pixeldrain**              | No            | No             | No             | No         | No              | No             | No              |
-| **PixelDrain**              | No            | No             | No             | Yes        | Yes             | No             | No              |
+| **PixelDrain**              | No            | No             | No             | Yes        | Yes             | No             | Yes             |
 | **Plays**                   | No            | No             | No             | No         | No              | No             | Yes             |
 | **Playtvak**                | No            | No             | No             | No         | No              | No             | Yes             |
 | **Prefiles**                | Yes           | No             | Yes            | No         | Yes             | No             | No              |
 | **Pyvideo**                 | No            | No             | No             | No         | No              | No             | Yes             |
 | **Qiwi**                    | No            | No             | No             | Yes        | No              | No             | No              |
 | **RadioTunes**              | No            | No             | Yes            | No         | No              | No             | No              |
-| **Rapidgator**              | No            | No             | No             | Yes        | No              | No             | No              |
-| **RapidGator**              | Yes           | Yes            | Yes            | No         | Yes             | Yes            | No              |
+| **RapidGator**              | Yes           | Yes            | Yes            | Yes        | Yes             | Yes            | Yes             |
 | **RapidRAR**                | No            | No             | No             | Yes        | No              | No             | No              |
 | **Reddit**                  | No            | No             | No             | Yes        | No              | No             | No              |
 | **Revision3**               | No            | No             | No             | No         | No              | No             | Yes             |
