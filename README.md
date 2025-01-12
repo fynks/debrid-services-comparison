@@ -255,7 +255,6 @@ If you are signing up for any above service, Please consider buying from my refe
 | **Streamtape**              | No            | Yes            | Yes            | Yes        | No              | No             | Yes             |
 | **StripChat**               | No            | No             | No             | Yes        | No              | No             | No              |
 | **Subyshare**               | No            | No             | No             | No         | Yes             | No             | No              |
-| **SunPorno**                | No            | No             | No             | Yes        | No              | No             | No              |
 | **SZTV**                    | No            | No             | No             | No         | No              | No             | Yes             |
 | **Teachingchannel**         | No            | No             | No             | No         | No              | No             | Yes             |
 | **Teamfourstar**            | No            | No             | No             | No         | No              | No             | Yes             |
