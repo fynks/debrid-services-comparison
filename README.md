@@ -300,6 +300,7 @@ If you are signing up for any above service, Please consider buying from my refe
 | **Yandex Video**            | No            | No             | No             | Yes        | No              | No             | No              |
 | **Youku**                   | No            | No             | No             | No         | No              | No             | Yes             |
 | **Youtube**                 | No            | Yes            | Yes            | Yes        | No              | No             | No              |
+| Total = 235                 | 57/235        | 31/235         | 41/235         | 55/235     | 46/235          | 20/235         | 124/235         |
 
 
 ### Adult Hosts
@@ -322,6 +323,7 @@ If you are signing up for any above service, Please consider buying from my refe
 | **XXXYMovies**     | Yes           | No             | No             | Yes        | No              | No             | No              |
 | **YouJizz**        | Yes           | No             | No             | Yes        | No              | No             | No              |
 | **Youporn**        | No            | No             | Yes            | Yes        | No              | No             | No              |
+| Total = 17         | 10/17         | 0/17           | 2/17           | 16/17      | 0/17            | 0/17           | 1/17            |
 
 
 ### Live status
