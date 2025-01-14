@@ -117,7 +117,6 @@ If you are signing up for any above service, Please consider buying from my refe
 | **Dropbox**                 | No            | No             | No             | No         | Yes             | No             | No              |
 | **Dropgalaxy**              | Yes           | No             | No             | No         | No              | No             | No              |
 | **Dropmefiles**             | No            | No             | No             | No         | No              | No             | Yes             |
-| **DrTuber**                 | Yes           | No             | No             | Yes        | No              | No             | No              |
 | **Ebaumsworld**             | No            | No             | No             | No         | No              | No             | Yes             |
 | **Elitefile**               | No            | No             | No             | No         | Yes             | No             | No              |
 | **Ellentv**                 | No            | No             | No             | No         | No              | No             | Yes             |
@@ -159,7 +158,6 @@ If you are signing up for any above service, Please consider buying from my refe
 | **Google Drive**            | No            | No             | No             | Yes        | No              | No             | No              |
 | **Google**                  | Yes           | Yes            | Yes            | No         | No              | No             | No              |
 | **Harefile**                | Yes           | No             | No             | No         | No              | No             | No              |
-| **Hentai Foundry**          | No            | No             | No             | Yes        | No              | No             | No              |
 | **Hexload**                 | No            | No             | No             | Yes        | No              | No             | No              |
 | **HexUpload / HexLoad**     | No            | Yes            | Yes            | No         | No              | No             | No              |
 | **Hitfile**                 | Yes           | Yes            | Yes            | Yes        | No              | Yes            | Yes             |
@@ -205,7 +203,6 @@ If you are signing up for any above service, Please consider buying from my refe
 | **NDTV**                    | No            | No             | No             | No         | No              | No             | Yes             |
 | **Nelion**                  | No            | No             | No             | No         | Yes             | No             | No              |
 | **NFL**                     | No            | No             | No             | No         | No              | No             | Yes             |
-| **NHentai**                 | No            | No             | No             | Yes        | No              | No             | No              |
 | **Niconico**                | Yes           | No             | No             | Yes        | No              | No             | No              |
 | **NYTimes**                 | Yes           | Yes            | No             | Yes        | No              | No             | No              |
 | **Odatv**                   | No            | No             | No             | No         | No              | No             | Yes             |
@@ -233,7 +230,6 @@ If you are signing up for any above service, Please consider buying from my refe
 | **RTS**                     | Yes           | No             | No             | No         | No              | No             | No              |
 | **RTVE.es**                 | Yes           | Yes            | No             | Yes        | No              | No             | No              |
 | **Ruhd**                    | No            | No             | No             | No         | No              | No             | Yes             |
-| **Rule34**                  | No            | No             | No             | Yes        | No              | No             | No              |
 | **Rutube**                  | Yes           | No             | No             | Yes        | No              | No             | No              |
 | **Ruutu**                   | No            | No             | No             | No         | No              | No             | Yes             |
 | **Scribd**                  | Yes           | No             | Yes            | No         | Yes             | No             | No              |
@@ -246,14 +242,12 @@ If you are signing up for any above service, Please consider buying from my refe
 | **Smotri**                  | No            | No             | No             | No         | No              | No             | Yes             |
 | **Snotr**                   | No            | No             | No             | No         | No              | No             | Yes             |
 | **SoundCloud**              | Yes           | Yes            | Yes            | Yes        | Yes             | Yes            | No              |
-| **SpankBang**               | Yes           | No             | No             | Yes        | No              | No             | No              |
 | **Sportdeutschland**        | No            | No             | No             | No         | No              | No             | Yes             |
 | **Steam**                   | Yes           | No             | No             | Yes        | No              | No             | Yes             |
 | **Stream.cz**               | No            | No             | No             | No         | No              | No             | Yes             |
 | **Streamable**              | No            | No             | No             | No         | No              | No             | Yes             |
 | **Streamers**               | No            | No             | No             | No         | No              | No             | Yes             |
 | **Streamtape**              | No            | Yes            | Yes            | Yes        | No              | No             | Yes             |
-| **StripChat**               | No            | No             | No             | Yes        | No              | No             | No              |
 | **Subyshare**               | No            | No             | No             | No         | Yes             | No             | No              |
 | **SZTV**                    | No            | No             | No             | No         | No              | No             | Yes             |
 | **Teachingchannel**         | No            | No             | No             | No         | No              | No             | Yes             |
@@ -309,19 +303,25 @@ If you are signing up for any above service, Please consider buying from my refe
 
 
 ### Adult Hosts
-| **Service Name** | **AllDebrid** | **Premiumize** | **RealDebrid** | **TorBox** | **Debrid-Link** | **LinkSnappy** | **Mega-Debrid** |
-| :--------------- | :------------ | :------------- | :------------- | :--------- | :-------------- | :------------- | :-------------- |
-| **Beeg**         | Yes           | No             | No             | Yes        | No              | No             | No              |
-| **PornHub**      | Yes           | No             | No             | Yes        | No              | No             | No              |
-| **RedGifs**      | No            | No             | No             | Yes        | No              | No             | No              |
-| **Redtube**      | Yes           | No             | Yes            | Yes        | No              | No             | No              |
-| **SunPorNo**     | No            | No             | No             | No         | No              | No             | Yes             |
-| **XHamster**     | Yes           | No             | No             | Yes        | No              | No             | No              |
-| **XNXX**         | Yes           | No             | No             | Yes        | No              | No             | No              |
-| **XVideos**      | Yes           | No             | No             | Yes        | No              | No             | No              |
-| **XXXYMovies**   | Yes           | No             | No             | Yes        | No              | No             | No              |
-| **YouJizz**      | Yes           | No             | No             | Yes        | No              | No             | No              |
-| **Youporn**      | No            | No             | Yes            | Yes        | No              | No             | No              |
+| **Service Name**   | **AllDebrid** | **Premiumize** | **RealDebrid** | **TorBox** | **Debrid-Link** | **LinkSnappy** | **Mega-Debrid** |
+| :----------------- | :------------ | :------------- | :------------- | :--------- | :-------------- | :------------- | :-------------- |
+| **Beeg**           | Yes           | No             | No             | Yes        | No              | No             | No              |
+| **DrTuber**        | Yes           | No             | No             | Yes        | No              | No             | No              |
+| **Hentai Foundry** | No            | No             | No             | Yes        | No              | No             | No              |
+| **NHentai**        | No            | No             | No             | Yes        | No              | No             | No              |
+| **PornHub**        | Yes           | No             | No             | Yes        | No              | No             | No              |
+| **RedGifs**        | No            | No             | No             | Yes        | No              | No             | No              |
+| **Redtube**        | Yes           | No             | Yes            | Yes        | No              | No             | No              |
+| **Rule34**         | No            | No             | No             | Yes        | No              | No             | No              |
+| **SpankBang**      | Yes           | No             | No             | Yes        | No              | No             | No              |
+| **StripChat**      | No            | No             | No             | Yes        | No              | No             | No              |
+| **SunPorNo**       | No            | No             | No             | No         | No              | No             | Yes             |
+| **XHamster**       | Yes           | No             | No             | Yes        | No              | No             | No              |
+| **XNXX**           | Yes           | No             | No             | Yes        | No              | No             | No              |
+| **XVideos**        | Yes           | No             | No             | Yes        | No              | No             | No              |
+| **XXXYMovies**     | Yes           | No             | No             | Yes        | No              | No             | No              |
+| **YouJizz**        | Yes           | No             | No             | Yes        | No              | No             | No              |
+| **Youporn**        | No            | No             | Yes            | Yes        | No              | No             | No              |
 
 
 ### Live status
