@@ -1,4 +1,4 @@
-# Debrid services comparison
+# Debrid Services Comparison
 
 A comparison of available hosts and pricing for [AllDebrid](https://alldebrid.com/), [Real-Debrid](https://real-debrid.com/), [LinkSnappy](https://linksnappy.com/myaccount/status), [Premiumize](https://www.premiumize.me/services), [Debrid-Link](https://debrid-link.com/), [TorBox](https://torbox.app/) and [Mega-Debrid](https://debrid-link.com).
 
