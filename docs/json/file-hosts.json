@@ -1,0 +1,2081 @@
+{
+    "1Fichier": {
+      "AllDebrid": "yes",
+      "Premiumize": "yes",
+      "RealDebrid": "yes",
+      "TorBox": "yes",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "1TV": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "4Shared": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "yes",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "ABCNews": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Acast": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Alfafile": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "yes",
+      "Mega-Debrid": "yes"
+    },
+    "Anonfiles": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Aparat": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Apkadmin": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Archive.org": {
+      "AllDebrid": "yes",
+      "Premiumize": "yes",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Archive": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Audioboom": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Audiomack": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Baidu": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "BBC": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Bilibili": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Buzzheavier": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Calameo": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Camdemy": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Canalplus": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "CC.com": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Chilloutzone": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Cinemassacre": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "ClicknUpload": {
+      "AllDebrid": "no",
+      "Premiumize": "yes",
+      "RealDebrid": "yes",
+      "TorBox": "yes",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "yes",
+      "Mega-Debrid": "yes"
+    },
+    "Clipfish": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Clipsyndicate": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Cloudvideo": {
+      "AllDebrid": "yes",
+      "Premiumize": "yes",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "yes",
+      "Mega-Debrid": "no"
+    },
+    "Clubic": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Collegehumor": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "ComedyCentral": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Crunchyroll": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Daclips": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Dagbladet": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Dailymail": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Dailymotion": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "yes",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "yes",
+      "Mega-Debrid": "no"
+    },
+    "Dailyuploads": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Darikibox": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Data Nodes": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "DataFileHost": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "DCTP": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "DDowload / DDL.to": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "yes",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "yes",
+      "Mega-Debrid": "yes"
+    },
+    "DDownload10": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Discovery Channel": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Dotsub": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Drop.download / DropAPK": {
+      "AllDebrid": "yes",
+      "Premiumize": "yes",
+      "RealDebrid": "yes",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Drop.download": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Dropbox": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Dropgalaxy": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Dropmefiles": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Ebaumsworld": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Elitefile": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Ellentv": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Emload": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Exload": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Fastbit": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Fikper": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "File.al": {
+      "AllDebrid": "yes",
+      "Premiumize": "yes",
+      "RealDebrid": "yes",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "yes",
+      "Mega-Debrid": "no"
+    },
+    "Fileaxa": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Filecat": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Filedot": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Filefactory": {
+      "AllDebrid": "no",
+      "Premiumize": "yes",
+      "RealDebrid": "yes",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "yes",
+      "Mega-Debrid": "yes"
+    },
+    "Fileland": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Filenext": {
+      "AllDebrid": "no",
+      "Premiumize": "yes",
+      "RealDebrid": "yes",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "yes",
+      "Mega-Debrid": "no"
+    },
+    "Filer": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Filerio": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Filesfly": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Filespace": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "yes",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "yes",
+      "Mega-Debrid": "no"
+    },
+    "Filestank": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Filestore.me": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "FileStore.me": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Filestore": {
+      "AllDebrid": "no",
+      "Premiumize": "yes",
+      "RealDebrid": "yes",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Filezip": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Flashbit": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "yes",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "yes",
+      "Mega-Debrid": "no"
+    },
+    "FlashBit": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Flipagram": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Flix555": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Formula1": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Foxnews": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Free": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Fuckingfast": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Gamersyde": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Gamestar": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Gigapeta": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "yes",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "yes",
+      "Mega-Debrid": "no"
+    },
+    "GitHub": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Gofile": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "GoFile": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Google Drive": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Google": {
+      "AllDebrid": "yes",
+      "Premiumize": "yes",
+      "RealDebrid": "yes",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Harefile": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Hexload": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "HexUpload / HexLoad": {
+      "AllDebrid": "no",
+      "Premiumize": "yes",
+      "RealDebrid": "yes",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Hitfile": {
+      "AllDebrid": "yes",
+      "Premiumize": "yes",
+      "RealDebrid": "yes",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "yes",
+      "Mega-Debrid": "yes"
+    },
+    "Hot4share": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Hotlink": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Hulkshare": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Idnes": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Indishare": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Instagram": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Isra.cloud": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Isra": {
+      "AllDebrid": "yes",
+      "Premiumize": "yes",
+      "RealDebrid": "yes",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "yes",
+      "Mega-Debrid": "no"
+    },
+    "Isracloud": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Issuu": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Izlesene": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Jamendo": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Jumploads": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Karrierevideos": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Katfile": {
+      "AllDebrid": "yes",
+      "Premiumize": "yes",
+      "RealDebrid": "yes",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "yes",
+      "Mega-Debrid": "yes"
+    },
+    "Keek": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Khanacademy": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Kickstarter": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Krakenfiles": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Kshared": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Kvid": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "LCP": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Liveleak": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Lynda": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Mediaccc": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Mediafire": {
+      "AllDebrid": "yes",
+      "Premiumize": "yes",
+      "RealDebrid": "yes",
+      "TorBox": "yes",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "yes",
+      "Mega-Debrid": "yes"
+    },
+    "Mega": {
+      "AllDebrid": "yes",
+      "Premiumize": "yes",
+      "RealDebrid": "yes",
+      "TorBox": "yes",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "yes",
+      "Mega-Debrid": "yes"
+    },
+    "MegaUp": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Metacafe": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Mexashare": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Mixcloud": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Mixdrop": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "yes",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Modsbase": {
+      "AllDebrid": "yes",
+      "Premiumize": "yes",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Movieclips": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Movpod": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "MP4upload": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Msnbc": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Myspass": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "NBCSports": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "NDTV": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Nelion": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "NFL": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Niconico": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "NYTimes": {
+      "AllDebrid": "yes",
+      "Premiumize": "yes",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Odatv": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "OdNoklassniki": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Ok.ru": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Onionstudios": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Pan Baidu": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Panopto": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Paramount+": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Pinkbike": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Piwi+": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "PixelDrain": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Plays": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Playtvak": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Prefiles": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "yes",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Pyvideo": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Qiwi": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "RadioTunes": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "yes",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "RapidGator": {
+      "AllDebrid": "yes",
+      "Premiumize": "yes",
+      "RealDebrid": "yes",
+      "TorBox": "yes",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "yes",
+      "Mega-Debrid": "yes"
+    },
+    "RapidRAR": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Reddit": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Revision3": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "RTBF": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "RTE": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "RTS": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "RTVE.es": {
+      "AllDebrid": "yes",
+      "Premiumize": "yes",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Ruhd": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Rutube": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Ruutu": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Scribd": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "yes",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Send.cm": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Sendit": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Sendspace": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "yes",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Sharemods": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Silkfiles": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Simfileshare": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Smotri": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Snotr": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "SoundCloud": {
+      "AllDebrid": "yes",
+      "Premiumize": "yes",
+      "RealDebrid": "yes",
+      "TorBox": "yes",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "yes",
+      "Mega-Debrid": "no"
+    },
+    "Sportdeutschland": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Steam": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Stream.cz": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Streamable": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Streamers": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Streamtape": {
+      "AllDebrid": "no",
+      "Premiumize": "yes",
+      "RealDebrid": "yes",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Subyshare": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "SZTV": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Teachingchannel": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Teamfourstar": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Techtalks": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Ted": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Telebruxelles": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Terabox": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Terabytez": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "yes",
+      "TorBox": "yes",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Tezfiles": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "TikTok": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "TLC": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Trashbytes": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Turbobit": {
+      "AllDebrid": "yes",
+      "Premiumize": "yes",
+      "RealDebrid": "yes",
+      "TorBox": "yes",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "yes",
+      "Mega-Debrid": "yes"
+    },
+    "Tweakers": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Twitch": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Upload42": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Uploadbank": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Uploadbox": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Uploadboy": {
+      "AllDebrid": "yes",
+      "Premiumize": "yes",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Uploadev": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Uploadrar": {
+      "AllDebrid": "yes",
+      "Premiumize": "yes",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Uploady": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Upstream": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "yes",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Upvid": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Uqload": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Userscloud": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "yes",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "UsersDrive": {
+      "AllDebrid": "no",
+      "Premiumize": "yes",
+      "RealDebrid": "yes",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Userupload": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Ustream": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Veoh": {
+      "AllDebrid": "yes",
+      "Premiumize": "yes",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Verystream": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Vev": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Vidabc": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Vidoza": {
+      "AllDebrid": "yes",
+      "Premiumize": "yes",
+      "RealDebrid": "yes",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "VidSpot": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Vidto": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Vidzi": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Vimeo": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "yes",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Vipfile": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "VK": {
+      "AllDebrid": "no",
+      "Premiumize": "yes",
+      "RealDebrid": "yes",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Voe": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "yes",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Vup": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Wipfiles": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "yes",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Workupload": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Worldbytez": {
+      "AllDebrid": "yes",
+      "Premiumize": "no",
+      "RealDebrid": "yes",
+      "TorBox": "yes",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Wupfile / Salefiles": {
+      "AllDebrid": "no",
+      "Premiumize": "yes",
+      "RealDebrid": "yes",
+      "TorBox": "yes",
+      "Debrid-Link": "yes",
+      "LinkSnappy": "yes",
+      "Mega-Debrid": "yes"
+    },
+    "Xvidstage": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Yandex Disk": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Yandex Video": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    },
+    "Youku": {
+      "AllDebrid": "no",
+      "Premiumize": "no",
+      "RealDebrid": "no",
+      "TorBox": "no",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "yes"
+    },
+    "Youtube": {
+      "AllDebrid": "no",
+      "Premiumize": "yes",
+      "RealDebrid": "yes",
+      "TorBox": "yes",
+      "Debrid-Link": "no",
+      "LinkSnappy": "no",
+      "Mega-Debrid": "no"
+    }
+  }
