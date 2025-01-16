@@ -139,6 +139,10 @@ tr:last-child td:first-child {
 tr:last-child td:last-child {
     border-bottom-right-radius: var(--radius);
 }
+.pricing-tb{
+    font-weight: normal;
+}
+
 
 /* Search Container */
 #search-container,
