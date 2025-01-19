@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../favicon.ico" sizes="any">
-    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <title>Debrid Services Comparison</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-min.css">
     <meta name="description"
         content="A comparison of available hosts and pricing for AllDebrid, Real-Debrid, LinkSnappy, Premiumize, Debrid-Link, TorBox and Mega-Debrid.">
     <meta name="keywords"
@@ -39,146 +39,200 @@
 
 <body>
 
-    <header role="banner">
-        <h1 class="title">Debrid Services Comparison</h1>
-        <nav role="navigation" aria-label="Table of contents">
-
-        </nav>
+    <header class="site-header">
+        <div class="container">
+            <a href="#" class="site-title">Debrid Services Comparison</a>
+            <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                        d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75zM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0zM12 21.75a.75.75 0 0 1-.75-.75v-2.25a.75.75 0 0 1 1.5 0V21a.75.75 0 0 1-.75.75zM3 12.75a.75.75 0 0 1 0-1.5h2.25a.75.75 0 0 1 0 1.5H3zM21 12.75a.75.75 0 0 1 0-1.5h-2.25a.75.75 0 0 1 0 1.5H21z" />
+                </svg>
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                        d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+                </svg>
+            </button>
+        </div>
     </header>
 
-    <main id="main-content" role="main">
-        <p>A comparison of available hosts and pricing for <a href="https://alldebrid.com/">AllDebrid</a>, <a
-                href="https://real-debrid.com/">Real-Debrid</a>, <a
-                href="https://linksnappy.com/myaccount/status">LinkSnappy</a>,
-            <a href="https://www.premiumize.me/services">Premiumize</a>, <a
-                href="https://debrid-link.com/">Debrid-Link</a>, <a href="https://torbox.app/">TorBox</a> and <a
-                href="https://debrid-link.com">Mega-Debrid</a>.
-        </p>
-        <h1 id="contents">Contents:</h1>
-        <ul>
-            <li><a href="#signing-up">Signing Up</a>
-                <ul>
-                    <li><a href="#referral-links">Referral Links</a></li>
-                    <li><a href="#non-referral-links">Non-referral Links</a></li>
+    <main id="main-content" class="container" role="main">
+        <section class="intro-section">
+            <p>A comprehensive comparison of available hosts and pricing for leading debrid services: <a
+                    href="https://alldebrid.com/">AllDebrid</a>, <a href="https://real-debrid.com/">Real-Debrid</a>, <a
+                    href="https://linksnappy.com/myaccount/status">LinkSnappy</a>,
+                <a href="https://www.premiumize.me/services">Premiumize</a>, <a
+                    href="https://debrid-link.com/">Debrid-Link</a>, <a href="https://torbox.app/">TorBox</a>, and <a
+                    href="https://debrid-link.com">Mega-Debrid</a>.
+            </p>
+        </section>
+
+        <section id="contents" class="content-section">
+            <h2>Table of Contents</h2>
+            <nav aria-label="Section Navigation">
+                <ul class="toc-list">
+                    <li><a href="#signing-up">Signing Up</a>
+                        <ul>
+                            <li><a href="#referral-links">Referral Links</a></li>
+                            <li><a href="#non-referral-links">Non-referral Links</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#pricing">Pricing</a>
+                        <ul>
+                            <li><a href="#up-to-date-pricing">Up-to-date Pricing</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#available-hosts">Available Hosts</a>
+                        <ul>
+                            <li><a href="#file-hosts">File Hosts</a></li>
+                            <li><a href="#adult-hosts">Adult Hosts</a></li>
+                            <li><a href="#live-status">Live status</a></li>
+                        </ul>
+                    </li>
                 </ul>
-            </li>
-            <li><a href="#pricing">Pricing</a>
-                <ul>
-                    <li><a href="#up-to-date-pricing">Up-to-date Pricing</a></li>
+            </nav>
+        </section>
+
+        <section id="signing-up" class="content-section">
+            <h2>Signing Up</h2>
+            <article id="referral-links">
+                <h3>Referral Links</h3>
+                <p>If you're considering signing up, please support the site by using the referral links below:</p>
+                <ul class="link-list">
+                    <li><a href="https://alldebrid.com/?uid=3wvya&lang=en">AllDebrid</a></li>
+                    <li><a href="http://real-debrid.com/?id=10990901">Real-Debrid</a></li>
+                    <li><a
+                            href="https://torbox.app/subscription?referral=47eece72-46b8-483b-8b7a-79d6c16dedf2">TorBox</a>
+                    </li>
+                    <li><a href="http://linksnappy.com/?ref=774668">LinkSnappy</a></li>
+                    <li><a href="https://debrid-link.com/id/7B3BO">Debrid-Link</a></li>
                 </ul>
-            </li>
-            <li><a href="#available-hosts">Available Hosts</a>
-                <ul>
-                    <li><a href="#file-hosts">File Hosts</a></li>
-                    <li><a href="#adult-hosts">Adult Hosts</a></li>
-                    <li><a href="#live-status">Live status</a></li>
+            </article>
+            <article id="non-referral-links">
+                <h3>Non-referral Links</h3>
+                <p>Alternatively, here are direct links to the services:</p>
+                <ul class="link-list">
+                    <li><a href="https://alldebrid.com/register/">AllDebrid</a></li>
+                    <li><a href="http://real-debrid.com/">Real-Debrid</a></li>
+                    <li><a href="https://torbox.app/login">TorBox</a></li>
+                    <li><a href="https://www.premiumize.me/register">Premiumize</a></li>
+                    <li><a href="https://linksnappy.com/home#Register">LinkSnappy</a></li>
+                    <li><a href="https://debrid-link.com/webapp/register">Debrid-Link</a></li>
+                    <li><a href="https://www.mega-debrid.eu/index.php?page=freeregister">Mega-Debrid</a></li>
                 </ul>
-            </li>
-        </ul>
-        <h1 id="signing-up">Signing Up</h1>
-        <h3 id="referral-links">Referral Links</h3>
-        <p>If you are signing up for any above service, Please consider
-            buying from my referral link:</p>
-        <ul>
-            <li><a href="https://alldebrid.com/?uid=3wvya&lang=en">AllDebrid</a></li>
-            <li><a href="http://real-debrid.com/?id=10990901">Real-Debrid</a></li>
-            <li><a href="https://torbox.app/subscription?referral=47eece72-46b8-483b-8b7a-79d6c16dedf2">TorBox</a></li>
-            <li><a href="http://linksnappy.com/?ref=774668">LinkSnappy</a></li>
-            <li><a href="https://debrid-link.com/id/7B3BO">Debrid-Link</a></li>
-        </ul>
-        <h3 id="non-referral-links">Non-referral Links</h3>
-        <ul>
-            <li><a href="https://alldebrid.com/register/">AllDebrid</a></li>
-            <li><a href="http://real-debrid.com/">Real-Debrid</a></li>
-            <li><a href="https://torbox.app/login">TorBox</a></li>
-            <li><a href="https://www.premiumize.me/register">Premiumize</a></li>
-            <li><a href="https://linksnappy.com/home#Register">LinkSnappy</a></li>
-            <li><a href="https://debrid-link.com/webapp/register">Debrid-Link</a></li>
-            <li><a href="https://www.mega-debrid.eu/index.php?page=freeregister">Mega-Debrid</a></li>
-        </ul>
-        <h1>Pricing</h1>
-        <div  id="pricing">
-        <!-- Pricing table will be generated here -->
-    </div>
-        <blockquote>
-            <p>[ * ] = 7 Days free trail at Alldebrid requires a phone
-                verification.</p>
-        </blockquote>
-        <h2 id="up-to-date-pricing">Up-to-date Pricing</h2>
-        <p>You can check pricing for each individual service at:</p>
-        <ul>
-            <li><a href="https://alldebrid.com/offer/">AllDebrid</a></li>
-            <li><a href="https://real-debrid.com/premium">Real-Debrid</a></li>
-            <li><a href="https://torbox.app/pricing">TorBox</a></li>
-            <li><a href="https://www.premiumize.me/premium">Premiumize</a></li>
-            <li><a href="https://linksnappy.com/myaccount/extend">LinkSnappy</a></li>
-            <li><a href="https://debrid-link.com/premium">Debrid-Link</a></li>
-            <li><a href="https://www.mega-debrid.eu/index.php?page=offres">Mega-Debrid</a></li>
-        </ul>
-        <h1 id="available-hosts">Available Hosts</h1>
-        <h2 id="file-hosts">File Hosts</h2>
-        <div id="search-container" class="search-container">
-            <input type="text" id="host-search-input" class="search-input" placeholder="Search file hosts..."
-                aria-label="Search file hosts" />
-            <span id="clear-host-search" class="clear-icon" role="button" title="Clear search">X</span>
+            </article>
+        </section>
 
-        </div>
-        <div id="file-hosts-table-container">
-            <!-- File hosts table will be generated here -->
-        </div>
-
-        <h2 id="compare">Compare Providers</h2>
-        <div id="compare-container">
-            <div class="compare-select-group">
-                <label for="provider1">Provider 1:</label>
-                <select id="provider1" aria-label="Select first provider to compare"></select>
+        <section id="pricing" class="content-section">
+            <h2>Pricing</h2>
+            <div id="pricing-table-container" class="data-table-container">
+                <!-- Pricing table will be generated here -->
+                <div class="loading">Loading pricing data...</div>
             </div>
-            <div class="compare-select-group">
-                <label for="provider2">Provider 2:</label>
-                <select id="provider2" aria-label="Select second provider to compare"></select>
-            </div>
-        </div>
-        <div id="compare-table-container">
-            <button id="close-compare" title="Close Comparison" aria-label="Close comparison table">×</button>
-            <!-- Comparison table will be generated here -->
-        </div>
+            <blockquote class="note">
+                <p>[ * ] = 7 Days free trial at Alldebrid requires phone verification.</p>
+            </blockquote>
+            <article id="up-to-date-pricing">
+                <h3>Up-to-date Pricing</h3>
+                <p>For the most current pricing details, please visit the official websites:</p>
+                <ul class="link-list">
+                    <li><a href="https://alldebrid.com/offer/">AllDebrid</a></li>
+                    <li><a href="https://real-debrid.com/premium">Real-Debrid</a></li>
+                    <li><a href="https://torbox.app/pricing">TorBox</a></li>
+                    <li><a href="https://www.premiumize.me/premium">Premiumize</a></li>
+                    <li><a href="https://linksnappy.com/myaccount/extend">LinkSnappy</a></li>
+                    <li><a href="https://debrid-link.com/premium">Debrid-Link</a></li>
+                    <li><a href="https://www.mega-debrid.eu/index.php?page=offres">Mega-Debrid</a></li>
+                </ul>
+            </article>
+        </section>
 
-        <h2 id="adult-hosts">Adult Hosts</h2>
-        <div id="adult-hosts-search-wrapper" style="margin-bottom: 10px;">
-            <div id="search-container-adult" class="search-container">
-                <input type="text" id="adult-host-search-input" class="search-input" placeholder="Search adult hosts..."
-                    aria-label="Search adult hosts" />
-                <span id="clear-adult-host-search" class="clear-icon">X</span>
-            </div>
-        </div>
-        <div id="adult-hosts-table-container">
-            <!-- Adult hosts table will be generated here -->
-        </div>
+        <section id="available-hosts" class="content-section">
+            <h2>Available Hosts</h2>
+            <article id="file-hosts">
+                <h3>File Hosts</h3>
+                <div id="search-container" class="search-container">
+                    <input type="text" id="host-search-input" class="search-input" placeholder="Search file hosts..."
+                        aria-label="Search file hosts" />
+                    <button id="clear-host-search" class="clear-icon" aria-label="Clear search">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                        </svg>
+                    </button>
+                </div>
+                <div id="file-hosts-table-container" class="data-table-container">
+                    <!-- File hosts table will be generated here -->
+                    <div class="loading">Loading file hosts...</div>
+                </div>
+            </article>
 
-        <h2 id="live-status">Live status</h2>
-        <p>Up-to-date list of hosts for individual services can tracked
-            from:</p>
-        <ul>
-            <li><a href="https://alldebrid.com/status/">AllDebrid</a></li>
-            <li><a href="https://real-debrid.com/compare">Real-Debrid</a></li>
-            <li><a href="https://linksnappy.com/myaccount/status">LinkSnappy</a></li>
-            <li><a href="https://www.premiumize.me/services">Premiumize</a></li>
-            <li><a href="https://torbox.app/hosters">TorBox</a></li>
-            <li><a href="https://debrid-link.com/webapp/status">Debrid-Link</a></li>
-            <li><a href="https://www.mega-debrid.eu/index.php?page=hebergeurs">Mega-Debrid</a></li>
-        </ul>
-        <hr />
-        <div class="last-updated">
-        <h4>Last updated: <span class="last-updated-date">January 14, 2025</span></h4>
-        </div>   
+            <article id="compare">
+                <h3>Compare Providers</h3>
+                <div id="compare-container">
+                    <div class="compare-select-group">
+                        <label for="provider1">Provider 1:</label>
+                        <select id="provider1" aria-label="Select first provider to compare"></select>
+                    </div>
+                    <div class="compare-select-group">
+                        <label for="provider2">Provider 2:</label>
+                        <select id="provider2" aria-label="Select second provider to compare"></select>
+                    </div>
+                </div>
+                <div id="compare-table-container" class="data-table-container">
+                    <div class="compare-header">
+                        <h3>Comparison</h3>
+                    </div>
+                    <!-- Comparison table content will be dynamically generated -->
+                    <div class="loading">Loading comparison...</div>
+                </div>
+            </article>
+
+            <article id="adult-hosts">
+                <h3>Adult Hosts</h3>
+                <div id="adult-hosts-search-wrapper">
+                    <div id="search-container-adult" class="search-container">
+                        <input type="text" id="adult-host-search-input" class="search-input"
+                            placeholder="Search adult hosts..." aria-label="Search adult hosts" />
+                        <button id="clear-adult-host-search" class="clear-icon" aria-label="Clear search">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div id="adult-hosts-table-container" class="data-table-container">
+                    <!-- Adult hosts table will be generated here -->
+                    <div class="loading">Loading adult hosts...</div>
+                </div>
+            </article>
+
+            <article id="live-status">
+                <h3>Live status</h3>
+                <p>Track the most current host status updates on the official service pages:</p>
+                <ul class="link-list">
+                    <li><a href="https://alldebrid.com/status/">AllDebrid</a></li>
+                    <li><a href="https://real-debrid.com/compare">Real-Debrid</a></li>
+                    <li><a href="https://linksnappy.com/myaccount/status">LinkSnappy</a></li>
+                    <li><a href="https://www.premiumize.me/services">Premiumize</a></li>
+                    <li><a href="https://torbox.app/hosters">TorBox</a></li>
+                    <li><a href="https://debrid-link.com/webapp/status">Debrid-Link</a></li>
+                    <li><a href="https://www.mega-debrid.eu/index.php?page=hebergeurs">Mega-Debrid</a></li>
+                </ul>
+            </article>
+        </section>
+
     </main>
 
-    <footer role="contentinfo">
-        <p><a href="https://github.com/fynks/debrid-services-comparison">Source</a> | Made with ❤️ by Fynks</p>
+    <footer class="site-footer" role="contentinfo">
+        <div class="last-updated">
+            <p>Last updated: <span class="last-updated-date">January 14, 2025</span></p>
+        </div>
+        <div class="container">
+            <p><a href="https://github.com/fynks/debrid-services-comparison">Source</a> | Made with ❤️ by Fynks</p>
+        </div>
     </footer>
-
-<script src="app-min.js"></script>
-
+    <script src="app-min.js"></script>
 </body>
 
 </html>
