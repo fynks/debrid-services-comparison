@@ -9,6 +9,7 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <title>Debrid Services Comparison</title>
     <link rel="stylesheet" href="styles-min.css">
+    <script src="app-min.js" defer></script>
     <meta name="description"
         content="A comparison of available hosts and pricing for AllDebrid, Real-Debrid, LinkSnappy, Premiumize, Debrid-Link, TorBox and Mega-Debrid.">
     <meta name="keywords"
@@ -232,7 +233,10 @@
             <p><a href="https://github.com/fynks/debrid-services-comparison">Source</a> | Made with ❤️ by Fynks</p>
         </div>
     </footer>
-    <script src="app-min.js"></script>
+    <script>
+ document.addEventListener('DOMContentLoaded', ()=>{ const darkModeToggle=document.getElementById('darkModeToggle'); const savedTheme=localStorage.getItem('theme'); if (savedTheme){ document.documentElement.setAttribute('data-theme', savedTheme);} darkModeToggle.addEventListener('click', ()=>{ const currentTheme=document.documentElement.getAttribute('data-theme'); const newTheme=currentTheme==='dark' ? 'light' : 'dark'; document.documentElement.setAttribute('data-theme', newTheme); localStorage.setItem('theme', newTheme);});});
+    </script>
+
 </body>
 
 </html>
