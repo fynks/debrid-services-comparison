@@ -1,32 +1,43 @@
 # Debrid Services Comparison
 
-A comparison of available hosts and pricing for [AllDebrid](https://alldebrid.com/), [Real-Debrid](https://real-debrid.com/), [LinkSnappy](https://linksnappy.com/myaccount/status), [Premiumize](https://www.premiumize.me/services), [Debrid-Link](https://debrid-link.com/), [TorBox](https://torbox.app/) and [Mega-Debrid](https://debrid-link.com).
+A concise comparison of pricing and supported hosts for popular debrid services including [AllDebrid](https://alldebrid.com/), [Real-Debrid](https://real-debrid.com/), [LinkSnappy](https://linksnappy.com/myaccount/status), [Premiumize](https://www.premiumize.me/services), [Debrid-Link](https://debrid-link.com/), [TorBox](https://torbox.app/), and [Mega-Debrid](https://debrid-link.com).
 
-> For a better experience, I would suggest:
-[Web version of this comparision](https://debrid-services-comparison.netlify.app/)
+> View the interactive version: [Debrid Services Comparison](https://debrid-services-comparison.netlify.app/)
+
 
 ## Contents:
-- [Signing Up](#signing-up)
-    - [Referral Links](#referral-links)
-    - [Non-referral Links](#non-referral-links)
+- [Getting Started](#getting-started)
+    - [Support This Project](#support-this-project)
+    - [Direct Links](#direct-links)
 - [Pricing](#pricing)
   - [Up-to-date Pricing](#up-to-date-pricing)
 - [Available Hosts](#available-hosts)
   - [File Hosts](#file-hosts)
   - [Adult Hosts](#adult-hosts)
   - [Live status](#live-status)
+- [Important Notes](#important-notes)
+- [Useful Resources](#useful-resources)
+- [Last Updated](#last-updated)
 
 
-## Signing Up
-#### Referral Links
-If you are signing up for any above service, Please consider buying from my referral link:
+## Getting Started
+
+#### Support This Project
+
+If you find this comparison helpful and decide to sign up for a service, please consider using the referral links below. This helps support the maintenance and updates of this project. Thank you!
+
+**Referral Links:**
+
 - [AllDebrid](https://alldebrid.com/?uid=3wvya&lang=en)
 - [Real-Debrid](http://real-debrid.com/?id=10990901)
 - [TorBox](https://torbox.app/subscription?referral=47eece72-46b8-483b-8b7a-79d6c16dedf2)
 - [LinkSnappy](http://linksnappy.com/?ref=774668)
 - [Debrid-Link](https://debrid-link.com/id/7B3BO)
-  
-#### Non-referral Links
+
+#### Direct Links
+
+If you prefer to sign up directly without a referral, you can use the links below:
+
 - [AllDebrid](https://alldebrid.com/register/)
 - [Real-Debrid](http://real-debrid.com/)
 - [TorBox](https://torbox.app/login)
@@ -51,7 +62,10 @@ If you are signing up for any above service, Please consider buying from my refe
 
 
 ### Up-to-date Pricing
- You can check pricing for each individual service at:
+
+**Please note that pricing can change. It is highly recommended to verify the latest pricing directly on the official websites before making a decision.**
+
+You can check the most current pricing for each individual service at:
 - [AllDebrid](https://alldebrid.com/offer/)
 - [Real-Debrid](https://real-debrid.com/premium)
 - [TorBox](https://torbox.app/pricing)
@@ -59,7 +73,6 @@ If you are signing up for any above service, Please consider buying from my refe
 - [LinkSnappy](https://linksnappy.com/myaccount/extend)
 - [Debrid-Link](https://debrid-link.com/premium)
 - [Mega-Debrid](https://www.mega-debrid.eu/index.php?page=offres)
-
 
 ## Available Hosts
 ### File Hosts
@@ -330,7 +343,10 @@ If you are signing up for any above service, Please consider buying from my refe
 
 
 ### Live status
- Up-to-date list of hosts for individual services can tracked from:
+
+**For real-time information on host availability and service status, please refer to the official status pages.** These pages provide the most accurate and up-to-date details on any potential issues or maintenance.
+
+Up-to-date list of hosts for individual services can be tracked from:
 - [AllDebrid](https://alldebrid.com/status/)
 - [Real-Debrid](https://real-debrid.com/compare)
 - [LinkSnappy](https://linksnappy.com/myaccount/status)
@@ -339,5 +355,19 @@ If you are signing up for any above service, Please consider buying from my refe
 - [Debrid-Link](https://debrid-link.com/webapp/status)
 - [Mega-Debrid](https://www.mega-debrid.eu/index.php?page=hebergeurs)
 
+
+## Important Notes
+
+- **Pricing and Availability:**  Be aware that pricing plans and supported hosts are subject to change by the service providers without notice. Always verify information on the official websites.
+- **No Guarantees:** This comparison is for informational purposes only. We do not guarantee the uptime, performance, or availability of any specific host or service.
+- **Referral Links:** The referral links provided in the "Getting Started" section help support this project.
+- **Do Your Research:**  It is recommended to read reviews and explore the features of each service to determine the best fit for your individual needs.
+
+
+## Useful Resources
+
+- **[Awesome-Debrid](https://github.com/debridmediamanager/awesome-debrid)**
+
 ---
-#### Last updated: `January 21, 2025`
+## Last Updated:
+**`January 21, 2025`**
