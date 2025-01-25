@@ -1,0 +1,18 @@
+{
+  "name": "@fynks/debrid-service-comparison",
+  "version": "2.0.1",
+  "description": "A concise comparison of pricing and supported hosts for popular debrid services including AllDebrid, Real-Debrid, LinkSnappy, Premiumize, Debrid-Link, TorBox, and Mega-Debrid.",
+  "main": "index.js",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "scripts": {
+    "build": "cp -a src/json/* dist/json/ && minijson dist/json/*.json"
+  },
+  "author": "fynks",
+  "dependencies": {
+    "@aminya/minijson": "^1.1.0"
+  }
+}
