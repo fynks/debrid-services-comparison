@@ -318,10 +318,7 @@ You can check the most current pricing for each individual service at:
 | **Youtube**                 | No            | Yes        | Yes            | No              | No              | No             | No              |
 | **Total** = `238`           | `70/238`      | `55/238`   | `31/238`       | `40/238`        | `45/238`        | `19/238`       | `119/238`       |
 
-
-![Debrid Services Coverage](/dist/bar-graph.svg)
-
-**Last Updated: `January 21, 2025`**
+**Last Updated: `April 19, 2025`**
 
 ### Adult Hosts
 | **Service Name**   | **AllDebrid** | **Premiumize** | **RealDebrid** | **TorBox** | **Debrid-Link** | **LinkSnappy** | **Mega-Debrid** |
@@ -373,4 +370,4 @@ Up-to-date list of hosts for individual services can be tracked from:
 - **[Awesome-Debrid](https://github.com/debridmediamanager/awesome-debrid)**
 
 ## Last Updated:
-**`January 21, 2025`**
+**`April 19, 2025`**
