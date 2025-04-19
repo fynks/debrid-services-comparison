@@ -81,26 +81,30 @@ You can check the most current pricing for each individual service at:
 | **1Fichier**                | Yes           | Yes        | Yes            | Yes             | Yes             | No             | Yes             |
 | **1Tv**                     | No            | No         | No             | No              | No              | No             | Yes             |
 | **4Shared**                 | Yes           | Yes        | No             | Yes             | No              | No             | No              |
-| **4Tube**                   | Yes           | No         | No             | No              | No              | No             | No              |
-| **Abcnews**                 | No            | No         | No             | No              | No              | No             | Yes             |
-| **Acast**                   | No            | No         | No             | No              | No              | No             | Yes             |
+| **4Tube**                   | Yes           | Yes        | No             | No              | No              | No             | No              |
+| **Abcnews**                 | No            | Yes        | No             | No              | No              | No             | Yes             |
+| **Acast**                   | No            | Yes        | No             | No              | No              | No             | Yes             |
 | **Alfafile**                | Yes           | Yes        | No             | No              | No              | Yes            | Yes             |
+| **Annas archive**           | No            | Yes        | No             | No              | No              | No             | No              |
 | **Anonfiles**               | No            | No         | No             | No              | No              | No             | Yes             |
-| **Aparat**                  | No            | No         | No             | No              | No              | No             | Yes             |
-| **Apkadmin**                | Yes           | No         | No             | No              | No              | No             | No              |
+| **Aparat**                  | No            | Yes        | No             | No              | No              | No             | Yes             |
+| **Apkadmin**                | Yes           | Yes        | No             | No              | No              | No             | No              |
 | **Archive.org**             | Yes           | Yes        | Yes            | No              | No              | No             | No              |
 | **Archive**                 | No            | No         | No             | No              | No              | No             | Yes             |
-| **Audioboom**               | No            | No         | No             | No              | No              | No             | Yes             |
-| **Audiomack**               | No            | No         | No             | No              | No              | No             | Yes             |
+| **Audioboom**               | No            | Yes        | No             | No              | No              | No             | Yes             |
+| **Audiomack**               | No            | Yes        | No             | No              | No              | No             | Yes             |
 | **Baidu**                   | No            | No         | No             | No              | No              | No             | No              |
+| **Baidu video**             | No            | Yes        | No             | No              | No              | No             | No              |
 | **Bbc**                     | No            | Yes        | No             | No              | No              | No             | No              |
 | **Bilibili**                | No            | Yes        | No             | No              | No              | No             | No              |
+| **Bluesky**                 | No            | Yes        | No             | No              | No              | No             | No              |
+| **Bunkr**                   | No            | Yes        | No             | No              | No              | No             | No              |
 | **Buzzheavier**             | No            | Yes        | No             | No              | No              | No             | No              |
 | **Calameo**                 | No            | No         | No             | No              | No              | No             | Yes             |
-| **Camdemy**                 | No            | No         | No             | No              | No              | No             | Yes             |
+| **Camdemy**                 | No            | Yes        | No             | No              | No              | No             | Yes             |
 | **Canalplus**               | Yes           | Yes        | No             | No              | No              | No             | No              |
 | **Cc.com**                  | No            | No         | No             | No              | No              | No             | Yes             |
-| **Chilloutzone**            | No            | No         | No             | No              | No              | No             | Yes             |
+| **Chilloutzone**            | No            | Yes        | No             | No              | No              | No             | Yes             |
 | **Cinemassacre**            | No            | No         | No             | No              | No              | No             | Yes             |
 | **Clicknupload**            | No            | Yes        | Yes            | Yes             | Yes             | Yes            | Yes             |
 | **Clipfish**                | No            | No         | No             | No              | No              | No             | Yes             |
@@ -109,32 +113,33 @@ You can check the most current pricing for each individual service at:
 | **Clubic**                  | No            | No         | No             | No              | No              | No             | Yes             |
 | **Collegehumor**            | No            | No         | No             | No              | No              | No             | Yes             |
 | **Comedycentral**           | Yes           | Yes        | No             | No              | No              | No             | No              |
-| **Crunchyroll**             | Yes           | Yes        | No             | No              | No              | No             | No              |
+| **Crunchyroll**             | Yes           | No         | No             | No              | No              | No             | No              |
 | **Daclips**                 | No            | No         | No             | No              | No              | No             | Yes             |
 | **Dagbladet**               | No            | No         | No             | No              | No              | No             | Yes             |
-| **Dailymail**               | No            | No         | No             | No              | No              | No             | Yes             |
+| **Dailymail**               | No            | Yes        | No             | No              | No              | No             | Yes             |
 | **Dailymotion**             | Yes           | Yes        | No             | Yes             | No              | Yes            | No              |
 | **Dailyuploads**            | Yes           | Yes        | No             | Yes             | Yes             | No             | Yes             |
 | **Darikibox**               | No            | No         | No             | No              | Yes             | No             | No              |
 | **Data nodes**              | No            | Yes        | No             | No              | No              | No             | No              |
 | **Datafilehost**            | No            | No         | No             | No              | No              | No             | Yes             |
-| **Dctp**                    | No            | No         | No             | No              | No              | No             | Yes             |
+| **Dctp**                    | No            | Yes        | No             | No              | No              | No             | Yes             |
 | **Ddowload / ddl.to**       | No            | No         | No             | No              | Yes             | Yes            | Yes             |
-| **Ddownload**               | Yes           | No         | No             | Yes             | No              | No             | No              |
-| **Ddownload10**             | No            | Yes        | No             | No              | No              | No             | No              |
+| **Ddownload**               | Yes           | Yes        | No             | Yes             | No              | No             | No              |
+| **Ddownload10**             | No            | No         | No             | No              | No              | No             | No              |
 | **Discovery channel**       | No            | No         | No             | No              | No              | No             | Yes             |
 | **Dotsub**                  | No            | No         | No             | No              | No              | No             | Yes             |
 | **Drop.download / dropapk** | No            | No         | Yes            | No              | Yes             | No             | No              |
 | **Drop.download**           | No            | No         | No             | Yes             | No              | No             | Yes             |
 | **Dropapk**                 | Yes           | No         | No             | No              | No              | No             | No              |
-| **Dropbox**                 | No            | No         | No             | Yes             | Yes             | No             | No              |
+| **Dropbox**                 | No            | Yes        | No             | Yes             | Yes             | No             | No              |
 | **Dropgalaxy**              | Yes           | No         | No             | No              | No              | No             | No              |
 | **Dropmefiles**             | No            | No         | No             | No              | No              | No             | Yes             |
-| **Ebaumsworld**             | No            | No         | No             | No              | No              | No             | Yes             |
+| **Ebaumsworld**             | No            | Yes        | No             | No              | No              | No             | Yes             |
 | **Elitefile**               | No            | No         | No             | No              | Yes             | No             | No              |
 | **Ellentv**                 | No            | No         | No             | No              | No              | No             | Yes             |
 | **Emload**                  | No            | No         | No             | No              | Yes             | No             | No              |
 | **Exload**                  | Yes           | No         | No             | No              | No              | No             | No              |
+| **Facebook**                | No            | Yes        | No             | No              | No              | No             | No              |
 | **Fastbit**                 | Yes           | No         | No             | No              | No              | No             | No              |
 | **Fikper**                  | No            | No         | No             | Yes             | Yes             | No             | Yes             |
 | **File.al**                 | No            | No         | Yes            | Yes             | No              | Yes            | No              |
@@ -157,17 +162,18 @@ You can check the most current pricing for each individual service at:
 | **Flashbit**                | Yes           | No         | No             | Yes             | No              | No             | Yes             |
 | **Flipagram**               | No            | No         | No             | No              | No              | No             | Yes             |
 | **Flix555**                 | No            | No         | No             | No              | No              | No             | Yes             |
-| **Formula1**                | No            | No         | No             | No              | No              | No             | Yes             |
-| **Foxnews**                 | No            | No         | No             | No              | No              | No             | Yes             |
+| **Formula1**                | No            | Yes        | No             | No              | No              | No             | Yes             |
+| **Foxnews**                 | No            | Yes        | No             | No              | No              | No             | Yes             |
 | **Free**                    | No            | No         | No             | No              | No              | No             | Yes             |
 | **Fuckingfast**             | No            | Yes        | No             | No              | No              | No             | No              |
 | **Gamersyde**               | No            | No         | No             | No              | No              | No             | Yes             |
-| **Gamestar**                | No            | No         | No             | No              | No              | No             | Yes             |
+| **Gamestar**                | No            | Yes        | No             | No              | No              | No             | Yes             |
 | **Gigapeta**                | Yes           | No         | No             | Yes             | No              | Yes            | No              |
 | **Github**                  | No            | Yes        | No             | No              | No              | No             | No              |
 | **Gofile**                  | No            | Yes        | No             | No              | No              | No             | No              |
 | **Google drive**            | No            | Yes        | No             | Yes             | No              | No             | No              |
 | **Google**                  | Yes           | No         | Yes            | No              | No              | No             | No              |
+| **Hanime**                  | No            | Yes        | No             | No              | No              | No             | No              |
 | **Harefile**                | No            | No         | No             | No              | No              | No             | No              |
 | **Hexload**                 | No            | Yes        | No             | No              | No              | No             | No              |
 | **Hexupload / hexload**     | No            | No         | Yes            | No              | No              | No             | No              |
@@ -177,31 +183,33 @@ You can check the most current pricing for each individual service at:
 | **Hotlink**                 | No            | No         | No             | No              | No              | No             | Yes             |
 | **Hulkshare**               | No            | No         | No             | No              | Yes             | No             | No              |
 | **Icloud drive**            | No            | No         | No             | Yes             | No              | No             | No              |
-| **Idnes**                   | No            | No         | No             | No              | No              | No             | Yes             |
+| **Idnes**                   | No            | Yes        | No             | No              | No              | No             | Yes             |
 | **Indishare**               | Yes           | No         | No             | No              | No              | No             | No              |
-| **Instagram**               | No            | No         | No             | No              | No              | No             | Yes             |
+| **Imgur**                   | No            | Yes        | No             | No              | No              | No             | No              |
+| **Instagram**               | No            | Yes        | No             | No              | No              | No             | Yes             |
 | **Isra.cloud**              | No            | No         | No             | Yes             | No              | No             | Yes             |
 | **Isra**                    | Yes           | No         | Yes            | No              | No              | Yes            | No              |
 | **Isracloud**               | No            | No         | No             | No              | Yes             | No             | No              |
 | **Issuu**                   | No            | No         | No             | No              | No              | No             | Yes             |
-| **Izlesene**                | No            | No         | No             | No              | No              | No             | Yes             |
-| **Jamendo**                 | No            | No         | No             | No              | No              | No             | Yes             |
+| **Izlesene**                | No            | Yes        | No             | No              | No              | No             | Yes             |
+| **Jamendo**                 | No            | Yes        | No             | No              | No              | No             | Yes             |
 | **Jumploads**               | No            | No         | No             | No              | Yes             | No             | No              |
 | **Karrierevideos**          | No            | No         | No             | No              | No              | No             | Yes             |
 | **Katfile**                 | Yes           | No         | Yes            | Yes             | Yes             | Yes            | Yes             |
 | **Keek**                    | No            | No         | No             | No              | No              | No             | Yes             |
-| **Khanacademy**             | No            | No         | No             | No              | No              | No             | Yes             |
-| **Kickstarter**             | No            | No         | No             | No              | No              | No             | Yes             |
+| **Khanacademy**             | No            | Yes        | No             | No              | No              | No             | Yes             |
+| **Kick**                    | No            | Yes        | No             | No              | No              | No             | No              |
+| **Kickstarter**             | No            | Yes        | No             | No              | No              | No             | Yes             |
 | **Krakenfiles**             | No            | Yes        | No             | No              | No              | No             | No              |
 | **Kshared**                 | No            | No         | No             | No              | Yes             | No             | No              |
 | **Kvid**                    | No            | No         | No             | No              | No              | No             | Yes             |
-| **Lcp**                     | No            | No         | No             | No              | No              | No             | Yes             |
-| **Liveleak**                | No            | No         | No             | No              | No              | No             | Yes             |
+| **Lcp**                     | No            | Yes        | No             | No              | No              | No             | Yes             |
+| **Loom**                    | No            | Yes        | No             | No              | No              | No             | No              |
 | **Lynda**                   | Yes           | No         | No             | No              | No              | No             | No              |
 | **Mediaccc**                | No            | No         | No             | No              | No              | No             | Yes             |
 | **Mediafire**               | Yes           | Yes        | Yes            | Yes             | Yes             | Yes            | Yes             |
 | **Mega**                    | Yes           | Yes        | Yes            | Yes             | Yes             | Yes            | Yes             |
-| **Megaup**                  | No            | No         | No             | No              | No              | No             | No              |
+| **Megaup**                  | No            | Yes        | No             | No              | No              | No             | No              |
 | **Metacafe**                | No            | No         | No             | No              | No              | No             | Yes             |
 | **Mexashare**               | Yes           | No         | No             | No              | Yes             | No             | No              |
 | **Mixcloud**                | No            | No         | No             | No              | No              | No             | Yes             |
@@ -212,10 +220,11 @@ You can check the most current pricing for each individual service at:
 | **Mp4upload**               | Yes           | No         | No             | No              | No              | No             | No              |
 | **Msnbc**                   | No            | No         | No             | No              | No              | No             | Yes             |
 | **Myspass**                 | No            | No         | No             | No              | No              | No             | Yes             |
-| **Nbcsports**               | No            | No         | No             | No              | No              | No             | Yes             |
+| **Nbcsports**               | No            | Yes        | No             | No              | No              | No             | Yes             |
 | **Ndtv**                    | No            | No         | No             | No              | No              | No             | Yes             |
 | **Nelion**                  | No            | No         | No             | No              | Yes             | No             | No              |
-| **Nfl**                     | No            | No         | No             | No              | No              | No             | Yes             |
+| **Nexusmods**               | No            | Yes        | No             | No              | No              | No             | No              |
+| **Nfl**                     | No            | Yes        | No             | No              | No              | No             | Yes             |
 | **Niconico**                | Yes           | Yes        | No             | No              | No              | No             | No              |
 | **Nytimes**                 | Yes           | Yes        | Yes            | No              | No              | No             | No              |
 | **Odatv**                   | No            | No         | No             | No              | No              | No             | Yes             |
@@ -224,8 +233,10 @@ You can check the most current pricing for each individual service at:
 | **Onionstudios**            | No            | No         | No             | No              | No              | No             | Yes             |
 | **Pan baidu**               | No            | Yes        | No             | No              | No              | No             | No              |
 | **Panopto**                 | No            | Yes        | No             | No              | No              | No             | No              |
-| **Paramount+**              | No            | Yes        | No             | No              | No              | No             | No              |
+| **Paramount+**              | No            | No         | No             | No              | No              | No             | No              |
+| **Pillowcase**              | No            | Yes        | No             | No              | No              | No             | No              |
 | **Pinkbike**                | No            | No         | No             | No              | No              | No             | Yes             |
+| **Pinterest**               | No            | Yes        | No             | No              | No              | No             | No              |
 | **Piwi+**                   | No            | No         | No             | No              | No              | No             | Yes             |
 | **Pixeldrain**              | No            | Yes        | No             | No              | Yes             | No             | Yes             |
 | **Plays**                   | No            | No         | No             | No              | No              | No             | Yes             |
@@ -235,7 +246,7 @@ You can check the most current pricing for each individual service at:
 | **Qiwi**                    | No            | Yes        | No             | No              | No              | No             | No              |
 | **Radiotunes**              | No            | No         | No             | Yes             | No              | No             | No              |
 | **Rapidfileshare**          | Yes           | No         | No             | No              | No              | No             | No              |
-| **Rapidgator**              | Yes           | Yes        | Yes            | Yes             | Yes             | Yes            | Yes             |
+| **Rapidgator**              | Yes           | No         | Yes            | Yes             | Yes             | Yes            | Yes             |
 | **Rapidrar**                | No            | Yes        | No             | No              | No              | No             | No              |
 | **Reddit**                  | No            | Yes        | No             | No              | No              | No             | No              |
 | **Revision3**               | No            | No         | No             | No              | No              | No             | Yes             |
@@ -248,21 +259,25 @@ You can check the most current pricing for each individual service at:
 | **Ruutu**                   | No            | No         | No             | No              | No              | No             | Yes             |
 | **Scribd**                  | Yes           | No         | No             | Yes             | Yes             | No             | No              |
 | **Send.cm**                 | No            | No         | No             | Yes             | No              | No             | Yes             |
+| **Send.now**                | No            | Yes        | No             | No              | No              | No             | No              |
 | **Sendit**                  | Yes           | No         | No             | No              | No              | No             | No              |
 | **Sendspace**               | No            | No         | No             | Yes             | No              | No             | No              |
 | **Sharemods**               | Yes           | No         | No             | No              | No              | No             | No              |
 | **Silkfiles**               | No            | No         | No             | No              | Yes             | No             | No              |
 | **Simfileshare**            | Yes           | No         | No             | No              | No              | No             | Yes             |
 | **Smotri**                  | No            | No         | No             | No              | No              | No             | Yes             |
+| **Snapchat**                | No            | Yes        | No             | No              | No              | No             | No              |
 | **Snotr**                   | No            | No         | No             | No              | No              | No             | Yes             |
 | **Soundcloud**              | Yes           | Yes        | Yes            | No              | Yes             | Yes            | No              |
 | **Sportdeutschland**        | No            | No         | No             | No              | No              | No             | Yes             |
-| **Steam**                   | No            | Yes        | No             | No              | No              | No             | Yes             |
+| **Steam**                   | No            | No         | No             | No              | No              | No             | Yes             |
+| **Steam (video)**           | No            | Yes        | No             | No              | No              | No             | No              |
 | **Stream.cz**               | No            | No         | No             | No              | No              | No             | Yes             |
-| **Streamable**              | No            | No         | No             | No              | No              | No             | Yes             |
+| **Streamable**              | No            | Yes        | No             | No              | No              | No             | Yes             |
 | **Streamers**               | No            | No         | No             | No              | No              | No             | Yes             |
 | **Streamtape**              | No            | Yes        | Yes            | No              | No              | No             | Yes             |
 | **Subyshare**               | No            | No         | No             | No              | Yes             | No             | No              |
+| **Swisstransfer**           | No            | Yes        | No             | No              | No              | No             | No              |
 | **Sztv**                    | No            | No         | No             | No              | No              | No             | Yes             |
 | **Teachingchannel**         | No            | No         | No             | No              | No              | No             | Yes             |
 | **Teamfourstar**            | No            | No         | No             | No              | No              | No             | Yes             |
@@ -275,9 +290,11 @@ You can check the most current pricing for each individual service at:
 | **Tiktok**                  | No            | Yes        | No             | No              | No              | No             | No              |
 | **Tlc**                     | No            | Yes        | No             | No              | No              | No             | No              |
 | **Trashbytes**              | No            | Yes        | No             | No              | No              | No             | No              |
+| **Tumblr**                  | No            | Yes        | No             | No              | No              | No             | No              |
 | **Turbobit**                | Yes           | Yes        | Yes            | Yes             | Yes             | Yes            | Yes             |
 | **Tweakers**                | No            | No         | No             | No              | No              | No             | Yes             |
 | **Twitch**                  | Yes           | Yes        | No             | No              | No              | No             | No              |
+| **Twitter**                 | No            | Yes        | No             | No              | No              | No             | No              |
 | **Upload42**                | Yes           | No         | No             | No              | No              | No             | No              |
 | **Uploadbank**              | Yes           | No         | No             | No              | No              | No             | No              |
 | **Uploadbox**               | Yes           | No         | No             | No              | No              | No             | No              |
@@ -309,14 +326,15 @@ You can check the most current pricing for each individual service at:
 | **Wipfiles**                | No            | No         | No             | Yes             | No              | No             | No              |
 | **Workupload**              | No            | No         | No             | No              | Yes             | No             | No              |
 | **Worldbytez**              | Yes           | Yes        | No             | Yes             | Yes             | No             | Yes             |
-| **Wupfile / salefiles**     | No            | Yes        | Yes            | No              | Yes             | Yes            | Yes             |
+| **Wupfile / salefiles**     | No            | No         | Yes            | No              | Yes             | Yes            | Yes             |
 | **Wupfile**                 | No            | No         | No             | Yes             | No              | No             | No              |
+| **Xiaohongshu**             | No            | Yes        | No             | No              | No              | No             | No              |
 | **Xvidstage**               | No            | No         | No             | No              | No              | No             | Yes             |
 | **Yandex disk**             | No            | Yes        | No             | No              | No              | No             | No              |
 | **Yandex video**            | No            | Yes        | No             | No              | No              | No             | No              |
 | **Youku**                   | No            | No         | No             | No              | No              | No             | Yes             |
 | **Youtube**                 | No            | Yes        | Yes            | No              | No              | No             | No              |
-| **Total** = `238`           | `70/238`      | `55/238`   | `31/238`       | `40/238`        | `45/238`        | `19/238`       | `119/238`       |
+| **Total** = `257`           | `70/257`      | `96/257`   | `31/257`       | `40/257`        | `45/257`        | `19/257`       | `118/257`       |
 
 **Last Updated: `April 19, 2025`**
 
@@ -324,7 +342,7 @@ You can check the most current pricing for each individual service at:
 | **Service Name**   | **AllDebrid** | **Premiumize** | **RealDebrid** | **TorBox** | **Debrid-Link** | **LinkSnappy** | **Mega-Debrid** |
 | :----------------- | :------------ | :------------- | :------------- | :--------- | :-------------- | :------------- | :-------------- |
 | **Beeg**           | Yes           | No             | No             | Yes        | No              | No             | No              |
-| **DrTuber**        | Yes           | No             | No             | Yes        | No              | No             | No              |
+| **DrTuber**        | Yes           | Yes            | No             | Yes        | No              | No             | No              |
 | **Hentai Foundry** | No            | No             | No             | Yes        | No              | No             | No              |
 | **NHentai**        | No            | No             | No             | Yes        | No              | No             | No              |
 | **PornHub**        | Yes           | No             | No             | Yes        | No              | No             | No              |
@@ -333,7 +351,7 @@ You can check the most current pricing for each individual service at:
 | **Rule34**         | No            | No             | No             | Yes        | No              | No             | No              |
 | **SpankBang**      | Yes           | No             | No             | Yes        | No              | No             | No              |
 | **StripChat**      | No            | No             | No             | Yes        | No              | No             | No              |
-| **SunPorNo**       | No            | No             | No             | No         | No              | No             | Yes             |
+| **SunPorNo**       | No            | No             | No             | Yes        | No              | No             | Yes             |
 | **XHamster**       | Yes           | No             | No             | Yes        | No              | No             | No              |
 | **XNXX**           | Yes           | No             | No             | Yes        | No              | No             | No              |
 | **XVideos**        | Yes           | No             | No             | Yes        | No              | No             | No              |
