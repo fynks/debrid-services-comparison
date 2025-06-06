@@ -95,8 +95,6 @@ Consider using our referral links when signing up - it helps maintain this proje
 
 **⚡ Always verify current pricing before purchasing!** Prices change frequently.
 
-<div align="center">
-
 | Service | Check Latest Pricing |
 |:--------|:---------------------|
 | 🔗 **AllDebrid** | [Official Pricing →](https://alldebrid.com/offer/) |
@@ -106,8 +104,6 @@ Consider using our referral links when signing up - it helps maintain this proje
 | 🔗 **LinkSnappy** | [Official Pricing →](https://linksnappy.com/myaccount/extend) |
 | 🔗 **Debrid-Link** | [Official Pricing →](https://debrid-link.com/premium) |
 | 🔗 **Mega-Debrid** | [Official Pricing →](https://www.mega-debrid.eu/index.php?page=offres) |
-
-</div>
 
 **Last Pricing Update:** `April 19, 2025`
 
