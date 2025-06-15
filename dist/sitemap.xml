@@ -1,6 +1,15 @@
-<urlset xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<url>
-<loc>https://debrid-services-comparison.netlify.app/</loc>
-<lastmod>2025-06-07T07:30:13+00:00</lastmod>
-</url>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 
+                           http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    
+    <!-- Homepage -->
+    <url>
+        <loc>https://debrid-services-comparison.netlify.app/</loc>
+        <lastmod>2025-06-15T00:00:00+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
 </urlset>
