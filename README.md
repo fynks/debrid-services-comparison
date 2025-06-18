@@ -18,13 +18,14 @@ A comprehensive comparison of pricing and supported hosts for popular debrid ser
 ## 🎯 Quick Start
 
 **New to debrid services?** These services act as premium download accelerators, allowing you to:
+
 - ⚡ Download files at maximum speed without waiting
-- 🔗 Access premium file hosting sites without individual subscriptions  
+- 🔗 Access premium file hosting sites without individual subscriptions
 - 🌐 Stream content directly from supported hosts
 - 💾 Convert torrent links to direct downloads
 
-
 ## 📋 Contents
+
 - [🚀 Getting Started](#-getting-started)
 - [💰 Pricing Comparison](#pricing-comparison)
   - [📊 Price Overview](#detailed-pricing)
@@ -36,15 +37,13 @@ A comprehensive comparison of pricing and supported hosts for popular debrid ser
 - [⚠️ Important Notes](#️-important-notes)
 - [📚 Useful Resources](#-useful-resources)
 
-
-
 ## Getting Started
 
 ### Support This Project
 
 <div align="center">
 
-**Found this comparison helpful?** 
+**Found this comparison helpful?**
 
 Consider using our referral links when signing up - it helps maintain this project at no extra cost to you! 🙏
 
@@ -70,21 +69,21 @@ Consider using our referral links when signing up - it helps maintain this proje
 
 | Plan Duration  | AllDebrid     | Premiumize   | Real-Debrid  | TorBox      | Debrid-Link  | LinkSnappy | Mega-Debrid  |
 | :------------- | :------------ | :----------- | :----------- | :---------- | :----------- | :--------- | :----------- |
-| **Free/Trial** | 7 days*¹      | ❌            | ❌            | Free tier²  | ✅ Trial      | ❌          | ❌            |
-| **7 Days**     | ❌             | ❌            | ❌            | ❌           | ❌            | $4.99      | ❌            |
-| **15 Days**    | ❌             | ❌            | €3.00        | ❌           | €3.00        | ❌          | ❌            |
+| **Free/Trial** | 7 days\*¹     | ❌            | ❌            | Free tier²  | ✅ Trial      | ❌          | ❌            |
+| **7 Days**     | ❌            | ❌            | ❌            | ❌           | ❌            | $4.99      | ❌            |
+| **15 Days**    | €2.99³        | ❌            | €3.00        | ❌           | €3.00        | ❌          | ❌            |
 | **30 Days**    | €2.99³/€3.99⁴ | €9.99        | €4.00        | From $3.00⁵ | €4.00        | $12.99     | €4.00        |
-| **90 Days**    | ❌             | €24.99 total | €9.00 total  | ❌           | €9.00 total  | $29.99     | €9.00 total  |
-| **180 Days**   | ❌             | €34.99 total | €16.00 total | ❌           | €16.00 total | $54.99     | €16.00 total |
-| **300 Days**   | ❌             | ❌            | ❌            | ❌           | €25.00 total | ❌          | ❌            |
+| **90 Days**    | €8.99³        | €24.99 total | €9.00 total  | ❌           | €9.00 total  | $29.99     | €9.00 total  |
+| **180 Days**   | €15.99³       | €34.99 total | €16.00 total | ❌           | €16.00 total | $54.99     | €16.00 total |
+| **300 Days**   | €24.99³       | ❌            | ❌            | ❌           | €25.00 total | ❌          | ❌            |
 
 <details>
 <summary><strong>📝 Pricing Notes</strong></summary>
 
 - **¹** AllDebrid: 7-day free trial requires phone verification
 - **²** TorBox: Has a free tier with limited features
-- **³** AllDebrid: €2.99/month for recurring subscription
-- **⁴** AllDebrid: €3.99 for one-time monthly payment
+- **³** AllDebrid: For recurring subscription
+- **⁴** AllDebrid: For one-time monthly payment
 - **⁵** TorBox: Multiple pricing tiers available starting from $3.00/month
 
 </details>
@@ -107,9 +106,10 @@ Consider using our referral links when signing up - it helps maintain this proje
 
 **Last Pricing Update:** `April 19, 2025`
 
-
 ## Available Hosts
+
 ### File Hosts
+
 | **Service Name**            | **AllDebrid** | **TorBox** | **Premiumize** | **Real-Debrid** | **Debrid-Link** | **LinkSnappy** | **Mega-Debrid** |
 | :-------------------------- | :------------ | :--------- | :------------- | :-------------- | :-------------- | :------------- | :-------------- |
 | **1Fichier**                | Yes           | Yes        | Yes            | Yes             | Yes             | No             | Yes             |
@@ -369,8 +369,8 @@ Consider using our referral links when signing up - it helps maintain this proje
 **Last Updated: `June 13, 2025`**
 
 ### Adult Hosts
-- You can have a look at adult hosts of all providers in: [Adult-hosts.md](./Adult-hosts.md)
 
+- You can have a look at adult hosts of all providers in: [Adult-hosts.md](./Adult-hosts.md)
 
 ### Live status
 
@@ -384,30 +384,33 @@ Consider using our referral links when signing up - it helps maintain this proje
 - [Debrid-Link](https://debrid-link.com/webapp/status)
 - [Mega-Debrid](https://www.mega-debrid.eu/index.php?page=hebergeurs)
 
-
 ## Important Notes
 
 #### 🔄 **Pricing and Availability**
+
 - Pricing plans and supported hosts are subject to change by service providers **without notice**
 - Always verify current information on official websites before purchasing
 - Currency exchange rates may affect actual costs
 
-#### 🛡️ **No Guarantees**  
+#### 🛡️ **No Guarantees**
+
 - This comparison is for **informational purposes only**
 - We do not guarantee uptime, performance, or availability of any service or host
 - Use services at your own discretion and risk
 
 #### 💰 **Referral Transparency**
+
 - Referral links in the "Getting Started" section help support this project.
 - Direct links are always provided as alternatives
 
 #### 🔍 **Do Your Research**
+
 - Read reviews and explore features before choosing a service
 - Consider your specific use case and requirements
 - Test free trials when available
 
-
 ## 📚 Useful Resources & Community
 
 ### 🌟 **Essential Links**
+
 - **[Awesome-Debrid](https://github.com/debridmediamanager/awesome-debrid)** - Comprehensive debrid resources
