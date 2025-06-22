@@ -16,7 +16,7 @@ A comprehensive comparison of pricing and supported hosts for popular debrid ser
 
 ---
 
-## 🎯 Quick Start
+## Quick Start
 
 **New to debrid services?** These services act as premium download accelerators, allowing you to:
 
@@ -27,16 +27,16 @@ A comprehensive comparison of pricing and supported hosts for popular debrid ser
 
 ## 📋 Contents
 
-- [🚀 Getting Started](#-getting-started)
-- [💰 Pricing Comparison](#pricing-comparison)
-  - [📊 Price Overview](#detailed-pricing)
-  - [🔄 Up-to-date Pricing](#up-to-date-pricing)
-- [🌐 Supported Hosts](#-supported-hosts)
-  - [📁 File Hosts](#file-hosts)
-  - [🔞 Adult Hosts](#adult-hosts)
-  - [📡 Live Status](#live-status)
-- [⚠️ Important Notes](#️-important-notes)
-- [📚 Useful Resources](#-useful-resources)
+- [Getting Started](#getting-started)
+- [Pricing Comparison](#pricing-comparison)
+  - [Price Overview](#detailed-pricing)
+  - [Up-to-date Pricing](#up-to-date-pricing)
+- [Supported Hosts](#-supported-hosts)
+  - [File Hosts](#file-hosts)
+  - [Adult Hosts](#adult-hosts)
+  - [Live Status](#live-status)
+- [Important Notes](#️-important-notes)
+- [Useful Resources](#-useful-resources)
 
 ## Getting Started
 
@@ -68,26 +68,23 @@ Consider using our referral links when signing up - it helps maintain this proje
 
 ### Detailed Pricing
 
-| Plan Duration  | AllDebrid     | Premiumize   | Real-Debrid  | TorBox      | Debrid-Link  | LinkSnappy | Mega-Debrid  |
-| :------------- | :------------ | :----------- | :----------- | :---------- | :----------- | :--------- | :----------- |
-| **Free/Trial** | 7 days\*¹     | ❌            | ❌            | Free tier²  | ✅ Trial      | ❌          | ❌            |
-| **7 Days**     | ❌            | ❌            | ❌            | ❌           | ❌            | $4.99      | ❌            |
-| **15 Days**    | €2.99⁴        | ❌            | €3.00        | ❌           | €3.00        | ❌          | ❌            |
-| **30 Days**    | €2.99³/€3.99⁴ | €9.99        | €4.00        | From $3.00⁵ | €4.00        | $12.99     | €4.00        |
-| **90 Days**    | €8.99⁴        | €24.99 total | €9.00 total  | ❌           | €9.00 total  | $29.99     | €9.00 total  |
-| **180 Days**   | €15.99⁴       | €34.99 total | €16.00 total | ❌           | €16.00 total | $54.99     | €16.00 total |
-| **300 Days**   | €24.99⁴       | ❌            | ❌            | ❌           | €25.00 total | ❌          | ❌            |
+| Plan Duration  | AllDebrid     | Premiumize | Real-Debrid | TorBox      | Debrid-Link | LinkSnappy | Mega-Debrid |
+| :------------- | :------------ | :--------- | :---------- | :---------- | :---------- | :--------- | :---------- |
+| **Free/Trial** | 7 days\*¹     | ❌          | ❌           | Free tier²  | ❌           | ❌          | ❌           |
+| **7 Days**     | ❌             | ❌          | ❌           | ❌           | ❌           | $4.99      | ❌           |
+| **15 Days**    | €2.99⁴        | ❌          | €3.00       | ❌           | €3.00       | ❌          | ❌           |
+| **30 Days**    | €2.99³/€3.99⁴ | $11.99     | €4.00       | From $3.00⁵ | €4.00       | $12.99     | €4.00       |
+| **90 Days**    | €8.99⁴        | $29.99     | €9.00       | ❌           | €9.00       | $29.99     | €9.00       |
+| **180 Days**   | €15.99⁴       | ❌          | €16.00      | ❌           | €16.00      | $54.99     | €16.00      |
+| **300 Days**   | €24.99⁴       | ❌          | ❌           | ❌           | €25.00      | ❌          | ❌           |
+| **365 Days**   | ❌             | $79.99     | ❌           | ❌           | ❌           | ❌          | ❌           |
 
-<details>
-<summary><strong>📝 Pricing Notes</strong></summary>
-
+**📝 Pricing Notes**
 - **¹** AllDebrid: 7-day free trial requires phone verification
 - **²** TorBox: Has a free tier with limited features
 - **³** AllDebrid: For recurring subscription
 - **⁴** AllDebrid: For one-time monthly payment
 - **⁵** TorBox: Multiple pricing tiers available starting from $3.00/month
-
-</details>
 
 ---
 
@@ -105,7 +102,7 @@ Consider using our referral links when signing up - it helps maintain this proje
 | 🔗 **Debrid-Link** | [Official Pricing →](https://debrid-link.com/premium)                  |
 | 🔗 **Mega-Debrid** | [Official Pricing →](https://www.mega-debrid.eu/index.php?page=offres) |
 
-**Last Pricing Update:** `April 19, 2025`
+**Last Pricing Update**: `June 22, 2025`
 
 ## Available Hosts
 
