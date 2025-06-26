@@ -8,7 +8,8 @@
             "TorBox": "$0/month",
             "Debrid-Link": "-",
             "Linksnappy": "-",
-            "Mega-Debrid": "-"
+            "Mega-Debrid": "-",
+            "DeepBird": "Limmited Hosts"
         },
         {
             "name": "7 Days",
@@ -18,7 +19,8 @@
             "TorBox": "-",
             "Debrid-Link": "-",
             "Linksnappy": "$4.99 USD",
-            "Mega-Debrid": "-"
+            "Mega-Debrid": "-",
+            "DeepBird": "-"
         },
         {
             "name": "15 Days",
@@ -28,7 +30,8 @@
             "TorBox": "-",
             "Debrid-Link": "€3",
             "Linksnappy": "-",
-            "Mega-Debrid": "-"
+            "Mega-Debrid": "-",
+            "DeepBird": "€4.50"
         },
         {
             "name": "30 Days",
@@ -38,7 +41,8 @@
             "TorBox": "Starts from $3.0",
             "Debrid-Link": "€4",
             "Linksnappy": "$12.99 USD",
-            "Mega-Debrid": "€4"
+            "Mega-Debrid": "€4",
+            "DeepBird": "€4.99"
         },
         {
             "name": "90 Days",
@@ -48,7 +52,8 @@
             "TorBox": "-",
             "Debrid-Link": "€9",
             "Linksnappy": "$29.99 USD",
-            "Mega-Debrid": "€9"
+            "Mega-Debrid": "€9",
+            "DeepBird": "€12.99"
         },
         {
             "name": "180 Days",
@@ -58,7 +63,8 @@
             "TorBox": "-",
             "Debrid-Link": "€16",
             "Linksnappy": "$54.99",
-            "Mega-Debrid": "€16"
+            "Mega-Debrid": "€16",
+            "DeepBird": "€19.99"
         },
         {
             "name": "300 Days",
@@ -68,7 +74,8 @@
             "TorBox": "-",
             "Debrid-Link": "€25",
             "Linksnappy": "-",
-            "Mega-Debrid": "-"
+            "Mega-Debrid": "-",
+            "DeepBird": "-"
         },
         {
             "name": "365 Days",
@@ -78,7 +85,8 @@
             "TorBox": "-",
             "Debrid-Link": "-",
             "Linksnappy": "-",
-            "Mega-Debrid": "-"
+            "Mega-Debrid": "-",
+            "DeepBird": "€32.99"
         }
     ]
 }
