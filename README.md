@@ -293,7 +293,7 @@ Consider using our referral links when signing up - it helps maintain this proje
 | **Qiwi** | No | Yes | No | No | No | No | No | No |
 | **Radiotunes** | No | No | No | Yes | No | No | No | Yes |
 | **Rapidfileshare** | Yes | No | No | No | No | No | No | No |
-| **Rapidgator** | Yes | No | Yes | Yes | Yes | Yes | Yes | Yes |
+| **Rapidgator** | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 | **Rapidrar** | No | Yes | No | No | No | No | No | Yes |
 | **Reddit** | No | Yes | No | No | No | No | No | No |
 | **Revision3** | No | No | No | No | No | No | Yes | No |
@@ -393,7 +393,7 @@ Consider using our referral links when signing up - it helps maintain this proje
 | **Yandex video** | No | Yes | No | No | No | No | No | No |
 | **Youku** | No | No | No | No | No | No | Yes | No |
 | **Youtube** | No | Yes | Yes | No | No | No | No | Yes |
-| **Total** = `283` | `70/283` | `103/283` | `31/283` | `40/283` | `45/283` | `19/283` | `118/283` | `80/283` |
+| **Total** = `283` | `70/283` | `104/283` | `31/283` | `40/283` | `45/283` | `19/283` | `118/283` | `80/283` |
 
 **Last Updated: `June 26, 2025`**
 
