@@ -31,11 +31,14 @@ A comprehensive comparison of pricing and supported hosts for popular debrid ser
 - [Pricing Comparison](#pricing-comparison)
   - [Price Overview](#detailed-pricing)
   - [Up-to-date Pricing](#up-to-date-pricing)
+  - [Refund Policies](#refund-policies)
 - [Supported Hosts](#-supported-hosts)
   - [File Hosts](#file-hosts)
   - [Adult Hosts](#adult-hosts)
   - [Live Status](#live-status)
-- [Important Notes](#️-important-notes)
+- [Speed Test](#speed-test)
+- [Frequently Asked Questions](#-frequently-asked-questions)
+- [Important Notes](#important-notes)
 - [Useful Resources](#-useful-resources)
 
 ## Getting Started
@@ -79,6 +82,7 @@ Consider using our referral links when signing up - it helps maintain this proje
 | **180 Days**   | €15.99⁴       | ❌          | €16.00      | ❌           | €16.00      | $54.99     | €16.00      | €19.99        |
 | **300 Days**   | €24.99⁴       | ❌          | ❌           | ❌           | €25.00      | ❌          | ❌           | ❌             |
 | **365 Days**   | ❌             | $79.99     | ❌           | ❌           | ❌           | ❌          | ❌           | €32.99        |
+
 **📝 Pricing Notes**
 - **¹** AllDebrid: 7-day free trial requires phone verification
 - **²** TorBox: Has a free tier with limited features
@@ -92,18 +96,38 @@ Consider using our referral links when signing up - it helps maintain this proje
 
 **⚡ Always verify current pricing before purchasing!** Prices change frequently.
 
-| Service           | Check Latest Pricing                                                   |
-| :---------------- | :--------------------------------------------------------------------- |
-| 🔗 **AllDebrid**   | [Official Pricing →](https://alldebrid.com/offer/)                     |
-| 🔗 **Real-Debrid** | [Official Pricing →](https://real-debrid.com/premium)                  |
-| 🔗 **TorBox**      | [Official Pricing →](https://torbox.app/pricing)                       |
-| 🔗 **Premiumize**  | [Official Pricing →](https://www.premiumize.me/premium)                |
-| 🔗 **LinkSnappy**  | [Official Pricing →](https://linksnappy.com/myaccount/extend)          |
-| 🔗 **Debrid-Link** | [Official Pricing →](https://debrid-link.com/premium)                  |
-| 🔗 **Mega-Debrid** | [Official Pricing →](https://www.mega-debrid.eu/index.php?page=offres) |
-| 🔗 **DeepBird**    | [Official Pricing →](https://www.deepbrid.com/signup)                  |
+- **AllDebrid** - [Official Pricing ↗](https://alldebrid.com/offer/)
+- **Real-Debrid** - [Official Pricing ↗](https://real-debrid.com/premium)
+- **TorBox**      - [Official Pricing ↗](https://torbox.app/pricing)
+- **Premiumize**  - [Official Pricing ↗](https://www.premiumize.me/premium)
+- **LinkSnappy**  - [Official Pricing ↗](https://linksnappy.com/myaccount/extend)
+- **Debrid-Link** - [Official Pricing ↗](https://debrid-link.com/premium)
+- **Mega-Debrid** - [Official Pricing ↗](https://www.mega-debrid.eu/index.php?page=offres)
+- **DeepBird**    - [Official Pricing ↗](https://www.deepbrid.com/signup)
 
-**Last Pricing Update**: `June 26, 2025`
+_Last Pricing Update:_ `June 26, 2025`
+
+### Refund Policies
+
+> **💡 Important:** Always review the most current refund policy on each service's official website before purchasing, as policies may change.
+
+| Service         | Refund Policy                                                                                            | Terms/Refund Policy Link                                                     |
+| :-------------- | :------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------- |
+| **AllDebrid**   | Check Terms of Service for refund conditions                                                            | [Terms of Service](https://alldebrid.com/tos/)                              |
+| **Real-Debrid** | Refund up to 14 days if account unused (check traffic page first)                                       | [Terms of Service](https://real-debrid.com/terms)                           |
+| **TorBox**      | See terms for refund conditions                                                                          | [Terms & Refunds](https://torbox.app/terms#refunds)                         |
+| **Premiumize**  | Check legal page for refund policy                                                                       | [Legal & Refund Policy](https://www.premiumize.me/legal#refund)             |
+| **LinkSnappy**  | Dedicated refund policy available                                                                        | [Refund Policy](https://linksnappy.com/refund-policy)                       |
+| **Debrid-Link** | See Terms of Service for refund conditions                                                               | [Terms of Service](https://debrid-link.com/tos)                             |
+| **Mega-Debrid** | No standard refund policy                                                                                | Contact customer support for specific issues                                |
+| **DeepBird**    | Dedicated refund policy page                                                                             | [Refund Policy](https://www.deepbrid.com/page/refund-policy)                |
+
+**🔍 Refund Tips:**
+- Always read the complete terms before purchasing
+- For Real-Debrid: Check your [traffic page](https://real-debrid.com/traffic) before requesting refund
+- Start with shorter duration plans to test service compatibility
+- Keep records of your purchase and any issues encountered
+- Contact customer support promptly if you experience problems
 
 ## Available Hosts
 
@@ -413,6 +437,155 @@ Consider using our referral links when signing up - it helps maintain this proje
 - [Debrid-Link](https://debrid-link.com/webapp/status)
 - [Mega-Debrid](https://www.mega-debrid.eu/index.php?page=hebergeurs)
 - [DeepBird](https://www.deepbrid.com/status)
+
+## Speed Test
+
+> **🚀 Test before you buy!** Test actual download speeds across different debrid services.
+
+**Not all sites provide official speed testing page, the ones that have speed testing pages are as follows:**
+
+### Official Speed Test Pages:
+- [real-debrid](https://real-debrid.com/speedtest)
+- [TorBox](https://www.torbox.app/speedtest)
+- [Premiumize](https://www.premiumize.me/speedtest)
+- [Debrid-Link](https://debrid-link.com/webapp/speedtest)
+- [Mega-Debid](https://www.mega-debrid.eu/index.php?page=network)
+
+
+### DIY Speed Testing
+
+**📋 Manual Testing Steps:**
+
+1. **Prepare Test Files**: Use the same file from multiple hosts (e.g., a popular Linux distro)
+2. **Test Conditions**: 
+   - Same time of day for consistency
+   - Same network connection
+   - Clear browser cache between tests
+3. **Record Results**: Note download speeds, start times, and any interruptions
+4. **Multiple Tests**: Run at least 3 tests per service for average speeds
+
+
+### Performance Factors
+
+**⚠️ Factors Affecting Speed:**
+- **Time of Day**: Peak hours may show slower speeds
+- **Geographic Location**: Distance from servers affects latency
+- **ISP Throttling**: Some providers may limit certain traffic
+- **File Host Performance**: Individual host server load varies
+- **Service Load**: Popular services may experience congestion
+
+**💡 Pro Tips:**
+- Test during different times of day
+- Compare speeds with direct downloads when possible
+- Consider your typical usage patterns when evaluating results
+- Factor in reliability alongside pure speed
+
+## ❓ Frequently Asked Questions
+
+### General Questions
+
+**Q: What exactly is a debrid service?**
+A: Debrid services act as intermediaries that provide premium access to file hosting sites. They download files to their servers first, then provide you with high-speed direct downloads without ads, waiting times, or speed limitations.
+
+**Q: Are debrid services legal?**
+A: Yes, debrid services themselves are legal. They provide legitimate access to file hosting platforms. However, users are responsible for ensuring they only download content they have legal rights to access.
+
+**Q: Can I use multiple debrid services simultaneously?**
+A: Yes, many users subscribe to multiple services for maximum host coverage and redundancy. Some applications even support automatic failover between services.
+
+**Q: Do I need a VPN with debrid services?**
+A: While not required, a VPN is recommended for additional privacy and may help with geographic restrictions. Some users report better performance when using VPNs with certain services.
+
+### Technical Questions
+
+**Q: Why do download speeds vary between services?**
+A: Speed differences depend on:
+- Server locations and your geographic proximity
+- Time of day and server load
+- Your ISP's routing and peering agreements
+- Individual file host performance
+- Service infrastructure capacity
+
+**Q: What happens if a file host goes down?**
+A: If a host is temporarily unavailable, you'll need to wait for it to come back online or find the same file on a different supported host. This is why services with more supported hosts offer better reliability.
+
+**Q: Can I download torrents with debrid services?**
+A: Most debrid services support torrent-to-direct-download conversion. They download the torrent to their servers and provide you with direct download links for the files.
+
+**Q: Are there download limits?**
+A: Most services offer unlimited downloads, but some may have fair usage policies or throttle speeds after heavy usage. Check each service's terms for specific limitations.
+
+### Service-Specific Questions
+
+**Q: Can I share my debrid account?**
+A: Account sharing policies vary:
+- Most services prohibit account sharing in their terms
+- Some offer family plans or multiple connections
+- IP restrictions may limit simultaneous usage
+- Violation can result in account suspension
+
+**Q: What payment methods are accepted?**
+A: Common payment options include:
+- Credit/debit cards (most services)
+- PayPal (most services)
+- Cryptocurrency (AllDebrid, TorBox, Debrid-Link, DeepBird)
+- Bank transfers (some European services)
+- Gift cards (limited services)
+
+### Troubleshooting
+
+**Q: My downloads are slower than expected. What can I do?**
+A: Try these solutions:
+1. Test at different times of day
+2. Try different file hosts for the same content
+3. Check your internet connection speed
+4. Disable VPN temporarily to test
+5. Contact customer support with specific examples
+
+**Q: A file host shows as supported but doesn't work. Why?**
+A: Possible reasons:
+- Temporary host maintenance or issues
+- File was removed from the original host
+- Host changed their API (waiting for service update)
+- Geographic restrictions on the file
+- File requires premium host account renewal
+
+**Q: Can I get a refund if I'm not satisfied?**
+A: Refund policies vary by service (see [Refund Policies](#refund-policies) section above). Generally:
+- Some services offer 7-14 day money-back guarantees
+- Others have no refund policies
+- Start with shorter subscriptions to test compatibility
+
+**Q: How do I maximize my debrid service usage?**
+A: Best practices:
+- Use browser extensions for automatic link detection
+- Set up applications like JDownloader with debrid integration
+- Keep multiple backup links for important files
+- Monitor service status pages for maintenance notifications
+- Take advantage of longer subscription discounts if satisfied
+
+### Security & Privacy
+
+**Q: Do debrid services log my downloads?**
+A: Logging policies vary (see [Security & Privacy Analysis](#-security--privacy-analysis)):
+- Some services maintain minimal logs for technical purposes
+- Others claim no-logging policies
+- EU-based services must comply with GDPR
+- Check each service's privacy policy for specifics
+
+**Q: Is my payment information secure?**
+A: Reputable debrid services use:
+- Secure payment processors
+- SSL/TLS encryption for transactions
+- PCI DSS compliance for card processing
+- Cryptocurrency options for additional privacy
+
+**Q: Can my ISP see what I'm downloading?**
+A: ISPs can see:
+- That you're connecting to debrid service servers
+- The amount of data transferred
+- They cannot see specific file names or content when using HTTPS
+- Using a VPN adds an additional layer of privacy
 
 ## Important Notes
 
