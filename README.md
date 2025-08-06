@@ -1,18 +1,21 @@
+<div align="center">
+
 # Debrid Services Comparison
 
 A comprehensive comparison of pricing and supported hosts for popular debrid services including [AllDebrid](https://alldebrid.com/), [Real-Debrid](https://real-debrid.com/), [LinkSnappy](https://linksnappy.com/myaccount/status), [Premiumize](https://www.premiumize.me/services), [Debrid-Link](https://debrid-link.com/), [TorBox](https://torbox.app/), and [Mega-Debrid](https://debrid-link.com).
 
-<a align="center" href="https://debrid-services-comparison.netlify.app/">
+<a href="https://debrid-services-comparison.netlify.app/">
 
 <img src="./dist/image.png/../images/webversion-preview.png" alt="Debrid Services Comparison Interface" width="800">
 <p><em>Interactive comparison tool with real-time filtering</em></p>
 
-[![GitHub stars](https://img.shields.io/github/stars/fynks/debrid-services-comparison?style=flat-square&logo=github&color=yellow)](https://github.com/fynks/debrid-services-comparison/stargazers)
-[![GitHub last commit (branch)](https://img.shields.io/github/last-commit/fynks/debrid-services-comparison/main?path=README.md&style=flat-square&logo=github&label=Last%20Updated)
-](https://github.com/fynks/debrid-services-comparison/commits)
-[![Contributors](https://img.shields.io/github/contributors/fynks/debrid-services-comparison?style=flat-square&logo=github&color=blue)](https://github.com/fynks/debrid-services-comparison/graphs/contributors)
-
 </a>
+
+[![GitHub stars](https://img.shields.io/github/stars/fynks/debrid-services-comparison?style=flat-square&logo=github&color=yellow)](https://github.com/fynks/debrid-services-comparison/stargazers)
+[![Debrid Services](https://img.shields.io/badge/Debrid--services-8-blue?style=flat-square)](https://github.com/fynks/debrid-services-comparison)
+[![Contributors](https://img.shields.io/github/contributors/fynks/debrid-services-comparison?style=flat-square&logo=github&color=orange)](https://github.com/fynks/debrid-services-comparison/graphs/contributors)
+
+</div>
 
 ---
 
