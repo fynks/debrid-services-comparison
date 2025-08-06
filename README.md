@@ -11,13 +11,12 @@ A comprehensive comparison of pricing and supported hosts for popular debrid ser
 
 </a>
 
-[![GitHub stars](https://img.shields.io/github/stars/fynks/debrid-services-comparison?style=flat-square&logo=github&color=yellow)](https://github.com/fynks/debrid-services-comparison/stargazers)
-[![Debrid Services](https://img.shields.io/badge/Debrid--services-8-blue?style=flat-square)](https://github.com/fynks/debrid-services-comparison)
-[![Contributors](https://img.shields.io/github/contributors/fynks/debrid-services-comparison?style=flat-square&logo=github&color=orange)](https://github.com/fynks/debrid-services-comparison/graphs/contributors)
+[![GitHub stars](https://img.shields.io/github/stars/fynks/debrid-services-comparison?style=for-the-badge&logo=github&color=yellow)](https://github.com/fynks/debrid-services-comparison/stargazers)
+[![Debrid Services](https://img.shields.io/badge/Debrid--services-8-blue?style=for-the-badge)](https://github.com/fynks/debrid-services-comparison)
+[![Contributors](https://img.shields.io/github/contributors/fynks/debrid-services-comparison?style=for-the-badge&logo=github&color=orange)](https://github.com/fynks/debrid-services-comparison/graphs/contributors)
 
 </div>
 
----
 
 ## Quick Start
 
