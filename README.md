@@ -27,7 +27,7 @@ A comprehensive comparison of pricing and supported hosts for popular debrid ser
 - 🌐 Stream content directly from supported hosts
 - 💾 Convert torrent links to direct downloads
 
-## 📋 Contents
+## Contents
 
 - [Getting Started](#getting-started)
 - [Pricing Comparison](#pricing-comparison)
@@ -485,6 +485,7 @@ _Last Pricing Update:_ `June 26, 2025`
 ## ❓ Frequently Asked Questions
 
 ### General Questions
+<details><summary>👉 Click to expand</summary>
 
 **Q: What exactly is a debrid service?**
 A: Debrid services act as intermediaries that provide premium access to file hosting sites. They download files to their servers first, then provide you with high-speed direct downloads without ads, waiting times, or speed limitations.
@@ -498,7 +499,11 @@ A: Yes, many users subscribe to multiple services for maximum host coverage and 
 **Q: Do I need a VPN with debrid services?**
 A: While not required, a VPN is recommended for additional privacy and may help with geographic restrictions. Some users report better performance when using VPNs with certain services.
 
+</details>
+
 ### Technical Questions
+
+<details><summary>👉 Click to expand</summary>
 
 **Q: Why do download speeds vary between services?**
 A: Speed differences depend on:
@@ -517,7 +522,11 @@ A: Most debrid services support torrent-to-direct-download conversion. They down
 **Q: Are there download limits?**
 A: Most services offer unlimited downloads, but some may have fair usage policies or throttle speeds after heavy usage. Check each service's terms for specific limitations.
 
+</details>
+
 ### Service-Specific Questions
+
+<details><summary>👉 Click to expand</summary>
 
 **Q: Can I share my debrid account?**
 A: Account sharing policies vary:
@@ -534,7 +543,11 @@ A: Common payment options include:
 - Bank transfers (some European services)
 - Gift cards (limited services)
 
+</details>
+
 ### Troubleshooting
+
+<details><summary>👉 Click to expand</summary>
 
 **Q: My downloads are slower than expected. What can I do?**
 A: Try these solutions:
@@ -566,7 +579,11 @@ A: Best practices:
 - Monitor service status pages for maintenance notifications
 - Take advantage of longer subscription discounts if satisfied
 
+</details>
+
 ### Security & Privacy
+
+<details><summary>👉 Click to expand</summary>
 
 **Q: Do debrid services log my downloads?**
 A: Logging policies vary (see [Security & Privacy Analysis](#-security--privacy-analysis)):
@@ -589,26 +606,28 @@ A: ISPs can see:
 - They cannot see specific file names or content when using HTTPS
 - Using a VPN adds an additional layer of privacy
 
+</details>
+
 ## Important Notes
 
-#### 🔄 **Pricing and Availability**
+#### **Pricing and Availability**
 
 - Pricing plans and supported hosts are subject to change by service providers **without notice**
 - Always verify current information on official websites before purchasing
 - Currency exchange rates may affect actual costs
 
-#### 🛡️ **No Guarantees**
+#### **No Guarantees**
 
 - This comparison is for **informational purposes only**
 - We do not guarantee uptime, performance, or availability of any service or host
 - Use services at your own discretion and risk
 
-#### 💰 **Referral Transparency**
+#### **Referral Transparency**
 
 - Referral links in the "Getting Started" section help support this project.
 - Direct links are always provided as alternatives
 
-#### 🔍 **Do Your Research**
+#### **Do Your Research**
 
 - Read reviews and explore features before choosing a service
 - Consider your specific use case and requirements
