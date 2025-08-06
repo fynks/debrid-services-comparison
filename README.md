@@ -1,6 +1,6 @@
 <div align="center">
 
-# Debrid Services Comparison
+<h1><img src="./dist/favicon.svg" style="height:1em; width:1em; vertical-align:middle; margin-right:0.5em;">Debrid Services Comparison</h1>
 
 A comprehensive comparison of pricing and supported hosts for popular debrid services including [AllDebrid](https://alldebrid.com/), [Real-Debrid](https://real-debrid.com/), [LinkSnappy](https://linksnappy.com/myaccount/status), [Premiumize](https://www.premiumize.me/services), [Debrid-Link](https://debrid-link.com/), [TorBox](https://torbox.app/), and [Mega-Debrid](https://debrid-link.com).
 
