@@ -127,9 +127,6 @@ Refund tips:
 
 ### File Hosts
 
-<details>
-<summary><strong>👉 Click to view the full host coverage matrix (283 entries)</strong></summary>
-
 | Service Name               | AllDebrid | TorBox | Premiumize | Real-Debrid | Debrid-Link | LinkSnappy | Mega-Debrid | Deepbrid |
 | :------------------------- | :-------- | :----- | :--------- | :---------- | :---------- | :--------- | :---------- | :------- |
 | 1Fichier                   | Yes       | Yes    | Yes        | Yes         | Yes         | No         | Yes         | Yes      |
@@ -417,9 +414,7 @@ Refund tips:
 | Youtube                    | No        | Yes    | Yes        | No          | No          | No         | No          | Yes      |
 | Total = 283                | 70/283    | 104/283| 31/283     | 40/283      | 45/283      | 19/283     | 118/283     | 80/283   |
 
-</details>
-
-Last updated: June 26, 2025
+`Last updated: June 26, 2025`
 
 ### Adult Hosts
 
