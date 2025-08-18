@@ -3,31 +3,29 @@
  * Modern, feature-rich JavaScript with performance optimizations and professional UX
  */
 
-// Modern utility functions
+// Modern utility functions with optimized arrow syntax
 const Utils = {
   // Enhanced debounce with immediate option
   debounce: (func, delay = 300, immediate = false) => {
-    let timeout;
-    return function executedFunction(...args) {
+    let timeoutId;
+    return (...args) => {
       const later = () => {
-        timeout = null;
-        if (!immediate) func.apply(this, args);
+        timeoutId = null;
+        if (!immediate) func(...args);
       };
-      const callNow = immediate && !timeout;
-      clearTimeout(timeout);
-      timeout = setTimeout(later, delay);
-      if (callNow) func.apply(this, args);
+      const callNow = immediate && !timeoutId;
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(later, delay);
+      if (callNow) func(...args);
     };
   },
 
   // Throttle function for scroll events
   throttle: (func, limit) => {
     let inThrottle;
-    return function() {
-      const args = arguments;
-      const context = this;
+    return function(...args) {
       if (!inThrottle) {
-        func.apply(context, args);
+        func.apply(this, args);
         inThrottle = true;
         setTimeout(() => inThrottle = false, limit);
       }
@@ -36,9 +34,10 @@ const Utils = {
 
   // Animate elements with Intersection Observer
   animateOnScroll: (elements, options = {}) => {
-    const defaultOptions = {
+    const observerOptions = {
       threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      rootMargin: '0px 0px -50px 0px',
+      ...options
     };
     
     const observer = new IntersectionObserver((entries) => {
@@ -48,17 +47,17 @@ const Utils = {
           observer.unobserve(entry.target);
         }
       });
-    }, { ...defaultOptions, ...options });
+    }, observerOptions);
 
     elements.forEach(el => observer.observe(el));
   }
 };
 
-// Enhanced notification system
+// Enhanced notification system with optimized DOM handling
 class NotificationManager {
   constructor() {
     this.container = this.createContainer();
-    this.notifications = new Set();
+    this.notifications = new Map();
   }
 
   createContainer() {
@@ -70,8 +69,8 @@ class NotificationManager {
   }
 
   show(message, type = 'info', duration = 4000) {
-    const notification = document.createElement('div');
     const id = Date.now().toString();
+    const notification = document.createElement('div');
     
     notification.className = `notification notification--${type}`;
     notification.setAttribute('role', 'alert');
@@ -91,14 +90,15 @@ class NotificationManager {
     `;
 
     this.container.appendChild(notification);
-    this.notifications.add(id);
+    this.notifications.set(id, notification);
 
     // Auto dismiss
-    setTimeout(() => this.dismiss(notification, id), duration);
+    const timeoutId = setTimeout(() => this.dismiss(id), duration);
+    notification.dataset.timeoutId = timeoutId;
 
     // Manual dismiss
     notification.querySelector('.notification__close').addEventListener('click', () => {
-      this.dismiss(notification, id);
+      this.dismiss(id);
     });
 
     // Animate in
@@ -119,9 +119,16 @@ class NotificationManager {
     return icons[type] || icons.info;
   }
 
-  dismiss(notification, id) {
+  dismiss(id) {
+    const notification = this.notifications.get(id);
+    if (!notification) return;
+
     notification.classList.add('notification--dismissing');
     this.notifications.delete(id);
+    
+    // Clear auto-dismiss timeout
+    const timeoutId = notification.dataset.timeoutId;
+    if (timeoutId) clearTimeout(parseInt(timeoutId, 10));
     
     setTimeout(() => {
       if (notification.parentNode) {
@@ -131,17 +138,17 @@ class NotificationManager {
   }
 }
 
-// Enhanced loading manager
+// Enhanced loading manager with optimized DOM handling
 class LoadingManager {
   constructor() {
-    this.activeLoaders = new Set();
+    this.activeLoaders = new Map();
   }
 
   show(target, text = 'Loading...') {
     const loaderId = Date.now().toString();
     const loader = document.createElement('div');
     loader.className = 'loading-overlay';
-    loader.setAttribute('data-loader-id', loaderId);
+    loader.dataset.loaderId = loaderId;
     loader.innerHTML = `
       <div class="loading-content">
         <div class="loading-spinner">
@@ -153,13 +160,10 @@ class LoadingManager {
       </div>
     `;
 
-    if (typeof target === 'string') {
-      target = document.querySelector(target);
-    }
-
-    target.style.position = 'relative';
-    target.appendChild(loader);
-    this.activeLoaders.add(loaderId);
+    const targetElement = typeof target === 'string' ? document.querySelector(target) : target;
+    targetElement.style.position = 'relative';
+    targetElement.appendChild(loader);
+    this.activeLoaders.set(loaderId, { element: loader, target: targetElement });
 
     requestAnimationFrame(() => {
       loader.classList.add('loading-overlay--visible');
@@ -169,39 +173,34 @@ class LoadingManager {
   }
 
   hide(target, loaderId) {
-    if (typeof target === 'string') {
-      target = document.querySelector(target);
-    }
-
-    const loader = target.querySelector(`[data-loader-id="${loaderId}"]`);
+    const targetElement = typeof target === 'string' ? document.querySelector(target) : target;
+    const loader = targetElement.querySelector(`[data-loader-id="${loaderId}"]`);
+    
     if (loader) {
       loader.classList.add('loading-overlay--hiding');
       this.activeLoaders.delete(loaderId);
       
       setTimeout(() => {
         if (loader.parentNode) {
-          target.removeChild(loader);
+          targetElement.removeChild(loader);
         }
       }, 300);
     }
   }
 
   hideAll() {
-    this.activeLoaders.forEach(id => {
-      const loader = document.querySelector(`[data-loader-id="${id}"]`);
-      if (loader) {
-        this.hide(loader.parentNode, id);
-      }
+    this.activeLoaders.forEach(({ element, target }, id) => {
+      this.hide(target, id);
     });
   }
 }
 
-// Enhanced table manager with advanced features
+// Enhanced table manager with optimized rendering
 class TableManager {
   constructor(containerId, searchInputId, clearIconId, options = {}) {
-    this.container = document.querySelector(`#${containerId}`);
-    this.searchInput = document.querySelector(`#${searchInputId}`);
-    this.clearIcon = document.querySelector(`#${clearIconId}`);
+    this.container = document.getElementById(containerId);
+    this.searchInput = document.getElementById(searchInputId);
+    this.clearIcon = document.getElementById(clearIconId);
     this.options = {
       sortable: true,
       filterable: true,
@@ -270,7 +269,7 @@ class TableManager {
       <tr data-host="${host.toLowerCase()}" role="row">
         <td class="service-cell" role="gridcell">
           <div class="service-info">
-            <span class="service-name">${host}</span>
+            <span class="service-name">${this._escapeHtml(host)}</span>
           </div>
         </td>
         ${providers.map(provider => `
@@ -286,6 +285,17 @@ class TableManager {
         `).join('')}
       </tr>
     `).join('');
+  }
+
+  _escapeHtml(text) {
+    const map = {
+      '&': '&amp;',
+      '<': '<',
+      '>': '>',
+      '"': '&quot;',
+      "'": '&#039;'
+    };
+    return text.replace(/[&<>"']/g, m => map[m]);
   }
 
   _setupSearchFunctionality() {
@@ -365,7 +375,7 @@ class TableManager {
   }
 
   _handleSort(header) {
-    const column = header.getAttribute('data-column');
+    const column = header.dataset.column;
     const currentDirection = this.currentSort.column === column ? this.currentSort.direction : 'asc';
     const newDirection = currentDirection === 'asc' ? 'desc' : 'asc';
     
@@ -450,12 +460,12 @@ class TableManager {
   }
 }
 
-// Enhanced comparison manager
+// Enhanced comparison manager with optimized rendering
 class ComparisonManager {
   constructor(containerId, select1Id, select2Id, data) {
-    this.container = document.querySelector(`#${containerId}`);
-    this.select1 = document.querySelector(`#${select1Id}`);
-    this.select2 = document.querySelector(`#${select2Id}`);
+    this.container = document.getElementById(containerId);
+    this.select1 = document.getElementById(select1Id);
+    this.select2 = document.getElementById(select2Id);
     this.data = data;
     this.isComparing = false;
 
@@ -514,18 +524,18 @@ class ComparisonManager {
     
     this.container.innerHTML = `
       <div class="comparison-header">
-        <h3>Comparing ${provider1} vs ${provider2}</h3>
+        <h3>Comparing ${this._escapeHtml(provider1)} vs ${this._escapeHtml(provider2)}</h3>
         <div class="comparison-stats">
           <div class="stat">
             <span class="stat-label">Shared Support</span>
             <span class="stat-value">${comparisonData.shared}</span>
           </div>
           <div class="stat">
-            <span class="stat-label">${provider1} Only</span>
+            <span class="stat-label">${this._escapeHtml(provider1)} Only</span>
             <span class="stat-value">${comparisonData.provider1Only}</span>
           </div>
           <div class="stat">
-            <span class="stat-label">${provider2} Only</span>
+            <span class="stat-label">${this._escapeHtml(provider2)} Only</span>
             <span class="stat-value">${comparisonData.provider2Only}</span>
           </div>
         </div>
@@ -559,8 +569,8 @@ class ComparisonManager {
           <thead>
             <tr>
               <th>Service Name</th>
-              <th class="provider-header ${provider1.toLowerCase()}">${provider1}</th>
-              <th class="provider-header ${provider2.toLowerCase()}">${provider2}</th>
+              <th class="provider-header ${provider1.toLowerCase()}">${this._escapeHtml(provider1)}</th>
+              <th class="provider-header ${provider2.toLowerCase()}">${this._escapeHtml(provider2)}</th>
               <th>Status</th>
             </tr>
           </thead>
@@ -604,7 +614,7 @@ class ComparisonManager {
 
       return `
         <tr class="comparison-row ${statusClass}" data-status="${statusClass}">
-          <td class="service-name">${host}</td>
+          <td class="service-name">${this._escapeHtml(host)}</td>
           <td class="support-status ${support1 ? 'supported' : 'not-supported'}">
             <span class="status-indicator" aria-label="${support1 ? 'Supported' : 'Not supported'}">
               ${support1 ? 
@@ -622,11 +632,22 @@ class ComparisonManager {
             </span>
           </td>
           <td class="status-text">
-            <span class="status-badge ${statusClass}">${statusText}</span>
+            <span class="status-badge ${statusClass}">${this._escapeHtml(statusText)}</span>
           </td>
         </tr>
       `;
     }).join('');
+  }
+
+  _escapeHtml(text) {
+    const map = {
+      '&': '&amp;',
+      '<': '<',
+      '>': '>',
+      '"': '&quot;',
+      "'": '&#039;'
+    };
+    return text.replace(/[&<>"']/g, m => map[m]);
   }
 
   _calculateComparisonStats(provider1, provider2) {
@@ -664,7 +685,7 @@ class ComparisonManager {
     const rows = this.container.querySelectorAll('.comparison-row');
     
     rows.forEach(row => {
-      const status = row.getAttribute('data-status');
+      const status = row.dataset.status;
       let show = true;
       
       switch (filter) {
@@ -755,10 +776,10 @@ class ComparisonManager {
   }
 }
 
-// Enhanced pricing manager
+// Enhanced pricing manager with optimized rendering
 class PricingManager {
   constructor(containerId) {
-    this.container = document.querySelector(`#${containerId}-table-container`);
+    this.container = document.getElementById(`${containerId}-table-container`);
     this.currentData = null;
   }
 
@@ -780,7 +801,7 @@ class PricingManager {
               ${services.map(service => `
                 <th class="service-column">
                   <div class="service-header">
-                    <span class="service-name">${service}</span>
+                    <span class="service-name">${this._escapeHtml(service)}</span>
                   </div>
                 </th>
               `).join('')}
@@ -790,7 +811,7 @@ class PricingManager {
             ${data.plans.map((plan, index) => `
               <tr class="pricing-row ${index % 2 === 0 ? 'even' : 'odd'}">
                 <td class="plan-name">
-                  <strong>${plan.name}</strong>
+                  <strong>${this._escapeHtml(plan.name)}</strong>
                 </td>
                 ${services.map(service => {
                   const price = plan[service];
@@ -799,7 +820,7 @@ class PricingManager {
                   return `
                     <td class="price-cell ${isNumeric ? 'numeric-price' : 'text-price'}">
                       <div class="price-content">
-                        <span class="price-value">${price}</span>
+                        <span class="price-value">${this._escapeHtml(price)}</span>
                         ${isNumeric ? '<span class="price-period">/month</span>' : ''}
                       </div>
                     </td>
@@ -813,6 +834,17 @@ class PricingManager {
     `;
 
     this._setupPricingFeatures();
+  }
+
+  _escapeHtml(text) {
+    const map = {
+      '&': '&amp;',
+      '<': '<',
+      '>': '>',
+      '"': '&quot;',
+      "'": '&#039;'
+    };
+    return text.replace(/[&<>"']/g, m => map[m]);
   }
 
   _setupPricingFeatures() {
@@ -842,7 +874,7 @@ class PricingManager {
   }
 }
 
-// Performance monitor
+// Performance monitor with optimized metrics collection
 class PerformanceMonitor {
   constructor() {
     this.metrics = {
@@ -876,7 +908,7 @@ const notificationManager = new NotificationManager();
 const loadingManager = new LoadingManager();
 const performanceMonitor = new PerformanceMonitor();
 
-// Enhanced application initialization
+// Enhanced application initialization with optimized async handling
 document.addEventListener('DOMContentLoaded', async () => {
   performanceMonitor.markDOMReady();
 
@@ -980,8 +1012,8 @@ function setupURLComparison() {
   
   if (provider1 && provider2) {
     setTimeout(() => {
-      const select1 = document.querySelector('#provider1');
-      const select2 = document.querySelector('#provider2');
+      const select1 = document.getElementById('provider1');
+      const select2 = document.getElementById('provider2');
       
       if (select1 && select2) {
         select1.value = provider1;
