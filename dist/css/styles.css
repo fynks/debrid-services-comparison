@@ -747,7 +747,9 @@ a:hover {
     font-size: var(--text-base);
     line-height: 1.6;
 }
-
+.quick-nav-card a:hover{
+    text-decoration: none;
+}
 .section {
     padding: var(--space-24) 0;
     position: relative;
