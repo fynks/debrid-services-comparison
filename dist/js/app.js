@@ -3,29 +3,31 @@
  * Modern, feature-rich JavaScript with performance optimizations and professional UX
  */
 
-// Modern utility functions with optimized arrow syntax
+// Modern utility functions
 const Utils = {
   // Enhanced debounce with immediate option
   debounce: (func, delay = 300, immediate = false) => {
-    let timeoutId;
-    return (...args) => {
+    let timeout;
+    return function executedFunction(...args) {
       const later = () => {
-        timeoutId = null;
-        if (!immediate) func(...args);
+        timeout = null;
+        if (!immediate) func.apply(this, args);
       };
-      const callNow = immediate && !timeoutId;
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(later, delay);
-      if (callNow) func(...args);
+      const callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, delay);
+      if (callNow) func.apply(this, args);
     };
   },
 
   // Throttle function for scroll events
   throttle: (func, limit) => {
     let inThrottle;
-    return function(...args) {
+    return function() {
+      const args = arguments;
+      const context = this;
       if (!inThrottle) {
-        func.apply(this, args);
+        func.apply(context, args);
         inThrottle = true;
         setTimeout(() => inThrottle = false, limit);
       }
@@ -34,10 +36,9 @@ const Utils = {
 
   // Animate elements with Intersection Observer
   animateOnScroll: (elements, options = {}) => {
-    const observerOptions = {
+    const defaultOptions = {
       threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px',
-      ...options
+      rootMargin: '0px 0px -50px 0px'
     };
     
     const observer = new IntersectionObserver((entries) => {
@@ -47,108 +48,23 @@ const Utils = {
           observer.unobserve(entry.target);
         }
       });
-    }, observerOptions);
+    }, { ...defaultOptions, ...options });
 
     elements.forEach(el => observer.observe(el));
   }
 };
 
-// Enhanced notification system with optimized DOM handling
-class NotificationManager {
-  constructor() {
-    this.container = this.createContainer();
-    this.notifications = new Map();
-  }
-
-  createContainer() {
-    const container = document.createElement('div');
-    container.className = 'notification-container';
-    container.setAttribute('aria-live', 'polite');
-    document.body.appendChild(container);
-    return container;
-  }
-
-  show(message, type = 'info', duration = 4000) {
-    const id = Date.now().toString();
-    const notification = document.createElement('div');
-    
-    notification.className = `notification notification--${type}`;
-    notification.setAttribute('role', 'alert');
-    notification.innerHTML = `
-      <div class="notification__content">
-        <svg class="notification__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          ${this.getIcon(type)}
-        </svg>
-        <span class="notification__message">${message}</span>
-        <button class="notification__close" aria-label="Close notification">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-    `;
-
-    this.container.appendChild(notification);
-    this.notifications.set(id, notification);
-
-    // Auto dismiss
-    const timeoutId = setTimeout(() => this.dismiss(id), duration);
-    notification.dataset.timeoutId = timeoutId;
-
-    // Manual dismiss
-    notification.querySelector('.notification__close').addEventListener('click', () => {
-      this.dismiss(id);
-    });
-
-    // Animate in
-    requestAnimationFrame(() => {
-      notification.classList.add('notification--visible');
-    });
-
-    return id;
-  }
-
-  getIcon(type) {
-    const icons = {
-      success: '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22,4 12,14.01 9,11.01"></polyline>',
-      error: '<circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line>',
-      warning: '<path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line>',
-      info: '<circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path>'
-    };
-    return icons[type] || icons.info;
-  }
-
-  dismiss(id) {
-    const notification = this.notifications.get(id);
-    if (!notification) return;
-
-    notification.classList.add('notification--dismissing');
-    this.notifications.delete(id);
-    
-    // Clear auto-dismiss timeout
-    const timeoutId = notification.dataset.timeoutId;
-    if (timeoutId) clearTimeout(parseInt(timeoutId, 10));
-    
-    setTimeout(() => {
-      if (notification.parentNode) {
-        this.container.removeChild(notification);
-      }
-    }, 300);
-  }
-}
-
-// Enhanced loading manager with optimized DOM handling
+// Enhanced loading manager
 class LoadingManager {
   constructor() {
-    this.activeLoaders = new Map();
+    this.activeLoaders = new Set();
   }
 
   show(target, text = 'Loading...') {
     const loaderId = Date.now().toString();
     const loader = document.createElement('div');
     loader.className = 'loading-overlay';
-    loader.dataset.loaderId = loaderId;
+    loader.setAttribute('data-loader-id', loaderId);
     loader.innerHTML = `
       <div class="loading-content">
         <div class="loading-spinner">
@@ -160,10 +76,13 @@ class LoadingManager {
       </div>
     `;
 
-    const targetElement = typeof target === 'string' ? document.querySelector(target) : target;
-    targetElement.style.position = 'relative';
-    targetElement.appendChild(loader);
-    this.activeLoaders.set(loaderId, { element: loader, target: targetElement });
+    if (typeof target === 'string') {
+      target = document.querySelector(target);
+    }
+
+    target.style.position = 'relative';
+    target.appendChild(loader);
+    this.activeLoaders.add(loaderId);
 
     requestAnimationFrame(() => {
       loader.classList.add('loading-overlay--visible');
@@ -173,34 +92,39 @@ class LoadingManager {
   }
 
   hide(target, loaderId) {
-    const targetElement = typeof target === 'string' ? document.querySelector(target) : target;
-    const loader = targetElement.querySelector(`[data-loader-id="${loaderId}"]`);
-    
+    if (typeof target === 'string') {
+      target = document.querySelector(target);
+    }
+
+    const loader = target.querySelector(`[data-loader-id="${loaderId}"]`);
     if (loader) {
       loader.classList.add('loading-overlay--hiding');
       this.activeLoaders.delete(loaderId);
       
       setTimeout(() => {
         if (loader.parentNode) {
-          targetElement.removeChild(loader);
+          target.removeChild(loader);
         }
       }, 300);
     }
   }
 
   hideAll() {
-    this.activeLoaders.forEach(({ element, target }, id) => {
-      this.hide(target, id);
+    this.activeLoaders.forEach(id => {
+      const loader = document.querySelector(`[data-loader-id="${id}"]`);
+      if (loader) {
+        this.hide(loader.parentNode, id);
+      }
     });
   }
 }
 
-// Enhanced table manager with optimized rendering
+// Enhanced table manager with advanced features
 class TableManager {
   constructor(containerId, searchInputId, clearIconId, options = {}) {
-    this.container = document.getElementById(containerId);
-    this.searchInput = document.getElementById(searchInputId);
-    this.clearIcon = document.getElementById(clearIconId);
+    this.container = document.querySelector(`#${containerId}`);
+    this.searchInput = document.querySelector(`#${searchInputId}`);
+    this.clearIcon = document.querySelector(`#${clearIconId}`);
     this.options = {
       sortable: true,
       filterable: true,
@@ -269,7 +193,7 @@ class TableManager {
       <tr data-host="${host.toLowerCase()}" role="row">
         <td class="service-cell" role="gridcell">
           <div class="service-info">
-            <span class="service-name">${this._escapeHtml(host)}</span>
+            <span class="service-name">${host}</span>
           </div>
         </td>
         ${providers.map(provider => `
@@ -285,17 +209,6 @@ class TableManager {
         `).join('')}
       </tr>
     `).join('');
-  }
-
-  _escapeHtml(text) {
-    const map = {
-      '&': '&amp;',
-      '<': '<',
-      '>': '>',
-      '"': '&quot;',
-      "'": '&#039;'
-    };
-    return text.replace(/[&<>"']/g, m => map[m]);
   }
 
   _setupSearchFunctionality() {
@@ -375,7 +288,7 @@ class TableManager {
   }
 
   _handleSort(header) {
-    const column = header.dataset.column;
+    const column = header.getAttribute('data-column');
     const currentDirection = this.currentSort.column === column ? this.currentSort.direction : 'asc';
     const newDirection = currentDirection === 'asc' ? 'desc' : 'asc';
     
@@ -460,12 +373,12 @@ class TableManager {
   }
 }
 
-// Enhanced comparison manager with optimized rendering
+// Enhanced comparison manager
 class ComparisonManager {
   constructor(containerId, select1Id, select2Id, data) {
-    this.container = document.getElementById(containerId);
-    this.select1 = document.getElementById(select1Id);
-    this.select2 = document.getElementById(select2Id);
+    this.container = document.querySelector(`#${containerId}`);
+    this.select1 = document.querySelector(`#${select1Id}`);
+    this.select2 = document.querySelector(`#${select2Id}`);
     this.data = data;
     this.isComparing = false;
 
@@ -524,18 +437,18 @@ class ComparisonManager {
     
     this.container.innerHTML = `
       <div class="comparison-header">
-        <h3>Comparing ${this._escapeHtml(provider1)} vs ${this._escapeHtml(provider2)}</h3>
+        <h3>Comparing ${provider1} vs ${provider2}</h3>
         <div class="comparison-stats">
           <div class="stat">
             <span class="stat-label">Shared Support</span>
             <span class="stat-value">${comparisonData.shared}</span>
           </div>
           <div class="stat">
-            <span class="stat-label">${this._escapeHtml(provider1)} Only</span>
+            <span class="stat-label">${provider1} Only</span>
             <span class="stat-value">${comparisonData.provider1Only}</span>
           </div>
           <div class="stat">
-            <span class="stat-label">${this._escapeHtml(provider2)} Only</span>
+            <span class="stat-label">${provider2} Only</span>
             <span class="stat-value">${comparisonData.provider2Only}</span>
           </div>
         </div>
@@ -569,8 +482,8 @@ class ComparisonManager {
           <thead>
             <tr>
               <th>Service Name</th>
-              <th class="provider-header ${provider1.toLowerCase()}">${this._escapeHtml(provider1)}</th>
-              <th class="provider-header ${provider2.toLowerCase()}">${this._escapeHtml(provider2)}</th>
+              <th class="provider-header ${provider1.toLowerCase()}">${provider1}</th>
+              <th class="provider-header ${provider2.toLowerCase()}">${provider2}</th>
               <th>Status</th>
             </tr>
           </thead>
@@ -614,7 +527,7 @@ class ComparisonManager {
 
       return `
         <tr class="comparison-row ${statusClass}" data-status="${statusClass}">
-          <td class="service-name">${this._escapeHtml(host)}</td>
+          <td class="service-name">${host}</td>
           <td class="support-status ${support1 ? 'supported' : 'not-supported'}">
             <span class="status-indicator" aria-label="${support1 ? 'Supported' : 'Not supported'}">
               ${support1 ? 
@@ -632,22 +545,11 @@ class ComparisonManager {
             </span>
           </td>
           <td class="status-text">
-            <span class="status-badge ${statusClass}">${this._escapeHtml(statusText)}</span>
+            <span class="status-badge ${statusClass}">${statusText}</span>
           </td>
         </tr>
       `;
     }).join('');
-  }
-
-  _escapeHtml(text) {
-    const map = {
-      '&': '&amp;',
-      '<': '<',
-      '>': '>',
-      '"': '&quot;',
-      "'": '&#039;'
-    };
-    return text.replace(/[&<>"']/g, m => map[m]);
   }
 
   _calculateComparisonStats(provider1, provider2) {
@@ -685,7 +587,7 @@ class ComparisonManager {
     const rows = this.container.querySelectorAll('.comparison-row');
     
     rows.forEach(row => {
-      const status = row.dataset.status;
+      const status = row.getAttribute('data-status');
       let show = true;
       
       switch (filter) {
@@ -776,10 +678,10 @@ class ComparisonManager {
   }
 }
 
-// Enhanced pricing manager with optimized rendering
+// Enhanced pricing manager
 class PricingManager {
   constructor(containerId) {
-    this.container = document.getElementById(`${containerId}-table-container`);
+    this.container = document.querySelector(`#${containerId}-table-container`);
     this.currentData = null;
   }
 
@@ -801,7 +703,7 @@ class PricingManager {
               ${services.map(service => `
                 <th class="service-column">
                   <div class="service-header">
-                    <span class="service-name">${this._escapeHtml(service)}</span>
+                    <span class="service-name">${service}</span>
                   </div>
                 </th>
               `).join('')}
@@ -811,7 +713,7 @@ class PricingManager {
             ${data.plans.map((plan, index) => `
               <tr class="pricing-row ${index % 2 === 0 ? 'even' : 'odd'}">
                 <td class="plan-name">
-                  <strong>${this._escapeHtml(plan.name)}</strong>
+                  <strong>${plan.name}</strong>
                 </td>
                 ${services.map(service => {
                   const price = plan[service];
@@ -820,7 +722,7 @@ class PricingManager {
                   return `
                     <td class="price-cell ${isNumeric ? 'numeric-price' : 'text-price'}">
                       <div class="price-content">
-                        <span class="price-value">${this._escapeHtml(price)}</span>
+                        <span class="price-value">${price}</span>
                         ${isNumeric ? '<span class="price-period">/month</span>' : ''}
                       </div>
                     </td>
@@ -834,17 +736,6 @@ class PricingManager {
     `;
 
     this._setupPricingFeatures();
-  }
-
-  _escapeHtml(text) {
-    const map = {
-      '&': '&amp;',
-      '<': '<',
-      '>': '>',
-      '"': '&quot;',
-      "'": '&#039;'
-    };
-    return text.replace(/[&<>"']/g, m => map[m]);
   }
 
   _setupPricingFeatures() {
@@ -874,7 +765,7 @@ class PricingManager {
   }
 }
 
-// Performance monitor with optimized metrics collection
+// Performance monitor
 class PerformanceMonitor {
   constructor() {
     this.metrics = {
@@ -904,11 +795,10 @@ class PerformanceMonitor {
 }
 
 // Global instances
-const notificationManager = new NotificationManager();
 const loadingManager = new LoadingManager();
 const performanceMonitor = new PerformanceMonitor();
 
-// Enhanced application initialization with optimized async handling
+// Enhanced application initialization
 document.addEventListener('DOMContentLoaded', async () => {
   performanceMonitor.markDOMReady();
 
@@ -963,7 +853,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       new ComparisonManager('compare-table-container', 'provider1', 'provider2', fileHostsData.value);
     } else {
       loadingManager.hide('#file-hosts-table-container', loaderId1);
-      notificationManager.show('Failed to load file hosts data', 'error');
       console.error('File hosts error:', fileHostsData.reason);
     }
 
@@ -972,7 +861,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       adultHostsTable.generateTable(adultHostsData.value);
     } else {
       loadingManager.hide('#adult-hosts-table-container', loaderId2);
-      notificationManager.show('Failed to load adult hosts data', 'error');
       console.error('Adult hosts error:', adultHostsData.reason);
     }
 
@@ -981,7 +869,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       pricingManager.generatePricingTable(pricingData.value);
     } else {
       loadingManager.hide('#pricing-table-container', loaderId3);
-      notificationManager.show('Failed to load pricing data', 'error');
       console.error('Pricing error:', pricingData.reason);
     }
 
@@ -995,11 +882,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupOfflineDetection();
     
     performanceMonitor.markFullyLoaded();
-    notificationManager.show('Application loaded successfully', 'success', 2000);
 
   } catch (error) {
     console.error('Critical error initializing application:', error);
-    notificationManager.show('Failed to initialize application', 'error');
     loadingManager.hideAll();
   }
 });
@@ -1012,8 +897,8 @@ function setupURLComparison() {
   
   if (provider1 && provider2) {
     setTimeout(() => {
-      const select1 = document.getElementById('provider1');
-      const select2 = document.getElementById('provider2');
+      const select1 = document.querySelector('#provider1');
+      const select2 = document.querySelector('#provider2');
       
       if (select1 && select2) {
         select1.value = provider1;
@@ -1033,22 +918,20 @@ function setupScrollAnimations() {
 // Offline detection
 function setupOfflineDetection() {
   window.addEventListener('online', () => {
-    notificationManager.show('Connection restored', 'success', 3000);
+    console.log('Connection restored');
   });
 
   window.addEventListener('offline', () => {
-    notificationManager.show('You are offline. Some features may not work.', 'warning', 5000);
+    console.log('You are offline. Some features may not work.');
   });
 }
 
 // Enhanced error boundary
 window.addEventListener('error', (event) => {
   console.error('Global error:', event.error);
-  notificationManager.show('An unexpected error occurred', 'error');
 });
 
 window.addEventListener('unhandledrejection', (event) => {
   console.error('Unhandled promise rejection:', event.reason);
-  notificationManager.show('A network error occurred', 'error');
   event.preventDefault();
 });
