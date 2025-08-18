@@ -9,14 +9,14 @@
     "url": ""
   },
   "scripts": {
-    "minify:css": "cleancss -o dist/css/styles-min.css src/css/styles.css",
-    "minify:js": "terser src/js/app.js -o dist/js/app-min.js --compress --mangle",
+    "minify:css": "cleancss -o dist/css/styles-min.css dist/css/styles.css",
+    "minify:js": "terser dist/js/app.js -o dist/js/app-min.js --compress --mangle",
     "build": "npm run minify:css && npm run minify:js && workbox generateSW workbox-config.js"
   },
   "author": "fynks",
   "dependencies": {
     "clean-css-cli": "^5.6.3",
-    "terser": "^5.39.0",
+    "terser": "^5.43.1",
     "workbox-cli": "^7.3.0"
   }
 }
