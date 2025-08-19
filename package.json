@@ -11,7 +11,8 @@
   "scripts": {
     "minify:css": "cleancss -o dist/css/styles-min.css dist/css/styles.css",
     "minify:js": "terser dist/js/app.js -o dist/js/app-min.js --compress --mangle",
-    "build": "npm run minify:css && npm run minify:js && workbox generateSW workbox-config.js"
+    "build": "npm run minify:css && npm run minify:js && workbox generateSW workbox-config.js",
+    "postbuild": "node scripts/replace-assets.js"
   },
   "author": "fynks",
   "dependencies": {

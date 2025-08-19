@@ -8,20 +8,29 @@
     <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <title>Debrid Services Comparison - Compare Pricing & Hosts</title>
-    <link rel="prefetch" href="./json/file-hosts.json">
-    <link rel="prefetch" href="./json/adult-hosts.json">
-    <link rel="prefetch" href="./json/pricing.json">
-    <link rel="preload" as="style" href="./css/styles.css">
+
+    <!-- Preload important resources -->
+    <link rel="preload" href="./json/file-hosts.json">
+    <link rel="preload" href="./json/adult-hosts.json">
+    <link rel="preload" href="./json/pricing.json">
+    <link rel="preload" as="style" href="./css/styles-min.css">
+    <link rel="preload" as="script" href="./js/app-min.js">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Favicons -->
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Canonical link -->
     <link rel="canonical" href="https://debrid-services-comparison.netlify.app/">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/styles-min.css">
-    <script src="js/app-min.js" defer></script>
+
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="js/app.js" defer></script>
+
     <meta name="description"
         content="Compare pricing and supported hosts across AllDebrid, Real-Debrid, LinkSnappy, Premiumize, Debrid-Link, TorBox, Mega-Debrid & DeepBird.">
     <meta name="keywords"
