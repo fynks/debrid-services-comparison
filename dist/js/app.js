@@ -935,3 +935,653 @@ window.addEventListener('unhandledrejection', (event) => {
   console.error('Unhandled promise rejection:', event.reason);
   event.preventDefault();
 });
+
+// ===== MODERN MOBILE-FIRST ENHANCEMENTS =====
+
+// Enhanced Touch Gesture Support
+class TouchGestureManager {
+  constructor() {
+    this.touchStart = null;
+    this.touchEnd = null;
+    this.minSwipeDistance = 100;
+    this.maxSwipeTime = 300;
+    this.setupTouchListeners();
+  }
+
+  setupTouchListeners() {
+    document.addEventListener('touchstart', (e) => {
+      this.touchStart = {
+        x: e.changedTouches[0].screenX,
+        y: e.changedTouches[0].screenY,
+        time: Date.now()
+      };
+    }, { passive: true });
+
+    document.addEventListener('touchend', (e) => {
+      if (!this.touchStart) return;
+      
+      this.touchEnd = {
+        x: e.changedTouches[0].screenX,
+        y: e.changedTouches[0].screenY,
+        time: Date.now()
+      };
+
+      this.handleSwipe();
+    }, { passive: true });
+  }
+
+  handleSwipe() {
+    if (!this.touchStart || !this.touchEnd) return;
+
+    const deltaX = this.touchEnd.x - this.touchStart.x;
+    const deltaY = this.touchEnd.y - this.touchStart.y;
+    const deltaTime = this.touchEnd.time - this.touchStart.time;
+
+    if (deltaTime > this.maxSwipeTime) return;
+
+    const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+    if (distance < this.minSwipeDistance) return;
+
+    // Determine swipe direction
+    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+      // Horizontal swipe
+      if (deltaX > 0) {
+        this.dispatchSwipeEvent('swiperight');
+      } else {
+        this.dispatchSwipeEvent('swipeleft');
+      }
+    } else {
+      // Vertical swipe
+      if (deltaY > 0) {
+        this.dispatchSwipeEvent('swipedown');
+      } else {
+        this.dispatchSwipeEvent('swipeup');
+      }
+    }
+  }
+
+  dispatchSwipeEvent(type) {
+    document.dispatchEvent(new CustomEvent(type, {
+      detail: {
+        startPos: this.touchStart,
+        endPos: this.touchEnd
+      }
+    }));
+  }
+}
+
+// Virtual Scrolling for Large Datasets
+class VirtualScrollManager {
+  constructor(container, itemHeight = 50) {
+    this.container = container;
+    this.itemHeight = itemHeight;
+    this.viewportHeight = container.clientHeight;
+    this.totalItems = 0;
+    this.visibleStart = 0;
+    this.visibleEnd = 0;
+    this.scrollContent = null;
+    this.renderCallback = null;
+  }
+
+  init(items, renderCallback) {
+    this.totalItems = items.length;
+    this.renderCallback = renderCallback;
+    this.setupVirtualScroll();
+    this.updateVisibleRange();
+  }
+
+  setupVirtualScroll() {
+    this.container.innerHTML = `
+      <div class="virtual-scroll-content" style="height: ${this.totalItems * this.itemHeight}px;">
+        <div class="virtual-scroll-viewport"></div>
+      </div>
+    `;
+    
+    this.scrollContent = this.container.querySelector('.virtual-scroll-viewport');
+    
+    this.container.addEventListener('scroll', Utils.throttle(() => {
+      this.updateVisibleRange();
+    }, 16)); // 60fps
+  }
+
+  updateVisibleRange() {
+    const scrollTop = this.container.scrollTop;
+    const buffer = Math.ceil(this.viewportHeight / this.itemHeight);
+    
+    this.visibleStart = Math.max(0, Math.floor(scrollTop / this.itemHeight) - buffer);
+    this.visibleEnd = Math.min(this.totalItems, this.visibleStart + buffer * 3);
+    
+    this.renderVisibleItems();
+  }
+
+  renderVisibleItems() {
+    if (!this.renderCallback) return;
+    
+    const fragment = document.createDocumentFragment();
+    
+    for (let i = this.visibleStart; i < this.visibleEnd; i++) {
+      const item = this.renderCallback(i);
+      item.style.position = 'absolute';
+      item.style.top = `${i * this.itemHeight}px`;
+      item.style.height = `${this.itemHeight}px`;
+      item.style.width = '100%';
+      fragment.appendChild(item);
+    }
+    
+    this.scrollContent.innerHTML = '';
+    this.scrollContent.appendChild(fragment);
+  }
+}
+
+// Enhanced Search with Debouncing and Suggestions
+class SearchManager {
+  constructor(input, suggestionsContainer) {
+    this.input = input;
+    this.suggestionsContainer = suggestionsContainer;
+    this.currentIndex = -1;
+    this.suggestions = [];
+    this.setupEventListeners();
+  }
+
+  setupEventListeners() {
+    this.input.addEventListener('input', Utils.debounce((e) => {
+      this.handleInput(e.target.value);
+    }, 300));
+
+    this.input.addEventListener('keydown', (e) => {
+      this.handleKeyDown(e);
+    });
+
+    this.input.addEventListener('blur', () => {
+      setTimeout(() => this.hideSuggestions(), 200);
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!this.input.contains(e.target) && !this.suggestionsContainer.contains(e.target)) {
+        this.hideSuggestions();
+      }
+    });
+  }
+
+  async handleInput(query) {
+    if (query.length < 2) {
+      this.hideSuggestions();
+      return;
+    }
+
+    try {
+      this.suggestions = await this.fetchSuggestions(query);
+      this.renderSuggestions();
+    } catch (error) {
+      console.error('Error fetching suggestions:', error);
+    }
+  }
+
+  async fetchSuggestions(query) {
+    // In a real app, this would fetch from an API
+    // For now, we'll filter from existing data
+    const allHosts = Object.keys(window.fileHostsData || {});
+    return allHosts
+      .filter(host => host.toLowerCase().includes(query.toLowerCase()))
+      .slice(0, 5);
+  }
+
+  renderSuggestions() {
+    if (this.suggestions.length === 0) {
+      this.hideSuggestions();
+      return;
+    }
+
+    this.suggestionsContainer.innerHTML = this.suggestions
+      .map((suggestion, index) => `
+        <div class="search-suggestion" data-index="${index}">
+          ${this.highlightMatch(suggestion, this.input.value)}
+        </div>
+      `)
+      .join('');
+
+    this.suggestionsContainer.classList.add('visible');
+    this.currentIndex = -1;
+
+    // Add click listeners
+    this.suggestionsContainer.querySelectorAll('.search-suggestion').forEach((el, index) => {
+      el.addEventListener('click', () => {
+        this.selectSuggestion(index);
+      });
+    });
+  }
+
+  highlightMatch(text, query) {
+    const regex = new RegExp(`(${query})`, 'gi');
+    return text.replace(regex, '<strong>$1</strong>');
+  }
+
+  handleKeyDown(e) {
+    if (!this.suggestionsContainer.classList.contains('visible')) return;
+
+    switch (e.key) {
+      case 'ArrowDown':
+        e.preventDefault();
+        this.navigateSuggestions(1);
+        break;
+      case 'ArrowUp':
+        e.preventDefault();
+        this.navigateSuggestions(-1);
+        break;
+      case 'Enter':
+        e.preventDefault();
+        if (this.currentIndex >= 0) {
+          this.selectSuggestion(this.currentIndex);
+        }
+        break;
+      case 'Escape':
+        this.hideSuggestions();
+        break;
+    }
+  }
+
+  navigateSuggestions(direction) {
+    const suggestions = this.suggestionsContainer.querySelectorAll('.search-suggestion');
+    
+    // Remove current highlight
+    if (this.currentIndex >= 0) {
+      suggestions[this.currentIndex].classList.remove('highlighted');
+    }
+
+    // Update index
+    this.currentIndex += direction;
+    if (this.currentIndex < 0) this.currentIndex = suggestions.length - 1;
+    if (this.currentIndex >= suggestions.length) this.currentIndex = 0;
+
+    // Add new highlight
+    suggestions[this.currentIndex].classList.add('highlighted');
+    suggestions[this.currentIndex].scrollIntoView({ block: 'nearest' });
+  }
+
+  selectSuggestion(index) {
+    this.input.value = this.suggestions[index];
+    this.hideSuggestions();
+    this.input.dispatchEvent(new Event('input'));
+  }
+
+  hideSuggestions() {
+    this.suggestionsContainer.classList.remove('visible');
+    this.currentIndex = -1;
+  }
+}
+
+// Pull-to-Refresh for Mobile
+class PullToRefreshManager {
+  constructor(container, callback) {
+    this.container = container;
+    this.callback = callback;
+    this.isRefreshing = false;
+    this.startY = 0;
+    this.currentY = 0;
+    this.threshold = 80;
+    this.setupPullToRefresh();
+  }
+
+  setupPullToRefresh() {
+    this.container.classList.add('pull-to-refresh');
+    
+    const indicator = document.createElement('div');
+    indicator.className = 'pull-to-refresh-indicator';
+    indicator.innerHTML = '<div class="loading-spinner"></div>';
+    this.container.appendChild(indicator);
+
+    this.container.addEventListener('touchstart', (e) => {
+      if (this.container.scrollTop === 0 && !this.isRefreshing) {
+        this.startY = e.touches[0].clientY;
+      }
+    }, { passive: true });
+
+    this.container.addEventListener('touchmove', (e) => {
+      if (this.startY && !this.isRefreshing) {
+        this.currentY = e.touches[0].clientY;
+        const pullDistance = this.currentY - this.startY;
+
+        if (pullDistance > 0 && this.container.scrollTop === 0) {
+          e.preventDefault();
+          const pullRatio = Math.min(pullDistance / this.threshold, 1);
+          
+          if (pullDistance > this.threshold) {
+            this.container.classList.add('pulling');
+          }
+        }
+      }
+    }, { passive: false });
+
+    this.container.addEventListener('touchend', () => {
+      if (this.startY && this.currentY && !this.isRefreshing) {
+        const pullDistance = this.currentY - this.startY;
+        
+        if (pullDistance > this.threshold) {
+          this.triggerRefresh();
+        }
+      }
+      
+      this.container.classList.remove('pulling');
+      this.startY = 0;
+      this.currentY = 0;
+    }, { passive: true });
+  }
+
+  async triggerRefresh() {
+    if (this.isRefreshing) return;
+    
+    this.isRefreshing = true;
+    
+    try {
+      await this.callback();
+    } catch (error) {
+      console.error('Refresh failed:', error);
+    } finally {
+      this.isRefreshing = false;
+    }
+  }
+}
+
+// Toast Notification System
+class ToastManager {
+  constructor() {
+    this.container = this.createContainer();
+    this.toasts = new Map();
+  }
+
+  createContainer() {
+    let container = document.querySelector('.toast-container');
+    if (!container) {
+      container = document.createElement('div');
+      container.className = 'toast-container';
+      document.body.appendChild(container);
+    }
+    return container;
+  }
+
+  show(message, type = 'info', duration = 3000) {
+    const id = Date.now().toString();
+    const toast = this.createToast(message, type, id);
+    
+    this.container.appendChild(toast);
+    this.toasts.set(id, toast);
+
+    // Auto-remove after duration
+    if (duration > 0) {
+      setTimeout(() => {
+        this.remove(id);
+      }, duration);
+    }
+
+    return id;
+  }
+
+  createToast(message, type, id) {
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    toast.setAttribute('data-toast-id', id);
+    
+    toast.innerHTML = `
+      <div class="toast-content">
+        <span class="toast-message">${message}</span>
+        <button class="toast-close" aria-label="Close notification">×</button>
+      </div>
+    `;
+
+    const closeBtn = toast.querySelector('.toast-close');
+    closeBtn.addEventListener('click', () => {
+      this.remove(id);
+    });
+
+    return toast;
+  }
+
+  remove(id) {
+    const toast = this.toasts.get(id);
+    if (toast) {
+      toast.style.animation = 'slideOutRight 0.3s ease forwards';
+      setTimeout(() => {
+        if (toast.parentNode) {
+          this.container.removeChild(toast);
+        }
+        this.toasts.delete(id);
+      }, 300);
+    }
+  }
+
+  success(message, duration = 3000) {
+    return this.show(message, 'success', duration);
+  }
+
+  error(message, duration = 5000) {
+    return this.show(message, 'error', duration);
+  }
+
+  warning(message, duration = 4000) {
+    return this.show(message, 'warning', duration);
+  }
+
+  info(message, duration = 3000) {
+    return this.show(message, 'info', duration);
+  }
+}
+
+// Mobile Navigation Manager
+class MobileNavManager {
+  constructor() {
+    this.setupMobileNav();
+  }
+
+  setupMobileNav() {
+    if (window.innerWidth <= 768) {
+      this.createMobileNav();
+    }
+
+    window.addEventListener('resize', Utils.debounce(() => {
+      if (window.innerWidth <= 768) {
+        this.createMobileNav();
+      } else {
+        this.removeMobileNav();
+      }
+    }, 300));
+  }
+
+  createMobileNav() {
+    if (document.querySelector('.mobile-nav-toggle')) return;
+
+    const toggle = document.createElement('button');
+    toggle.className = 'mobile-nav-toggle';
+    toggle.innerHTML = '☰';
+    toggle.setAttribute('aria-label', 'Toggle mobile navigation');
+
+    const menu = document.createElement('div');
+    menu.className = 'mobile-nav-menu';
+    menu.innerHTML = `
+      <a href="#pricing" class="mobile-nav-item">Pricing</a>
+      <a href="#file-hosts" class="mobile-nav-item">File Hosts</a>
+      <a href="#compare" class="mobile-nav-item">Compare</a>
+      <a href="#adult-hosts" class="mobile-nav-item">Adult Hosts</a>
+      <a href="#live-status" class="mobile-nav-item">Status</a>
+    `;
+
+    document.body.appendChild(toggle);
+    document.body.appendChild(menu);
+
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('visible');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.remove('visible');
+      }
+    });
+
+    // Close menu when clicking on a link
+    menu.querySelectorAll('.mobile-nav-item').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('visible');
+      });
+    });
+  }
+
+  removeMobileNav() {
+    const toggle = document.querySelector('.mobile-nav-toggle');
+    const menu = document.querySelector('.mobile-nav-menu');
+    
+    if (toggle) toggle.remove();
+    if (menu) menu.remove();
+  }
+}
+
+// Progressive Enhancement Manager
+class ProgressiveEnhancementManager {
+  constructor() {
+    this.features = new Map();
+    this.detectFeatures();
+  }
+
+  detectFeatures() {
+    // Detect various browser capabilities
+    this.features.set('intersectionObserver', 'IntersectionObserver' in window);
+    this.features.set('webp', this.supportsWebP());
+    this.features.set('serviceWorker', 'serviceWorker' in navigator);
+    this.features.set('touchEvents', 'ontouchstart' in window);
+    this.features.set('pointerEvents', 'PointerEvent' in window);
+    this.features.set('containerQueries', CSS.supports('container-type: inline-size'));
+  }
+
+  async supportsWebP() {
+    return new Promise((resolve) => {
+      const webP = new Image();
+      webP.onload = webP.onerror = () => {
+        resolve(webP.height === 2);
+      };
+      webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
+    });
+  }
+
+  hasFeature(feature) {
+    return this.features.get(feature) || false;
+  }
+
+  enhanceIfSupported(feature, enhancementCallback) {
+    if (this.hasFeature(feature)) {
+      enhancementCallback();
+    }
+  }
+}
+
+// Initialize modern mobile-first features
+const touchGestureManager = new TouchGestureManager();
+const toastManager = new ToastManager();
+const mobileNavManager = new MobileNavManager();
+const progressiveEnhancementManager = new ProgressiveEnhancementManager();
+
+// Initialize search enhancements
+document.addEventListener('DOMContentLoaded', () => {
+  // Enhanced search for file hosts
+  const fileHostSearch = document.querySelector('#file-host-search');
+  const fileHostSuggestions = document.createElement('div');
+  fileHostSuggestions.className = 'search-suggestions';
+  
+  if (fileHostSearch) {
+    fileHostSearch.parentNode.classList.add('search-container');
+    fileHostSearch.parentNode.appendChild(fileHostSuggestions);
+    new SearchManager(fileHostSearch, fileHostSuggestions);
+  }
+
+  // Enhanced search for adult hosts
+  const adultHostSearch = document.querySelector('#adult-host-search');
+  const adultHostSuggestions = document.createElement('div');
+  adultHostSuggestions.className = 'search-suggestions';
+  
+  if (adultHostSearch) {
+    adultHostSearch.parentNode.classList.add('search-container');
+    adultHostSearch.parentNode.appendChild(adultHostSuggestions);
+    new SearchManager(adultHostSearch, adultHostSuggestions);
+  }
+
+  // Setup pull-to-refresh for mobile
+  if (progressiveEnhancementManager.hasFeature('touchEvents')) {
+    const mainContent = document.querySelector('main');
+    if (mainContent) {
+      new PullToRefreshManager(mainContent, async () => {
+        toastManager.info('Refreshing data...');
+        // Simulate refresh
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        window.location.reload();
+      });
+    }
+  }
+
+  // Add scroll progress indicator
+  const scrollIndicator = document.createElement('div');
+  scrollIndicator.className = 'scroll-indicator';
+  scrollIndicator.innerHTML = '<div class="scroll-indicator-bar"></div>';
+  document.body.appendChild(scrollIndicator);
+
+  const updateScrollProgress = () => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    
+    const bar = scrollIndicator.querySelector('.scroll-indicator-bar');
+    bar.style.width = scrolled + '%';
+  };
+
+  window.addEventListener('scroll', Utils.throttle(updateScrollProgress, 16));
+});
+
+// Enhanced swipe gesture handling
+document.addEventListener('swipeleft', (e) => {
+  // Handle left swipe - could navigate to next section
+  console.log('Swiped left');
+});
+
+document.addEventListener('swiperight', (e) => {
+  // Handle right swipe - could navigate to previous section
+  console.log('Swiped right');
+});
+
+// Service Worker registration enhancement
+if (progressiveEnhancementManager.hasFeature('serviceWorker')) {
+  navigator.serviceWorker.register('/sw.js')
+    .then((registration) => {
+      console.log('ServiceWorker registration successful');
+      
+      // Check for updates
+      registration.addEventListener('updatefound', () => {
+        const newWorker = registration.installing;
+        newWorker.addEventListener('statechange', () => {
+          if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+            toastManager.info('New version available! Refresh to update.', 0);
+          }
+        });
+      });
+    })
+    .catch((error) => {
+      console.log('ServiceWorker registration failed:', error);
+    });
+}
+
+// Performance monitoring
+if ('PerformanceObserver' in window) {
+  const perfObserver = new PerformanceObserver((list) => {
+    for (const entry of list.getEntries()) {
+      if (entry.entryType === 'largest-contentful-paint') {
+        console.log(`LCP: ${entry.startTime}ms`);
+      }
+      if (entry.entryType === 'first-input') {
+        console.log(`FID: ${entry.processingStart - entry.startTime}ms`);
+      }
+    }
+  });
+
+  try {
+    perfObserver.observe({ entryTypes: ['largest-contentful-paint', 'first-input'] });
+  } catch (e) {
+    console.log('Performance observation not supported');
+  }
+}
