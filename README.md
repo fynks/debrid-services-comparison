@@ -9,7 +9,7 @@
   
 Compare [AllDebrid](https://alldebrid.com/), [Real-Debrid](https://real-debrid.com/), [LinkSnappy](https://linksnappy.com/), [Premiumize](https://www.premiumize.me/services), [Debrid-Link](https://debrid-link.com/), [TorBox](https://torbox.app/), [Mega-Debrid](https://www.mega-debrid.eu/), and [Deepbrid](https://www.deepbrid.com/).
   
-[![Interactive Debrid Services Comparison Tool](./dist/images/webversion-preview.png)](https://debrid-services-comparison.netlify.app/)
+[![Interactive Debrid Services Comparison Tool](./dist/image.png)](https://debrid-services-comparison.netlify.app/)
   
 [_*▶ Try the interactive web version with real-time filtering and search*_](https://debrid-services-comparison.netlify.app/) 
   
