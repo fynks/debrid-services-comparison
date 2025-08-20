@@ -1,93 +1,105 @@
 <div align="center">
 
-<h1><img src="./dist/favicon.svg" style="height:1em; width:1em; vertical-align:middle; margin-right:0.5em;">Debrid Services Comparison</h1>
+  <h1>
+    <img src="./dist/favicon.svg" style="height:1em; width:1em; vertical-align:middle; margin-right:0.5em;">
+    Debrid Services Comparison
+  </h1>
 
-A comprehensive, community-maintained comparison of pricing and supported hosts for popular debrid services: <a href="https://alldebrid.com/">AllDebrid</a>, <a href="https://real-debrid.com/">Real-Debrid</a>, <a href="https://linksnappy.com/">LinkSnappy</a>, <a href="https://www.premiumize.me/services">Premiumize</a>, <a href="https://debrid-link.com/">Debrid-Link</a>, <a href="https://torbox.app/">TorBox</a>, <a href="https://www.mega-debrid.eu/">Mega-Debrid</a>, and <a href="https://www.deepbrid.com/">Deepbrid</a>.
-
-<a href="https://debrid-services-comparison.netlify.app/">
-  <img src="./dist/image.png/../images/webversion-preview.png" alt="Debrid Services Comparison Interface" width="800">
-  <p><em>Interactive comparison tool with real-time filtering</em></p>
-</a>
-
-<a href="https://github.com/fynks/debrid-services-comparison/stargazers"><img src="https://img.shields.io/github/stars/fynks/debrid-services-comparison?style=for-the-badge&logo=github&color=yellow" alt="GitHub stars"></a>
-<a href="https://github.com/fynks/debrid-services-comparison"><img src="https://img.shields.io/badge/Debrid--services-8-blue?style=for-the-badge" alt="Services count"></a>
-<a href="https://github.com/fynks/debrid-services-comparison/graphs/contributors"><img src="https://img.shields.io/github/contributors/fynks/debrid-services-comparison?style=for-the-badge&logo=github&color=orange" alt="Contributors"></a>
+**A community-driven, up-to-date comparison of premium debrid services: pricing, host support, refund policies, and performance.**
+  
+Compare [AllDebrid](https://alldebrid.com/), [Real-Debrid](https://real-debrid.com/), [LinkSnappy](https://linksnappy.com/), [Premiumize](https://www.premiumize.me/services), [Debrid-Link](https://debrid-link.com/), [TorBox](https://torbox.app/), [Mega-Debrid](https://www.mega-debrid.eu/), and [Deepbrid](https://www.deepbrid.com/).
+  
+[![Interactive Debrid Services Comparison Tool](./dist/images/webversion-preview.png)](https://debrid-services-comparison.netlify.app/)
+  
+[_*▶ Try the interactive web version with real-time filtering and search*_](https://debrid-services-comparison.netlify.app/) 
+  
+[![GitHub stars](https://img.shields.io/github/stars/fynks/debrid-services-comparison?style=for-the-badge&logo=github&color=yellow)](https://github.com/fynks/debrid-services-comparison/stargazers)
+[![Services Compared: 8](https://img.shields.io/badge/Services_Compared-8-blue?style=for-the-badge&logo=bitbucket)](https://github.com/fynks/debrid-services-comparison)
+[![Contributors](https://img.shields.io/github/contributors/fynks/debrid-services-comparison?style=for-the-badge&logo=github&color=58A6FF)](https://github.com/fynks/debrid-services-comparison/graphs/contributors)
+[![Web App: Interactive Viewer](https://img.shields.io/badge/Web_App-Interactive_Viewer-6E40C9?style=for-the-badge&logo=netlify&logoColor=white)](https://debrid-services-comparison.netlify.app/)
 
 </div>
 
-## What are Debrid services?
+---
 
-Debrid services are premium link generators that:
-- ⚡ Unlock maximum download speeds without waiting
-- 🔗 Provide access to multiple file hosts with a single subscription
-- 🌐 Enable streaming from supported hosts
-- 💾 Convert torrents to direct downloads
+## What are Debrid Services?
 
-## Contents
+Debrid services (also known as *premium link generators*) unlock **faster, ad-free downloads** from file hosts by acting as a high-speed intermediary. Instead of dealing with wait times, captchas, or bandwidth limits, you let the debrid service fetch and cache the file—then deliver it directly to you.
+
+### Key Benefits:
+- ⚡ **Maximum Download Speeds** – Bypass host throttling with direct links
+- 🔗 **Multi-Host Access** – One subscription supports hundreds of file hosts
+- 🌐 **Streaming Ready** – Watch videos instantly from supported hosts
+- 💾 **Torrent-to-Link Conversion** – Add magnet links or torrents to download remotely and get a direct URL
+- 🛡️ **Ad-Free Experience** – No popups, countdowns, or forced waits
+- 🌍 **Global Server Network** – Often located in high-bandwidth regions for optimal performance
+
+> 💡 Think of a debrid service as a “*premium proxy*” between you and file-hosting sites like Rapidgator, Mediafire, or Uptobox.
+
+## 📚 Table of Contents
 
 - [Getting Started](#getting-started)
+  - [Support This Project](#support-this-project)
 - [Pricing Comparison](#pricing-comparison)
-  - [Detailed Pricing](#detailed-pricing)
-  - [Up-to-date Pricing](#up-to-date-pricing)
-  - [Refund Policies](#refund-policies)
 - [Available Hosts](#available-hosts)
   - [File Hosts](#file-hosts)
   - [Adult Hosts](#adult-hosts)
   - [Live Status](#live-status)
 - [Speed Test](#speed-test)
+  - [Official Speed Test Tools](#official-speed-test-tools)
+  - [How to Perform a Real-World Speed Test](#how-to-perform-a-real-world-speed-test)
 - [Frequently Asked Questions](#frequently-asked-questions)
 - [Important Notes](#important-notes)
-- [Useful Resources & Community](#useful-resources--community)
+- [Useful Resources and Community](#useful-resources-and-community)
 - [Contributing](#contributing)
+- [Support and Stay Updated](#support-and-stay-updated)
 
 ## Getting Started
 
 ### Support This Project
 
-<div align="center">
+> This comparison is free, open-source, and community-maintained. If it helped you choose a service, consider using a referral link below — it supports ongoing updates at no extra cost to you.
 
-If this comparison helped you, consider using the referral links below. It supports maintenance at no extra cost to you. 🙏
 
-</div>
+| Service         | Referral Link | Direct Link |
+| :-------------- | :--------------- | :------------- |
+| **AllDebrid**   | [Sign up with referral](https://alldebrid.com/?uid=3wvya&lang=en) | [Direct signup](https://alldebrid.com/register/) |
+| **Real-Debrid** | [Sign up with referral](https://real-debrid.com/?id=10990901) | [Direct signup](https://real-debrid.com/) |
+| **TorBox**      | ❌ Not available | [Direct signup](https://torbox.app/login) |
+| **Premiumize**  | ❌ Not available | [Direct signup](https://www.premiumize.me/register) |
+| **LinkSnappy**  | [Sign up with referral](https://linksnappy.com/?ref=774668) | [Direct signup](https://linksnappy.com/home#Register) |
+| **Debrid-Link** | [Sign up with referral](https://debrid-link.com/id/7B3BO) | [Direct signup](https://debrid-link.com/webapp/register) |
+| **Mega-Debrid** | ❌ Not available | [Direct signup](https://www.mega-debrid.eu/index.php?page=freeregister) |
+| **Deepbrid**    | [Sign up with referral](https://www.deepbrid.com/aff/go/upward1971) | [Direct signup](https://www.deepbrid.com/signup) |
 
-| Service         | Referral Link                                                           | Direct Link                                                              |
-| :-------------- | :---------------------------------------------------------------------- | :----------------------------------------------------------------------- |
-| AllDebrid       | [🎁 Sign up with referral](https://alldebrid.com/?uid=3wvya&lang=en)     | [Direct signup](https://alldebrid.com/register/)                         |
-| Real-Debrid     | [🎁 Sign up with referral](https://real-debrid.com/?id=10990901)         | [Direct signup](https://real-debrid.com/)                                |
-| TorBox          | ❌                                                                       | [Direct signup](https://torbox.app/login)                                |
-| Premiumize      | ❌                                                                       | [Direct signup](https://www.premiumize.me/register)                      |
-| LinkSnappy      | [🎁 Sign up with referral](https://linksnappy.com/?ref=774668)           | [Direct signup](https://linksnappy.com/home#Register)                    |
-| Debrid-Link     | [🎁 Sign up with referral](https://debrid-link.com/id/7B3BO)             | [Direct signup](https://debrid-link.com/webapp/register)                 |
-| Mega-Debrid     | ❌                                                                       | [Direct signup](https://www.mega-debrid.eu/index.php?page=freeregister)  |
-| Deepbrid        | [🎁 Sign up with referral](https://www.deepbrid.com/aff/go/upward1971)   | [Direct signup](https://www.deepbrid.com/signup)                         |
+> 🔐 **Transparency Note**: This project has no financial relationship with any service. Referrals help cover hosting and maintenance costs, but we never accept payment for favorable placement.
 
 ---
 
 ## Pricing Comparison
 
-Note: Longer subscriptions generally offer better value per month. Compare effective monthly rates below.
+> 💡 **Tip**: Longer plans often offer better value. Compare **effective monthly rates** below to find the best deal.
 
-### Detailed Pricing
+### Detailed Pricing and Value Analysis
 
-| Plan Duration  | AllDebrid     | Premiumize | Real-Debrid | TorBox      | Debrid-Link | LinkSnappy | Mega-Debrid | Deepbrid     |
-| :------------- | :------------ | :--------- | :---------- | :---------- | :---------- | :--------- | :---------- | :----------- |
-| Free/Trial     | 7 days¹       | ❌          | ❌           | Free tier²  | ❌           | ❌          | ❌           | Limited Hosts|
-| 7 Days         | ❌             | ❌          | ❌           | ❌           | ❌           | $4.99      | ❌           | ❌            |
-| 15 Days        | €2.99⁴        | ❌          | €3.00       | ❌           | €3.00       | ❌          | ❌           | €4.50        |
-| 30 Days        | €2.99³/€3.99⁴ | $11.99     | €4.00       | From $3.00⁵ | €4.00       | $12.99     | €4.00       | €4.99        |
-| 90 Days        | €8.99⁴        | $29.99     | €9.00       | ❌           | €9.00       | $29.99     | €9.00       | €12.99       |
-| 180 Days       | €15.99⁴       | ❌          | €16.00      | ❌           | €16.00      | $54.99     | €16.00      | €19.99       |
-| 300 Days       | €24.99⁴       | ❌          | ❌           | ❌           | €25.00      | ❌          | ❌           | ❌            |
-| 365 Days       | ❌             | $79.99     | ❌           | ❌           | ❌           | ❌          | ❌           | €32.99       |
+| Plan Duration       | AllDebrid                          | Premiumize                         | Real-Debrid       | TorBox                             | Debrid-Link       | LinkSnappy         | Mega-Debrid       | Deepbrid           |
+| :------------------ | :--------------------------------- | :--------------------------------- | :---------------- | :--------------------------------- | :---------------- | :----------------- | :---------------- | :----------------- |
+| **Free / Trial**    | 7-day trial¹                       | ❌                                 | ❌                | Free tier²                         | ❌                | ❌                 | ❌                | Limited hosts only |
+| **7 Days**          | ❌                                 | ❌                                 | ❌                | ❌                                 | ❌                | $4.99              | ❌                | ❌                 |
+| **15 Days**         | €2.99 (one-time)⁴                  | ❌                                 | €3.00             | ❌                                 | €3.00             | ❌                 | €3.00             | €4.50              |
+| **30 Days**         | €2.99 (recurring)³<br>€3.99 (one-time)⁴ | $11.99                             | €4.00             | From $3.00/month⁵                  | €4.00             | $12.99             | €4.00             | €4.99              |
+| **90 Days**         | €8.99 (one-time)⁴                  | $29.99                             | €9.00             | ❌                                 | €9.00             | $29.99             | €9.00             | €12.99             |
+| **180 Days**        | €15.99 (one-time)⁴                 | ❌                                 | €16.00            | ❌                                 | €16.00            | $54.99             | €16.00            | €19.99             |
+| **300 Days**        | €24.99 (one-time)⁴                 | ❌                                 | ❌                | ❌                                 | €25.00            | ❌                 | ❌                | ❌                 |
+| **365 Days / 1 Year** | ❌                                 | $79.99                             | ❌                | ❌                                 | ❌                | ❌                 | ❌                | €32.99             |
 
-Notes:
-- ¹ AllDebrid: 7-day free trial requires phone verification
-- ² TorBox: Free tier with limited features
-- ³ AllDebrid: Recurring subscription price
-- ⁴ AllDebrid: One-time monthly payment price
-- ⁵ TorBox: Multiple tiers starting from $3.00/month
 
----
+### Notes
+> - **¹ AllDebrid Free Trial**: 7-day trial requires phone verification. [More info](https://alldebrid.com/)
+> - **² TorBox Free Tier**: Limited speed and features; no torrenting. [Pricing page](https://torbox.app/pricing)
+> - **³ AllDebrid Recurring**: Auto-renews monthly at €2.99 (may increase; check TOS)
+> - **⁴ AllDebrid / Debrid-Link One-Time**: Non-recurring payment. Often better value than recurring.
+> - **⁵ TorBox Tiers**: Multiple plans starting at $3.00/month. Higher tiers unlock more features.
 
 ### Up-to-date Pricing
 
@@ -101,27 +113,7 @@ Prices change frequently. Always verify current pricing on official pages:
 - Mega-Debrid — https://www.mega-debrid.eu/index.php?page=offres
 - Deepbrid — https://www.deepbrid.com/signup
 
-Last pricing review: June 26, 2025
-
-### Refund Policies
-
-Always read the current refund policy on each service’s site before purchasing.
-
-| Service      | Refund Policy                                                     | Terms/Policy Link                                               |
-| :----------- | :---------------------------------------------------------------- | :-------------------------------------------------------------- |
-| AllDebrid    | Check Terms of Service for conditions                             | https://alldebrid.com/tos/                                      |
-| Real-Debrid  | Up to 14 days if account unused (check traffic page first)        | https://real-debrid.com/terms                                   |
-| TorBox       | See terms for refund conditions                                   | https://torbox.app/terms#refunds                                |
-| Premiumize   | See legal page for refund policy                                  | https://www.premiumize.me/legal#refund                          |
-| LinkSnappy   | Dedicated refund policy                                            | https://linksnappy.com/refund-policy                            |
-| Debrid-Link  | See Terms of Service for refund conditions                        | https://debrid-link.com/tos                                     |
-| Mega-Debrid  | No standard refund policy (contact support)                       | https://www.mega-debrid.eu/                                     |
-| Deepbrid     | Dedicated refund policy page                                      | https://www.deepbrid.com/page/refund-policy                     |
-
-Refund tips:
-- Start with shorter plans to test compatibility
-- Check Real-Debrid’s traffic page before requesting a refund
-- Keep purchase records and open support tickets promptly
+<sub>`Last pricing review: June 26, 2025`</sub>
 
 ## Available Hosts
 
@@ -418,44 +410,66 @@ Refund tips:
 
 ### Adult Hosts
 
-See: [Adult-hosts.md](./Adult-hosts.md)
+Support for adult content varies significantly across debrid services. Some platforms actively support major adult file hosts, while others exclude them entirely due to policy or legal considerations.
+
+For a complete, up-to-date comparison of which services support adult-oriented hosts, see:  
+👉 [`Adult-hosts.md`](./Adult-hosts.md)
 
 ### Live Status
 
-For real-time host availability and service status:
-- AllDebrid — https://alldebrid.com/status/
-- Real-Debrid — https://real-debrid.com/compare
-- LinkSnappy — https://linksnappy.com/myaccount/status
-- Premiumize — https://www.premiumize.me/services
-- TorBox — https://torbox.app/hosters
-- Debrid-Link — https://debrid-link.com/webapp/status
-- Mega-Debrid — https://www.mega-debrid.eu/index.php?page=hebergeurs
-- Deepbrid — https://www.deepbrid.com/status
+Service availability and host support can change in real time. Use these official status pages to check current host connectivity, server health, and service uptime.
+
+| Service       | Live Host Status Page                                  |
+| :------------ | :------------------------------------------------------- |
+| **AllDebrid**   | [alldebrid.com/status/](https://alldebrid.com/status/)     |
+| **Real-Debrid** | [real-debrid.com/compare](https://real-debrid.com/compare) |
+| **Premiumize**  | [premiumize.me/services](https://www.premiumize.me/services) |
+| **LinkSnappy**  | [linksnappy.com/myaccount/status](https://linksnappy.com/myaccount/status) |
+| **TorBox**      | [torbox.app/hosters](https://torbox.app/hosters)           |
+| **Debrid-Link** | [debrid-link.com/webapp/status](https://debrid-link.com/webapp/status) |
+| **Mega-Debrid** | [mega-debrid.eu/hebergeurs](https://www.mega-debrid.eu/index.php?page=hebergeurs) |
+| **Deepbrid**    | [deepbrid.com/status](https://www.deepbrid.com/status)     |
+
+> 💡 Tip: Bookmark these pages to verify if a failed link is due to a temporary host outage rather than a service limitation.
 
 ## Speed Test
 
-Test before you buy—actual speeds vary by location, time, and host.
+Download speeds vary based on your location, time of day, server load, and target file host. Always test performance before committing to a long-term plan.
 
-### Official Speed Test Pages
-- Real-Debrid — https://real-debrid.com/speedtest
-- TorBox — https://www.torbox.app/speedtest
-- Premiumize — https://www.premiumize.me/speedtest
-- Debrid-Link — https://debrid-link.com/webapp/speedtest
-- Mega-Debrid — https://www.mega-debrid.eu/index.php?page=network
+### Official Speed Test Tools
 
-### DIY Speed Testing
+Use these direct speed test links to measure real-world performance from each provider’s servers:
 
-Manual testing tips:
-1. Use the same test file (e.g., a Linux ISO) across services
-2. Keep conditions consistent: same time window, network, and device
-3. Clear browser cache between tests
-4. Run at least 3 runs per service and average results
+| Service       | Speed Test Page                                          |
+| :------------ | :------------------------------------------------------- |
+| **Real-Debrid** | [real-debrid.com/speedtest](https://real-debrid.com/speedtest) |
+| **Premiumize**  | [premiumize.me/speedtest](https://www.premiumize.me/speedtest) |
+| **TorBox**      | [torbox.app/speedtest](https://www.torbox.app/speedtest)       |
+| **Debrid-Link** | [debrid-link.com/webapp/speedtest](https://debrid-link.com/webapp/speedtest) |
+| **Mega-Debrid** | [mega-debrid.eu/network](https://www.mega-debrid.eu/index.php?page=network) |
 
-Performance factors:
-- Time of day and service load
-- Distance to servers (latency)
-- ISP routing/peering and possible throttling
-- Individual file host performance
+> 📌 These tests typically use large files hosted directly on the provider's network, giving you the best-case speed scenario.
+
+---
+
+### How to Perform a Real-World Speed Test
+
+For a more accurate assessment, follow these steps:
+
+1. **Choose a common test file** (e.g., a Linux ISO or public benchmark file) available on multiple hosts.
+2. **Use the same network and device** for all tests to ensure consistency.
+3. **Clear cache and cookies** between sessions or use private browsing.
+4. **Run 3 tests per service** and calculate the average speed.
+5. **Test during peak and off-peak hours** to gauge performance variability.
+
+#### Factors That Affect Speed:
+- Geographical distance to provider’s servers  
+- Time of day and network congestion  
+- Performance of the original file host (e.g., Rapidgator vs. Katfile)  
+- Your ISP’s routing and potential throttling  
+- Local network setup (Wi-Fi vs. Ethernet, router quality)
+
+> ⚠️ Note: Advertised "unlimited" speeds may be subject to fair-use policies or soft caps under heavy usage.
 
 ## Frequently Asked Questions
 
@@ -495,7 +509,7 @@ Most support torrent-to-direct-download (cloud download then direct link).
 Many advertise “unlimited,” but fair-use or soft caps can apply. Check each service’s terms.
 </details>
 
-### Accounts & Billing
+### Accounts and Billing
 
 <details><summary>Can I share my account?</summary>
 Most prohibit sharing. Some enforce IP/session limits. Violations may lead to suspension.
@@ -519,7 +533,7 @@ Temporary host issues, removed files, API changes, geo restrictions, or host acc
 Varies by provider. See the Refund Policies section and start with short plans to test first.
 </details>
 
-### Security & Privacy
+### Security and Privacy
 
 <details><summary>Do services log my downloads?</summary>
 Policies vary. Many keep minimal technical logs; some claim no logs. EU services must comply with GDPR. Check privacy policies.
@@ -535,21 +549,78 @@ They can see connections and volume but not file names over HTTPS. A VPN adds an
 
 ## Important Notes
 
-- Pricing, features, and host coverage can change without notice—verify on official sites before buying
-- Exchange rates and taxes may affect final pricing
-- This project provides information only and offers no guarantees of uptime, speed, or availability
-- Not affiliated with any listed service
-- Use at your own discretion and risk
+This project aims to provide accurate and up-to-date information, but the debrid service landscape is dynamic. Please keep the following in mind:
 
-## Useful Resources & Community
+- 👉 **Services change frequently**: Pricing, host support, refund policies, and features may be updated without notice. Always verify details on the **official service websites** before purchasing.
+- 👉 **Final cost may vary**: Displayed prices are subject to exchange rates, regional taxes, or payment processing fees. Your actual charge may differ slightly.
+- 👉 **Data accuracy**: While we strive for completeness, this comparison reflects community reports and public information. We do **not guarantee** uptime, speed, download success, or feature availability.
+- 👉 **No affiliation**: This project is independent and **not affiliated** with AllDebrid, Real-Debrid, Premiumize, TorBox, LinkSnappy, Debrid-Link, Mega-Debrid, Deepbrid, or any other listed service.
+- 👉 **Use at your own discretion**: Choosing a debrid service involves personal judgment. Test short-term plans first and review terms carefully.
+- 👉 **Legal responsibility**: Debrid services are tools. You are responsible for complying with copyright laws and terms of use when accessing content.
 
-- Awesome-Debrid — https://github.com/debridmediamanager/awesome-debrid
+> This is an open-source, community-maintained guide. It does not endorse or promote unauthorized file sharing.
+
+## Useful Resources and Community
+
+Enhance your debrid experience with these trusted tools, guides, and communities:
+
+### Tools and Integrations
+- [**Awesome-Debrid**](https://github.com/debridmediamanager/awesome-debrid) — Curated list of debrid-compatible apps, browser extensions, and automation tools (e.g., Debrid Media Manager, Real-Debrid Tools)
+- [**Debrid Media Manager**](https://github.com/debridmediamanager/debrid-media-manager) - With this app, you can easily download movies and TV shows directly to your Debrid library.
+- [**Real-Debrid Torrent Client**](https://github.com/rogerfar/rdt-client) - A web interface to manage your torrents on Real-Debrid, AllDebrid, Premiumize TorBox or DebridLink.
+- [**Comet**](https://github.com/g0ldyy/comet) - Stremio's torrent/debrid search add-on.
+- [**Jackett + Prowlarr**](https://github.com/jackett/jackett) — Indexer proxies that work seamlessly with debrid services for automation
+
+### Community and Support
+- **Reddit**: Active discussions on [r/Debrid](https://www.reddit.com/r/debbrid), [r/Piracy](https://www.reddit.com/r/piracy) and service-specific threads.
+- **Discord**: Many services offer official Discord servers for real-time support and status updates
+- **GitHub Issues**: Report inaccuracies or suggest improvements here — this project thrives on community input!
+
+> 💡 Pro Tip: Combine your debrid service with automation tools like **Debrid Media Manager (DMM)** or **Overseerr** for a seamless media experience.
 
 ## Contributing
 
-Spotted outdated pricing, host coverage changes, or broken links?
-- Open an issue with a source link and the date observed
-- Or submit a PR updating the relevant table/section
-- Please update the “Last updated” notes when you change data
+This project thrives on community input. Prices change, host support evolves, and new features emerge — your contributions help keep this guide accurate and reliable.
 
-Thanks to all contributors who keep this comparison current!
+### What You Can Help With
+- ✅ **Pricing updates** (with source link or screenshot)
+- ✅ **Host support changes** (newly supported or removed hosts)
+- ✅ **Broken links or typos**
+- ✅ **Missing refund policy details**
+- ✅ **Suggestions for usability improvements**
+
+### How to Contribute
+
+You can help in two ways:
+
+#### Option 1: Open an Issue (Recommended for Most Users)
+1. Go to the [Issues tab](https://github.com/fynks/debrid-services-comparison/issues)
+2. Click **"New Issue"**
+3. Include:
+   - Service name
+   - Change observed (e.g., "AllDebrid now supports Terabox")
+   - Proof: **Link to official page or screenshot**
+   - Date of observation
+4. Submit — maintainers will review and update
+
+#### Option 2: Submit a Pull Request (For Experienced Users)
+1. Fork the repository
+2. Edit the relevant file (`README.md`, `Adult-hosts.md`, etc.)
+3. **Update the `Last updated` date** at the bottom
+4. Create a pull request with a clear description
+
+### Verification Policy
+**All contributions are reviewed against **official sources** before merging. Unverified claims may be closed.**
+
+## Support and Stay Updated
+
+If this project saved you time or helped you make a better decision, here’s how you can support its continued maintenance and improvement:
+
+- **⭐ Star the repository** — It helps others discover this resource!
+- **Share it** with friends or communities who use debrid services
+- **Contribute updates** — Found outdated pricing or new host support? [Open an issue](https://github.com/fynks/debrid-services-comparison/issues) or submit a PR
+- **Use referral links** (if signing up) — Supports this project at no extra cost to you
+
+This is a community-driven, open-source guide with no ads or paid promotions. Your support keeps it accurate, neutral, and freely available.
+
+> Thank you for visiting — every star, share, and contribution makes a difference! 💙
