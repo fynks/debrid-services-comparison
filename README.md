@@ -624,3 +624,10 @@ If this project saved you time or helped you make a better decision, here’s ho
 This is a community-driven, open-source guide with no ads or paid promotions. Your support keeps it accurate, neutral, and freely available.
 
 > Thank you for visiting — every star, share, and contribution makes a difference! 💙
+
+---
+<div align="center">
+
+⚡ Made with ❤️ by [Debrid Service Comparison](https://github.com/fynks/debrid-services-comparison)
+
+</div>
