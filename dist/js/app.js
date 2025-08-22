@@ -313,7 +313,9 @@ class TableManager {
         this.elements.container.insertBefore(indicator, this.elements.container.firstChild);
       }
       indicator.textContent = `Showing ${resultCount} of ${totalCount} services`;
-      indicator.style.display = 'block';
+  indicator.style.display = 'block';
+  indicator.style.textAlign = 'center';
+  indicator.style.padding = '0.5em 0';
     } else if (indicator) {
       indicator.style.display = 'none';
     }
@@ -755,7 +757,7 @@ function setupURLComparison() {
 }
 
 function setupScrollAnimations() {
-  const animatedElements = document.querySelectorAll('.section, .quick-nav-card, .status-card, .referral-card');
+  const animatedElements = document.querySelectorAll('.section, .status-card, .referral-card');
   if (animatedElements.length) Utils.animateOnScroll(animatedElements);
 }
 
