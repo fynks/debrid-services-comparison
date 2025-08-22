@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <title>Debrid Services Comparison - Compare Pricing & Hosts</title>
-  <meta name="description" content="Compare pricing and supported hosts across AllDebrid, Real-Debrid, LinkSnappy, Premiumize, Debrid-Link, TorBox, Mega-Debrid & DeepBird.">
+  <meta name="description" content="Compare pricing and supported hosts across AllDebrid, Real-Debrid, LinkSnappy, Premiumize, Debrid-Link, TorBox, Mega-Debrid & Deepbrid.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Fynks">
   <meta name="google-site-verification" content="nlH9UKmiZsYOuMXXnRc9pKL-AW5rECWikqcUqzri-yQ">
+  <link rel="canonical" href="https://debrid-services-comparison.netlify.app/">
 
   <!-- Theme color per scheme -->
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
@@ -21,26 +21,33 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
-  <link rel="canonical" href="https://debrid-services-comparison.netlify.app/">
-  
-  <!-- Preconnects for fonts -->
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <!-- Async Google Fonts CSS with swap -->
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" onload="this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
 
-    <meta name="description"
-        content="Compare pricing and supported hosts across AllDebrid, Real-Debrid, LinkSnappy, Premiumize, Debrid-Link, TorBox, Mega-Debrid & DeepBird.">
-    <meta name="keywords"
-        content="debrid services comparison, AllDebrid, Real-Debrid, LinkSnappy, Premiumize, Debrid-Link, TorBox, Mega-Debrid, file hosting,debrid, debrid services, debrid providers, download services, premium downloads, torrent, torrent-free-downloader, torrent-to-link, link-converter, magnet-to-link, magnet downloader, DeepBird">
-    <meta name="author" content="Fynks">
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#6366f1">
-    <meta name="google-site-verification" content="nlH9UKmiZsYOuMXXnRc9pKL-AW5rECWikqcUqzri-yQ">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://debrid-services-comparison.netlify.app/">
+  <meta property="og:title" content="Debrid Services Comparison">
+  <meta property="og:description" content="Compare pricing and supported hosts across major debrid services. Find the best premium download service for your needs.">
+  <meta property="og:image" content="https://debrid-services-comparison.netlify.app/image.png">
+  <meta property="og:site_name" content="Debrid Services Comparison">
+  <meta property="og:locale" content="en_US">
 
-  <script src="js/app.js" defer></script>
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://debrid-services-comparison.netlify.app/">
+  <meta name="twitter:title" content="Debrid Services Comparison">
+  <meta name="twitter:description" content="Compare pricing and supported hosts across major debrid services. Find the best premium download service for your needs.">
+  <meta name="twitter:image" content="https://debrid-services-comparison.netlify.app/image.png">
+
+  <!-- Prefetch data for quick subsequent use (non-blocking) -->
+  <link rel="prefetch" href="/json/file-hosts.json" crossorigin>
+  <link rel="prefetch" href="/json/adult-hosts.json" crossorigin>
+  <link rel="prefetch" href="/json/pricing.json" crossorigin>
 
   <!-- Early theme apply to avoid flash -->
   <script>
@@ -55,30 +62,106 @@
     })();
   </script>
 
- <style>:root{ color-scheme: light dark; --primary:#6366f1;--primary-hover:#4f46e5;--primary-light:#a5b4fc;--primary-dark:#3730a3; --success:#10b981;--warning:#f59e0b;--error:#ef4444;--info:#3b82f6; --gray-50:#f8fafc;--gray-100:#f1f5f9;--gray-200:#e2e8f0;--gray-300:#cbd5e1;--gray-400:#94a3b8;--gray-500:#64748b;--gray-600:#475569;--gray-700:#334155;--gray-800:#1e293b;--gray-900:#0f172a; --text-primary:var(--gray-900);--text-secondary:var(--gray-600);--text-tertiary:var(--gray-500);--text-muted:var(--gray-400); --bg-primary:#fff;--bg-secondary:var(--gray-50);--bg-tertiary:var(--gray-100);--bg-elevated:#fff; --border-primary:var(--gray-200);--border-secondary:var(--gray-300);--border-focus:var(--primary); --space-px:1px;--space-0-5:.125rem;--space-1:.25rem;--space-1-5:.375rem;--space-2:.5rem;--space-2-5:.625rem;--space-3:.75rem;--space-3-5:.875rem;--space-4:1rem;--space-5:1.25rem;--space-6:1.5rem;--space-7:1.75rem;--space-8:2rem;--space-9:2.25rem;--space-10:2.5rem;--space-11:2.75rem;--space-12:3rem;--space-14:3.5rem;--space-16:4rem;--space-20:5rem;--space-24:6rem; --text-xs:.75rem;--text-sm:.875rem;--text-base:1rem;--text-lg:1.125rem;--text-xl:1.25rem;--text-2xl:1.5rem;--text-3xl:1.875rem;--text-4xl:2.25rem;--text-5xl:3rem;--text-6xl:3.75rem; --font-normal:400;--font-medium:500;--font-semibold:600;--font-bold:700;--font-extrabold:800; --radius-md:.375rem;--radius-lg:.5rem;--radius-xl:.75rem;--radius-2xl:1rem;--radius-full:9999px; --shadow-sm:0 1px 3px 0 rgb(0 0 0 / .1),0 1px 2px -1px rgb(0 0 0 / .1); --shadow-md:0 4px 6px -1px rgb(0 0 0 / .1),0 2px 4px -2px rgb(0 0 0 / .1); --shadow-lg:0 10px 15px -3px rgb(0 0 0 / .1),0 4px 6px -4px rgb(0 0 0 / .1); --shadow-focus:0 0 0 3px rgb(99 102 241 / .15); --transition-fast:.15s cubic-bezier(.4,0,.2,1); --transition-normal:.2s cubic-bezier(.4,0,.2,1); --transition-slow:.3s cubic-bezier(.4,0,.2,1); --container-max-width:1280px;--header-height:4.5rem;--z-sticky:1020;--z-docked:10} [data-theme="dark"]{ --text-primary:var(--gray-50);--text-secondary:var(--gray-300);--text-tertiary:var(--gray-400);--text-muted:var(--gray-500); --bg-primary:var(--gray-900);--bg-secondary:var(--gray-800);--bg-tertiary:var(--gray-700);--bg-elevated:var(--gray-800); --border-primary:var(--gray-700);--border-secondary:var(--gray-600); --border-focus:var(--primary-light); --primary:#818cf8;--primary-hover:#a5b4fc;--primary-light:#c7d2fe;--primary-dark:#6366f1; --shadow-sm:0 1px 3px 0 rgb(0 0 0 / .4),0 1px 2px -1px rgb(0 0 0 / .4); --shadow-md:0 4px 6px -1px rgb(0 0 0 / .4),0 2px 4px -2px rgb(0 0 0 / .4); --shadow-lg:0 10px 15px -3px rgb(0 0 0 / .4),0 4px 6px -4px rgb(0 0 0 / .4); --shadow-focus:0 0 0 3px rgb(129 140 248 / .2)} *,::before,::after{box-sizing:border-box;margin:0;padding:0} html{scroll-behavior:smooth;font-size:16px;line-height:1.6;-webkit-text-size-adjust:100%} body{ font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-feature-settings:'cv01','cv03','cv04','cv11';font-variation-settings:'opsz' 32; background-color:var(--bg-primary);color:var(--text-primary); transition:background-color var(--transition-normal),color var(--transition-normal); -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility; min-height:100vh;overflow-x:hidden} img,svg,video,canvas{max-width:100%;height:auto} :focus{outline:2px solid var(--border-focus);outline-offset:2px} :focus:not(:focus-visible){outline:none} :focus-visible{outline:2px solid var(--border-focus);outline-offset:2px} .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden} .skip-link:focus{position:fixed;left:var(--space-4);top:var(--space-4);width:auto;height:auto;padding:var(--space-2) var(--space-3);background:var(--bg-primary);color:var(--text-primary);border:2px solid var(--border-focus);border-radius:var(--radius-lg);box-shadow:var(--shadow-md);z-index:9999} h1,h2,h3,h4,h5,h6{ font-weight:var(--font-bold);line-height:1.25;letter-spacing:-.025em;color:var(--text-primary); text-wrap:balance;scroll-margin-top:calc(var(--header-height) + var(--space-4))} h1{font-size:var(--text-4xl);font-weight:var(--font-extrabold)} h2{font-size:var(--text-3xl);font-weight:var(--font-bold)} h3{font-size:var(--text-2xl);font-weight:var(--font-semibold)} p{line-height:1.75;margin-bottom:var(--space-4)} a{color:var(--primary);text-decoration:none;transition:color var(--transition-normal)} a:hover{color:var(--primary-hover);text-decoration:none} .page-wrapper{min-height:100vh;display:flex;flex-direction:column;position:relative} .container{max-width:var(--container-max-width);margin:0 auto;padding:0 var(--space-6);width:100%} .main-content{flex:1;position:relative} .site-header{ position:sticky;top:0;z-index:var(--z-sticky); background:rgb(255 255 255 / .8); -webkit-backdrop-filter:blur(10px) saturate(150%);backdrop-filter:blur(10px) saturate(150%); border-bottom:1px solid var(--border-primary);height:var(--header-height); transition:background-color var(--transition-normal),border-color var(--transition-normal),backdrop-filter var(--transition-slow),box-shadow var(--transition-normal)} @supports not ((backdrop-filter: blur(1px))){.site-header{background:rgb(255 255 255 / .95)}} [data-theme="dark"] .site-header{background:rgb(15 23 42 / .8)} .header-content{display:flex;align-items:center;justify-content:space-between;height:var(--header-height);gap:var(--space-8)} .site-title{ display:flex;align-items:center;gap:var(--space-2); font-size:var(--text-xl);font-weight:var(--font-bold);color:var(--text-primary);text-decoration:none;position:relative; transition:color var(--transition-normal),transform var(--transition-normal),text-shadow var(--transition-normal)} .site-title:hover{color:var(--primary);transform:translateY(-1px)} .site-title:focus-visible{border-radius:var(--radius-md);box-shadow:var(--shadow-focus)} .logo-icon{font-size:var(--text-2xl);filter:drop-shadow(0 2px 4px rgb(99 102 241 / .2));transition:transform var(--transition-normal),filter var(--transition-normal)} .site-title:hover .logo-icon{transform:rotate(-5deg) scale(1.1)} .header-nav{display:flex;align-items:center;gap:var(--space-6)} .nav-link{ position:relative;display:inline-flex;align-items:center;padding:var(--space-2) var(--space-3); font-size:var(--text-sm);font-weight:var(--font-medium);color:var(--text-secondary);border-radius:var(--radius-lg);white-space:nowrap; transition:color var(--transition-normal),background-color var(--transition-normal),transform var(--transition-normal),box-shadow var(--transition-normal),border-color var(--transition-normal)} .nav-link::before{ content:'';position:absolute;bottom:-2px;left:50%;width:0;height:2px;background:var(--primary); border-radius:var(--radius-full);transition:width var(--transition-normal),left var(--transition-normal);transform:translateX(-50%)} .nav-link:hover{color:var(--primary);background:var(--bg-secondary);transform:translateY(-1px)} .nav-link:hover::before{width:70%} .nav-link:focus-visible{box-shadow:var(--shadow-focus)} .dark-mode-toggle{ display:flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;border:2px solid var(--border-primary); border-radius:var(--radius-full);background:var(--bg-primary);color:var(--text-primary);cursor:pointer;position:relative;overflow:hidden; transition:background-color var(--transition-normal),border-color var(--transition-normal),transform var(--transition-normal),box-shadow var(--transition-normal),color var(--transition-normal); touch-action:manipulation} .dark-mode-toggle:hover{background:var(--bg-secondary);border-color:var(--primary);transform:scale(1.05);box-shadow:var(--shadow-md)} .dark-mode-toggle:focus-visible{box-shadow:var(--shadow-focus)} .sun-icon,.moon-icon{position:absolute;transition:opacity var(--transition-normal),transform var(--transition-normal)} .moon-icon{display:none;transform:rotate(180deg)} [data-theme="dark"] .sun-icon{display:none} [data-theme="dark"] .moon-icon{display:block;transform:rotate(0deg)} .hero-section{ position:relative;padding:var(--space-24) 0 var(--space-20); background:linear-gradient(135deg,var(--bg-primary) 0%,var(--bg-secondary) 100%); overflow:hidden} .hero-section::before{ content:'';position:absolute;inset:0; background:radial-gradient(circle at 30% 20%,rgb(99 102 241 / .1) 0%,transparent 50%),radial-gradient(circle at 70% 80%,rgb(99 102 241 / .05) 0%,transparent 50%); pointer-events:none} [data-theme="dark"] .hero-section{background:linear-gradient(135deg,var(--bg-primary) 0%,var(--bg-secondary) 100%)} [data-theme="dark"] .hero-section::before{ background:radial-gradient(circle at 30% 20%,rgb(129 140 248 / .15) 0%,transparent 50%),radial-gradient(circle at 70% 80%,rgb(129 140 248 / .08) 0%,transparent 50%)} .hero-content{text-align:center;max-width:900px;margin:0 auto;position:relative;z-index:1;animation:fadeInUp .8s ease-out} @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}} .hero-title{font-size:clamp(var(--text-3xl),8vw,var(--text-6xl));font-weight:var(--font-extrabold);line-height:1.1;margin:0 0 var(--space-6);color:var(--text-primary);letter-spacing:-.02em} .gradient-text{background:linear-gradient(135deg,var(--primary) 0%,#8b5cf6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;position:relative} [data-theme="dark"] .gradient-text{background:linear-gradient(135deg,var(--primary-light) 0%,#c4b5fd 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text} .hero-description{font-size:clamp(var(--text-lg),4vw,var(--text-xl));color:var(--text-secondary);margin:0 0 var(--space-10);max-width:650px;margin-left:auto;margin-right:auto;line-height:1.6} .hero-actions{display:flex;gap:var(--space-4);justify-content:center;margin-bottom:var(--space-16);flex-wrap:wrap} .hero-stats{display:flex;gap:var(--space-12);justify-content:center;flex-wrap:wrap} .stat-item{text-align:center;position:relative} .stat-item:not(:last-child)::after{content:'';position:absolute;right:calc(-1 * var(--space-6));top:50%;transform:translateY(-50%);width:1px;height:40px;background:var(--border-primary)} .stat-number{display:block;font-size:clamp(var(--text-2xl),6vw,var(--text-4xl));font-weight:var(--font-extrabold);color:var(--primary);margin-bottom:var(--space-1);background:linear-gradient(135deg,var(--primary) 0%,#8b5cf6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text} .stat-label{font-size:var(--text-sm);color:var(--text-secondary);text-transform:uppercase;letter-spacing:.1em;font-weight:var(--font-medium)} .btn{ display:inline-flex;align-items:center;gap:var(--space-2); padding:var(--space-4) var(--space-8);border:2px solid transparent;border-radius:var(--radius-xl); font-size:var(--text-base);font-weight:var(--font-semibold);text-decoration:none;cursor:pointer;white-space:nowrap;position:relative;overflow:hidden;text-align:center;min-width:140px;justify-content:center; transition:color var(--transition-normal),background-color var(--transition-normal),border-color var(--transition-normal),transform var(--transition-normal),box-shadow var(--transition-normal),opacity var(--transition-normal); touch-action:manipulation} .btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgb(255 255 255 / .2),transparent);transition:left .5s} .btn:hover::before{left:100%} .btn-primary{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:#fff;box-shadow:var(--shadow-md)} .btn-primary:hover{background:linear-gradient(135deg,var(--primary-hover) 0%,var(--primary) 100%);transform:translateY(-2px);box-shadow:var(--shadow-lg)} .btn-primary:focus-visible{box-shadow:var(--shadow-focus),var(--shadow-lg)} .btn-secondary{background:transparent;color:var(--text-primary);border:2px solid var(--border-primary)} .btn-secondary:hover{border-color:var(--primary);color:var(--primary);background:var(--bg-secondary);transform:translateY(-2px);box-shadow:var(--shadow-md)} .btn-secondary:focus-visible{box-shadow:var(--shadow-focus)} @media (width <=1024px){ .container{padding:0 var(--space-4)}} @media (width <=768px){ .header-nav{display:none} .hero-title{font-size:var(--text-3xl)} .hero-description{font-size:var(--text-lg)} .hero-actions{flex-direction:column;align-items:center} .hero-stats{gap:var(--space-6)} .container{padding:0 var(--space-4)} .nav-link{padding:var(--space-1-5) var(--space-2);font-size:var(--text-xs)}} @media (width <=640px){ .container{padding:0 var(--space-4)} .hero-actions{flex-direction:column;align-items:center;gap:var(--space-3)} .hero-stats{gap:var(--space-8)} .nav-link{padding:var(--space-1-5) var(--space-2);font-size:var(--text-xs)} .btn{width:100%;max-width:280px;padding:var(--space-4) var(--space-6)}} @media (width <=480px){ .hero-section{padding:var(--space-16) 0 var(--space-12)} .btn{width:100%;justify-content:center} .hero-stats{flex-direction:column;gap:var(--space-4)}} @media (prefers-reduced-motion:reduce){ *,::before,::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important} html{scroll-behavior:auto}} @media (prefers-contrast:high){ :root{--border-primary:#000;--text-secondary:#000} [data-theme="dark"]{--border-primary:#fff;--text-secondary:#fff}}
+  <!-- Critical CSS (inline) -->
+  <style>
+    :root{
+      color-scheme: light dark;
+      --primary:#6366f1; --primary-hover:#4f46e5;
+      --success:#10b981; --warning:#f59e0b; --error:#ef4444; --info:#3b82f6;
+      --gray-50:#f8fafc; --gray-100:#f1f5f9; --gray-200:#e2e8f0; --gray-600:#475569; --gray-700:#334155; --gray-800:#1e293b; --gray-900:#0f172a;
+      --bg-primary:#fff; --bg-secondary:var(--gray-50);
+      --text-primary:var(--gray-900); --text-secondary:var(--gray-600);
+      --border-primary:var(--gray-200);
+      --radius-md:.375rem; --radius-lg:.5rem; --radius-xl:.75rem; --radius-2xl:1rem; --radius-full:9999px;
+      --space-2:.5rem; --space-3:.75rem; --space-4:1rem; --space-5:1.25rem; --space-6:1.5rem; --space-8:2rem; --space-10:2.5rem; --space-12:3rem; --space-16:4rem; --space-20:5rem; --space-24:6rem;
+      --text-sm:.875rem; --text-base:1rem; --text-lg:1.125rem; --text-xl:1.25rem; --text-2xl:1.5rem; --text-4xl:2.25rem;
+      --font-medium:500; --font-semibold:600; --font-bold:700; --font-extrabold:800;
+      --shadow-sm:0 1px 3px 0 rgb(0 0 0 / .08),0 1px 2px -1px rgb(0 0 0 / .08);
+      --shadow-lg:0 10px 15px -3px rgb(0 0 0 / .1),0 4px 6px -4px rgb(0 0 0 / .1);
+      --transition-normal:.2s cubic-bezier(.4,0,.2,1);
+    }
+    [data-theme="dark"]{
+      --bg-primary:var(--gray-900); --bg-secondary:var(--gray-800);
+      --text-primary:var(--gray-50); --text-secondary:var(--gray-300);
+      --border-primary:var(--gray-700);
+      --primary:#818cf8; --primary-hover:#a5b4fc;
+      --shadow-sm:0 1px 3px 0 rgb(0 0 0 / .4),0 1px 2px -1px rgb(0 0 0 / .4);
+      --shadow-lg:0 10px 15px -3px rgb(0 0 0 / .4),0 4px 6px -4px rgb(0 0 0 / .4);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+      background:var(--bg-primary); color:var(--text-primary);
+      margin:0; line-height:1.6; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    .container{max-width:1280px;margin:0 auto;padding:0 var(--space-6)}
+    .section{padding:var(--space-24) 0; background:var(--bg-primary)}
+    .section-header{text-align:center;margin-bottom:var(--space-16)}
+    .section-title{font-size:clamp(var(--text-2xl),6vw,var(--text-4xl));font-weight:var(--font-extrabold);letter-spacing:-.02em;margin:0 0 var(--space-4)}
+    .section-description{color:var(--text-secondary);font-size:clamp(var(--text-base),3vw,var(--text-lg));max-width:700px;margin:0 auto}
+
+    .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--space-6)}
+    .quick-nav-card,.status-card{
+      display:block; padding:var(--space-6); background:var(--bg-primary);
+      border:1px solid var(--border-primary); border-radius:var(--radius-2xl);
+      text-decoration:none; box-shadow:var(--shadow-sm);
+      transition:transform var(--transition-normal),box-shadow var(--transition-normal),border-color var(--transition-normal)
+    }
+    .quick-nav-card:hover,.status-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--primary)}
+    .icon-badge{font-size:1.75rem; margin-bottom:var(--space-3)}
+    .quick-nav-card h3{margin:0 0 var(--space-2); font-size:var(--text-xl); font-weight:var(--font-bold)}
+    .quick-nav-card p{margin:0; color:var(--text-secondary)}
+    .speed-card .service-name{font-weight:var(--font-semibold); color:var(--text-primary)}
+    .speed-card .speed-test-label{font-size:var(--text-sm); color:var(--text-secondary)}
+
+    .meta-chips{display:flex;gap:.5rem;justify-content:center;margin-top:var(--space-4);flex-wrap:wrap}
+    .chip{
+      display:inline-flex;align-items:center;gap:.4rem;
+      padding:.45rem .7rem;border-radius:999px;
+      background:var(--bg-secondary); color:var(--text-secondary); border:1px solid var(--border-primary);
+      font-size:.75rem; font-weight:var(--font-medium)
+    }
+    
+    .stepper{counter-reset:step; list-style:none; padding-left:0; margin:var(--space-6) 0}
+    .stepper li{position:relative; padding-left:2.25rem; margin-bottom:.75rem}
+    .stepper li::before{
+      counter-increment:step; content:counter(step);
+      position:absolute; left:0; top:.1rem; width:1.5rem; height:1.5rem;
+      display:inline-flex; align-items:center; justify-content:center;
+      border-radius:999px; background:var(--primary); color:#fff; font-size:.8rem; font-weight:700
+    }
+
+    .accordion{border:1px solid var(--border-primary); border-radius:var(--radius-xl); background:var(--bg-primary); margin:var(--space-4) 0; overflow:hidden}
+    .accordion > summary{
+      display:flex; align-items:center; justify-content:space-between; gap:.75rem;
+      padding:var(--space-4); font-weight:var(--font-semibold); cursor:pointer; list-style:none
+    }
+    .accordion > summary::-webkit-details-marker{display:none}
+    .accordion[open] > summary{background:var(--bg-secondary)}
+    .accordion .chevron{transition:transform var(--transition-normal)}
+    .accordion[open] .chevron{transform:rotate(180deg)}
+    .accordion-content{padding:0 var(--space-4) var(--space-4); color:var(--text-secondary)}
+    .bullet-list{padding:var(--space-4) var(--space-6); margin:0}
+    .bullet-list li{margin:.25rem 0}
+
+    .alert{display:flex;gap:.6rem;align-items:flex-start;padding:var(--space-4);border-radius:var(--radius-xl);border:1px solid var(--border-primary);margin:var(--space-6) 0}
+    .alert-info{background:rgb(59 130 246 / .10); border-color:rgb(59 130 246 / .25); color:var(--info)}
+    .alert-warning{background:rgb(245 158 11 / .10); border-color:rgb(245 158 11 / .25); color:var(--warning)}
+    .alert-icon{flex-shrink:0;margin-top:2px}
+
+    .subsection{margin:var(--space-12) 0}
+    .subsection-title{margin:0 0 var(--space-4); font-size:var(--text-xl); font-weight:var(--font-bold)}
+
+    @media (width <= 768px){
+      .container{padding:0 var(--space-4)}
+      .section{padding:var(--space-16) 0}
+    }
   </style>
 
-  <!-- Main CSS -->
+  <!-- Main CSS (rest of styles) -->
   <link rel="stylesheet" href="css/styles.css">
-
-  <!-- Prefetch data for quick subsequent use (non-blocking) -->
-  <link rel="prefetch" href="/json/file-hosts.json" crossorigin>
-  <link rel="prefetch" href="/json/adult-hosts.json" crossorigin>
-  <link rel="prefetch" href="/json/pricing.json" crossorigin>
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://debrid-services-comparison.netlify.app/">
-  <meta property="og:title" content="Debrid Services Comparison">
-  <meta property="og:description" content="Compare pricing and supported hosts across major debrid services. Find the best premium download service for your needs.">
-  <meta property="og:image" content="https://debrid-services-comparison.netlify.app/image.png">
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://debrid-services-comparison.netlify.app/">
-  <meta property="twitter:title" content="Debrid Services Comparison">
-  <meta property="twitter:description" content="Compare pricing and supported hosts across major debrid services. Find the best premium download service for your needs.">
-  <meta property="twitter:image" content="https://debrid-services-comparison.netlify.app/image.png">
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -92,6 +175,8 @@
   }
   </script>
 
+  <!-- App JS (rest of logic) -->
+  <script src="js/app.js" defer></script>
 </head>
 
 <body>
@@ -106,8 +191,11 @@
             Debrid Comparison
           </a>
           <nav class="header-nav" aria-label="Main navigation">
+            <a href="#what-are-debrid" class="nav-link">About</a>
             <a href="#pricing" class="nav-link">Pricing</a>
             <a href="#file-hosts" class="nav-link">Hosts</a>
+            <a href="#speed-test" class="nav-link">Speed Test</a>
+            <a href="#faq" class="nav-link">FAQ</a>
             <a href="#compare" class="nav-link">Compare</a>
           </nav>
           <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode" aria-pressed="false" type="button">
@@ -132,7 +220,7 @@
               Compare Premium <span class="gradient-text">Debrid Services</span>
             </h1>
             <p class="hero-description">
-              Find the perfect premium download service for your needs. Compare pricing, features, and supported hosts across all major debrid providers.
+              A community-driven, up-to-date comparison of premium debrid services: pricing, host support, refund policies, and performance.
             </p>
             <div class="hero-actions">
               <a href="#pricing" class="btn btn-primary">View Pricing</a>
@@ -152,10 +240,82 @@
         </div>
       </section>
 
+      <!-- What are Debrid Services (streamlined) -->
+      <section id="what-are-debrid" class="section" aria-labelledby="what-title">
+        <div class="container">
+          <div class="section-header">
+            <h2 id="what-title" class="section-title">What are Debrid Services?</h2>
+            <p class="section-description">
+              Debrid services (a.k.a. premium link generators) act as a high‑speed intermediary: they fetch the file from a host, then serve you a fast, ad‑free direct link.
+            </p>
+
+            <div class="meta-chips" aria-label="Key traits">
+              <span class="chip">Premium link generator</span>
+              <span class="chip">Ad‑free</span>
+              <span class="chip">Multi‑host</span>
+              <span class="chip">Torrent‑to‑link</span>
+            </div>
+          </div>
+
+          <div class="card-grid features-grid">
+            <article class="quick-nav-card benefit-card" role="article">
+              <div class="icon-badge">⚡</div>
+              <h3>Maximum Speeds</h3>
+              <p>Bypass host throttling with direct links</p>
+            </article>
+
+            <article class="quick-nav-card benefit-card" role="article">
+              <div class="icon-badge">🔗</div>
+              <h3>Multi‑Host Access</h3>
+              <p>One subscription supports hundreds of hosts</p>
+            </article>
+
+            <article class="quick-nav-card benefit-card" role="article">
+              <div class="icon-badge">🌐</div>
+              <h3>Streaming Ready</h3>
+              <p>Instant playback on supported hosts</p>
+            </article>
+
+            <article class="quick-nav-card benefit-card" role="article">
+              <div class="icon-badge">💾</div>
+              <h3>Torrent‑to‑Link</h3>
+              <p>Add magnet/torrent and get a direct URL</p>
+            </article>
+
+            <article class="quick-nav-card benefit-card" role="article">
+              <div class="icon-badge">🛡️</div>
+              <h3>Ad‑Free</h3>
+              <p>No popups, countdowns, or captchas</p>
+            </article>
+
+            <article class="quick-nav-card benefit-card" role="article">
+              <div class="icon-badge">🌍</div>
+              <h3>Global Network</h3>
+              <p>Optimized routing from high‑bandwidth regions</p>
+            </article>
+          </div>
+
+          <div class="alert alert-info" role="alert">
+            <svg class="alert-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 16v-4M12 8h.01" />
+            </svg>
+            <div>
+              Think of a debrid service as a “premium proxy” between you and hosts like Rapidgator, Mega, or Uptobox.
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Quick Navigation -->
       <section class="quick-nav" aria-label="Quick navigation">
         <div class="container">
           <div class="quick-nav-grid">
+            <a href="#what-are-debrid" class="quick-nav-card" aria-label="Learn about debrid services">
+              <div class="quick-nav-icon" aria-hidden="true">❓</div>
+              <h3>What are Debrid Services?</h3>
+              <p>Learn how debrid services work and their benefits</p>
+            </a>
             <a href="#pricing" class="quick-nav-card" aria-label="Go to pricing plans">
               <div class="quick-nav-icon" aria-hidden="true">💰</div>
               <h3>Pricing Plans</h3>
@@ -166,15 +326,20 @@
               <h3>File Hosts</h3>
               <p>Browse 300+ supported file hosting services</p>
             </a>
+            <a href="#speed-test" class="quick-nav-card" aria-label="Go to speed test tools">
+              <div class="quick-nav-icon" aria-hidden="true">⚡</div>
+              <h3>Speed Test</h3>
+              <p>Test download speeds and performance</p>
+            </a>
             <a href="#compare" class="quick-nav-card" aria-label="Go to side-by-side comparison">
               <div class="quick-nav-icon" aria-hidden="true">⚖️</div>
               <h3>Side by Side</h3>
               <p>Compare any two services directly</p>
             </a>
-            <a href="#live-status" class="quick-nav-card" aria-label="Go to live status">
-              <div class="quick-nav-icon" aria-hidden="true">📊</div>
-              <h3>Live Status</h3>
-              <p>Check real-time service availability</p>
+            <a href="#faq" class="quick-nav-card" aria-label="Go to frequently asked questions">
+              <div class="quick-nav-icon" aria-hidden="true">❔</div>
+              <h3>FAQ</h3>
+              <p>Get answers to common questions</p>
             </a>
           </div>
         </div>
@@ -236,11 +401,85 @@
                 <span class="service-name">Debrid-Link</span>
                 <span class="referral-badge">Referral Link</span>
               </a>
-              <a href="https://www.deepbrid.com/aff/go/upward1971" class="referral-card" target="_blank" rel="noopener noreferrer sponsored" aria-label="DeepBird referral link">
-                <span class="service-name">DeepBird</span>
+              <a href="https://www.deepbrid.com/aff/go/upward1971" class="referral-card" target="_blank" rel="noopener noreferrer sponsored" aria-label="Deepbrid referral link">
+                <span class="service-name">Deepbrid</span>
                 <span class="referral-badge">Referral Link</span>
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Speed Test (streamlined) -->
+      <section id="speed-test" class="section" aria-labelledby="speed-title">
+        <div class="container">
+          <div class="section-header">
+            <h2 id="speed-title" class="section-title">Speed Test</h2>
+            <p class="section-description">Actual speeds vary by location, time of day, host performance, and load. Test before committing to a long plan.</p>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Official Speed Tools</h3>
+            <div class="card-grid speed-grid" role="list">
+              <a href="https://real-debrid.com/speedtest" class="status-card speed-card" role="listitem" target="_blank" rel="noopener noreferrer">
+                <span class="service-name">Real‑Debrid</span>
+                <span class="speed-test-label">Speed Test</span>
+              </a>
+              <a href="https://www.premiumize.me/speedtest" class="status-card speed-card" role="listitem" target="_blank" rel="noopener noreferrer">
+                <span class="service-name">Premiumize</span>
+                <span class="speed-test-label">Speed Test</span>
+              </a>
+              <a href="https://www.torbox.app/speedtest" class="status-card speed-card" role="listitem" target="_blank" rel="noopener noreferrer">
+                <span class="service-name">TorBox</span>
+                <span class="speed-test-label">Speed Test</span>
+              </a>
+              <a href="https://debrid-link.com/webapp/speedtest" class="status-card speed-card" role="listitem" target="_blank" rel="noopener noreferrer">
+                <span class="service-name">Debrid‑Link</span>
+                <span class="speed-test-label">Speed Test</span>
+              </a>
+              <a href="https://www.mega-debrid.eu/index.php?page=network" class="status-card speed-card" role="listitem" target="_blank" rel="noopener noreferrer">
+                <span class="service-name">Mega‑Debrid</span>
+                <span class="speed-test-label">Network Test</span>
+              </a>
+            </div>
+
+            <div class="alert alert-info" role="alert">
+              <svg class="alert-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 16v-4M12 8h.01" />
+              </svg>
+              <div>These tests are best‑case scenarios from the provider’s own network.</div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Real‑World Test (Recommended)</h3>
+            <ol class="stepper">
+              <li><strong>Pick a common test file</strong> (e.g., Linux ISO) available on multiple hosts.</li>
+              <li><strong>Use the same network/device</strong> for consistency.</li>
+              <li><strong>Clear cache or use private browsing</strong> between runs.</li>
+              <li><strong>Run 3 tests per service</strong> and average the result.</li>
+              <li><strong>Test peak and off‑peak</strong> to see variability.</li>
+            </ol>
+
+            <details class="accordion">
+              <summary>
+                <span>Factors That Affect Speed</span>
+                <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6"/>
+                </svg>
+              </summary>
+              <ul class="bullet-list">
+                <li>Distance to provider servers</li>
+                <li>Time of day and congestion</li>
+                <li>Original host performance (e.g., Rapidgator vs. Katfile)</li>
+                <li>ISP routing or throttling</li>
+                <li>Local network (Wi‑Fi vs. Ethernet)</li>
+              </ul>
+              <div class="alert alert-warning" role="alert">
+                <strong>Note:</strong> “Unlimited” can be subject to fair‑use or soft caps.
+              </div>
+            </details>
           </div>
         </div>
       </section>
@@ -324,32 +563,52 @@
         <div class="container">
           <div class="section-header">
             <h2 id="adult-hosts-title" class="section-title">Adult Content Hosts</h2>
-            <p class="section-description">Supported adult content hosting services</p>
+            <p class="section-description">
+              Support for adult content varies significantly across debrid services. Some platforms actively support major adult file hosts, while others exclude them entirely due to policy or legal considerations.
+            </p>
           </div>
 
-          <div class="search-section">
-            <form class="search-container enhanced" role="search" aria-label="Search adult hosts" onsubmit="return false">
-              <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <circle cx="11" cy="11" r="8" />
-                <path d="M21 21l-4.35-4.35" />
-              </svg>
-              <input type="search" id="adult-host-search-input" class="search-input"
-                     placeholder="Search adult hosts..." aria-label="Search adult hosts"
-                     aria-controls="adult-hosts-table-container"
-                     autocomplete="off" autocapitalize="off" spellcheck="false" inputmode="search" />
-              <button id="clear-adult-host-search" class="clear-icon" aria-label="Clear search" aria-controls="adult-host-search-input" type="button">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" />
+          <!-- Age Verification Overlay -->
+          <div id="age-verification-overlay" class="age-verification-overlay">
+            <div class="age-verification-modal">
+              <div class="age-verification-content">
+                <h3>⚠️ Adult Content Warning</h3>
+                <p>This section contains information about adult content hosting services.</p>
+                <p><strong>You must be 18 years or older to view this content.</strong></p>
+                <div class="age-verification-actions">
+                  <button id="confirm-age" class="btn btn-primary">I am 18+ years old</button>
+                  <button id="deny-age" class="btn btn-secondary">I am under 18</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Adult Content (initially hidden) -->
+          <div id="adult-content" class="adult-content-wrapper" style="display: none;">
+            <div class="search-section">
+              <form class="search-container enhanced" role="search" aria-label="Search adult hosts" onsubmit="return false">
+                <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <circle cx="11" cy="11" r="8" />
+                  <path d="M21 21l-4.35-4.35" />
                 </svg>
-              </button>
-            </form>
-          </div>
+                <input type="search" id="adult-host-search-input" class="search-input"
+                       placeholder="Search adult hosts..." aria-label="Search adult hosts"
+                       aria-controls="adult-hosts-table-container"
+                       autocomplete="off" autocapitalize="off" spellcheck="false" inputmode="search" />
+                <button id="clear-adult-host-search" class="clear-icon" aria-label="Clear search" aria-controls="adult-host-search-input" type="button">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>
+                </button>
+              </form>
+            </div>
 
-          <div id="adult-hosts-table-container" class="data-table-container" role="region" aria-live="polite" aria-label="Adult hosts table">
-            <div class="loading-state" aria-busy="true">
-              <div class="loading-spinner" aria-hidden="true"></div>
-              <p>Loading adult hosts...</p>
+            <div id="adult-hosts-table-container" class="data-table-container" role="region" aria-live="polite" aria-label="Adult hosts table">
+              <div class="loading-state" aria-busy="true">
+                <div class="loading-spinner" aria-hidden="true"></div>
+                <p>Loading adult hosts...</p>
+              </div>
             </div>
           </div>
         </div>
@@ -415,11 +674,269 @@
             </a>
             <a href="https://www.deepbrid.com/status" class="status-card" target="_blank" rel="noopener noreferrer">
               <div class="status-header">
-                <span class="service-name">DeepBird</span>
+                <span class="service-name">Deepbrid</span>
                 <span class="service-status-indicator online" aria-label="Online"></span>
               </div>
               <p>Check supported file hosts</p>
             </a>
+          </div>
+
+          <div class="alert alert-info" role="alert">
+            <svg class="alert-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 16v-4M12 8h.01" />
+            </svg>
+            <div>
+              <strong>💡 Tip:</strong> Bookmark these pages to verify if a failed link is due to a temporary host outage rather than a service limitation.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ (streamlined) -->
+      <section id="faq" class="section" aria-labelledby="faq-title">
+        <div class="container">
+          <div class="section-header">
+            <h2 id="faq-title" class="section-title">Frequently Asked Questions</h2>
+            <p class="section-description">Straight answers to common debrid questions</p>
+          </div>
+
+          <div class="faq-categories">
+            <section class="faq-category" aria-labelledby="faq-general">
+              <h3 id="faq-general" class="subsection-title">General</h3>
+
+              <details class="accordion">
+                <summary>
+                  <span>What is a debrid service?</span>
+                  <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </summary>
+                <div class="accordion-content">
+                  They fetch files to their servers and give you fast, direct links with no ads or host limits.
+                </div>
+              </details>
+
+              <details class="accordion">
+                <summary>
+                  <span>Are debrid services legal?</span>
+                  <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </summary>
+                <div class="accordion-content">
+                  The services are legal; you’re responsible for what you download.
+                </div>
+              </details>
+
+              <details class="accordion">
+                <summary>
+                  <span>Can I use multiple services?</span>
+                  <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </summary>
+                <div class="accordion-content">
+                  Yes — power users combine providers for broader coverage and redundancy.
+                </div>
+              </details>
+            </section>
+
+            <section class="faq-category" aria-labelledby="faq-technical">
+              <h3 id="faq-technical" class="subsection-title">Technical</h3>
+
+              <details class="accordion">
+                <summary>
+                  <span>Why do speeds vary?</span>
+                  <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </summary>
+                <div class="accordion-content">
+                  Distance, congestion, host performance, ISP routing, and local setup.
+                </div>
+              </details>
+
+              <details class="accordion">
+                <summary>
+                  <span>Do services support torrents?</span>
+                  <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </summary>
+                <div class="accordion-content">
+                  Most offer torrent‑to‑direct‑download (cloud first, then direct link).
+                </div>
+              </details>
+
+              <details class="accordion">
+                <summary>
+                  <span>Are there download limits?</span>
+                  <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </summary>
+                <div class="accordion-content">
+                  Many market “unlimited,” but fair‑use or soft caps can apply.
+                </div>
+              </details>
+            </section>
+
+            <section class="faq-category" aria-labelledby="faq-billing">
+              <h3 id="faq-billing" class="subsection-title">Accounts & Billing</h3>
+
+              <details class="accordion">
+                <summary>
+                  <span>Can I share my account?</span>
+                  <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </summary>
+                <div class="accordion-content">
+                  Usually prohibited. Services may enforce IP/session limits.
+                </div>
+              </details>
+
+              <details class="accordion">
+                <summary>
+                  <span>Payment methods?</span>
+                  <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </summary>
+                <div class="accordion-content">
+                  Cards and PayPal are common; some support crypto (check each site).
+                </div>
+              </details>
+            </section>
+
+            <section class="faq-category" aria-labelledby="faq-privacy">
+              <h3 id="faq-privacy" class="subsection-title">Security & Privacy</h3>
+
+              <details class="accordion">
+                <summary>
+                  <span>Do services log downloads?</span>
+                  <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </summary>
+                <div class="accordion-content">
+                  Policies vary; many keep minimal technical logs. Check privacy pages.
+                </div>
+              </details>
+
+              <details class="accordion">
+                <summary>
+                  <span>Can my ISP see content?</span>
+                  <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </summary>
+                <div class="accordion-content">
+                  Over HTTPS they see connections/volume, not filenames. VPN adds privacy.
+                </div>
+              </details>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <!-- Important Notes Section -->
+      <section id="important-notes" class="section" aria-labelledby="notes-title">
+        <div class="container">
+          <div class="section-header">
+            <h2 id="notes-title" class="section-title">Important Notes</h2>
+            <p class="section-description">
+              This project aims to provide accurate and up-to-date information, but the debrid service landscape is dynamic. Please keep the following in mind:
+            </p>
+          </div>
+
+          <div class="important-notes-grid">
+            <div class="note-card">
+              <div class="note-icon">👉</div>
+              <h3>Services change frequently</h3>
+              <p>Pricing, host support, refund policies, and features may be updated without notice. Always verify details on the <strong>official service websites</strong> before purchasing.</p>
+            </div>
+            
+            <div class="note-card">
+              <div class="note-icon">👉</div>
+              <h3>Final cost may vary</h3>
+              <p>Displayed prices are subject to exchange rates, regional taxes, or payment processing fees. Your actual charge may differ slightly.</p>
+            </div>
+            
+            <div class="note-card">
+              <div class="note-icon">👉</div>
+              <h3>Data accuracy</h3>
+              <p>While we strive for completeness, this comparison reflects community reports and public information. We do <strong>not guarantee</strong> uptime, speed, download success, or feature availability.</p>
+            </div>
+            
+            <div class="note-card">
+              <div class="note-icon">👉</div>
+              <h3>No affiliation</h3>
+              <p>This project is independent and <strong>not affiliated</strong> with AllDebrid, Real-Debrid, Premiumize, TorBox, LinkSnappy, Debrid-Link, Mega-Debrid, Deepbrid, or any other listed service.</p>
+            </div>
+            
+            <div class="note-card">
+              <div class="note-icon">👉</div>
+              <h3>Use at your own discretion</h3>
+              <p>Choosing a debrid service involves personal judgment. Test short-term plans first and review terms carefully.</p>
+            </div>
+            
+            <div class="note-card">
+              <div class="note-icon">👉</div>
+              <h3>Legal responsibility</h3>
+              <p>Debrid services are tools. You are responsible for complying with copyright laws and terms of use when accessing content.</p>
+            </div>
+          </div>
+
+          <div class="alert alert-warning" role="alert">
+            <strong>This is an open-source, community-maintained guide. It does not endorse or promote unauthorized file sharing.</strong>
+          </div>
+        </div>
+      </section>
+
+      <!-- Resources Section -->
+      <section id="resources" class="section" aria-labelledby="resources-title">
+        <div class="container">
+          <div class="section-header">
+            <h2 id="resources-title" class="section-title">Useful Resources and Community</h2>
+            <p class="section-description">Enhance your debrid experience with these trusted tools, guides, and communities</p>
+          </div>
+
+          <div class="resources-categories">
+            <div class="resource-category">
+              <h3>🛠️ Tools and Integrations</h3>
+              <div class="resource-list">
+                <a href="https://github.com/debridmediamanager/awesome-debrid" class="resource-item" target="_blank" rel="noopener noreferrer">
+                  <strong>Awesome-Debrid</strong>
+                  <span>Curated list of debrid-compatible apps, browser extensions, and automation tools</span>
+                </a>
+                <a href="https://github.com/debridmediamanager/debrid-media-manager" class="resource-item" target="_blank" rel="noopener noreferrer">
+                  <strong>Debrid Media Manager</strong>
+                  <span>Easily download movies and TV shows directly to your Debrid library</span>
+                </a>
+                <a href="https://github.com/rogerfar/rdt-client" class="resource-item" target="_blank" rel="noopener noreferrer">
+                  <strong>Real-Debrid Torrent Client</strong>
+                  <span>Web interface to manage your torrents on Real-Debrid, AllDebrid, Premiumize TorBox or DebridLink</span>
+                </a>
+                <a href="https://github.com/g0ldyy/comet" class="resource-item" target="_blank" rel="noopener noreferrer">
+                  <strong>Comet</strong>
+                  <span>Stremio's torrent/debrid search add-on</span>
+                </a>
+                <a href="https://github.com/jackett/jackett" class="resource-item" target="_blank" rel="noopener noreferrer">
+                  <strong>Jackett + Prowlarr</strong>
+                  <span>Indexer proxies that work seamlessly with debrid services for automation</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="resource-category">
+              <h3>👥 Community and Support</h3>
+              <div class="resource-list">
+                <div class="resource-item">
+                  <strong>Reddit</strong>
+                  <span>Active discussions on r/Debrid, r/Piracy and service-specific threads</span>
+                </div>
+                <div class="resource-item">
+                  <strong>Discord</strong>
+                  <span>Many services offer official Discord servers for real-time support and status updates</span>
+                </div>
+                <div class="resource-item">
+                  <strong>GitHub Issues</strong>
+                  <span>Report inaccuracies or suggest improvements here — this project thrives on community input!</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="alert alert-info" role="alert">
+            <svg class="alert-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 16v-4M12 8h.01" />
+            </svg>
+            <div>
+              <strong>💡 Pro Tip:</strong> Combine your debrid service with automation tools like <strong>Debrid Media Manager (DMM)</strong> or <strong>Overseerr</strong> for a seamless media experience.
+            </div>
           </div>
         </div>
       </section>
@@ -464,69 +981,39 @@
     </div>
   </noscript>
 
+  <!-- Critical JS (inline) -->
   <script>
-    // Enhance interactions (runs after parse)
+    // Critical UI only: theme toggle aria + smooth in-page scroll focus
     document.addEventListener('DOMContentLoaded', () => {
-      const darkModeToggle = document.getElementById('darkModeToggle');
-      const backToTopBtn = document.getElementById('backToTop');
+      const btn = document.getElementById('darkModeToggle');
+      if (btn) {
+        const getTheme = () => document.documentElement.getAttribute('data-theme') || 'light';
+        const setTheme = (t) => {
+          document.documentElement.setAttribute('data-theme', t);
+          document.documentElement.style.colorScheme = t;
+          localStorage.setItem('theme', t);
+          btn.setAttribute('aria-pressed', String(t === 'dark'));
+        };
+        btn.setAttribute('aria-pressed', String(getTheme() === 'dark'));
+        btn.addEventListener('click', () => setTheme(getTheme() === 'dark' ? 'light' : 'dark'));
+      }
 
-      // Theme management with ARIA
-      const getTheme = () => document.documentElement.getAttribute('data-theme') || 'light';
-      const setTheme = (theme) => {
-        document.documentElement.setAttribute('data-theme', theme);
-        document.documentElement.style.colorScheme = theme;
-        localStorage.setItem('theme', theme);
-        darkModeToggle.setAttribute('aria-pressed', String(theme === 'dark'));
-      };
-      // Init aria-pressed
-      darkModeToggle.setAttribute('aria-pressed', String(getTheme() === 'dark'));
-
-      darkModeToggle.addEventListener('click', () => {
-        setTheme(getTheme() === 'dark' ? 'light' : 'dark');
-      });
-
-      // Back to top visibility (throttled with rAF)
-      let ticking = false;
-      const handleScroll = () => {
-        if (!ticking) {
-          window.requestAnimationFrame(() => {
-            backToTopBtn.classList.toggle('visible', window.pageYOffset > 300);
-            ticking = false;
-          });
-          ticking = true;
-        }
-      };
-      window.addEventListener('scroll', handleScroll, { passive: true });
-
-      backToTopBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-
-      // Smooth scroll + focus management for in-page links
+      // Smooth scroll + focus for internal anchors (respects prefers-reduced-motion)
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', (e) => {
-          const targetId = anchor.getAttribute('href');
-          const target = targetId && document.querySelector(targetId);
+          const id = anchor.getAttribute('href');
+          const target = id && document.querySelector(id);
           if (!target) return;
           e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          const focusEl = target.querySelector('h1, h2, h3, h4, h5, h6') || target;
-          focusEl.setAttribute('tabindex', '-1');
-          focusEl.focus({ preventScroll: true });
-          setTimeout(() => focusEl.removeAttribute('tabindex'), 500);
+          target.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth', block: 'start' });
+          const focusEl = target.querySelector('h1,h2,h3,h4,h5,h6') || target;
+          focusEl.setAttribute('tabindex','-1');
+          focusEl.focus({ preventScroll:true });
+          setTimeout(()=> focusEl.removeAttribute('tabindex'), 400);
         });
       });
     });
-  </script>
-
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').catch(err => {
-          console.warn('Service worker registration failed:', err);
-        });
-      });
-    }
   </script>
 </body>
 </html>
