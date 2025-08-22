@@ -7,7 +7,7 @@
             --primary-dark: #3730a3;
             --accent: #8b5cf6;
             --success: #10b981;
-            --warning: #f59e0b;
+            --warning: #66512e;
             --error: #ef4444;
             --info: #2c6ace;
             
@@ -649,14 +649,14 @@
 
         .alert-warning {
             background: rgba(245, 158, 11, 0.08);
-            border-color: rgba(245, 158, 11, 0.2);
+            border-color: rgba(44, 35, 19, 0.2);
             color: var(--warning);
         }
 
         .alert-icon {
             flex-shrink: 0;
-            width: 20px;
-            height: 20px;
+            width: 24px;
+            height: 24px;
             margin-top: 2px;
         }
 
@@ -1355,51 +1355,6 @@
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
-        }
-
-        /* Age Verification */
-        .age-verification-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            backdrop-filter: blur(8px);
-        }
-
-        .age-verification-modal {
-            background: var(--bg-primary);
-            border-radius: var(--radius-2xl);
-            padding: var(--space-4xl);
-            max-width: 500px;
-            margin: var(--space-lg);
-            box-shadow: var(--shadow-xl);
-            border: 1px solid var(--border-primary);
-        }
-
-        .age-verification-content {
-            text-align: center;
-        }
-
-        .age-verification-content h3 {
-            color: var(--error);
-            margin-bottom: var(--space-xl);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--space-md);
-        }
-
-        .age-verification-actions {
-            display: flex;
-            gap: var(--space-lg);
-            justify-content: center;
-            margin-top: var(--space-2xl);
         }
 
         /* Footer */

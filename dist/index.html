@@ -219,7 +219,126 @@
                 </div>
             </section>
 
-            <!-- Speed Test Section -->
+            <!-- File Hosts Section -->
+            <section id="file-hosts" class="section" aria-labelledby="hosts-title">
+                <div class="container">
+                    <div class="content-container">
+                        <div class="section-header">
+                            <h2 id="hosts-title" class="section-title">Supported File Hosts</h2>
+                            <p class="section-description">Browse and search through 300+ supported file hosting services</p>
+                        </div>
+
+                        <div class="search-section">
+                            <form class="search-container" role="search" aria-label="Search file hosts" onsubmit="return false">
+                                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8"/>
+                                    <path d="M21 21l-4.35-4.35"/>
+                                </svg>
+                                <input type="search" id="host-search-input" class="search-input" 
+                                       placeholder="Search file hosts (e.g., Mega, Rapidgator...)" 
+                                       aria-label="Search file hosts" autocomplete="off" />
+                                <button id="clear-host-search" class="clear-icon" aria-label="Clear search" type="button">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="18" y1="6" x2="6" y2="18"/>
+                                        <line x1="6" y1="6" x2="18" y2="18"/>
+                                    </svg>
+                                </button>
+                            </form>
+                        </div>
+
+                        <div id="file-hosts-table-container" class="data-table-container" role="region" aria-live="polite">
+                            <div class="loading-state" aria-busy="true">
+                                <div class="loading-spinner"></div>
+                                <p>Loading file hosts...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Compare Section -->
+            <section id="compare" class="section" aria-labelledby="compare-title">
+                <div class="container">
+                    <div class="content-container">
+                        <div class="section-header">
+                            <h2 id="compare-title" class="section-title">Compare Services</h2>
+                            <p class="section-description">Select two services to see a detailed side-by-side comparison</p>
+                        </div>
+
+                        <div class="compare-controls">
+                            <div class="compare-select-group">
+                                <label for="provider1">First Service</label>
+                                <div class="select-wrapper">
+                                    <select id="provider1" aria-label="Select first provider to compare">
+                                        <option value="">Choose a service...</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="compare-vs">VS</div>
+                            <div class="compare-select-group">
+                                <label for="provider2">Second Service</label>
+                                <div class="select-wrapper">
+                                    <select id="provider2" aria-label="Select second provider to compare">
+                                        <option value="">Choose a service...</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="compare-table-container" class="data-table-container" role="region" aria-live="polite">
+                            <div class="empty-state">
+                                <svg class="empty-state-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9 12l2 2 4-4"></path>
+    <path d="M21 12V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v7"></path>
+    <path d="M3 13v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6"></path>
+</svg>
+                                <h3>Ready to Compare</h3>
+                                <p>Select two services above to see a detailed comparison</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Adult Hosts Section -->
+            <section id="adult-hosts" class="section" aria-labelledby="adult-hosts-title">
+                <div class="container">
+                    <div class="content-container">
+                        <div class="section-header">
+                            <h2 id="adult-hosts-title" class="section-title">Adult Content Hosts</h2>
+                            <p class="section-description">
+                                Support for adult content varies significantly across debrid services. Some platforms actively support major adult file hosts, while others exclude them entirely due to policy or legal considerations.
+                            </p>
+                        </div>
+
+                        <div class="search-section">
+                            <form class="search-container" role="search" aria-label="Search adult hosts" onsubmit="return false">
+                                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8"/>
+                                    <path d="M21 21l-4.35-4.35"/>
+                                </svg>
+                                <input type="search" id="adult-host-search-input" class="search-input" 
+                                       placeholder="Search adult hosts..." aria-label="Search adult hosts" autocomplete="off" />
+                                <button id="clear-adult-host-search" class="clear-icon" aria-label="Clear search" type="button">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="18" y1="6" x2="6" y2="18"/>
+                                        <line x1="6" y1="6" x2="18" y2="18"/>
+                                    </svg>
+                                </button>
+                            </form>
+                        </div>
+
+                        <div id="adult-hosts-table-container" class="data-table-container" role="region" aria-live="polite">
+                            <div class="loading-state" aria-busy="true">
+                                <div class="loading-spinner"></div>
+                                <p>Loading adult hosts...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+                        <!-- Speed Test Section -->
             <section id="speed-test" class="section" aria-labelledby="speed-title">
                 <div class="container">
                     <div class="content-container">
@@ -329,148 +448,6 @@
                                     </div>
                                 </div>
                             </details>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- File Hosts Section -->
-            <section id="file-hosts" class="section" aria-labelledby="hosts-title">
-                <div class="container">
-                    <div class="content-container">
-                        <div class="section-header">
-                            <h2 id="hosts-title" class="section-title">Supported File Hosts</h2>
-                            <p class="section-description">Browse and search through 300+ supported file hosting services</p>
-                        </div>
-
-                        <div class="search-section">
-                            <form class="search-container" role="search" aria-label="Search file hosts" onsubmit="return false">
-                                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="11" cy="11" r="8"/>
-                                    <path d="M21 21l-4.35-4.35"/>
-                                </svg>
-                                <input type="search" id="host-search-input" class="search-input" 
-                                       placeholder="Search file hosts (e.g., Mega, Rapidgator...)" 
-                                       aria-label="Search file hosts" autocomplete="off" />
-                                <button id="clear-host-search" class="clear-icon" aria-label="Clear search" type="button">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <line x1="18" y1="6" x2="6" y2="18"/>
-                                        <line x1="6" y1="6" x2="18" y2="18"/>
-                                    </svg>
-                                </button>
-                            </form>
-                        </div>
-
-                        <div id="file-hosts-table-container" class="data-table-container" role="region" aria-live="polite">
-                            <div class="loading-state" aria-busy="true">
-                                <div class="loading-spinner"></div>
-                                <p>Loading file hosts...</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Compare Section -->
-            <section id="compare" class="section" aria-labelledby="compare-title">
-                <div class="container">
-                    <div class="content-container">
-                        <div class="section-header">
-                            <h2 id="compare-title" class="section-title">Compare Services</h2>
-                            <p class="section-description">Select two services to see a detailed side-by-side comparison</p>
-                        </div>
-
-                        <div class="compare-controls">
-                            <div class="compare-select-group">
-                                <label for="provider1">First Service</label>
-                                <div class="select-wrapper">
-                                    <select id="provider1" aria-label="Select first provider to compare">
-                                        <option value="">Choose a service...</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="compare-vs">VS</div>
-                            <div class="compare-select-group">
-                                <label for="provider2">Second Service</label>
-                                <div class="select-wrapper">
-                                    <select id="provider2" aria-label="Select second provider to compare">
-                                        <option value="">Choose a service...</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="compare-table-container" class="data-table-container" role="region" aria-live="polite">
-                            <div class="empty-state">
-                                <svg class="empty-state-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M9 12l2 2 4-4"></path>
-    <path d="M21 12V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v7"></path>
-    <path d="M3 13v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6"></path>
-</svg>
-                                <h3>Ready to Compare</h3>
-                                <p>Select two services above to see a detailed comparison</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Adult Hosts Section -->
-            <section id="adult-hosts" class="section" aria-labelledby="adult-hosts-title">
-                <div class="container">
-                    <div class="content-container">
-                        <div class="section-header">
-                            <h2 id="adult-hosts-title" class="section-title">Adult Content Hosts</h2>
-                            <p class="section-description">
-                                Support for adult content varies significantly across debrid services. Some platforms actively support major adult file hosts, while others exclude them entirely due to policy or legal considerations.
-                            </p>
-                        </div>
-
-                        <div id="age-verification-overlay" class="age-verification-overlay">
-                            <div class="age-verification-modal">
-                                <div class="age-verification-content">
-                                    <h3>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-                                            <line x1="12" y1="9" x2="12" y2="13"/>
-                                            <line x1="12" y1="17" x2="12.01" y2="17"/>
-                                        </svg>
-                                        Adult Content Warning
-                                    </h3>
-                                    <p>This section contains information about adult content hosting services.</p>
-                                    <p><strong>You must be 18 years or older to view this content.</strong></p>
-                                    <div class="age-verification-actions">
-                                        <button id="confirm-age" class="btn btn-primary">I am 18+ years old</button>
-                                        <button id="deny-age" class="btn btn-secondary">I am under 18</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="adult-content" class="adult-content-wrapper" style="display: none;">
-                            <div class="search-section">
-                                <form class="search-container" role="search" aria-label="Search adult hosts" onsubmit="return false">
-                                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <circle cx="11" cy="11" r="8"/>
-                                        <path d="M21 21l-4.35-4.35"/>
-                                    </svg>
-                                    <input type="search" id="adult-host-search-input" class="search-input" 
-                                           placeholder="Search adult hosts..." aria-label="Search adult hosts" autocomplete="off" />
-                                    <button id="clear-adult-host-search" class="clear-icon" aria-label="Clear search" type="button">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <line x1="18" y1="6" x2="6" y2="18"/>
-                                            <line x1="6" y1="6" x2="18" y2="18"/>
-                                        </svg>
-                                    </button>
-                                </form>
-                            </div>
-
-                            <div id="adult-hosts-table-container" class="data-table-container" role="region" aria-live="polite">
-                                <div class="loading-state" aria-busy="true">
-                                    <div class="loading-spinner"></div>
-                                    <p>Loading adult hosts...</p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -817,33 +794,6 @@
                         behavior: prefersReduced ? 'auto' : 'smooth'
                     });
                 });
-            }
-
-            // Age verification for adult content
-            const overlay = document.getElementById('age-verification-overlay');
-            const adultContent = document.getElementById('adult-content');
-            const confirmAge = document.getElementById('confirm-age');
-            const denyAge = document.getElementById('deny-age');
-
-            if (confirmAge) {
-                confirmAge.addEventListener('click', () => {
-                    overlay.style.display = 'none';
-                    adultContent.style.display = 'block';
-                    localStorage.setItem('age-verified', 'true');
-                });
-            }
-
-            if (denyAge) {
-                denyAge.addEventListener('click', () => {
-                    overlay.style.display = 'none';
-                    // Keep adult content hidden
-                });
-            }
-
-            // Check if age was previously verified
-            if (localStorage.getItem('age-verified') === 'true') {
-                overlay.style.display = 'none';
-                adultContent.style.display = 'block';
             }
 
             // Search functionality for file hosts
