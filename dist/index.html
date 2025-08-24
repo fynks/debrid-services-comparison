@@ -80,7 +80,12 @@
                         </svg>
                         Debrid Comparison
                     </a>
-                    <nav class="header-nav" aria-label="Main navigation">
+                    <button class="nav-toggle" id="navToggle" aria-label="Open navigation menu" aria-controls="primary-navigation" aria-expanded="false" type="button">
+                        <span class="nav-toggle-bar"></span>
+                        <span class="nav-toggle-bar"></span>
+                        <span class="nav-toggle-bar"></span>
+                    </button>
+                    <nav id="primary-navigation" class="header-nav" aria-label="Main navigation" aria-hidden="true">
                         <a href="#what-are-debrid" class="nav-link">Intro</a>
                         <a href="#pricing" class="nav-link">Pricing</a>
                         <a href="#file-hosts" class="nav-link">Hosts</a>
@@ -103,6 +108,7 @@
                 </div>
             </div>
         </header>
+        <div class="nav-overlay" id="navOverlay" hidden></div>
 
         <main id="main-content" class="main-content" role="main">
             <!-- Hero Section -->
@@ -771,6 +777,97 @@
         // Dark mode toggle
         document.addEventListener('DOMContentLoaded', () => {
             const btn = document.getElementById('darkModeToggle');
+            const bodyEl = document.body;
+            const navToggle = document.getElementById('navToggle');
+            const nav = document.getElementById('primary-navigation');
+            const navOverlay = document.getElementById('navOverlay');
+            const focusableSelectors = 'a[href], button:not([disabled]), select, textarea, input, [tabindex]:not([tabindex="-1"])';
+            let lastFocusedBeforeMenu = null;
+
+            // Mark JS ready to enable transitions after initial paint (prevents slide-in glitch)
+            requestAnimationFrame(()=> bodyEl.classList.add('js-ready'));
+
+            function trapFocus(container) {
+                const focusables = Array.from(container.querySelectorAll(focusableSelectors));
+                if (!focusables.length) return;            
+                let first = focusables[0];
+                let last = focusables[focusables.length - 1];
+                function handle(e){
+                    if(e.key==='Tab') {
+                        if(e.shiftKey && document.activeElement===first){e.preventDefault();last.focus();}
+                        else if(!e.shiftKey && document.activeElement===last){e.preventDefault();first.focus();}
+                    }
+                }
+                container.addEventListener('keydown', handle);
+            }
+
+            function updateNavAria(){
+                if(!nav) return;
+                if(window.innerWidth <= 900){
+                    nav.setAttribute('aria-hidden', bodyEl.classList.contains('nav-open') ? 'false' : 'true');
+                } else {
+                    nav.removeAttribute('aria-hidden');
+                }
+            }
+
+            function openMenu(){
+                lastFocusedBeforeMenu = document.activeElement;
+                bodyEl.classList.add('nav-open');
+                navToggle.setAttribute('aria-expanded','true');
+                navOverlay.hidden = false;
+                nav.setAttribute('data-open','true');
+                const firstLink = nav.querySelector('a');
+                firstLink && firstLink.focus();
+                trapFocus(nav);
+                updateNavAria();
+            }
+            function closeMenu(){
+                bodyEl.classList.remove('nav-open');
+                navToggle.setAttribute('aria-expanded','false');
+                navOverlay.hidden = true;
+                nav.removeAttribute('data-open');
+                lastFocusedBeforeMenu && lastFocusedBeforeMenu.focus();
+                updateNavAria();
+            }
+            if(navToggle){
+                navToggle.addEventListener('click', ()=>{
+                    if(bodyEl.classList.contains('nav-open')) closeMenu(); else openMenu();
+                });
+            }
+            if(navOverlay){
+                navOverlay.addEventListener('click', closeMenu);
+            }
+            window.addEventListener('keydown', (e)=>{
+                if(e.key==='Escape' && bodyEl.classList.contains('nav-open')) closeMenu();
+            });
+
+            // Handle resize (debounced via rAF)
+            let resizeRaf;
+            window.addEventListener('resize', ()=>{
+                if(resizeRaf) cancelAnimationFrame(resizeRaf);
+                resizeRaf = requestAnimationFrame(updateNavAria);
+            });
+            updateNavAria();
+
+            // Scrollspy for active nav link
+            const sectionIds = Array.from(nav?.querySelectorAll('a[href^="#"]')||[]).map(a=>a.getAttribute('href')).filter(Boolean);
+            const sections = sectionIds.map(id=>document.querySelector(id)).filter(Boolean);
+            if('IntersectionObserver' in window && sections.length){
+                const observer = new IntersectionObserver(entries=>{
+                    entries.forEach(entry=>{
+                        const id = '#'+entry.target.id;
+                        const link = nav.querySelector(`a[href="${id}"]`);
+                        if(link){
+                            if(entry.isIntersecting){
+                                nav.querySelectorAll('.nav-link.active').forEach(l=>{l.classList.remove('active'); l.removeAttribute('aria-current');});
+                                link.classList.add('active');
+                                link.setAttribute('aria-current','page');
+                            }
+                        }
+                    });
+                }, {rootMargin: '-40% 0px -50% 0px', threshold: [0,0.25,0.5,1]});
+                sections.forEach(sec=>observer.observe(sec));
+            }
             if (btn) {
                 const getTheme = () => document.documentElement.getAttribute('data-theme') || 'light';
                 const setTheme = (theme) => {
@@ -795,6 +892,7 @@
                     if (!target) return;
                     
                     e.preventDefault();
+                    if(bodyEl.classList.contains('nav-open')) closeMenu();
                     target.scrollIntoView({ 
                         behavior: prefersReduced ? 'auto' : 'smooth', 
                         block: 'start'
