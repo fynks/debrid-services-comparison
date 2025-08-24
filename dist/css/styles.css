@@ -1111,6 +1111,18 @@ tr:hover {
   color: var(--text-secondary);
   font-family: 'Courier New', Courier, monospace;
 }
+.table-check, .table-cross{
+padding: 0.2em;
+border-radius: 50px;
+}
+.table-check{
+background-color: rgba(90, 221, 90, 0.568);
+}
+.table-cross{
+    background-color: #db747465;
+}
+
+
 
 /* Search */
 .search-section {
