@@ -759,6 +759,7 @@ a:hover {
   background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary) 100%);
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
+  color: white;
 }
 
 .btn-secondary {
