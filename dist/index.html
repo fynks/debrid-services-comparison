@@ -91,12 +91,6 @@
 </svg>
                         Debrid Comparison
                     </a>
-                    <button class="nav-toggle" id="navToggle" aria-label="Open navigation menu"
-                        aria-controls="primary-navigation" aria-expanded="false" type="button">
-                        <span class="nav-toggle-bar"></span>
-                        <span class="nav-toggle-bar"></span>
-                        <span class="nav-toggle-bar"></span>
-                    </button>
                     <nav id="primary-navigation" class="header-nav" aria-label="Main navigation" aria-hidden="true">
                         <a href="#what-are-debrid" class="nav-link">Intro</a>
                         <a href="#pricing" class="nav-link">Pricing</a>
@@ -106,16 +100,23 @@
                         <a href="#speed-test" class="nav-link">Speed Test</a>
                         <a href="#live-status" class="nav-link">Status</a>
                         <a href="#resources" class="nav-link">Resources</a>
-
                     </nav>
-                    <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode" type="button">
-                        <svg class="sun-icon" role="img" aria-hidden="true">
+                    <div class="header-actions">
+                        <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode" type="button">
+                            <svg class="sun-icon" role="img" aria-hidden="true">
   <use href="#icon-sun" stroke="currentColor" stroke-width="2" fill="none" />
 </svg>
 <svg class="moon-icon" role="img" aria-hidden="true">
   <use href="#icon-moon" stroke="currentColor" stroke-width="2" fill="none" />
 </svg>
-                    </button>
+                        </button>
+                        <button class="nav-toggle" id="navToggle" aria-label="Open navigation menu"
+                            aria-controls="primary-navigation" aria-expanded="false" type="button">
+                            <span class="nav-toggle-bar"></span>
+                            <span class="nav-toggle-bar"></span>
+                            <span class="nav-toggle-bar"></span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </header>
@@ -662,38 +663,38 @@
                                 guides, and communities</p>
                         </div>
 
-                        <div class="resources-categories">
-                            <div class="resource-category">
+                        <div class="resources-categories enhanced-resources">
+                            <div class="resource-category elevated">
                                 <h3>
                                     <svg class="resource-category-icon" role="img" aria-hidden="true">
   <use href="#icon-tools" stroke="currentColor" stroke-width="2" fill="none" />
 </svg>
                                     Tools and Integrations
                                 </h3>
-                                <div class="resource-list">
-                                    <a href="https://github.com/debridmediamanager/awesome-debrid" class="resource-item"
+                                <div class="resource-list cards-3">
+                                    <a href="https://github.com/debridmediamanager/awesome-debrid" class="resource-item accent-hover"
                                         target="_blank" rel="noopener noreferrer">
                                         <strong>Awesome-Debrid</strong>
                                         <span>Curated list of debrid-compatible apps, browser extensions, and automation
                                             tools</span>
                                     </a>
                                     <a href="https://github.com/debridmediamanager/debrid-media-manager"
-                                        class="resource-item" target="_blank" rel="noopener noreferrer">
+                                        class="resource-item accent-hover" target="_blank" rel="noopener noreferrer">
                                         <strong>Debrid Media Manager</strong>
                                         <span>Easily download movies and TV shows directly to your Debrid library</span>
                                     </a>
-                                    <a href="https://github.com/rogerfar/rdt-client" class="resource-item"
+                                    <a href="https://github.com/rogerfar/rdt-client" class="resource-item accent-hover"
                                         target="_blank" rel="noopener noreferrer">
                                         <strong>Real-Debrid Torrent Client</strong>
                                         <span>Web interface to manage your torrents on Real-Debrid, AllDebrid,
                                             Premiumize TorBox or DebridLink</span>
                                     </a>
-                                    <a href="https://github.com/g0ldyy/comet" class="resource-item" target="_blank"
+                                    <a href="https://github.com/g0ldyy/comet" class="resource-item accent-hover" target="_blank"
                                         rel="noopener noreferrer">
                                         <strong>Comet</strong>
                                         <span>Stremio's torrent/debrid search add-on</span>
                                     </a>
-                                    <a href="https://github.com/jackett/jackett" class="resource-item" target="_blank"
+                                    <a href="https://github.com/jackett/jackett" class="resource-item accent-hover" target="_blank"
                                         rel="noopener noreferrer">
                                         <strong>Jackett + Prowlarr</strong>
                                         <span>Indexer proxies that work seamlessly with debrid services for
@@ -701,26 +702,25 @@
                                     </a>
                                 </div>
                             </div>
-
-                            <div class="resource-category">
+                            <div class="resource-category elevated">
                                 <h3>
                                     <svg class="resource-category-icon" role="img" aria-hidden="true">
   <use href="#icon-user" stroke="currentColor" stroke-width="2" fill="none" />
 </svg>
                                     Community and Support
                                 </h3>
-                                <div class="resource-list">
-                                    <div class="resource-item">
+                                <div class="resource-list cards-3">
+                                    <div class="resource-item static">
                                         <strong>Reddit</strong>
                                         <span>Active discussions on r/Debrid, r/Piracy and service-specific
                                             threads</span>
                                     </div>
-                                    <div class="resource-item">
+                                    <div class="resource-item static">
                                         <strong>Discord</strong>
                                         <span>Many services offer official Discord servers for real-time support and
                                             status updates</span>
                                     </div>
-                                    <div class="resource-item">
+                                    <div class="resource-item static">
                                         <strong>GitHub Issues</strong>
                                         <span>Report inaccuracies or suggest improvements here — this project thrives on
                                             community input!</span>
@@ -746,7 +746,7 @@
         <footer class="site-footer" role="contentinfo">
             <div class="container">
                 <div class="content-container">
-                    <div class="footer-content">
+                    <div class="footer-content improved">
                         <div class="footer-section">
                             <div class="footer-brand">
                                 <svg class="footer-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor"
