@@ -11,7 +11,7 @@
   "scripts": {
     "minify:css": "cleancss -o dist/css/styles-min.css dist/css/styles.css",
     "minify:js": "terser dist/js/app.js -o dist/js/app-min.js --compress --mangle",
-    "optimize-json": "chmod +x scripts/json-optimizer.sh && scripts/json-optimizer.sh dist/json/file-hosts.json && scripts/json-optimizer.sh dist/json/adult-hosts.json",
+    "optimize-json": "chmod +x scripts/json-optimizer.sh && scripts/json-optimizer.sh dist/json/file-hosts.json dist/json/file-hosts-optimized.json && scripts/json-optimizer.sh dist/json/adult-hosts.json dist/json/adult-hosts-optimized.json",
     "build": "npm run minify:css && npm run minify:js && npm run optimize-json && workbox generateSW workbox-config.js",
     "postbuild": "node scripts/replace-assets.js"
   },
