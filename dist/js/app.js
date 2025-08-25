@@ -11,601 +11,734 @@
    Utils
    ============================== */
 const Utils = (() => {
-  const debounceCache = new WeakMap();
-
-  return {
-    debounce(func, delay = 300, immediate = false) {
-      if (debounceCache.has(func)) return debounceCache.get(func);
-
-      let timeoutId;
-      const debounced = function(...args) {
-        const callNow = immediate && !timeoutId;
-        clearTimeout(timeoutId);
-
-        if (callNow) func.apply(this, args);
-
-        timeoutId = setTimeout(() => {
-          timeoutId = null;
-          if (!immediate) func.apply(this, args);
-        }, delay);
-      };
-
-      debounceCache.set(func, debounced);
-      return debounced;
-    },
-
-    throttle(func, limit = 100) {
-      let ticking = false;
-      return function(...args) {
-        if (!ticking) {
-          func.apply(this, args);
-          ticking = true;
-          requestAnimationFrame(() => {
-            setTimeout(() => { ticking = false; }, limit);
-          });
-        }
-      };
-    },
-
-    animateOnScroll: (() => {
-      let observer;
-      return (elements, options = {}) => {
-        if (!('IntersectionObserver' in window)) return;
-        if (!observer) {
-          observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add('animate-in');
-                observer.unobserve(entry.target);
-              }
-            });
-          }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px',
-            ...options
-          });
-        }
-        elements.forEach(el => observer.observe(el));
-      };
-    })()
-  };
+    const debounceMap = new WeakMap();
+    return {
+        debounce(func, wait = 300, immediate = false) {
+            if (debounceMap.has(func)) return debounceMap.get(func);
+            let timeout;
+            const debounced = function (...args) {
+                const callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                if (callNow) func.apply(this, args);
+                timeout = setTimeout(() => {
+                    timeout = null;
+                    if (!immediate) func.apply(this, args);
+                }, wait);
+            };
+            debounceMap.set(func, debounced);
+            return debounced;
+        },
+        throttle(func, limit = 100) {
+            let inThrottle = false;
+            return function (...args) {
+                if (!inThrottle) {
+                    func.apply(this, args);
+                    inThrottle = true;
+                    requestAnimationFrame(() => {
+                        setTimeout(() => inThrottle = false, limit);
+                    });
+                }
+            };
+        },
+        animateOnScroll: (() => {
+            let observer;
+            return (elements, options = {}) => {
+                if (!('IntersectionObserver' in window)) return;
+                if (!observer) {
+                    observer = new IntersectionObserver((entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add("animate-in");
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    }, {
+                        threshold: 0.1,
+                        rootMargin: "0px 0px -50px 0px",
+                        ...options
+                    });
+                }
+                elements.forEach((element) => observer.observe(element));
+            };
+        })()
+    };
 })();
 
-/* ==============================
-   Loading Manager
-   ============================== */
 class LoadingManager {
-  constructor() {
-    this.activeLoaders = new Map();
-    this.template = this.createTemplate();
-  }
+    constructor() {
+        this.activeLoaders = new Map();
+        this.template = this.createTemplate();
+    }
 
-  createTemplate() {
-    const template = document.createElement('template');
-    template.innerHTML = `
-      <div class="loading-overlay">
-        <div class="loading-content">
-          <div class="loading-spinner">
-            <div class="spinner-ring"></div>
-            <div class="spinner-ring"></div>
-            <div class="spinner-ring"></div>
-          </div>
-          <p class="loading-text"></p>
-        </div>
-      </div>
-    `;
-    return template;
-  }
+    createTemplate() {
+        const template = document.createElement("template");
+        template.innerHTML = `
+            <div class="loading-overlay">
+                <div class="loading-content">
+                    <div class="loading-spinner">
+                        <div class="spinner-ring"></div>
+                        <div class="spinner-ring"></div>
+                        <div class="spinner-ring"></div>
+                    </div>
+                    <p class="loading-text"></p>
+                </div>
+            </div>
+        `;
+        return template;
+    }
 
-  show(target, text = 'Loading...') {
-    const targetEl = typeof target === 'string' ? document.querySelector(target) : target;
-    if (!targetEl) return null;
+    show(target, text = "Loading...") {
+        const element = typeof target === "string" ? document.querySelector(target) : target;
+        if (!element) return null;
 
-    const loaderId = `loader-${Date.now()}-${Math.random().toString(36).slice(2)}`;
-    const loader = this.template.content.cloneNode(true).firstElementChild;
+        const loaderId = `loader-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+        const loaderElement = this.template.content.cloneNode(true).firstElementChild;
+        loaderElement.dataset.loaderId = loaderId;
+        loaderElement.querySelector(".loading-text").textContent = text;
 
-    loader.dataset.loaderId = loaderId;
-    loader.querySelector('.loading-text').textContent = text;
+        const computedStyle = getComputedStyle(element);
+        if (computedStyle.position === "static") {
+            element.style.position = "relative";
+        }
 
-    const prevPos = getComputedStyle(targetEl).position;
-    if (prevPos === 'static' || !prevPos) targetEl.style.position = 'relative';
+        element.appendChild(loaderElement);
+        this.activeLoaders.set(loaderId, loaderElement);
 
-    targetEl.appendChild(loader);
-    this.activeLoaders.set(loaderId, loader);
+        requestAnimationFrame(() => loaderElement.classList.add("loading-overlay--visible"));
+        return loaderId;
+    }
 
-    requestAnimationFrame(() => loader.classList.add('loading-overlay--visible'));
-    return loaderId;
-  }
+    hide(target, loaderId) {
+        const loaderElement = this.activeLoaders.get(loaderId);
+        if (loaderElement) {
+            loaderElement.classList.add("loading-overlay--hiding");
+            this.activeLoaders.delete(loaderId);
+            setTimeout(() => loaderElement.remove(), 250);
+        }
+    }
 
-  hide(target, loaderId) {
-    const loader = this.activeLoaders.get(loaderId);
-    if (!loader) return;
-    loader.classList.add('loading-overlay--hiding');
-    this.activeLoaders.delete(loaderId);
-    setTimeout(() => loader.remove(), 250);
-  }
-
-  hideAll() {
-    this.activeLoaders.forEach((_, id) => this.hide(null, id));
-  }
+    hideAll() {
+        this.activeLoaders.forEach((_, loaderId) => this.hide(null, loaderId));
+    }
 }
 
-/* ==============================
-   Table Manager (file/adult hosts)
-   ============================== */
 class TableManager {
-  constructor(containerId, searchInputId, clearIconId, options = {}) {
-    this.elements = {
-      container: document.getElementById(containerId),
-      searchInput: document.getElementById(searchInputId),
-      clearIcon: document.getElementById(clearIconId)
-    };
+    constructor(containerId, searchInputId, clearIconId, options = {}) {
+        this.elements = {
+            container: document.getElementById(containerId),
+            searchInput: document.getElementById(searchInputId),
+            clearIcon: document.getElementById(clearIconId)
+        };
 
-    this.options = { sortable: true, filterable: true, pagination: false, itemsPerPage: 50, ...options };
-    this.state = {
-      currentData: {},
-      filteredData: {},
-      currentSort: { column: null, direction: 'asc' },
-      currentPage: 1
-    };
+        this.options = {
+            sortable: true,
+            filterable: true,
+            pagination: false,
+            itemsPerPage: 50,
+            ...options
+        };
 
-    this.handleSearch = Utils.debounce(this._performSearch.bind(this), 250);
-    this.handleSort = this._performSort.bind(this);
+        this.state = {
+            currentData: {},
+            filteredData: {},
+            currentSort: { column: null, direction: "asc" },
+            currentPage: 1,
+            services: [], // Store services array for indexed format
+            isIndexedFormat: false // Flag to track data format
+        };
 
-    this._init();
-  }
-
-  _init() {
-    if (this.elements.searchInput) {
-      this.elements.searchInput.addEventListener('input', this.handleSearch);
-      this.elements.searchInput.addEventListener('keydown', e => {
-        if (e.key === 'Escape') this._clearSearch();
-      });
+        this.handleSearch = Utils.debounce(this._performSearch.bind(this), 250);
+        this.handleSort = this._performSort.bind(this);
+        this._init();
     }
 
-    if (this.elements.clearIcon) {
-      this.elements.clearIcon.addEventListener('click', () => this._clearSearch());
-    }
-  }
-
-  generateTable(data = {}) {
-    if (!this.elements.container) return;
-    if (!Object.keys(data).length) {
-      this.elements.container.innerHTML = '<div class="empty-state"><p>No data available.</p></div>';
-      return;
-    }
-
-    this.state.currentData = data;
-    this.state.filteredData = { ...data };
-
-    const firstKey = Object.keys(data)[0];
-    const providers = firstKey ? Object.keys(data[firstKey]) : [];
-    const tableId = this.elements.container.id.replace('-container', '');
-
-    const fragment = document.createDocumentFragment();
-    const wrapper = document.createElement('div');
-    wrapper.className = 'table-wrapper';
-
-    const table = document.createElement('table');
-    table.id = tableId;
-    table.className = 'enhanced-table';
-    table.setAttribute('aria-label', 'Service Comparison Table');
-
-    const thead = document.createElement('thead');
-    thead.innerHTML = this._generateTableHeader(providers);
-    table.appendChild(thead);
-
-    const tbody = document.createElement('tbody');
-    tbody.innerHTML = this._generateTableRows(this.state.filteredData, providers);
-    table.appendChild(tbody);
-
-    wrapper.appendChild(table);
-    fragment.appendChild(wrapper);
-
-    this.elements.container.innerHTML = '';
-    this.elements.container.appendChild(fragment);
-
-    this._attachTableEvents();
-  }
-
-  _generateTableHeader(providers) {
-    return `
-      <tr>
-        <th class="sortable" data-column="service" tabindex="0" role="columnheader" aria-sort="none">
-          <span>Service Name</span>
-          <svg class="sort-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M12 5v14M5 12l7-7 7 7"/>
-          </svg>
-        </th>
-        ${providers.map(provider => `
-          <th class="sortable" data-column="${provider}" tabindex="0" role="columnheader" aria-sort="none">
-            <span>${provider}</span>
-            <svg class="sort-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M12 5v14M5 12l7-7 7 7"/>
-            </svg>
-          </th>
-        `).join('')}
-      </tr>
-    `;
-  }
-
-  _generateTableRows(data, providers) {
-    const rows = [];
-    for (const [host, providerData] of Object.entries(data)) {
-      rows.push(`
-        <tr data-host="${host.toLowerCase()}" role="row">
-          <td class="service-cell" role="gridcell">
-            <div class="service-info">
-              <span class="service-name">${host}</span>
-            </div>
-          </td>
-          ${providers.map(provider => {
-            const isSupported = providerData[provider] === 'yes';
-            return `
-              <td class="status-cell" role="gridcell" data-status="${providerData[provider]}">
-                <span class="status-indicator ${isSupported ? 'supported' : 'not-supported'}" aria-label="${isSupported ? 'Supported' : 'Not supported'}">
-                  ${isSupported
-                    ? '<svg class="table-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22,4 12,14.01 9,11.01"></polyline></svg>'
-                    : '<svg class="table-cross" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>'
-                  }
-                </span>
-              </td>
-            `;
-          }).join('')}
-        </tr>
-      `);
-    }
-    return rows.join('');
-  }
-
-  _attachTableEvents() {
-    if (!this.options.sortable) return;
-    const thead = this.elements.container.querySelector('thead');
-    if (thead) {
-      thead.addEventListener('click', this.handleSort);
-      thead.addEventListener('keydown', e => {
-        const target = e.target.closest('.sortable');
-        if (!target) return;
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          this.handleSort({ target });
+    _init() {
+        if (this.elements.searchInput) {
+            this.elements.searchInput.addEventListener("input", this.handleSearch);
+            this.elements.searchInput.addEventListener("keydown", (e) => {
+                if (e.key === "Escape") this._clearSearch();
+            });
         }
-      });
-    }
-  }
 
-  _performSearch() {
-    const term = (this.elements.searchInput?.value || '').toLowerCase().trim();
-
-    if (!term) {
-      this.state.filteredData = { ...this.state.currentData };
-      if (this.elements.clearIcon) this.elements.clearIcon.style.display = 'none';
-    } else {
-      this.state.filteredData = Object.fromEntries(
-        Object.entries(this.state.currentData).filter(([host]) => host.toLowerCase().includes(term))
-      );
-      if (this.elements.clearIcon) this.elements.clearIcon.style.display = 'block';
+        if (this.elements.clearIcon) {
+            this.elements.clearIcon.addEventListener("click", () => this._clearSearch());
+        }
     }
 
-    this._updateTableContent();
-    this._updateSearchResults(term);
-  }
-
-  _clearSearch() {
-    if (this.elements.searchInput) this.elements.searchInput.value = '';
-    this.state.filteredData = { ...this.state.currentData };
-    if (this.elements.clearIcon) this.elements.clearIcon.style.display = 'none';
-    this._updateTableContent();
-    this._updateSearchResults('');
-  }
-
-  _updateSearchResults(searchTerm) {
-    if (!this.elements.container) return;
-    let indicator = this.elements.container.querySelector('.search-results');
-
-    if (searchTerm) {
-      const resultCount = Object.keys(this.state.filteredData).length;
-      const totalCount = Object.keys(this.state.currentData).length;
-
-      if (!indicator) {
-        indicator = document.createElement('div');
-        indicator.className = 'search-results';
-        this.elements.container.insertBefore(indicator, this.elements.container.firstChild);
-      }
-      indicator.textContent = `Showing ${resultCount} of ${totalCount} services`;
-  indicator.style.display = 'block';
-  indicator.style.textAlign = 'center';
-  indicator.style.padding = '0.5em 0';
-    } else if (indicator) {
-      indicator.style.display = 'none';
+    // New method to transform indexed data to regular format
+    _transformIndexedData(indexedData) {
+        const { services, supported } = indexedData;
+        const transformed = {};
+        
+        for (const [host, supportedIndices] of Object.entries(supported)) {
+            transformed[host] = {};
+            services.forEach((service, index) => {
+                transformed[host][service] = supportedIndices.includes(index) ? "yes" : "no";
+            });
+        }
+        
+        // Store services for later use
+        this.state.services = services;
+        this.state.isIndexedFormat = true;
+        
+        return transformed;
     }
-  }
 
-  _performSort(event) {
-    const header = event.target.closest('.sortable');
-    if (!header) return;
+    // Modified method to handle both formats
+    generateTable(data = {}) {
+        if (!this.elements.container) return;
 
-    const column = header.dataset.column;
-    const { currentSort } = this.state;
-    const newDirection = currentSort.column === column && currentSort.direction === 'asc' ? 'desc' : 'asc';
+        // Handle both old and new indexed formats
+        let processedData;
+        if (data.services && data.supported) {
+            // New indexed format
+            processedData = this._transformIndexedData(data);
+        } else {
+            // Old format
+            processedData = data;
+            this.state.isIndexedFormat = false;
+            // Try to extract services from first entry
+            const firstHost = Object.values(processedData)[0];
+            this.state.services = firstHost ? Object.keys(firstHost) : [];
+        }
 
-    this.state.currentSort = { column, direction: newDirection };
+        if (!Object.keys(processedData).length) {
+            this.elements.container.innerHTML = '<div class="empty-state"><p>No data available.</p></div>';
+            return;
+        }
 
-    this.elements.container.querySelectorAll('th.sortable').forEach(th => {
-      th.setAttribute('aria-sort', 'none');
-      th.classList.remove('sorted-asc', 'sorted-desc');
-    });
+        this.state.currentData = processedData;
+        this.state.filteredData = { ...processedData };
 
-    header.setAttribute('aria-sort', newDirection === 'asc' ? 'ascending' : 'descending');
-    header.classList.add(`sorted-${newDirection}`);
+        const firstHostKey = Object.keys(processedData)[0];
+        const columns = firstHostKey ? Object.keys(processedData[firstHostKey]) : [];
+        const tableId = this.elements.container.id.replace("-container", "");
 
-    this._sortData();
-    this._updateTableContent();
-  }
+        const fragment = document.createDocumentFragment();
+        const wrapper = document.createElement("div");
+        wrapper.className = "table-wrapper";
 
-  _sortData() {
-    const { column, direction } = this.state.currentSort;
-    const entries = Object.entries(this.state.filteredData);
+        const table = document.createElement("table");
+        table.id = tableId;
+        table.className = "enhanced-table";
+        table.setAttribute("aria-label", "Service Comparison Table");
 
-    entries.sort(([hostA, dataA], [hostB, dataB]) => {
-      const valueA = column === 'service' ? hostA.toLowerCase() : (dataA[column] === 'yes' ? 1 : 0);
-      const valueB = column === 'service' ? hostB.toLowerCase() : (dataB[column] === 'yes' ? 1 : 0);
+        const thead = document.createElement("thead");
+        thead.innerHTML = this._generateTableHeader(columns);
+        table.appendChild(thead);
 
-      const comparison = valueA > valueB ? 1 : valueA < valueB ? -1 : 0;
-      return direction === 'asc' ? comparison : -comparison;
-    });
+        const tbody = document.createElement("tbody");
+        tbody.innerHTML = this._generateTableRows(this.state.filteredData, columns);
+        table.appendChild(tbody);
 
-    this.state.filteredData = Object.fromEntries(entries);
-  }
+        wrapper.appendChild(table);
+        fragment.appendChild(wrapper);
 
-  _updateTableContent() {
-    const tbody = this.elements.container.querySelector('tbody');
-    if (!tbody) return;
-    const firstKey = Object.keys(this.state.currentData)[0];
-    const providers = firstKey ? Object.keys(this.state.currentData[firstKey]) : [];
-    requestAnimationFrame(() => {
-      tbody.innerHTML = this._generateTableRows(this.state.filteredData, providers);
-    });
-  }
+        this.elements.container.innerHTML = "";
+        this.elements.container.appendChild(fragment);
+
+        this._attachTableEvents();
+    }
+
+    _generateTableHeader(columns) {
+        return `
+            <tr>
+                <th class="sortable" data-column="service" tabindex="0" role="columnheader" aria-sort="none">
+                    <span>Service Name</span>
+                    <svg class="sort-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M12 5v14M5 12l7-7 7 7"/>
+                    </svg>
+                </th>
+                ${columns.map(column => `
+                    <th class="sortable" data-column="${column}" tabindex="0" role="columnheader" aria-sort="none">
+                        <span>${column}</span>
+                        <svg class="sort-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M12 5v14M5 12l7-7 7 7"/>
+                        </svg>
+                    </th>
+                `).join("")}
+            </tr>
+        `;
+    }
+
+    _generateTableRows(data, columns) {
+        const rows = [];
+        for (const [host, hostData] of Object.entries(data)) {
+            rows.push(`
+                <tr data-host="${host.toLowerCase()}" role="row">
+                    <td class="service-cell" role="gridcell">
+                        <div class="service-info">
+                            <span class="service-name">${host}</span>
+                        </div>
+                    </td>
+                    ${columns.map(column => {
+                        const isSupported = hostData[column] === "yes";
+                        return `
+                            <td class="status-cell" role="gridcell" data-status="${hostData[column]}">
+                                <span class="status-indicator ${isSupported ? "supported" : "not-supported"}" aria-label="${isSupported ? "Supported" : "Not supported"}">
+                                    ${isSupported ? 
+                                        '<svg class="table-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22,4 12,14.01 9,11.01"></polyline></svg>' : 
+                                        '<svg class="table-cross" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>'
+                                    }
+                                </span>
+                            </td>
+                        `;
+                    }).join("")}
+                </tr>
+            `);
+        }
+        return rows.join("");
+    }
+
+    _attachTableEvents() {
+        if (!this.options.sortable) return;
+
+        const thead = this.elements.container.querySelector("thead");
+        if (thead) {
+            thead.addEventListener("click", this.handleSort);
+            thead.addEventListener("keydown", (e) => {
+                const sortableHeader = e.target.closest(".sortable");
+                if (sortableHeader && (e.key === "Enter" || e.key === " ")) {
+                    e.preventDefault();
+                    this.handleSort({ target: sortableHeader });
+                }
+            });
+        }
+    }
+
+    _performSearch() {
+        const searchTerm = (this.elements.searchInput?.value || "").toLowerCase().trim();
+        
+        if (searchTerm) {
+            this.state.filteredData = Object.fromEntries(
+                Object.entries(this.state.currentData).filter(([host]) => 
+                    host.toLowerCase().includes(searchTerm)
+                )
+            );
+            if (this.elements.clearIcon) {
+                this.elements.clearIcon.style.display = "block";
+            }
+        } else {
+            this.state.filteredData = { ...this.state.currentData };
+            if (this.elements.clearIcon) {
+                this.elements.clearIcon.style.display = "none";
+            }
+        }
+
+        this._updateTableContent();
+        this._updateSearchResults(searchTerm);
+    }
+
+    _clearSearch() {
+        if (this.elements.searchInput) {
+            this.elements.searchInput.value = "";
+        }
+        this.state.filteredData = { ...this.state.currentData };
+        if (this.elements.clearIcon) {
+            this.elements.clearIcon.style.display = "none";
+        }
+        this._updateTableContent();
+        this._updateSearchResults("");
+    }
+
+    _updateSearchResults(searchTerm) {
+        if (!this.elements.container) return;
+
+        let resultsElement = this.elements.container.querySelector(".search-results");
+        
+        if (searchTerm) {
+            const filteredCount = Object.keys(this.state.filteredData).length;
+            const totalCount = Object.keys(this.state.currentData).length;
+            
+            if (!resultsElement) {
+                resultsElement = document.createElement("div");
+                resultsElement.className = "search-results";
+                this.elements.container.insertBefore(resultsElement, this.elements.container.firstChild);
+            }
+            
+            resultsElement.textContent = `Showing ${filteredCount} of ${totalCount} services`;
+            resultsElement.style.display = "block";
+            resultsElement.style.textAlign = "center";
+            resultsElement.style.padding = "0.5em 0";
+        } else if (resultsElement) {
+            resultsElement.style.display = "none";
+        }
+    }
+
+    _performSort(event) {
+        const sortableHeader = event.target.closest(".sortable");
+        if (!sortableHeader) return;
+
+        const column = sortableHeader.dataset.column;
+        const { currentSort } = this.state;
+        const direction = currentSort.column === column && currentSort.direction === "asc" ? "desc" : "asc";
+
+        this.state.currentSort = { column, direction };
+
+        // Update UI
+        this.elements.container.querySelectorAll("th.sortable").forEach(header => {
+            header.setAttribute("aria-sort", "none");
+            header.classList.remove("sorted-asc", "sorted-desc");
+        });
+
+        sortableHeader.setAttribute("aria-sort", direction === "asc" ? "ascending" : "descending");
+        sortableHeader.classList.add(`sorted-${direction}`);
+
+        this._sortData();
+        this._updateTableContent();
+    }
+
+    _sortData() {
+        const { column, direction } = this.state.currentSort;
+        const entries = Object.entries(this.state.filteredData);
+
+        entries.sort(([hostA, dataA], [hostB, dataB]) => {
+            let valueA, valueB;
+
+            if (column === "service") {
+                valueA = hostA.toLowerCase();
+                valueB = hostB.toLowerCase();
+            } else {
+                // Convert "yes"/"no" to numeric values for sorting
+                valueA = dataA[column] === "yes" ? 1 : 0;
+                valueB = dataB[column] === "yes" ? 1 : 0;
+            }
+
+            let comparison = 0;
+            if (valueA > valueB) comparison = 1;
+            else if (valueA < valueB) comparison = -1;
+
+            return direction === "asc" ? comparison : -comparison;
+        });
+
+        this.state.filteredData = Object.fromEntries(entries);
+    }
+
+    _updateTableContent() {
+        const tbody = this.elements.container.querySelector("tbody");
+        if (!tbody) return;
+
+        const firstHostKey = Object.keys(this.state.currentData)[0];
+        const columns = firstHostKey ? Object.keys(this.state.currentData[firstHostKey]) : [];
+
+        requestAnimationFrame(() => {
+            tbody.innerHTML = this._generateTableRows(this.state.filteredData, columns);
+        });
+    }
 }
 
 /* ==============================
    Comparison Manager
    ============================== */
 class ComparisonManager {
-  constructor(containerId, select1Id, select2Id, data) {
-    this.elements = {
-      container: document.getElementById(containerId),
-      select1: document.getElementById(select1Id),
-      select2: document.getElementById(select2Id)
-    };
-    this.data = data;
-    this.isComparing = false;
-
-    this.handleCompare = this._generateCompareTable.bind(this);
-    this._init();
-  }
-
-  _init() {
-    this._populateDropdowns();
-
-    this.elements.select1?.addEventListener('change', this.handleCompare);
-    this.elements.select2?.addEventListener('change', this.handleCompare);
-
-    document.addEventListener('keydown', e => {
-      if (this.isComparing && e.key === 'Escape') this._closeComparison();
-    });
-  }
-
-  _populateDropdowns() {
-    const firstKey = Object.keys(this.data)[0];
-    const providers = firstKey ? Object.keys(this.data[firstKey]) : [];
-    const optionsHTML = '<option value="">Choose a service...</option>' +
-      providers.map(p => `<option value="${p}">${p}</option>`).join('');
-
-    [this.elements.select1, this.elements.select2].forEach(select => {
-      if (select) select.innerHTML = optionsHTML;
-    });
-  }
-
-  _generateCompareTable() {
-    const provider1 = this.elements.select1?.value;
-    const provider2 = this.elements.select2?.value;
-
-    if (!provider1 || !provider2) {
-      this._showEmptyState();
-      return;
-    }
-    if (provider1 === provider2) {
-      this._showSameProviderWarning();
-      return;
+    constructor(containerId, select1Id, select2Id, data) {
+        this.elements = {
+            container: document.getElementById(containerId),
+            select1: document.getElementById(select1Id),
+            select2: document.getElementById(select2Id)
+        };
+        
+        this.data = data;
+        this.isComparing = false;
+        this.handleCompare = this._generateCompareTable.bind(this);
+        this.services = []; // Store services array for indexed format
+        
+        // Check if data is in indexed format
+        if (data.services && data.supported) {
+            this.services = data.services;
+            this.isIndexedFormat = true;
+        } else {
+            // Extract services from regular format
+            const firstHost = Object.values(data)[0];
+            this.services = firstHost ? Object.keys(firstHost) : [];
+            this.isIndexedFormat = false;
+        }
+        
+        this._init();
     }
 
-    this.isComparing = true;
-    const loaderId = loadingManager.show(this.elements.container, 'Generating comparison...');
-
-    requestAnimationFrame(() => {
-      this._renderComparisonTable(provider1, provider2);
-      loadingManager.hide(this.elements.container, loaderId);
-    });
-  }
-
-  _renderComparisonTable(provider1, provider2) {
-    const stats = this._calculateComparisonStats(provider1, provider2);
-    const fragment = document.createDocumentFragment();
-    const wrapper = document.createElement('div');
-
-    wrapper.innerHTML = `
-      <div class="comparison-header">
-        <h3>Comparing ${provider1} vs ${provider2}</h3>
-        <div class="comparison-stats">
-          <div class="stat"><span class="stat-label">Shared Support</span><span class="stat-value">${stats.shared}</span></div>
-          <div class="stat"><span class="stat-label">${provider1} Only</span><span class="stat-value">${stats.provider1Only}</span></div>
-          <div class="stat"><span class="stat-label">${provider2} Only</span><span class="stat-value">${stats.provider2Only}</span></div>
-        </div>
-        <div class="comparison-actions">
-          <button id="close-compare" class="btn btn-secondary">
-            <span>Close</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M18 6L6 18M6 6l12 12"/>
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      <div class="comparison-filters">
-        <label class="filter-option">
-          <input type="radio" name="comparison-filter" value="all" checked>
-          <span>All Services</span>
-        </label>
-        <label class="filter-option">
-          <input type="radio" name="comparison-filter" value="both">
-          <span>Supported by Both</span>
-        </label>
-        <label class="filter-option">
-          <input type="radio" name="comparison-filter" value="different">
-          <span>Different Support</span>
-        </label>
-      </div>
-
-      <div class="table-wrapper">
-        <table id="compare-table" class="comparison-table" aria-label="Provider Comparison Table">
-          <thead>
-            <tr>
-              <th>Service Name</th>
-              <th class="provider-header ${provider1.toLowerCase()}">${provider1}</th>
-              <th class="provider-header ${provider2.toLowerCase()}">${provider2}</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${this._generateComparisonRows(provider1, provider2)}
-          </tbody>
-        </table>
-      </div>
-    `;
-
-    fragment.appendChild(wrapper);
-    this.elements.container.innerHTML = '';
-    this.elements.container.appendChild(fragment);
-    this.elements.container.style.display = 'block';
-    this._attachComparisonEvents();
-
-    requestAnimationFrame(() => {
-      this.elements.container.classList.add('comparison-visible');
-    });
-  }
-
-  _generateComparisonRows(provider1, provider2) {
-    const rows = [];
-    const checkSvg = '<svg class="table-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22,4 12,14.01 9,11.01"></polyline></svg>';
-    const crossSvg = '<svg class="table-cross" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>';
-
-    for (const [host, providerData] of Object.entries(this.data)) {
-      const support1 = providerData[provider1] === 'yes';
-      const support2 = providerData[provider2] === 'yes';
-
-      let statusClass = 'neither-supported';
-      let statusText = 'Neither';
-      if (support1 && support2) { statusClass = 'both-supported'; statusText = 'Both'; }
-      else if (support1) { statusClass = 'provider1-only'; statusText = `${provider1} only`; }
-      else if (support2) { statusClass = 'provider2-only'; statusText = `${provider2} only`; }
-
-      rows.push(`
-        <tr class="comparison-row ${statusClass}" data-status="${statusClass}">
-          <td class="service-name">${host}</td>
-          <td class="support-status ${support1 ? 'supported' : 'not-supported'}">
-            <span class="status-indicator" aria-label="${support1 ? 'Supported' : 'Not supported'}">${support1 ? checkSvg : crossSvg}</span>
-          </td>
-          <td class="support-status ${support2 ? 'supported' : 'not-supported'}">
-            <span class="status-indicator" aria-label="${support2 ? 'Supported' : 'Not supported'}">${support2 ? checkSvg : crossSvg}</span>
-          </td>
-          <td class="status-text"><span class="status-badge ${statusClass}">${statusText}</span></td>
-        </tr>
-      `);
+    _init() {
+        this._populateDropdowns();
+        
+        if (this.elements.select1) {
+            this.elements.select1.addEventListener("change", this.handleCompare);
+        }
+        
+        if (this.elements.select2) {
+            this.elements.select2.addEventListener("change", this.handleCompare);
+        }
+        
+        document.addEventListener("keydown", (e) => {
+            if (this.isComparing && e.key === "Escape") {
+                this._closeComparison();
+            }
+        });
     }
-    return rows.join('');
-  }
 
-  _calculateComparisonStats(provider1, provider2) {
-    let shared = 0, provider1Only = 0, provider2Only = 0;
-    for (const providerData of Object.values(this.data)) {
-      const s1 = providerData[provider1] === 'yes';
-      const s2 = providerData[provider2] === 'yes';
-      if (s1 && s2) shared++;
-      else if (s1) provider1Only++;
-      else if (s2) provider2Only++;
+    _populateDropdowns() {
+        // Use the stored services array
+        const optionsHtml = '<option value="">Choose a service...</option>' +
+            this.services.map(service => 
+                `<option value="${service}">${service}</option>`
+            ).join("");
+        
+        [this.elements.select1, this.elements.select2].forEach(select => {
+            if (select) {
+                select.innerHTML = optionsHtml;
+            }
+        });
     }
-    return { shared, provider1Only, provider2Only };
-  }
 
-  _attachComparisonEvents() {
-    const closeBtn = this.elements.container.querySelector('#close-compare');
-    closeBtn?.addEventListener('click', () => this._closeComparison());
-
-    this.elements.container.addEventListener('change', e => {
-      if (e.target.name === 'comparison-filter') {
-        this._filterComparison(e.target.value);
-      }
-    });
-  }
-
-  _filterComparison(filter) {
-    const rows = this.elements.container.querySelectorAll('.comparison-row');
-    let visibleCount = 0;
-
-    rows.forEach(row => {
-      const status = row.dataset.status;
-      const show = filter === 'all' ||
-                   (filter === 'both' && status === 'both-supported') ||
-                   (filter === 'different' && (status === 'provider1-only' || status === 'provider2-only'));
-      row.style.display = show ? '' : 'none';
-      if (show) visibleCount++;
-    });
-
-    let indicator = this.elements.container.querySelector('.filter-results');
-    if (!indicator) {
-      indicator = document.createElement('div');
-      indicator.className = 'filter-results';
-      const tableWrapper = this.elements.container.querySelector('.table-wrapper');
-      tableWrapper.parentNode.insertBefore(indicator, tableWrapper);
+    // Transform indexed data to regular format for comparison
+    _getHostData(hostName) {
+        if (this.isIndexedFormat) {
+            // Convert indexed format to regular format
+            const supportedIndices = this.data.supported[hostName] || [];
+            const hostData = {};
+            this.services.forEach((service, index) => {
+                hostData[service] = supportedIndices.includes(index) ? "yes" : "no";
+            });
+            return hostData;
+        } else {
+            // Return data as-is for regular format
+            return this.data[hostName] || {};
+        }
     }
-    indicator.textContent = `Showing ${visibleCount} services`;
-  }
 
-  _closeComparison() {
-    this.elements.container.classList.add('comparison-hiding');
-    setTimeout(() => {
-      this.elements.container.style.display = 'none';
-      this.elements.container.classList.remove('comparison-visible', 'comparison-hiding');
-      this.isComparing = false;
-      this._showEmptyState();
-    }, 250);
-  }
+    _generateCompareTable() {
+        const service1 = this.elements.select1?.value;
+        const service2 = this.elements.select2?.value;
+        
+        if (!service1 || !service2) {
+            this._showEmptyState();
+            return;
+        }
+        
+        if (service1 === service2) {
+            this._showSameProviderWarning();
+            return;
+        }
+        
+        this.isComparing = true;
+        const loaderId = loadingManager.show(this.elements.container, "Generating comparison...");
+        
+        requestAnimationFrame(() => {
+            this._renderComparisonTable(service1, service2);
+            loadingManager.hide(this.elements.container, loaderId);
+        });
+    }
 
-  _showEmptyState() {
-    this.elements.container.innerHTML = `
-      <div class="empty-state">
-        <div class="empty-state-icon" aria-hidden="true">⚖️</div>
-        <h3>Ready to Compare</h3>
-        <p>Select two services above to see a detailed comparison</p>
-      </div>
-    `;
-    this.elements.container.style.display = 'block';
-  }
+    _renderComparisonTable(service1, service2) {
+        const stats = this._calculateComparisonStats(service1, service2);
+        
+        const fragment = document.createDocumentFragment();
+        const wrapper = document.createElement("div");
+        wrapper.innerHTML = `
+            <div class="comparison-header">
+                <h3>Comparing ${service1} vs ${service2}</h3>
+                <div class="comparison-stats">
+                    <div class="stat"><span class="stat-label">Shared Support</span><span class="stat-value">${stats.shared}</span></div>
+                    <div class="stat"><span class="stat-label">${service1} Only</span><span class="stat-value">${stats.service1Only}</span></div>
+                    <div class="stat"><span class="stat-label">${service2} Only</span><span class="stat-value">${stats.service2Only}</span></div>
+                </div>
+                <div class="comparison-actions">
+                    <button id="close-compare" class="btn btn-secondary">
+                        <span>Close</span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M18 6L6 18M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
 
-  _showSameProviderWarning() {
-    this.elements.container.innerHTML = `
-      <div class="warning-state">
-        <div class="warning-icon">⚠️</div>
-        <h3>Same Service Selected</h3>
-        <p>Please select two different services to compare</p>
-      </div>
-    `;
-    this.elements.container.style.display = 'block';
-  }
+            <div class="comparison-filters">
+                <label class="filter-option">
+                    <input type="radio" name="comparison-filter" value="all" checked>
+                    <span>All Services</span>
+                </label>
+                <label class="filter-option">
+                    <input type="radio" name="comparison-filter" value="both">
+                    <span>Supported by Both</span>
+                </label>
+                <label class="filter-option">
+                    <input type="radio" name="comparison-filter" value="different">
+                    <span>Different Support</span>
+                </label>
+            </div>
+
+            <div class="table-wrapper">
+                <table id="compare-table" class="comparison-table" aria-label="Provider Comparison Table">
+                    <thead>
+                        <tr>
+                            <th>Service Name</th>
+                            <th class="provider-header ${service1.toLowerCase().replace(/\s+/g, '-')}">${service1}</th>
+                            <th class="provider-header ${service2.toLowerCase().replace(/\s+/g, '-')}">${service2}</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${this._generateComparisonRows(service1, service2)}
+                    </tbody>
+                </table>
+            </div>
+        `;
+        
+        fragment.appendChild(wrapper);
+        this.elements.container.innerHTML = "";
+        this.elements.container.appendChild(fragment);
+        this.elements.container.style.display = "block";
+        
+        this._attachComparisonEvents();
+        
+        requestAnimationFrame(() => {
+            this.elements.container.classList.add("comparison-visible");
+        });
+    }
+
+    _generateComparisonRows(service1, service2) {
+        const rows = [];
+        const checkIcon = '<svg class="table-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22,4 12,14.01 9,11.01"></polyline></svg>';
+        const crossIcon = '<svg class="table-cross" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>';
+        
+        // Get all hosts (keys from the original data structure)
+        const hosts = this.isIndexedFormat ? Object.keys(this.data.supported) : Object.keys(this.data);
+        
+        for (const host of hosts) {
+            const hostData = this._getHostData(host);
+            const supported1 = hostData[service1] === "yes";
+            const supported2 = hostData[service2] === "yes";
+            
+            let statusClass = "neither-supported";
+            let statusText = "Neither";
+            
+            if (supported1 && supported2) {
+                statusClass = "both-supported";
+                statusText = "Both";
+            } else if (supported1) {
+                statusClass = "service1-only";
+                statusText = `${service1} only`;
+            } else if (supported2) {
+                statusClass = "service2-only";
+                statusText = `${service2} only`;
+            }
+            
+            rows.push(`
+                <tr class="comparison-row ${statusClass}" data-status="${statusClass}">
+                    <td class="service-name">${host}</td>
+                    <td class="support-status ${supported1 ? "supported" : "not-supported"}">
+                        <span class="status-indicator" aria-label="${supported1 ? "Supported" : "Not supported"}">
+                            ${supported1 ? checkIcon : crossIcon}
+                        </span>
+                    </td>
+                    <td class="support-status ${supported2 ? "supported" : "not-supported"}">
+                        <span class="status-indicator" aria-label="${supported2 ? "Supported" : "Not supported"}">
+                            ${supported2 ? checkIcon : crossIcon}
+                        </span>
+                    </td>
+                    <td class="status-text"><span class="status-badge ${statusClass}">${statusText}</span></td>
+                </tr>
+            `);
+        }
+        
+        return rows.join("");
+    }
+
+    _calculateComparisonStats(service1, service2) {
+        let shared = 0;
+        let service1Only = 0;
+        let service2Only = 0;
+        
+        // Get all hosts
+        const hosts = this.isIndexedFormat ? Object.keys(this.data.supported) : Object.keys(this.data);
+        
+        for (const host of hosts) {
+            const hostData = this._getHostData(host);
+            const supported1 = hostData[service1] === "yes";
+            const supported2 = hostData[service2] === "yes";
+            
+            if (supported1 && supported2) {
+                shared++;
+            } else if (supported1) {
+                service1Only++;
+            } else if (supported2) {
+                service2Only++;
+            }
+        }
+        
+        return { shared, service1Only, service2Only };
+    }
+
+    _attachComparisonEvents() {
+        const closeBtn = this.elements.container.querySelector("#close-compare");
+        if (closeBtn) {
+            closeBtn.addEventListener("click", () => this._closeComparison());
+        }
+        
+        this.elements.container.addEventListener("change", (e) => {
+            if (e.target.name === "comparison-filter") {
+                this._filterComparison(e.target.value);
+            }
+        });
+    }
+
+    _filterComparison(filterValue) {
+        const rows = this.elements.container.querySelectorAll(".comparison-row");
+        let visibleCount = 0;
+        
+        rows.forEach(row => {
+            const status = row.dataset.status;
+            const shouldShow = 
+                filterValue === "all" ||
+                (filterValue === "both" && status === "both-supported") ||
+                (filterValue === "different" && (status === "service1-only" || status === "service2-only"));
+            
+            row.style.display = shouldShow ? "" : "none";
+            if (shouldShow) visibleCount++;
+        });
+        
+        let resultsElement = this.elements.container.querySelector(".filter-results");
+        if (!resultsElement) {
+            resultsElement = document.createElement("div");
+            resultsElement.className = "filter-results";
+            const tableWrapper = this.elements.container.querySelector(".table-wrapper");
+            tableWrapper.parentNode.insertBefore(resultsElement, tableWrapper);
+        }
+        
+        resultsElement.textContent = `Showing ${visibleCount} services`;
+    }
+
+    _closeComparison() {
+        this.elements.container.classList.add("comparison-hiding");
+        setTimeout(() => {
+            this.elements.container.style.display = "none";
+            this.elements.container.classList.remove("comparison-visible", "comparison-hiding");
+            this.isComparing = false;
+            this._showEmptyState();
+        }, 250);
+    }
+
+    _showEmptyState() {
+        this.elements.container.innerHTML = `
+            <div class="empty-state">
+                <div class="empty-state-icon" aria-hidden="true">⚖️</div>
+                <h3>Ready to Compare</h3>
+                <p>Select two services above to see a detailed comparison</p>
+            </div>
+        `;
+        this.elements.container.style.display = "block";
+    }
+
+    _showSameProviderWarning() {
+        this.elements.container.innerHTML = `
+            <div class="warning-state">
+                <div class="warning-icon">⚠️</div>
+                <h3>Same Service Selected</h3>
+                <p>Please select two different services to compare</p>
+            </div>
+        `;
+        this.elements.container.style.display = "block";
+    }
 }
-
 /* ==============================
    Pricing Manager
    ============================== */
@@ -936,7 +1069,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       loadingManager.show('#pricing-table-container', 'Loading pricing data...')
     ];
 
-    const dataUrls = ['./json/file-hosts.json', './json/adult-hosts.json', './json/pricing.json'];
+    const dataUrls = ['./json/file-hosts-optimized.json', './json/adult-hosts-optimized.json', './json/pricing.json'];
     const fetchPromises = dataUrls.map(url =>
       fetch(url).then(r => r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status} for ${url}`)))
     );
@@ -966,7 +1099,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       } else {
         console.error(`Error loading data (${dataUrls[index]}):`, result.reason);
         const el = document.querySelector(containers[index]);
-        if (el) el.innerHTML = `<div class="error-state"><p>Failed to load data: ${dataUrls[index]}</p></div>`;
+        if (el) el.innerHTML = `<div class="error-state"><p>Failed to load data: <span class="error-dataurl">${dataUrls[index]}</span></p></div>`;
       }
     });
 

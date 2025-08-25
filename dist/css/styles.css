@@ -1409,6 +1409,17 @@ select:focus {
   color: var(--text-secondary);
 }
 
+.error-state{
+  padding: 0.5em;
+  background-color: #ff97e054;
+  color: #842029;
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+.error-dataurl{
+font-family: 'Courier New', Courier, monospace;
+text-decoration: underline;
+}
 .loading-state {
   display: flex;
   flex-direction: column;
