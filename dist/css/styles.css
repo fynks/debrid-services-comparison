@@ -347,14 +347,19 @@ a:hover {
   height: 20px;
   transition: opacity var(--transition-fast);
 }
-.moon-icon {
-  display: none;
+/* Light mode: show sun, hide moon */
+.sun-icon {
+  display: block !important;
 }
+.moon-icon {
+  display: none !important;
+}
+/* Dark mode: hide sun, show moon */
 [data-theme="dark"] .sun-icon {
-  display: none;
+  display: none !important;
 }
 [data-theme="dark"] .moon-icon {
-  display: block;
+  display: block !important;
 }
 /* Mobile Navigation Toggle */
 .nav-toggle {
