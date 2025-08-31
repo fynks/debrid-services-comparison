@@ -44,6 +44,10 @@
   --container-max: 1400px;
   --header-height: 5rem;
   --content-max: 1200px;
+  /* Fluid layout spacing additions */
+  --section-pad-y: clamp(2rem, 6vw, 4.5rem);
+  --section-pad-y-tight: clamp(1.5rem, 4vw, 3rem);
+  --container-x: clamp(1rem, 3.2vw, 2.5rem);
 
   /* Spacing (using CSS custom properties for consistency) */
   --space-xs: 0.25rem;
@@ -213,8 +217,8 @@ a:hover {
 
 .container {
   max-width: var(--container-max);
-  margin: 0 auto;
-  padding: 0 var(--space-2xl);
+  margin-inline: auto;
+  padding-inline: var(--container-x);
   width: 100%;
 }
 
@@ -673,9 +677,16 @@ a:hover {
 
 /* Section General Styles */
 .section {
-  padding: var(--space-6xl) 0;
+  padding: var(--section-pad-y) 0;
   position: relative;
+  scroll-margin-top: calc(var(--header-height) + 1rem);
 }
+
+/* Tighten stacked sections slightly */
+.section + .section { margin-top: -0.25rem; }
+
+/* Ensure last child inside section doesn't add extra space */
+.section > :last-child { margin-bottom: 0; }
 
 .section:nth-child(even) {
   background: var(--bg-secondary);
@@ -2003,17 +2014,36 @@ text-decoration: underline;
 }
 
 /* Additional responsive tuning for large hero & section spacing */
-@media (max-width: 900px) {
-  .hero-section { padding: var(--space-6xl) 0 var(--space-5xl); }
-}
-@media (max-width: 700px) {
-  .hero-section { padding: var(--space-5xl) 0 var(--space-4xl); }
-}
-@media (max-width: 520px) {
-  .hero-section { padding: var(--space-4xl) 0 var(--space-3xl); }
-}
-@media (max-width: 400px) {
-  .hero-section { padding: var(--space-3xl) 0 var(--space-2xl); }
+@media (max-width: 900px) { .hero-section { padding: clamp(3.5rem, 10vw, 5rem) 0 clamp(3rem, 8vw, 4rem); } }
+@media (max-width: 700px) { .hero-section { padding: clamp(3rem, 9vw, 4rem) 0 clamp(2.5rem, 7vw, 3.5rem); } }
+@media (max-width: 520px) { .hero-section { padding: clamp(2.5rem, 8vw, 3.5rem) 0 clamp(2rem, 6vw, 3rem); } }
+@media (max-width: 400px) { .hero-section { padding: clamp(2rem, 7vw, 3rem) 0 clamp(1.5rem, 6vw, 2.5rem); } }
+
+/* Ultra-small devices (<=20em ~ 320px) */
+@media (max-width: 20em) {
+  html { font-size: 14px; }
+  body { line-height: 1.5; }
+  .site-header { height: 3.75rem; }
+  :root { --header-height: 3.75rem; }
+  .header-content { gap: var(--space-lg); }
+  .site-title { font-size: var(--text-lg); padding: var(--space-xs) var(--space-md); }
+  .nav-link { padding: var(--space-sm) var(--space-md); font-size: 0.75rem; }
+  .dark-mode-toggle { width: 38px; height: 38px; }
+  .hero-title { margin-bottom: var(--space-xl); }
+  .hero-section { padding: 2.25rem 0 1.75rem; }
+  .hero-description { font-size: 0.95rem; }
+  .hero-stats { gap: var(--space-lg); }
+  .stat-number { font-size: clamp(1.75rem, 10vw, 2.25rem); }
+  .section { padding: 2rem 0; }
+  .section-header { margin-bottom: var(--space-xl); }
+  .section-title { font-size: clamp(1.75rem, 9vw, 2.25rem); margin-bottom: var(--space-xl); }
+  .section-description { font-size: clamp(0.95rem, 3.2vw, 1.05rem); }
+  .benefit-card { padding: var(--space-lg); }
+  .benefit-card h3 { font-size: 0.9rem; }
+  .alert { padding: var(--space-lg); margin: var(--space-lg) 0; }
+  .note-card { padding: var(--space-lg); }
+  .compare-controls { gap: var(--space-lg); }
+  .data-table-container { font-size: 0.85rem; }
 }
 
 /* Print Styles */
