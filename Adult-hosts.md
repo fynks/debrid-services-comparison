@@ -1,6 +1,6 @@
 
 ### Adult Hosts
-| **Service Name**   | **AllDebrid** | **TorBox** | **Premiumize** | **RealDebrid** | **Debrid-Link** | **LinkSnappy** | **Mega-Debrid** | **DeepBird** |
+| **Service Name**   | **AllDebrid** | **TorBox** | **Premiumize** | **RealDebrid** | **Debrid-Link** | **LinkSnappy** | **Mega-Debrid** | **Deepbrid** |
 | :----------------- | :------------ | :--------- | :------------- | :------------- | :-------------- | :------------- | :-------------- | :----------- |
 | **Beeg**           | Yes           | Yes        | No             | No             | No              | No             | No              | No           |
 | **Coomer**         | No            | Yes        | No             | No             | No              | No             | No              | No           |

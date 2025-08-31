@@ -872,6 +872,26 @@ a:hover {
   margin-top: 2px;
 }
 
+/* Improve inline SVG rendering (prevents visual clipping on some mobile browsers) */
+.alert-icon,
+.note-icon,
+.icon-badge,
+.resource-category-icon,
+.search-icon,
+.clear-icon-svg,
+.sun-icon,
+.moon-icon,
+.logo-icon {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  overflow: visible; /* Avoid stroke being cut at bounds */
+  display: inline-block;
+}
+
+/* Ensure consistent vertical alignment */
+.alert-icon { vertical-align: middle; }
+
 /* Speed Section */
 .speed-section {
   background: var(--bg-secondary);
@@ -1918,7 +1938,7 @@ text-decoration: underline;
   }
 
   .section {
-    padding: var(--space-4xl) 0;
+  padding: var(--space-3xl) 0; /* Tighten vertical rhythm on very small screens */
   }
 
   .stat-item:not(:last-child)::after {
@@ -1980,6 +2000,20 @@ text-decoration: underline;
   .hero-badge {
     font-size: 10px;
   }
+}
+
+/* Additional responsive tuning for large hero & section spacing */
+@media (max-width: 900px) {
+  .hero-section { padding: var(--space-6xl) 0 var(--space-5xl); }
+}
+@media (max-width: 700px) {
+  .hero-section { padding: var(--space-5xl) 0 var(--space-4xl); }
+}
+@media (max-width: 520px) {
+  .hero-section { padding: var(--space-4xl) 0 var(--space-3xl); }
+}
+@media (max-width: 400px) {
+  .hero-section { padding: var(--space-3xl) 0 var(--space-2xl); }
 }
 
 /* Print Styles */
