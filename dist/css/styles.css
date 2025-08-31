@@ -39,10 +39,10 @@
   --container-max: 1400px;
   --header-height: 5rem;
   --content-max: 1200px;
-  /* Fluid layout spacing additions */
+  /* Fluid layout spacing additions - Adjusted clamp min value for small screens */
   --section-pad-y: clamp(2rem, 6vw, 4.5rem);
   --section-pad-y-tight: clamp(1.5rem, 4vw, 3rem);
-  --container-x: clamp(1rem, 3.2vw, 2.5rem);
+  --container-x: clamp(0.75rem, 3.2vw, 2.5rem); /* Reduced min padding */
   /* Spacing (using CSS custom properties for consistency) */
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
@@ -124,6 +124,8 @@ html {
   font-size: 16px;
   line-height: 1.6;
   -webkit-text-size-adjust: 100%;
+  /* Fix 1: Prevent horizontal overflow on html */
+  overflow-x: hidden;
 }
 body {
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -135,6 +137,7 @@ body {
   text-rendering: optimizeLegibility;
   min-height: 100vh;
   margin: 0;
+  /* Fix 1: Prevent horizontal overflow on body */
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
@@ -160,7 +163,10 @@ a:hover {
   outline: 2px solid var(--border-focus);
   outline-offset: 2px;
 }
-/* Enhanced focus styles for keyboard users */
+/* Enhanced focus styles for keyboard users - Improved logic */
+:focus:not(:focus-visible) {
+  outline: none;
+}
 :focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
@@ -194,16 +200,19 @@ a:hover {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  /* Fix 1: Prevent horizontal overflow on wrapper */
+  overflow-x: hidden;
 }
 .container {
   max-width: var(--container-max);
   margin-inline: auto;
   padding-inline: var(--container-x);
-  width: 100%;
+  width: 100%; /* Crucial for preventing overflow */
 }
 .content-container {
   max-width: var(--content-max);
   margin: 0 auto;
+  width: 100%; /* Ensure it also respects width */
 }
 /* ===== 3. HEADER & NAVIGATION ===== */
 .site-header {
@@ -308,7 +317,6 @@ a:hover {
   background: var(--bg-secondary);
   font-weight: var(--font-semibold);
 }
-/* Focus Styles (applied via :focus-visible) */
 .nav-link:hover:not(.active) {
   background: var(--bg-tertiary);
   color: var(--text-primary);
@@ -431,9 +439,9 @@ a:hover {
     transition: transform 0.4s cubic-bezier(0.65, 0.05, 0.36, 1);
     z-index: 120; /* Above overlay */
     /* Isolate the animation context */
-    /* Removed will-change for potential performance issues */
+    /* Removed will-change for potential performance issues on the nav itself */
   }
-  /* Active state for the menu being open */
+  /* Active state for the menu being open - Simplified selector */
   .nav-open .header-nav {
     transform: translate3d(0, 0, 0);
   }
@@ -941,16 +949,18 @@ a:hover {
   border: 1px solid var(--border-primary);
   margin: var(--space-3xl) 0;
   overflow: hidden;
+  width: 100%; /* Ensure it doesn't stretch the container */
 }
 .table-wrapper {
-  overflow-x: auto;
-  border-radius: var(--radius-2xl);
+  overflow-x: auto; /* Allow horizontal scroll for wide tables */
+  border-radius: var(--radius-2xl); /* Inherit rounding */
+  width: 100%; /* Add this */
 }
 table {
   width: 100%;
   border-collapse: collapse;
   font-size: var(--text-sm);
-  min-width: 600px;
+  min-width: 600px; /* This is necessary for wide tables but relies on wrapper overflow */
 }
 /* Table toolbar */
 .table-toolbar {
@@ -1711,7 +1721,7 @@ text-decoration: underline;
   .footer-brand {
     text-align: center;
     padding-bottom: var(--space-lg);
-    border-bottom: 1px solid rgba(var(--text-rgb), 0.1);
+    border-bottom: 1px solid var(--border-primary); /* Use theme variable */
     margin-bottom: var(--space-lg);
   }
   .footer-links {
@@ -1724,6 +1734,14 @@ text-decoration: underline;
   .footer-bottom {
     text-align: center;
   }
+  .footer-bottom-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-right {
+    text-align: center; /* Ensure right content centers */
+  }
   .hero-meta {
     margin-bottom: var(--space-2xl);
   }
@@ -1731,12 +1749,144 @@ text-decoration: underline;
     font-size: 10px;
   }
 }
-/* Additional responsive tuning for large hero & section spacing */
+/* Fix 6: Specific adjustments for screens smaller than 420px */
+/* Using em units like the original for consistency, 420px / 16px = 26.25em */
+@media (max-width: 26.25em) {
+  /* Further reduce horizontal padding on very small screens */
+  .container {
+    padding-inline: var(--space-sm); /* Even smaller padding */
+  }
+
+  /* Adjust hero section for very small screens */
+  .hero-section {
+    padding: var(--space-4xl) var(--space-sm); /* Reduce horizontal padding */
+  }
+  .hero-title {
+    font-size: clamp(1.5rem, 8vw, 2.5rem); /* Potentially smaller base */
+    margin-bottom: var(--space-lg);
+  }
+  .hero-description {
+    font-size: var(--text-base); /* Use fixed size or smaller clamp base */
+    margin-bottom: var(--space-3xl);
+  }
+  .hero-actions {
+    margin-bottom: var(--space-4xl);
+    gap: var(--space-md); /* Reduce gap between buttons */
+  }
+  .btn {
+    padding: var(--space-md) var(--space-xl); /* Reduce button padding */
+    min-width: 120px; /* Reduce minimum width if needed */
+    font-size: var(--text-sm); /* Smaller font */
+  }
+
+  /* Adjust section titles and descriptions */
+  .section-header {
+    margin-bottom: var(--space-lg);
+  }
+  .section-title {
+    font-size: clamp(1.5rem, 6vw, 2rem); /* Smaller base size */
+    margin-bottom: var(--space-lg);
+  }
+  .section-description {
+    font-size: var(--text-sm); /* Smaller base size */
+  }
+
+  /* Adjust benefit cards */
+  .benefit-card {
+    padding: var(--space-lg) var(--space-md); /* Reduce horizontal padding */
+    min-height: auto;
+  }
+  .benefit-card h3 {
+    font-size: var(--text-base); /* Adjust heading size */
+  }
+
+  /* Adjust notes */
+  .note-card {
+    padding: var(--space-lg);
+  }
+
+  /* Adjust stats */
+  .hero-stats {
+    gap: var(--space-lg); /* Reduce gap */
+  }
+  .stat-number {
+    font-size: clamp(1.5rem, 10vw, 2rem); /* Smaller base */
+  }
+
+  /* Ensure alerts don't overflow */
+  .alert {
+    padding: var(--space-lg);
+    margin: var(--space-lg) 0;
+    gap: var(--space-sm); /* Reduce gap */
+  }
+
+  /* Refine comparison controls */
+  .compare-controls {
+    gap: var(--space-lg); /* Reduce gap */
+  }
+
+  /* Refine table display if necessary */
+  .data-table-container {
+    font-size: 0.8rem; /* Slightly smaller font */
+  }
+  th,
+  td {
+    padding: var(--space-sm) var(--space-md); /* Reduce padding */
+  }
+
+  /* Refine footer */
+  .site-footer {
+    padding: var(--space-5xl) 0 var(--space-3xl); /* Reduce top padding */
+  }
+  .footer-content {
+    gap: var(--space-md); /* Reduce gap */
+    margin-bottom: var(--space-3xl);
+  }
+  .footer-section h4,
+  .footer-section h5 {
+    margin-bottom: var(--space-lg);
+  }
+  .footer-bottom {
+    padding-top: var(--space-3xl);
+  }
+  .footer-bottom-content {
+    gap: var(--space-lg); /* Reduce gap */
+  }
+  .footer-meta {
+    gap: var(--space-md); /* Reduce gap */
+  }
+
+  /* Refine other components as needed */
+  .speed-section {
+    padding: var(--space-2xl) var(--space-sm); /* Reduce horizontal padding */
+  }
+  .resource-category {
+    padding: var(--space-2xl) var(--space-sm); /* Reduce horizontal padding */
+  }
+  .resource-item {
+    padding: var(--space-md); /* Reduce padding */
+  }
+  .referral-section {
+    padding: var(--space-2xl) var(--space-sm); /* Reduce horizontal padding */
+    margin: var(--space-4xl) 0; /* Reduce margin */
+  }
+  .referral-grid {
+    gap: var(--space-md); /* Reduce gap */
+  }
+  .referral-card {
+    padding: var(--space-md); /* Reduce padding */
+    max-width: none; /* Remove max-width restriction */
+  }
+}
+
+
+/* Additional responsive tuning (existing) */
 @media (max-width: 900px) { .hero-section { padding: clamp(3.5rem, 10vw, 5rem) 0 clamp(3rem, 8vw, 4rem); } }
 @media (max-width: 700px) { .hero-section { padding: clamp(3rem, 9vw, 4rem) 0 clamp(2.5rem, 7vw, 3.5rem); } }
 @media (max-width: 520px) { .hero-section { padding: clamp(2.5rem, 8vw, 3.5rem) 0 clamp(2rem, 6vw, 3rem); } }
 @media (max-width: 400px) { .hero-section { padding: clamp(2rem, 7vw, 3rem) 0 clamp(1.5rem, 6vw, 2.5rem); } }
-/* Ultra-small devices (<=20em ~ 320px) */
+
+/* Ultra-small devices (<=20em ~ 320px) - Review/Adjust */
 @media (max-width: 20em) {
   html { font-size: 14px; }
   body { line-height: 1.5; }
@@ -1746,14 +1896,14 @@ text-decoration: underline;
   .site-title { font-size: var(--text-lg); padding: var(--space-xs) var(--space-md); }
   .nav-link { padding: var(--space-sm) var(--space-md); font-size: 0.75rem; }
   .dark-mode-toggle { width: 38px; height: 38px; }
-  .hero-title { margin-bottom: var(--space-xl); }
-  .hero-section { padding: 2.25rem 0 1.75rem; }
+  /* .hero-title { margin-bottom: var(--space-xl); } */ /* Handled by 26.25em */
+  /* .hero-section { padding: 2.25rem 0 1.75rem; } */ /* Handled by 26.25em */
   .hero-description { font-size: 0.95rem; }
   .hero-stats { gap: var(--space-lg); }
-  .stat-number { font-size: clamp(1.75rem, 10vw, 2.25rem); }
+  /* .stat-number { font-size: clamp(1.75rem, 10vw, 2.25rem); } */ /* Handled by 26.25em */
   .section { padding: 2rem 0; }
   .section-header { margin-bottom: var(--space-xl); }
-  .section-title { font-size: clamp(1.75rem, 9vw, 2.25rem); margin-bottom: var(--space-xl); }
+  /* .section-title { font-size: clamp(1.75rem, 9vw, 2.25rem); margin-bottom: var(--space-xl); } */ /* Handled by 26.25em */
   .section-description { font-size: clamp(0.95rem, 3.2vw, 1.05rem); }
   .benefit-card { padding: var(--space-lg); }
   .benefit-card h3 { font-size: 0.9rem; }
@@ -1762,6 +1912,7 @@ text-decoration: underline;
   .compare-controls { gap: var(--space-lg); }
   .data-table-container { font-size: 0.85rem; }
 }
+
 /* Print Styles */
 @media print {
   .site-header,
@@ -1818,4 +1969,3 @@ text-decoration: underline;
     transform: none;
   }
 }
-
