@@ -24,14 +24,14 @@ Compare [AllDebrid](https://alldebrid.com/), [Real-Debrid](https://real-debrid.c
 
 ## What are Debrid Services?
 
-Debrid services (also k❌wn as *premium link generators*) unlock **faster, ad-free downloads** from file hosts by acting as a high-speed intermediary. Instead of dealing with wait times, captchas, or bandwidth limits, you let the debrid service fetch and cache the file—then deliver it directly to you.
+Debrid services (also known as *premium link generators*) unlock **faster, ad-free downloads** from file hosts by acting as a high-speed intermediary. Instead of dealing with wait times, captchas, or bandwidth limits, you let the debrid service fetch and cache the file—then deliver it directly to you.
 
 ### Key Benefits:
 - **Maximum Download Speeds** – Bypass host throttling with direct links
 - **Multi-Host Access** – One subscription supports hundreds of file hosts
 - **Streaming Ready** – Watch videos instantly from supported hosts
 - **Torrent-to-Link Conversion** – Add magnet links or torrents to download remotely and get a direct URL
-- **Ad-Free Experience** – ❌ popups, countdowns, or forced waits
+- **Ad-Free Experience** – No popups, countdowns, or forced waits
 - **Global Server Network** – Often located in high-bandwidth regions for optimal performance
 
 > 💡 Think of a debrid service as a “*premium proxy*” between you and file-hosting sites like Rapidgator, Mediafire, or Uptobox.
@@ -49,7 +49,7 @@ Debrid services (also k❌wn as *premium link generators*) unlock **faster, ad-f
   - [Official Speed Test Tools](#official-speed-test-tools)
   - [How to Perform a Real-World Speed Test](#how-to-perform-a-real-world-speed-test)
 - [Frequently Asked Questions](#frequently-asked-questions)
-- [Important ❌tes](#important-❌tes)
+- [Important Notes](#important-notes)
 - [Useful Resources and Community](#useful-resources-and-community)
 - [Contributing](#contributing)
 - [Support and Stay Updated](#support-and-stay-updated)
@@ -58,7 +58,7 @@ Debrid services (also k❌wn as *premium link generators*) unlock **faster, ad-f
 
 ### Support This Project
 
-> This comparison is free, open-source, and community-maintained. If it helped you choose a service, consider using a referral link below — it supports ongoing updates at ❌ extra cost to you.
+> This comparison is free, open-source, and community-maintained. If it helped you choose a service, consider using a referral link below — it supports ongoing updates at no extra cost to you.
 
 | **Service**         | **Referral Link**                                                       | **Direct Link**                                                             |
 | :-------------- | :------------------------------------------------------------------ | :---------------------------------------------------------------------- |
@@ -71,7 +71,7 @@ Debrid services (also k❌wn as *premium link generators*) unlock **faster, ad-f
 | **Mega-Debrid** | ❌ ❌t available                                                     | [Direct signup](https://www.mega-debrid.eu/index.php?page=freeregister) |
 | **Deepbrid**    | [Sign up with referral](https://www.deepbrid.com/aff/go/upward1971) | [Direct signup](https://www.deepbrid.com/signup)                        |
 
-> **Transparency ❌te**: This project has ❌ financial relationship with any service. Referrals help cover hosting and maintenance costs, but we never accept payment for favorable placement.
+> **Transparency note**: This project has no financial relationship with any service. Referrals help cover hosting and maintenance costs, but we never accept payment for favorable placement.
 
 ---
 
@@ -93,11 +93,11 @@ Debrid services (also k❌wn as *premium link generators*) unlock **faster, ad-f
 | **365 Days / 1 Year** | ❌                                       | $79.99     | ❌           | ❌                 | ❌           | ❌          | ❌           | €32.99             |
 
 
-### ❌tes
+### Notes
 > - **¹ AllDebrid Free Trial**: 7-day trial requires phone verification. [More info](https://alldebrid.com/)
-> - **² TorBox Free Tier**: Limited speed and features; ❌ torrenting. [Pricing page](https://torbox.app/pricing)
+> - **² TorBox Free Tier**: Limited speed and features; no torrenting. [Pricing page](https://torbox.app/pricing)
 > - **³ AllDebrid Recurring**: Auto-renews monthly at €2.99 (may increase; check TOS)
-> - **⁴ AllDebrid / Debrid-Link One-Time**: ❌n-recurring payment. Often better value than recurring.
+> - **⁴ AllDebrid / Debrid-Link One-Time**: Non-recurring payment. Often better value than recurring.
 > - **⁵ TorBox Tiers**: Multiple plans starting at $3.00/month. Higher tiers unlock more features.
 
 ### Up-to-date Pricing
@@ -128,7 +128,7 @@ Prices change frequently. Always verify current pricing on official pages:
 | Acast                   | ❌        | ✅     | ❌         | ❌          | ❌          | ❌         | ✅         | ❌       |
 | Alfafile                | ✅       | ✅     | ❌         | ❌          | ❌          | ✅        | ✅         | ✅      |
 | Annas archive           | ❌        | ✅     | ❌         | ❌          | ❌          | ❌         | ❌          | ❌       |
-| A❌nfiles               | ❌        | ❌      | ❌         | ❌          | ❌          | ❌         | ✅         | ❌       |
+| Anonfiles               | ❌        | ❌      | ❌         | ❌          | ❌          | ❌         | ✅         | ❌       |
 | Aparat                  | ❌        | ✅     | ❌         | ❌          | ❌          | ❌         | ✅         | ❌       |
 | Apkadmin                | ✅       | ✅     | ❌         | ❌          | ❌          | ❌         | ❌          | ❌       |
 | Archive.org             | ✅       | ✅     | ✅        | ❌          | ❌          | ❌         | ✅         | ❌       |
@@ -164,7 +164,7 @@ Prices change frequently. Always verify current pricing on official pages:
 | Dailymotion             | ✅       | ✅     | ❌         | ✅         | ❌          | ✅        | ❌          | ✅      |
 | Dailyuploads            | ✅       | ✅     | ❌         | ✅         | ✅         | ❌         | ✅         | ✅      |
 | Darikibox               | ❌        | ❌      | ❌         | ❌          | ✅         | ❌         | ❌          | ❌       |
-| Data ❌des              | ❌        | ✅     | ❌         | ❌          | ❌          | ❌         | ❌          | ❌       |
+| Data nodes              | ❌        | ✅     | ❌         | ❌          | ❌          | ❌         | ❌          | ❌       |
 | Datafilehost            | ❌        | ❌      | ❌         | ❌          | ❌          | ❌         | ✅         | ❌       |
 | Dctp                    | ❌        | ✅     | ❌         | ❌          | ❌          | ❌         | ✅         | ❌       |
 | Ddowload / ddl.to       | ❌        | ❌      | ❌         | ❌          | ✅         | ✅        | ✅         | ❌       |
@@ -285,11 +285,11 @@ Prices change frequently. Always verify current pricing on official pages:
 | Nytimes                 | ✅       | ✅     | ✅        | ❌          | ❌          | ❌         | ❌          | ❌       |
 | Oboom                   | ❌        | ❌      | ❌         | ❌          | ❌          | ❌         | ❌          | ✅      |
 | Odatv                   | ❌        | ❌      | ❌         | ❌          | ❌          | ❌         | ✅         | ❌       |
-| Od❌klassniki           | ✅       | ✅     | ❌         | ❌          | ❌          | ❌         | ❌          | ❌       |
+| Odnoklassniki           | ✅       | ✅     | ❌         | ❌          | ❌          | ❌         | ❌          | ❌       |
 | Ok.ru                   | ❌        | ❌      | ❌         | ❌          | ❌          | ❌         | ✅         | ❌       |
 | Onionstudios            | ❌        | ❌      | ❌         | ❌          | ❌          | ❌         | ✅         | ❌       |
 | Pan baidu               | ❌        | ✅     | ❌         | ❌          | ❌          | ❌         | ❌          | ❌       |
-| Pa❌pto                 | ❌        | ✅     | ❌         | ❌          | ❌          | ❌         | ❌          | ❌       |
+| Panopto                 | ❌        | ✅     | ❌         | ❌          | ❌          | ❌         | ❌          | ❌       |
 | Paramount+              | ❌        | ❌      | ❌         | ❌          | ❌          | ❌         | ❌          | ❌       |
 | Pillowcase              | ❌        | ✅     | ❌         | ❌          | ❌          | ❌         | ❌          | ❌       |
 | Pinkbike                | ❌        | ❌      | ❌         | ❌          | ❌          | ❌         | ✅         | ❌       |
@@ -318,7 +318,7 @@ Prices change frequently. Always verify current pricing on official pages:
 | Salefiles               | ❌        | ❌      | ❌         | ❌          | ❌          | ❌         | ❌          | ✅      |
 | Scribd                  | ✅       | ✅     | ❌         | ✅         | ✅         | ❌         | ❌          | ✅      |
 | Send.cm                 | ❌        | ❌      | ❌         | ✅         | ❌          | ❌         | ✅         | ❌       |
-| Send.❌w                | ❌        | ✅     | ❌         | ❌          | ❌          | ❌         | ❌          | ❌       |
+| Send.now                | ❌        | ✅     | ❌         | ❌          | ❌          | ❌         | ❌          | ❌       |
 | Sendit                  | ✅       | ❌      | ❌         | ❌          | ❌          | ❌         | ❌          | ❌       |
 | Sendspace               | ❌        | ✅     | ❌         | ✅         | ❌          | ❌         | ❌          | ✅      |
 | Sharemods               | ✅       | ❌      | ❌         | ❌          | ❌          | ❌         | ❌          | ❌       |
@@ -327,7 +327,7 @@ Prices change frequently. Always verify current pricing on official pages:
 | Slideshare              | ❌        | ❌      | ❌         | ❌          | ❌          | ❌         | ❌          | ✅      |
 | Smotri                  | ❌        | ❌      | ❌         | ❌          | ❌          | ❌         | ✅         | ❌       |
 | Snapchat                | ❌        | ✅     | ❌         | ❌          | ❌          | ❌         | ❌          | ❌       |
-| S❌tr                   | ❌        | ❌      | ❌         | ❌          | ❌          | ❌         | ✅         | ❌       |
+| Snotr                   | ❌        | ❌      | ❌         | ❌          | ❌          | ❌         | ✅         | ❌       |
 | Solidfiles              | ❌        | ❌      | ❌         | ❌          | ❌          | ❌         | ❌          | ✅      |
 | Soundcloud              | ✅       | ✅     | ✅        | ❌          | ✅         | ✅        | ❌          | ✅      |
 | Sportdeutschland        | ❌        | ❌      | ❌         | ❌          | ❌          | ❌         | ✅         | ❌       |
@@ -468,14 +468,14 @@ For a more accurate assessment, follow these steps:
 - Your ISP’s routing and potential throttling  
 - Local network setup (Wi-Fi vs. Ethernet, router quality)
 
-> ⚠️ ❌te: Advertised "unlimited" speeds may be subject to fair-use policies or soft caps under heavy usage.
+> ⚠️ Note: Advertised "unlimited" speeds may be subject to fair-use policies or soft caps under heavy usage.
 
 ## Frequently Asked Questions
 
 ### General
 
 <details><summary>What is a debrid service?</summary>
-Debrid services act as intermediaries that fetch files from various hosts to their own servers, then give you high-speed direct links—❌ ads, waits, or host limits.
+Debrid services act as intermediaries that fetch files from various hosts to their own servers, then give you high-speed direct links—no ads, waits, or host limits.
 </details>
 
 <details><summary>Are debrid services legal?</summary>
@@ -487,7 +487,7 @@ Debrid services act as intermediaries that fetch files from various hosts to the
 </details>
 
 <details><summary>Do I need a VPN?</summary>
-❌t required, but a VPN can add privacy and sometimes helps with geo/routing issues.
+Not required, but a VPN can add privacy and sometimes helps with geo/routing issues.
 </details>
 
 ### Technical
@@ -497,7 +497,7 @@ Server proximity, time of day, ISP routing, host performance, and service load a
 </details>
 
 <details><summary>What if a host is down?</summary>
-Wait for restoration or find an alternative link on a❌ther supported host. Wider host coverage improves reliability.
+Wait for restoration or find an alternative link on another supported host. Wider host coverage improves reliability.
 </details>
 
 <details><summary>Do services support torrents?</summary>
@@ -535,7 +535,7 @@ Varies by provider. See the Refund Policies section and start with short plans t
 ### Security and Privacy
 
 <details><summary>Do services log my downloads?</summary>
-Policies vary. Many keep minimal technical logs; some claim ❌ logs. EU services must comply with GDPR. Check privacy policies.
+Policies vary. Many keep minimal technical logs; some claim no logs. EU services must comply with GDPR. Check privacy policies.
 </details>
 
 <details><summary>Is my payment info secure?</summary>
@@ -543,21 +543,21 @@ Reputable services use SSL/TLS and external processors; some offer crypto for ad
 </details>
 
 <details><summary>Can my ISP see what I’m downloading?</summary>
-They can see connections and volume but ❌t file names over HTTPS. A VPN adds a❌ther layer of privacy.
+They can see connections and volume but not file names over HTTPS. A VPN adds another layer of privacy.
 </details>
 
-## Important ❌tes
+## Important Notes
 
 This project aims to provide accurate and up-to-date information, but the debrid service landscape is dynamic. Please keep the following in mind:
 
-- **Services change frequently**: Pricing, host support, refund policies, and features may be updated without ❌tice. Always verify details on the **official service websites** before purchasing.
+- **Services change frequently**: Pricing, host support, refund policies, and features may be updated without notice. Always verify details on the **official service websites** before purchasing.
 - **Final cost may vary**: Displayed prices are subject to exchange rates, regional taxes, or payment processing fees. Your actual charge may differ slightly.
-- **Data accuracy**: While we strive for completeness, this comparison reflects community reports and public information. We do **❌t guarantee** uptime, speed, download success, or feature availability.
-- **❌ affiliation**: This project is independent and **❌t affiliated** with AllDebrid, Real-Debrid, Premiumize, TorBox, LinkSnappy, Debrid-Link, Mega-Debrid, Deepbrid, or any other listed service.
+- **Data accuracy**: While we strive for completeness, this comparison reflects community reports and public information. We do **not guarantee** uptime, speed, download success, or feature availability.
+- **No affiliation**: This project is independent and **not affiliated** with AllDebrid, Real-Debrid, Premiumize, TorBox, LinkSnappy, Debrid-Link, Mega-Debrid, Deepbrid, or any other listed service.
 - **Use at your own discretion**: Choosing a debrid service involves personal judgment. Test short-term plans first and review terms carefully.
 - **Legal responsibility**: Debrid services are tools. You are responsible for complying with copyright laws and terms of use when accessing content.
 
-> This is an open-source, community-maintained guide. It does ❌t endorse or promote unauthorized file sharing.
+> This is an open-source, community-maintained guide. It does not endorse or promote unauthorized file sharing.
 
 ## Useful Resources and Community
 
@@ -597,7 +597,7 @@ You can help in two ways:
 2. Click **"New Issue"**
 3. Include:
    - Service name
-   - Change observed (e.g., "AllDebrid ❌w supports Terabox")
+   - Change observed (e.g., "AllDebrid now supports Terabox")
    - Proof: **Link to official page or screenshot**
    - Date of observation
 4. Submit — maintainers will review and update
@@ -618,9 +618,9 @@ If this project saved you time or helped you make a better decision, here’s ho
 - **⭐ Star the repository** — It helps others discover this resource!
 - **Share it** with friends or communities who use debrid services
 - **Contribute updates** — Found outdated pricing or new host support? [Open an issue](https://github.com/fynks/debrid-services-comparison/issues) or submit a PR
-- **Use referral links** (if signing up) — Supports this project at ❌ extra cost to you
+- **Use referral links** (if signing up) — Supports this project at no extra cost to you
 
-This is a community-driven, open-source guide with ❌ ads or paid promotions. Your support keeps it accurate, neutral, and freely available.
+This is a community-driven, open-source guide with no ads or paid promotions. Your support keeps it accurate, neutral, and freely available.
 
 > Thank you for visiting — every star, share, and contribution makes a difference! 💙
 
