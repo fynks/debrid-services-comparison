@@ -63,11 +63,11 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
 | :-------------- | :------------------------------------------------------------------ | :---------------------------------------------------------------------- |
 | **AllDebrid**   | [Sign up with referral](https://alldebrid.com/?uid=3wvya&lang=en)   | [Direct signup](https://alldebrid.com/register/)                        |
 | **Real-Debrid** | [Sign up with referral](https://real-debrid.com/?id=10990901)       | [Direct signup](https://real-debrid.com/)                               |
-| **TorBox**      | ❌ ❌t available                                                     | [Direct signup](https://torbox.app/login)                               |
-| **Premiumize**  | ❌ ❌t available                                                     | [Direct signup](https://www.premiumize.me/register)                     |
+| **TorBox**      | Not available                                                     | [Direct signup](https://torbox.app/login)                               |
+| **Premiumize**  | Not available                                                     | [Direct signup](https://www.premiumize.me/register)                     |
 | **LinkSnappy**  | [Sign up with referral](https://linksnappy.com/?ref=774668)         | [Direct signup](https://linksnappy.com/home#Register)                   |
 | **Debrid-Link** | [Sign up with referral](https://debrid-link.com/id/7B3BO)           | [Direct signup](https://debrid-link.com/webapp/register)                |
-| **Mega-Debrid** | ❌ ❌t available                                                     | [Direct signup](https://www.mega-debrid.eu/index.php?page=freeregister) |
+| **Mega-Debrid** | Not available                                                     | [Direct signup](https://www.mega-debrid.eu/index.php?page=freeregister) |
 | **Deepbrid**    | [Sign up with referral](https://www.deepbrid.com/aff/go/upward1971) | [Direct signup](https://www.deepbrid.com/signup)                        |
 
 > **Transparency note**: This project has no financial relationship with any service. Referrals help cover hosting and maintenance costs, but we never accept payment for favorable placement.
