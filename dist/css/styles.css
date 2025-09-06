@@ -92,6 +92,10 @@
   --transition-fast: 0.15s ease;
   --transition-normal: 0.3s ease;
   --transition-slow: 0.5s ease;
+  /* Accents */
+  --glow: 0 0 0 8px rgb(99 102 241 / 0.08);
+  --footer-gradient: radial-gradient(1200px 500px at 80% 10%, rgb(99 102 241 / 0.08), transparent 60%),
+                     radial-gradient(800px 400px at 10% 20%, rgb(139 92 246 / 0.07), transparent 60%);
 }
 /* Dark Theme Variables */
 [data-theme="dark"] {
@@ -235,6 +239,14 @@ a:hover {
   height: var(--header-height);
   gap: var(--space-4xl);
 }
+/* Keep header content compact on narrow laptops */
+@media (max-width: 1200px) {
+  .header-content { gap: var(--space-2xl); }
+}
+/* Tighten header layout on small screens to avoid control clipping */
+@media (max-width: 600px) {
+  .header-content { gap: var(--space-md); }
+}
 /* Header right aligned actions */
 .header-actions {
   display: flex;
@@ -247,7 +259,7 @@ a:hover {
 }
 .site-title {
   display: flex;
-  flex-shrink: 0; /* Prevent shrinking */
+  flex-shrink: 0; /* Prevent shrinking by default */
   align-items: center;
   gap: var(--space-md);
   font-size: var(--text-xl);
@@ -257,6 +269,22 @@ a:hover {
   padding: var(--space-sm) var(--space-lg);
   border-radius: var(--radius-lg);
   transition: all var(--transition-fast);
+}
+.site-title { min-width: 0; }
+@media (max-width: 900px) {
+  .site-title {
+    flex: 1 1 auto; /* Let title take remaining space and shrink when needed */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+@media (max-width: 600px) {
+  .site-title { font-size: var(--text-base); padding: var(--space-xs) var(--space-sm); gap: var(--space-sm); }
+  .logo-icon { width: 24px; height: 24px; }
+}
+@media (max-width: 380px) {
+  .site-title { font-size: 0.95rem; }
 }
 .site-title:hover {
   color: var(--primary);
@@ -280,6 +308,19 @@ a:hover {
   /* Fix for potential flexbox glitches with absolutely positioned children */
   position: relative;
   z-index: 1; /* Ensure it's above other header content but below mobile nav */
+}
+.header-nav { flex: 1 1 auto; min-width: 0; }
+@media (max-width: 1100px) {
+  .nav-link { padding: var(--space-sm) var(--space-lg); font-size: 0.9rem; }
+}
+.header-nav .nav-link:focus-visible {
+@media (max-width: 600px){
+  .header-actions { gap: var(--space-sm); }
+}
+  box-shadow: var(--glow);
+}
+.header-nav .nav-link.active::before {
+  width: 90%;
 }
 .nav-link {
   position: relative;
@@ -336,6 +377,12 @@ a:hover {
   cursor: pointer;
   transition: all var(--transition-fast);
 }
+@media (max-width: 600px) {
+  .dark-mode-toggle { width: 40px; height: 40px; }
+}
+@media (max-width: 380px) {
+  .dark-mode-toggle { width: 36px; height: 36px; }
+}
 .dark-mode-toggle:hover {
   background: var(--bg-secondary);
   border-color: var(--primary);
@@ -378,6 +425,8 @@ a:hover {
   flex-shrink: 0; /* Prevent shrinking */
   z-index: 110; /* Ensure it's clickable above other elements */
 }
+@media (max-width: 600px) { .nav-toggle { width: 40px; height: 40px; } }
+@media (max-width: 380px) { .nav-toggle { width: 36px; height: 36px; } }
 .nav-toggle-bar {
   width: 22px;
   height: 2px;
@@ -445,6 +494,7 @@ a:hover {
     z-index: 120; /* Above overlay */
     /* Isolate the animation context */
     /* Removed will-change for potential performance issues on the nav itself */
+  backdrop-filter: saturate(180%) blur(8px);
   }
   /* Active state for the menu being open - Simplified selector */
   .nav-open .header-nav {
@@ -865,6 +915,9 @@ a:hover {
   border-radius: var(--radius-lg);
   transition: all var(--transition-normal);
 }
+.note-card--info { border-left: 4px solid var(--info); }
+.note-card--warning { border-left: 4px solid #f59e0b; }
+.note-card--tip { border-left: 4px solid var(--success); }
 .note-card:hover {
   border-color: var(--primary);
   transform: translateY(-2px);
@@ -889,11 +942,16 @@ a:hover {
   font-size: var(--text-sm);
   line-height: 1.5;
 }
+.note-content ul {
+  margin: var(--space-md) 0 0;
+  padding-left: var(--space-3xl);
+}
+.note-content li { margin: var(--space-xs) 0; }
 /* Resources */
 .resources-categories {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-  gap: var(--space-5xl);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-4xl);
 }
 .resource-category {
   background: var(--bg-elevated);
@@ -917,6 +975,7 @@ a:hover {
 }
 .resource-list {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: var(--space-lg);
 }
 .resource-item {
@@ -946,6 +1005,35 @@ a:hover {
   font-size: var(--text-sm);
   line-height: 1.5;
 }
+.resource-item .meta-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: var(--space-sm);
+}
+.resource-item .meta-tags .tag {
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-primary);
+  color: var(--text-tertiary);
+  font-size: 11px;
+}
+.resource-item.external {
+  position: relative;
+}
+.resource-item.external::after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  mask: url('#icon-document') no-repeat center / contain;
+  background: currentColor;
+  opacity: .35;
+}
 /* Data Tables */
 .data-table-container {
   background: var(--bg-elevated);
@@ -967,6 +1055,8 @@ table {
   font-size: var(--text-sm);
   min-width: 600px; /* This is necessary for wide tables but relies on wrapper overflow */
 }
+/* Improve long cell handling */
+td, th { word-break: normal; overflow-wrap: anywhere; }
 /* Table toolbar */
 .table-toolbar {
   display: flex;
@@ -992,6 +1082,9 @@ table {
 .social-btn { width:36px; height:36px; display:flex; align-items:center; justify-content:center; background: var(--bg-primary); border:1px solid var(--border-primary); border-radius: var(--radius-full); color: var(--text-secondary); transition: all var(--transition-fast); }
 .social-btn:hover { background: var(--primary); color:#fff; border-color: var(--primary); transform: translateY(-2px); }
 .visually-hidden { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
+/* Footer chips for quick links */
+.footer-chips { display:flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-lg); }
+.footer-chip { padding: 6px 10px; border-radius: var(--radius-full); background: var(--bg-primary); border:1px solid var(--border-primary); color: var(--text-secondary); font-size: 12px; }
 /* Compact on small screens adjust toolbar */
 @media (max-width:600px){
   .table-toolbar { flex-direction: column; align-items: stretch; }
@@ -1303,7 +1396,7 @@ select:focus {
 }
 .error-state{
   padding: 0.5em;
-  background-color: #ff97e054;
+  background-color: inherit;
   color: #842029;
   border-radius: var(--radius-md);
   text-align: center;
@@ -1454,12 +1547,28 @@ text-decoration: underline;
   border-top: 1px solid var(--border-primary);
   padding: var(--space-7xl) 0 var(--space-4xl);
   margin-top: auto;
+  position: relative;
+  overflow: hidden;
+}
+.site-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--footer-gradient);
+  pointer-events: none;
 }
 .footer-content {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: var(--space-5xl);
   margin-bottom: var(--space-5xl);
+}
+/* Make footer grid more adaptive */
+@media (max-width: 1200px) {
+  .footer-content { grid-template-columns: 1.5fr 1fr 1fr; }
+}
+@media (max-width: 900px) {
+  .footer-content { grid-template-columns: repeat(2, 1fr); gap: var(--space-2xl); }
 }
 .footer-section h4,
 .footer-section h5 {
@@ -1530,6 +1639,8 @@ text-decoration: underline;
 .footer-links a:hover {
   color: var(--primary);
 }
+.footer-links.compact { columns: 2; column-gap: var(--space-xl); }
+@media (max-width: 600px) { .footer-links.compact { columns: 1; } }
 .footer-bottom {
   padding-top: var(--space-4xl);
   border-top: 1px solid var(--border-primary);
@@ -1540,6 +1651,7 @@ text-decoration: underline;
   align-items: flex-end;
   gap: var(--space-3xl);
 }
+.footer-bottom-content .made-with { color: var(--text-tertiary); font-size: var(--text-sm); }
 .footer-left p {
   margin: 0 0 var(--space-sm);
   color: var(--text-tertiary);
@@ -1629,7 +1741,7 @@ text-decoration: underline;
     padding: 0 var(--space-xl);
   }
   .resources-categories {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   }
 }
 /* Tablet */
