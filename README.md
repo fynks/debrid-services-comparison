@@ -15,7 +15,6 @@ Compare [AllDebrid](https://alldebrid.com/), [Real-Debrid](https://real-debrid.c
   
 [![GitHub stars](https://img.shields.io/github/stars/fynks/debrid-services-comparison?style=for-the-badge&logo=github&color=yellow)](https://github.com/fynks/debrid-services-comparison/stargazers)
 [![Services Compared: 8](https://img.shields.io/badge/Services_Compared-8-blue?style=for-the-badge&logo=bitbucket)](https://github.com/fynks/debrid-services-comparison)
-[![Contributors](https://img.shields.io/github/contributors/fynks/debrid-services-comparison?style=for-the-badge&logo=github&color=58A6FF)](https://github.com/fynks/debrid-services-comparison/graphs/contributors)
 [![Web App: Interactive Viewer](https://img.shields.io/badge/Web_App-Interactive_Viewer-6E40C9?style=for-the-badge&logo=netlify&logoColor=white)](https://debrid-services-comparison.netlify.app/)
 
 </div>
