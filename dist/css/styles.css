@@ -729,6 +729,11 @@ a:hover {
   }
 }
 
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .hero-content { animation: none !important; }
+}
+
 .hero-title {
   font-size: clamp(var(--text-3xl), 8vw, var(--text-6xl));
   font-weight: var(--font-extrabold);
@@ -1329,7 +1334,9 @@ tr:focus-within { outline: 2px solid transparent; box-shadow: inset 0 0 0 2px va
 .table-wrapper {
   overflow-x: auto;
   border-radius: var(--radius-2xl);
-  width: 100%
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
 }
 
 table {
@@ -2669,6 +2676,23 @@ select:hover {
     min-height: auto
   }
 
+  /* Smaller buttons on compact screens */
+  .btn { padding: var(--space-md) var(--space-xl); min-width: 120px; font-size: var(--text-sm); }
+  .comparison-actions .btn { min-width: auto; }
+
+
+/* Active nav link styling (scrollspy) */
+.header-nav .nav-link.active {
+  color: var(--primary);
+}
+.header-nav .nav-link.active::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  margin-top: 6px;
+}
   .comparison-header {
     padding: var(--space-md)
   }
