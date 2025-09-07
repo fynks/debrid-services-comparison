@@ -690,12 +690,23 @@ a:hover {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(135deg, rgba(99, 102, 241, 0.06), rgba(139, 92, 246, 0.06));
+    linear-gradient(135deg, rgba(99, 102, 241, 0.06), rgba(139, 92, 246, 0.06)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' opacity='0.05'/%3E%3C/svg%3E");
+  background-size: auto, 300px 300px;
+  background-repeat: no-repeat, repeat;
+  background-position: center, top left;
+  background-blend-mode: overlay, normal;
   pointer-events: none;
 }
 
 [data-theme="dark"] .hero-section::after {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.04), rgba(139, 92, 246, 0.04));
+  background:
+    linear-gradient(135deg, rgba(99, 102, 241, 0.04), rgba(139, 92, 246, 0.04)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' opacity='0.04'/%3E%3C/svg%3E");
+  background-size: auto, 300px 300px;
+  background-repeat: no-repeat, repeat;
+  background-position: center, top left;
+  background-blend-mode: overlay, normal;
 }
 
 .hero-content {
@@ -2295,7 +2306,12 @@ select:hover {
   inset: 0;
   background:
     radial-gradient(600px 400px at 15% 20%, rgb(99 102 241 / .08) 0%, transparent 60%),
-    radial-gradient(700px 500px at 85% 80%, rgb(139 92 246 / .06) 0%, transparent 60%);
+    radial-gradient(700px 500px at 85% 80%, rgb(139 92 246 / .06) 0%, transparent 60%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' opacity='0.035'/%3E%3C/svg%3E");
+  background-size: auto, auto, 300px 300px;
+  background-repeat: no-repeat, no-repeat, repeat;
+  background-position: center, center, top left;
+  background-blend-mode: normal, normal, overlay;
   pointer-events: none;
 }
 
