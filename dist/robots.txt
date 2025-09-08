@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 Disallow: /cgi-bin/
-Sitemap: https://debrid-services-comparison.netlify.app/sitemap.xml
+Sitemap: https://debridcompare.pages.dev/sitemap.xml
