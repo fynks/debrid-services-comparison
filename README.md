@@ -69,7 +69,7 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
 | **Debrid-Link** | [Sign up with referral](https://debrid-link.com/id/7B3BO)           | [Direct signup](https://debrid-link.com/webapp/register)                |
 | **Mega-Debrid** | Not available                                                       | [Direct signup](https://www.mega-debrid.eu/index.php?page=freeregister) |
 | **Deepbrid**    | [Sign up with referral](https://www.deepbrid.com/aff/go/upward1971) | [Direct signup](https://www.deepbrid.com/signup)                        |
-| **HIGHWAY**     | ❌                                                                   | [Direct signup](https://high-way.me/login/login)                        |
+| **High-Way**     | ❌                                                                   | [Direct signup](https://high-way.me/login/login)                        |
 
 
 > **Transparency note**: This project has no financial relationship with any service. Referrals help cover hosting and maintenance costs, but we never accept payment for favorable placement.
@@ -82,7 +82,7 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
 
 ### Detailed Pricing and Value Analysis
 
-| **Plan Duration**     | **AllDebrid**                           | **Premiumize** | **Real-Debrid** | **TorBox**        | **Debrid-Link** | **LinkSnappy** | **Mega-Debrid** | **Deepbrid**       | **HIGHWAY**    |
+| **Plan Duration**     | **AllDebrid**                           | **Premiumize** | **Real-Debrid** | **TorBox**        | **Debrid-Link** | **LinkSnappy** | **Mega-Debrid** | **Deepbrid**       | **High-Way**    |
 | :-------------------- | :-------------------------------------- | :------------- | :-------------- | :---------------- | :-------------- | :------------- | :-------------- | :----------------- | :------------- |
 | **Free / Trial**      | 7-day trial¹                            | ❌              | ❌               | Free tier²        | ❌               | ❌              | ❌               | Limited hosts only | Limited Hosts⁶ |
 | **7 Days**            | ❌                                       | ❌              | ❌               | ❌                 | ❌               | $4.99          | ❌               | ❌                  | ❌              |
@@ -100,7 +100,7 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
 > - **³ AllDebrid Recurring**: Auto-renews monthly at €2.99 (may increase; check TOS)
 > - **⁴ AllDebrid / Debrid-Link One-Time**: Non-recurring payment. Often better value than recurring.
 > - **⁵ TorBox Tiers**: Multiple plans starting at $3.00/month. Higher tiers unlock more features.
-> - **⁶** HIGHWAY: Limited Hoster, FreeMB through activity in the forum
+> - **⁶** High-Way: Limited Hoster, FreeMB through activity in the forum
 
 
 ### Up-to-date Pricing
@@ -114,7 +114,7 @@ Prices change frequently. Always verify current pricing on official pages:
 - Debrid-Link — https://debrid-link.com/premium
 - Mega-Debrid — https://www.mega-debrid.eu/index.php?page=offres
 - Deepbrid — https://www.deepbrid.com/signup
-- HIGHWAY — https://high-way.me/pages/tariffs
+- High-Way — https://high-way.me/pages/tariffs
 
 <sub>`Last pricing review: September 06, 2025`</sub>
 
@@ -122,7 +122,7 @@ Prices change frequently. Always verify current pricing on official pages:
 
 ### File Hosts
 
-| **Service Name**        | **AllDebrid** | **TorBox**  | **Premiumize** | **Real-Debrid** | **Debrid-Link** | **LinkSnappy** | **Mega-Debrid** | **Deepbrid** | **HIGHWAY** |
+| **Service Name**        | **AllDebrid** | **TorBox**  | **Premiumize** | **Real-Debrid** | **Debrid-Link** | **LinkSnappy** | **Mega-Debrid** | **Deepbrid** | **High-Way** |
 | :---------------------- | :------------ | :---------- | :------------- | :-------------- | :-------------- | :------------- | :-------------- | :----------- | :---------- |
 | 1Fichier                | ✅             | ✅           | ✅              | ✅               | ✅               | ❌              | ✅               | ✅            | ✅           |
 | 1Tv                     | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌           |
@@ -433,7 +433,7 @@ Service availability and host support can change in real time. Use these officia
 | **Debrid-Link** | [debrid-link.com/webapp/status](https://debrid-link.com/webapp/status)            |
 | **Mega-Debrid** | [mega-debrid.eu/hebergeurs](https://www.mega-debrid.eu/index.php?page=hebergeurs) |
 | **Deepbrid**    | [deepbrid.com/status](https://www.deepbrid.com/status)                            |
-| **HighWay**     | [https://high-way.me/pages/status/](https://high-way.me/pages/status)             |
+| **High-Way**     | [https://high-way.me/pages/status/](https://high-way.me/pages/status)             |
 
 > 💡 Tip: Bookmark these pages to verify if a failed link is due to a temporary host outage rather than a service limitation.
 
