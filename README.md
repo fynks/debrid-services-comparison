@@ -69,7 +69,7 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
 | **Debrid-Link** | [Sign up with referral](https://debrid-link.com/id/7B3BO)           | [Direct signup](https://debrid-link.com/webapp/register)                |
 | **Mega-Debrid** | Not available                                                       | [Direct signup](https://www.mega-debrid.eu/index.php?page=freeregister) |
 | **Deepbrid**    | [Sign up with referral](https://www.deepbrid.com/aff/go/upward1971) | [Direct signup](https://www.deepbrid.com/signup)                        |
-| **High-Way**     | ❌                                                                   | [Direct signup](https://high-way.me/login/login)                        |
+| **High-Way**     | Not available                                                                   | [Direct signup](https://high-way.me/login/login)                        |
 
 
 > **Transparency note**: This project has no financial relationship with any service. Referrals help cover hosting and maintenance costs, but we never accept payment for favorable placement.
