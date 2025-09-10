@@ -7,7 +7,7 @@
 
 **A community-driven, up-to-date comparison of premium debrid services: pricing, host support, refund policies, and performance.**
   
-Compare [AllDebrid](https://alldebrid.com/), [Real-Debrid](https://real-debrid.com/), [LinkSnappy](https://linksnappy.com/), [Premiumize](https://www.premiumize.me/services), [Debrid-Link](https://debrid-link.com/), [TorBox](https://torbox.app/), [Mega-Debrid](https://www.mega-debrid.eu/), and [Deepbrid](https://www.deepbrid.com/).
+Compare [AllDebrid](https://alldebrid.com/), [Real-Debrid](https://real-debrid.com/), [LinkSnappy](https://linksnappy.com/), [Premiumize](https://www.premiumize.me/services), [Debrid-Link](https://debrid-link.com/), [TorBox](https://torbox.app/), [Mega-Debrid](https://www.mega-debrid.eu/) [Deepbrid](https://www.deepbrid.com/) and [High-Way](https://high-way.me/).
   
 [![Interactive Debrid Services Comparison Tool](./dist/image.png)](https://debrid-services-comparison.netlify.app/)
   
@@ -100,7 +100,7 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
 > - **³ AllDebrid Recurring**: Auto-renews monthly at €2.99 (may increase; check TOS)
 > - **⁴ AllDebrid / Debrid-Link One-Time**: Non-recurring payment. Often better value than recurring.
 > - **⁵ TorBox Tiers**: Multiple plans starting at $3.00/month. Higher tiers unlock more features.
-> - **⁶** High-Way: Limited Hoster, FreeMB through activity in the forum
+> - **⁶ High-Way**: Limited Hoster, FreeMB through activity in the forum
 
 
 ### Up-to-date Pricing
@@ -116,7 +116,7 @@ Prices change frequently. Always verify current pricing on official pages:
 - Deepbrid — https://www.deepbrid.com/signup
 - High-Way — https://high-way.me/pages/tariffs
 
-<sub>`Last pricing review: September 06, 2025`</sub>
+> Last pricing review: September 10, 2025
 
 ## Available Hosts
 
@@ -410,7 +410,7 @@ Prices change frequently. Always verify current pricing on official pages:
 | Youtube                 | ❌             | ✅           | ✅              | ❌               | ❌               | ❌              | ❌               | ✅            | ✅           |
 | **Total = 283**         | **70/283**    | **104/283** | **31/283**     | **40/283**      | **45/283**      | **19/283**     | **118/283**     | 80/283       | **18/283**  |
 
-`Last updated: September 10, 2025`
+> Last updated: September 10, 2025
 
 ### Adult Hosts
 
