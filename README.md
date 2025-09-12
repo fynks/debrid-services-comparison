@@ -57,7 +57,7 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
 
 ### Support This Project
 
-> This comparison is free, open-source, and community-maintained. If it helped you choose a service, consider using a referral link below — it supports ongoing updates at no extra cost to you.
+> ☄️ This comparison is free, open-source, and community-maintained. If it helped you choose a service, **consider using a referral link below** — it supports ongoing updates at no extra cost to you.
 
 | **Service**     | **Referral Link**                                                   | **Direct Link**                                                         |
 | :-------------- | :------------------------------------------------------------------ | :---------------------------------------------------------------------- |
@@ -72,7 +72,7 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
 | **High-Way**    | Not available                                                       | [Direct signup](https://high-way.me/login/login)                        |
 
 
-> **Transparency note**: This project has no financial relationship with any service. Referrals help cover hosting and maintenance costs, but we never accept payment for favorable placement.
+> 🕊️ **Transparency note**: This project has **no financial relationship with any service**. Referrals help cover hosting and maintenance costs, but we never accept payment for favorable placement.
 
 ---
 
@@ -105,16 +105,19 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
 
 ### Up-to-date Pricing
 
-Prices change frequently. Always verify current pricing on official pages:
-- AllDebrid — https://alldebrid.com/offer/
-- Real-Debrid — https://real-debrid.com/premium
-- TorBox — https://torbox.app/pricing
-- Premiumize — https://www.premiumize.me/premium
-- LinkSnappy — https://linksnappy.com/myaccount/extend
-- Debrid-Link — https://debrid-link.com/premium
-- Mega-Debrid — https://www.mega-debrid.eu/index.php?page=offres
-- Deepbrid — https://www.deepbrid.com/signup
-- High-Way — https://high-way.me/pages/tariffs
+***Prices change frequently. Always verify current pricing on official pages:***
+
+| **Service**     | **Official Pricing Page**                                                                 |
+| :-------------- | :--------------------------------------------------------------------------------------- |
+| AllDebrid       | [alldebrid.com/offer](https://alldebrid.com/offer/)                                      |
+| Real-Debrid     | [real-debrid.com/premium](https://real-debrid.com/premium)                               |
+| TorBox          | [torbox.app/pricing](https://torbox.app/pricing)                                         |
+| Premiumize      | [premiumize.me/premium](https://www.premiumize.me/premium)                               |
+| LinkSnappy      | [linksnappy.com/myaccount/extend](https://linksnappy.com/myaccount/extend)               |
+| Debrid-Link     | [debrid-link.com/premium](https://debrid-link.com/premium)                               |
+| Mega-Debrid     | [mega-debrid.eu/offres](https://www.mega-debrid.eu/index.php?page=offres)                |
+| Deepbrid        | [deepbrid.com/signup](https://www.deepbrid.com/signup)                                   |
+| High-Way        | [high-way.me/pages/tariffs](https://high-way.me/pages/tariffs)                           |
 
 > Last pricing review: September 10, 2025
 
@@ -596,23 +599,7 @@ This project thrives on community input. Prices change, host support evolves, an
 
 ### How to Contribute
 
-You can help in two ways:
-
-#### Option 1: Open an Issue (Recommended for Most Users)
-1. Go to the [Issues tab](https://github.com/fynks/debrid-services-comparison/issues)
-2. Click **"New Issue"**
-3. Include:
-   - Service name
-   - Change observed (e.g., "AllDebrid now supports Terabox")
-   - Proof: **Link to official page or screenshot**
-   - Date of observation
-4. Submit — maintainers will review and update
-
-#### Option 2: Submit a Pull Request (For Experienced Users)
-1. Fork the repository
-2. Edit the relevant file (`README.md`, `Adult-hosts.md`, etc.)
-3. **Update the `Last updated` date** at the bottom
-4. Create a pull request with a clear description
+*For a complete guidelines please see [CONTRIBUTING.md](./CONTRIBUTING.md)*
 
 ### Verification Policy
 **All contributions are reviewed against **official sources** before merging. Unverified claims may be closed.**
