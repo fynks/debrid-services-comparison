@@ -13,9 +13,9 @@ Compare [AllDebrid](https://alldebrid.com/), [Real-Debrid](https://real-debrid.c
   
 [_*▶ Try the interactive web version with real-time filtering and search*_](https://debrid-services-comparison.netlify.app/) 
   
-[![GitHub stars](https://img.shields.io/github/stars/fynks/debrid-services-comparison?style=for-the-badge&logo=github&color=yellow)](https://github.com/fynks/debrid-services-comparison/stargazers)
-[![Services Compared: 8](https://img.shields.io/badge/Services_Compared-8-blue?style=for-the-badge&logo=bitbucket)](https://github.com/fynks/debrid-services-comparison)
-[![Web App: Interactive Viewer](https://img.shields.io/badge/Web_App-Interactive_Viewer-6E40C9?style=for-the-badge&logo=netlify&logoColor=white)](https://debrid-services-comparison.netlify.app/)
+[![GitHub Stars](https://img.shields.io/github/stars/fynks/debrid-services-comparison?style=for-the-badge&logo=github)](https://github.com/fynks/debrid-services-comparison/stargazers)
+[![Compare 9 Services](https://img.shields.io/badge/Services_Compared-9-orange?style=for-the-badge&logo=rocket&logoColor=white)](https://github.com/fynks/debrid-services-comparison#available-hosts)
+[![Web App](https://img.shields.io/badge/Web_App-Live_Demo-brightgreen?style=for-the-badge&logo=google-chrome&logoColor=white)](https://debrid-services-comparison.netlify.app/)
 
 </div>
 
@@ -48,7 +48,7 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
   - [Official Speed Test Tools](#official-speed-test-tools)
   - [How to Perform a Real-World Speed Test](#how-to-perform-a-real-world-speed-test)
 - [Frequently Asked Questions](#frequently-asked-questions)
-- [Important Notes](#important-notes)
+- [Disclaimer](#disclaimer)
 - [Useful Resources and Community](#useful-resources-and-community)
 - [Contributing](#contributing)
 - [Support and Stay Updated](#support-and-stay-updated)
@@ -57,7 +57,7 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
 
 ### Support This Project
 
-> ☄️ This comparison is free, open-source, and community-maintained. If it helped you choose a service, **consider using a referral link below** — it supports ongoing updates at no extra cost to you.
+> ✨ This comparison is free, open-source, and community-maintained. If it helped you choose a service, **consider using a referral link below** — it supports ongoing updates at no extra cost to you.
 
 | **Service**     | **Referral Link**                                                   | **Direct Link**                                                         |
 | :-------------- | :------------------------------------------------------------------ | :---------------------------------------------------------------------- |
@@ -78,8 +78,6 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
 
 ## Pricing Comparison
 
-> 💡 **Tip**: Longer plans often offer better value. Compare **effective monthly rates** below to find the best deal.
-
 ### Detailed Pricing and Value Analysis
 
 | **Plan Duration**     | **AllDebrid**                           | **Premiumize** | **Real-Debrid** | **TorBox**        | **Debrid-Link** | **LinkSnappy** | **Mega-Debrid** | **Deepbrid**       | **High-Way**   |
@@ -93,15 +91,15 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
 | **300 Days**          | €24.99 (one-time)⁴                      | ❌              | ❌               | ❌                 | €25.00          | ❌              | ❌               | ❌                  | ❌              | From €47.99 |
 | **365 Days / 1 Year** | ❌                                       | $79.99         | ❌               | ❌                 | ❌               | ❌              | ❌               | €32.99             |
 
+> 💡 **Tip**: Longer plans often offer better value. Compare **effective monthly rates** below to find the best deal.
 
-### Notes
-> - **¹ AllDebrid Free Trial**: 7-day trial requires phone verification. [More info](https://alldebrid.com/)
-> - **² TorBox Free Tier**: Limited speed and features; no torrenting. [Pricing page](https://torbox.app/pricing)
-> - **³ AllDebrid Recurring**: Auto-renews monthly at €2.99 (may increase; check TOS)
-> - **⁴ AllDebrid / Debrid-Link One-Time**: Non-recurring payment. Often better value than recurring.
-> - **⁵ TorBox Tiers**: Multiple plans starting at $3.00/month. Higher tiers unlock more features.
-> - **⁶ High-Way**: Limited Hoster, FreeMB through activity in the forum
-
+### Pricing Notes
+- **¹ AllDebrid Free Trial**: 7-day trial requires phone verification. [More info](https://alldebrid.com/)
+- **² TorBox Free Tier**: Limited speed and features; no torrenting. [Pricing page](https://torbox.app/pricing)
+- **³ AllDebrid Recurring**: Auto-renews monthly at €2.99 (may increase; check TOS)
+- **⁴ AllDebrid / Debrid-Link One-Time**: Non-recurring payment. Often better value than recurring.
+- **⁵ TorBox Tiers**: Multiple plans starting at $3.00/month. Higher tiers unlock more features.
+- **⁶ High-Way**: Limited Hoster, FreeMB through activity in the forum
 
 ### Up-to-date Pricing
 
@@ -462,6 +460,8 @@ Use these direct speed test links to measure real-world performance from each pr
 
 ### How to Perform a Real-World Speed Test
 
+<details><summary>👉 Click to expand contents</summary>
+
 For a more accurate assessment, follow these steps:
 
 1. **Choose a common test file** (e.g., a Linux ISO or public benchmark file) available on multiple hosts.
@@ -469,6 +469,8 @@ For a more accurate assessment, follow these steps:
 3. **Clear cache and cookies** between sessions or use private browsing.
 4. **Run 3 tests per service** and calculate the average speed.
 5. **Test during peak and off-peak hours** to gauge performance variability.
+
+</details>
 
 #### Factors That Affect Speed:
 - Geographical distance to provider’s servers  
@@ -555,18 +557,18 @@ Reputable services use SSL/TLS and external processors; some offer crypto for ad
 They can see connections and volume but not file names over HTTPS. A VPN adds another layer of privacy.
 </details>
 
-## Important Notes
+## Disclaimer:
 
 This project aims to provide accurate and up-to-date information, but the debrid service landscape is dynamic. Please keep the following in mind:
 
-- **Services change frequently**: Pricing, host support, refund policies, and features may be updated without notice. Always verify details on the **official service websites** before purchasing.
-- **Final cost may vary**: Displayed prices are subject to exchange rates, regional taxes, or payment processing fees. Your actual charge may differ slightly.
-- **Data accuracy**: While we strive for completeness, this comparison reflects community reports and public information. We do **not guarantee** uptime, speed, download success, or feature availability.
-- **No affiliation**: This project is independent and **not affiliated** with AllDebrid, Real-Debrid, Premiumize, TorBox, LinkSnappy, Debrid-Link, Mega-Debrid, Deepbrid, or any other listed service.
-- **Use at your own discretion**: Choosing a debrid service involves personal judgment. Test short-term plans first and review terms carefully.
+- **Services change frequently**: Pricing, host support, refund policies, and features change often—always check official sites before purchase.
+- **Final cost may vary**: Prices are subject to exchange rates, regional taxes, or payment processing fees. Actual charge may differ.
+- **Data accuracy**: Data is community-sourced and not guaranteed for accuracy, uptime, or feature availability.
+- **No affiliation**: This project is independent and not affiliated with any listed service.
+- **Use at your own discretion**: Choose and use debrid services at your own discretion; test with short-term plans first.
 - **Legal responsibility**: Debrid services are tools. You are responsible for complying with copyright laws and terms of use when accessing content.
 
-> This is an open-source, community-maintained guide. It does not endorse or promote unauthorized file sharing.
+> **This is an open-source, community-maintained guide. It does not endorse or promote unauthorized file sharing.**
 
 ## Useful Resources and Community
 
@@ -602,23 +604,22 @@ This project thrives on community input. Prices change, host support evolves, an
 *For a complete guidelines please see [CONTRIBUTING.md](./CONTRIBUTING.md)*
 
 ### Verification Policy
-**All contributions are reviewed against **official sources** before merging. Unverified claims may be closed.**
+
+> 🛡️ **All contributions are reviewed against **official sources** before merging. Unverified claims may be closed.**
 
 ## Support and Stay Updated
 
 If this project saved you time or helped you make a better decision, here’s how you can support its continued maintenance and improvement:
 
-- **⭐ Star the repository** — It helps others discover this resource!
-- **Share it** with friends or communities who use debrid services
-- **Contribute updates** — Found outdated pricing or new host support? [Open an issue](https://github.com/fynks/debrid-services-comparison/issues) or submit a PR
-- **Use referral links** (if signing up) — Supports this project at no extra cost to you
-
-This is a community-driven, open-source guide with no ads or paid promotions. Your support keeps it accurate, neutral, and freely available.
-
-> Thank you for visiting — every star, share, and contribution makes a difference! 💙
+[![Star the repository](https://img.shields.io/github/stars/fynks/debrid-services-comparison?style=for-the-badge&label=Star%20on%20GitHub)](https://github.com/fynks/debrid-services-comparison)
+[![Contribute updates](https://img.shields.io/badge/Contribute-Open_an_issue_or_PR-brightgreen?style=for-the-badge&logo=github)](https://github.com/fynks/debrid-services-comparison/issues)
+[![Use referral links](https://img.shields.io/badge/Support-Use_referral_links-yellow?style=for-the-badge&logo=buymeacoffee)](#support-this-project)
 
 ---
+
 <div align="center">
+
+*This is a open-source guide with no ads or paid promotions. Your support keeps it accurate, neutral, and freely available.*
 
 ⚡ Made with ❤️ by [Debrid Service Comparison](https://github.com/fynks/debrid-services-comparison)
 
