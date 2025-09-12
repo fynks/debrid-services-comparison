@@ -17,9 +17,7 @@
 [![Compare 9 Services](https://img.shields.io/badge/Services_Compared-9-orange?style=for-the-badge&logo=rocket&logoColor=white)](https://github.com/fynks/debrid-services-comparison#available-hosts)
 [![Web App](https://img.shields.io/badge/Web_App-Live_Demo-brightgreen?style=for-the-badge&logo=google-chrome&logoColor=white)](https://debridcompare.pages.dev)
 
-</div>
-
----
+</div><br>
 
 ## What are Debrid Services?
 
