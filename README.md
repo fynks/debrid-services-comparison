@@ -7,7 +7,7 @@
 
 **A community-driven, up-to-date comparison of premium debrid services: pricing, host support, refund policies, and performance.**
   
-Compare [AllDebrid](https://alldebrid.com/), [Real-Debrid](https://real-debrid.com/), [LinkSnappy](https://linksnappy.com/), [Premiumize](https://www.premiumize.me/services), [Debrid-Link](https://debrid-link.com/), [TorBox](https://torbox.app/), [Mega-Debrid](https://www.mega-debrid.eu/) [Deepbrid](https://www.deepbrid.com/) and [High-Way](https://high-way.me/).
+<small>Compare [AllDebrid](https://alldebrid.com/), [Real-Debrid](https://real-debrid.com/), [LinkSnappy](https://linksnappy.com/), [Premiumize](https://www.premiumize.me/services), [Debrid-Link](https://debrid-link.com/), [TorBox](https://torbox.app/), [Mega-Debrid](https://www.mega-debrid.eu/) [Deepbrid](https://www.deepbrid.com/) and [High-Way](https://high-way.me/).</small>
   
 [![Interactive Debrid Services Comparison Tool](./dist/image.png)](https://debrid-services-comparison.netlify.app/)
   
