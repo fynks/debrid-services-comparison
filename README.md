@@ -42,7 +42,10 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
   - [File Hosts](#file-hosts)
   - [Adult Hosts](#adult-hosts)
   - [Live Status](#live-status)
-  - [Policies and Legal](#policies-and-legal)
+- [Policies and Legal](#policies-and-legal)
+  - [Terms of Service](#terms-of-service)
+  - [Privacy Policy](#privacy-policy)
+  - [Refund Policy](#refund-policy)
 - [Speed Test](#speed-test)
   - [Official Speed Test Tools](#official-speed-test-tools)
   - [How to Perform a Real-World Speed Test](#how-to-perform-a-real-world-speed-test)
@@ -50,7 +53,6 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
 - [Disclaimer](#disclaimer)
 - [Useful Resources and Community](#useful-resources-and-community)
 - [Contributing](#contributing)
-- [Support and Stay Updated](#support-and-stay-updated)
 
 ## Getting Started
 
