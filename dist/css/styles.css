@@ -1510,7 +1510,8 @@ tr:hover {
 
 #file-hosts-table tr:nth-child(even),
 .enhanced-table tr:nth-child(even),
-.pricing-table tr:nth-child(even) {
+.pricing-table tr:nth-child(even),
+.policies-table tr:nth-child(even) {
   background-color: var(--bg-tertiary);
 }
 
@@ -1524,6 +1525,12 @@ tr:hover {
 
 #file-hosts-table td:first-child {
   background-color: var(--bg-primary);
+}
+
+.policies-table tbody tr th:first-child {
+background-color: inherit;
+color: inherit;
+
 }
 
 .filter-results {
