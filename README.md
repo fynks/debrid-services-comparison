@@ -10,7 +10,7 @@
 [![Web App](https://img.shields.io/badge/Visit-Web_App-brightgreen?style=for-the-badge&logo=google-chrome&logoColor=white)](https://debridcompare.pages.dev)
 
 
-> 💡 **Community-driven, real-time comparison** of 8 premium debrid services — pricing, hosts, speed, policies & more.
+> 💡 **Community-driven, up-to-date comparison** of 8 premium debrid services for pricing, hosts, speed, policies & more.
 
 [_*▶ Try the interactive web version with real-time filtering and search*_](https://debrid-services-comparison.netlify.app/) 
     
