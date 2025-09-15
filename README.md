@@ -689,8 +689,6 @@ If this project saved you time or helped you make a better decision, here’s ho
 [![Contribute updates](https://img.shields.io/badge/Contribute-Open_an_issue_or_PR-brightgreen?style=for-the-badge&logo=github)](https://github.com/fynks/debrid-services-comparison/issues)
 [![Use referral links](https://img.shields.io/badge/Support-Use_referral_links-yellow?style=for-the-badge&logo=buymeacoffee)](#support-this-project)
 
-[↑ Back to Top](#table-of-contents)
-
 ---
 
 <div align="center">
