@@ -118,7 +118,7 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
 | Mega-Debrid     | [mega-debrid.eu/offres](https://www.mega-debrid.eu/index.php?page=offres)                |
 | High-Way        | [high-way.me/pages/tariffs](https://high-way.me/pages/tariffs)                           |
 
-> Last pricing review: September 10, 2025
+![Last Updated](https://img.shields.io/badge/Last%20Updated-September%2010%2C%202025-blue?style=for-the-badge)
 
 [↑ Back to Top](#table-of-contents)
 
@@ -414,7 +414,7 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
 | Youtube | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ |
 | **Total = 284** | **70/284** | **104/284** | **31/284** | **40/284** | **45/284** | **19/284** | **118/284** | **16/284** |
 
-> Last updated: September 10, 2025
+![Last Updated](https://img.shields.io/badge/Last%20Updated-September%2010%2C%202025-blue?style=for-the-badge)
 
 [↑ Back to Top](#table-of-contents)
 
