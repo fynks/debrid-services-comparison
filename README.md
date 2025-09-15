@@ -75,6 +75,8 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
 
 > 🕊️ **Transparency note**: This project has **no financial relationship with any service**. Referrals help cover hosting and maintenance costs, but we never accept payment for favorable placement.
 
+[↑ Back to Top](#table-of-contents)
+
 ---
 
 ## Pricing Comparison
@@ -119,6 +121,8 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
 | High-Way        | [high-way.me/pages/tariffs](https://high-way.me/pages/tariffs)                           |
 
 > Last pricing review: September 10, 2025
+
+[↑ Back to Top](#table-of-contents)
 
 ## Available Hosts
 
@@ -414,12 +418,15 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
 
 > Last updated: September 10, 2025
 
+[↑ Back to Top](#table-of-contents)
+
 ### Adult Hosts
 
 Support for adult content varies significantly across debrid services. Some platforms actively support major adult file hosts, while others exclude them entirely due to policy or legal considerations.
 
 For a complete, up-to-date comparison of which services support adult-oriented hosts, see:  
 👉 [`Adult-hosts.md`](./Adult-hosts.md)
+
 
 ### Live Status
 
@@ -438,6 +445,8 @@ Service availability and host support can change in real time. Use these officia
 | **High-Way**    | [high-way.me/pages/status](https://high-way.me/pages/status)                      |
 
 > 💡 Tip: Bookmark these pages to verify if a failed link is due to a temporary host outage rather than a service limitation.
+
+[↑ Back to Top](#table-of-contents)
 
 ## Policies and Legal
 
@@ -485,6 +494,8 @@ Official Terms, Privacy, Refund, and Support pages for each provider. Refund eli
 
 > If a link returns 404, try the site’s footer “Legal/Help” links or contact support.
 
+[↑ Back to Top](#table-of-contents)
+
 ## Speed Test
 
 Download speeds vary based on your location, time of day, server load, and target file host. Always test performance before committing to a long-term plan.
@@ -528,6 +539,8 @@ For a more accurate assessment, follow these steps:
 
 > ⚠️ Note: Advertised "unlimited" speeds may be subject to fair-use policies or soft caps under heavy usage.
 
+[↑ Back to Top](#table-of-contents)
+
 ## Frequently Asked Questions
 
 ### General
@@ -566,6 +579,8 @@ Most support torrent-to-direct-download (cloud download then direct link).
 Many advertise “unlimited,” but fair-use or soft caps can apply. Check each service’s terms.
 </details>
 
+[↑ Back to Top](#table-of-contents)
+
 ### Accounts and Billing
 
 <details><summary>Can I share my account?</summary>
@@ -575,6 +590,8 @@ Most prohibit sharing. Some enforce IP/session limits. Violations may lead to su
 <details><summary>What payment methods are accepted?</summary>
 Typically cards and PayPal; some support crypto (e.g., AllDebrid, TorBox, Debrid-Link, Deepbrid). Check each site for options.
 </details>
+
+[↑ Back to Top](#table-of-contents)
 
 ### Troubleshooting
 
@@ -590,6 +607,8 @@ Temporary host issues, removed files, API changes, geo restrictions, or host acc
 Varies by provider. See the <a href="#policies-and-legal">Policies and Legal</a> section and start with short plans to test first.
 </details>
 
+[↑ Back to Top](#table-of-contents)
+
 ### Security and Privacy
 
 <details><summary>Do services log my downloads?</summary>
@@ -604,6 +623,8 @@ Reputable services use SSL/TLS and external processors; some offer crypto for ad
 They can see connections and volume but not file names over HTTPS. A VPN adds another layer of privacy.
 </details>
 
+[↑ Back to Top](#table-of-contents)
+
 ## Disclaimer:
 
 This project aims to provide accurate and up-to-date information, but the debrid service landscape is dynamic. Please keep the following in mind:
@@ -616,6 +637,8 @@ This project aims to provide accurate and up-to-date information, but the debrid
 - **Legal responsibility**: Debrid services are tools. You are responsible for complying with copyright laws and terms of use when accessing content.
 
 > **This is an open-source, community-maintained guide. It does not endorse or promote unauthorized file sharing.**
+
+[↑ Back to Top](#table-of-contents)
 
 ## Useful Resources and Community
 
@@ -633,7 +656,9 @@ Enhance your debrid experience with these trusted tools, guides, and communities
 - **Discord**: Many services offer official Discord servers for real-time support and status updates
 - **GitHub Issues**: Report inaccuracies or suggest improvements here — this project thrives on community input!
 
-> 💡 Pro Tip: Combine your debrid service with automation tools like **Debrid Media Manager (DMM)** or **Overseerr** for a seamless media experience.
+> 💡 Pro Tip: Combine your debrid service with automation tools like **Debrid Media Manager (DMM)** for a seamless media experience.
+
+[↑ Back to Top](#table-of-contents)
 
 ## Contributing
 
@@ -654,6 +679,8 @@ This project thrives on community input. Prices change, host support evolves, an
 
 > 🛡️ **All contributions are reviewed against **official sources** before merging. Unverified claims may be closed.**
 
+[↑ Back to Top](#table-of-contents)
+
 ## Support and Stay Updated
 
 If this project saved you time or helped you make a better decision, here’s how you can support its continued maintenance and improvement:
@@ -661,6 +688,8 @@ If this project saved you time or helped you make a better decision, here’s ho
 [![Star the repository](https://img.shields.io/github/stars/fynks/debrid-services-comparison?style=for-the-badge&label=Star%20on%20GitHub)](https://github.com/fynks/debrid-services-comparison)
 [![Contribute updates](https://img.shields.io/badge/Contribute-Open_an_issue_or_PR-brightgreen?style=for-the-badge&logo=github)](https://github.com/fynks/debrid-services-comparison/issues)
 [![Use referral links](https://img.shields.io/badge/Support-Use_referral_links-yellow?style=for-the-badge&logo=buymeacoffee)](#support-this-project)
+
+[↑ Back to Top](#table-of-contents)
 
 ---
 
