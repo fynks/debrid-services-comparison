@@ -18,13 +18,14 @@
 [![Interactive Debrid Services Comparison Tool](./dist/image.png)](https://debrid-services-comparison.netlify.app/)
   
 
-[Pricing](#pricing-comparison) | [Hosts](#available-hosts) | [Policies](#policies-and-legal) | [FAQ](#frequently-asked-questions) | [Resources](#tools-and-community)
+[Pricing](#pricing-comparison) | [Hosts](#available-hosts) | [Policies](#policies-and-legal) | [Resources](#tools-and-community)
 
----
 
-</div>
+</div><br>
 
 ## 📚 Table of Contents
+
+<details><summary>👉 Click to expand</summary>
 
 - [What are Debrid Services?](#what-are-debrid-services)
 - [Support This Project](#support-this-project)
@@ -34,10 +35,11 @@
   - [Adult Hosts](#adult-hosts)
 - [Policies and Legal](#policies-and-legal)
 - [Speed Test](#speed-test)
-- [FAQs](#frequently-asked-questions)
 - [Disclaimer](#disclaimer)
 - [Tools and Community](#tools-and-community)
 - [Contributing](#contributing)
+
+</details>
 
 ## What are Debrid Services?
 
@@ -514,89 +516,7 @@ For a more accurate assessment, follow these steps:
 
 [↑ Back to Top](#table-of-contents)
 
-## Frequently Asked Questions
-
-### General
-
-<details><summary>What is a debrid service?</summary>
-Debrid services act as intermediaries that fetch files from various hosts to their own servers, then give you high-speed direct links—no ads, waits, or host limits.
-</details>
-
-<details><summary>Are debrid services legal?</summary>
-✅, the services themselves are legal. You’re responsible for ensuring you download content you have the right to access.
-</details>
-
-<details><summary>Can I use multiple debrid services?</summary>
-✅. Power users often combine services for broader host coverage and redundancy.
-</details>
-
-<details><summary>Do I need a VPN?</summary>
-Not required, but a VPN can add privacy and sometimes helps with geo/routing issues.
-</details>
-
-### Technical
-
-<details><summary>Why do speeds vary?</summary>
-Server proximity, time of day, ISP routing, host performance, and service load all play a role.
-</details>
-
-<details><summary>What if a host is down?</summary>
-Wait for restoration or find an alternative link on another supported host. Wider host coverage improves reliability.
-</details>
-
-<details><summary>Do services support torrents?</summary>
-Most support torrent-to-direct-download (cloud download then direct link).
-</details>
-
-<details><summary>Are there download limits?</summary>
-Many advertise “unlimited,” but fair-use or soft caps can apply. Check each service’s terms.
-</details>
-
-[↑ Back to Top](#table-of-contents)
-
-### Accounts and Billing
-
-<details><summary>Can I share my account?</summary>
-Most prohibit sharing. Some enforce IP/session limits. Violations may lead to suspension.
-</details>
-
-<details><summary>What payment methods are accepted?</summary>
-Typically cards and PayPal; some support crypto (e.g., AllDebrid, TorBox, Debrid-Link). Check each site for options.
-</details>
-
-[↑ Back to Top](#table-of-contents)
-
-### Troubleshooting
-
-<details><summary>My downloads are slow—what can I try?</summary>
-Test at different times; try alternative hosts; verify your line speed; toggle VPN; contact support with examples.
-</details>
-
-<details><summary>A supported host isn’t working—why?</summary>
-Temporary host issues, removed files, API changes, geo restrictions, or host account renewals can cause failures.
-</details>
-
-<details><summary>Can I get a refund?</summary>
-Varies by provider. See the <a href="#policies-and-legal">Policies and Legal</a> section and start with short plans to test first.
-</details>
-
-[↑ Back to Top](#table-of-contents)
-
-### Security and Privacy
-
-<details><summary>Do services log my downloads?</summary>
-Policies vary. Many keep minimal technical logs; some claim no logs. EU services must comply with GDPR. Check privacy policies.
-</details>
-
-<details><summary>Is my payment info secure?</summary>
-Reputable services use SSL/TLS and external processors; some offer crypto for additional privacy.
-</details>
-
-<details><summary>Can my ISP see what I’m downloading?</summary>
-They can see connections and volume but not file names over HTTPS. A VPN adds another layer of privacy.
-</details>
-
-[↑ Back to Top](#table-of-contents)
+---
 
 ## Disclaimer:
 
@@ -612,6 +532,8 @@ This project aims to provide accurate and up-to-date information, but the debrid
 > **This is an open-source, community-maintained guide. It does not endorse or promote unauthorized file sharing.**
 
 [↑ Back to Top](#table-of-contents)
+
+---
 
 ## Tools and Community
 
