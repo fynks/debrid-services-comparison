@@ -463,7 +463,7 @@ Service availability and host support can change in real time. Use these officia
 | Debrid-Link | [TOS](https://debrid-link.com/tos)                                                    | [Privacy](https://debrid-link.com/privacy)                   | See TOS                                            | [Contact](https://debrid-link.com/contact)                      |
 | Premiumize  | [Legal](https://www.premiumize.me/legal#tos)                                          | [Privacy](https://www.premiumize.me/privacy)                 | [Refund](https://www.premiumize.me/legal#refund)   | [Help](https://www.premiumize.me/help)                          |
 | Mega-Debrid | [Conditions](https://www.mega-debrid.eu/index.php?page=conditionsutilisation&lang=en) | [Privacy](https://www.mega-debrid.eu/index.php?page=privacy) | Check CGV                                          | [Support](https://megadebrid.freshdesk.com/support/tickets/new) |
-| High-Way    | [Terms](https://high-way.me/help/terms)                                               |                                                              | [Privacy](https://high-way.me/help/privacy-policy) | See Terms                                                       | [Support](https://high-way.me/pages/support/) |
+| High-Way    | [Terms](https://high-way.me/help/terms)                                               | [Privacy](https://high-way.me/help/privacy-policy) | See Terms | [Support](https://high-way.me/pages/support/) |
 
 
 > If a link returns 404, try the site’s footer “Legal/Help” links or contact support.
