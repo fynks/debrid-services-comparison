@@ -65,12 +65,12 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
 | :-------------- | :--------------------------------------------------- | :--------------------------------------------------------------- |
 | **AllDebrid**   | [Referral](https://alldebrid.com/?uid=3wvya&lang=en) | [Signup](https://alldebrid.com/register/)                        |
 | **Real-Debrid** | [Referral](https://real-debrid.com/?id=10990901)     | [Signup](https://real-debrid.com/)                               |
-| **TorBox**      | Not available                                        | [Signup](https://torbox.app/login)                               |
-| **Premiumize**  | Not available                                        | [Signup](https://www.premiumize.me/register)                     |
+| **TorBox**      | -                                        | [Signup](https://torbox.app/login)                               |
+| **Premiumize**  | -                                        | [Signup](https://www.premiumize.me/register)                     |
 | **LinkSnappy**  | [Referral](https://linksnappy.com/?ref=774668)       | [Signup](https://linksnappy.com/home#Register)                   |
 | **Debrid-Link** | [Referral](https://debrid-link.com/id/7B3BO)         | [Signup](https://debrid-link.com/webapp/register)                |
-| **Mega-Debrid** | Not available                                        | [Signup](https://www.mega-debrid.eu/index.php?page=freeregister) |
-| **High-Way**    | Not available                                        | [Signup](https://high-way.me/login/login)                        |
+| **Mega-Debrid** | -                                        | [Signup](https://www.mega-debrid.eu/index.php?page=freeregister) |
+| **High-Way**    | -                                        | [Signup](https://high-way.me/login/login)                        |
 
 > 🕊️ **Transparency**: No financial ties to services. Referrals help cover costs only.
 
