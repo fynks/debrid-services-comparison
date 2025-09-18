@@ -941,6 +941,20 @@ function setupNavHighlight() {
   sections.forEach(sec => io.observe(sec));
 }
 
+// Adds/removes a subtle shadow on the fixed header when the page is scrolled
+function setupHeaderElevate() {
+    const header = document.querySelector('.site-header');
+    if (!header) return;
+
+    const update = () => {
+        if (window.scrollY > 8) header.classList.add('is-scrolled');
+        else header.classList.remove('is-scrolled');
+    };
+    update();
+    const onScroll = Utils.throttle(update, 100);
+    window.addEventListener('scroll', onScroll, { passive: true });
+}
+
 /* Age verification overlay with focus trap + inert */
 function setupAgeVerification() {
   const overlay = document.getElementById('age-verification-overlay');
@@ -1109,6 +1123,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupOfflineDetection();
     setupBackToTop();
     setupNavHighlight();
+    setupHeaderElevate();
     setupAgeVerification();
 
     performanceMonitor.mark('fully-loaded');
