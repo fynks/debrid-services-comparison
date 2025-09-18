@@ -1,9 +1,8 @@
 module.exports = {
   // Base directory - still needed for SW generation
   globDirectory: "dist/",
-  
-  // REMOVE globPatterns entirely - no precaching!
-  // globPatterns: [], // Explicitly empty or just omit
+  // Explicitly disable precaching for lean SW install
+  globPatterns: [],
   
   // Enhanced runtime caching strategies
   runtimeCaching: [
@@ -72,8 +71,8 @@ module.exports = {
         plugins: [
           {
             handlerDidError: async () => {
-              // Return fallback image on error
-              return caches.match('/assets/fallback-image.svg');
+              // Return fallback image on error (use an existing icon)
+              return caches.match('/favicon.svg');
             }
           }
         ]
@@ -81,9 +80,9 @@ module.exports = {
     },
 
 
-    // 5. JSON responses - NetworkFirst with timeout
+    // 5. JSON responses (local and API) - NetworkFirst with timeout
     {
-      urlPattern: /^https:\/\/api\.|\/api\/|\.json$/i,
+      urlPattern: ({url}) => /\.json$/i.test(url.pathname) || /\/api\//i.test(url.pathname) || /^https:\/\/api\./i.test(url.href),
       handler: 'NetworkFirst',
       options: {
         cacheName: 'api-cache',
@@ -92,12 +91,7 @@ module.exports = {
           maxEntries: 100,
           maxAgeSeconds: 5 * 60 // 5 minutes for fresh API data
         },
-        cacheableResponse: {
-          statuses: [0, 200],
-          headers: {
-            'x-cache': 'hit' // Optional: only cache specific responses
-          }
-        },
+        cacheableResponse: { statuses: [0, 200] },
         matchOptions: {
           ignoreSearch: false // Consider query params
         }

@@ -1083,12 +1083,38 @@ document.addEventListener('DOMContentLoaded', async () => {
       loadingManager.show('#pricing-table-container', 'Loading pricing data...')
     ];
 
-    const dataUrls = ['./json/file-hosts-optimized.json', './json/adult-hosts-optimized.json', './json/pricing.json'];
-    const fetchPromises = dataUrls.map(url =>
-      fetch(url).then(r => r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status} for ${url}`)))
-    );
+        // Helper: fetch with timeout and graceful fallbacks
+        const fetchWithTimeout = (url, { timeout = 8000 } = {}) => {
+            const controller = new AbortController();
+            const id = setTimeout(() => controller.abort(), timeout);
+            return fetch(url, { signal: controller.signal })
+                .finally(() => clearTimeout(id));
+        };
 
-    const results = await Promise.allSettled(fetchPromises);
+        const fetchJsonFallback = async (urls, timeout = 8000) => {
+            let lastErr;
+            for (const url of urls) {
+                try {
+                    const res = await fetchWithTimeout(url, { timeout });
+                    if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
+                    return await res.json();
+                } catch (err) {
+                    lastErr = err;
+                    continue;
+                }
+            }
+            throw lastErr || new Error('All fetch fallbacks failed');
+        };
+
+        // Prefer optimized JSON, fall back to original if missing
+        const datasets = [
+            ['./json/file-hosts-optimized.json', './json/file-hosts.json'],
+            ['./json/adult-hosts-optimized.json', './json/adult-hosts.json'],
+            ['./json/pricing.json']
+        ];
+
+        const fetchPromises = datasets.map(list => fetchJsonFallback(list, 8000));
+        const results = await Promise.allSettled(fetchPromises);
 
     results.forEach((result, index) => {
       const containers = ['#file-hosts-table-container', '#adult-hosts-table-container', '#pricing-table-container'];
@@ -1111,9 +1137,9 @@ document.addEventListener('DOMContentLoaded', async () => {
           }
         }
       } else {
-        console.error(`Error loading data (${dataUrls[index]}):`, result.reason);
+                console.error('Error loading data set:', result.reason);
         const el = document.querySelector(containers[index]);
-        if (el) el.innerHTML = `<div class="error-state"><p>Failed to load data: <span class="error-dataurl">${dataUrls[index]}</span></p></div>`;
+                if (el) el.innerHTML = `<div class="error-state"><p>Failed to load data. Please check your connection and refresh.</p></div>`;
       }
     });
 
@@ -1147,8 +1173,9 @@ window.addEventListener('unhandledrejection', e => {
 });
 
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js').catch(err => {
+    window.addEventListener('load', () => {
+        // Use relative path to work under subdirectories too
+        navigator.serviceWorker.register('sw.js').catch(err => {
       console.warn('Service worker registration failed:', err);
     });
   });

@@ -29,6 +29,26 @@ function replaceAssets() {
     let cssReplaced = 0;
     let jsReplaced = 0;
 
+    // Compute simple query hash for cache-busting if files exist
+    const cssMinPath = path.resolve(__dirname, '..', 'dist', 'css', 'styles-min.css');
+    const jsMinPath = path.resolve(__dirname, '..', 'dist', 'js', 'app-min.js');
+    const safeHash = (p) => {
+      try {
+        const buf = fs.readFileSync(p);
+        let hash = 0;
+        for (let i = 0; i < buf.length; i += Math.ceil(buf.length / 128) || 1) {
+          hash = (hash * 31 + buf[i]) >>> 0;
+        }
+        return hash.toString(36);
+      } catch {
+        return null;
+      }
+    };
+    const cssHash = safeHash(cssMinPath);
+    const jsHash = safeHash(jsMinPath);
+    const cssTarget = cssHash ? `href="./css/styles-min.css?v=${cssHash}"` : 'href="./css/styles-min.css"';
+    const jsTarget = jsHash ? `src="js/app-min.js?v=${jsHash}"` : 'src="js/app-min.js"';
+
     // Replace CSS links in head - more flexible patterns
     const cssPatterns = [
       /href=["']\.\/css\/styles\.css["']/g,
@@ -39,10 +59,18 @@ function replaceAssets() {
     cssPatterns.forEach(pattern => {
       const matches = updatedHeadContent.match(pattern);
       if (matches) {
-        updatedHeadContent = updatedHeadContent.replace(pattern, 'href="./css/styles-min.css"');
+        updatedHeadContent = updatedHeadContent.replace(pattern, cssTarget);
         cssReplaced += matches.length;
       }
     });
+
+    // Ensure existing preload to styles-min.css carries the same version hash
+    if (cssHash) {
+      const preloadMinCssPattern = /href=["']\/?css\/styles-min\.css["']/g;
+      if (preloadMinCssPattern.test(updatedHeadContent)) {
+        updatedHeadContent = updatedHeadContent.replace(preloadMinCssPattern, `href="/css/styles-min.css?v=${cssHash}"`);
+      }
+    }
 
     // Replace JS script src in head - more flexible patterns
     const jsPatterns = [
@@ -54,7 +82,7 @@ function replaceAssets() {
     jsPatterns.forEach(pattern => {
       const matches = updatedHeadContent.match(pattern);
       if (matches) {
-        updatedHeadContent = updatedHeadContent.replace(pattern, 'src="js/app-min.js"');
+        updatedHeadContent = updatedHeadContent.replace(pattern, jsTarget);
         jsReplaced += matches.length;
       }
     });
@@ -68,7 +96,7 @@ function replaceAssets() {
       jsPatterns.forEach(pattern => {
         const matches = updatedBodyContent.match(pattern);
         if (matches) {
-          updatedBodyContent = updatedBodyContent.replace(pattern, 'src="js/app-min.js"');
+          updatedBodyContent = updatedBodyContent.replace(pattern, jsTarget);
           jsReplaced += matches.length;
         }
       });
