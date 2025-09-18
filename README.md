@@ -72,8 +72,6 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
 | **Mega-Debrid** | Not available                                        | [Signup](https://www.mega-debrid.eu/index.php?page=freeregister) |
 | **High-Way**    | Not available                                        | [Signup](https://high-way.me/login/login)                        |
 
-</div>
-
 > 🕊️ **Transparency**: No financial ties to services. Referrals help cover costs only.
 
 [↑ Back to Top](#table-of-contents)
