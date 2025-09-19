@@ -6,11 +6,11 @@
   </h1>
 
 [![GitHub Stars](https://img.shields.io/github/stars/fynks/debrid-services-comparison?style=for-the-badge&logo=github)](https://github.com/fynks/debrid-services-comparison/stargazers)
-[![Compare 8 Services](https://img.shields.io/badge/Services-8-lightgreen?style=for-the-badge&logo=rocket&logoColor=white)](https://github.com/fynks/debrid-services-comparison#available-hosts)
+[![Compare 9 Services](https://img.shields.io/badge/Services-9-lightgreen?style=for-the-badge&logo=rocket&logoColor=white)](https://github.com/fynks/debrid-services-comparison#available-hosts)
 [![Web App](https://img.shields.io/badge/Visit-Web_App-brightgreen?style=for-the-badge&logo=google-chrome&logoColor=white)](https://debridcompare.pages.dev)
 
 
-> 💡 **Community-driven, up-to-date comparison** of 8 premium debrid services for pricing, hosts, speed, policies & more.
+> 💡 **Community-driven, up-to-date comparison** of 9 premium debrid services for pricing, hosts, speed, policies & more.
 
 [_*▶ Try the interactive web version with real-time filtering and search*_](https://debrid-services-comparison.netlify.app/) 
     
@@ -134,6 +134,8 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
 ## Available Hosts
 
 ### File Hosts
+
+<details><summary><strong>👉 Click to view complete lists of Supported Hosts</strong></summary>
 
 | **Service Name** | **AllDebrid** | **TorBox** | **Premiumize** | **Real-Debrid** | **Debrid-Link** | **LinkSnappy** | **Mega-Debrid** | **Deepbrid** | **High-Way** | **Offcloud** |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -574,6 +576,7 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
 | **Yunfile** | No | No | No | No | No | No | No | No | No | Yes |
 | **Total = 435**         | **70/435**    | **104/435** | **31/435**     | **40/435**      | **45/435**      | **19/435**     | **118/435**    | **80/435**   | **16/435**   | **220/435**|
 
+</details><br>
 
 ![Last Updated](https://img.shields.io/badge/Last%20Updated-September%2019%2C%202025-blue?style=for-the-badge)
 
