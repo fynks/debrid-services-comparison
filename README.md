@@ -137,6 +137,12 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
 
 <details><summary><strong>👉 Click to view complete lists of Supported Hosts</strong></summary>
 
+<br><div align="center">
+
+> ***For an interactive experience with search and filtering, visit the [web app](https://debridcompare.pages.dev/)***
+
+</div><br>
+
 | **Service Name** | **AllDebrid** | **TorBox** | **Premiumize** | **Real-Debrid** | **Debrid-Link** | **LinkSnappy** | **Mega-Debrid** | **Deepbrid** | **High-Way** | **Offcloud** |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **1Fichier** | No | No | No | No | No | No | No | No | No | Yes |
