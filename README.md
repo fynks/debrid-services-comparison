@@ -713,6 +713,7 @@ Enhance your debrid experience with these trusted tools, guides, and communities
 - [**Comet**](https://github.com/g0ldyy/comet) — Stremio torrent/debrid add-on
 - [**Awesome-Debrid**](https://github.com/debridmediamanager/awesome-debrid) — Curated list of apps & extensions
 - [**RDT Client**](https://github.com/rogerfar/rdt-client) — Web UI for managing torrents on RD/AD/PZ
+- [**Is Real-Debrid Down Or Just Me**](https://debridmediamanager.com/is-real-debrid-down-or-just-me) - Check RD status
 
 ### Communities
 - **Reddit**: [r/Piracy](https://www.reddit.com/r/piracy), [r/RealDebrid](https://www.reddit.com/r/RealDebrid), [r/AllDebrid](https://www.reddit.com/r/AllDebrid), [r/Premiumize](https://www.reddit.com/r/Premiumize), [r/usenet](https://www.reddit.com/r/usenet), [r/DataHoarder](https://www.reddit.com/r/DataHoarder),
