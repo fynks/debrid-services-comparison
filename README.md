@@ -15,13 +15,13 @@
 
   <a href="https://debrid-services-comparison.netlify.app/"><img src="./dist/image.png" alt="Screenshot of interactive comparison web app" width="880" loading="lazy"></a>
 
-  <p><strong>Quick Jump:</strong> <a href="#quick-comparison">Quick Comparison</a> · <a href="#how-to-choose">How To Choose</a> · <a href="#pricing-comparison">Pricing</a> · <a href="#available-hosts">Hosts</a> · <a href="#policies-and-legal">Policies</a> · <a href="#tools-and-community">Tools</a></p>
+  <p><strong>Quick Jump:</strong> <a href="#pricing-comparison">Pricing</a> · <a href="#available-hosts">Hosts</a> · <a href="#policies-and-legal">Policies</a> · <a href="#tools-and-community">Tools</a></p>
 </div>
 
 <br>
 
 
-## 📚 Table of Contents
+## Table of Contents
 
 <details><summary>👉 Click to expand</summary>
 
