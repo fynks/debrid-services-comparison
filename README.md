@@ -75,11 +75,15 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
 | **Offcloud** | [Referral](https://offcloud.com/?=c44b1fa5) | [Signup](https://offcloud.com/register) |
 | **High-Way**    | -                                        | [Signup](https://high-way.me/login/login)                        |
 
-> 🕊️ **Transparency**: No financial ties to services. Referrals help cover costs only.
+> [!NOTE]  
+> No financial ties to services. Referrals help cover costs only.
 
-[↑ Back to Top](#table-of-contents)
+<div align="right">
 
----
+[(↑ Back to Top)](#table-of-contents)
+
+</div>
+
 
 ## Pricing Comparison
 
@@ -96,22 +100,21 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
 | **300 Days** | €24.99 (one-time)⁴ | ❌ | ❌ | ❌ | €25.00 | ❌ | ❌ | ❌ | ❌ | ❌ |
 | **365 Days / 1 Year** | ❌ | $79.99 | ❌ | ❌ | ❌ | ❌ | ❌ | €32.99 | ❌ | $69.99 |
 
-> 💡 **Tip**: Longer plans often offer better value. Compare **effective monthly rates** below to find the best deal.
-
-### Pricing Notes
-- **¹ AllDebrid Free Trial**: 7-day trial requires phone verification.
-- **² TorBox Free Tier**: Limited speed and features; no torrenting.
-- **³ AllDebrid Recurring**: Auto-renews monthly at €2.99
-- **⁴ AllDebrid / Debrid-Link One-Time**: Non-recurring payment. Often better value than recurring.
-- **⁵ TorBox Tiers**: Multiple plans starting at $3.00/month. Higher tiers unlock more features.
-- **⁶ High-Way**: Limited Hoster, FreeMB through activity in the forum
+> [!NOTE] Pricing Notes
+> - **¹ AllDebrid Free Trial**: 7-day trial requires phone verification.
+> - **² TorBox Free Tier**: Limited speed and features; no torrenting.
+> - **³ AllDebrid Recurring**: Auto-renews monthly at €2.99
+> - **⁴ AllDebrid / Debrid-Link One-Time**: Non-recurring payment. Often better value than recurring.
+> - **⁵ TorBox Tiers**: Multiple plans starting at $3.00/month. Higher tiers unlock more features.
+> - **⁶ High-Way**: Limited Hoster, FreeMB through activity in the forum
 
 
 ![Last Updated](https://img.shields.io/badge/Last%20Updated-September%2019%2C%202025-blue?style=for-the-badge)
 
 ### Up-to-date Pricing
 
-> 💡 *Always verify prices on official sites — they change frequently.*
+> [!IMPORTANT]  
+> *Always verify prices on official sites as they change frequently.*
 
 <details><summary>👉 Click to expand</summary>
 
@@ -130,7 +133,11 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
 
 </details><br>
 
-[↑ Back to Top](#table-of-contents)
+<div align="right">
+
+[(↑ Back to Top)](#table-of-contents)
+
+</div>
 
 ## Available Hosts
 
@@ -140,7 +147,8 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
 
 <br><div align="center">
 
-> ***For an interactive experience with search and filtering, visit the [web app](https://debridcompare.pages.dev/)***
+| :zap: For an interactive experience with search and filtering, visit the [web app](https://debridcompare.pages.dev/)  |
+|------------------------------------------|
 
 </div><br>
 
@@ -587,7 +595,11 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
 
 ![Last Updated](https://img.shields.io/badge/Last%20Updated-September%2019%2C%202025-blue?style=for-the-badge)
 
-[↑ Back to Top](#table-of-contents)
+<div align="right">
+
+[(↑ Back to Top)](#table-of-contents)
+
+</div>
 
 ### Adult Hosts
 
@@ -616,7 +628,11 @@ Service availability and host support can change in real time. Use these officia
 
 </details><br>
 
-[↑ Back to Top](#table-of-contents)
+<div align="right">
+
+[(↑ Back to Top)](#table-of-contents)
+
+</div>
 
 ## Policies and Legal
 
@@ -637,7 +653,11 @@ Service availability and host support can change in real time. Use these officia
 
 > If a link returns 404, try the site’s footer “Legal/Help” links or contact support.
 
-[↑ Back to Top](#table-of-contents)
+<div align="right">
+
+[(↑ Back to Top)](#table-of-contents)
+
+</div>
 
 ## Speed Test
 
@@ -654,8 +674,6 @@ Use these direct speed test links to measure real-world performance from each pr
 | **TorBox**      | [torbox.app/speedtest](https://www.torbox.app/speedtest)                     |
 | **Debrid-Link** | [debrid-link.com/webapp/speedtest](https://debrid-link.com/webapp/speedtest) |
 | **Mega-Debrid** | [mega-debrid.eu/network](https://www.mega-debrid.eu/index.php?page=network)  |
-
-> 📌 These test provider-owned servers — **best-case speeds only**.
 
 ---
 
@@ -681,9 +699,14 @@ For a more accurate assessment, follow these steps:
 - Your ISP’s routing and potential throttling  
 - Local network setup (Wi-Fi vs. Ethernet, router quality)
 
-> ⚠️ Note: Advertised "unlimited" speeds may be subject to fair-use policies or soft caps under heavy usage.
+> [!WARNING] 
+> Advertised "unlimited" speeds may be subject to fair-use policies or soft caps under heavy usage.
 
-[↑ Back to Top](#table-of-contents)
+<div align="right">
+
+[(↑ Back to Top)](#table-of-contents)
+
+</div>
 
 ---
 
@@ -698,9 +721,14 @@ This project aims to provide accurate and up-to-date information, but the debrid
 - **Use at your own discretion**: Choose and use debrid services at your own discretion; test with short-term plans first.
 - **Legal responsibility**: Debrid services are tools. You are responsible for complying with copyright laws and terms of use when accessing content.
 
+> [!IMPORTANT]
 > **This is an open-source, community-maintained guide. It does not endorse or promote unauthorized file sharing.**
 
-[↑ Back to Top](#table-of-contents)
+<div align="right">
+
+[(↑ Back to Top)](#table-of-contents)
+
+</div>
 
 ---
 
@@ -721,9 +749,14 @@ Enhance your debrid experience with these trusted tools, guides, and communities
 - **Discord**: Most services have official support servers
 - **GitHub**: [Report issues or suggest updates](https://github.com/fynks/debrid-services-comparison/issues)
 
-> 💡 Pro Tip: Combine your debrid service with automation tools like **Debrid Media Manager (DMM)** for a seamless media experience.
+> [!TIP] Pro Tip
+> Combine your debrid service with automation tools like **Debrid Media Manager (DMM)** for a seamless media experience.
 
-[↑ Back to Top](#table-of-contents)
+<div align="right">
+
+[(↑ Back to Top)](#table-of-contents)
+
+</div>
 
 ## Contributing
 Help keep this guide accurate! We welcome:
@@ -737,7 +770,11 @@ Help keep this guide accurate! We welcome:
 
 > 🛡️ All PRs are verified against official sources before merging.
 
-[↑ Back to Top](#table-of-contents)
+<div align="right">
+
+[(↑ Back to Top)](#table-of-contents)
+
+</div>
 
 ## Support and Stay Updated
 
