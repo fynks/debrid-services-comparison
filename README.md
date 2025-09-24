@@ -53,7 +53,8 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
 - **Ad-Free Experience** – No popups, countdowns, or forced waits
 - **Global Server Network** – Often located in high-bandwidth regions for optimal performance
 
-> 💡 Think of a debrid service as a “*premium proxy*” between you and file-hosting sites like Rapidgator, Mediafire, or Uptobox.
+| :bulb:    | Think of a debrid service as a “*premium proxy*” between you and file-hosting sites like Rapidgator, Mediafire, or Uptobox.|
+|---------------|:----------------------------------------|
 
 ## Getting Started
 
