@@ -1,27 +1,25 @@
 <div align="center">
-
   <h1>
-    <img src="./dist/favicon.svg" style="height:1em; width:1em; vertical-align:middle">
-    Debrid Services Comparison
+    <img src="./dist/favicon.svg" alt="Logo" style="height:1em; width:1em; vertical-align:middle">&nbsp;Debrid Services Comparison
   </h1>
 
-[![GitHub Stars](https://img.shields.io/github/stars/fynks/debrid-services-comparison?style=for-the-badge&logo=github)](https://github.com/fynks/debrid-services-comparison/stargazers)
-[![Compare 9 Services](https://img.shields.io/badge/Services-9-lightgreen?style=for-the-badge&logo=rocket&logoColor=white)](https://github.com/fynks/debrid-services-comparison#available-hosts)
-[![Web App](https://img.shields.io/badge/Visit-Web_App-brightgreen?style=for-the-badge&logo=google-chrome&logoColor=white)](https://debridcompare.pages.dev)
+  <p><strong>Community‑maintained, up-to-date comparison</strong> of leading debrid / multi-hoster services for pricing, host coverage, policies & tools etc.</p>
 
+  <p>
+    <a href="https://github.com/fynks/debrid-services-comparison/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/fynks/debrid-services-comparison?style=for-the-badge&logo=github"></a>
+    <a href="#available-hosts"><img alt="Tracked Services" src="https://img.shields.io/badge/Services-9-4caf50?style=for-the-badge&logo=rocket&logoColor=white"></a>
+    <a href="https://debridcompare.pages.dev"><img alt="Web App" src="https://img.shields.io/badge/Interactive-Web_App-00bfa5?style=for-the-badge&logo=google-chrome&logoColor=white"></a>
+  </p>
 
-> 💡 **Community-driven, up-to-date comparison** of 9 premium debrid services for pricing, hosts, speed, policies & more.
+  <p><a href="https://debrid-services-comparison.netlify.app/"><em>▶ Open the interactive version (search • filter • compare)</em></a></p>
 
-[_*▶ Try the interactive web version with real-time filtering and search*_](https://debrid-services-comparison.netlify.app/) 
-    
+  <a href="https://debrid-services-comparison.netlify.app/"><img src="./dist/image.png" alt="Screenshot of interactive comparison web app" width="880" loading="lazy"></a>
 
-[![Interactive Debrid Services Comparison Tool](./dist/image.png)](https://debrid-services-comparison.netlify.app/)
-  
+  <p><strong>Quick Jump:</strong> <a href="#quick-comparison">Quick Comparison</a> · <a href="#how-to-choose">How To Choose</a> · <a href="#pricing-comparison">Pricing</a> · <a href="#available-hosts">Hosts</a> · <a href="#policies-and-legal">Policies</a> · <a href="#tools-and-community">Tools</a></p>
+</div>
 
-[Pricing](#pricing-comparison) | [Hosts](#available-hosts) | [Policies](#policies-and-legal) | [Resources](#tools-and-community)
+<br>
 
-
-</div><br>
 
 ## 📚 Table of Contents
 
@@ -43,40 +41,42 @@
 
 ## What are Debrid Services?
 
-Debrid services (also known as *premium link generators*) unlock **faster, ad-free downloads** from file hosts by acting as a high-speed intermediary. Instead of dealing with wait times, captchas, or bandwidth limits, you let the debrid service fetch and cache the file—then deliver it directly to you.
+Debrid ("multi-hoster") services act as paid aggregation layers between you and dozens/hundreds of individual file hosts. You give them a link (or torrent/magnet) → they fetch, cache, and re‑serve it back to you at high speed (often via CDN‑like infrastructure) with fewer throttles and no host ads.
 
-### Key Benefits:
-- **Maximum Download Speeds** – Bypass host throttling with direct links
-- **Multi-Host Access** – One subscription supports hundreds of file hosts
-- **Streaming Ready** – Watch videos instantly from supported hosts
-- **Torrent-to-Link Conversion** – Add magnet links or torrents to download remotely and get a direct URL
-- **Ad-Free Experience** – No popups, countdowns, or forced waits
-- **Global Server Network** – Often located in high-bandwidth regions for optimal performance
+### Key Benefits
+- High-speed direct links (instead of countdowns & captchas)
+- One subscription = multi-host access
+- Remote torrent / magnet fetching (privacy layer & seedboxing lite)
+- Stream-first workflows (some transcode or offer HLS-ready links)
+- Reduced local bandwidth spikes (remote caching)
+- Less friction & automation-friendly APIs
 
-| :bulb:    | Think of a debrid service as a “*premium proxy*” between you and file-hosting sites like Rapidgator, Mediafire, or Uptobox.|
-|---------------|:----------------------------------------|
+| 💡 Tip | Think of a debrid service as a “premium proxy” between you and file-hosting sites like Rapidgator, Mediafire, or Uptobox. |
+| ------ | ---------------------------------------------------------------------------------------------- |
+
+---
 
 ## Getting Started
 
 ### Support This Project
 
-> ✨ This guide is **free, open-source, and community-run**. If it helped you, consider using a referral link — it supports hosting & updates at **no extra cost to you**.
+> ✨ This guide is **free, open-source, and community-run**. If it helped: starring, reporting corrections, or using a referral link helps sustain maintenance (at no extra cost to you).
 
-| **Service**     | **Referral Link**                                    | **Direct Signup**                                                |
-| :-------------- | :--------------------------------------------------- | :--------------------------------------------------------------- |
-| **AllDebrid**   | [Referral](https://alldebrid.com/?uid=3wvya&lang=en) | [Signup](https://alldebrid.com/register/)                        |
-| **Real-Debrid** | [Referral](https://real-debrid.com/?id=10990901)     | [Signup](https://real-debrid.com/)                               |
-| **TorBox**      | -                                        | [Signup](https://torbox.app/login)                               |
-| **Premiumize**  | -                                        | [Signup](https://www.premiumize.me/register)                     |
-| **LinkSnappy**  | [Referral](https://linksnappy.com/?ref=774668)       | [Signup](https://linksnappy.com/home#Register)                   |
-| **Debrid-Link** | [Referral](https://debrid-link.com/id/7B3BO)         | [Signup](https://debrid-link.com/webapp/register)                |
-| **Mega-Debrid** | -                                        | [Signup](https://www.mega-debrid.eu/index.php?page=freeregister) |
-| **Deepbrid**    | [Referral](https://www.deepbrid.com/aff/go/upward1971) | [Signup](https://www.deepbrid.com/signup)                        |
-| **Offcloud** | [Referral](https://offcloud.com/?=c44b1fa5) | [Signup](https://offcloud.com/register) |
-| **High-Way**    | -                                        | [Signup](https://high-way.me/login/login)                        |
+| Service | Referral | Direct Signup |
+| :------ | :------- | :------------ |
+| AllDebrid | [Referral](https://alldebrid.com/?uid=3wvya&lang=en) | [Signup](https://alldebrid.com/register/) |
+| Real-Debrid | [Referral](https://real-debrid.com/?id=10990901) | [Signup](https://real-debrid.com/) |
+| TorBox | – | [Signup](https://torbox.app/login) |
+| Premiumize | – | [Signup](https://www.premiumize.me/register) |
+| LinkSnappy | [Referral](https://linksnappy.com/?ref=774668) | [Signup](https://linksnappy.com/home#Register) |
+| Debrid-Link | [Referral](https://debrid-link.com/id/7B3BO) | [Signup](https://debrid-link.com/webapp/register) |
+| Mega-Debrid | – | [Signup](https://www.mega-debrid.eu/index.php?page=freeregister) |
+| Deepbrid | [Referral](https://www.deepbrid.com/aff/go/upward1971) | [Signup](https://www.deepbrid.com/signup) |
+| Offcloud | [Referral](https://offcloud.com/?=c44b1fa5) | [Signup](https://offcloud.com/register) |
+| High-Way | – | [Signup](https://high-way.me/login/login) |
 
-> [!NOTE]  
-> No financial ties to services. Referrals help cover costs only.
+> [!NOTE]
+> No financial ties to services. Referrals offset hosting & data validation costs only.
 
 <div align="right">
 
@@ -108,9 +108,6 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
 > - **⁵ TorBox Tiers**: Multiple plans starting at $3.00/month. Higher tiers unlock more features.
 > - **⁶ High-Way**: Limited Hoster, FreeMB through activity in the forum
 
-
-![Last Updated](https://img.shields.io/badge/Last%20Updated-September%2019%2C%202025-blue?style=for-the-badge)
-
 ### Up-to-date Pricing
 
 > [!IMPORTANT]  
@@ -133,6 +130,9 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
 
 </details><br>
 
+![Last Updated](https://img.shields.io/badge/Last%20Updated-September%2019%2C%202025-blue?style=for-the-badge)
+
+<br>
 <div align="right">
 
 [(↑ Back to Top)](#table-of-contents)
@@ -147,7 +147,7 @@ Debrid services (also known as *premium link generators*) unlock **faster, ad-fr
 
 <br><div align="center">
 
-| :zap: For an interactive experience with search and filtering, visit the [web app](https://debridcompare.pages.dev/)  |
+| ⚡ For faster exploration (search + filter + side-by-side), use the <a href="https://debridcompare.pages.dev" target="_blank" rel="noopener">interactive web app</a>. |
 |------------------------------------------|
 
 </div><br>
@@ -692,7 +692,7 @@ For a more accurate assessment, follow these steps:
 
 </details>
 
-#### Factors That Affect Speed:
+#### Factors That Affect Speed
 - Geographical distance to provider’s servers  
 - Time of day and network congestion  
 - Performance of the original file host (e.g., Rapidgator vs. Katfile)  
@@ -737,20 +737,19 @@ This project aims to provide accurate and up-to-date information, but the debrid
 Enhance your debrid experience with these trusted tools, guides, and communities:
 
 ### Recommended Tools
-- [**Awesome-Debrid**](https://github.com/debridmediamanager/awesome-debrid) — Curated list of debrid-compatible apps, browser extensions, and automation tools (e.g., Debrid Media Manager, Real-Debrid Tools)
-- [**Debrid Media Manager**](https://github.com/debridmediamanager/debrid-media-manager) — Auto-download movies/TV to your debrid cloud
-- [**Comet**](https://github.com/g0ldyy/comet) — Stremio torrent/debrid add-on
-- [**Awesome-Debrid**](https://github.com/debridmediamanager/awesome-debrid) — Curated list of apps & extensions
-- [**RDT Client**](https://github.com/rogerfar/rdt-client) — Web UI for managing torrents on RD/AD/PZ
-- [**Is Real-Debrid Down Or Just Me**](https://debridmediamanager.com/is-real-debrid-down-or-just-me) - Check RD status
+- [**Awesome-Debrid**](https://github.com/debridmediamanager/awesome-debrid) — Curated apps, extensions & integrations
+- [**Debrid Media Manager**](https://github.com/debridmediamanager/debrid-media-manager) — Auto-download & organize media in debrid cloud
+- [**Comet**](https://github.com/g0ldyy/comet) — Stremio torrent/debrid add‑on
+- [**RDT Client**](https://github.com/rogerfar/rdt-client) — Web UI for managing RD / AD / Premiumize jobs
+- [**Is Real-Debrid Down Or Just Me**](https://debridmediamanager.com/is-real-debrid-down-or-just-me) — Quick status probe
 
 ### Communities
 - **Reddit**: [r/Piracy](https://www.reddit.com/r/piracy), [r/RealDebrid](https://www.reddit.com/r/RealDebrid), [r/AllDebrid](https://www.reddit.com/r/AllDebrid), [r/Premiumize](https://www.reddit.com/r/Premiumize), [r/usenet](https://www.reddit.com/r/usenet), [r/DataHoarder](https://www.reddit.com/r/DataHoarder),
 - **Discord**: Most services have official support servers
 - **GitHub**: [Report issues or suggest updates](https://github.com/fynks/debrid-services-comparison/issues)
 
-> [!TIP] Pro Tip
-> Combine your debrid service with automation tools like **Debrid Media Manager (DMM)** for a seamless media experience.
+> [!TIP]
+> Combine a debrid service + automation (e.g. Debrid Media Manager) + media server (Jellyfin / Plex) for a “cloud DVR” style experience.
 
 <div align="right">
 
@@ -788,7 +787,7 @@ If this project saved you time or helped you make a better decision, here’s ho
 
 <div align="center">
 
-*This is an open-source guide with no ads or paid promotions. Your support keeps it accurate, neutral, and freely available.*
+*Open-source, no ads, no paid placements. Your participation keeps it accurate & neutral.*
 
 ⚡ Made with ❤️ by [Debrid Service Comparison](https://github.com/fynks/debrid-services-comparison)
 
