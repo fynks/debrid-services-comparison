@@ -51,14 +51,7 @@ export default defineConfig({
       { text: 'Hosts', link: '/hosts' },
       { text: 'Adult Hosts', link: '/Adult-hosts' },
       { text: 'Policies', link: '/policies' },
-      { text: 'Tools', link: '/tools' },
-      {
-        text: 'More',
-        items: [
-          { text: 'Interactive Comparison', link: 'https://debridcompare.pages.dev' },
-          { text: 'GitHub', link: 'https://github.com/fynks/debrid-services-comparison' }
-        ]
-      }
+      { text: 'Tools', link: '/tools' }
     ],
 
     sidebar: {
