@@ -115,9 +115,34 @@ adjust_links_for_docs() {
     log_info "Adjusted links and image paths in $file"
 }
 
-# 5. Copy div sections to respective docs files
-copy_div_to_docs "support" "docs/index.md"
-copy_div_to_docs "pricing" "docs/pricing.md"
+# 5. Function to create pricing.md with support section first, then pricing section
+create_pricing_with_support() {
+    local target_file="docs/pricing.md"
+    local support_content pricing_content
+    
+    # Extract both sections
+    support_content=$(extract_div_content "support")
+    pricing_content=$(extract_div_content "pricing")
+    
+    if [ $? -eq 0 ] && [ -n "$support_content" ] && [ -n "$pricing_content" ]; then
+        # Create file with frontmatter + support + pricing
+        {
+            # Keep the original frontmatter
+            head -7 "$target_file"
+            echo ""
+            echo "$support_content"
+            echo ""
+            echo "$pricing_content"
+        } > "${target_file}.tmp" && mv "${target_file}.tmp" "$target_file" || handle_error "Failed creating $target_file with support and pricing content"
+        log_info "Created $target_file with support section before pricing section"
+        adjust_links_for_docs "$target_file"
+    else
+        log_warn "Failed to extract support or pricing content"
+    fi
+}
+
+# Copy div sections to respective docs files
+create_pricing_with_support
 copy_div_to_docs "hosts" "docs/hosts.md"
 copy_div_to_docs "policies" "docs/policies.md"
 copy_div_to_docs "tools" "docs/tools.md"

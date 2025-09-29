@@ -18,7 +18,7 @@
   <p><strong>Quick Jump:</strong> <a href="#pricing-comparison">Pricing</a> · <a href="#available-hosts">Hosts</a> · <a href="#policies-and-legal">Policies</a> · <a href="#tools-and-community">Tools</a></p>
 </div>
 
-<br>
+<br />
 
 
 ## Table of Contents
@@ -135,7 +135,8 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 ![Last Updated](https://img.shields.io/badge/Last%20Updated-September%2019%2C%202025-blue?style=for-the-badge)
 
-<br>
+<br />
+
 <div align="right">
 
 [(↑ Back to Top)](#table-of-contents)
@@ -148,12 +149,16 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 ### File Hosts
 
-<br><div align="center">
+<br />
+
+<div align="center">
 
 | ⚡ For faster exploration (search + filter + side-by-side), use the <a href="https://debridcompare.pages.dev" target="_blank" rel="noopener">interactive web app</a>. |
 |------------------------------------------|
 
-</div><br>
+</div>
+
+<br />
 
 
 | **Service Name**        | **AllDebrid** | **TorBox**  | **Premiumize** | **Real-Debrid** | **Debrid-Link** | **LinkSnappy** | **Mega-Debrid** | **Deepbrid** | **High-Way** |
@@ -445,7 +450,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 | **Total = 284**         | **70/284**    | **104/284** | **31/284**     | **40/284**      | **45/284**      | **19/284**     | **118/284**    | **80/284**   | **16/284**   |
 
 
-<br>
+<br />
 
 ![Last Updated](https://img.shields.io/badge/Last%20Updated-September%2019%2C%202025-blue?style=for-the-badge)
 
@@ -480,7 +485,9 @@ Service availability and host support can change in real time. Use these officia
 | **High-Way**    | [high-way.me/pages/status](https://high-way.me/pages/status)                      |
 | **Offcloud**   | [https://offcloud.com/list](https://offcloud.com/list)                                |
 
-</details><br>
+</details>
+
+<br />
 
 <div align="right">
 
