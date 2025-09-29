@@ -143,8 +143,6 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 ### File Hosts
 
-<details><summary><strong>👉 Click to view complete lists of Supported Hosts</strong></summary>
-
 <br><div align="center">
 
 | ⚡ For faster exploration (search + filter + side-by-side), use the <a href="https://debridcompare.pages.dev" target="_blank" rel="noopener">interactive web app</a>. |
@@ -591,7 +589,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 | **Yunfile** | No | No | No | No | No | No | No | No | No | Yes |
 | **Total = 435**         | **70/435**    | **104/435** | **31/435**     | **40/435**      | **45/435**      | **19/435**     | **118/435**    | **80/435**   | **16/435**   | **220/435**|
 
-</details><br>
+<br>
 
 ![Last Updated](https://img.shields.io/badge/Last%20Updated-September%2019%2C%202025-blue?style=for-the-badge)
 
