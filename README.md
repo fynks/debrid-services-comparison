@@ -97,7 +97,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 | **Free / Trial** | 7-day trial¹ | ❌ | ❌ | Free tier² | ❌ | ❌ | ❌ | Limited hosts only | Limited Hosts⁶ | ❌ |
 | **7 Days** | ❌ | ❌ | ❌ | ❌ | ❌ | $4.99 | ❌ | ❌ | ❌ | ❌ |
 | **15 Days** | €2.99 (one-time)⁴ | ❌ | €3.00 | ❌ | €3.00 | ❌ | ❌ | €4.50 | ❌ | ❌ |
-| **30 Days** | €2.99 (recurring)³&lt;br&gt;€3.99 (one-time)⁴ | $11.99 | €4.00 | From $3.00/month⁵ | €4.00 | $12.99 | €4.00 | €4.99 | From €5.99 | $9.99 |
+| **30 Days** | €2.99 (recurring)³<br>€3.99 (one-time)⁴ | $11.99 | €4.00 | From $3.00/month⁵ | €4.00 | $12.99 | €4.00 | €4.99 | From €5.99 | $9.99 |
 | **90 Days** | €8.99 (one-time)⁴ | $29.99 | €9.00 | ❌ | €9.00 | $29.99 | €9.00 | €12.99 | From €15.99 | $29.97 |
 | **180 Days** | €15.99 (one-time)⁴ | ❌ | €16.00 | ❌ | €16.00 | $54.99 | €16.00 | €19.99 | From €29.99 | ❌ |
 | **300 Days** | €24.99 (one-time)⁴ | ❌ | ❌ | ❌ | €25.00 | ❌ | ❌ | ❌ | ❌ | ❌ |
@@ -459,7 +459,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 > Support varies. Some services exclude adult content for legal/policy reasons.
 
-👉 [See Detailed Adult Host Support](./docs/Adult-hosts.mdAdult-hosts.md)
+👉 [See Detailed Adult Host Support](./docs/Adult-hosts.md)
 
 ### Live Status
 
