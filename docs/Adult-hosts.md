@@ -1,3 +1,9 @@
+---
+layout: home
+title: Adult Hosts
+titleTemplate: Debrid Compare
+description: "Detailed adult hoster support comparison for leading debrid/multi-hoster services."
+---
 
 ### Adult Hosts
 

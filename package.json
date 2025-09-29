@@ -1,24 +1,30 @@
 {
-  "name": "@fynks/debrid-service-comparison",
-  "version": "2.0.1",
-  "description": "A concise comparison of pricing and supported hosts for popular debrid services including AllDebrid, Real-Debrid, LinkSnappy, Premiumize, Debrid-Link, TorBox, and Mega-Debrid.",
-  "main": "index.js",
-  "homepage": "",
+  "name": "debrid-services-comparison",
+  "version": "1.1.0",
+  "description": "Community‑maintained, up-to-date comparison of leading debrid / multi-hoster services for pricing, host coverage, policies & tools etc.",
+  "private": true,
+  "homepage": "https://awesome-android-root.org",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/fynks/debrid-services-comparison.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fynks/debrid-services-comparison/issues"
   },
   "scripts": {
-    "minify:css": "cleancss -o dist/css/styles-min.css dist/css/styles.css",
-    "minify:js": "terser dist/js/app.js -o dist/js/app-min.js --compress --mangle",
-    "optimize-json": "chmod +x scripts/json-optimizer.sh && scripts/json-optimizer.sh dist/json/file-hosts.json dist/json/file-hosts-optimized.json && scripts/json-optimizer.sh dist/json/adult-hosts.json dist/json/adult-hosts-optimized.json",
-    "build": "npm run minify:css && npm run minify:js && npm run optimize-json && workbox generateSW workbox-config.js",
-    "postbuild": "node scripts/replace-assets.js"
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "scripts/build-docs.sh && vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
-  "author": "fynks",
-  "dependencies": {
-    "clean-css-cli": "^5.6.3",
-    "terser": "^5.44.0",
-    "workbox-cli": "^7.3.0"
-  }
+  "devDependencies": {
+    "vitepress": "^1.6.4",
+    "terser": "^5.44.0"
+  },
+  "keywords": [
+  ],
+  "author": {
+    "name": "debrid-services-comparison",
+    "url": "https://debridcompare.pages.dev"
+  },
+  "license": "MIT"
 }
