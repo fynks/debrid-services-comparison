@@ -486,9 +486,8 @@ Service availability and host support can change in real time. Use these officia
 
 [(↑ Back to Top)](#table-of-contents)
 
-</div>
+</div></div>
 
-</div>
 <div class="policies">
 
 ## Policies and Legal
@@ -565,8 +564,7 @@ For a more accurate assessment, follow these steps:
 
 [(↑ Back to Top)](#table-of-contents)
 
-</div>
-</div>
+</div></div>
 
 ---
 
