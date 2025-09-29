@@ -151,7 +151,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 <br />
 
-<div align="center">
+<div align="center" class="web-app-note">
 
 | ⚡ For faster exploration (search + filter + side-by-side), use the <a href="https://debridcompare.pages.dev" target="_blank" rel="noopener">interactive web app</a>. |
 |------------------------------------------|
