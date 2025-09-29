@@ -1,6 +1,6 @@
 <div align="center">
   <h1>
-    <img src="./docs/public/favicon.svg alt="Logo" style="height:1em; width:1em; vertical-align:middle">&nbsp;Debrid Services Comparison
+    <img src="./docs/public/favicon.svg" alt="Logo" style="height:1em; width:1em; vertical-align:middle">&nbsp;Debrid Services Comparison
   </h1>
 
   <p><strong>Community‑maintained, up-to-date comparison</strong> of leading debrid / multi-hoster services for pricing, host coverage, policies & tools etc.</p>
