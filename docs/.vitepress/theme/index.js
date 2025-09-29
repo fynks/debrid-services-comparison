@@ -79,6 +79,67 @@ export default {
           observer.disconnect();
         }
       });
+      
+      // Table enhancements
+      const enhanceTables = () => {
+        const tables = document.querySelectorAll('.vp-doc table');
+        tables.forEach(table => {
+          // Wrap tables for horizontal scrolling on mobile
+          if (!table.parentElement.classList.contains('table-wrapper')) {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'table-wrapper';
+            wrapper.style.overflowX = 'auto';
+            wrapper.style.webkitOverflowScrolling = 'touch';
+            table.parentNode.insertBefore(wrapper, table);
+            wrapper.appendChild(table);
+          }
+          
+          // Enhance table cells with better styling based on content
+          const cells = table.querySelectorAll('td');
+          cells.forEach(cell => {
+            const content = cell.textContent.trim();
+            
+            // Style success/failure indicators
+            if (content === '✅' || content.toLowerCase().includes('yes')) {
+              cell.classList.add('cell-success');
+              cell.setAttribute('aria-label', 'Supported');
+            } else if (content === '❌' || content.toLowerCase().includes('no')) {
+              cell.classList.add('cell-danger');
+              cell.setAttribute('aria-label', 'Not supported');
+            }
+            
+            // Style pricing cells
+            if (content.includes('€') || content.includes('$')) {
+              cell.classList.add('cell-price');
+            }
+            
+            // Style trial/free cells
+            if (content.toLowerCase().includes('trial') || content.toLowerCase().includes('free')) {
+              cell.classList.add('cell-trial');
+            }
+          });
+        });
+      };
+      
+      // Run table enhancements
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', enhanceTables);
+      } else {
+        enhanceTables();
+      }
+      
+      // Re-enhance tables on route change
+      const originalRouteHandler = router.onAfterRouteChanged;
+      router.onAfterRouteChanged = () => {
+        if (originalRouteHandler) originalRouteHandler();
+        if (observer) {
+          observer.disconnect();
+        }
+        setTimeout(() => {
+          setupImageOptimization();
+          enhanceTables();
+        }, 100);
+      };
     }
   }
 }
