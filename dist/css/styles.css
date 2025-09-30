@@ -1014,24 +1014,25 @@ th {
 
 .section-header {
   text-align: center;
-  margin-bottom: var(--space-2xl)
+  margin-bottom: var(--space-4xl)
 }
 
 .section-title {
   font-size: clamp(var(--text-2xl), 5.5vw, var(--text-4xl));
   font-weight: var(--font-extrabold);
-  margin: 0 0 var(--space-xl);
+  margin: 0 0 var(--space-lg);
   color: var(--text-primary);
-  letter-spacing: -.02em
+  letter-spacing: -.02em;
+  line-height: 1.2
 }
 
 .section-description {
   font-size: clamp(var(--text-base), 2.8vw, var(--text-lg));
   color: var(--text-secondary);
   margin: 0;
-  max-width: 800px;
+  max-width: 700px;
   margin-inline: auto;
-  line-height: 1.7
+  line-height: 1.6
 }
 
 .meta-chips {
@@ -1063,7 +1064,7 @@ th {
   gap: var(--space-sm);
   padding: var(--space-md) var(--space-2xl);
   border: 1px solid var(--border-primary);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-lg);
   font-size: var(--text-base);
   font-weight: var(--font-semibold);
   text-decoration: none;
@@ -1105,7 +1106,7 @@ th {
 .btn-primary:hover {
   background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary-dark) 100%);
   color: #fff;
-  box-shadow: var(--shadow-md)
+  box-shadow: var(--shadow-sm)
 }
 
 .btn-primary::before {
@@ -1202,7 +1203,7 @@ tr:focus-within {
   padding: var(--space-2xl);
   background: var(--bg-primary);
   border: 1px solid var(--border-primary);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-lg);
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
   min-height: 160px;
   justify-content: center;
@@ -1222,7 +1223,7 @@ tr:focus-within {
 
 .benefit-card:hover {
   border-color: var(--primary);
-  box-shadow: var(--shadow-md)
+  box-shadow: var(--shadow-sm)
 }
 
 .benefit-card:hover::before {
@@ -1345,7 +1346,7 @@ tr:focus-within {
   padding: var(--space-xl);
   background: var(--bg-primary);
   border: 1px solid var(--border-primary);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-lg);
   text-decoration: none;
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
   min-height: 120px;
@@ -1393,9 +1394,9 @@ tr:focus-within {
   display: flex;
   gap: var(--space-lg);
   padding: var(--space-2xl);
-  background: var(--bg-elevated);
+  background: var(--bg-primary);
   border: 1px solid var(--border-primary);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-lg);
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
   position: relative;
   overflow: hidden
@@ -1562,8 +1563,8 @@ tr:focus-within {
 }
 
 .data-table-container {
-  background: var(--bg-elevated);
-  border-radius: var(--radius-xl);
+  background: var(--bg-primary);
+  border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--border-primary);
   margin: var(--space-3xl) 0;
@@ -1573,17 +1574,20 @@ tr:focus-within {
 
 .table-wrapper {
   overflow-x: auto;
-  border-radius: var(--radius-2xl);
+  border-radius: 0;
   width: 100%;
   -webkit-overflow-scrolling: touch;
-  overscroll-behavior-x: contain
+  overscroll-behavior-x: contain;
+  border: none;
+  box-shadow: none
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
   font-size: var(--text-sm);
-  min-width: 600px
+c  min-width: 600px;
+  background: var(--bg-primary)
 }
 
 td,
@@ -1771,9 +1775,7 @@ th {
   background-color: var(--bg-tertiary)
 }
 
-tr:hover {
-  background: color-mix(in srgb, var(--bg-secondary) 80%, transparent)
-}
+
 
 .status-cell,
 .support-status {
@@ -1853,12 +1855,14 @@ tr:hover {
 }
 
 #file-hosts-table td:first-child {
-  background-color: var(--bg-primary)
+  background-color: inherit
 }
 
-.policies-table tbody tr th:first-child {
+.policies-table tbody tr th:first-child,
+.pricing-table tbody tr th:first-child {
   background-color: inherit;
-  color: inherit
+  color: inherit;
+  font-weight: var(--font-medium)
 }
 
 .filter-results {
@@ -1948,7 +1952,7 @@ tr:hover {
   padding: var(--space-xl);
   background: var(--bg-primary);
   border: 1px solid var(--border-primary);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-lg);
   text-decoration: none;
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
   min-height: 120px;
@@ -2054,7 +2058,7 @@ tr:hover {
   padding: var(--space-xl);
   background: var(--bg-primary);
   border: 1px solid var(--border-primary);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-lg);
   text-decoration: none;
   width: 100%;
   max-width: 200px;
