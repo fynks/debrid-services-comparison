@@ -1,6 +1,6 @@
 <div align="center">
   <h1>
-    <img src="./docs/public/favicon.svg" alt="Logo" style="height:1em; width:1em; vertical-align:middle">&nbsp;Debrid Services Comparison
+    <img src="./dist/favicon.svg" alt="Logo" style="height:1em; width:1em; vertical-align:middle">&nbsp;Debrid Services Comparison
   </h1>
 
   <p><strong>Community‑maintained, up-to-date comparison</strong> of leading debrid / multi-hoster services for pricing, host coverage, policies & tools etc.</p>
@@ -13,9 +13,9 @@
 
   <p><a href="https://debrid-services-comparison.netlify.app/"><em>▶ Open the interactive version (search • filter • compare)</em></a></p>
 
-  <a href="https://debrid-services-comparison.netlify.app/"><img src="./docs/public/images/og.png" alt="Screenshot of interactive comparison web app" width="880" loading="lazy"></a>
+  <a href="https://debrid-services-comparison.netlify.app/"><img src="./dist/image.png" alt="Screenshot of interactive comparison web app" width="880" loading="lazy"></a>
 
-  <p><strong>Quick Jump:</strong> <a href="#pricing-comparison">Pricing</a> · <a href="#available-hosts">Hosts</a> · <a href="#policies-and-legal">Policies</a> · <a href="#tools-and-community">Tools</a></p>
+  <p><a href="#pricing-comparison">Pricing</a> · <a href="#available-hosts">Hosts</a> · <a href="#policies-and-legal">Policies</a> · <a href="#tools-and-community">Tools</a></p>
 </div>
 
 <br />
@@ -58,8 +58,6 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 ## Getting Started
 
-<div class="support">
-
 ### Support This Project
 
 > ✨ This guide is **free, open-source, and community-run**. If it helped: starring, reporting corrections, or using a referral link helps sustain maintenance (at no extra cost to you).
@@ -84,9 +82,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 [(↑ Back to Top)](#table-of-contents)
 
-</div></div>
-
-<div class="pricing">
+</div>
 
 ## Pricing Comparison
 
@@ -141,9 +137,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 [(↑ Back to Top)](#table-of-contents)
 
-</div></div>
-
-<div class="hosts">
+</div>
 
 ## Available Hosts
 
@@ -151,7 +145,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 <br />
 
-<div align="center" class="web-app-note">
+<div align="center">
 
 | ⚡ For faster exploration (search + filter + side-by-side), use the <a href="https://debridcompare.pages.dev" target="_blank" rel="noopener">interactive web app</a>. |
 |------------------------------------------|
@@ -464,7 +458,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 > Support varies. Some services exclude adult content for legal/policy reasons.
 
-👉 [See Detailed Adult Host Support](./docs/Adult-hosts.md)
+👉 [See Detailed Adult Host Support](./Adult-hosts.md)
 
 ### Live Status
 
@@ -493,9 +487,7 @@ Service availability and host support can change in real time. Use these officia
 
 [(↑ Back to Top)](#table-of-contents)
 
-</div></div>
-
-<div class="policies">
+</div>
 
 ## Policies and Legal
 
@@ -520,9 +512,7 @@ Service availability and host support can change in real time. Use these officia
 
 [(↑ Back to Top)](#table-of-contents)
 
-</div></div>
-
-<div class="speedtest">
+</div>
 
 ## Speed Test
 
@@ -571,7 +561,7 @@ For a more accurate assessment, follow these steps:
 
 [(↑ Back to Top)](#table-of-contents)
 
-</div></div>
+</div>
 
 ---
 
@@ -597,8 +587,6 @@ This project aims to provide accurate and up-to-date information, but the debrid
 
 ---
 
-<div class="tools">
-
 ## Tools and Community
 
 Enhance your debrid experience with these trusted tools, guides, and communities:
@@ -622,7 +610,7 @@ Enhance your debrid experience with these trusted tools, guides, and communities
 
 [(↑ Back to Top)](#table-of-contents)
 
-</div></div>
+</div>
 
 ## Contributing
 Help keep this guide accurate! We welcome:
@@ -632,9 +620,9 @@ Help keep this guide accurate! We welcome:
 - ✅ Policy clarifications
 - ✅ UX/UI suggestions
 
-**[See Contribution Guidelines →](./CONTRIBUTING.md)**
-
 > 🛡️ All PRs are verified against official sources before merging.
+
+**[See Contribution Guidelines →](./CONTRIBUTING.md)**
 
 <div align="right">
 
