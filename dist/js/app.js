@@ -1002,8 +1002,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Prefer optimized JSON, fall back to original if missing
         const datasets = [
             ['./json/file-hosts-optimized.json', './json/file-hosts.json'],
-            ['./json/adult-hosts-optimized.json', './json/adult-hosts.json'],
-            ['./json/pricing.json']
+            ['./json/adult-hosts-optimized.json', './json/adult-hosts.json']
         ];
 
         const fetchPromises = datasets.map(list => fetchJsonFallback(list, 8000));

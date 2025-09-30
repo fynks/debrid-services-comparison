@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # JSON Optimizer Script - Converts host data to indexed format
+# Converts ✅/❌ format to compact indexed format for better performance
 # Usage: ./scripts/json-optimizer.sh file-hosts.json
 #        ./scripts/json-optimizer.sh adult-hosts.json
-#        ./scripts/json-optimizer.sh pricing.json
 
 # Colors for output
 RED='\033[0;31m'
@@ -41,7 +41,7 @@ if [ $# -eq 0 ]; then
     echo "Examples:"
     echo "  $0 file-hosts.json"
     echo "  $0 ./json/adult-hosts.json"
-    echo "  $0 pricing.json pricing-optimized.json"
+    echo "  $0 ./json/file-hosts.json file-hosts-optimized.json"
     exit 1
 fi
 
@@ -118,11 +118,11 @@ def convert_to_indexed_format(input_file, output_file):
         total_support_instances = 0
         
         for host, host_data in data.items():
-            # Get indices of services with 'yes' values (case insensitive)
+            # Get indices of services with '✅' values (new format)
             supported_indices = [
                 service_to_index[service] 
                 for service, value in host_data.items() 
-                if str(value).lower() == 'yes'
+                if str(value) == '✅'
             ]
             supported[host] = sorted(supported_indices)
             total_support_instances += len(supported_indices)
