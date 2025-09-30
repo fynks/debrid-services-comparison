@@ -144,11 +144,13 @@ class TableManager {
             currentSort: { column: null, direction: "asc" },
             currentPage: 1,
             services: [], // Store services array for indexed format
+            columns: [],
             isIndexedFormat: false // Flag to track data format
         };
 
         this.handleSearch = Utils.debounce(this._performSearch.bind(this), 250);
         this.handleSort = this._performSort.bind(this);
+        this.renderToken = null;
         this._init();
     }
 
@@ -220,6 +222,7 @@ class TableManager {
 
         const firstHostKey = Object.keys(processedData)[0];
         const columns = firstHostKey ? Object.keys(processedData[firstHostKey]) : [];
+        this.state.columns = columns;
         const tableId = this.elements.container.id.replace("-container", "");
 
         const fragment = document.createDocumentFragment();
@@ -236,7 +239,6 @@ class TableManager {
         table.appendChild(thead);
 
         const tbody = document.createElement("tbody");
-        tbody.innerHTML = this._generateTableRows(this.state.filteredData, columns);
         table.appendChild(tbody);
 
         wrapper.appendChild(table);
@@ -246,6 +248,7 @@ class TableManager {
         this.elements.container.appendChild(fragment);
 
         this._attachTableEvents();
+        this._renderTableBody(this.state.filteredData, columns);
     }
 
     _generateTableHeader(columns) {
@@ -269,33 +272,105 @@ class TableManager {
         `;
     }
 
-    _generateTableRows(data, columns) {
-        const rows = [];
-        for (const [host, hostData] of Object.entries(data)) {
-            rows.push(`
-                <tr data-host="${host.toLowerCase()}" role="row">
-                    <td class="service-cell" role="gridcell">
-                        <div class="service-info">
-                            <span class="service-name">${host}</span>
-                        </div>
-                    </td>
-                    ${columns.map(column => {
-                        const isSupported = hostData[column] === "✅";
-                        return `
-                            <td class="status-cell" role="gridcell" data-status="${hostData[column]}">
-                                <span class="status-indicator ${isSupported ? "supported" : "not-supported"}" aria-label="${isSupported ? "Supported" : "Not supported"}">
-                                    ${isSupported ? 
-                                        '<svg class="table-check" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22,4 12,14.01 9,11.01"></polyline></svg>' : 
-                                        '<svg class="table-cross" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>'
-                                    }
-                                </span>
-                            </td>
-                        `;
-                    }).join("")}
-                </tr>
-            `);
+    _renderTableBody(data, columns = this.state.columns) {
+        const table = this.elements.container.querySelector("table");
+        const tbody = table?.querySelector("tbody");
+        if (!tbody) return;
+
+        const effectiveColumns = Array.isArray(columns) && columns.length ? columns : this.state.columns;
+        const entries = Object.entries(data);
+        const token = Symbol("render");
+        this.renderToken = token;
+
+        tbody.textContent = "";
+
+        if (!entries.length) {
+            const emptyRow = document.createElement("tr");
+            const emptyCell = document.createElement("td");
+            emptyCell.colSpan = (effectiveColumns?.length || 0) + 1;
+            emptyCell.className = "empty-state-row";
+            emptyCell.textContent = "No services match your current filters.";
+            emptyRow.appendChild(emptyCell);
+            tbody.appendChild(emptyRow);
+            return;
         }
-        return rows.join("");
+
+        let index = 0;
+        const baseChunk = Math.max(20, 60 - Math.max(0, effectiveColumns.length - 4) * 5);
+        const isCompact = typeof window !== "undefined" && typeof window.matchMedia === "function"
+            ? window.matchMedia("(max-width: 640px)").matches
+            : false;
+        const chunkSize = isCompact ? Math.max(10, Math.floor(baseChunk / 1.5)) : baseChunk;
+        const schedule = (cb) => {
+            if (typeof requestIdleCallback === "function") {
+                requestIdleCallback(cb, { timeout: 160 });
+            } else {
+                requestAnimationFrame(cb);
+            }
+        };
+
+        const renderChunk = () => {
+            if (this.renderToken !== token) return;
+
+            const fragment = document.createDocumentFragment();
+            const limit = Math.min(entries.length, index + chunkSize);
+            for (; index < limit; index++) {
+                const [host, hostData] = entries[index];
+                fragment.appendChild(this._createTableRow(host, hostData, effectiveColumns));
+            }
+            tbody.appendChild(fragment);
+
+            if (index < entries.length) {
+                schedule(renderChunk);
+            }
+        };
+
+        schedule(renderChunk);
+    }
+
+    _createTableRow(host, hostData, columns) {
+        const row = document.createElement("tr");
+        row.dataset.host = host.toLowerCase();
+        row.setAttribute("role", "row");
+
+        const serviceCell = document.createElement("td");
+        serviceCell.className = "service-cell";
+        serviceCell.setAttribute("role", "gridcell");
+
+        const serviceInfo = document.createElement("div");
+        serviceInfo.className = "service-info";
+
+        const serviceName = document.createElement("span");
+        serviceName.className = "service-name";
+        serviceName.textContent = host;
+
+        serviceInfo.appendChild(serviceName);
+        serviceCell.appendChild(serviceInfo);
+        row.appendChild(serviceCell);
+
+        columns.forEach((column) => {
+            const statusCell = document.createElement("td");
+            statusCell.className = "status-cell";
+            statusCell.dataset.status = hostData[column] || "";
+            const isSupported = hostData[column] === "✅";
+            statusCell.dataset.supported = isSupported ? "true" : "false";
+            statusCell.setAttribute("role", "gridcell");
+            const indicator = document.createElement("span");
+            indicator.className = "status-indicator";
+            indicator.dataset.supported = isSupported ? "true" : "false";
+            indicator.dataset.symbol = isSupported ? "✓" : "✕";
+            indicator.setAttribute("aria-hidden", "true");
+
+            const srText = document.createElement("span");
+            srText.className = "visually-hidden";
+            srText.textContent = isSupported ? "Supported" : "Not supported";
+
+            statusCell.appendChild(indicator);
+            statusCell.appendChild(srText);
+            row.appendChild(statusCell);
+        });
+
+        return row;
     }
 
     _attachTableEvents() {
@@ -423,15 +498,7 @@ class TableManager {
     }
 
     _updateTableContent() {
-        const tbody = this.elements.container.querySelector("tbody");
-        if (!tbody) return;
-
-        const firstHostKey = Object.keys(this.state.currentData)[0];
-        const columns = firstHostKey ? Object.keys(this.state.currentData[firstHostKey]) : [];
-
-        requestAnimationFrame(() => {
-            tbody.innerHTML = this._generateTableRows(this.state.filteredData, columns);
-        });
+        this._renderTableBody(this.state.filteredData, this.state.columns);
     }
 }
 
@@ -605,20 +672,27 @@ class ComparisonManager {
 
     _generateComparisonRows(service1, service2) {
         const rows = [];
-        const checkIcon = '<svg class="table-check" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22,4 12,14.01 9,11.01"></polyline></svg>';
-        const crossIcon = '<svg class="table-cross" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>';
-        
-        // Get all hosts (keys from the original data structure)
         const hosts = this.isIndexedFormat ? Object.keys(this.data.supported) : Object.keys(this.data);
-        
+        const getStatusCell = (supported) => {
+            const supportedClass = supported ? "supported" : "not-supported";
+            const supportedFlag = supported ? "true" : "false";
+            const symbol = supported ? "✓" : "✕";
+            return `
+                <td class="support-status ${supportedClass}" data-supported="${supportedFlag}">
+                    <span class="status-indicator" data-supported="${supportedFlag}" data-symbol="${symbol}" aria-hidden="true"></span>
+                    <span class="visually-hidden">${supported ? "Supported" : "Not supported"}</span>
+                </td>
+            `;
+        };
+
         for (const host of hosts) {
             const hostData = this._getHostData(host);
             const supported1 = hostData[service1] === "✅";
             const supported2 = hostData[service2] === "✅";
-            
+
             let statusClass = "neither-supported";
             let statusText = "Neither";
-            
+
             if (supported1 && supported2) {
                 statusClass = "both-supported";
                 statusText = "Both";
@@ -629,25 +703,17 @@ class ComparisonManager {
                 statusClass = "service2-only";
                 statusText = `${service2} only`;
             }
-            
+
             rows.push(`
                 <tr class="comparison-row ${statusClass}" data-status="${statusClass}">
                     <td class="service-name">${host}</td>
-                    <td class="support-status ${supported1 ? "supported" : "not-supported"}">
-                        <span class="status-indicator" aria-label="${supported1 ? "Supported" : "Not supported"}">
-                            ${supported1 ? checkIcon : crossIcon}
-                        </span>
-                    </td>
-                    <td class="support-status ${supported2 ? "supported" : "not-supported"}">
-                        <span class="status-indicator" aria-label="${supported2 ? "Supported" : "Not supported"}">
-                            ${supported2 ? checkIcon : crossIcon}
-                        </span>
-                    </td>
+                    ${getStatusCell(supported1)}
+                    ${getStatusCell(supported2)}
                     <td class="status-text"><span class="status-badge ${statusClass}">${statusText}</span></td>
                 </tr>
             `);
         }
-        
+
         return rows.join("");
     }
 

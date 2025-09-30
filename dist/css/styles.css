@@ -160,10 +160,7 @@
   contain: layout paint style
 }
 
-.loading-spinner,
-.status-indicator svg,
-.table-check,
-.table-cross {
+.loading-spinner {
   will-change: transform;
   backface-visibility: hidden
 }
@@ -316,6 +313,26 @@ a:focus-visible {
   -webkit-backdrop-filter: blur(24px) saturate(180%);
   border-bottom: 1px solid var(--border-primary);
   box-shadow: 0 1px 0 0 rgba(255, 255, 255, .1), 0 1px 3px 0 rgba(0, 0, 0, .02), 0 4px 8px 0 rgba(0, 0, 0, .04)
+}
+
+@media (max-width:900px) {
+  .site-header {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(255, 255, 255, .97)
+  }
+
+  [data-theme="dark"] .site-header {
+    background: rgba(15, 23, 42, .97)
+  }
+
+  .site-header.is-scrolled {
+    box-shadow: 0 6px 14px rgba(15, 23, 42, .08)
+  }
+
+  [data-theme="dark"] .site-header.is-scrolled {
+    box-shadow: 0 6px 14px rgba(0, 0, 0, .4)
+  }
 }
 
 [data-theme="dark"] .site-header {
@@ -1774,6 +1791,67 @@ tr:hover {
   background: color-mix(in srgb, var(--bg-secondary) 80%, transparent)
 }
 
+.status-cell,
+.support-status {
+  text-align: center;
+}
+
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--border-secondary);
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  font-weight: var(--font-semibold);
+  letter-spacing: .02em;
+  transition: transform var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.status-indicator::before {
+  content: attr(data-symbol);
+  line-height: 1;
+  font-size: .9rem;
+}
+
+.status-indicator[data-supported="true"] {
+  background: rgba(16, 185, 129, .18);
+  border-color: rgba(16, 185, 129, .45);
+  color: var(--success);
+}
+
+[data-theme="dark"] .status-indicator[data-supported="true"] {
+  background: rgba(16, 185, 129, .25);
+  border-color: rgba(16, 185, 129, .55);
+}
+
+.status-indicator[data-supported="false"] {
+  background: rgba(239, 68, 68, .12);
+  border-color: rgba(239, 68, 68, .3);
+  color: var(--error);
+}
+
+[data-theme="dark"] .status-indicator[data-supported="false"] {
+  background: rgba(239, 68, 68, .18);
+  border-color: rgba(239, 68, 68, .35);
+}
+
+.status-cell:hover .status-indicator,
+.support-status:hover .status-indicator {
+  transform: scale(1.05);
+}
+
+.empty-state-row {
+  text-align: center;
+  padding: var(--space-2xl) !important;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  font-style: italic;
+}
+
 .pricing-table .service-name {
   color: inherit
 }
@@ -1801,20 +1879,6 @@ tr:hover {
   font-size: var(--text-sm);
   color: var(--text-secondary);
   font-family: 'Courier New', Courier, monospace
-}
-
-.table-check,
-.table-cross {
-  padding: .2em;
-  border-radius: 50px
-}
-
-.table-check {
-  background-color: rgba(90, 221, 90, .568)
-}
-
-.table-cross {
-  background-color: #db747465
 }
 
 .search-section {
@@ -1922,6 +1986,20 @@ tr:hover {
 
 .status-card:hover::before {
   opacity: 1
+}
+
+@media (max-width:768px) {
+  .status-card,
+  .referral-card {
+    box-shadow: none;
+    transform: none !important;
+    transition: background var(--transition-fast), border-color var(--transition-fast)
+  }
+
+  .status-card::before,
+  .referral-card::before {
+    display: none
+  }
 }
 
 .status-header {
