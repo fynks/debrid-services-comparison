@@ -167,43 +167,42 @@ class TableManager {
 
     // New method to transform indexed data to regular format
     _transformIndexedData(indexedData) {
-        // Check if data is in the new direct format (host -> service -> ✅/❌)
-        const firstHost = Object.values(indexedData)[0];
-        if (firstHost && typeof firstHost === 'object' && !firstHost.hasOwnProperty('services') && !firstHost.hasOwnProperty('supported')) {
-            // Data is already in the new direct format
+        // Check if data is in indexed format (has services and supported properties)
+        if (indexedData.services && indexedData.supported) {
+            // Handle indexed format
+            const { services, supported } = indexedData;
+            const transformed = {};
+            
+            for (const [host, supportedIndices] of Object.entries(supported)) {
+                transformed[host] = {};
+                services.forEach((service, index) => {
+                    transformed[host][service] = supportedIndices.includes(index) ? "✅" : "❌";
+                });
+            }
+            
+            // Store services for later use
+            this.state.services = services;
+            this.state.isIndexedFormat = true;
+            
+            return transformed;
+        } else {
+            // Data is already in the direct format (host -> service -> ✅/❌)
             this.state.isIndexedFormat = false;
             return indexedData;
         }
-        
-        // Handle indexed format
-        const { services, supported } = indexedData;
-        const transformed = {};
-        
-        for (const [host, supportedIndices] of Object.entries(supported)) {
-            transformed[host] = {};
-            services.forEach((service, index) => {
-                transformed[host][service] = supportedIndices.includes(index) ? "✅" : "❌";
-            });
-        }
-        
-        // Store services for later use
-        this.state.services = services;
-        this.state.isIndexedFormat = true;
-        
-        return transformed;
     }
 
     // Modified method to handle both formats
     generateTable(data = {}) {
         if (!this.elements.container) return;
 
-        // Handle both old and new indexed formats
+        // Handle both indexed and direct formats
         let processedData;
         if (data.services && data.supported) {
-            // New indexed format
+            // Indexed format
             processedData = this._transformIndexedData(data);
         } else {
-            // Old format
+            // Direct format
             processedData = data;
             this.state.isIndexedFormat = false;
             // Try to extract services from first entry
@@ -1010,6 +1009,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     results.forEach((result, index) => {
       const containers = ['#file-hosts-table-container', '#adult-hosts-table-container'];
+      
       loadingManager.hide(containers[index], loaders[index]);
 
       if (result.status === 'fulfilled') {
