@@ -214,7 +214,7 @@ canvas {
 a {
   color: var(--primary);
   text-decoration: none;
-  transition: all var(--transition-normal)
+  transition: color var(--transition-fast)
 }
 
 a:hover {
@@ -303,7 +303,7 @@ a:focus-visible {
   border-bottom: 1px solid transparent;
   height: var(--header-height);
   width: 100%;
-  transition: all var(--transition-normal);
+  transition: background-color var(--transition-fast), backdrop-filter var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
   will-change: background, backdrop-filter, border-color, box-shadow
 }
 
@@ -372,8 +372,7 @@ th {
   justify-content: space-between;
   position: relative;
   height: var(--header-height);
-  gap: var(--space-4xl);
-  transition: all var(--transition-normal)
+  gap: var(--space-4xl)
 }
 
 @media (max-width:1200px) {
@@ -418,7 +417,7 @@ th {
   text-decoration: none;
   padding: var(--space-sm) var(--space-lg);
   border-radius: var(--radius-xl);
-  transition: all var(--transition-normal);
+  transition: color var(--transition-fast);
   min-width: 0;
   white-space: nowrap;
   position: relative;
@@ -469,21 +468,19 @@ th {
 }
 
 .site-title:hover {
-  color: var(--primary);
-  transform: translateY(-1px)
+  color: var(--primary)
 }
 
 .logo-icon {
   width: 28px;
   height: 28px;
   color: var(--primary);
-  transition: all var(--transition-normal);
+  transition: color var(--transition-fast);
   filter: drop-shadow(0 2px 4px rgba(99, 102, 241, .1))
 }
 
 .site-title:hover .logo-icon {
-  transform: scale(1.05);
-  filter: drop-shadow(0 4px 8px rgba(99, 102, 241, .2))
+  filter: drop-shadow(0 3px 6px rgba(99, 102, 241, .15))
 }
 
 .header-nav {
@@ -518,7 +515,7 @@ th {
   color: var(--text-secondary);
   border-radius: var(--radius-lg);
   white-space: nowrap;
-  transition: all var(--transition-normal);
+  transition: color var(--transition-fast), background-color var(--transition-fast);
   text-decoration: none;
   overflow: hidden
 }
@@ -532,7 +529,7 @@ th {
   height: 2px;
   border-radius: var(--radius-full);
   transform: translateX(-50%);
-  transition: all var(--transition-normal);
+  transition: width var(--transition-fast), opacity var(--transition-fast);
   opacity: 0
 }
 
@@ -543,14 +540,13 @@ th {
   background: linear-gradient(135deg, rgba(99, 102, 241, .03) 0%, rgba(139, 92, 246, .02) 100%);
   border-radius: var(--radius-xl);
   opacity: 0;
-  transition: opacity var(--transition-normal);
+  transition: opacity var(--transition-fast);
   z-index: -1
 }
 
 .nav-link:hover {
   color: var(--primary);
-  background: var(--bg-secondary);
-  transform: translateY(-1px)
+  background: var(--bg-secondary)
 }
 
 .nav-link:hover::before {
@@ -597,7 +593,7 @@ th {
   color: var(--text-primary);
   flex-shrink: 0;
   cursor: pointer;
-  transition: all var(--transition-normal);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
   position: relative;
   overflow: hidden
 }
@@ -609,7 +605,7 @@ th {
   background: linear-gradient(135deg, rgba(99, 102, 241, .05) 0%, rgba(139, 92, 246, .03) 100%);
   border-radius: var(--radius-full);
   opacity: 0;
-  transition: opacity var(--transition-normal);
+  transition: opacity var(--transition-fast);
   z-index: -1
 }
 
@@ -629,9 +625,7 @@ th {
 
 .dark-mode-toggle:hover {
   background: var(--bg-secondary);
-  border-color: var(--primary);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md)
+  border-color: var(--primary)
 }
 
 .dark-mode-toggle:hover::before {
@@ -642,7 +636,7 @@ th {
 .moon-icon {
   width: 20px;
   height: 20px;
-  transition: all var(--transition-normal)
+  transition: opacity var(--transition-fast), transform var(--transition-fast)
 }
 
 .sun-icon {
@@ -677,7 +671,7 @@ th {
   border-radius: var(--radius-full);
   cursor: pointer;
   position: relative;
-  transition: all var(--transition-normal);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
   flex-shrink: 0;
   z-index: 110;
   overflow: hidden
@@ -690,7 +684,7 @@ th {
   background: linear-gradient(135deg, rgba(99, 102, 241, .05) 0%, rgba(139, 92, 246, .03) 100%);
   border-radius: var(--radius-full);
   opacity: 0;
-  transition: opacity var(--transition-normal);
+  transition: opacity var(--transition-fast);
   z-index: -1
 }
 
@@ -699,9 +693,8 @@ th {
 }
 
 .nav-toggle:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--primary)
+  border-color: var(--primary);
+  background: var(--bg-secondary)
 }
 
 @media (max-width:600px) {
@@ -723,7 +716,7 @@ th {
   height: 2px;
   background: var(--text-primary);
   border-radius: 2px;
-  transition: all var(--transition-normal);
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
   margin: 0 auto;
   transform-origin: center
 }
@@ -891,13 +884,13 @@ th {
   max-width: 900px;
   margin: 0 auto;
   position: relative;
-  animation: fadeInUp .8s ease-out
+  animation: fadeInUp .5s ease-out
 }
 
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px)
+    transform: translateY(15px)
   }
 
   to {
@@ -1078,7 +1071,7 @@ th {
   overflow: hidden;
   min-width: 160px;
   justify-content: center;
-  transition: all var(--transition-normal);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
   flex-shrink: 0;
   white-space: nowrap;
   cursor: pointer
@@ -1090,7 +1083,7 @@ th {
   inset: 0;
   background: linear-gradient(135deg, rgba(99, 102, 241, .05) 0%, rgba(139, 92, 246, .03) 100%);
   opacity: 0;
-  transition: opacity var(--transition-normal);
+  transition: opacity var(--transition-fast);
   z-index: -1
 }
 
@@ -1099,8 +1092,7 @@ th {
 }
 
 .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg)
+  box-shadow: var(--shadow-md)
 }
 
 .btn-primary {
@@ -1113,7 +1105,7 @@ th {
 .btn-primary:hover {
   background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary-dark) 100%);
   color: #fff;
-  box-shadow: var(--shadow-lg)
+  box-shadow: var(--shadow-md)
 }
 
 .btn-primary::before {
@@ -1170,7 +1162,7 @@ input[type="text"],
 input[type="email"],
 select,
 textarea {
-  transition: all var(--transition-normal);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
   border-radius: var(--radius-lg)
 }
 
@@ -1211,7 +1203,7 @@ tr:focus-within {
   background: var(--bg-primary);
   border: 1px solid var(--border-primary);
   border-radius: var(--radius-xl);
-  transition: all var(--transition-normal);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
   min-height: 160px;
   justify-content: center;
   position: relative;
@@ -1224,14 +1216,13 @@ tr:focus-within {
   inset: 0;
   background: linear-gradient(135deg, rgba(99, 102, 241, .03) 0%, rgba(139, 92, 246, .02) 100%);
   opacity: 0;
-  transition: opacity var(--transition-normal);
+  transition: opacity var(--transition-fast);
   z-index: -1
 }
 
 .benefit-card:hover {
   border-color: var(--primary);
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg)
+  box-shadow: var(--shadow-md)
 }
 
 .benefit-card:hover::before {
@@ -1242,12 +1233,11 @@ tr:focus-within {
   width: 40px;
   height: 40px;
   color: var(--primary);
-  margin-bottom: var(--space-lg);
-  transition: transform var(--transition-normal)
+  margin-bottom: var(--space-lg)
 }
 
 .benefit-card:hover .icon-badge {
-  transform: scale(1.05)
+  color: var(--primary-hover)
 }
 
 .benefit-card h3 {
@@ -1357,7 +1347,7 @@ tr:focus-within {
   border: 1px solid var(--border-primary);
   border-radius: var(--radius-xl);
   text-decoration: none;
-  transition: all var(--transition-normal);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
   min-height: 120px;
   position: relative;
   overflow: hidden
@@ -1369,14 +1359,13 @@ tr:focus-within {
   inset: 0;
   background: linear-gradient(135deg, rgba(99, 102, 241, .03) 0%, rgba(139, 92, 246, .02) 100%);
   opacity: 0;
-  transition: opacity var(--transition-normal);
+  transition: opacity var(--transition-fast);
   z-index: -1
 }
 
 .speed-card:hover {
   border-color: var(--primary);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md)
+  box-shadow: var(--shadow-sm)
 }
 
 .speed-card:hover::before {
@@ -1407,7 +1396,7 @@ tr:focus-within {
   background: var(--bg-elevated);
   border: 1px solid var(--border-primary);
   border-radius: var(--radius-xl);
-  transition: all var(--transition-normal);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
   position: relative;
   overflow: hidden
 }
@@ -1418,7 +1407,7 @@ tr:focus-within {
   inset: 0;
   background: linear-gradient(135deg, rgba(99, 102, 241, .02) 0%, rgba(139, 92, 246, .01) 100%);
   opacity: 0;
-  transition: opacity var(--transition-normal);
+  transition: opacity var(--transition-fast);
   z-index: -1
 }
 
@@ -1436,8 +1425,7 @@ tr:focus-within {
 
 .note-card:hover {
   border-color: var(--primary);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md)
+  box-shadow: var(--shadow-sm)
 }
 
 .note-card:hover::before {
@@ -1517,12 +1505,11 @@ tr:focus-within {
   border: 1px solid var(--border-primary);
   border-radius: var(--radius-lg);
   text-decoration: none;
-  transition: all var(--transition-normal)
+  transition: border-color var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast)
 }
 
 .resource-item:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
   border-color: var(--primary);
   background: var(--bg-primary)
 }
@@ -1684,18 +1671,16 @@ th {
   font-size: var(--text-sm);
   border-radius: var(--radius-md);
   cursor: pointer;
-  transition: transform var(--transition-fast), background var(--transition-fast)
+  transition: background-color var(--transition-fast)
 }
 
 .newsletter-form button:hover {
-  background: var(--primary-hover);
-  transform: translateY(-1px)
+  background: var(--primary-hover)
 }
 
 .newsletter-form button:disabled {
   opacity: .6;
-  cursor: not-allowed;
-  transform: none
+  cursor: not-allowed
 }
 
 .social-links {
@@ -1716,15 +1701,14 @@ th {
   border: 1px solid var(--border-primary);
   border-radius: var(--radius-full);
   color: var(--text-secondary);
-  transition: transform var(--transition-fast), background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast)
+  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast)
 }
 
 .social-btn:hover,
 .github-link:hover {
   background: var(--primary);
   border-color: var(--primary);
-  color: #fff;
-  transform: translateY(-2px)
+  color: #fff
 }
 
 .social-btn:focus-visible,
@@ -1845,7 +1829,7 @@ tr:hover {
 
 .status-cell:hover .status-indicator,
 .support-status:hover .status-indicator {
-  transform: scale(1.05);
+  opacity: 0.9;
 }
 
 .empty-state-row {
@@ -1914,7 +1898,7 @@ tr:hover {
   background: var(--bg-primary);
   color: var(--text-primary);
   outline: none;
-  transition: all var(--transition-fast);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
   padding-inline: var(--space-5xl);
   padding-block: var(--space-lg)
 }
@@ -1937,7 +1921,7 @@ tr:hover {
   border-radius: var(--radius-md);
   opacity: 0;
   visibility: hidden;
-  transition: all var(--transition-fast);
+  transition: opacity var(--transition-fast), visibility var(--transition-fast);
   width: 20px;
   height: 20px
 }
@@ -1966,7 +1950,7 @@ tr:hover {
   border: 1px solid var(--border-primary);
   border-radius: var(--radius-xl);
   text-decoration: none;
-  transition: all var(--transition-normal);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
   min-height: 120px;
   position: relative;
   overflow: hidden
@@ -1978,14 +1962,13 @@ tr:hover {
   inset: 0;
   background: linear-gradient(135deg, rgba(99, 102, 241, .03) 0%, rgba(139, 92, 246, .02) 100%);
   opacity: 0;
-  transition: opacity var(--transition-normal);
+  transition: opacity var(--transition-fast);
   z-index: -1
 }
 
 .status-card:hover {
   border-color: var(--primary);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md)
+  box-shadow: var(--shadow-sm)
 }
 
 .status-card:hover::before {
@@ -2075,7 +2058,7 @@ tr:hover {
   text-decoration: none;
   width: 100%;
   max-width: 200px;
-  transition: all var(--transition-normal);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
   min-height: 100px;
   position: relative;
   overflow: hidden
@@ -2087,14 +2070,13 @@ tr:hover {
   inset: 0;
   background: linear-gradient(135deg, rgba(99, 102, 241, .03) 0%, rgba(139, 92, 246, .02) 100%);
   opacity: 0;
-  transition: opacity var(--transition-normal);
+  transition: opacity var(--transition-fast);
   z-index: -1
 }
 
 .referral-card:hover {
   border-color: var(--primary);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md)
+  box-shadow: var(--shadow-sm)
 }
 
 .referral-card:hover::before {
@@ -2159,7 +2141,7 @@ select {
   font-size: var(--text-base);
   cursor: pointer;
   appearance: none;
-  transition: all var(--transition-fast);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
   min-height: 48px
 }
 
@@ -2213,7 +2195,7 @@ select:hover {
   text-transform: uppercase;
   letter-spacing: .1em;
   box-shadow: var(--shadow-sm);
-  transition: all var(--transition-fast);
+  transition: box-shadow var(--transition-fast);
   position: relative;
   overflow: hidden
 }
@@ -2232,9 +2214,7 @@ select:hover {
 }
 
 .compare-select-group:focus-within label {
-  color: var(--primary);
-  transform: translateY(-2px);
-  transition: all var(--transition-fast)
+  color: var(--primary)
 }
 
 .empty-state {
@@ -2468,7 +2448,7 @@ select:hover {
   font-size: var(--text-sm);
   min-width: auto;
   border-radius: var(--radius-md);
-  transition: all var(--transition-fast)
+  transition: background-color var(--transition-fast), border-color var(--transition-fast)
 }
 
 .comparison-filters {
@@ -2599,8 +2579,8 @@ select:hover {
 
 .comparison-hiding {
   opacity: 0;
-  transform: scale(.95);
-  transition: all var(--transition-normal)
+  transform: scale(.98);
+  transition: opacity var(--transition-fast), transform var(--transition-fast)
 }
 
 .comparison-table .table-check,
@@ -2615,7 +2595,7 @@ select:hover {
 
 #compare-table-container {
   min-height: 200px;
-  transition: all var(--transition-normal);
+  transition: opacity var(--transition-fast);
   background: var(--bg-primary);
   border-radius: var(--radius-lg);
   position: relative;
@@ -2912,15 +2892,14 @@ select:hover {
   border-radius: var(--radius-md);
   color: var(--text-secondary);
   text-decoration: none;
-  transition: all var(--transition-fast)
+  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast)
 }
 
 .github-link:hover {
   background: var(--primary);
   color: #fff;
   border-color: var(--primary);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md)
+  box-shadow: var(--shadow-sm)
 }
 
 .back-to-top {
@@ -2939,10 +2918,10 @@ select:hover {
   box-shadow: var(--shadow-md);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(20px);
+  transform: translateY(10px);
   z-index: 50;
-  transition: all var(--transition-normal);
-  will-change: transform
+  transition: opacity var(--transition-fast), visibility var(--transition-fast), transform var(--transition-fast);
+  will-change: opacity, transform
 }
 
 .back-to-top.visible {
