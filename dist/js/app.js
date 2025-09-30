@@ -1,7 +1,7 @@
 /**
  * Debrid Services Comparison - Improved App JS
- * - Data loading (file hosts, adult hosts, pricing)
- * - Tables, comparison, pricing interactions
+ * - Data loading (file hosts, adult hosts)
+ * - Tables, comparison interactions with ✅/❌ format
  * - Age verification overlay (focus trap + inert)
  * - Back-to-top, nav highlight, animations, offline detection
  * - Performance-minded DOM updates and event delegation
@@ -167,13 +167,22 @@ class TableManager {
 
     // New method to transform indexed data to regular format
     _transformIndexedData(indexedData) {
+        // Check if data is in the new direct format (host -> service -> ✅/❌)
+        const firstHost = Object.values(indexedData)[0];
+        if (firstHost && typeof firstHost === 'object' && !firstHost.hasOwnProperty('services') && !firstHost.hasOwnProperty('supported')) {
+            // Data is already in the new direct format
+            this.state.isIndexedFormat = false;
+            return indexedData;
+        }
+        
+        // Handle indexed format
         const { services, supported } = indexedData;
         const transformed = {};
         
         for (const [host, supportedIndices] of Object.entries(supported)) {
             transformed[host] = {};
             services.forEach((service, index) => {
-                transformed[host][service] = supportedIndices.includes(index) ? "yes" : "no";
+                transformed[host][service] = supportedIndices.includes(index) ? "✅" : "❌";
             });
         }
         
@@ -272,7 +281,7 @@ class TableManager {
                         </div>
                     </td>
                     ${columns.map(column => {
-                        const isSupported = hostData[column] === "yes";
+                        const isSupported = hostData[column] === "✅";
                         return `
                             <td class="status-cell" role="gridcell" data-status="${hostData[column]}">
                                 <span class="status-indicator ${isSupported ? "supported" : "not-supported"}" aria-label="${isSupported ? "Supported" : "Not supported"}">
@@ -399,9 +408,9 @@ class TableManager {
                 valueA = hostA.toLowerCase();
                 valueB = hostB.toLowerCase();
             } else {
-                // Convert "yes"/"no" to numeric values for sorting
-                valueA = dataA[column] === "yes" ? 1 : 0;
-                valueB = dataB[column] === "yes" ? 1 : 0;
+                // Convert "✅"/"❌" to numeric values for sorting
+                valueA = dataA[column] === "✅" ? 1 : 0;
+                valueB = dataB[column] === "✅" ? 1 : 0;
             }
 
             let comparison = 0;
@@ -496,11 +505,11 @@ class ComparisonManager {
             const supportedIndices = this.data.supported[hostName] || [];
             const hostData = {};
             this.services.forEach((service, index) => {
-                hostData[service] = supportedIndices.includes(index) ? "yes" : "no";
+                hostData[service] = supportedIndices.includes(index) ? "✅" : "❌";
             });
             return hostData;
         } else {
-            // Return data as-is for regular format
+            // Return data as-is for regular format (already using ✅/❌)
             return this.data[hostName] || {};
         }
     }
@@ -605,8 +614,8 @@ class ComparisonManager {
         
         for (const host of hosts) {
             const hostData = this._getHostData(host);
-            const supported1 = hostData[service1] === "yes";
-            const supported2 = hostData[service2] === "yes";
+            const supported1 = hostData[service1] === "✅";
+            const supported2 = hostData[service2] === "✅";
             
             let statusClass = "neither-supported";
             let statusText = "Neither";
@@ -653,8 +662,8 @@ class ComparisonManager {
         
         for (const host of hosts) {
             const hostData = this._getHostData(host);
-            const supported1 = hostData[service1] === "yes";
-            const supported2 = hostData[service2] === "yes";
+            const supported1 = hostData[service1] === "✅";
+            const supported2 = hostData[service2] === "✅";
             
             if (supported1 && supported2) {
                 shared++;
@@ -739,120 +748,6 @@ class ComparisonManager {
         this.elements.container.style.display = "block";
     }
 }
-/* ==============================
-   Pricing Manager
-   ============================== */
-class PricingManager {
-  constructor(containerId) {
-    this.container = document.getElementById(`${containerId}-table-container`);
-    this.currentData = null;
-    this._onMouseOver = this._onMouseOver.bind(this);
-    this._onMouseOut = this._onMouseOut.bind(this);
-    this._onMouseLeaveContainer = this._onMouseLeaveContainer.bind(this);
-  }
-
-  generatePricingTable(data = {}) {
-    if (!this.container) return;
-    if (!data.plans?.length) {
-      this.container.innerHTML = '<div class="error-state"><p>Error: Invalid pricing data structure.</p></div>';
-      return;
-    }
-
-    this.currentData = data;
-    const services = Object.keys(data.plans[0]).filter(key => key !== 'name');
-
-    const fragment = document.createDocumentFragment();
-    const wrapper = document.createElement('div');
-    wrapper.className = 'table-wrapper';
-
-    const table = document.createElement('table');
-    table.id = 'pricing-table';
-    table.className = 'pricing-table';
-    table.setAttribute('aria-label', 'Service Pricing Table');
-
-    const thead = document.createElement('thead');
-    thead.innerHTML = `
-      <tr>
-        <th>Plans</th>
-        ${services.map(service => `
-          <th class="service-column">
-            <div class="service-header">
-              <span class="service-name">${service}</span>
-            </div>
-          </th>
-        `).join('')}
-      </tr>
-    `;
-
-    const tbody = document.createElement('tbody');
-    tbody.innerHTML = data.plans.map((plan, index) => `
-      <tr class="pricing-row ${index % 2 === 0 ? 'even' : 'odd'}">
-        <td class="plan-name"><strong>${plan.name}</strong></td>
-        ${services.map(service => {
-          const price = plan[service];
-          const isNumeric = !isNaN(parseFloat(price));
-          return `
-            <td class="price-cell ${isNumeric ? 'numeric-price' : 'text-price'}">
-              <div class="price-content">
-                <span class="price-value">${price}</span>
-                ${isNumeric ? '<span class="price-period">/month</span>' : ''}
-              </div>
-            </td>
-          `;
-        }).join('')}
-      </tr>
-    `).join('');
-
-    table.appendChild(thead);
-    table.appendChild(tbody);
-    wrapper.appendChild(table);
-    fragment.appendChild(wrapper);
-
-    this.container.innerHTML = '';
-    this.container.appendChild(fragment);
-
-    this._setupPricingFeatures();
-  }
-
-  _setupPricingFeatures() {
-    // Use mouseover/mouseout for delegation; mouseenter doesn't bubble
-    this.container.addEventListener('mouseover', this._onMouseOver);
-    this.container.addEventListener('mouseout', this._onMouseOut);
-    this.container.addEventListener('mouseleave', this._onMouseLeaveContainer);
-  }
-
-  _onMouseOver(e) {
-    const cell = e.target.closest('.price-cell');
-    if (!cell || !this.container.contains(cell)) return;
-    const index = Array.from(cell.parentNode.children).indexOf(cell);
-    if (index >= 0) this._highlightColumn(index + 1); // nth-child is 1-based
-  }
-
-  _onMouseOut(e) {
-    const toElement = e.relatedTarget;
-    if (!toElement || !this.container.contains(toElement)) {
-      this._removeColumnHighlight();
-    }
-  }
-
-  _onMouseLeaveContainer() {
-    this._removeColumnHighlight();
-  }
-
-  _highlightColumn(columnIndex) {
-    const table = this.container.querySelector('table');
-    if (!table) return;
-    // Plans column is 1; services start at 2; columnIndex is the index within row (including plan col)
-    const cells = table.querySelectorAll(`tbody td:nth-child(${columnIndex + 1}), thead th:nth-child(${columnIndex + 1})`);
-    this._removeColumnHighlight();
-    cells.forEach(cell => cell.classList.add('highlighted'));
-  }
-
-  _removeColumnHighlight() {
-    this.container.querySelectorAll('.highlighted').forEach(cell => cell.classList.remove('highlighted'));
-  }
-}
-
 /* ==============================
    Performance Monitor (light)
    ============================== */
@@ -1075,12 +970,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   try {
     const fileHostsTable = new TableManager('file-hosts-table-container', 'host-search-input', 'clear-host-search');
     const adultHostsTable = new TableManager('adult-hosts-table-container', 'adult-host-search-input', 'clear-adult-host-search');
-    const pricingManager = new PricingManager('pricing');
 
     const loaders = [
       loadingManager.show('#file-hosts-table-container', 'Loading file hosts...'),
-      loadingManager.show('#adult-hosts-table-container', 'Loading adult hosts...'),
-      loadingManager.show('#pricing-table-container', 'Loading pricing data...')
+      loadingManager.show('#adult-hosts-table-container', 'Loading adult hosts...')
     ];
 
         // Helper: fetch with timeout and graceful fallbacks
@@ -1117,7 +1010,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const results = await Promise.allSettled(fetchPromises);
 
     results.forEach((result, index) => {
-      const containers = ['#file-hosts-table-container', '#adult-hosts-table-container', '#pricing-table-container'];
+      const containers = ['#file-hosts-table-container', '#adult-hosts-table-container'];
       loadingManager.hide(containers[index], loaders[index]);
 
       if (result.status === 'fulfilled') {
@@ -1129,10 +1022,6 @@ document.addEventListener('DOMContentLoaded', async () => {
           }
           case 1: {
             adultHostsTable.generateTable(result.value);
-            break;
-          }
-          case 2: {
-            pricingManager.generatePricingTable(result.value);
             break;
           }
         }

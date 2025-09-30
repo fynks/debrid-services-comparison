@@ -54,13 +54,15 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 | 💡 Tip | Think of a debrid service as a “premium proxy” between you and file-hosting sites like Rapidgator, Mediafire, or Uptobox. |
 | ------ | ---------------------------------------------------------------------------------------------- |
 
----
 
 ## Getting Started
+
+<div align="center">
 
 ### Support This Project
 
 > ✨ This guide is **free, open-source, and community-run**. If it helped: starring, reporting corrections, or using a referral link helps sustain maintenance (at no extra cost to you).
+
 
 | Service | Referral | Direct Signup |
 | :------ | :------- | :------------ |
@@ -74,6 +76,8 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 | Deepbrid | [Referral](https://www.deepbrid.com/aff/go/upward1971) | [Signup](https://www.deepbrid.com/signup) |
 | Offcloud | [Referral](https://offcloud.com/?=c44b1fa5) | [Signup](https://offcloud.com/register) |
 | High-Way | – | [Signup](https://high-way.me/login/login) |
+
+</div>
 
 > [!NOTE]
 > No financial ties to services. Referrals offset hosting & data validation costs only.
