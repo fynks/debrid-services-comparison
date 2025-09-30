@@ -75,11 +75,11 @@
   --font-semibold: 600;
   --font-bold: 700;
   --font-extrabold: 800;
-  --radius-sm: .2rem;
-  --radius-md: .4rem;
-  --radius-lg: .6rem;
-  --radius-xl: .8rem;
-  --radius-2xl: 1rem;
+  --radius-sm: .25rem;
+  --radius-md: .375rem;
+  --radius-lg: .5rem;
+  --radius-xl: .625rem;
+  --radius-2xl: .75rem;
   --radius-full: 9999px;
   --shadow-xs: 0 1px 1px 0 rgb(0 0 0 / .04);
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / .06);
