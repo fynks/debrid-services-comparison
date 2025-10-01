@@ -103,7 +103,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 | **300 Days** | €24.99 (one-time)⁴ | ❌ | ❌ | ❌ | €25.00 | ❌ | ❌ | ❌ | ❌ | ❌ |
 | **365 Days / 1 Year** | ❌ | $79.99 | ❌ | ❌ | ❌ | ❌ | ❌ | €32.99 | ❌ | $69.99 |
 
-> [!NOTE] Pricing Notes
+> [!NOTE]
 > - **¹ AllDebrid Free Trial**: 7-day trial requires phone verification.
 > - **² TorBox Free Tier**: Limited speed and features; no torrenting.
 > - **³ AllDebrid Recurring**: Auto-renews monthly at €2.99
