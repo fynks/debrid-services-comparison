@@ -13,7 +13,7 @@
 
   <p><a href="https://debrid-services-comparison.netlify.app/"><em>▶ Open the interactive version (search • filter • compare)</em></a></p>
 
-  <a href="https://debrid-services-comparison.netlify.app/"><img src="./dist/image.png" alt="Screenshot of interactive comparison web app" width="880" loading="lazy"></a>
+  <a href="https://debrid-services-comparison.netlify.app/"><img src="./dist/images/og.png" alt="Screenshot of interactive comparison web app" width="880" loading="lazy"></a>
 
   <p><a href="#pricing-comparison">Pricing</a> · <a href="#available-hosts">Hosts</a> · <a href="#policies-and-legal">Policies</a> · <a href="#tools-and-community">Tools</a></p>
 </div>
