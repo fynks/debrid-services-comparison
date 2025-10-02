@@ -81,15 +81,12 @@
   --radius-xl: .625rem;
   --radius-2xl: .75rem;
   --radius-full: 9999px;
-  --shadow-xs: 0 1px 1px 0 rgb(0 0 0 / .04);
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / .06);
-  --shadow-md: 0 2px 4px 0 rgb(0 0 0 / .06);
-  --shadow-lg: 0 4px 8px 0 rgb(0 0 0 / .07);
-  --shadow-xl: 0 8px 16px 0 rgb(0 0 0 / .08);
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / .05);
+  --shadow-md: 0 2px 8px 0 rgb(0 0 0 / .08);
+  --shadow-lg: 0 4px 16px 0 rgb(0 0 0 / .1);
   --shadow-focus: 0 0 0 3px rgb(99 102 241 / .15);
   --transition-fast: .15s ease;
-  --transition-normal: .3s ease;
-  --transition-slow: .5s ease;
+  --transition-normal: .2s ease;
   --glow: 0 0 0 8px rgb(99 102 241 / .08);
   --footer-gradient: radial-gradient(1200px 500px at 80% 10%, rgb(99 102 241 / .08), transparent 60%), radial-gradient(800px 400px at 10% 20%, rgb(139 92 246 / .07), transparent 60%);
   color-scheme: light dark
@@ -109,10 +106,9 @@
   --primary: #818cf8;
   --primary-hover: #a5b4fc;
   --primary-light: #c7d2fe;
-  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / .5), 0 1px 2px -1px rgb(0 0 0 / .5);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / .5), 0 2px 4px -2px rgb(0 0 0 / .5);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / .5), 0 4px 6px -4px rgb(0 0 0 / .5);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / .5), 0 8px 10px -6px rgb(0 0 0 / .5);
+  --shadow-sm: 0 2px 4px 0 rgb(0 0 0 / .4);
+  --shadow-md: 0 4px 12px 0 rgb(0 0 0 / .5);
+  --shadow-lg: 0 8px 24px 0 rgb(0 0 0 / .6);
   --shadow-focus: 0 0 0 3px rgb(129 140 248 / .25);
   color-scheme: dark
 }
@@ -132,10 +128,9 @@
     --primary: #818cf8;
     --primary-hover: #a5b4fc;
     --primary-light: #c7d2fe;
-    --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / .5), 0 1px 2px -1px rgb(0 0 0 / .5);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / .5), 0 2px 4px -2px rgb(0 0 0 / .5);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / .5), 0 4px 6px -4px rgb(0 0 0 / .5);
-    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / .5), 0 8px 10px -6px rgb(0 0 0 / .5);
+    --shadow-sm: 0 2px 4px 0 rgb(0 0 0 / .4);
+    --shadow-md: 0 4px 12px 0 rgb(0 0 0 / .5);
+    --shadow-lg: 0 8px 24px 0 rgb(0 0 0 / .6);
     --shadow-focus: 0 0 0 3px rgb(129 140 248 / .25);
     color-scheme: dark
   }
@@ -302,16 +297,15 @@ a:focus-visible {
   border-bottom: 1px solid transparent;
   height: var(--header-height);
   width: 100%;
-  transition: background-color var(--transition-fast), backdrop-filter var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
-  will-change: background, backdrop-filter, border-color, box-shadow
+  transition: background-color var(--transition-fast), backdrop-filter var(--transition-fast), border-color var(--transition-fast)
 }
 
 .site-header.is-scrolled {
   background: rgba(255, 255, 255, .98);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid var(--border-primary);
-  box-shadow: 0 1px 0 0 rgba(255, 255, 255, .1), 0 1px 3px 0 rgba(0, 0, 0, .02), 0 4px 8px 0 rgba(0, 0, 0, .04)
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .04)
 }
 
 @media (max-width:900px) {
@@ -851,31 +845,12 @@ th {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(800px 600px at 25% 15%, rgba(99, 102, 241, .08) 0%, transparent 65%), radial-gradient(900px 700px at 75% 85%, rgba(139, 92, 246, .06) 0%, transparent 65%), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4" viewBox="0 0 4 4"><circle cx="1" cy="1" r=".5" fill="%23000" opacity=".02"/></svg>')
-}
-
-[data-theme="dark"] .hero-section::before {
-  background: radial-gradient(circle at 30% 20%, rgb(129 140 248 / .12) 0%, transparent 50%), radial-gradient(circle at 70% 80%, rgb(196 181 253 / .08) 0%, transparent 50%)
-}
-
-.hero-section::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(99, 102, 241, .06), rgba(139, 92, 246, .06)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' opacity='.05'/%3E%3C/svg%3E");
-  background-size: auto, 300px 300px;
-  background-repeat: no-repeat, repeat;
-  background-position: center, top left;
-  background-blend-mode: overlay, normal;
+  background: radial-gradient(800px 600px at 30% 20%, rgba(99, 102, 241, .06) 0%, transparent 70%);
   pointer-events: none
 }
 
-[data-theme="dark"] .hero-section::after {
-  background: linear-gradient(135deg, rgba(99, 102, 241, .04), rgba(139, 92, 246, .04)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' opacity='.04'/%3E%3C/svg%3E");
-  background-size: auto, 300px 300px;
-  background-repeat: no-repeat, repeat;
-  background-position: center, top left;
-  background-blend-mode: overlay, normal
+[data-theme="dark"] .hero-section::before {
+  background: radial-gradient(800px 600px at 30% 20%, rgb(129 140 248 / .08) 0%, transparent 70%)
 }
 
 .hero-content {
@@ -883,13 +858,13 @@ th {
   max-width: 900px;
   margin: 0 auto;
   position: relative;
-  animation: fadeInUp .5s ease-out
+  animation: fadeInUp .4s ease-out
 }
 
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(15px)
+    transform: translateY(8px)
   }
 
   to {
@@ -1070,8 +1045,9 @@ th {
   position: relative;
   overflow: hidden;
   min-width: 160px;
+  min-height: 44px;
   justify-content: center;
-  transition: background-color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
   flex-shrink: 0;
   white-space: nowrap;
   cursor: pointer
@@ -1087,25 +1063,21 @@ th {
   z-index: -1
 }
 
-.btn:hover::before {
-  opacity: 1
-}
-
 .btn:hover {
-  box-shadow: var(--shadow-md)
+  transform: translateY(-1px)
 }
 
 .btn-primary {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
   color: #fff;
   border-color: transparent;
-  box-shadow: var(--shadow-sm)
+  box-shadow: var(--shadow-sm);
+  transition: background var(--transition-fast), transform var(--transition-fast)
 }
 
 .btn-primary:hover {
   background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary-dark) 100%);
-  color: #fff;
-  box-shadow: var(--shadow-sm)
+  color: #fff
 }
 
 .btn-primary::before {
@@ -1221,8 +1193,7 @@ tr:focus-within {
 }
 
 .benefit-card:hover {
-  border-color: var(--primary);
-  box-shadow: var(--shadow-sm)
+  border-color: var(--primary)
 }
 
 .benefit-card:hover::before {
@@ -1233,7 +1204,8 @@ tr:focus-within {
   width: 40px;
   height: 40px;
   color: var(--primary);
-  margin-bottom: var(--space-lg)
+  margin-bottom: var(--space-lg);
+  transition: color var(--transition-fast)
 }
 
 .benefit-card:hover .icon-badge {
@@ -1392,8 +1364,7 @@ tr:focus-within {
 }
 
 .speed-card:hover {
-  border-color: var(--primary);
-  box-shadow: var(--shadow-sm)
+  border-color: var(--primary)
 }
 
 .speed-card:hover::before {
@@ -1452,8 +1423,7 @@ tr:focus-within {
 }
 
 .note-card:hover {
-  border-color: var(--primary);
-  box-shadow: var(--shadow-sm)
+  border-color: var(--primary)
 }
 
 .note-card:hover::before {
@@ -1533,11 +1503,10 @@ tr:focus-within {
   border: 1px solid var(--border-primary);
   border-radius: var(--radius-lg);
   text-decoration: none;
-  transition: border-color var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast)
+  transition: border-color var(--transition-fast), background-color var(--transition-fast)
 }
 
 .resource-item:hover {
-  box-shadow: var(--shadow-sm);
   border-color: var(--primary);
   background: var(--bg-primary)
 }
@@ -1613,7 +1582,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   font-size: var(--text-sm);
-c  min-width: 600px;
+  min-width: 600px;
   background: var(--bg-primary)
 }
 
@@ -1998,8 +1967,7 @@ th {
 }
 
 .status-card:hover {
-  border-color: var(--primary);
-  box-shadow: var(--shadow-sm)
+  border-color: var(--primary)
 }
 
 .status-card:hover::before {
@@ -2009,8 +1977,6 @@ th {
 @media (max-width:768px) {
   .status-card,
   .referral-card {
-    box-shadow: none;
-    transform: none !important;
     transition: background var(--transition-fast), border-color var(--transition-fast)
   }
 
@@ -2106,8 +2072,7 @@ th {
 }
 
 .referral-card:hover {
-  border-color: var(--primary);
-  box-shadow: var(--shadow-sm)
+  border-color: var(--primary)
 }
 
 .referral-card:hover::before {
@@ -2951,8 +2916,7 @@ select:hover {
   visibility: hidden;
   transform: translateY(10px);
   z-index: 50;
-  transition: opacity var(--transition-fast), visibility var(--transition-fast), transform var(--transition-fast);
-  will-change: opacity, transform
+  transition: opacity var(--transition-fast), visibility var(--transition-fast), transform var(--transition-fast)
 }
 
 .back-to-top.visible {
@@ -2963,7 +2927,7 @@ select:hover {
 
 .back-to-top:hover {
   background: var(--primary-hover);
-  box-shadow: var(--shadow-lg)
+  transform: translateY(-2px)
 }
 
 .back-to-top:focus-visible {
