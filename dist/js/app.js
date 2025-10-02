@@ -2,7 +2,6 @@
  * Debrid Services Comparison - Improved App JS
  * - Data loading (file hosts, adult hosts)
  * - Tables, comparison interactions with ✅/❌ format
- * - Age verification overlay (focus trap + inert)
  * - Back-to-top, nav highlight, animations, offline detection
  * - Performance-minded DOM updates and event delegation
  */
@@ -915,110 +914,6 @@ function setupHeaderElevate() {
     window.addEventListener('scroll', onScroll, { passive: true });
 }
 
-/* Age verification overlay with focus trap + inert */
-function setupAgeVerification() {
-  const overlay = document.getElementById('age-verification-overlay');
-  const adultContent = document.getElementById('adult-content');
-  const confirmBtn = document.getElementById('confirm-age');
-  const denyBtn = document.getElementById('deny-age');
-  const pageWrapper = document.querySelector('.page-wrapper');
-  const adultSection = document.getElementById('adult-hosts');
-
-  if (!overlay || !adultSection) return;
-
-  // Enhance semantics if not present
-  const modal = overlay.querySelector('.age-verification-modal');
-  const titleEl = overlay.querySelector('.age-verification-content h3');
-
-  if (modal) {
-    modal.setAttribute('role', 'dialog');
-    modal.setAttribute('aria-modal', 'true');
-    if (titleEl) {
-      const titleId = 'age-title';
-      titleEl.id = titleId;
-      modal.setAttribute('aria-labelledby', titleId);
-    }
-  }
-
-  const setInert = (isInert) => {
-    if (!pageWrapper) return;
-    if ('inert' in pageWrapper) {
-      pageWrapper.inert = isInert;
-    } else {
-      pageWrapper.setAttribute('aria-hidden', String(isInert));
-    }
-  };
-
-  const FOCUSABLE = 'a[href], area[href], button, input, select, textarea, details, summary, [tabindex]:not([tabindex="-1"])';
-  let removeTrap = null;
-  const trapFocus = (container) => {
-    const nodes = Array.from(container.querySelectorAll(FOCUSABLE))
-      .filter(el => !el.hasAttribute('disabled') && el.getAttribute('aria-hidden') !== 'true');
-    const first = nodes[0];
-    const last = nodes[nodes.length - 1];
-
-    const onKeydown = (e) => {
-      if (e.key === 'Escape') {
-        // Allow closing via deny to maintain your original flow
-        denyBtn?.click();
-      } else if (e.key === 'Tab') {
-        if (nodes.length === 0) { e.preventDefault(); return; }
-        if (e.shiftKey && document.activeElement === first) {
-          e.preventDefault(); last.focus();
-        } else if (!e.shiftKey && document.activeElement === last) {
-          e.preventDefault(); first.focus();
-        }
-      }
-    };
-    container.addEventListener('keydown', onKeydown);
-    first?.focus();
-    return () => container.removeEventListener('keydown', onKeydown);
-  };
-
-  const openOverlay = () => {
-    overlay.style.display = 'flex';
-    overlay.setAttribute('aria-hidden', 'false');
-    setInert(true);
-    removeTrap = trapFocus(modal || overlay);
-  };
-
-  const closeOverlay = () => {
-    overlay.style.display = 'none';
-    overlay.setAttribute('aria-hidden', 'true');
-    setInert(false);
-    if (typeof removeTrap === 'function') removeTrap();
-  };
-
-  // State
-  const ageConfirmed = localStorage.getItem('age-confirmed') === 'true';
-  if (ageConfirmed) {
-    overlay.style.display = 'none';
-    if (adultContent) adultContent.style.display = 'block';
-  }
-
-  confirmBtn?.addEventListener('click', () => {
-    localStorage.setItem('age-confirmed', 'true');
-    if (adultContent) adultContent.style.display = 'block';
-    closeOverlay();
-  });
-
-  denyBtn?.addEventListener('click', () => {
-    document.getElementById('what-are-debrid')?.scrollIntoView({ behavior: 'smooth' });
-    closeOverlay();
-  });
-
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && localStorage.getItem('age-confirmed') !== 'true') {
-          openOverlay();
-        }
-      });
-    }, { threshold: 0.1 });
-    observer.observe(adultSection);
-  }
-}
-
 /* ==============================
    Global singletons
    ============================== */
@@ -1104,7 +999,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupBackToTop();
     setupNavHighlight();
     setupHeaderElevate();
-    setupAgeVerification();
 
     performanceMonitor.mark('fully-loaded');
     performanceMonitor.log('Fully Loaded');

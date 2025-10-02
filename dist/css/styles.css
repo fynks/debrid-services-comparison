@@ -155,8 +155,7 @@
   }
 }
 
-.loading-overlay,
-.age-verification-modal {
+.loading-overlay {
   contain: layout paint style
 }
 
