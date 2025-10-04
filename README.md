@@ -687,8 +687,6 @@ Use these direct speed test links to measure real-world performance from each pr
 | **Debrid-Link** | [debrid-link.com/webapp/speedtest](https://debrid-link.com/webapp/speedtest) |
 | **Mega-Debrid** | [mega-debrid.eu/network](https://www.mega-debrid.eu/index.php?page=network)  |
 
----
-
 ### Real-World Speed Test Steps
 
 <details>
