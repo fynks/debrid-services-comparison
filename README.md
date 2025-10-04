@@ -3,7 +3,7 @@
     <img src="./dist/favicon.svg" alt="Logo" style="height:1em; width:1em; vertical-align:middle">&nbsp;Debrid Services Comparison
   </h1>
 
-  <p>Community‑maintained, up-to-date comparison of leading debrid / multi-hoster services for pricing, host coverage, policies & tools etc.</p>
+  <p><strong>Compare leading debrid / multi-hoster services for pricing, host coverage, policies & tools.</strong></p>
 
   <p>
     <a href="https://github.com/fynks/debrid-services-comparison/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/fynks/debrid-services-comparison?style=for-the-badge&logo=github"></a>
