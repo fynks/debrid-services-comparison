@@ -3,23 +3,25 @@
     <img src="./dist/favicon.svg" alt="Logo" style="height:1em; width:1em; vertical-align:middle">&nbsp;Debrid Services Comparison
   </h1>
 
-  <p><strong>Community‑maintained, up-to-date comparison</strong> of leading debrid / multi-hoster services for pricing, host coverage, policies & tools etc.</p>
+  <p>Community‑maintained, up-to-date comparison of leading debrid / multi-hoster services for pricing, host coverage, policies & tools etc.</p>
 
   <p>
     <a href="https://github.com/fynks/debrid-services-comparison/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/fynks/debrid-services-comparison?style=for-the-badge&logo=github"></a>
     <a href="#available-hosts"><img alt="Tracked Services" src="https://img.shields.io/badge/Services-9-4caf50?style=for-the-badge&logo=rocket&logoColor=white"></a>
-    <a href="https://debridcompare.pages.dev"><img alt="Web App" src="https://img.shields.io/badge/Interactive-Web_App-00bfa5?style=for-the-badge&logo=google-chrome&logoColor=white"></a>
+    <a href="https://debridcompare.pages.dev"><img alt="Web App" src="https://img.shields.io/badge/Interactive-Web_App-green?style=for-the-badge&logo=google-chrome&logoColor=white"></a>
   </p>
 
-  <p><a href="https://debrid-services-comparison.netlify.app/"><em>▶ Open the interactive version (search • filter • compare)</em></a></p>
+  <a href="https://debrid-services-comparison.netlify.app/"><img src="./dist/images/og.png" alt="Screenshot of interactive comparison web app" width="880" style="border-radius:2px"></a>
 
-  <a href="https://debrid-services-comparison.netlify.app/"><img src="./dist/images/og.png" alt="Screenshot of interactive comparison web app" width="880" loading="lazy"></a>
-
-  <p><a href="#pricing-comparison">Pricing</a> · <a href="#available-hosts">Hosts</a> · <a href="#policies-and-legal">Policies</a> · <a href="#tools-and-community">Tools</a></p>
+<div align="center" style="margin-top:8px;font-size:1.2em">
+  <a href="#pricing-comparison">Pricing</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#available-hosts">Hosts</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#policies-and-legal">Policies</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#tools-and-community">Tools</a>
 </div>
 
-<br />
-
+</div>
+<br>
 
 ## Table of Contents
 
@@ -30,6 +32,7 @@
 - [Pricing Comparison](#pricing-comparison)
 - [Available Hosts](#available-hosts)
   - [File Hosts](#file-hosts)
+  - [Usenet Support](#usenet-support)
   - [Adult Hosts](#adult-hosts)
 - [Policies and Legal](#policies-and-legal)
 - [Speed Test](#speed-test)
@@ -51,8 +54,8 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 - Reduced local bandwidth spikes (remote caching)
 - Less friction & automation-friendly APIs
 
-| 💡 Tip | Think of a debrid service as a “premium proxy” between you and file-hosting sites like Rapidgator, Mediafire, or Uptobox. |
-| ------ | ---------------------------------------------------------------------------------------------- |
+|💡 Think of a debrid service as a “premium proxy” between you and file-hosting sites like Rapidgator, Mediafire, or Uptobox. |
+|------------------------------------------------------------------------------------------------------------------------- |
 
 
 ## Getting Started
@@ -63,24 +66,20 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 > ✨ This guide is **free, open-source, and community-run**. If it helped: starring, reporting corrections, or using a referral link helps sustain maintenance (at no extra cost to you).
 
-
-| Service | Referral | Direct Signup |
-| :------ | :------- | :------------ |
-| AllDebrid | [Referral](https://alldebrid.com/?uid=3wvya&lang=en) | [Signup](https://alldebrid.com/register/) |
-| Real-Debrid | [Referral](https://real-debrid.com/?id=10990901) | [Signup](https://real-debrid.com/) |
-| TorBox | – | [Signup](https://torbox.app/login) |
-| Premiumize | – | [Signup](https://www.premiumize.me/register) |
-| LinkSnappy | [Referral](https://linksnappy.com/?ref=774668) | [Signup](https://linksnappy.com/home#Register) |
-| Debrid-Link | [Referral](https://debrid-link.com/id/7B3BO) | [Signup](https://debrid-link.com/webapp/register) |
-| Mega-Debrid | – | [Signup](https://www.mega-debrid.eu/index.php?page=freeregister) |
-| Deepbrid | [Referral](https://www.deepbrid.com/aff/go/upward1971) | [Signup](https://www.deepbrid.com/signup) |
-| Offcloud | [Referral](https://offcloud.com/?=c44b1fa5) | [Signup](https://offcloud.com/register) |
-| High-Way | – | [Signup](https://high-way.me/login/login) |
+| Service     | Referral                                               | Direct Signup                                                    |
+| :---------- | :----------------------------------------------------- | :--------------------------------------------------------------- |
+| AllDebrid   | [Referral](https://alldebrid.com/?uid=3wvya&lang=en)   | [Signup](https://alldebrid.com/register/)                        |
+| Real-Debrid | [Referral](https://real-debrid.com/?id=10990901)       | [Signup](https://real-debrid.com/)                               |
+| TorBox      | –                                                      | [Signup](https://torbox.app/login)                               |
+| Premiumize  | –                                                      | [Signup](https://www.premiumize.me/register)                     |
+| LinkSnappy  | [Referral](https://linksnappy.com/?ref=774668)         | [Signup](https://linksnappy.com/home#Register)                   |
+| Debrid-Link | [Referral](https://debrid-link.com/id/7B3BO)           | [Signup](https://debrid-link.com/webapp/register)                |
+| Mega-Debrid | –                                                      | [Signup](https://www.mega-debrid.eu/index.php?page=freeregister) |
+| Deepbrid    | [Referral](https://www.deepbrid.com/aff/go/upward1971) | [Signup](https://www.deepbrid.com/signup)                        |
+| Offcloud    | [Referral](https://offcloud.com/?=c44b1fa5)            | [Signup](https://offcloud.com/register)                          |
+| High-Way    | –                                                      | [Signup](https://high-way.me/login/login)                        |
 
 </div>
-
-> [!NOTE]
-> No financial ties to services. Referrals offset hosting & data validation costs only.
 
 <div align="right">
 
@@ -92,16 +91,16 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 ### Detailed Pricing and Value Analysis
 
-| **Plan Duration** | **AllDebrid** | **Premiumize** | **Real-Debrid** | **TorBox** | **Debrid-Link** | **LinkSnappy** | **Mega-Debrid** | **Deepbrid** | **High-Way** | **Offcloud** |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Free / Trial** | 7-day trial¹ | ❌ | ❌ | Free tier² | ❌ | ❌ | ❌ | Limited hosts only | Limited Hosts⁶ | ❌ |
-| **7 Days** | ❌ | ❌ | ❌ | ❌ | ❌ | $4.99 | ❌ | ❌ | ❌ | ❌ |
-| **15 Days** | €2.99 (one-time)⁴ | ❌ | €3.00 | ❌ | €3.00 | ❌ | ❌ | €4.50 | ❌ | ❌ |
-| **30 Days** | €2.99 (recurring)³<br>€3.99 (one-time)⁴ | $11.99 | €4.00 | From $3.00/month⁵ | €4.00 | $12.99 | €4.00 | €4.99 | From €5.99 | $9.99 |
-| **90 Days** | €8.99 (one-time)⁴ | $29.99 | €9.00 | ❌ | €9.00 | $29.99 | €9.00 | €12.99 | From €15.99 | $29.97 |
-| **180 Days** | €15.99 (one-time)⁴ | ❌ | €16.00 | ❌ | €16.00 | $54.99 | €16.00 | €19.99 | From €29.99 | ❌ |
-| **300 Days** | €24.99 (one-time)⁴ | ❌ | ❌ | ❌ | €25.00 | ❌ | ❌ | ❌ | ❌ | ❌ |
-| **365 Days / 1 Year** | ❌ | $79.99 | ❌ | ❌ | ❌ | ❌ | ❌ | €32.99 | ❌ | $69.99 |
+| **Plan Duration**     | **AllDebrid**                           | **Premiumize** | **Real-Debrid** | **TorBox**        | **Debrid-Link** | **LinkSnappy** | **Mega-Debrid** | **Deepbrid**       | **High-Way**   | **Offcloud** |
+| :-------------------- | :-------------------------------------- | :------------- | :-------------- | :---------------- | :-------------- | :------------- | :-------------- | :----------------- | :------------- | :----------- |
+| **Free / Trial**      | 7-day trial¹                            | ❌              | ❌               | Free tier²        | ❌               | ❌              | ❌               | Limited hosts only | Limited Hosts⁶ | ❌            |
+| **7 Days**            | ❌                                       | ❌              | ❌               | ❌                 | ❌               | $4.99          | ❌               | ❌                  | ❌              | ❌            |
+| **15 Days**           | €2.99 (one-time)⁴                       | ❌              | €3.00           | ❌                 | €3.00           | ❌              | ❌               | €4.50              | ❌              | ❌            |
+| **30 Days**           | €2.99 (recurring)³<br>€3.99 (one-time)⁴ | $11.99         | €4.00           | From $3.00/month⁵ | €4.00           | $12.99         | €4.00           | €4.99              | From €5.99     | $9.99        |
+| **90 Days**           | €8.99 (one-time)⁴                       | $29.99         | €9.00           | ❌                 | €9.00           | $29.99         | €9.00           | €12.99             | From €15.99    | $29.97       |
+| **180 Days**          | €15.99 (one-time)⁴                      | ❌              | €16.00          | ❌                 | €16.00          | $54.99         | €16.00          | €19.99             | From €29.99    | ❌            |
+| **300 Days**          | €24.99 (one-time)⁴                      | ❌              | ❌               | ❌                 | €25.00          | ❌              | ❌               | ❌                  | ❌              | ❌            |
+| **365 Days / 1 Year** | ❌                                       | $79.99         | ❌               | ❌                 | ❌               | ❌              | ❌               | €32.99             | ❌              | $69.99       |
 
 > [!NOTE]
 > - **¹ AllDebrid Free Trial**: 7-day trial requires phone verification.
@@ -129,13 +128,13 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 | Mega-Debrid | [mega-debrid.eu/offres](https://www.mega-debrid.eu/index.php?page=offres)  |
 | Deepbrid    | [deepbrid.com/signup](https://www.deepbrid.com/signup)                     |
 | High-Way    | [high-way.me/pages/tariffs](https://high-way.me/pages/tariffs)             |
-| Offcloud    | [https://offcloud.com/#pricing](https://offcloud.com/#pricing)                         |
+| Offcloud    | [https://offcloud.com/#pricing](https://offcloud.com/#pricing)             |
 
 </details><br>
 
 ![Last Updated](https://img.shields.io/badge/Last%20Updated-September%2019%2C%202025-blue?style=for-the-badge)
 
-<br />
+<br>
 
 <div align="right">
 
@@ -147,452 +146,452 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 ### File Hosts
 
-<br />
+<br>
 
 <div align="center">
 
 | ⚡ For faster exploration (search + filter + side-by-side), use the <a href="https://debridcompare.pages.dev" target="_blank" rel="noopener">interactive web app</a>. |
-|------------------------------------------|
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 </div>
 
-| **Service Name** | **AllDebrid** | **TorBox** | **Premiumize** | **Real-Debrid** | **Debrid-Link** | **LinkSnappy** | **Mega-Debrid** | **Deepbrid** | **High-Way** | **Offcloud** |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1Fichier | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ |
-| 1Tv | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| 24Uploading | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| 2Shared | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| 4Share | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| 4Shared | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ |
-| 4Tube | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| 4Upld | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| 5Azn | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Abcnews | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Acast | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Akafile | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Alfafile | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ |
-| Allmyvideos | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Annas archive | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Anonfiles | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Anzfile | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Aparat | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Apkadmin | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Archive.org | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Audioboom | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Audiomack | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Auroravid | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Ausfile | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Ayefiles | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Backin | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Baidu | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Baidu video | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Bayfiles | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| Bbc | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Bdupload | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Beta hoster | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
-| Bilibili | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Billionuploads | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Bitvid | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Bluesky | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Box | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Brfiles | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Buenastareas | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| Bunkr | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Buzzheavier | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Bytewhale | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| C-span | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Calameo | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ |
-| Camdemy | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Canalplus | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Catshare | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Cc.com | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Chilloutzone | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Cinemassacre | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Clicknupload | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
-| Clipfish | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Clipsyndicate | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Cloudfile | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Cloudghost | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Cloudsix | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Cloudvideo | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| Clubic | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Collegehumor | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Comedy central | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Comedycentral | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Coub | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Crunchyroll | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Ctfile | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Daclips | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Dagbladet | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Dailymail | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Dailymotion | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
-| Dailyuploads | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ |
-| Daofile | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Darikibox | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Data nodes | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Datafilehost | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ |
-| Datei | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Datoid | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Dbr | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Dctp | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Ddl | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Ddlstorage | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Ddowload / ddl.to | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ |
-| Ddownload | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| Ddownload10 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Deezer | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Depositfiles | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ |
-| Dev-host | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Discovery channel | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Dl.free | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Dood | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Doraupload | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Dotsub | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Douploads | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Downloadani | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Drop | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| Drop.download | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ |
-| Drop.download / dropapk | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ |
-| Dropapk | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ |
-| Dropbox | ❌ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Dropgalaxy | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Dropmefiles | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Easybytez | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ |
-| Ebaumsworld | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Elephantafiles | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Elitefile | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Ellentv | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Emload | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ |
-| Erafile | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Exload | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Extmatrix | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ |
-| Facebook | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Fastbit | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Fastdrive | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Fastfile | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| Fastshare | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Faststore | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Fikper | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ |
-| File | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ |
-| File.al | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| File4safe | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| Fileaxa | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ |
-| Fileblade | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| Filecat | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ |
-| Filecloud | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Fileden | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Filedot | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Filefactory | ❌ | ❌ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Fileflyer | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Filefox | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Fileice | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Filejoker | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Fileland | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Filemoney | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Filenext | ❌ | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ❌ | ✅ |
-| Filepup | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Filer | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ |
-| Filer.net | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Filerio | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Filesabc | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Filescdn | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Filesflash | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Filesfly | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Filesmonster | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| Filespace | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
-| Filestank | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Filestore | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ |
-| Filestore.me | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Filestore.to | ❌ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Filextras | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| Filezip | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Firedrop | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Fireget | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| Flash-files | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Flashbit | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Flashx | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Flipagram | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Flix555 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Formula1 | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Foxnews | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Free | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ |
-| Fshare | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Fuckingfast | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Gaia | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Gamefront | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Gamersyde | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Gamestar | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Gboxes | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Gigapeta | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ✅ | ❌ | ✅ |
-| Gigasize | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Github | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Gofile | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Google | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Google drive | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Gorillavid | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Harefile | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Heroupload | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Hexload | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| Hexupload / hexload | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Hitfile | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ |
-| Hot4share | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| Hotlink | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ | ✅ |
-| Hotstar | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Hulkshare | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ |
-| Hzfile | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Icedrive | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Icerbox | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Icerbox* | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| Icloud drive | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Idnes | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Imgur | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Inclouddrive | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Indishare | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Instagram | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ |
-| Interfile | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Isra | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| Isra.cloud | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ❌ |
-| Issuu | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ |
-| Izlesene | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Jamendo | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Jumploads | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| K2s* | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ |
-| Karrierevideos | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Katfile | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Keek | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Keep2share | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Keepfile | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Kenfiles | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| Khanacademy | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Kick | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Kickstarter | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Koofr | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Krakenfiles | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| Kshared | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Kvid | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Labload | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Lafiles | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Lcp | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Letitbit | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Limefile | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Littlebyte | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Load | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Longfiles | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Loom | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Lunaticfiles | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Lynda | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Masterani | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Mediaccc | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Mediafile | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Mediafire | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
-| Mediafree | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Mega | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Megacache | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Megairon | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Megaup | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Metacafe | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ |
-| Mexashare | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ |
-| Minhateca | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Mirrorace | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Mixcloud | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Mixdrop | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Modsbase | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Moondl | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Movieclips | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Movpod | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Movshare | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Mp4upload | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Msnbc | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Multiup | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Myspass | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Naver | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Nbcsports | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Ndtv | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Nelion | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Nexusmods | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Nfl | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Niconico | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Nicovideo | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Ninjastream | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Nitroflare | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ |
-| Novafile | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Novamov | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Nowdownload | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Nowvideo | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Nytimes | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Oboom | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ |
-| Odatv | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Odnoklassniki | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Ok.ru | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Onet | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Onionstudios | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Ozibox | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Pan baidu | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Panopto | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Paramount+ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Pcloud | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Periscope | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Pillowcase | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Pinkbike | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Pinterest | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Piwi+ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Pixeldrain | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Play | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Plays | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Playtvak | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Prefiles | ✅ | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| Promptfile | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Purevid | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Putlocker | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Pyvideo | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Qiwi | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Qobuz | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Radiotunes | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| Rapidfileshare | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Rapidgator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
-| Rapidpaid | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Rapidrar | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ |
-| Rapidu | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Rarefile | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Redbunker | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Reddit | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Revision3 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Rockfile | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Rosefile | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ |
-| Rtbf | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Rte | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Rts | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Rtve.es | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Ruhd | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Rutube | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| Ruutu | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Salefiles | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ |
-| Scribd | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| Sdilej | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Secureupload | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Send.cm | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Send.now | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Sendit | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Sendspace | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ |
-| Shareflare | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Sharemods | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Silkfiles | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Simfileshare | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Slideshare | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ |
-| Slingfile | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Smotri | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Snapchat | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Snotr | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Sockshare | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Solidfiles | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ |
-| Soundcloud | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ |
-| Sportdeutschland | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Steam | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Steam (video) | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Stream.cz | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Streamable | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Streamcloud | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Streamers | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Streamtape | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Subyshare | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ |
-| Swisstransfer | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Syncs | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| Sztv | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Takefile | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| Teachingchannel | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Teamfourstar | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Techtalks | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Ted | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Telebruxelles | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Terabox | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| Terabytez | ❌ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| Tezfiles | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Tf1 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Tiktok | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Tlc | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Trashbytes | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Tumblr | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Turbobit | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Tusfiles | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ |
-| Tweakers | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Twitch | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Twitter | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Ubiqfile | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Uktv play | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Uloz | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Unibytes | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Unlimitzone | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Upasias | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Upload | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Upload.af | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Upload42 | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Upload4earn | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Uploadbank | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Uploadbox | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Uploadboy | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ |
-| Uploadev | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Uploadex | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Uploadgig | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ |
-| Uploadhaven | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| Uploading | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Uploadlux | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Uploadocean | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Uploadrar | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Uploadrocket | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Uploads | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Uploady | ✅ | ❌ | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Uplod | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Uppit | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Upshared | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Upstream | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Uptobox | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ |
-| Upvid | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Uqload | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Userscloud | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| Usersdrive | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Userupload | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Ustream | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Veoh | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Verystream | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ |
-| Vessel | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Vev | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Vidabc | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Video | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Videomega | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Videowood | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Vidoza | ✅ | ❌ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ |
-| Vidspot | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Vidto | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Vidzi | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Vimeo | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ |
-| Viooz | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Vipfile | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Vk | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Vodlocker | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Voe | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Vup | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Wayupload | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Webshare | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Wipfiles | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Workupload | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Worldbytez | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ |
-| Wupfile | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Wupfile / salefiles | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ |
-| Wushare | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ |
-| Xenupload | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Xiaohongshu | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Xubster | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ |
-| Xvidstage | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Yandex disk | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Yandex video | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Youdbox | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Youku | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Youtube | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ |
-| Youwatch | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Yunfile | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| **Total** = **432** | **70/432** | **104/432** | **31/432** | **40/432** | **45/432** | **19/432** | **118/432** | **80/432** | **16/432** | **213/432** |
+| **Service Name**        | **AllDebrid** | **TorBox**  | **Premiumize** | **Real-Debrid** | **Debrid-Link** | **LinkSnappy** | **Mega-Debrid** | **Deepbrid** | **High-Way** | **Offcloud** |
+| :---------------------- | :------------ | :---------- | :------------- | :-------------- | :-------------- | :------------- | :-------------- | :----------- | :----------- | :----------- |
+| 1Fichier                | ✅             | ✅           | ✅              | ✅               | ✅               | ❌              | ✅               | ✅            | ✅            | ✅            |
+| 1Tv                     | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| 24Uploading             | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| 2Shared                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| 4Share                  | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| 4Shared                 | ✅             | ✅           | ❌              | ✅               | ❌               | ❌              | ❌               | ✅            | ❌            | ✅            |
+| 4Tube                   | ✅             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| 4Upld                   | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| 5Azn                    | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Abcnews                 | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Acast                   | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Akafile                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Alfafile                | ✅             | ✅           | ❌              | ❌               | ❌               | ✅              | ✅               | ✅            | ❌            | ❌            |
+| Allmyvideos             | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Annas archive           | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Anonfiles               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Anzfile                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Aparat                  | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Apkadmin                | ✅             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Archive.org             | ✅             | ✅           | ✅              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Audioboom               | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Audiomack               | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Auroravid               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Ausfile                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Ayefiles                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Backin                  | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Baidu                   | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Baidu video             | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Bayfiles                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ❌            |
+| Bbc                     | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Bdupload                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Beta hoster             | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ✅            | ❌            |
+| Bilibili                | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Billionuploads          | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Bitvid                  | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Bluesky                 | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Box                     | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Brfiles                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Buenastareas            | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ❌            |
+| Bunkr                   | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Buzzheavier             | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Bytewhale               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| C-span                  | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Calameo                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ✅            | ❌            | ❌            |
+| Camdemy                 | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Canalplus               | ✅             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Catshare                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Cc.com                  | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Chilloutzone            | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Cinemassacre            | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Clicknupload            | ❌             | ✅           | ✅              | ✅               | ✅               | ✅              | ✅               | ✅            | ❌            | ✅            |
+| Clipfish                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Clipsyndicate           | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Cloudfile               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Cloudghost              | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Cloudsix                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Cloudvideo              | ✅             | ❌           | ✅              | ❌               | ❌               | ✅              | ❌               | ❌            | ❌            | ❌            |
+| Clubic                  | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Collegehumor            | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Comedy central          | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Comedycentral           | ✅             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Coub                    | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Crunchyroll             | ✅             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Ctfile                  | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Daclips                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Dagbladet               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Dailymail               | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Dailymotion             | ✅             | ✅           | ❌              | ✅               | ❌               | ✅              | ❌               | ✅            | ❌            | ❌            |
+| Dailyuploads            | ✅             | ✅           | ❌              | ✅               | ✅               | ❌              | ✅               | ✅            | ❌            | ✅            |
+| Daofile                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Darikibox               | ❌             | ❌           | ❌              | ❌               | ✅               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Data nodes              | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Datafilehost            | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ✅            |
+| Datei                   | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Datoid                  | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Dbr                     | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Dctp                    | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Ddl                     | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Ddlstorage              | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Ddowload / ddl.to       | ❌             | ❌           | ❌              | ❌               | ✅               | ✅              | ✅               | ❌            | ❌            | ❌            |
+| Ddownload               | ✅             | ✅           | ❌              | ✅               | ❌               | ❌              | ❌               | ✅            | ❌            | ❌            |
+| Ddownload10             | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Deezer                  | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Depositfiles            | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ✅            |
+| Dev-host                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Discovery channel       | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Dl.free                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Dood                    | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Doraupload              | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Dotsub                  | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Douploads               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Downloadani             | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Drop                    | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ❌            |
+| Drop.download           | ❌             | ❌           | ❌              | ✅               | ❌               | ❌              | ✅               | ❌            | ✅            | ❌            |
+| Drop.download / dropapk | ❌             | ❌           | ✅              | ❌               | ✅               | ❌              | ❌               | ❌            | ✅            | ❌            |
+| Dropapk                 | ✅             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ✅            | ✅            |
+| Dropbox                 | ❌             | ✅           | ❌              | ✅               | ✅               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Dropgalaxy              | ✅             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Dropmefiles             | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Easybytez               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ✅            |
+| Ebaumsworld             | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Elephantafiles          | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Elitefile               | ❌             | ❌           | ❌              | ❌               | ✅               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Ellentv                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Emload                  | ❌             | ❌           | ❌              | ❌               | ✅               | ❌              | ❌               | ✅            | ❌            | ✅            |
+| Erafile                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Exload                  | ✅             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Extmatrix               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ✅            |
+| Facebook                | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Fastbit                 | ✅             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Fastdrive               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Fastfile                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ❌            |
+| Fastshare               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Faststore               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Fikper                  | ❌             | ❌           | ❌              | ✅               | ✅               | ❌              | ✅               | ✅            | ❌            | ❌            |
+| File                    | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ✅            |
+| File.al                 | ✅             | ❌           | ✅              | ✅               | ❌               | ✅              | ❌               | ❌            | ❌            | ❌            |
+| File4safe               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ❌            |
+| Fileaxa                 | ❌             | ❌           | ❌              | ❌               | ✅               | ❌              | ❌               | ✅            | ❌            | ✅            |
+| Fileblade               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ❌            |
+| Filecat                 | ❌             | ❌           | ❌              | ❌               | ✅               | ❌              | ❌               | ✅            | ❌            | ✅            |
+| Filecloud               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Fileden                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Filedot                 | ✅             | ❌           | ❌              | ❌               | ✅               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Filefactory             | ❌             | ❌           | ✅              | ✅               | ❌               | ✅              | ✅               | ✅            | ✅            | ✅            |
+| Fileflyer               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Filefox                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Fileice                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Filejoker               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Fileland                | ❌             | ❌           | ❌              | ❌               | ✅               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Filemoney               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Filenext                | ❌             | ❌           | ✅              | ✅               | ❌               | ✅              | ❌               | ✅            | ❌            | ✅            |
+| Filepup                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Filer                   | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ✅            | ✅            |
+| Filer.net               | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Filerio                 | ✅             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Filesabc                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Filescdn                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Filesflash              | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Filesfly                | ❌             | ❌           | ❌              | ❌               | ✅               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Filesmonster            | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ❌            |
+| Filespace               | ✅             | ❌           | ❌              | ✅               | ❌               | ✅              | ❌               | ✅            | ❌            | ❌            |
+| Filestank               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Filestore               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ✅            | ❌            |
+| Filestore.me            | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Filestore.to            | ❌             | ❌           | ✅              | ✅               | ✅               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Filextras               | ❌             | ❌           | ❌              | ✅               | ❌               | ❌              | ❌               | ✅            | ❌            | ❌            |
+| Filezip                 | ✅             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Firedrop                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Fireget                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ❌            |
+| Flash-files             | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Flashbit                | ✅             | ❌           | ❌              | ✅               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Flashx                  | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Flipagram               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Flix555                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Formula1                | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Foxnews                 | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Free                    | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ✅            | ❌            | ❌            |
+| Fshare                  | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Fuckingfast             | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Gaia                    | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Gamefront               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Gamersyde               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Gamestar                | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Gboxes                  | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Gigapeta                | ✅             | ❌           | ❌              | ✅               | ❌               | ✅              | ❌               | ✅            | ❌            | ✅            |
+| Gigasize                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Github                  | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Gofile                  | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Google                  | ✅             | ❌           | ✅              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Google drive            | ❌             | ✅           | ❌              | ✅               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Gorillavid              | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Harefile                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Heroupload              | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Hexload                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ❌            |
+| Hexupload / hexload     | ✅             | ✅           | ✅              | ✅               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Hitfile                 | ✅             | ✅           | ✅              | ✅               | ❌               | ✅              | ✅               | ✅            | ❌            | ✅            |
+| Hot4share               | ✅             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ❌            |
+| Hotlink                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ✅            | ❌            | ✅            |
+| Hotstar                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Hulkshare               | ❌             | ❌           | ❌              | ❌               | ✅               | ❌              | ❌               | ✅            | ❌            | ✅            |
+| Hzfile                  | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Icedrive                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Icerbox                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Icerbox*                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ❌            |
+| Icloud drive            | ❌             | ❌           | ❌              | ✅               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Idnes                   | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Imgur                   | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Inclouddrive            | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Indishare               | ✅             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Instagram               | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ✅            |
+| Interfile               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Isra                    | ✅             | ❌           | ✅              | ❌               | ❌               | ✅              | ❌               | ❌            | ❌            | ❌            |
+| Isra.cloud              | ❌             | ❌           | ❌              | ✅               | ✅               | ❌              | ✅               | ❌            | ✅            | ❌            |
+| Issuu                   | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ✅            | ❌            | ❌            |
+| Izlesene                | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Jamendo                 | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Jumploads               | ❌             | ❌           | ❌              | ❌               | ✅               | ❌              | ❌               | ✅            | ❌            | ❌            |
+| K2s*                    | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ✅            | ❌            |
+| Karrierevideos          | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Katfile                 | ✅             | ✅           | ✅              | ✅               | ✅               | ✅              | ✅               | ✅            | ✅            | ✅            |
+| Keek                    | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Keep2share              | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Keepfile                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Kenfiles                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ❌            |
+| Khanacademy             | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Kick                    | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Kickstarter             | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Koofr                   | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Krakenfiles             | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ❌            |
+| Kshared                 | ❌             | ❌           | ❌              | ❌               | ✅               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Kvid                    | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Labload                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Lafiles                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Lcp                     | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Letitbit                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Limefile                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Littlebyte              | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Load                    | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Longfiles               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Loom                    | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Lunaticfiles            | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Lynda                   | ✅             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Masterani               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Mediaccc                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Mediafile               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Mediafire               | ✅             | ✅           | ✅              | ✅               | ✅               | ✅              | ✅               | ✅            | ❌            | ✅            |
+| Mediafree               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Mega                    | ✅             | ✅           | ✅              | ✅               | ✅               | ✅              | ✅               | ✅            | ✅            | ✅            |
+| Megacache               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Megairon                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Megaup                  | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Metacafe                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ✅            |
+| Mexashare               | ✅             | ❌           | ❌              | ❌               | ✅               | ❌              | ❌               | ✅            | ❌            | ✅            |
+| Minhateca               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Mirrorace               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Mixcloud                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Mixdrop                 | ✅             | ✅           | ❌              | ❌               | ✅               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Modsbase                | ✅             | ❌           | ✅              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Moondl                  | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Movieclips              | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Movpod                  | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Movshare                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Mp4upload               | ✅             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Msnbc                   | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Multiup                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Myspass                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Naver                   | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Nbcsports               | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Ndtv                    | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Nelion                  | ❌             | ❌           | ❌              | ❌               | ✅               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Nexusmods               | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Nfl                     | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Niconico                | ✅             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Nicovideo               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Ninjastream             | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Nitroflare              | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ✅            | ❌            |
+| Novafile                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Novamov                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Nowdownload             | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Nowvideo                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Nytimes                 | ✅             | ✅           | ✅              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Oboom                   | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ✅            |
+| Odatv                   | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Odnoklassniki           | ✅             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Ok.ru                   | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Onet                    | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Onionstudios            | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Ozibox                  | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Pan baidu               | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Panopto                 | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Paramount+              | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Pcloud                  | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Periscope               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Pillowcase              | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Pinkbike                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Pinterest               | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Piwi+                   | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Pixeldrain              | ❌             | ✅           | ❌              | ❌               | ✅               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Play                    | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Plays                   | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Playtvak                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Prefiles                | ✅             | ❌           | ❌              | ✅               | ✅               | ❌              | ❌               | ✅            | ❌            | ❌            |
+| Promptfile              | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Purevid                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Putlocker               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Pyvideo                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Qiwi                    | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Qobuz                   | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Radiotunes              | ❌             | ❌           | ❌              | ✅               | ❌               | ❌              | ❌               | ✅            | ❌            | ❌            |
+| Rapidfileshare          | ✅             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Rapidgator              | ✅             | ✅           | ✅              | ✅               | ✅               | ✅              | ✅               | ✅            | ✅            | ❌            |
+| Rapidpaid               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Rapidrar                | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ✅            |
+| Rapidu                  | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Rarefile                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Redbunker               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Reddit                  | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Revision3               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Rockfile                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Rosefile                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ✅            |
+| Rtbf                    | ✅             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Rte                     | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Rts                     | ✅             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Rtve.es                 | ✅             | ✅           | ✅              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Ruhd                    | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Rutube                  | ✅             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ❌            |
+| Ruutu                   | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Salefiles               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ✅            |
+| Scribd                  | ✅             | ✅           | ❌              | ✅               | ✅               | ❌              | ❌               | ✅            | ❌            | ❌            |
+| Sdilej                  | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Secureupload            | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Send.cm                 | ❌             | ❌           | ❌              | ✅               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Send.now                | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Sendit                  | ✅             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Sendspace               | ❌             | ✅           | ❌              | ✅               | ❌               | ❌              | ❌               | ✅            | ❌            | ✅            |
+| Shareflare              | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Sharemods               | ✅             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Silkfiles               | ❌             | ❌           | ❌              | ❌               | ✅               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Simfileshare            | ✅             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Slideshare              | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ✅            |
+| Slingfile               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Smotri                  | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Snapchat                | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Snotr                   | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Sockshare               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Solidfiles              | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ✅            |
+| Soundcloud              | ✅             | ✅           | ✅              | ❌               | ✅               | ✅              | ❌               | ✅            | ❌            | ✅            |
+| Sportdeutschland        | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Steam                   | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Steam (video)           | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Stream.cz               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Streamable              | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Streamcloud             | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Streamers               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Streamtape              | ❌             | ✅           | ✅              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Subyshare               | ❌             | ❌           | ❌              | ❌               | ✅               | ❌              | ❌               | ✅            | ❌            | ✅            |
+| Swisstransfer           | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Syncs                   | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ❌            |
+| Sztv                    | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Takefile                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ❌            |
+| Teachingchannel         | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Teamfourstar            | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Techtalks               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Ted                     | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Telebruxelles           | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Terabox                 | ❌             | ✅           | ❌              | ❌               | ✅               | ❌              | ❌               | ✅            | ❌            | ❌            |
+| Terabytez               | ❌             | ✅           | ❌              | ✅               | ✅               | ❌              | ❌               | ✅            | ❌            | ❌            |
+| Tezfiles                | ❌             | ❌           | ❌              | ❌               | ✅               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Tf1                     | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Tiktok                  | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Tlc                     | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Trashbytes              | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Tumblr                  | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Turbobit                | ✅             | ✅           | ✅              | ✅               | ✅               | ✅              | ✅               | ✅            | ✅            | ✅            |
+| Tusfiles                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ✅            |
+| Tweakers                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Twitch                  | ✅             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Twitter                 | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Ubiqfile                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Uktv play               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Uloz                    | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Unibytes                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Unlimitzone             | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Upasias                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Upload                  | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Upload.af               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Upload42                | ✅             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Upload4earn             | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Uploadbank              | ✅             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Uploadbox               | ✅             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Uploadboy               | ✅             | ❌           | ✅              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ✅            |
+| Uploadev                | ✅             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Uploadex                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Uploadgig               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ✅            |
+| Uploadhaven             | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ❌            |
+| Uploading               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Uploadlux               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Uploadocean             | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Uploadrar               | ✅             | ❌           | ✅              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Uploadrocket            | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Uploads                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Uploady                 | ✅             | ❌           | ❌              | ✅               | ✅               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Uplod                   | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Uppit                   | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Upshared                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Upstream                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Uptobox                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ✅            |
+| Upvid                   | ❌             | ❌           | ❌              | ❌               | ✅               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Uqload                  | ❌             | ❌           | ❌              | ❌               | ✅               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Userscloud              | ✅             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ❌            |
+| Usersdrive              | ✅             | ❌           | ✅              | ✅               | ✅               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Userupload              | ✅             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Ustream                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Veoh                    | ❌             | ❌           | ✅              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Verystream              | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ✅            |
+| Vessel                  | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Vev                     | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Vidabc                  | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Video                   | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Videomega               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Videowood               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Vidoza                  | ✅             | ❌           | ✅              | ❌               | ✅               | ❌              | ✅               | ✅            | ❌            | ✅            |
+| Vidspot                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Vidto                   | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Vidzi                   | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Vimeo                   | ✅             | ✅           | ❌              | ✅               | ❌               | ❌              | ❌               | ✅            | ❌            | ✅            |
+| Viooz                   | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Vipfile                 | ✅             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Vk                      | ❌             | ✅           | ✅              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Vodlocker               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Voe                     | ❌             | ❌           | ❌              | ✅               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Vup                     | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Wayupload               | ✅             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Webshare                | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Wipfiles                | ❌             | ❌           | ❌              | ✅               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Workupload              | ❌             | ❌           | ❌              | ❌               | ✅               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Worldbytez              | ✅             | ✅           | ❌              | ✅               | ✅               | ❌              | ✅               | ✅            | ❌            | ✅            |
+| Wupfile                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Wupfile / salefiles     | ❌             | ❌           | ✅              | ✅               | ✅               | ✅              | ✅               | ❌            | ❌            | ❌            |
+| Wushare                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ✅            |
+| Xenupload               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Xiaohongshu             | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Xubster                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ✅            | ❌            | ✅            |
+| Xvidstage               | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Yandex disk             | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Yandex video            | ❌             | ✅           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ❌            |
+| Youdbox                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Youku                   | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ✅               | ❌            | ❌            | ❌            |
+| Youtube                 | ❌             | ✅           | ✅              | ❌               | ❌               | ❌              | ❌               | ✅            | ✅            | ✅            |
+| Youwatch                | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| Yunfile                 | ❌             | ❌           | ❌              | ❌               | ❌               | ❌              | ❌               | ❌            | ❌            | ✅            |
+| **Total** = **432**     | **70/432**    | **104/432** | **31/432**     | **40/432**      | **45/432**      | **19/432**     | **118/432**     | **80/432**   | **16/432**   | **213/432**  |
 
-<br />
+<br>
 
 ![Last Updated](https://img.shields.io/badge/Last%20Updated-September%2019%2C%202025-blue?style=for-the-badge)
 
@@ -601,6 +600,16 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 [(↑ Back to Top)](#table-of-contents)
 
 </div>
+
+### Usenet Support
+
+> [!TIP]
+> Usenet is a massive, decentralized message-sharing system built around topic-based newsgroups. These function like forums or discussion boards, with each group focused on a specific subject. Some host plain-text conversations, while others serve as archives for large sets of articles.
+
+| Service         | AllDebrid | TorBox | Premiumize | Real-Debrid | Debrid-Link | LinkSnappy | Mega-Debrid | Deepbrid | High-Way | Offcloud |
+|-----------------|:---------:|:------:|:----------:|:-----------:|:-----------:|:----------:|:-----------:|:--------:|:--------:|:--------:|
+| **Usenet**      |    ❌     |   ✅   |     ✅     |      ❌     |      ❌     |     ❌     |      ❌     |    ❌    |    ❌    |    ✅    |
+
 
 ### Adult Hosts
 
@@ -625,11 +634,11 @@ Service availability and host support can change in real time. Use these officia
 | **Mega-Debrid** | [mega-debrid.eu/hebergeurs](https://www.mega-debrid.eu/index.php?page=hebergeurs) |
 | **Deepbrid**    | [deepbrid.com/status](https://www.deepbrid.com/status)                            |
 | **High-Way**    | [high-way.me/pages/status](https://high-way.me/pages/status)                      |
-| **Offcloud**   | [https://offcloud.com/list](https://offcloud.com/list)                                |
+| **Offcloud**    | [https://offcloud.com/list](https://offcloud.com/list)                            |
 
 </details>
 
-<br />
+<br>
 
 <div align="right">
 
@@ -641,18 +650,18 @@ Service availability and host support can change in real time. Use these officia
 
 > 💡 Official Terms, Privacy, Refund, and Support pages for each provider. Refund eligibility varies widely; always verify before purchase.
 
-| **Service** | **Terms**                                                                             | **Privacy**                                                  | **Refund Policy**                                  | **Support/Contact**                                             |
-| ----------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------ | -------------------------------------------------- | --------------------------------------------------------------- |
-| AllDebrid   | [TOS](https://alldebrid.com/tos/)                                                     | [Privacy](https://alldebrid.com/privacy/)                    | See TOS                                            | [Contact](https://alldebrid.com/contact/)                       |
-| Real-Debrid | [Terms](https://real-debrid.com/terms)                                                | [Privacy](https://real-debrid.com/privacy)                   | Not stated                                         | [Support](https://real-debrid.com/support)                      |
-| LinkSnappy  | [TOS](https://linksnappy.com/tos)                                                     | [Privacy](https://linksnappy.com/privacy-policy)             | [Refunds](https://linksnappy.com/refund-policy)    | [Support](https://support.linksnappy.com/support/tickets/new)   |
-| TorBox      | [Terms](https://torbox.app/terms)                                                     | [Privacy](https://torbox.app/privacy)                        | [Refunds](https://torbox.app/terms#refunds)        | [Support](https://support.torbox.app/)                          |
-| Debrid-Link | [TOS](https://debrid-link.com/tos)                                                    | [Privacy](https://debrid-link.com/privacy)                   | See TOS                                            | [Contact](https://debrid-link.com/contact)                      |
-| Premiumize  | [Legal](https://www.premiumize.me/legal#tos)                                          | [Privacy](https://www.premiumize.me/privacy)                 | [Refund](https://www.premiumize.me/legal#refund)   | [Help](https://www.premiumize.me/help)                          |
-| Mega-Debrid | [Conditions](https://www.mega-debrid.eu/index.php?page=conditionsutilisation&lang=en) | [Privacy](https://www.mega-debrid.eu/index.php?page=privacy) | Check CGV                                          | [Support](https://megadebrid.freshdesk.com/support/tickets/new) |
-| Deepbrid    | [Terms](https://www.deepbrid.com/page/terms)                                                | [Privacy](https://www.deepbrid.com/page/privacy)                  | [Refund](https://www.deepbrid.com/page/refund-policy)                                          | [Support](https://www.deepbrid.com/contact-form)                     |
-| High-Way    | [Terms](https://high-way.me/help/terms)                                               | [Privacy](https://high-way.me/help/privacy-policy) | See Terms | [Support](https://high-way.me/pages/support/) |
-| Offcloud   | [Terms](https://offcloud.com/terms)                                                    | [Privacy](https://offcloud.com/terms)                      | See Terms      | [Contact](https://github.com/Offcloud/offcloud-log)                          |
+| **Service** | **Terms**                                                                             | **Privacy**                                                  | **Refund Policy**                                     | **Support/Contact**                                             |
+| ----------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ----------------------------------------------------- | --------------------------------------------------------------- |
+| AllDebrid   | [TOS](https://alldebrid.com/tos/)                                                     | [Privacy](https://alldebrid.com/privacy/)                    | See TOS                                               | [Contact](https://alldebrid.com/contact/)                       |
+| Real-Debrid | [Terms](https://real-debrid.com/terms)                                                | [Privacy](https://real-debrid.com/privacy)                   | Not stated                                            | [Support](https://real-debrid.com/support)                      |
+| LinkSnappy  | [TOS](https://linksnappy.com/tos)                                                     | [Privacy](https://linksnappy.com/privacy-policy)             | [Refunds](https://linksnappy.com/refund-policy)       | [Support](https://support.linksnappy.com/support/tickets/new)   |
+| TorBox      | [Terms](https://torbox.app/terms)                                                     | [Privacy](https://torbox.app/privacy)                        | [Refunds](https://torbox.app/terms#refunds)           | [Support](https://support.torbox.app/)                          |
+| Debrid-Link | [TOS](https://debrid-link.com/tos)                                                    | [Privacy](https://debrid-link.com/privacy)                   | See TOS                                               | [Contact](https://debrid-link.com/contact)                      |
+| Premiumize  | [Legal](https://www.premiumize.me/legal#tos)                                          | [Privacy](https://www.premiumize.me/privacy)                 | [Refund](https://www.premiumize.me/legal#refund)      | [Help](https://www.premiumize.me/help)                          |
+| Mega-Debrid | [Conditions](https://www.mega-debrid.eu/index.php?page=conditionsutilisation&lang=en) | [Privacy](https://www.mega-debrid.eu/index.php?page=privacy) | Check CGV                                             | [Support](https://megadebrid.freshdesk.com/support/tickets/new) |
+| Deepbrid    | [Terms](https://www.deepbrid.com/page/terms)                                          | [Privacy](https://www.deepbrid.com/page/privacy)             | [Refund](https://www.deepbrid.com/page/refund-policy) | [Support](https://www.deepbrid.com/contact-form)                |
+| High-Way    | [Terms](https://high-way.me/help/terms)                                               | [Privacy](https://high-way.me/help/privacy-policy)           | See Terms                                             | [Support](https://high-way.me/pages/support/)                   |
+| Offcloud    | [Terms](https://offcloud.com/terms)                                                   | [Privacy](https://offcloud.com/terms)                        | See Terms                                             | [Contact](https://github.com/Offcloud/offcloud-log)             |
 
 > If a link returns 404, try the site’s footer “Legal/Help” links or contact support.
 
