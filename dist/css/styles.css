@@ -1825,12 +1825,20 @@ th {
   z-index: 101;
 }
 
-/* Inherit background for first column cells to match row backgrounds */
+/* Default background for first column cells */
 #file-hosts-table td:first-child,
 .enhanced-table td:first-child,
 .pricing-table td:first-child,
 .policies-table td:first-child {
-  background-color: inherit
+  background-color: var(--bg-primary)
+}
+
+/* Alternating row background for first column in even rows */
+#file-hosts-table tr:nth-child(even) td:first-child,
+.enhanced-table tr:nth-child(even) td:first-child,
+.pricing-table tr:nth-child(even) td:first-child,
+.policies-table tr:nth-child(even) td:first-child {
+  background-color: var(--bg-tertiary)
 }
 
 /* Ensure first column header cells match other headers */
@@ -1843,9 +1851,14 @@ th {
 
 .policies-table tbody tr th:first-child,
 .pricing-table tbody tr th:first-child {
-  background-color: inherit;
+  background-color: var(--bg-primary);
   color: inherit;
   font-weight: var(--font-medium)
+}
+
+.policies-table tbody tr:nth-child(even) th:first-child,
+.pricing-table tbody tr:nth-child(even) th:first-child {
+  background-color: var(--bg-tertiary);
 }
 
 .filter-results {
