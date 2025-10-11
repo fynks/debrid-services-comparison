@@ -340,19 +340,6 @@ a:focus-visible {
   box-shadow: 0 1px 0 0 rgba(30, 41, 59, .1), 0 1px 3px 0 rgba(0, 0, 0, .1), 0 4px 8px 0 rgba(0, 0, 0, .15)
 }
 
-th {
-  background: var(--bg-secondary);
-  color: var(--text-primary);
-  font-weight: var(--font-semibold);
-  text-transform: uppercase;
-  letter-spacing: .05em;
-  font-size: var(--text-xs);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-bottom: 1px solid var(--border-primary)
-}
-
 .main-content {
   flex: 1;
   position: relative;
@@ -1558,6 +1545,7 @@ tr:focus-within {
   opacity: .35
 }
 
+/* ===== TABLE BASE STYLES ===== */
 .data-table-container {
   background: var(--bg-primary);
   border-radius: var(--radius-lg);
@@ -1589,7 +1577,22 @@ table {
 td,
 th {
   word-break: normal;
-  white-space: normal
+  white-space: normal;
+  padding: var(--space-lg) var(--space-xl);
+  text-align: left;
+  border-bottom: 1px solid var(--border-primary)
+}
+
+th {
+  background: var(--primary);
+  color: #fff;
+  font-weight: var(--font-semibold);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  font-size: var(--text-xs);
+  position: sticky;
+  top: 0;
+  z-index: 100
 }
 
 .table-toolbar {
@@ -1745,34 +1748,16 @@ th {
   font-size: 12px
 }
 
-th,
-td {
-  padding: var(--space-lg) var(--space-xl);
-  text-align: left;
-  border-bottom: 1px solid var(--border-primary)
-}
-
-th {
-  background: var(--primary);
-  color: #fff;
-  font-weight: var(--font-semibold);
-  text-transform: uppercase;
-  letter-spacing: .05em;
-  font-size: var(--text-xs);
-  position: sticky;
-  top: 0;
-  z-index: 100
-}
-
+/* ===== TABLE ALTERNATING ROWS ===== */
 #file-hosts-table tr:nth-child(even),
 .enhanced-table tr:nth-child(even),
 .pricing-table tr:nth-child(even),
-.policies-table tr:nth-child(even) {
+.policies-table tr:nth-child(even),
+.comparison-table tr:nth-child(even) {
   background-color: var(--bg-tertiary)
 }
 
-
-
+/* ===== TABLE STATUS & INTERACTION ===== */
 .status-cell,
 .support-status {
   text-align: center;
@@ -1802,7 +1787,7 @@ th {
   color: inherit
 }
 
-/* Sticky first column for all tables */
+/* ===== STICKY FIRST COLUMN - ALL TABLES ===== */
 #file-hosts-table th:first-child,
 #file-hosts-table td:first-child,
 .enhanced-table th:first-child,
@@ -1817,15 +1802,16 @@ th {
   box-shadow: 2px 0 6px -4px rgba(0, 0, 0, .06)
 }
 
-/* Ensure header cells in first column have higher z-index */
+/* Header cells in first column - higher z-index */
 #file-hosts-table th:first-child,
 .enhanced-table th:first-child,
 .pricing-table th:first-child,
 .policies-table th:first-child {
   z-index: 101;
+  background: var(--primary);
 }
 
-/* Default background for first column cells */
+/* Default background for first column data cells */
 #file-hosts-table td:first-child,
 .enhanced-table td:first-child,
 .pricing-table td:first-child,
@@ -1833,7 +1819,7 @@ th {
   background-color: var(--bg-primary)
 }
 
-/* Alternating row background for first column in even rows */
+/* Alternating row background for first column */
 #file-hosts-table tr:nth-child(even) td:first-child,
 .enhanced-table tr:nth-child(even) td:first-child,
 .pricing-table tr:nth-child(even) td:first-child,
@@ -1841,14 +1827,7 @@ th {
   background-color: var(--bg-tertiary)
 }
 
-/* Ensure first column header cells match other headers */
-#file-hosts-table th:first-child,
-.enhanced-table th:first-child,
-.pricing-table th:first-child,
-.policies-table th:first-child {
-  background: var(--primary);
-}
-
+/* First column tbody headers (pricing/policies tables) */
 .policies-table tbody tr th:first-child,
 .pricing-table tbody tr th:first-child {
   background-color: var(--bg-primary);
@@ -2502,6 +2481,7 @@ select:hover {
   font-weight: var(--font-semibold)
 }
 
+/* ===== COMPARISON TABLE ===== */
 .comparison-table {
   width: 100%;
   border-collapse: collapse;
@@ -2555,10 +2535,6 @@ select:hover {
   left: 0;
   z-index: 101;
   box-shadow: 2px 0 6px -4px rgba(0, 0, 0, .06)
-}
-
-.comparison-table tr:nth-child(even) {
-  background-color: var(--bg-tertiary)
 }
 
 .comparison-table tr:nth-child(even) td:first-child {
