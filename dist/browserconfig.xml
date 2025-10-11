@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+    <msapplication>
+        <tile>
+            <square70x70logo src="/images/favicon-32x32.png"/>
+            <square150x150logo src="/images/apple-touch-icon.png"/>
+            <square310x310logo src="/images/apple-touch-icon.png"/>
+            <TileColor>#2563eb</TileColor>
+        </tile>
+    </msapplication>
+</browserconfig>
