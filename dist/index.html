@@ -25,6 +25,25 @@
     <!-- DNS Prefetch & Preconnect for Performance -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" as="style" href="/css/styles-min.css">
+    <link rel="preload" as="script" href="/js/app-min.js">
+    
+    <!-- Fonts -->
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        onload="this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    </noscript>
+
+    <!-- Prefetch data for quick subsequent use (non-blocking) -->
+    <link rel="prefetch" as="fetch" href="/json/file-hosts-optimized.json" crossorigin>
+    <link rel="prefetch" as="fetch" href="/json/adult-hosts-optimized.json" crossorigin>
 
     <!-- Theme color per scheme -->
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
@@ -442,35 +461,65 @@
                     <nav id="primary-navigation" class="header-nav" aria-label="Main navigation" aria-hidden="true"
                         role="navigation">
                         <a href="#what-are-debrid-services" class="nav-link">
-                            <span class="nav-link-text">Intro</span>
+                            <span class="nav-link-text">About</span>
                         </a>
                         <a href="#debrid-pricing-comparison" class="nav-link">
                             <span class="nav-link-text">Pricing</span>
                         </a>
-                        <a href="#supported-file-hosts" class="nav-link">
-                            <span class="nav-link-text">Hosts</span>
-                        </a>
-                        <a href="#compare-debrid-services" class="nav-link">
-                            <span class="nav-link-text">Compare</span>
-                        </a>
-                        <a href="#usenet-support" class="nav-link">
-                            <span class="nav-link-text">Usenet</span>
-                        </a>
-                        <a href="#adult-content-file-hosts" class="nav-link">
-                            <span class="nav-link-text">Adult Hosts</span>
-                        </a>
-                        <a href="#refund-policies-legal" class="nav-link">
-                            <span class="nav-link-text">Policies</span>
-                        </a>
-                        <a href="#debrid-speed-test" class="nav-link">
-                            <span class="nav-link-text">Speed Test</span>
-                        </a>
-                        <a href="#service-status-monitoring" class="nav-link">
-                            <span class="nav-link-text">Status</span>
-                        </a>
-                        <a href="#debrid-resources-tools" class="nav-link">
-                            <span class="nav-link-text">Resources</span>
-                        </a>
+                        <div class="nav-dropdown">
+                            <button class="nav-link nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+                                <span class="nav-link-text">Compare</span>
+                                <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                            <div class="nav-dropdown-menu" role="menu">
+                                <a href="#compare-debrid-services" class="nav-dropdown-item" role="menuitem">
+                                    <span>Services</span>
+                                </a>
+                                <a href="#supported-file-hosts" class="nav-dropdown-item" role="menuitem">
+                                    <span>File Hosts</span>
+                                </a>
+                                <a href="#usenet-support" class="nav-dropdown-item" role="menuitem">
+                                    <span>Usenet</span>
+                                </a>
+                                <a href="#adult-content-file-hosts" class="nav-dropdown-item" role="menuitem">
+                                    <span>Adult Hosts</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="nav-dropdown">
+                            <button class="nav-link nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+                                <span class="nav-link-text">Tools</span>
+                                <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                            <div class="nav-dropdown-menu" role="menu">
+                                <a href="#debrid-speed-test" class="nav-dropdown-item" role="menuitem">
+                                    <span>Speed Test</span>
+                                </a>
+                                <a href="#service-status-monitoring" class="nav-dropdown-item" role="menuitem">
+                                    <span>Status Monitor</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="nav-dropdown">
+                            <button class="nav-link nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+                                <span class="nav-link-text">More</span>
+                                <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                            <div class="nav-dropdown-menu" role="menu">
+                                <a href="#refund-policies-legal" class="nav-dropdown-item" role="menuitem">
+                                    <span>Policies</span>
+                                </a>
+                                <a href="#debrid-resources-tools" class="nav-dropdown-item" role="menuitem">
+                                    <span>Resources</span>
+                                </a>
+                            </div>
+                        </div>
                     </nav>
                     <div class="header-actions">
                         <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode"
@@ -507,12 +556,16 @@
                             Compare Premium <span class="gradient-text">Debrid Services</span>
                         </h1>
                         <p class="hero-description">
-                            Compare pricing, features, and 400+ file hosts across 9 premium debrid services. 
-                            Find the perfect multi-hoster for your needs.
+                            Compare pricing, features, and 400+ file hosts across 9 premium debrid services in real-time. 
+                            Make informed decisions with our comprehensive comparison tool.
                         </p>
                         <div class="hero-actions">
-                            <a href="#debrid-pricing-comparison" class="btn btn-primary">View Pricing</a>
-                            <a href="#compare-debrid-services" class="btn btn-secondary">Compare Services</a>
+                            <a href="#debrid-pricing-comparison" class="btn btn-primary">
+                                View Pricing
+                            </a>
+                            <a href="#compare-debrid-services" class="btn btn-secondary">
+                                Compare Services
+                            </a>
                         </div>
                         <div class="hero-stats" aria-label="Key stats">
                             <div class="stat-item">
@@ -601,7 +654,7 @@
                 <div class="container">
                     <div class="content-container">
                         <div class="section-header">
-                            <h2 id="pricing-title" class="section-title">Debrid Service Pricing Comparison 2025</h2>
+                            <h2 id="pricing-title" class="section-title">Debrid Service Pricing Comparison</h2>
                             <p class="section-description">Compare subscription costs across all major debrid services.
                             </p>
                         </div>
@@ -729,44 +782,81 @@
 
                         <div class="referral-section" aria-labelledby="referral-title">
                             <div class="referral-header">
-                                <h3 id="referral-title">Support This Project</h3>
-                                <p>Consider using our referral links - it helps maintain this project at no extra cost
-                                    to you!</p>
+                                <h2 id="referral-title">Support This Project</h2>
+                                <p>Use our referral links to sign up - it helps maintain this free resource at no extra cost to you.</p>
                             </div>
-                            <div class="referral-grid">
-                                <a href="https://alldebrid.com/?uid=3wvya&lang=en" class="referral-card" target="_blank"
+                            <div class="referral-grid enhanced-referral-grid">
+                                <a href="https://alldebrid.com/?uid=3wvya&lang=en" class="enhanced-referral-card" target="_blank"
                                     rel="noopener noreferrer sponsored">
-                                    <span class="service-name">AllDebrid</span>
-                                    <span class="referral-badge">Referral Link</span>
-                                </a>
-                                <a href="https://real-debrid.com/?id=10990901" class="referral-card" target="_blank"
-                                    rel="noopener noreferrer sponsored">
-                                    <span class="service-name">Real-Debrid</span>
-                                    <span class="referral-badge">Referral Link</span>
-                                </a>
-
-                                <a href="https://linksnappy.com/?ref=774668" class="referral-card" target="_blank"
-                                    rel="noopener noreferrer sponsored">
-                                    <span class="service-name">LinkSnappy</span>
-                                    <span class="referral-badge">Referral Link</span>
-                                </a>
-                                <a href="https://debrid-link.com/id/7B3BO" class="referral-card" target="_blank"
-                                    rel="noopener noreferrer sponsored">
-                                    <span class="service-name">Debrid-Link</span>
-                                    <span class="referral-badge">Referral Link</span>
+                                    <div class="referral-card-inner">
+                                        <span class="service-name">AllDebrid</span>
+                                        <span class="referral-badge">Referral Link</span>
+                                        <p class="referral-benefit">From €2.99/month</p>
+                                        <button class="referral-cta-button">
+                                            Get Started
+                                        </button>
+                                    </div>
                                 </a>
 
-                                 <a href="https://www.deepbrid.com/aff/go/upward1971" class="referral-card" target="_blank"
+                                <a href="https://real-debrid.com/?id=10990901" class="enhanced-referral-card" target="_blank"
                                     rel="noopener noreferrer sponsored">
-                                    <span class="service-name">Deepbrid</span>
-                                    <span class="referral-badge">Referral Link</span>
-                                </a>
-                                <a href="https://offcloud.com/?=c44b1fa5" class="referral-card" target="_blank"
-                                    rel="noopener noreferrer sponsored">
-                                    <span class="service-name">Offcloud</span>
-                                    <span class="referral-badge">Referral Link</span>
+                                    <div class="referral-card-inner">
+                                        <span class="service-name">Real-Debrid</span>
+                                        <span class="referral-badge">Referral Link</span>
+                                        <p class="referral-benefit">From €3/month</p>
+                                        <button class="referral-cta-button">
+                                            Get Started
+                                        </button>
+                                    </div>
                                 </a>
                                 
+                                <a href="https://linksnappy.com/?ref=774668" class="enhanced-referral-card" target="_blank"
+                                    rel="noopener noreferrer sponsored">
+                                    <div class="referral-card-inner">
+                                        <span class="service-name">LinkSnappy</span>
+                                        <span class="referral-badge">Referral Link</span>
+                                        <p class="referral-benefit">From $12.99/month</p>
+                                        <button class="referral-cta-button">
+                                            Get Started
+                                        </button>
+                                    </div>
+                                </a>
+                                
+                                <a href="https://debrid-link.com/id/7B3BO" class="enhanced-referral-card" target="_blank"
+                                    rel="noopener noreferrer sponsored">
+                                    <div class="referral-card-inner">
+                                        <span class="service-name">Debrid-Link</span>
+                                        <span class="referral-badge">Referral Link</span>
+                                        <p class="referral-benefit">From €3/month</p>
+                                        <button class="referral-cta-button">
+                                            Get Started
+                                        </button>
+                                    </div>
+                                </a>
+                                
+                                <a href="https://www.deepbrid.com/aff/go/upward1971" class="enhanced-referral-card" target="_blank"
+                                    rel="noopener noreferrer sponsored">
+                                    <div class="referral-card-inner">
+                                        <span class="service-name">Deepbrid</span>
+                                        <span class="referral-badge">Referral Link</span>
+                                        <p class="referral-benefit">From €4.50/month</p>
+                                        <button class="referral-cta-button">
+                                            Get Started
+                                        </button>
+                                    </div>
+                                </a>
+                                
+                                <a href="https://offcloud.com/?=c44b1fa5" class="enhanced-referral-card" target="_blank"
+                                    rel="noopener noreferrer sponsored">
+                                    <div class="referral-card-inner">
+                                        <span class="service-name">Offcloud</span>
+                                        <span class="referral-badge">Referral Link</span>
+                                        <p class="referral-benefit">From $9.99/month</p>
+                                        <button class="referral-cta-button">
+                                            Get Started
+                                        </button>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -1310,120 +1400,116 @@
                             <p class="section-description">Discover browser extensions, tools, guides, and communities to enhance your debrid experience.</p>
                         </div>
 
-                        <div class="resources-categories enhanced-resources">
-                            <div class="resource-category elevated">
-                                <h3>
-                                    <svg class="resource-category-icon" role="img" aria-hidden="true">
-                                        <use href="#icon-tools" stroke="currentColor" stroke-width="2" fill="none" />
+                        <div class="resources-section-wrapper">
+                            <div class="resource-section-header">
+                                <h2>
+                                    <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
                                     </svg>
                                     Tools and Integrations
-                                </h3>
-                                <div class="resource-list cards-3">
-                                    <a href="https://github.com/debridmediamanager/awesome-debrid"
-                                        class="resource-item accent-hover external" target="_blank"
-                                        rel="noopener noreferrer">
-                                        <strong>Awesome-Debrid</strong>
-                                        <span>Curated list of debrid-compatible apps, browser extensions, and automation
-                                            tools</span>
-                                        <div class="meta-tags">
-                                            <span class="tag">Curated</span>
-                                            <span class="tag">Open‑source</span>
-                                        </div>
-                                    </a>
-                                    <a href="https://github.com/debridmediamanager/debrid-media-manager"
-                                        class="resource-item accent-hover external" target="_blank"
-                                        rel="noopener noreferrer">
-                                        <strong>Debrid Media Manager</strong>
-                                        <span>Easily download movies and TV shows directly to your Debrid library</span>
-                                        <div class="meta-tags">
-                                            <span class="tag">App</span>
-                                            <span class="tag">Open‑source</span>
-                                        </div>
-                                    </a>
-                                    <a href="https://github.com/rogerfar/rdt-client"
-                                        class="resource-item accent-hover external" target="_blank"
-                                        rel="noopener noreferrer">
-                                        <strong>Real-Debrid Torrent Client</strong>
-                                        <span>Web interface to manage your torrents on Real-Debrid, AllDebrid,
-                                            Premiumize TorBox or DebridLink</span>
-                                        <div class="meta-tags">
-                                            <span class="tag">Web UI</span>
-                                            <span class="tag">Open‑source</span>
-                                        </div>
-                                    </a>
-                                    <a href="https://github.com/g0ldyy/comet"
-                                        class="resource-item accent-hover external" target="_blank"
-                                        rel="noopener noreferrer">
-                                        <strong>Comet</strong>
-                                        <span>Stremio's torrent/debrid search add-on</span>
-                                        <div class="meta-tags">
-                                            <span class="tag">Addon</span>
-                                            <span class="tag">Open‑source</span>
-                                        </div>
-                                    </a>
-                                    <a href="https://github.com/jackett/jackett"
-                                        class="resource-item accent-hover external" target="_blank"
-                                        rel="noopener noreferrer">
-                                        <strong>Jackett + Prowlarr</strong>
-                                        <span>Indexer proxies that work seamlessly with debrid services for
-                                            automation</span>
-                                        <div class="meta-tags">
-                                            <span class="tag">Indexers</span>
-                                            <span class="tag">Automation</span>
-                                        </div>
-                                    </a>
-                                </div>
+                                </h2>
                             </div>
-                            <div class="resource-category elevated">
-                                <h3>
-                                    <svg class="resource-category-icon" role="img" aria-hidden="true">
-                                        <use href="#icon-user" stroke="currentColor" stroke-width="2" fill="none" />
+                            
+                            <div class="resources-grid">
+                                <a href="https://github.com/debridmediamanager/awesome-debrid" class="resource-card" target="_blank" rel="noopener noreferrer">
+                                    <span class="resource-name">Awesome-Debrid</span>
+                                    <div class="resource-tags">
+                                        <span class="tag">Curated</span>
+                                        <span class="tag">Open-source</span>
+                                    </div>
+                                    <p class="resource-description">Curated list of debrid-compatible apps, browser extensions, and automation tools</p>
+                                </a>
+                                
+                                <a href="https://github.com/debridmediamanager/debrid-media-manager" class="resource-card" target="_blank" rel="noopener noreferrer">
+                                    <span class="resource-name">Debrid Media Manager</span>
+                                    <div class="resource-tags">
+                                        <span class="tag">App</span>
+                                        <span class="tag">Open-source</span>
+                                    </div>
+                                    <p class="resource-description">Easily download movies and TV shows directly to your Debrid library</p>
+                                </a>
+                                
+                                <a href="https://github.com/rogerfar/rdt-client" class="resource-card" target="_blank" rel="noopener noreferrer">
+                                    <span class="resource-name">Real-Debrid Torrent Client</span>
+                                    <div class="resource-tags">
+                                        <span class="tag">Web UI</span>
+                                        <span class="tag">Open-source</span>
+                                    </div>
+                                    <p class="resource-description">Web interface to manage your torrents on Real-Debrid, AllDebrid, Premiumize, TorBox or DebridLink</p>
+                                </a>
+                                
+                                <a href="https://github.com/g0ldyy/comet" class="resource-card" target="_blank" rel="noopener noreferrer">
+                                    <span class="resource-name">Comet</span>
+                                    <div class="resource-tags">
+                                        <span class="tag">Addon</span>
+                                        <span class="tag">Open-source</span>
+                                    </div>
+                                    <p class="resource-description">Stremio's torrent/debrid search add-on for seamless streaming</p>
+                                </a>
+                                
+                                <a href="https://github.com/jackett/jackett" class="resource-card" target="_blank" rel="noopener noreferrer">
+                                    <span class="resource-name">Jackett + Prowlarr</span>
+                                    <div class="resource-tags">
+                                        <span class="tag">Indexers</span>
+                                        <span class="tag">Automation</span>
+                                    </div>
+                                    <p class="resource-description">Indexer proxies that work seamlessly with debrid services for automation</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="resources-section-wrapper">
+                            <div class="resource-section-header">
+                                <h2>
+                                    <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                        <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path>
                                     </svg>
                                     Community and Support
-                                </h3>
-                                <div class="resource-list cards-3">
-                                    <div class="resource-item static">
-                                        <a href="https://www.reddit.com/r/RealDebrid/">
-                                            <strong>r/Real-Debrid</strong>
-                                            <span>Active discussions on various debrid services and usage tips.</span>
-                                            <div class="meta-tags">
-                                                <span class="tag">sub-reddit</span>
-                                            </div>
-                                        </a>
+                                </h2>
+                            </div>
+                            
+                            <div class="resources-grid">
+                                <a href="https://www.reddit.com/r/RealDebrid/" class="resource-card" target="_blank" rel="noopener noreferrer">
+                                    <span class="resource-name">r/Real-Debrid</span>
+                                    <div class="resource-tags">
+                                        <span class="tag">Reddit</span>
                                     </div>
-                                    <div class="resource-item static">
-                                        <a href="https://www.reddit.com/r/debridmediamanager/">
-                                            <strong>r/DebridMediaManager</strong>
-                                            <span>Active discussions on various debrid services and usage tips.</span>
-                                            <div class="meta-tags">
-                                                <span class="tag">sub-reddit</span>
-                                            </div>
-                                        </a>
+                                    <p class="resource-description">Active discussions on various debrid services and usage tips</p>
+                                </a>
+                                
+                                <a href="https://www.reddit.com/r/debridmediamanager/" class="resource-card" target="_blank" rel="noopener noreferrer">
+                                    <span class="resource-name">r/DebridMediaManager</span>
+                                    <div class="resource-tags">
+                                        <span class="tag">Reddit</span>
                                     </div>
-                                    <div class="resource-item static">
-                                        <a href="https://www.reddit.com/r/AllDebrid/">
-                                            <strong>r/Alldebrid</strong>
-                                            <span>Active discussions on various debrid services and usage tips.</span>
-                                            <div class="meta-tags">
-                                                <span class="tag">sub-reddit</span>
-                                            </div>
-                                        </a>
+                                    <p class="resource-description">Community hub for Debrid Media Manager discussions and support</p>
+                                </a>
+                                
+                                <a href="https://www.reddit.com/r/AllDebrid/" class="resource-card" target="_blank" rel="noopener noreferrer">
+                                    <span class="resource-name">r/AllDebrid</span>
+                                    <div class="resource-tags">
+                                        <span class="tag">Reddit</span>
                                     </div>
-                                    <div class="resource-item static">
-                                        <strong>Discord</strong>
-                                        <span>Many services offer official Discord servers for real-time support and
-                                            status updates</span>
+                                    <p class="resource-description">Dedicated community for AllDebrid users and discussions</p>
+                                </a>
+                                
+                                <div class="resource-card info-card">
+                                    <span class="resource-name">Discord Servers</span>
+                                    <div class="resource-tags">
+                                        <span class="tag">Chat</span>
                                     </div>
-                                    <div class="resource-item static">
-                                        <a
-                                            href="https://github.com/fynks/debrid-services-comparison/issues?q=sort%3Aupdated-desc+is%3Aissue+is%3Aopen">
-                                            <strong>GitHub Issues</strong>
-                                            <span>Report inaccuracies or suggest improvements here — this project
-                                                thrives on
-                                                community input!</span>
-                                        </a>
-                                    </div>
+                                    <p class="resource-description">Many services offer official Discord servers for real-time support and status updates</p>
                                 </div>
+                                
+                                <a href="https://github.com/fynks/debrid-services-comparison/issues" class="resource-card" target="_blank" rel="noopener noreferrer">
+                                    <span class="resource-name">GitHub Issues</span>
+                                    <div class="resource-tags">
+                                        <span class="tag">Contribute</span>
+                                    </div>
+                                    <p class="resource-description">Report inaccuracies or suggest improvements - this project thrives on community input!</p>
+                                </a>
                             </div>
                         </div>
 
@@ -1669,6 +1755,42 @@
             const navOverlay = document.getElementById('navOverlay');
             const focusableSelectors = 'a[href], button:not([disabled]), select, textarea, input, [tabindex]:not([tabindex="-1"])';
             let lastFocusedBeforeMenu = null;
+            
+            // Navigation dropdowns
+            const dropdownTriggers = document.querySelectorAll('.nav-dropdown-trigger');
+            
+            dropdownTriggers.forEach(trigger => {
+                trigger.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+                    
+                    // Close all other dropdowns
+                    dropdownTriggers.forEach(otherTrigger => {
+                        if (otherTrigger !== trigger) {
+                            otherTrigger.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                    
+                    // Toggle current dropdown
+                    trigger.setAttribute('aria-expanded', !isExpanded);
+                });
+            });
+            
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', () => {
+                dropdownTriggers.forEach(trigger => {
+                    trigger.setAttribute('aria-expanded', 'false');
+                });
+            });
+            
+            // Close dropdowns on escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    dropdownTriggers.forEach(trigger => {
+                        trigger.setAttribute('aria-expanded', 'false');
+                    });
+                }
+            });
 
             // Mark JS ready to enable transitions after initial paint (prevents slide-in glitch)
             requestAnimationFrame(() => bodyEl.classList.add('js-ready'));
