@@ -357,7 +357,7 @@ class TableManager {
             const indicator = document.createElement("span");
             indicator.className = "status-indicator";
             indicator.dataset.supported = isSupported ? "true" : "false";
-            indicator.dataset.symbol = isSupported ? "✓" : "✕";
+            indicator.textContent = isSupported ? "✅" : "❌";
             indicator.setAttribute("aria-hidden", "true");
 
             const srText = document.createElement("span");
@@ -675,10 +675,10 @@ class ComparisonManager {
         const getStatusCell = (supported) => {
             const supportedClass = supported ? "supported" : "not-supported";
             const supportedFlag = supported ? "true" : "false";
-            const symbol = supported ? "✓" : "✕";
+            const emoji = supported ? "✅" : "❌";
             return `
                 <td class="support-status ${supportedClass}" data-supported="${supportedFlag}">
-                    <span class="status-indicator" data-supported="${supportedFlag}" data-symbol="${symbol}" aria-hidden="true"></span>
+                    <span class="status-indicator" data-supported="${supportedFlag}" aria-hidden="true">${emoji}</span>
                     <span class="visually-hidden">${supported ? "Supported" : "Not supported"}</span>
                 </td>
             `;
