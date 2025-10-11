@@ -8,7 +8,7 @@
   <p>
     <a href="https://github.com/fynks/debrid-services-comparison/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/fynks/debrid-services-comparison?style=for-the-badge&logo=github"></a>
     <a href="#available-hosts"><img alt="Tracked Services" src="https://img.shields.io/badge/Services-9-4caf50?style=for-the-badge&logo=rocket&logoColor=white"></a>
-    <a href="https://debridcompare.pages.dev"><img alt="Web App" src="https://img.shields.io/badge/Interactive-Web_App-green?style=for-the-badge&logo=google-chrome&logoColor=white"></a>
+    <a href="https://debridcompare.xyz"><img alt="Web App" src="https://img.shields.io/badge/Interactive-Web_App-green?style=for-the-badge&logo=google-chrome&logoColor=white"></a>
   </p>
 
   <a href="https://debrid-services-comparison.netlify.app/"><img src="./dist/images/og.png" alt="Screenshot of interactive comparison web app" width="880" style="border-radius:2px"></a>
@@ -150,7 +150,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 <div align="center">
 
-| ⚡ For faster exploration (search + filter + side-by-side), use the <a href="https://debridcompare.pages.dev" target="_blank" rel="noopener">interactive web app</a>. |
+| ⚡ For faster exploration (search + filter + side-by-side), use the <a href="https://debridcompare.xyz" target="_blank" rel="noopener">interactive web app</a>. |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 </div>
