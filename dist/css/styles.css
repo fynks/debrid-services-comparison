@@ -1802,16 +1802,43 @@ th {
   color: inherit
 }
 
+/* Sticky first column for all tables */
 #file-hosts-table th:first-child,
-#file-hosts-table td:first-child {
+#file-hosts-table td:first-child,
+.enhanced-table th:first-child,
+.enhanced-table td:first-child,
+.pricing-table th:first-child,
+.pricing-table td:first-child,
+.policies-table th:first-child,
+.policies-table td:first-child {
   position: sticky;
   left: 0;
-  z-index: 101;
+  z-index: 10;
   box-shadow: 2px 0 6px -4px rgba(0, 0, 0, .06)
 }
 
-#file-hosts-table td:first-child {
+/* Ensure header cells in first column have higher z-index */
+#file-hosts-table th:first-child,
+.enhanced-table th:first-child,
+.pricing-table th:first-child,
+.policies-table th:first-child {
+  z-index: 101;
+}
+
+/* Inherit background for first column cells to match row backgrounds */
+#file-hosts-table td:first-child,
+.enhanced-table td:first-child,
+.pricing-table td:first-child,
+.policies-table td:first-child {
   background-color: inherit
+}
+
+/* Ensure first column header cells match other headers */
+#file-hosts-table th:first-child,
+.enhanced-table th:first-child,
+.pricing-table th:first-child,
+.policies-table th:first-child {
+  background: var(--primary);
 }
 
 .policies-table tbody tr th:first-child,
