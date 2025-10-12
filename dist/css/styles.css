@@ -1633,26 +1633,23 @@ button:focus-visible {
   font-size: var(--text-base);
   font-weight: var(--font-semibold);
   gap: var(--space-sm);
-  transition: all var(--transition-fast);
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
-}
-
-.load-all-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.25);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  background-color: transparent;
+  border: 1px solid var(--primary);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
 }
 
 .load-all-btn:active {
   transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.2);
 }
 
 .load-all-btn svg {
-  transition: transform var(--transition-fast);
+  transition: none;
 }
 
 .load-all-btn:hover svg {
-  transform: translateY(2px);
+  transform: none;
 }
 
 .load-all-btn:disabled {
@@ -1667,8 +1664,9 @@ button:focus-visible {
   }
   
   .load-all-btn {
-    width: 100%;
+    width: 10% !important;
     max-width: 300px;
+    margin: 0 auto;
   }
 }
 
@@ -2077,8 +2075,8 @@ table {
 
 td,
 th {
-  word-break: break-word;
-  word-wrap: break-word;
+  word-break:normal;
+  word-wrap:break-word
   hyphens: auto;
   white-space: normal;
   padding: var(--space-lg) var(--space-xl);
@@ -2331,7 +2329,7 @@ th {
 
 @media (max-width: 600px) {
   .data-table-container {
-    margin: var(--space-xl) var(--space-sm);
+    margin: var(--space-xl) 0;
     border-radius: var(--radius-md);
   }
   
@@ -3939,7 +3937,7 @@ select:hover {
     }
 
     .compare-controls {
-      flex-direction:column; align-items:center; gap:var(--space-xl)
+      flex-direction:column; align-items:center; gap:var(--space-xl); max-width: 100%;
     }
 
     .compare-vs {
@@ -3947,11 +3945,11 @@ select:hover {
     }
 
     .compare-select-group:first-child {
-      order:1
+      order:1; width: 100%; max-width: 100%;
     }
 
     .compare-select-group:last-child {
-      order:3
+      order:3; width: 100%; max-width: 100%;
     }
   }
 
@@ -4005,7 +4003,7 @@ select:hover {
     }
 
     .compare-controls {
-      grid-template-columns:1fr; gap:var(--space-lg); text-align:center; align-items:center; justify-items:center
+      grid-template-columns:1fr; gap:var(--space-lg); text-align:center; align-items:center; justify-items:center; max-width: 100%;
     }
 
     .compare-vs {
@@ -4013,7 +4011,7 @@ select:hover {
     }
 
     .compare-select-group:first-child, .compare-select-group:last-child {
-      width:100%; max-width:300px
+      width:100%; max-width:100%
     }
 
     .compare-select-group label {
@@ -4236,10 +4234,11 @@ select:hover {
 
     .btn {
       padding:var(--space-md) var(--space-xl); 
-      min-width:100%; 
-      width: 100%;
+      min-width:90%; 
+      width: 90%;
       font-size:var(--text-sm);
       justify-content: center;
+      margin: 0 auto;
     }
 
     .section-header {

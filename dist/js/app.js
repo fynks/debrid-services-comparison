@@ -733,7 +733,7 @@ class TableManager {
     
     // Create button
     const loadAllBtn = Utils.createElement('button', {
-      className: 'btn btn-primary load-all-btn',
+      className: 'btn load-all-btn',
       type: 'button'
     });
     
