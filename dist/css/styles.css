@@ -365,6 +365,7 @@ button:focus-visible {
   border-bottom: 1px solid transparent;
   transition: all var(--transition-normal);
   z-index: -1;
+  will-change: backdrop-filter, background, border-bottom;
 }
 
 .site-header.is-scrolled .header-blur-bg {
@@ -375,12 +376,14 @@ button:focus-visible {
   box-shadow: 0 2px 8px rgba(15, 23, 42, .04), 0 1px 2px rgba(15, 23, 42, .06);
 }
 
+/* Reduce backdrop blur on mobile for better performance */
 @media (max-width:900px) {
   .header-blur-bg {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
     background: rgba(255, 255, 255, .98);
     border-bottom: 1px solid var(--border-primary);
+    will-change: background, box-shadow;
   }
 
   .site-header.is-scrolled .header-blur-bg {
@@ -1356,11 +1359,12 @@ button:focus-visible {
   min-width: 160px;
   min-height: 48px;
   justify-content: center;
-  transition: all var(--transition-fast);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
   flex-shrink: 0;
   white-space: nowrap;
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  will-change: transform;
 }
 
 .btn svg {
@@ -1392,7 +1396,7 @@ button:focus-visible {
   color: #fff;
   border-color: transparent;
   box-shadow: 0 2px 8px rgba(99, 102, 241, 0.2);
-  transition: all var(--transition-fast);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
 }
 
 .btn-primary:hover {
@@ -1516,7 +1520,8 @@ table button:focus-visible {
   min-height: 160px;
   justify-content: center;
   position: relative;
-  overflow: hidden
+  overflow: hidden;
+  contain: layout style paint;
 }
 
 .benefit-card::before {
@@ -1859,11 +1864,15 @@ table {
 
 td,
 th {
-  word-break: normal;
+  word-break: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
   white-space: normal;
   padding: var(--space-lg) var(--space-xl);
   text-align: left;
-  border-bottom: 1px solid var(--border-primary)
+  border-bottom: 1px solid var(--border-primary);
+  max-width: 300px;
+  overflow-wrap: break-word;
 }
 
 th {
@@ -2253,7 +2262,8 @@ th {
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
   min-height: 120px;
   position: relative;
-  overflow: hidden
+  overflow: hidden;
+  contain: layout style paint;
 }
 
 .status-card::before {
@@ -2529,6 +2539,7 @@ th {
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
   position: relative;
   overflow: visible;
+  contain: layout style;
 }
 
 .enhanced-referral-card:hover {
@@ -3979,11 +3990,17 @@ select:hover {
     }
 
     .hero-actions {
-      margin-bottom:var(--space-4xl); gap:var(--space-md)
+      margin-bottom:var(--space-4xl); gap:var(--space-md);
+      flex-direction: column;
+      width: 100%;
     }
 
     .btn {
-      padding:var(--space-md) var(--space-xl); min-width:120px; font-size:var(--text-sm)
+      padding:var(--space-md) var(--space-xl); 
+      min-width:100%; 
+      width: 100%;
+      font-size:var(--text-sm);
+      justify-content: center;
     }
 
     .section-header {
@@ -4158,6 +4175,27 @@ select:hover {
 
     .data-table-container {
       font-size:.85rem
+    }
+    
+    /* Critical fixes for ultra-narrow screens */
+    .container {
+      min-width: 0;
+      overflow-x: hidden;
+    }
+    
+    .hero-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+    
+    .btn {
+      width: 100%;
+      min-width: 100%;
+      justify-content: center;
+    }
+    
+    table {
+      min-width: 450px;
     }
   }
 
