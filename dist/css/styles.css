@@ -1321,29 +1321,6 @@ button:focus-visible {
   line-height: 1.6
 }
 
-.meta-chips {
-  display: flex;
-  gap: var(--space-sm);
-  justify-content: center;
-  margin-top: var(--space-xl);
-  flex-wrap: wrap
-}
-
-.chip {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-xs);
-  padding: var(--space-sm) var(--space-lg);
-  border-radius: var(--radius-full);
-  background: var(--bg-secondary);
-  color: var(--text-secondary);
-  border: 1px solid var(--border-primary);
-  font-size: var(--text-xs);
-  font-weight: var(--font-medium);
-  text-transform: uppercase;
-  letter-spacing: .05em
-}
-
 .btn {
   display: inline-flex;
   align-items: center;
