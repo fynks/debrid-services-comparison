@@ -1103,9 +1103,8 @@ button:focus-visible {
     display: none;
     position: fixed;
     inset: 0;
-    padding: var(--space-3xl) var(--space-xl) var(--space-3xl);
-    padding-top: var(--space-3xl);
-    padding-top: calc(var(--space-3xl) + env(safe-area-inset-top));
+    padding: var(--space-xl) var(--space-xl) var(--space-3xl);
+    padding-top: calc(var(--space-xl) + env(safe-area-inset-top, 0px));
     background: linear-gradient(180deg, rgba(248, 250, 255, 0.96) 0%, rgba(255, 255, 255, 0.98) 55%, rgba(255, 255, 255, 0.94) 100%);
     border: none;
     box-shadow: none;
@@ -2076,7 +2075,7 @@ table {
 td,
 th {
   word-break:normal;
-  word-wrap:break-word
+  word-wrap:break-word;
   hyphens: auto;
   white-space: normal;
   padding: var(--space-lg) var(--space-xl);
