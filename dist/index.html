@@ -1746,9 +1746,22 @@
             // Navigation dropdowns
             const dropdownTriggers = document.querySelectorAll('.nav-dropdown-trigger');
             
+            // Function to close all dropdowns
+            function closeAllDropdowns() {
+                dropdownTriggers.forEach(trigger => {
+                    trigger.setAttribute('aria-expanded', 'false');
+                });
+            }
+            
             dropdownTriggers.forEach(trigger => {
                 trigger.addEventListener('click', (e) => {
-                    e.stopPropagation();
+                    e.preventDefault();
+                    
+                    // On mobile, only allow dropdowns when nav menu is open
+                    if (window.innerWidth <= 900 && !bodyEl.classList.contains('nav-open')) {
+                        return;
+                    }
+                    
                     const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
                     
                     // Close all other dropdowns
@@ -1759,25 +1772,25 @@
                     });
                     
                     // Toggle current dropdown
-                    trigger.setAttribute('aria-expanded', !isExpanded);
-                });
+                    trigger.setAttribute('aria-expanded', String(!isExpanded));
+                }, { passive: false });
             });
             
-            // Close dropdowns when clicking outside
-            document.addEventListener('click', () => {
-                dropdownTriggers.forEach(trigger => {
-                    trigger.setAttribute('aria-expanded', 'false');
-                });
-            });
+            // Close dropdowns when clicking outside (only on desktop)
+            document.addEventListener('click', (e) => {
+                // Don't close if clicking on a dropdown trigger or menu
+                const isDropdownClick = e.target.closest('.nav-dropdown');
+                if (!isDropdownClick && window.innerWidth > 900) {
+                    closeAllDropdowns();
+                }
+            }, { passive: true });
             
             // Close dropdowns on escape key
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') {
-                    dropdownTriggers.forEach(trigger => {
-                        trigger.setAttribute('aria-expanded', 'false');
-                    });
+                    closeAllDropdowns();
                 }
-            });
+            }, { passive: true });
 
             // Mark JS ready to enable transitions after initial paint (prevents slide-in glitch)
             requestAnimationFrame(() => bodyEl.classList.add('js-ready'));
@@ -1804,6 +1817,8 @@
                     nav.setAttribute('aria-hidden', bodyEl.classList.contains('nav-open') ? 'false' : 'true');
                 } else {
                     nav.removeAttribute('aria-hidden');
+                    // Restore scroll when switching to desktop
+                    document.body.style.overflow = '';
                     if (bodyEl.classList.contains('nav-open')) {
                         closeMenu({ restoreFocus: false });
                     } else {
@@ -1821,6 +1836,12 @@
                 navToggle?.setAttribute('aria-expanded', 'true');
                 if (navOverlay) navOverlay.hidden = false;
                 nav.setAttribute('data-open', 'true');
+                
+                // Prevent scroll on mobile when menu is open
+                if (window.innerWidth <= 900) {
+                    document.body.style.overflow = 'hidden';
+                }
+                
                 const firstLink = nav.querySelector('a');
                 firstLink && firstLink.focus();
                 trapFocus(nav);
@@ -1833,6 +1854,13 @@
                 navToggle?.setAttribute('aria-expanded', 'false');
                 if (navOverlay) navOverlay.hidden = true;
                 nav.removeAttribute('data-open');
+                
+                // Restore scroll
+                document.body.style.overflow = '';
+                
+                // Close all dropdowns when closing menu
+                closeAllDropdowns();
+                
                 if (restoreFocus && lastFocusedBeforeMenu) {
                     lastFocusedBeforeMenu.focus();
                 }
@@ -1848,7 +1876,8 @@
             }
             if (nav) {
                 nav.addEventListener('click', (event) => {
-                    const target = event.target instanceof Element ? event.target.closest('.nav-link') : null;
+                    // Only close menu when clicking actual links, not dropdown triggers
+                    const target = event.target instanceof Element ? event.target.closest('a.nav-link, a.nav-dropdown-item') : null;
                     if (!target) return;
                     if (window.innerWidth <= 900) closeMenu();
                 });

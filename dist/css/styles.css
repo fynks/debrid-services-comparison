@@ -865,6 +865,9 @@ button:focus-visible {
 .nav-dropdown {
   position: relative;
   display: inline-block;
+  /* Improve touch responsiveness */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .nav-dropdown-trigger {
@@ -874,6 +877,11 @@ button:focus-visible {
   display: inline-flex;
   align-items: center;
   gap: var(--space-xs);
+  /* Improve touch responsiveness */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .dropdown-icon {
@@ -980,6 +988,9 @@ button:focus-visible {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
+    /* Prevent layout shift and improve performance */
+    will-change: max-height;
+    contain: layout;
   }
   
   [data-theme="dark"] .nav-dropdown-menu {
