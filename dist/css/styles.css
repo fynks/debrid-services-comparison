@@ -1469,6 +1469,72 @@ button:focus-visible {
   margin-left: var(--space-sm)
 }
 
+/* ===== LOAD ALL BUTTON ===== */
+.load-all-container {
+  text-align: center;
+  padding: var(--space-2xl) 0;
+  margin-top: var(--space-xl);
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.load-all-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg) var(--space-2xl);
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  gap: var(--space-sm);
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+}
+
+.load-all-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.25);
+}
+
+.load-all-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.2);
+}
+
+.load-all-btn svg {
+  transition: transform var(--transition-fast);
+}
+
+.load-all-btn:hover svg {
+  transform: translateY(2px);
+}
+
+.load-all-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+  transform: none !important;
+}
+
+@media (max-width: 600px) {
+  .load-all-container {
+    padding: var(--space-xl) var(--space-md);
+  }
+  
+  .load-all-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
 input[type="text"],
 input[type="email"],
 select,

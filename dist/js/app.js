@@ -347,12 +347,15 @@ class TableManager {
     this.#elements = {
       container: document.getElementById(containerId),
       searchInput: document.getElementById(searchInputId),
-      clearIcon: document.getElementById(clearIconId)
+      clearIcon: document.getElementById(clearIconId),
+      loadAllBtn: null
     };
     
     this.options = {
       sortable: true,
       chunkSize: CONFIG.PERFORMANCE.RENDER_CHUNK_SIZE,
+      initialLimit: 30, // Show only first 30 entries initially
+      enableLazyLoad: true, // Enable lazy loading feature
       ...options
     };
     
@@ -361,7 +364,9 @@ class TableManager {
       filteredData: {},
       sort: { column: null, direction: 'asc' },
       services: [],
-      columns: []
+      columns: [],
+      isFullyLoaded: false,
+      isSearchActive: false
     });
     
     this.#init();
@@ -403,7 +408,9 @@ class TableManager {
       currentData: data,
       filteredData: { ...data },
       services: services || DataTransformer.extractServices(data),
-      columns: DataTransformer.extractServices(data)
+      columns: DataTransformer.extractServices(data),
+      isFullyLoaded: false,
+      isSearchActive: false
     });
     
     this.#renderTable();
@@ -476,8 +483,8 @@ class TableManager {
     const tbody = table?.querySelector('tbody');
     if (!tbody) return;
     
-    const { filteredData, columns } = this.#state.get();
-    const entries = Object.entries(filteredData);
+    const { filteredData, columns, isFullyLoaded, isSearchActive } = this.#state.get();
+    let entries = Object.entries(filteredData);
     
     // Cancel any pending render
     if (this.#idleCallbackId) {
@@ -496,11 +503,22 @@ class TableManager {
       return;
     }
     
-    // Render in chunks
-    this.#renderChunked(tbody, entries, columns, token);
+    // Limit entries if not fully loaded and not searching
+    const shouldLimit = this.options.enableLazyLoad && !isFullyLoaded && !isSearchActive;
+    const displayLimit = shouldLimit ? this.options.initialLimit : entries.length;
+    
+    // If limiting, only show first N entries
+    if (shouldLimit && entries.length > displayLimit) {
+      entries = entries.slice(0, displayLimit);
+      // Render in chunks
+      this.#renderChunked(tbody, entries, columns, token, true);
+    } else {
+      // Render in chunks
+      this.#renderChunked(tbody, entries, columns, token, false);
+    }
   }
   
-  #renderChunked(tbody, entries, columns, token) {
+  #renderChunked(tbody, entries, columns, token, showLoadMore) {
     let index = 0;
     const chunkSize = this.options.chunkSize;
     
@@ -522,10 +540,85 @@ class TableManager {
       // Continue rendering if more entries exist
       if (index < entries.length) {
         this.#idleCallbackId = Utils.scheduleIdleWork(renderNextChunk);
+      } else if (showLoadMore) {
+        // After rendering limited entries, show the "Load All" button
+        this.#showLoadAllButton();
       }
     };
     
     this.#idleCallbackId = Utils.scheduleIdleWork(renderNextChunk);
+  }
+  
+  #showLoadAllButton() {
+    // Remove existing button if any
+    this.#removeLoadAllButton();
+    
+    const { filteredData } = this.#state.get();
+    const totalEntries = Object.keys(filteredData).length;
+    const displayedEntries = this.options.initialLimit;
+    const remainingEntries = totalEntries - displayedEntries;
+    
+    // Create button container
+    const buttonContainer = Utils.createElement('div', {
+      className: 'load-all-container',
+      style: 'text-align: center; padding: var(--space-2xl) 0; margin-top: var(--space-xl);'
+    });
+    
+    // Create button
+    const loadAllBtn = Utils.createElement('button', {
+      className: 'btn btn-primary load-all-btn',
+      type: 'button'
+    });
+    
+    loadAllBtn.innerHTML = `
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+      Load All ${totalEntries} Hosts (${remainingEntries} more)
+    `;
+    
+    loadAllBtn.addEventListener('click', () => this.#loadAllEntries(), { once: true });
+    
+    buttonContainer.appendChild(loadAllBtn);
+    
+    // Store reference
+    this.#elements.loadAllBtn = buttonContainer;
+    
+    // Insert after table wrapper
+    const wrapper = this.#elements.container.querySelector('.table-wrapper');
+    if (wrapper && wrapper.nextSibling) {
+      this.#elements.container.insertBefore(buttonContainer, wrapper.nextSibling);
+    } else {
+      this.#elements.container.appendChild(buttonContainer);
+    }
+  }
+  
+  #removeLoadAllButton() {
+    if (this.#elements.loadAllBtn) {
+      this.#elements.loadAllBtn.remove();
+      this.#elements.loadAllBtn = null;
+    }
+  }
+  
+  #loadAllEntries() {
+    // Update state to show all entries
+    this.#state.update({ isFullyLoaded: true });
+    
+    // Show loading indicator on button
+    const btn = this.#elements.loadAllBtn?.querySelector('.load-all-btn');
+    if (btn) {
+      btn.disabled = true;
+      btn.innerHTML = `
+        <div class="loading-spinner" style="width: 20px; height: 20px; margin-right: 8px;"></div>
+        Loading...
+      `;
+    }
+    
+    // Re-render table body with all entries
+    setTimeout(() => {
+      this.#removeLoadAllButton();
+      this.#renderTableBody();
+    }, 100);
   }
   
   #createTableRow(host, hostData, columns) {
@@ -677,7 +770,15 @@ class TableManager {
         )
       );
       
-      this.#state.set('filteredData', filtered);
+      // When searching, mark as search active and load all
+      this.#state.update({
+        filteredData: filtered,
+        isSearchActive: true,
+        isFullyLoaded: true // Auto-load all when searching
+      });
+      
+      // Remove load all button if present
+      this.#removeLoadAllButton();
       
       if (this.#elements.clearIcon) {
         this.#elements.clearIcon.style.display = 'block';
@@ -697,7 +798,15 @@ class TableManager {
     }
     
     const { currentData } = this.#state.get();
-    this.#state.set('filteredData', { ...currentData });
+    
+    // When clearing search, reset to limited view if was initially limited
+    const shouldResetToLimited = this.options.enableLazyLoad;
+    
+    this.#state.update({
+      filteredData: { ...currentData },
+      isSearchActive: false,
+      isFullyLoaded: shouldResetToLimited ? false : true
+    });
     
     if (this.#elements.clearIcon) {
       this.#elements.clearIcon.style.display = 'none';
