@@ -459,6 +459,17 @@
                     </a>
                     <nav id="primary-navigation" class="header-nav" aria-label="Main navigation" aria-hidden="true"
                         role="navigation">
+                        <div class="nav-mobile-header">
+                            <div class="nav-mobile-brand">
+                                <span class="nav-mobile-title">Menu</span>
+                                <span class="nav-mobile-subtitle">Jump to a section</span>
+                            </div>
+                            <button class="nav-close" id="navClose" type="button" aria-label="Close navigation menu">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                    <use href="#icon-close" />
+                                </svg>
+                            </button>
+                        </div>
                         <a href="#what-are-debrid-services" class="nav-link">
                             <span class="nav-link-text">Intro</span>
                         </a>
@@ -555,8 +566,7 @@
                             Compare Premium <span class="gradient-text">Debrid Services</span>
                         </h1>
                         <p class="hero-description">
-                            Compare pricing, features, and 400+ file hosts across 9 premium debrid services in real-time. 
-                            Make informed decisions with our comprehensive comparison tool.
+                            Compare pricing, features, policies & 400+ file hosts across 10 premium debrid services in real-time.
                         </p>
                         <div class="hero-actions">
                             <a href="#debrid-pricing-comparison" class="btn btn-primary">
@@ -568,7 +578,7 @@
                         </div>
                         <div class="hero-stats" aria-label="Key stats">
                             <div class="stat-item">
-                                <span class="stat-number">9</span>
+                                <span class="stat-number">10</span>
                                 <span class="stat-label">Services</span>
                             </div>
                             <div class="stat-item">
@@ -1747,8 +1757,38 @@
                 navToggle: document.getElementById('navToggle'),
                 nav: document.getElementById('primary-navigation'),
                 navOverlay: document.getElementById('navOverlay'),
+                navClose: document.getElementById('navClose'),
                 darkModeToggle: document.getElementById('darkModeToggle'),
                 dropdownTriggers: []
+            };
+
+            let scrollPosition = 0;
+
+            const lockScroll = () => {
+                if (!elements.body) return;
+                scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+                elements.body.dataset.navScrollLock = String(scrollPosition);
+                elements.body.style.top = `-${scrollPosition}px`;
+                elements.body.style.position = 'fixed';
+                elements.body.style.width = '100%';
+                elements.body.style.overflow = 'hidden';
+                elements.body.style.touchAction = 'none';
+                elements.body.style.left = '0';
+                elements.body.style.right = '0';
+            };
+
+            const unlockScroll = () => {
+                if (!elements.body) return;
+                const saved = Number(elements.body.dataset.navScrollLock || scrollPosition || 0);
+                elements.body.style.removeProperty('top');
+                elements.body.style.removeProperty('position');
+                elements.body.style.removeProperty('width');
+                elements.body.style.removeProperty('overflow');
+                elements.body.style.removeProperty('touch-action');
+                elements.body.style.removeProperty('left');
+                elements.body.style.removeProperty('right');
+                delete elements.body.dataset.navScrollLock;
+                requestAnimationFrame(() => window.scrollTo(0, saved));
             };
             
             // Check if mobile
@@ -1769,13 +1809,15 @@
             
             // Open mobile navigation
             const openNav = () => {
-                if (!elements.nav || state.isOpen) return;
+                if (!elements.nav || state.isOpen || !state.isMobile) return;
                 
                 state.isOpen = true;
+                lockScroll();
                 elements.body.classList.add('nav-open');
                 
                 if (elements.navToggle) {
                     elements.navToggle.setAttribute('aria-expanded', 'true');
+                    elements.navToggle.setAttribute('aria-label', 'Close navigation menu');
                 }
                 
                 if (elements.navOverlay) {
@@ -1788,7 +1830,6 @@
                 }
             };
             
-            // Close mobile navigation
             const closeNav = () => {
                 if (!elements.nav || !state.isOpen) return;
                 
@@ -1797,6 +1838,7 @@
                 
                 if (elements.navToggle) {
                     elements.navToggle.setAttribute('aria-expanded', 'false');
+                    elements.navToggle.setAttribute('aria-label', 'Open navigation menu');
                 }
                 
                 if (elements.navOverlay) {
@@ -1810,6 +1852,7 @@
                 
                 // Close all dropdowns when closing nav
                 closeAllDropdowns();
+                unlockScroll();
             };
             
             // Toggle navigation
@@ -1882,6 +1925,12 @@
                         e.preventDefault();
                         toggleNav();
                     }, { passive: false });
+                }
+
+                if (elements.navClose) {
+                    elements.navClose.addEventListener('click', () => {
+                        closeNav();
+                    }, { passive: true });
                 }
                 
                 // Overlay click handler
