@@ -163,6 +163,170 @@ const Utils = (() => {
     }
   };
 
+  /**
+   * Extract hostname from URL or text input
+   * Handles various URL patterns and returns normalized hostname
+   * @param {string} input - URL or text that might contain a URL
+   * @returns {string|null} - Extracted and normalized hostname or null
+   */
+  const extractHostnameFromURL = (input) => {
+    if (!input || typeof input !== 'string') return null;
+    
+    let normalized = input.trim();
+    
+    // If it doesn't start with a protocol, try to detect if it's a URL
+    if (!normalized.match(/^https?:\/\//i)) {
+      // Check if it looks like a URL (contains dots and domain-like patterns)
+      if (normalized.match(/[a-z0-9-]+\.[a-z]{2,}/i)) {
+        // Try to extract domain-like pattern
+        const domainMatch = normalized.match(/([a-z0-9-]+\.(?:[a-z]{2,}\.)?[a-z]{2,})/i);
+        if (domainMatch) {
+          normalized = 'https://' + domainMatch[0];
+        }
+      } else {
+        // Not a URL, return the input as-is for regular search
+        return null;
+      }
+    }
+    
+    try {
+      // Replace common typos in protocol
+      normalized = normalized.replace(/^https?[:;.]+\/*/i, 'https://');
+      
+      // Parse the URL
+      const url = new URL(normalized);
+      let hostname = url.hostname.toLowerCase();
+      
+      // Remove 'www.' prefix
+      hostname = hostname.replace(/^www\d*\./i, '');
+      
+      // Handle subdomains - extract main domain
+      const parts = hostname.split('.');
+      
+      // If it's a known multi-level TLD (co.uk, com.au, etc.)
+      const multiLevelTLDs = ['co.uk', 'com.au', 'co.nz', 'co.za', 'com.br', 'co.jp'];
+      const lastTwoParts = parts.slice(-2).join('.');
+      
+      if (multiLevelTLDs.includes(lastTwoParts)) {
+        // Keep last 3 parts (domain + multi-level TLD)
+        if (parts.length >= 3) {
+          hostname = parts.slice(-3).join('.');
+        }
+      } else {
+        // Keep last 2 parts (domain + TLD)
+        if (parts.length >= 2) {
+          hostname = parts.slice(-2).join('.');
+        }
+      }
+      
+      // Extract just the domain name without TLD for searching
+      const domainName = hostname.split('.')[0];
+      
+      return domainName;
+      
+    } catch (error) {
+      // If URL parsing fails, try to extract domain manually
+      const manualMatch = normalized.match(/\/\/([^/:?#]+)/);
+      if (manualMatch) {
+        let hostname = manualMatch[1].toLowerCase();
+        hostname = hostname.replace(/^www\d*\./i, '');
+        const domainName = hostname.split('.')[0];
+        return domainName;
+      }
+      
+      return null;
+    }
+  };
+
+  /**
+   * Normalize hostname for fuzzy matching
+   * Removes common variations and patterns
+   */
+  const normalizeHostname = (hostname) => {
+    if (!hostname) return '';
+    
+    return hostname
+      .toLowerCase()
+      .replace(/[^a-z0-9]/g, '') // Remove non-alphanumeric
+      .replace(/^(www|ftp|cdn|dl|download|file|files|upload|uploads)\d*/g, '') // Remove common prefixes
+      .replace(/\d+$/g, ''); // Remove trailing numbers
+  };
+
+  /**
+   * Calculate similarity score between two strings
+   * Uses a combination of exact match, starts-with, and fuzzy matching
+   */
+  const calculateSimilarity = (str1, str2) => {
+    const s1 = normalizeHostname(str1);
+    const s2 = normalizeHostname(str2);
+    
+    if (!s1 || !s2) return 0;
+    
+    // Exact match
+    if (s1 === s2) return 100;
+    
+    // One contains the other
+    if (s1.includes(s2) || s2.includes(s1)) {
+      const longer = Math.max(s1.length, s2.length);
+      const shorter = Math.min(s1.length, s2.length);
+      return Math.round((shorter / longer) * 95);
+    }
+    
+    // Check if they start similarly
+    const minLength = Math.min(s1.length, s2.length);
+    let matchingChars = 0;
+    for (let i = 0; i < minLength; i++) {
+      if (s1[i] === s2[i]) {
+        matchingChars++;
+      } else {
+        break;
+      }
+    }
+    
+    if (matchingChars >= 3) {
+      return Math.round((matchingChars / Math.max(s1.length, s2.length)) * 85);
+    }
+    
+    // Levenshtein-like distance for fuzzy matching
+    const maxLength = Math.max(s1.length, s2.length);
+    if (maxLength === 0) return 100;
+    
+    let distance = levenshteinDistance(s1, s2);
+    return Math.max(0, Math.round((1 - distance / maxLength) * 80));
+  };
+
+  /**
+   * Levenshtein distance algorithm
+   * Calculates the minimum number of edits needed to transform one string into another
+   */
+  const levenshteinDistance = (str1, str2) => {
+    const matrix = [];
+    
+    for (let i = 0; i <= str2.length; i++) {
+      matrix[i] = [i];
+    }
+    
+    for (let j = 0; j <= str1.length; j++) {
+      matrix[0][j] = j;
+    }
+    
+    for (let i = 1; i <= str2.length; i++) {
+      for (let j = 1; j <= str1.length; j++) {
+        if (str2.charAt(i - 1) === str1.charAt(j - 1)) {
+          matrix[i][j] = matrix[i - 1][j - 1];
+        } else {
+          matrix[i][j] = Math.min(
+            matrix[i - 1][j - 1] + 1, // substitution
+            matrix[i][j - 1] + 1,     // insertion
+            matrix[i - 1][j] + 1      // deletion
+          );
+        }
+      }
+    }
+    
+    return matrix[str2.length][str1.length];
+  };
+
   return Object.freeze({
     debounce,
     throttle,
@@ -170,7 +334,10 @@ const Utils = (() => {
     fetchWithFallback,
     createElement,
     scheduleIdleWork,
-    cancelIdleWork
+    cancelIdleWork,
+    extractHostnameFromURL,
+    normalizeHostname,
+    calculateSimilarity
   });
 })();
 
@@ -760,15 +927,57 @@ class TableManager {
   }
   
   #performSearch() {
-    const searchTerm = (this.#elements.searchInput?.value || '').toLowerCase().trim();
+    const rawSearchTerm = (this.#elements.searchInput?.value || '').trim();
     const { currentData } = this.#state.get();
     
-    if (searchTerm) {
-      const filtered = Object.fromEntries(
-        Object.entries(currentData).filter(([host]) =>
-          host.toLowerCase().includes(searchTerm)
-        )
-      );
+    if (rawSearchTerm) {
+      let searchTerm = rawSearchTerm.toLowerCase();
+      let extractedHostname = null;
+      let isURLSearch = false;
+      
+      // Try to extract hostname from URL
+      extractedHostname = Utils.extractHostnameFromURL(rawSearchTerm);
+      
+      if (extractedHostname) {
+        searchTerm = extractedHostname.toLowerCase();
+        isURLSearch = true;
+      }
+      
+      // Perform search with fuzzy matching
+      let filtered;
+      
+      if (isURLSearch) {
+        // Use fuzzy matching for URL-based searches
+        const matches = [];
+        
+        Object.entries(currentData).forEach(([host, hostData]) => {
+          const similarity = Utils.calculateSimilarity(host, searchTerm);
+          
+          // Include if similarity is above threshold (60%)
+          if (similarity >= 60) {
+            matches.push({
+              host,
+              hostData,
+              similarity
+            });
+          }
+        });
+        
+        // Sort by similarity score (highest first)
+        matches.sort((a, b) => b.similarity - a.similarity);
+        
+        // Convert back to object
+        filtered = Object.fromEntries(
+          matches.map(({ host, hostData }) => [host, hostData])
+        );
+      } else {
+        // Regular text search (exact substring matching)
+        filtered = Object.fromEntries(
+          Object.entries(currentData).filter(([host]) =>
+            host.toLowerCase().includes(searchTerm)
+          )
+        );
+      }
       
       // When searching, mark as search active and load all
       this.#state.update({
@@ -784,7 +993,12 @@ class TableManager {
         this.#elements.clearIcon.style.display = 'block';
       }
       
-      this.#updateSearchResults(searchTerm, Object.keys(filtered).length, Object.keys(currentData).length);
+      // Update search results message
+      const resultMessage = isURLSearch 
+        ? `Found ${Object.keys(filtered).length} host(s) matching "${extractedHostname}"`
+        : `Showing ${Object.keys(filtered).length} of ${Object.keys(currentData).length} services`;
+      
+      this.#updateSearchResults(resultMessage, Object.keys(filtered).length, Object.keys(currentData).length, isURLSearch);
     } else {
       this.#clearSearch();
     }
@@ -816,12 +1030,12 @@ class TableManager {
     this.#renderTableBody();
   }
   
-  #updateSearchResults(searchTerm, filteredCount, totalCount) {
+  #updateSearchResults(message, filteredCount, totalCount, isURLSearch = false) {
     if (!this.#elements.container) return;
     
     let resultsElement = this.#elements.container.querySelector('.search-results');
     
-    if (searchTerm) {
+    if (message) {
       if (!resultsElement) {
         resultsElement = Utils.createElement('div', {
           className: 'search-results',
@@ -831,7 +1045,19 @@ class TableManager {
         this.#elements.container.insertBefore(resultsElement, this.#elements.container.firstChild);
       }
       
-      resultsElement.textContent = `Showing ${filteredCount} of ${totalCount} services`;
+      // Add URL indicator if it's a URL search
+      if (isURLSearch) {
+        resultsElement.innerHTML = `
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+          </svg>
+          <span>${message}</span>
+        `;
+      } else {
+        resultsElement.textContent = message;
+      }
+      
       resultsElement.style.display = 'block';
     } else if (resultsElement) {
       resultsElement.style.display = 'none';

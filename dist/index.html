@@ -77,7 +77,6 @@
     <!-- Prefetch data for quick subsequent use (non-blocking) -->
     <link rel="prefetch" as="fetch" href="/json/file-hosts-optimized.json" crossorigin>
     <link rel="prefetch" as="fetch" href="/json/adult-hosts-optimized.json" crossorigin>
-    <link as="style" rel="preload" href="/css/styles-min.css">
 
     <script>
         (function () {
@@ -872,8 +871,8 @@
                                     <use href="#icon-search" stroke="currentColor" stroke-width="2" fill="none" />
                                 </svg>
                                 <input type="search" id="host-search-input" class="search-input"
-                                    placeholder="Search file hosts (e.g., Mega, Rapidgator...)"
-                                    aria-label="Search file hosts" autocomplete="off" />
+                                    placeholder="Search hosts or paste a URL (e.g., Mega, https://rapidgator.net/file/...)"
+                                    aria-label="Search file hosts or paste URL" autocomplete="off" />
                                 <button id="clear-host-search" class="clear-icon" aria-label="Clear search"
                                     type="button">
                                     <svg class="clear-icon-svg" role="img" aria-hidden="true">
@@ -1019,7 +1018,7 @@
                                     <path d="M21 21l-4.35-4.35" />
                                 </svg>
                                 <input type="search" id="adult-host-search-input" class="search-input"
-                                    placeholder="Search adult hosts..." aria-label="Search adult hosts"
+                                    placeholder="Search adult hosts or paste URL..." aria-label="Search adult hosts or paste URL"
                                     autocomplete="off" />
                                 <button id="clear-adult-host-search" class="clear-icon" aria-label="Clear search"
                                     type="button">
