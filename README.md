@@ -7,7 +7,7 @@
 
   <p>
     <a href="https://github.com/fynks/debrid-services-comparison/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/fynks/debrid-services-comparison?style=for-the-badge&logo=github"></a>
-    <a href="#available-hosts"><img alt="Tracked Services" src="https://img.shields.io/badge/Services-9-4caf50?style=for-the-badge&logo=rocket&logoColor=white"></a>
+    <a href="#available-hosts"><img alt="Tracked Services" src="https://img.shields.io/badge/Services-10-4caf50?style=for-the-badge&logo=rocket&logoColor=white"></a>
     <a href="https://debridcompare.xyz"><img alt="Web App" src="https://img.shields.io/badge/Interactive-Web_App-green?style=for-the-badge&logo=google-chrome&logoColor=white"></a>
   </p>
 
@@ -47,15 +47,36 @@
 Debrid ("multi-hoster") services act as paid aggregation layers between you and dozens/hundreds of individual file hosts. You give them a link (or torrent/magnet) → they fetch, cache, and re‑serve it back to you at high speed (often via CDN‑like infrastructure) with fewer throttles and no host ads.
 
 ### Key Benefits
-- High-speed direct links (instead of countdowns & captchas)
-- One subscription = multi-host access
-- Remote torrent / magnet fetching (privacy layer & seedboxing lite)
-- Stream-first workflows (some transcode or offer HLS-ready links)
-- Reduced local bandwidth spikes (remote caching)
-- Less friction & automation-friendly APIs
+- **High-speed** direct links (instead of countdowns & captchas)
+- **One subscription** - multi-host access
+- **Remote torrent / magnet fetching** (privacy layer & seedboxing lite)
+- **Stream-first workflows** (some transcode or offer HLS-ready links)
+- **Reduced local bandwidth spikes** (remote caching)
+- **Less friction & automation-friendly APIs**
 
-|💡 Think of a debrid service as a “premium proxy” between you and file-hosting sites like Rapidgator, Mediafire, or Uptobox. |
-|------------------------------------------------------------------------------------------------------------------------- |
+---
+
+### How It Works
+
+<br><br>
+
+```mermaid
+flowchart TD
+    A[User wants to download or stream a file] --> B{File on a supported hoster?}
+    B -->|Yes| C[Send link to debrid service]
+    C --> D[Debrid fetches file,<br/>bypasses waits & ads,<br/>generates direct link]
+    D --> E{Stream or download?}
+    E -->|Stream| F[Debrid hosts on fast server<br/>→ provides streaming link]
+    E -->|Download| G[Debrid stores temporarily<br/>→ provides download link]
+    F --> H[User accesses file<br/>at full speed,<br/>no ads or waits]
+    G --> H
+    H --> I[File auto-deleted after 24–72 hours]
+```
+
+<br><br>
+
+> [!TIP]
+> Think of a debrid service as a **Premium Proxy** between you and file-hosting sites like Rapidgator, Mediafire, or Uptobox.
 
 
 ## Getting Started
@@ -89,7 +110,6 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 ## Pricing Comparison
 
-### Detailed Pricing and Value Analysis
 
 | **Plan Duration**     | **AllDebrid**                           | **Premiumize** | **Real-Debrid** | **TorBox**        | **Debrid-Link** | **LinkSnappy** | **Mega-Debrid** | **Deepbrid**       | **High-Way**   | **Offcloud** |
 | :-------------------- | :-------------------------------------- | :------------- | :-------------- | :---------------- | :-------------- | :------------- | :-------------- | :----------------- | :------------- | :----------- |
@@ -112,7 +132,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 ### Up-to-date Pricing
 
-> [!IMPORTANT]  
+> [!TIP]  
 > *Always verify prices on official sites as they change frequently.*
 
 <details><summary>👉 Click to expand</summary>
@@ -132,7 +152,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 </details><br>
 
-![Last Updated](https://img.shields.io/badge/Last%20Updated-September%2019%2C%202025-blue?style=for-the-badge)
+> **Last updated: September 19, 2025**
 
 <br>
 
@@ -593,7 +613,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 <br>
 
-![Last Updated](https://img.shields.io/badge/Last%20Updated-September%2019%2C%202025-blue?style=for-the-badge)
+> **Last updated: September 19, 2025**
 
 <div align="right">
 
@@ -604,7 +624,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 ### Usenet Support
 
 > [!TIP]
-> Usenet is a massive, decentralized message-sharing system built around topic-based newsgroups. These function like forums or discussion boards, with each group focused on a specific subject. Some host plain-text conversations, while others serve as archives for large sets of articles.
+> Usenet is a global system for sharing files and messages in topic-based groups. Think of it as a giant, searchable forum where you can find discussions and download content.
 
 | Service         | AllDebrid | TorBox | Premiumize | Real-Debrid | Debrid-Link | LinkSnappy | Mega-Debrid | Deepbrid | High-Way | Offcloud |
 |-----------------|:---------:|:------:|:----------:|:-----------:|:-----------:|:----------:|:-----------:|:--------:|:--------:|:--------:|
@@ -754,8 +774,13 @@ Enhance your debrid experience with these trusted tools, guides, and communities
 - [**Is Real-Debrid Down Or Just Me**](https://debridmediamanager.com/is-real-debrid-down-or-just-me) — Quick status probe
 
 ### Communities
-- **Reddit**: [r/Piracy](https://www.reddit.com/r/piracy), [r/RealDebrid](https://www.reddit.com/r/RealDebrid), [r/AllDebrid](https://www.reddit.com/r/AllDebrid), [r/Premiumize](https://www.reddit.com/r/Premiumize), [r/usenet](https://www.reddit.com/r/usenet), [r/DataHoarder](https://www.reddit.com/r/DataHoarder),
-- **Discord**: Most services have official support servers
+#### **Reddit**: 
+  - [r/Piracy](https://www.reddit.com/r/piracy)
+  - [r/RealDebrid](https://www.reddit.com/r/RealDebrid)
+  - [r/AllDebrid](https://www.reddit.com/r/AllDebrid)
+  - [r/Premiumize](https://www.reddit.com/r/Premiumize)
+  - [r/usenet](https://www.reddit.com/r/usenet)
+  - [r/DataHoarder](https://www.reddit.com/r/DataHoarder)
 - **GitHub**: [Report issues or suggest updates](https://github.com/fynks/debrid-services-comparison/issues)
 
 > [!TIP]
@@ -789,9 +814,9 @@ Help keep this guide accurate! We welcome:
 
 If this project saved you time or helped you make a better decision, here’s how you can support its continued maintenance and improvement:
 
-[![Star the repository](https://img.shields.io/github/stars/fynks/debrid-services-comparison?style=for-the-badge&label=Star%20on%20GitHub)](https://github.com/fynks/debrid-services-comparison)
+[![Star the repository](https://img.shields.io/github/stars/fynks/debrid-services-comparison?style=for-the-badge&label=Star%20on%20GitHub&logo=github)](https://github.com/fynks/debrid-services-comparison)
 [![Contribute updates](https://img.shields.io/badge/Contribute-Open_an_issue_or_PR-brightgreen?style=for-the-badge&logo=github)](https://github.com/fynks/debrid-services-comparison/issues)
-[![Use referral links](https://img.shields.io/badge/Support-Use_referral_links-yellow?style=for-the-badge&logo=buymeacoffee)](#support-this-project)
+[![Use referral links](https://img.shields.io/badge/Support-Use_referral_links-orange?style=for-the-badge&logo=buymeacoffee)](#support-this-project)
 
 ---
 
@@ -799,6 +824,8 @@ If this project saved you time or helped you make a better decision, here’s ho
 
 *Open-source, no ads, no paid placements. Your participation keeps it accurate & neutral.*
 
-⚡ Made with ❤️ by [Debrid Service Comparison](https://github.com/fynks/debrid-services-comparison)
+---
+
+[![Back to Top](https://img.shields.io/badge/Back_to_Top-%E2%86%91-blue?style=for-the-badge)](#table-of-contents)
 
 </div>
