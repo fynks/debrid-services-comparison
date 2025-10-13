@@ -23,11 +23,12 @@
 </div>
 <br>
 
-## Table of Contents
+### Table of Contents
 
 <details><summary>👉 Click to expand</summary>
 
 - [What are Debrid Services?](#what-are-debrid-services)
+- [How It Works](#how-it-works)
 - [Support This Project](#support-this-project)
 - [Pricing Comparison](#pricing-comparison)
 - [Available Hosts](#available-hosts)
