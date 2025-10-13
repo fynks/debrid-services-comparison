@@ -3,7 +3,7 @@
     <img src="./dist/favicon.svg" alt="Logo" style="height:1em; width:1em; vertical-align:middle">&nbsp;Debrid Services Comparison
   </h1>
 
-  <p><strong>Compare leading debrid / multi-hoster services for pricing, host coverage, policies & tools.</strong></p>
+  <p><strong>Compare leading debrid services for pricing, host coverage, features, and tools</strong></p>
 
   <p>
     <a href="https://github.com/fynks/debrid-services-comparison/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/fynks/debrid-services-comparison?style=for-the-badge&logo=github"></a>
@@ -13,32 +13,33 @@
 
   <a href="https://debridcompare.xyz/"><img src="./dist/images/og.png" alt="Screenshot of interactive comparison web app" width="880" style="border-radius:2px"></a>
 
-<div align="center" style="margin-top:8px;font-size:1.2em">
-  <a href="#pricing-comparison">Pricing</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-  <a href="#available-hosts">Hosts</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-  <a href="#policies-and-legal">Policies</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-  <a href="#tools-and-community">Tools</a>
 </div>
 
-</div>
-<br>
+## Quick Navigation
 
-### Table of Contents
+<div align="center">
+
+[Introduction](#what-are-debrid-services) | [Pricing](#pricing-comparison)
+| [File Hosts](#file-hosts) | [Tools & Apps](#tools-and-applications)
+
+</div><br>
+
+## Table of Contents
 
 <details><summary>👉 Click to expand</summary>
 
 - [What are Debrid Services?](#what-are-debrid-services)
 - [How It Works](#how-it-works)
-- [Support This Project](#support-this-project)
+- [Getting Started](#getting-started)
 - [Pricing Comparison](#pricing-comparison)
 - [Available Hosts](#available-hosts)
   - [File Hosts](#file-hosts)
   - [Usenet Support](#usenet-support)
   - [Adult Hosts](#adult-hosts)
-- [Policies and Legal](#policies-and-legal)
+- [Policies](#policies)
 - [Speed Test](#speed-test)
-- [Disclaimer](#disclaimer)
-- [Tools and Community](#tools-and-community)
+- [Tools and Applications](#tools-and-applications)
+- [Community Resources](#community-resources)
 - [Contributing](#contributing)
 
 </details>
@@ -48,37 +49,35 @@
 Debrid ("multi-hoster") services act as paid aggregation layers between you and dozens/hundreds of individual file hosts. You give them a link (or torrent/magnet) → they fetch, cache, and re‑serve it back to you at high speed (often via CDN‑like infrastructure) with fewer throttles and no host ads.
 
 ### Key Benefits
-- **High-speed** direct links (instead of countdowns & captchas)
-- **One subscription** - multi-host access
-- **Remote torrent / magnet fetching** (privacy layer & seedboxing lite)
-- **Stream-first workflows** (some transcode or offer HLS-ready links)
-- **Reduced local bandwidth spikes** (remote caching)
-- **Less friction & automation-friendly APIs**
 
----
+- **High-speed downloads** - no countdowns or captchas
+- **One subscription** - access to hundreds of file hosts
+- **Remote torrent/magnet fetching** - privacy and seedless downloading
+- **Streaming-ready links** - compatible with media servers and apps
+- **Cloud storage** - automatic file caching (24-72 hours)
+- **API access** - automation and third-party integrations
 
 ### How It Works
 
-<br><br>
+<br>
 
 ```mermaid
 flowchart TD
-    A[User wants to download or stream a file] --> B{File on a supported hoster?}
-    B -->|Yes| C[Send link to debrid service]
-    C --> D[Debrid fetches file,<br/>bypasses waits & ads,<br/>generates direct link]
+    A[User provides file link or torrent] --> B{File on supported host?}
+    B -->|Yes| C[Debrid service fetches file]
+    C --> D[File cached on high-speed servers]
     D --> E{Stream or download?}
-    E -->|Stream| F[Debrid hosts on fast server<br/>→ provides streaming link]
-    E -->|Download| G[Debrid stores temporarily<br/>→ provides download link]
-    F --> H[User accesses file<br/>at full speed,<br/>no ads or waits]
+    E -->|Stream| F[Direct streaming link provided]
+    E -->|Download| G[High-speed download link provided]
+    F --> H[Access file instantly]
     G --> H
-    H --> I[File auto-deleted after 24–72 hours]
+    H --> I[File cached for 24-72 hours]
 ```
 
-<br><br>
+<br>
 
 > [!TIP]
-> Think of a debrid service as a **Premium Proxy** between you and file-hosting sites like Rapidgator, Mediafire, or Uptobox.
-
+> Think of debrid services as a **premium bridge** between you and file-hosting sites, providing instant access to cached content at maximum speed.
 
 ## Getting Started
 
@@ -167,14 +166,13 @@ flowchart TD
 
 ### File Hosts
 
-<br>
-
-<div align="center">
+<br><div align="center">
 
 | ⚡ For faster exploration (search + filter + side-by-side), use the <a href="https://debridcompare.xyz" target="_blank" rel="noopener">interactive web app</a>. |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 </div>
+
 
 | **Service Name**        | **AllDebrid** | **TorBox**  | **Premiumize** | **Real-Debrid** | **Debrid-Link** | **LinkSnappy** | **Mega-Debrid** | **Deepbrid** | **High-Way** | **Offcloud** |
 | :---------------------- | :------------ | :---------- | :------------- | :-------------- | :-------------- | :------------- | :-------------- | :----------- | :----------- | :----------- |
@@ -667,7 +665,7 @@ Service availability and host support can change in real time. Use these officia
 
 </div>
 
-## Policies and Legal
+## Policies
 
 > 💡 Official Terms, Privacy, Refund, and Support pages for each provider. Refund eligibility varies widely; always verify before purchase.
 
@@ -739,9 +737,81 @@ For a more accurate assessment, follow these steps:
 
 </div>
 
----
 
-## Disclaimer:
+## Tools and Applications
+
+### Media Management
+
+| Tool | Description | Official Link |
+| :--- | :---------- | :------------ |
+| **Debrid Media Manager** | Web-based manager for organizing and streaming debrid content with Trakt integration | [Website](https://debridmediamanager.com/) <br> [GitHub](https://github.com/debridmediamanager/debrid-media-manager) |
+| **CineSync** | Automated media organization and symlink manager for Plex/Jellyfin/Emby with Bazarr support | [GitHub](https://github.com/sureshfizzy/CineSync) |
+| **Zurg** | WebDAV server that mounts Real-Debrid as a network drive for media servers | [GitHub](https://github.com/debridmediamanager/zurg-testing) |
+
+### Streaming Add-ons
+
+| Tool | Description | Official Link |
+| :--- | :---------- | :------------ |
+| **Comet** | Advanced Stremio add-on with real-time torrent indexing and multi-debrid support | [GitHub](https://github.com/g0ldyy/comet) |
+| **MediaFusion** | Universal Stremio add-on with sports, live TV, and extensive debrid service support | [GitHub](https://github.com/mhdzumair/MediaFusion) |
+| **Torrentio** | Popular Stremio add-on with simple setup and reliable debrid integration | [Website](https://torrentio.strem.fun/) |
+
+### Download Managers
+
+| Tool | Description | Official Link |
+| :--- | :---------- | :------------ |
+| **RDT Client** | Web-based torrent client for Real-Debrid, AllDebrid, and Premiumize with Sonarr/Radarr integration | [GitHub](https://github.com/rogerfar/rdt-client) |
+| **Seanime** | Self-hosted anime media server with AniList integration and auto-download features | [GitHub](https://github.com/5rahim/seanime) |
+| **pyLoad** | Free and open-source download manager supporting 100+ file hosts with plugin system | [GitHub](https://github.com/pyload/pyload) |
+| **JDownloader** | Popular download manager with extensive host support and automatic link extraction | [Website](https://jdownloader.org/) |
+
+### Browser Extensions
+
+| Tool | Description | Official Link |
+| :--- | :---------- | :------------ |
+| **Real-Debrid Torrent Plugin** | One-click torrent adding with context menu integration for Chrome and Firefox | [Chrome](https://chrome.google.com/webstore) |
+| **AllDebrid Helper** | Quick link unrestrict with clipboard monitoring and browser notifications | [Official Link](https://alldebrid.com/tools/) |
+| **Deebrid Extension** | Browser extension for easy link unrestricting and download management | [Chrome](https://chromewebstore.google.com/detail/deepbrid-%E2%80%93-browser-extens/ampccappllebdaplacfcopfdgofmohmh) <br> [Firefox](https://addons.mozilla.org/en-US/firefox/addon/deepbrid-browser-extension/) |
+
+### Mobile Applications
+
+| App | Description | Official Link |
+| :-- | :---------- | :------------ |
+| **Stremio** | Cross-platform streaming app with debrid add-on support and device sync | [Website](https://www.stremio.com/downloads) |
+| **AllDebrid App** | Official AllDebrid PWA for link management and downloads | [PWA](https://alldebrid.com/m/) |
+| **Unchained** | Community-driven Real-Debrid app for managing downloads | [Unchained](https://github.com/LivingWithHippos/unchained-android) |
+| **VLC** | Universal media player with direct link playback and subtitle support | [Website](https://play.google.com/store/apps/details?id=org.videolan.vlc) |
+
+## Community Resources
+
+### Reddit Communities
+
+- [r/Piracy](https://www.reddit.com/r/piracy) - General piracy discussion and guides
+- [r/RealDebrid](https://www.reddit.com/r/RealDebrid) - Real-Debrid support and updates
+- [r/AllDebrid](https://www.reddit.com/r/AllDebrid) - AllDebrid discussion
+- [r/Premiumize](https://www.reddit.com/r/Premiumize) - Premiumize users
+- [r/debridmediamanager](https://www.reddit.com/r/debridmediamanager) - DMM support and tutorials
+- [r/StremioAddons](https://www.reddit.com/r/StremioAddons) - Stremio add-ons and configuration
+- [r/usenet](https://www.reddit.com/r/usenet) - Usenet and debrid discussion
+- [r/DataHoarder](https://www.reddit.com/r/DataHoarder) - Data archiving and storage
+
+
+### Useful Resources
+
+- [Awesome Debrid](https://github.com/debridmediamanager/awesome-debrid) - Curated list of tools and resources
+- [TorrentFreak](https://torrentfreak.com/) - News and updates
+- [GitHub Discussions](https://github.com/fynks/debrid-services-comparison/discussions) - Ask questions and share experiences
+- [Is Real-Debrid Down](https://debridmediamanager.com/is-real-debrid-down-or-just-me) - Service status checker
+
+> Join communities to get help, share experiences, and stay updated on service changes.
+
+<div align="right">
+
+[(↑ Back to Top)](#table-of-contents)
+
+</div>
+
+## Disclaimer
 
 This project aims to provide accurate and up-to-date information, but the debrid service landscape is dynamic. Please keep the following in mind:
 
@@ -763,36 +833,6 @@ This project aims to provide accurate and up-to-date information, but the debrid
 
 ---
 
-## Tools and Community
-
-Enhance your debrid experience with these trusted tools, guides, and communities:
-
-### Recommended Tools
-- [**Awesome-Debrid**](https://github.com/debridmediamanager/awesome-debrid) — Curated apps, extensions & integrations
-- [**Debrid Media Manager**](https://github.com/debridmediamanager/debrid-media-manager) — Auto-download & organize media in debrid cloud
-- [**Comet**](https://github.com/g0ldyy/comet) — Stremio torrent/debrid add‑on
-- [**RDT Client**](https://github.com/rogerfar/rdt-client) — Web UI for managing RD / AD / Premiumize jobs
-- [**Is Real-Debrid Down Or Just Me**](https://debridmediamanager.com/is-real-debrid-down-or-just-me) — Quick status probe
-
-### Communities
-#### **Reddit**: 
-  - [r/Piracy](https://www.reddit.com/r/piracy)
-  - [r/RealDebrid](https://www.reddit.com/r/RealDebrid)
-  - [r/AllDebrid](https://www.reddit.com/r/AllDebrid)
-  - [r/Premiumize](https://www.reddit.com/r/Premiumize)
-  - [r/usenet](https://www.reddit.com/r/usenet)
-  - [r/DataHoarder](https://www.reddit.com/r/DataHoarder)
-- **GitHub**: [Report issues or suggest updates](https://github.com/fynks/debrid-services-comparison/issues)
-
-> [!TIP]
-> Combine a debrid service + automation (e.g. Debrid Media Manager) + media server (Jellyfin / Plex) for a “cloud DVR” style experience.
-
-<div align="right">
-
-[(↑ Back to Top)](#table-of-contents)
-
-</div>
-
 ## Contributing
 Help keep this guide accurate! We welcome:
 
@@ -813,17 +853,19 @@ Help keep this guide accurate! We welcome:
 
 ## Support and Stay Updated
 
-If this project saved you time or helped you make a better decision, here’s how you can support its continued maintenance and improvement:
+This guide remains **free, ad-free, and unbiased** through community support. If it helped you choose the right service or saved you time, here's how you can contribute:
 
-[![Star the repository](https://img.shields.io/github/stars/fynks/debrid-services-comparison?style=for-the-badge&label=Star%20on%20GitHub&logo=github)](https://github.com/fynks/debrid-services-comparison)
-[![Contribute updates](https://img.shields.io/badge/Contribute-Open_an_issue_or_PR-brightgreen?style=for-the-badge&logo=github)](https://github.com/fynks/debrid-services-comparison/issues)
-[![Use referral links](https://img.shields.io/badge/Support-Use_referral_links-orange?style=for-the-badge&logo=buymeacoffee)](#support-this-project)
+### Ways to Support
+
+[![Star on GitHub](https://img.shields.io/github/stars/fynks/debrid-services-comparison?style=for-the-badge&label=Star%20on%20GitHub&logo=github)](https://github.com/fynks/debrid-services-comparison)
+[![Contribute](https://img.shields.io/badge/Contribute-Open_an_issue_or_PR-brightgreen?style=for-the-badge&logo=github)](https://github.com/fynks/debrid-services-comparison/issues)
+[![Referral Links](https://img.shields.io/badge/Support-Use_referral_links-orange?style=for-the-badge&logo=buymeacoffee)](#support-this-project)
 
 ---
 
 <div align="center">
 
-*Open-source, no ads, no paid placements. Your participation keeps it accurate & neutral.*
+<small>Community-Driven • No Sponsored Content • No Paid Placements</small>
 
 ---
 
