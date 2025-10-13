@@ -769,7 +769,7 @@ For a more accurate assessment, follow these steps:
 
 | Tool | Description | Official Link |
 | :--- | :---------- | :------------ |
-| **Real-Debrid Torrent Plugin** | One-click torrent adding with context menu integration for Chrome and Firefox | [Chrome](https://chrome.google.com/webstore) |
+| **Real-Debrid Torrent Plugin** | One-click torrent adding with context menu integration for Chrome and Firefox | [Chrome](https://chromewebstore.google.com/detail/real-debrid-extension/oefkkgfcahbeccgckjgbnfclcmnjgidg) |
 | **AllDebrid Helper** | Quick link unrestrict with clipboard monitoring and browser notifications | [Official Link](https://alldebrid.com/tools/) |
 | **Deebrid Extension** | Browser extension for easy link unrestricting and download management | [Chrome](https://chromewebstore.google.com/detail/deepbrid-%E2%80%93-browser-extens/ampccappllebdaplacfcopfdgofmohmh) <br> [Firefox](https://addons.mozilla.org/en-US/firefox/addon/deepbrid-browser-extension/) |
 
