@@ -11,7 +11,7 @@
     <a href="https://debridcompare.xyz"><img alt="Web App" src="https://img.shields.io/badge/Interactive-Web_App-green?style=for-the-badge&logo=google-chrome&logoColor=white"></a>
   </p>
 
-  <a href="https://debrid-services-comparison.netlify.app/"><img src="./dist/images/og.png" alt="Screenshot of interactive comparison web app" width="880" style="border-radius:2px"></a>
+  <a href="https://debridcompare.xyz/"><img src="./dist/images/og.png" alt="Screenshot of interactive comparison web app" width="880" style="border-radius:2px"></a>
 
 <div align="center" style="margin-top:8px;font-size:1.2em">
   <a href="#pricing-comparison">Pricing</a>&nbsp;&nbsp;|&nbsp;&nbsp;
