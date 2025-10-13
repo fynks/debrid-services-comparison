@@ -2697,6 +2697,30 @@ th {
   flex: 1;
 }
 
+.resource-links {
+  margin-top: var(--space-md);
+  display: flex;
+  gap: var(--space-lg);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.resource-links a {
+  color: var(--primary);
+  font-size: var(--text-sm);
+  text-decoration: none;
+  font-weight: var(--font-medium);
+  transition: color var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.resource-links a:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
 @media (max-width: 768px) {
   .resource-card {
     min-height: 120px;
