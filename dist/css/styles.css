@@ -2263,7 +2263,10 @@ th {
   position: sticky;
   left: 0;
   z-index: 10;
-  box-shadow: 2px 0 6px -4px rgba(0, 0, 0, .06)
+  box-shadow: 2px 0 6px -4px rgba(0, 0, 0, .06);
+}
+.policies-table td:first-child{
+  font-weight: bold
 }
 
 /* Header cells in first column - higher z-index */
