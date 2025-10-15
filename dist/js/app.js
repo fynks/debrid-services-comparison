@@ -1098,11 +1098,36 @@ class ComparisonManager {
     this.#data = transformed.data;
     this.#services = transformed.services || DataTransformer.extractServices(transformed.data);
     
+    console.log('ComparisonManager initialized with:', {
+      servicesCount: this.#services.length,
+      services: this.#services,
+      hostsCount: Object.keys(this.#data).length
+    });
+    
     this.#init();
   }
   
   #init() {
     if (!this.#elements.select1 || !this.#elements.select2) return;
+    
+    // Populate select dropdowns with service options
+    this.#services.forEach(service => {
+      const option1 = document.createElement('option');
+      option1.value = service;
+      option1.textContent = service;
+      this.#elements.select1.appendChild(option1);
+      
+      const option2 = document.createElement('option');
+      option2.value = service;
+      option2.textContent = service;
+      this.#elements.select2.appendChild(option2);
+    });
+    
+    console.log('Populated dropdowns with services:', this.#services);
+    console.log('Sample host data:', Object.keys(this.#data).slice(0, 2).map(host => ({
+      host,
+      services: Object.keys(this.#data[host])
+    })));
     
     this.#elements.select1.addEventListener('change', () => this.#handleCompare());
     this.#elements.select2.addEventListener('change', () => this.#handleCompare());
@@ -1111,6 +1136,8 @@ class ComparisonManager {
   #handleCompare() {
     const service1 = this.#elements.select1.value;
     const service2 = this.#elements.select2.value;
+    
+    console.log('Comparing services:', { service1, service2 });
     
     if (!service1 || !service2) {
       this.#showEmptyState();
@@ -1184,7 +1211,9 @@ class ComparisonManager {
     const tbody = Utils.createElement('tbody');
     hosts.forEach(host => {
       const row = this.#createComparisonRow(host, service1, service2);
-      tbody.appendChild(row);
+      if (row) {
+        tbody.appendChild(row);
+      }
     });
     table.appendChild(tbody);
     
@@ -1194,8 +1223,31 @@ class ComparisonManager {
   
   #createComparisonRow(host, service1, service2) {
     const hostData = this.#data[host];
-    const supported1 = hostData[service1] === '✅';
-    const supported2 = hostData[service2] === '✅';
+    
+    // Safety check: if hostData is undefined, skip this host
+    if (!hostData) {
+      console.warn(`Host data not found for: ${host}`);
+      return null;
+    }
+    
+    // Try to find the service keys with case-insensitive matching
+    const findServiceKey = (serviceName) => {
+      // First try exact match
+      if (hostData[serviceName] !== undefined) {
+        return serviceName;
+      }
+      // Then try case-insensitive match
+      const serviceKey = Object.keys(hostData).find(
+        key => key.toLowerCase() === serviceName.toLowerCase()
+      );
+      return serviceKey;
+    };
+    
+    const serviceKey1 = findServiceKey(service1);
+    const serviceKey2 = findServiceKey(service2);
+    
+    const supported1 = serviceKey1 ? hostData[serviceKey1] === '✅' : false;
+    const supported2 = serviceKey2 ? hostData[serviceKey2] === '✅' : false;
     
     let statusClass = 'neither-supported';
     let statusText = 'Neither';
@@ -1266,10 +1318,27 @@ class ComparisonManager {
     let service1Only = 0;
     let service2Only = 0;
     
+    // Helper function to find service key with case-insensitive matching
+    const findServiceKey = (hostData, serviceName) => {
+      // First try exact match
+      if (hostData[serviceName] !== undefined) {
+        return serviceName;
+      }
+      // Then try case-insensitive match
+      return Object.keys(hostData).find(
+        key => key.toLowerCase() === serviceName.toLowerCase()
+      );
+    };
+    
     hosts.forEach(host => {
       const hostData = this.#data[host];
-      const supported1 = hostData[service1] === '✅';
-      const supported2 = hostData[service2] === '✅';
+      if (!hostData) return;
+      
+      const serviceKey1 = findServiceKey(hostData, service1);
+      const serviceKey2 = findServiceKey(hostData, service2);
+      
+      const supported1 = serviceKey1 ? hostData[serviceKey1] === '✅' : false;
+      const supported2 = serviceKey2 ? hostData[serviceKey2] === '✅' : false;
       
       if (supported1 && supported2) shared++;
       else if (supported1) service1Only++;
