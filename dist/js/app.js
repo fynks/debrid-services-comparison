@@ -1110,6 +1110,14 @@ class ComparisonManager {
   #init() {
     if (!this.#elements.select1 || !this.#elements.select2) return;
     
+    // Clear existing options except the first placeholder option
+    while (this.#elements.select1.options.length > 1) {
+      this.#elements.select1.remove(1);
+    }
+    while (this.#elements.select2.options.length > 1) {
+      this.#elements.select2.remove(1);
+    }
+    
     // Populate select dropdowns with service options
     this.#services.forEach(service => {
       const option1 = document.createElement('option');
