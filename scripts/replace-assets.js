@@ -46,8 +46,8 @@ function replaceAssets() {
     };
     const cssHash = safeHash(cssMinPath);
     const jsHash = safeHash(jsMinPath);
-    const cssTarget = cssHash ? `href="./css/styles-min.css?v=${cssHash}"` : 'href="./css/styles-min.css"';
-    const jsTarget = jsHash ? `src="js/app-min.js?v=${jsHash}"` : 'src="js/app-min.js"';
+    const cssTarget = cssHash ? `href="/css/styles-min.css?v=${cssHash}"` : 'href="/css/styles-min.css"';
+    const jsTarget = jsHash ? `src="/js/app-min.js?v=${jsHash}"` : 'src="/js/app-min.js"';
 
     // Replace CSS links in head - more flexible patterns
     const cssPatterns = [
@@ -69,6 +69,14 @@ function replaceAssets() {
       const preloadMinCssPattern = /href=["']\/?css\/styles-min\.css["']/g;
       if (preloadMinCssPattern.test(updatedHeadContent)) {
         updatedHeadContent = updatedHeadContent.replace(preloadMinCssPattern, `href="/css/styles-min.css?v=${cssHash}"`);
+      }
+    }
+
+    // Update JS preload tags to include version hash
+    if (jsHash) {
+      const preloadMinJsPattern = /href=["']\/?js\/app-min\.js["']/g;
+      if (preloadMinJsPattern.test(updatedHeadContent)) {
+        updatedHeadContent = updatedHeadContent.replace(preloadMinJsPattern, `href="/js/app-min.js?v=${jsHash}"`);
       }
     }
 
