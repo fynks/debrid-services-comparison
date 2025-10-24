@@ -1,17 +1,7 @@
 /**
  * Debrid Services Comparison - Modern Refactored Version
  * Optimized for performance, maintainability, and modern web standards
- * @version 2.1.0
- * 
- * Improvements:
- * - Memory leak prevention with lifecycle management
- * - Web Workers for heavy operations
- * - IndexedDB caching
- * - Virtual scrolling for large datasets
- * - Enhanced accessibility (WCAG 2.1 AA compliant)
- * - Responsive design (mobile-first)
- * - Memoization for expensive operations
- * - Event bus for decoupled architecture
+ * @version 2.0.0
  */
 
 /* ============================================================================
@@ -38,381 +28,8 @@ const CONFIG = Object.freeze({
   ANIMATION: {
     DURATION: 250,
     EASING: 'cubic-bezier(0.4, 0, 0.2, 1)'
-  },
-  CACHE: {
-    DB_NAME: 'debrid-cache',
-    DB_VERSION: 1,
-    STORE_NAME: 'api-cache',
-    DEFAULT_TTL: 3600000 // 1 hour in milliseconds
-  },
-  VIRTUAL_SCROLL: {
-    ITEM_HEIGHT: 50, // Approximate row height in pixels
-    BUFFER_SIZE: 5, // Number of extra items to render above/below viewport
-    ENABLE_THRESHOLD: 100 // Enable virtual scrolling when items exceed this number
   }
 });
-
-/* ============================================================================
-   COMPONENT LIFECYCLE MANAGEMENT
-   ============================================================================ */
-class ComponentLifecycle {
-  #cleanupFns = [];
-  #isDestroyed = false;
-
-  /**
-   * Register a cleanup function to be called when component is destroyed
-   * @param {Function} fn - Cleanup function
-   * @returns {Function} - Unregister function
-   */
-  onDestroy(fn) {
-    if (this.#isDestroyed) {
-      console.warn('Attempted to register cleanup on destroyed component');
-      return () => {};
-    }
-    
-    this.#cleanupFns.push(fn);
-    
-    // Return unregister function
-    return () => {
-      const index = this.#cleanupFns.indexOf(fn);
-      if (index > -1) {
-        this.#cleanupFns.splice(index, 1);
-      }
-    };
-  }
-
-  /**
-   * Destroy component and run all cleanup functions
-   */
-  destroy() {
-    if (this.#isDestroyed) {
-      return;
-    }
-    
-    this.#isDestroyed = true;
-    this.#cleanupFns.forEach(fn => {
-      try {
-        fn();
-      } catch (error) {
-        console.error('Cleanup function error:', error);
-      }
-    });
-    this.#cleanupFns = [];
-  }
-
-  get isDestroyed() {
-    return this.#isDestroyed;
-  }
-}
-
-/* ============================================================================
-   EVENT BUS FOR DECOUPLED ARCHITECTURE
-   ============================================================================ */
-class EventBus {
-  #events = new Map();
-  #maxListeners = 100; // Prevent memory leaks
-
-  /**
-   * Subscribe to an event
-   * @param {string} event - Event name
-   * @param {Function} callback - Event handler
-   * @returns {Function} - Unsubscribe function
-   */
-  on(event, callback) {
-    if (!this.#events.has(event)) {
-      this.#events.set(event, new Set());
-    }
-    
-    const listeners = this.#events.get(event);
-    
-    if (listeners.size >= this.#maxListeners) {
-      console.warn(`EventBus: Max listeners (${this.#maxListeners}) reached for event "${event}"`);
-    }
-    
-    listeners.add(callback);
-    
-    // Return unsubscribe function
-    return () => this.off(event, callback);
-  }
-
-  /**
-   * Unsubscribe from an event
-   * @param {string} event - Event name
-   * @param {Function} callback - Event handler to remove
-   */
-  off(event, callback) {
-    const listeners = this.#events.get(event);
-    if (listeners) {
-      listeners.delete(callback);
-      if (listeners.size === 0) {
-        this.#events.delete(event);
-      }
-    }
-  }
-
-  /**
-   * Emit an event
-   * @param {string} event - Event name
-   * @param {*} data - Event data
-   */
-  emit(event, data) {
-    const listeners = this.#events.get(event);
-    if (listeners) {
-      listeners.forEach(callback => {
-        try {
-          callback(data);
-        } catch (error) {
-          console.error(`EventBus error in "${event}":`, error);
-        }
-      });
-    }
-  }
-
-  /**
-   * Subscribe to an event only once
-   * @param {string} event - Event name
-   * @param {Function} callback - Event handler
-   * @returns {Function} - Unsubscribe function
-   */
-  once(event, callback) {
-    const wrappedCallback = (data) => {
-      callback(data);
-      this.off(event, wrappedCallback);
-    };
-    return this.on(event, wrappedCallback);
-  }
-
-  /**
-   * Clear all listeners
-   */
-  clear() {
-    this.#events.clear();
-  }
-
-  /**
-   * Get number of listeners for an event
-   * @param {string} event - Event name
-   * @returns {number} - Number of listeners
-   */
-  listenerCount(event) {
-    return this.#events.get(event)?.size || 0;
-  }
-}
-
-// Global event bus instance
-const globalEventBus = new EventBus();
-
-/* ============================================================================
-   INDEXEDDB CACHE SERVICE
-   ============================================================================ */
-class CacheService {
-  static #dbPromise = null;
-
-  /**
-   * Open IndexedDB database
-   * @returns {Promise<IDBDatabase>}
-   */
-  static async #openDB() {
-    if (this.#dbPromise) {
-      return this.#dbPromise;
-    }
-
-    this.#dbPromise = new Promise((resolve, reject) => {
-      const request = indexedDB.open(CONFIG.CACHE.DB_NAME, CONFIG.CACHE.DB_VERSION);
-
-      request.onerror = () => reject(request.error);
-      request.onsuccess = () => resolve(request.result);
-
-      request.onupgradeneeded = (event) => {
-        const db = event.target.result;
-        
-        if (!db.objectStoreNames.contains(CONFIG.CACHE.STORE_NAME)) {
-          const store = db.createObjectStore(CONFIG.CACHE.STORE_NAME, { keyPath: 'key' });
-          store.createIndex('expires', 'expires', { unique: false });
-        }
-      };
-    });
-
-    return this.#dbPromise;
-  }
-
-  /**
-   * Get cached value
-   * @param {string} key - Cache key
-   * @returns {Promise<*>} - Cached value or null
-   */
-  static async get(key) {
-    try {
-      const db = await this.#openDB();
-      const transaction = db.transaction([CONFIG.CACHE.STORE_NAME], 'readonly');
-      const store = transaction.objectStore(CONFIG.CACHE.STORE_NAME);
-      const request = store.get(key);
-
-      return new Promise((resolve, reject) => {
-        request.onsuccess = () => {
-          const record = request.result;
-          
-          if (!record) {
-            resolve(null);
-            return;
-          }
-
-          // Check if expired
-          if (record.expires && record.expires < Date.now()) {
-            this.delete(key);
-            resolve(null);
-            return;
-          }
-
-          resolve(record.value);
-        };
-        request.onerror = () => reject(request.error);
-      });
-    } catch (error) {
-      console.error('CacheService.get error:', error);
-      return null;
-    }
-  }
-
-  /**
-   * Set cached value
-   * @param {string} key - Cache key
-   * @param {*} value - Value to cache
-   * @param {number} ttl - Time to live in milliseconds
-   * @returns {Promise<void>}
-   */
-  static async set(key, value, ttl = CONFIG.CACHE.DEFAULT_TTL) {
-    try {
-      const db = await this.#openDB();
-      const transaction = db.transaction([CONFIG.CACHE.STORE_NAME], 'readwrite');
-      const store = transaction.objectStore(CONFIG.CACHE.STORE_NAME);
-
-      const record = {
-        key,
-        value,
-        expires: ttl ? Date.now() + ttl : null,
-        timestamp: Date.now()
-      };
-
-      const request = store.put(record);
-
-      return new Promise((resolve, reject) => {
-        request.onsuccess = () => resolve();
-        request.onerror = () => reject(request.error);
-      });
-    } catch (error) {
-      console.error('CacheService.set error:', error);
-    }
-  }
-
-  /**
-   * Delete cached value
-   * @param {string} key - Cache key
-   * @returns {Promise<void>}
-   */
-  static async delete(key) {
-    try {
-      const db = await this.#openDB();
-      const transaction = db.transaction([CONFIG.CACHE.STORE_NAME], 'readwrite');
-      const store = transaction.objectStore(CONFIG.CACHE.STORE_NAME);
-      const request = store.delete(key);
-
-      return new Promise((resolve, reject) => {
-        request.onsuccess = () => resolve();
-        request.onerror = () => reject(request.error);
-      });
-    } catch (error) {
-      console.error('CacheService.delete error:', error);
-    }
-  }
-
-  /**
-   * Clear all cached values
-   * @returns {Promise<void>}
-   */
-  static async clear() {
-    try {
-      const db = await this.#openDB();
-      const transaction = db.transaction([CONFIG.CACHE.STORE_NAME], 'readwrite');
-      const store = transaction.objectStore(CONFIG.CACHE.STORE_NAME);
-      const request = store.clear();
-
-      return new Promise((resolve, reject) => {
-        request.onsuccess = () => resolve();
-        request.onerror = () => reject(request.error);
-      });
-    } catch (error) {
-      console.error('CacheService.clear error:', error);
-    }
-  }
-
-  /**
-   * Clean up expired cache entries
-   * @returns {Promise<number>} - Number of deleted entries
-   */
-  static async cleanExpired() {
-    try {
-      const db = await this.#openDB();
-      const transaction = db.transaction([CONFIG.CACHE.STORE_NAME], 'readwrite');
-      const store = transaction.objectStore(CONFIG.CACHE.STORE_NAME);
-      const index = store.index('expires');
-      const range = IDBKeyRange.upperBound(Date.now());
-      const request = index.openCursor(range);
-
-      let deletedCount = 0;
-
-      return new Promise((resolve, reject) => {
-        request.onsuccess = (event) => {
-          const cursor = event.target.result;
-          if (cursor) {
-            cursor.delete();
-            deletedCount++;
-            cursor.continue();
-          } else {
-            resolve(deletedCount);
-          }
-        };
-        request.onerror = () => reject(request.error);
-      });
-    } catch (error) {
-      console.error('CacheService.cleanExpired error:', error);
-      return 0;
-    }
-  }
-}
-
-/* ============================================================================
-   MEMOIZATION UTILITY
-   ============================================================================ */
-const memoize = (fn, options = {}) => {
-  const cache = new Map();
-  const maxSize = options.maxSize || 100;
-  const keyGenerator = options.keyGenerator || JSON.stringify;
-
-  const memoized = function(...args) {
-    const key = keyGenerator(args);
-
-    if (cache.has(key)) {
-      return cache.get(key);
-    }
-
-    const result = fn.apply(this, args);
-
-    // Manage cache size
-    if (cache.size >= maxSize) {
-      const firstKey = cache.keys().next().value;
-      cache.delete(firstKey);
-    }
-
-    cache.set(key, result);
-    return result;
-  };
-
-  memoized.cache = cache;
-  memoized.clear = () => cache.clear();
-
-  return memoized;
-};
 
 /* ============================================================================
    UTILITIES MODULE
@@ -499,40 +116,6 @@ const Utils = (() => {
     throw new Error(`All fetch attempts failed: ${JSON.stringify(errors)}`);
   };
 
-  // Safe DOM manipulation using native browser APIs
-  const sanitizeHTML = (html) => {
-    // Create a temporary container
-    const temp = document.createElement('div');
-    temp.textContent = html; // This escapes all HTML
-    return temp.innerHTML;
-  };
-
-  // Set innerHTML safely - for trusted content only
-  const setInnerHTML = (element, html) => {
-    if (!element) return;
-    
-    // Use setHTML if available (Sanitizer API)
-    if (element.setHTML && typeof element.setHTML === 'function') {
-      element.setHTML(html);
-      return;
-    }
-    
-    // Fallback: Use template element for safer insertion
-    const template = document.createElement('template');
-    template.innerHTML = html;
-    
-    // Clear and append
-    element.innerHTML = '';
-    element.appendChild(template.content.cloneNode(true));
-  };
-
-  // Create element safely using template
-  const createFromHTML = (html) => {
-    const template = document.createElement('template');
-    template.innerHTML = html;
-    return template.content.cloneNode(true);
-  };
-
   // Efficient DOM element creation with attributes
   const createElement = (tag, attributes = {}, children = []) => {
     const element = document.createElement(tag);
@@ -544,8 +127,6 @@ const Utils = (() => {
         Object.assign(element.dataset, value);
       } else if (key.startsWith('on') && typeof value === 'function') {
         element.addEventListener(key.slice(2).toLowerCase(), value);
-      } else if (key === 'innerHTML') {
-        setInnerHTML(element, value);
       } else {
         element.setAttribute(key, value);
       }
@@ -672,10 +253,10 @@ const Utils = (() => {
   };
 
   /**
-   * Calculate similarity score between two strings - Memoized
+   * Calculate similarity score between two strings
    * Uses a combination of exact match, starts-with, and fuzzy matching
    */
-  const calculateSimilarity = memoize((str1, str2) => {
+  const calculateSimilarity = (str1, str2) => {
     const s1 = normalizeHostname(str1);
     const s2 = normalizeHostname(str2);
     
@@ -712,10 +293,7 @@ const Utils = (() => {
     
     let distance = levenshteinDistance(s1, s2);
     return Math.max(0, Math.round((1 - distance / maxLength) * 80));
-  }, {
-    maxSize: 500, // Cache up to 500 similarity calculations
-    keyGenerator: (args) => `${args[0]}:${args[1]}`
-  });
+  };
 
   /**
    * Levenshtein distance algorithm
@@ -754,9 +332,6 @@ const Utils = (() => {
     throttle,
     fetchWithTimeout,
     fetchWithFallback,
-    sanitizeHTML,
-    setInnerHTML,
-    createFromHTML,
     createElement,
     scheduleIdleWork,
     cancelIdleWork,
@@ -767,314 +342,14 @@ const Utils = (() => {
 })();
 
 /* ============================================================================
-   DATA SERVICE LAYER
-   ============================================================================ */
-class DataService {
-  static #cache = new Map();
-
-  /**
-   * Fetch data with caching and fallback support
-   * @param {string} type - Data type ('file-hosts' or 'adult-hosts')
-   * @returns {Promise<Object>} - Fetched data
-   */
-  static async fetchHosts(type) {
-    const urls = type === 'file-hosts' ? CONFIG.API.FILE_HOSTS : CONFIG.API.ADULT_HOSTS;
-    const cacheKey = `hosts-${type}`;
-
-    // Check memory cache first
-    if (this.#cache.has(cacheKey)) {
-      return this.#cache.get(cacheKey);
-    }
-
-    // Check IndexedDB cache
-    const cachedData = await CacheService.get(cacheKey);
-    if (cachedData) {
-      this.#cache.set(cacheKey, cachedData);
-      globalEventBus.emit('data-loaded', { type, source: 'cache' });
-      return cachedData;
-    }
-
-    // Fetch from network
-    try {
-      const data = await Utils.fetchWithFallback(urls);
-      
-      // Cache the data
-      this.#cache.set(cacheKey, data);
-      await CacheService.set(cacheKey, data);
-      
-      globalEventBus.emit('data-loaded', { type, source: 'network' });
-      return data;
-    } catch (error) {
-      globalEventBus.emit('data-error', { type, error });
-      throw error;
-    }
-  }
-
-  /**
-   * Clear all cached data
-   */
-  static clearCache() {
-    this.#cache.clear();
-    return CacheService.clear();
-  }
-
-  /**
-   * Prefetch data for faster subsequent loads
-   * @param {string} type - Data type
-   */
-  static async prefetch(type) {
-    try {
-      await this.fetchHosts(type);
-    } catch (error) {
-      console.warn(`Prefetch failed for ${type}:`, error);
-    }
-  }
-}
-
-/* ============================================================================
-   ACCESSIBILITY UTILITIES
-   ============================================================================ */
-class A11yAnnouncer {
-  static #announcer = null;
-
-  /**
-   * Initialize the announcer element
-   */
-  static #init() {
-    if (this.#announcer) return;
-
-    this.#announcer = document.createElement('div');
-    this.#announcer.id = 'a11y-announcer';
-    this.#announcer.setAttribute('role', 'status');
-    this.#announcer.setAttribute('aria-live', 'polite');
-    this.#announcer.setAttribute('aria-atomic', 'true');
-    this.#announcer.className = 'visually-hidden';
-    
-    // Ensure element is accessible but hidden
-    Object.assign(this.#announcer.style, {
-      position: 'absolute',
-      left: '-10000px',
-      width: '1px',
-      height: '1px',
-      overflow: 'hidden'
-    });
-
-    document.body.appendChild(this.#announcer);
-  }
-
-  /**
-   * Announce a message to screen readers
-   * @param {string} message - Message to announce
-   * @param {string} priority - 'polite' or 'assertive'
-   */
-  static announce(message, priority = 'polite') {
-    this.#init();
-    
-    this.#announcer.setAttribute('aria-live', priority);
-    
-    // Clear and set message with a slight delay for screen readers
-    this.#announcer.textContent = '';
-    setTimeout(() => {
-      this.#announcer.textContent = message;
-    }, 100);
-  }
-}
-
-class FocusManager {
-  static #focusStack = [];
-
-  /**
-   * Trap focus within a container
-   * @param {HTMLElement} container - Container element
-   * @returns {Function} - Cleanup function
-   */
-  static trap(container) {
-    const focusable = container.querySelectorAll(
-      'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"]):not([disabled])'
-    );
-    
-    if (focusable.length === 0) return () => {};
-
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
-
-    const handleKeyDown = (e) => {
-      if (e.key === 'Tab') {
-        if (e.shiftKey && document.activeElement === first) {
-          last.focus();
-          e.preventDefault();
-        } else if (!e.shiftKey && document.activeElement === last) {
-          first.focus();
-          e.preventDefault();
-        }
-      }
-      
-      // Escape key to release trap
-      if (e.key === 'Escape') {
-        this.release();
-      }
-    };
-
-    container.addEventListener('keydown', handleKeyDown);
-    
-    // Store previous focus
-    this.#focusStack.push(document.activeElement);
-    
-    // Focus first element
-    first.focus();
-
-    // Return cleanup function
-    return () => {
-      container.removeEventListener('keydown', handleKeyDown);
-      this.release();
-    };
-  }
-
-  /**
-   * Release focus trap and restore previous focus
-   */
-  static release() {
-    const previousFocus = this.#focusStack.pop();
-    if (previousFocus && previousFocus.focus) {
-      previousFocus.focus();
-    }
-  }
-
-  /**
-   * Save current focus
-   */
-  static save() {
-    this.#focusStack.push(document.activeElement);
-  }
-
-  /**
-   * Restore last saved focus
-   */
-  static restore() {
-    this.release();
-  }
-}
-
-class KeyboardNavigation {
-  /**
-   * Setup keyboard navigation for table
-   * @param {HTMLElement} table - Table element
-   * @returns {Function} - Cleanup function
-   */
-  static setupTableNavigation(table) {
-    let currentRow = -1;
-    const tbody = table.querySelector('tbody');
-    if (!tbody) return () => {};
-
-    const getRows = () => Array.from(tbody.querySelectorAll('tr:not(.empty-state-row)'));
-
-    const handleKeyDown = (e) => {
-      const rows = getRows();
-      if (rows.length === 0) return;
-
-      switch(e.key) {
-        case 'ArrowDown':
-          e.preventDefault();
-          currentRow = Math.min(currentRow + 1, rows.length - 1);
-          rows[currentRow]?.focus();
-          rows[currentRow]?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-          break;
-          
-        case 'ArrowUp':
-          e.preventDefault();
-          currentRow = Math.max(currentRow - 1, 0);
-          rows[currentRow]?.focus();
-          rows[currentRow]?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-          break;
-          
-        case 'Home':
-          if (e.ctrlKey) {
-            e.preventDefault();
-            currentRow = 0;
-            rows[currentRow]?.focus();
-            rows[currentRow]?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-          }
-          break;
-          
-        case 'End':
-          if (e.ctrlKey) {
-            e.preventDefault();
-            currentRow = rows.length - 1;
-            rows[currentRow]?.focus();
-            rows[currentRow]?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-          }
-          break;
-      }
-    };
-
-    // Make rows focusable
-    const updateRowsFocusability = () => {
-      getRows().forEach((row, index) => {
-        row.setAttribute('tabindex', '0');
-        row.setAttribute('role', 'row');
-      });
-    };
-
-    updateRowsFocusability();
-    table.addEventListener('keydown', handleKeyDown);
-
-    // Observer to update focusability when rows change
-    const observer = new MutationObserver(updateRowsFocusability);
-    observer.observe(tbody, { childList: true, subtree: true });
-
-    // Return cleanup function
-    return () => {
-      table.removeEventListener('keydown', handleKeyDown);
-      observer.disconnect();
-    };
-  }
-}
-
-class ResponsiveTable {
-  /**
-   * Convert table to responsive layout based on viewport
-   * @param {HTMLElement} table - Table element
-   * @returns {Function} - Cleanup function
-   */
-  static makeResponsive(table) {
-    const wrapper = table.closest('.table-wrapper');
-    if (!wrapper) return () => {};
-
-    const checkResponsive = () => {
-      const isMobile = window.innerWidth < 768;
-      
-      if (isMobile) {
-        wrapper.classList.add('mobile-view');
-        table.setAttribute('data-mobile', 'true');
-      } else {
-        wrapper.classList.remove('mobile-view');
-        table.removeAttribute('data-mobile');
-      }
-    };
-
-    checkResponsive();
-    
-    const throttledCheck = Utils.throttle(checkResponsive, 150);
-    window.addEventListener('resize', throttledCheck, { passive: true });
-
-    // Return cleanup function
-    return () => {
-      window.removeEventListener('resize', throttledCheck);
-    };
-  }
-}
-
-/* ============================================================================
    STATE MANAGEMENT
    ============================================================================ */
 class StateManager {
   #state = {};
   #listeners = new Map();
-  #lifecycle = null;
   
   constructor(initialState = {}) {
     this.#state = { ...initialState };
-    this.#lifecycle = new ComponentLifecycle();
   }
   
   get(key) {
@@ -1107,21 +382,12 @@ class StateManager {
     }
     this.#listeners.get(key).add(callback);
     
-    // Register cleanup
-    const unsubscribe = () => this.#listeners.get(key)?.delete(callback);
-    this.#lifecycle.onDestroy(unsubscribe);
-    
-    return unsubscribe;
+    return () => this.#listeners.get(key)?.delete(callback);
   }
   
   reset() {
     this.#state = {};
     this.#listeners.clear();
-  }
-  
-  destroy() {
-    this.reset();
-    this.#lifecycle.destroy();
   }
 }
 
@@ -1243,14 +509,8 @@ class TableManager {
   #state = null;
   #renderToken = null;
   #idleCallbackId = null;
-  #lifecycle = null;
-  #searchWorker = null;
-  #keyboardNavigationCleanup = null;
-  #responsiveCleanup = null;
   
   constructor(containerId, searchInputId, clearIconId, options = {}) {
-    this.#lifecycle = new ComponentLifecycle();
-    
     this.#elements = {
       container: document.getElementById(containerId),
       searchInput: document.getElementById(searchInputId),
@@ -1263,7 +523,6 @@ class TableManager {
       chunkSize: CONFIG.PERFORMANCE.RENDER_CHUNK_SIZE,
       initialLimit: 30, // Show only first 30 entries initially
       enableLazyLoad: true, // Enable lazy loading feature
-      useWebWorker: true, // Enable web worker for search
       ...options
     };
     
@@ -1278,36 +537,10 @@ class TableManager {
     });
     
     this.#init();
-    
-    // Register cleanup
-    this.#lifecycle.onDestroy(() => this.#cleanup());
   }
   
   #init() {
     if (!this.#elements.container) return;
-    
-    // Initialize web worker for search operations
-    if (this.options.useWebWorker && typeof Worker !== 'undefined') {
-      try {
-        this.#searchWorker = new Worker('./workers/search.worker.js');
-        
-        // Set up worker message handler once
-        this.#searchWorker.onmessage = (event) => {
-          this.#handleSearchWorkerMessage(event);
-        };
-        
-        this.#searchWorker.onerror = (error) => {
-          console.error('Search worker error:', error);
-        };
-        
-        this.#lifecycle.onDestroy(() => {
-          this.#searchWorker?.terminate();
-        });
-      } catch (error) {
-        console.warn('Failed to initialize search worker:', error);
-        this.#searchWorker = null;
-      }
-    }
     
     // Bind event handlers
     if (this.#elements.searchInput) {
@@ -1316,92 +549,11 @@ class TableManager {
       this.#elements.searchInput.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') this.#clearSearch();
       });
-      
-      // Register cleanup for debounced function
-      this.#lifecycle.onDestroy(() => {
-        debouncedSearch.cancel();
-        this.#elements.searchInput.removeEventListener('input', debouncedSearch);
-      });
     }
     
     if (this.#elements.clearIcon) {
-      const clearHandler = () => this.#clearSearch();
-      this.#elements.clearIcon.addEventListener('click', clearHandler);
-      
-      this.#lifecycle.onDestroy(() => {
-        this.#elements.clearIcon.removeEventListener('click', clearHandler);
-      });
+      this.#elements.clearIcon.addEventListener('click', () => this.#clearSearch());
     }
-
-    // Listen to global events
-    const unsubDataLoad = globalEventBus.on('data-loaded', (data) => {
-      console.log('Data loaded event received:', data);
-    });
-    this.#lifecycle.onDestroy(unsubDataLoad);
-  }
-  
-  #cleanup() {
-    // Cancel any pending renders
-    if (this.#idleCallbackId) {
-      Utils.cancelIdleWork(this.#idleCallbackId);
-    }
-    
-    // Cleanup keyboard navigation
-    if (this.#keyboardNavigationCleanup) {
-      this.#keyboardNavigationCleanup();
-    }
-    
-    // Cleanup responsive handler
-    if (this.#responsiveCleanup) {
-      this.#responsiveCleanup();
-    }
-    
-    // Destroy state
-    this.#state?.destroy();
-  }
-  
-  #handleSearchWorkerMessage(event) {
-    const { success, result, error } = event.data;
-    
-    if (success) {
-      const { filtered, isURLSearch, extractedHostname } = result;
-      const { currentData } = this.#state.get();
-      
-      // Update state
-      this.#state.update({
-        filteredData: filtered,
-        isSearchActive: true,
-        isFullyLoaded: true // Auto-load all when searching
-      });
-      
-      // Remove load all button if present
-      this.#removeLoadAllButton();
-      
-      if (this.#elements.clearIcon) {
-        this.#elements.clearIcon.style.display = 'block';
-      }
-      
-      // Update search results message
-      const resultMessage = isURLSearch 
-        ? `Found ${Object.keys(filtered).length} host(s) matching "${extractedHostname}"`
-        : `Showing ${Object.keys(filtered).length} of ${Object.keys(currentData).length} services`;
-      
-      this.#updateSearchResults(resultMessage, Object.keys(filtered).length, Object.keys(currentData).length, isURLSearch);
-      
-      // Announce to screen readers
-      A11yAnnouncer.announce(resultMessage);
-      
-      this.#renderTableBody();
-    } else {
-      console.error('Search worker error:', error);
-      const rawSearchTerm = (this.#elements.searchInput?.value || '').trim();
-      const { currentData } = this.#state.get();
-      this.#performSearchFallback(rawSearchTerm, currentData);
-    }
-  }
-  
-  destroy() {
-    this.#lifecycle.destroy();
   }
   
   generateTable(rawData) {
@@ -1445,8 +597,7 @@ class TableManager {
     
     // Create header
     const thead = Utils.createElement('thead');
-    const headerHTML = this.#generateHeaderHTML(columns);
-    Utils.setInnerHTML(thead, headerHTML);
+    thead.innerHTML = this.#generateHeaderHTML(columns);
     table.appendChild(thead);
     
     // Create body
@@ -1462,10 +613,6 @@ class TableManager {
     
     // Attach event handlers
     this.#attachTableEvents();
-    
-    // Setup accessibility features
-    this.#keyboardNavigationCleanup = KeyboardNavigation.setupTableNavigation(table);
-    this.#responsiveCleanup = ResponsiveTable.makeResponsive(table);
     
     // Render rows
     this.#renderTableBody();
@@ -1587,18 +734,15 @@ class TableManager {
     // Create button
     const loadAllBtn = Utils.createElement('button', {
       className: 'btn load-all-btn',
-      type: 'button',
-      'aria-label': `Load all ${totalEntries} hosts. ${remainingEntries} more to load.`
+      type: 'button'
     });
     
-    const btnHTML = `
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;" aria-hidden="true">
+    loadAllBtn.innerHTML = `
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
         <polyline points="6 9 12 15 18 9"></polyline>
       </svg>
-      <span>Load All ${totalEntries} Hosts (${remainingEntries} more)</span>
+      Load All ${totalEntries} Hosts (${remainingEntries} more)
     `;
-    
-    Utils.setInnerHTML(loadAllBtn, btnHTML);
     
     loadAllBtn.addEventListener('click', () => this.#loadAllEntries(), { once: true });
     
@@ -1631,23 +775,16 @@ class TableManager {
     const btn = this.#elements.loadAllBtn?.querySelector('.load-all-btn');
     if (btn) {
       btn.disabled = true;
-      const loadingHTML = `
-        <div class="loading-spinner" style="width: 20px; height: 20px; margin-right: 8px;" aria-hidden="true"></div>
-        <span>Loading...</span>
+      btn.innerHTML = `
+        <div class="loading-spinner" style="width: 20px; height: 20px; margin-right: 8px;"></div>
+        Loading...
       `;
-      Utils.setInnerHTML(btn, loadingHTML);
     }
-    
-    // Announce to screen readers
-    A11yAnnouncer.announce('Loading all hosts. Please wait.');
     
     // Re-render table body with all entries
     setTimeout(() => {
       this.#removeLoadAllButton();
       this.#renderTableBody();
-      
-      const { filteredData } = this.#state.get();
-      A11yAnnouncer.announce(`All ${Object.keys(filteredData).length} hosts loaded.`);
     }, 100);
   }
   
@@ -1794,94 +931,77 @@ class TableManager {
     const { currentData } = this.#state.get();
     
     if (rawSearchTerm) {
-      // Use web worker if available
-      if (this.#searchWorker) {
-        this.#searchWorker.postMessage({
-          action: 'search',
-          data: currentData,
-          term: rawSearchTerm
-        });
-      } else {
-        // Fallback to main thread search
-        this.#performSearchFallback(rawSearchTerm, currentData);
+      let searchTerm = rawSearchTerm.toLowerCase();
+      let extractedHostname = null;
+      let isURLSearch = false;
+      
+      // Try to extract hostname from URL
+      extractedHostname = Utils.extractHostnameFromURL(rawSearchTerm);
+      
+      if (extractedHostname) {
+        searchTerm = extractedHostname.toLowerCase();
+        isURLSearch = true;
       }
+      
+      // Perform search with fuzzy matching
+      let filtered;
+      
+      if (isURLSearch) {
+        // Use fuzzy matching for URL-based searches
+        const matches = [];
+        
+        Object.entries(currentData).forEach(([host, hostData]) => {
+          const similarity = Utils.calculateSimilarity(host, searchTerm);
+          
+          // Include if similarity is above threshold (60%)
+          if (similarity >= 60) {
+            matches.push({
+              host,
+              hostData,
+              similarity
+            });
+          }
+        });
+        
+        // Sort by similarity score (highest first)
+        matches.sort((a, b) => b.similarity - a.similarity);
+        
+        // Convert back to object
+        filtered = Object.fromEntries(
+          matches.map(({ host, hostData }) => [host, hostData])
+        );
+      } else {
+        // Regular text search (exact substring matching)
+        filtered = Object.fromEntries(
+          Object.entries(currentData).filter(([host]) =>
+            host.toLowerCase().includes(searchTerm)
+          )
+        );
+      }
+      
+      // When searching, mark as search active and load all
+      this.#state.update({
+        filteredData: filtered,
+        isSearchActive: true,
+        isFullyLoaded: true // Auto-load all when searching
+      });
+      
+      // Remove load all button if present
+      this.#removeLoadAllButton();
+      
+      if (this.#elements.clearIcon) {
+        this.#elements.clearIcon.style.display = 'block';
+      }
+      
+      // Update search results message
+      const resultMessage = isURLSearch 
+        ? `Found ${Object.keys(filtered).length} host(s) matching "${extractedHostname}"`
+        : `Showing ${Object.keys(filtered).length} of ${Object.keys(currentData).length} services`;
+      
+      this.#updateSearchResults(resultMessage, Object.keys(filtered).length, Object.keys(currentData).length, isURLSearch);
     } else {
       this.#clearSearch();
     }
-  }
-  
-  #performSearchFallback(rawSearchTerm, currentData) {
-    let searchTerm = rawSearchTerm.toLowerCase();
-    let extractedHostname = null;
-    let isURLSearch = false;
-    
-    // Try to extract hostname from URL
-    extractedHostname = Utils.extractHostnameFromURL(rawSearchTerm);
-    
-    if (extractedHostname) {
-      searchTerm = extractedHostname.toLowerCase();
-      isURLSearch = true;
-    }
-    
-    // Perform search with fuzzy matching
-    let filtered;
-    
-    if (isURLSearch) {
-      // Use fuzzy matching for URL-based searches
-      const matches = [];
-      
-      Object.entries(currentData).forEach(([host, hostData]) => {
-        const similarity = Utils.calculateSimilarity(host, searchTerm);
-        
-        // Include if similarity is above threshold (60%)
-        if (similarity >= 60) {
-          matches.push({
-            host,
-            hostData,
-            similarity
-          });
-        }
-      });
-      
-      // Sort by similarity score (highest first)
-      matches.sort((a, b) => b.similarity - a.similarity);
-      
-      // Convert back to object
-      filtered = Object.fromEntries(
-        matches.map(({ host, hostData }) => [host, hostData])
-      );
-    } else {
-      // Regular text search (exact substring matching)
-      filtered = Object.fromEntries(
-        Object.entries(currentData).filter(([host]) =>
-          host.toLowerCase().includes(searchTerm)
-        )
-      );
-    }
-    
-    // When searching, mark as search active and load all
-    this.#state.update({
-      filteredData: filtered,
-      isSearchActive: true,
-      isFullyLoaded: true // Auto-load all when searching
-    });
-    
-    // Remove load all button if present
-    this.#removeLoadAllButton();
-    
-    if (this.#elements.clearIcon) {
-      this.#elements.clearIcon.style.display = 'block';
-    }
-    
-    // Update search results message
-    const resultMessage = isURLSearch 
-      ? `Found ${Object.keys(filtered).length} host(s) matching "${extractedHostname}"`
-      : `Showing ${Object.keys(filtered).length} of ${Object.keys(currentData).length} services`;
-    
-    this.#updateSearchResults(resultMessage, Object.keys(filtered).length, Object.keys(currentData).length, isURLSearch);
-    
-    // Announce to screen readers
-    A11yAnnouncer.announce(resultMessage);
     
     this.#renderTableBody();
   }
@@ -1907,10 +1027,6 @@ class TableManager {
     }
     
     this.#updateSearchResults('', 0, 0);
-    
-    // Announce to screen readers
-    A11yAnnouncer.announce('Search cleared. Showing all services.');
-    
     this.#renderTableBody();
   }
   
@@ -1931,14 +1047,13 @@ class TableManager {
       
       // Add URL indicator if it's a URL search
       if (isURLSearch) {
-        const html = `
+        resultsElement.innerHTML = `
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;">
             <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
             <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
           </svg>
           <span>${message}</span>
         `;
-        Utils.setInnerHTML(resultsElement, html);
       } else {
         resultsElement.textContent = message;
       }
@@ -1994,16 +1109,6 @@ class ComparisonManager {
   
   #init() {
     if (!this.#elements.select1 || !this.#elements.select2) return;
-    
-    // Clear existing options first (except the first placeholder option)
-    const clearOptions = (select) => {
-      while (select.options.length > 1) {
-        select.remove(1);
-      }
-    };
-    
-    clearOptions(this.#elements.select1);
-    clearOptions(this.#elements.select2);
     
     // Populate select dropdowns with service options
     this.#services.forEach(service => {
@@ -2428,20 +1533,10 @@ class PerformanceMonitor {
 class App {
   #loadingManager = null;
   #performanceMonitor = null;
-  #lifecycle = null;
-  #tableManagers = [];
   
   constructor() {
     this.#loadingManager = new LoadingManager();
     this.#performanceMonitor = new PerformanceMonitor();
-    this.#lifecycle = new ComponentLifecycle();
-    
-    // Clean up expired cache on startup
-    CacheService.cleanExpired().then(count => {
-      if (count > 0) {
-        console.log(`✅ Cleaned ${count} expired cache entries`);
-      }
-    });
   }
   
   async init() {
@@ -2461,23 +1556,16 @@ class App {
         'clear-adult-host-search'
       );
       
-      this.#tableManagers.push(fileHostsTable, adultHostsTable);
-      
-      // Register cleanup
-      this.#lifecycle.onDestroy(() => {
-        this.#tableManagers.forEach(table => table.destroy());
-      });
-      
       // Show loaders
       const loaders = [
         this.#loadingManager.show('#file-hosts-table-container', 'Loading file hosts...'),
         this.#loadingManager.show('#adult-hosts-table-container', 'Loading adult hosts...')
       ];
       
-      // Fetch data using DataService
+      // Fetch data
       const dataPromises = [
-        DataService.fetchHosts('file-hosts'),
-        DataService.fetchHosts('adult-hosts')
+        Utils.fetchWithFallback(CONFIG.API.FILE_HOSTS),
+        Utils.fetchWithFallback(CONFIG.API.ADULT_HOSTS)
       ];
       
       const results = await Promise.allSettled(dataPromises);
@@ -2501,9 +1589,8 @@ class App {
           const container = document.querySelector(containerId);
           if (container) {
             container.innerHTML = `
-              <div class="error-state" role="alert">
+              <div class="error-state">
                 <p>Failed to load data. Please check your connection and refresh.</p>
-                <button class="btn" onclick="location.reload()">Retry</button>
               </div>
             `;
           }
@@ -2525,10 +1612,6 @@ class App {
       console.error('❌ Critical application error:', error);
       this.#loadingManager.hideAll();
     }
-  }
-  
-  destroy() {
-    this.#lifecycle.destroy();
   }
 }
 
