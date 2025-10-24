@@ -30,7 +30,6 @@
 
 - [What are Debrid Services?](#what-are-debrid-services)
 - [How It Works](#how-it-works)
-- [Getting Started](#getting-started)
 - [Pricing Comparison](#pricing-comparison)
 - [Available Hosts](#available-hosts)
   - [File Hosts](#file-hosts)
@@ -41,6 +40,7 @@
 - [Tools and Applications](#tools-and-applications)
 - [Community Resources](#community-resources)
 - [Contributing](#contributing)
+- [Support this Project](#support-this-project)
 
 </details>
 
@@ -78,35 +78,6 @@ flowchart TD
 
 > [!TIP]
 > Think of debrid services as a **premium bridge** between you and file-hosting sites, providing instant access to cached content at maximum speed.
-
-## Getting Started
-
-<div align="center">
-
-### Support This Project
-
-> ✨ This guide is **free, open-source, and community-run**. If it helped: starring, reporting corrections, or using a referral link helps sustain maintenance (at no extra cost to you).
-
-| Service     | Referral                                               | Direct Signup                                                    |
-| :---------- | :----------------------------------------------------- | :--------------------------------------------------------------- |
-| AllDebrid   | [Referral](https://alldebrid.com/?uid=3wvya&lang=en)   | [Signup](https://alldebrid.com/register/)                        |
-| Real-Debrid | [Referral](https://real-debrid.com/?id=10990901)       | [Signup](https://real-debrid.com/)                               |
-| TorBox      | –                                                      | [Signup](https://torbox.app/login)                               |
-| Premiumize  | –                                                      | [Signup](https://www.premiumize.me/register)                     |
-| LinkSnappy  | [Referral](https://linksnappy.com/?ref=774668)         | [Signup](https://linksnappy.com/home#Register)                   |
-| Debrid-Link | [Referral](https://debrid-link.com/id/7B3BO)           | [Signup](https://debrid-link.com/webapp/register)                |
-| Mega-Debrid | –                                                      | [Signup](https://www.mega-debrid.eu/index.php?page=freeregister) |
-| Deepbrid    | [Referral](https://www.deepbrid.com/aff/go/upward1971) | [Signup](https://www.deepbrid.com/signup)                        |
-| Offcloud    | [Referral](https://offcloud.com/?=c44b1fa5)            | [Signup](https://offcloud.com/register)                          |
-| High-Way    | –                                                      | [Signup](https://high-way.me/login/login)                        |
-
-</div>
-
-<div align="right">
-
-[(↑ Back to Top)](#table-of-contents)
-
-</div>
 
 ## Pricing Comparison
 
@@ -870,15 +841,34 @@ Help keep this guide accurate! We welcome:
 
 </div>
 
-## Support and Stay Updated
+---
 
-This guide remains **free, ad-free, and unbiased** through community support. If it helped you choose the right service or saved you time, here's how you can contribute:
+<div align="center">
 
-### Ways to Support
+## Support This Project
 
-[![Star on GitHub](https://img.shields.io/github/stars/fynks/debrid-services-comparison?style=for-the-badge&label=Star%20on%20GitHub&logo=github)](https://github.com/fynks/debrid-services-comparison)
-[![Contribute](https://img.shields.io/badge/Contribute-Open_an_issue_or_PR-brightgreen?style=for-the-badge&logo=github)](https://github.com/fynks/debrid-services-comparison/issues)
-[![Referral Links](https://img.shields.io/badge/Support-Use_referral_links-orange?style=for-the-badge&logo=buymeacoffee)](#support-this-project)
+> ✨ This guide is **free, open-source, and community-run**. If it helped: starring, reporting corrections, or using a referral link helps sustain maintenance (at no extra cost to you).
+
+| Service     | Referral                                               | Direct Signup                                                    |
+| :---------- | :----------------------------------------------------- | :--------------------------------------------------------------- |
+| AllDebrid   | [Referral](https://alldebrid.com/?uid=3wvya&lang=en)   | [Signup](https://alldebrid.com/register/)                        |
+| Real-Debrid | [Referral](https://real-debrid.com/?id=10990901)       | [Signup](https://real-debrid.com/)                               |
+| TorBox      | –                                                      | [Signup](https://torbox.app/login)                               |
+| Premiumize  | –                                                      | [Signup](https://www.premiumize.me/register)                     |
+| LinkSnappy  | [Referral](https://linksnappy.com/?ref=774668)         | [Signup](https://linksnappy.com/home#Register)                   |
+| Debrid-Link | [Referral](https://debrid-link.com/id/7B3BO)           | [Signup](https://debrid-link.com/webapp/register)                |
+| Mega-Debrid | –                                                      | [Signup](https://www.mega-debrid.eu/index.php?page=freeregister) |
+| Deepbrid    | [Referral](https://www.deepbrid.com/aff/go/upward1971) | [Signup](https://www.deepbrid.com/signup)                        |
+| Offcloud    | [Referral](https://offcloud.com/?=c44b1fa5)            | [Signup](https://offcloud.com/register)                          |
+| High-Way    | –                                                      | [Signup](https://high-way.me/login/login)                        |
+
+</div>
+
+<div align="right">
+
+[(↑ Back to Top)](#table-of-contents)
+
+</div>
 
 ---
 
