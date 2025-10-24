@@ -1,7 +1,7 @@
 /**
  * Debrid Services Comparison - Modern Refactored Version
  * Optimized for performance, maintainability, and modern web standards
- * @version 2.0.0
+ * @version 2.1.0
  */
 
 /* ============================================================================
@@ -28,8 +28,370 @@ const CONFIG = Object.freeze({
   ANIMATION: {
     DURATION: 250,
     EASING: 'cubic-bezier(0.4, 0, 0.2, 1)'
+  },
+  CACHE: {
+    DB_NAME: 'debrid-cache',
+    DB_VERSION: 1,
+    STORE_NAME: 'api-cache',
+    DEFAULT_TTL: 3600000 // 1 hour in milliseconds
   }
 });
+
+/* ============================================================================
+   COMPONENT LIFECYCLE MANAGEMENT
+   ============================================================================ */
+class ComponentLifecycle {
+  #cleanupFns = [];
+  #isDestroyed = false;
+
+  /**
+   * Register a cleanup function to be called when component is destroyed
+   * @param {Function} fn - Cleanup function
+   * @returns {Function} - Unregister function
+   */
+  onDestroy(fn) {
+    if (this.#isDestroyed) {
+      console.warn('Cannot register cleanup on destroyed component');
+      return () => {};
+    }
+    
+    this.#cleanupFns.push(fn);
+    
+    // Return unregister function
+    return () => {
+      const index = this.#cleanupFns.indexOf(fn);
+      if (index > -1) {
+        this.#cleanupFns.splice(index, 1);
+      }
+    };
+  }
+
+  /**
+   * Destroy component and run all cleanup functions
+   */
+  destroy() {
+    if (this.#isDestroyed) {
+      return;
+    }
+    
+    this.#isDestroyed = true;
+    this.#cleanupFns.forEach(fn => {
+      try {
+        fn();
+      } catch (error) {
+        console.error('Error in cleanup function:', error);
+      }
+    });
+    this.#cleanupFns = [];
+  }
+
+  get isDestroyed() {
+    return this.#isDestroyed;
+  }
+}
+
+/* ============================================================================
+   EVENT BUS FOR DECOUPLED ARCHITECTURE
+   ============================================================================ */
+class EventBus {
+  #events = new Map();
+  #maxListeners = 100; // Prevent memory leaks
+
+  /**
+   * Subscribe to an event
+   * @param {string} event - Event name
+   * @param {Function} callback - Event handler
+   * @returns {Function} - Unsubscribe function
+   */
+  on(event, callback) {
+    if (!this.#events.has(event)) {
+      this.#events.set(event, new Set());
+    }
+    
+    const listeners = this.#events.get(event);
+    
+    if (listeners.size >= this.#maxListeners) {
+      console.warn(`Event "${event}" has reached max listeners (${this.#maxListeners})`);
+    }
+    
+    listeners.add(callback);
+    
+    // Return unsubscribe function
+    return () => this.off(event, callback);
+  }
+
+  /**
+   * Unsubscribe from an event
+   * @param {string} event - Event name
+   * @param {Function} callback - Event handler to remove
+   */
+  off(event, callback) {
+    const listeners = this.#events.get(event);
+    if (listeners) {
+      listeners.delete(callback);
+      if (listeners.size === 0) {
+        this.#events.delete(event);
+      }
+    }
+  }
+
+  /**
+   * Emit an event
+   * @param {string} event - Event name
+   * @param {*} data - Event data
+   */
+  emit(event, data) {
+    const listeners = this.#events.get(event);
+    if (listeners) {
+      listeners.forEach(callback => {
+        try {
+          callback(data);
+        } catch (error) {
+          console.error(`Error in event listener for "${event}":`, error);
+        }
+      });
+    }
+  }
+
+  /**
+   * Subscribe to an event only once
+   * @param {string} event - Event name
+   * @param {Function} callback - Event handler
+   * @returns {Function} - Unsubscribe function
+   */
+  once(event, callback) {
+    const wrappedCallback = (data) => {
+      callback(data);
+      this.off(event, wrappedCallback);
+    };
+    return this.on(event, wrappedCallback);
+  }
+
+  /**
+   * Clear all listeners
+   */
+  clear() {
+    this.#events.clear();
+  }
+
+  /**
+   * Get number of listeners for an event
+   * @param {string} event - Event name
+   * @returns {number} - Number of listeners
+   */
+  listenerCount(event) {
+    return this.#events.get(event)?.size || 0;
+  }
+}
+
+// Global event bus instance
+const globalEventBus = new EventBus();
+
+/* ============================================================================
+   INDEXEDDB CACHE SERVICE
+   ============================================================================ */
+class CacheService {
+  static #dbPromise = null;
+
+  /**
+   * Open IndexedDB database
+   * @returns {Promise<IDBDatabase>}
+   */
+  static async #openDB() {
+    if (this.#dbPromise) {
+      return this.#dbPromise;
+    }
+
+    this.#dbPromise = new Promise((resolve, reject) => {
+      const request = indexedDB.open(CONFIG.CACHE.DB_NAME, CONFIG.CACHE.DB_VERSION);
+
+      request.onerror = () => reject(request.error);
+      request.onsuccess = () => resolve(request.result);
+
+      request.onupgradeneeded = (event) => {
+        const db = event.target.result;
+        if (!db.objectStoreNames.contains(CONFIG.CACHE.STORE_NAME)) {
+          db.createObjectStore(CONFIG.CACHE.STORE_NAME);
+        }
+      };
+    });
+
+    return this.#dbPromise;
+  }
+
+  /**
+   * Get cached value
+   * @param {string} key - Cache key
+   * @returns {Promise<*>} - Cached value or null
+   */
+  static async get(key) {
+    try {
+      const db = await this.#openDB();
+      const transaction = db.transaction(CONFIG.CACHE.STORE_NAME, 'readonly');
+      const store = transaction.objectStore(CONFIG.CACHE.STORE_NAME);
+      
+      return new Promise((resolve, reject) => {
+        const request = store.get(key);
+        request.onsuccess = () => {
+          const result = request.result;
+          if (result) {
+            // Check if expired
+            if (result.expiresAt && result.expiresAt < Date.now()) {
+              // Delete expired entry
+              this.delete(key);
+              resolve(null);
+            } else {
+              resolve(result.value);
+            }
+          } else {
+            resolve(null);
+          }
+        };
+        request.onerror = () => reject(request.error);
+      });
+    } catch (error) {
+      console.error('Cache get error:', error);
+      return null;
+    }
+  }
+
+  /**
+   * Set cached value
+   * @param {string} key - Cache key
+   * @param {*} value - Value to cache
+   * @param {number} ttl - Time to live in milliseconds
+   * @returns {Promise<void>}
+   */
+  static async set(key, value, ttl = CONFIG.CACHE.DEFAULT_TTL) {
+    try {
+      const db = await this.#openDB();
+      const transaction = db.transaction(CONFIG.CACHE.STORE_NAME, 'readwrite');
+      const store = transaction.objectStore(CONFIG.CACHE.STORE_NAME);
+      
+      const cacheEntry = {
+        value,
+        expiresAt: ttl ? Date.now() + ttl : null
+      };
+
+      return new Promise((resolve, reject) => {
+        const request = store.put(cacheEntry, key);
+        request.onsuccess = () => resolve();
+        request.onerror = () => reject(request.error);
+      });
+    } catch (error) {
+      console.error('Cache set error:', error);
+    }
+  }
+
+  /**
+   * Delete cached value
+   * @param {string} key - Cache key
+   * @returns {Promise<void>}
+   */
+  static async delete(key) {
+    try {
+      const db = await this.#openDB();
+      const transaction = db.transaction(CONFIG.CACHE.STORE_NAME, 'readwrite');
+      const store = transaction.objectStore(CONFIG.CACHE.STORE_NAME);
+      
+      return new Promise((resolve, reject) => {
+        const request = store.delete(key);
+        request.onsuccess = () => resolve();
+        request.onerror = () => reject(request.error);
+      });
+    } catch (error) {
+      console.error('Cache delete error:', error);
+    }
+  }
+
+  /**
+   * Clear all cached values
+   * @returns {Promise<void>}
+   */
+  static async clear() {
+    try {
+      const db = await this.#openDB();
+      const transaction = db.transaction(CONFIG.CACHE.STORE_NAME, 'readwrite');
+      const store = transaction.objectStore(CONFIG.CACHE.STORE_NAME);
+      
+      return new Promise((resolve, reject) => {
+        const request = store.clear();
+        request.onsuccess = () => resolve();
+        request.onerror = () => reject(request.error);
+      });
+    } catch (error) {
+      console.error('Cache clear error:', error);
+    }
+  }
+
+  /**
+   * Clean up expired cache entries
+   * @returns {Promise<number>} - Number of deleted entries
+   */
+  static async cleanExpired() {
+    try {
+      const db = await this.#openDB();
+      const transaction = db.transaction(CONFIG.CACHE.STORE_NAME, 'readwrite');
+      const store = transaction.objectStore(CONFIG.CACHE.STORE_NAME);
+      
+      return new Promise((resolve, reject) => {
+        const request = store.openCursor();
+        let deletedCount = 0;
+
+        request.onsuccess = (event) => {
+          const cursor = event.target.result;
+          if (cursor) {
+            const entry = cursor.value;
+            if (entry.expiresAt && entry.expiresAt < Date.now()) {
+              cursor.delete();
+              deletedCount++;
+            }
+            cursor.continue();
+          } else {
+            resolve(deletedCount);
+          }
+        };
+        request.onerror = () => reject(request.error);
+      });
+    } catch (error) {
+      console.error('Cache cleanExpired error:', error);
+      return 0;
+    }
+  }
+}
+
+/* ============================================================================
+   MEMOIZATION UTILITY
+   ============================================================================ */
+const memoize = (fn, options = {}) => {
+  const cache = new Map();
+  const maxSize = options.maxSize || 100;
+  const keyGenerator = options.keyGenerator || JSON.stringify;
+
+  const memoized = function(...args) {
+    const key = keyGenerator(args);
+
+    if (cache.has(key)) {
+      return cache.get(key);
+    }
+
+    const result = fn.apply(this, args);
+
+    // Manage cache size
+    if (cache.size >= maxSize) {
+      const firstKey = cache.keys().next().value;
+      cache.delete(firstKey);
+    }
+
+    cache.set(key, result);
+    return result;
+  };
+
+  memoized.cache = cache;
+  memoized.clear = () => cache.clear();
+
+  return memoized;
+};
 
 /* ============================================================================
    UTILITIES MODULE
@@ -253,10 +615,10 @@ const Utils = (() => {
   };
 
   /**
-   * Calculate similarity score between two strings
+   * Calculate similarity score between two strings - Memoized
    * Uses a combination of exact match, starts-with, and fuzzy matching
    */
-  const calculateSimilarity = (str1, str2) => {
+  const calculateSimilarity = memoize((str1, str2) => {
     const s1 = normalizeHostname(str1);
     const s2 = normalizeHostname(str2);
     
@@ -293,7 +655,10 @@ const Utils = (() => {
     
     let distance = levenshteinDistance(s1, s2);
     return Math.max(0, Math.round((1 - distance / maxLength) * 80));
-  };
+  }, {
+    maxSize: 500, // Cache up to 500 similarity calculations
+    keyGenerator: (args) => `${args[0]}:${args[1]}`
+  });
 
   /**
    * Levenshtein distance algorithm
@@ -342,14 +707,297 @@ const Utils = (() => {
 })();
 
 /* ============================================================================
+   DATA SERVICE LAYER
+   ============================================================================ */
+class DataService {
+  static #cache = new Map();
+
+  /**
+   * Fetch data with caching and fallback support
+   * @param {string} type - Data type ('file-hosts' or 'adult-hosts')
+   * @returns {Promise<Object>} - Fetched data
+   */
+  static async fetchHosts(type) {
+    const urls = type === 'file-hosts' ? CONFIG.API.FILE_HOSTS : CONFIG.API.ADULT_HOSTS;
+    const cacheKey = `hosts-${type}`;
+
+    // Check memory cache first
+    if (this.#cache.has(cacheKey)) {
+      return this.#cache.get(cacheKey);
+    }
+
+    // Check IndexedDB cache
+    const cachedData = await CacheService.get(cacheKey);
+    if (cachedData) {
+      this.#cache.set(cacheKey, cachedData);
+      return cachedData;
+    }
+
+    // Fetch from network
+    try {
+      const response = await Utils.fetchWithFallback(urls);
+      const data = await response.json();
+      
+      // Cache in memory and IndexedDB
+      this.#cache.set(cacheKey, data);
+      await CacheService.set(cacheKey, data);
+      
+      return data;
+    } catch (error) {
+      console.error(`Failed to fetch ${type}:`, error);
+      throw error;
+    }
+  }
+
+  /**
+   * Clear all cached data
+   */
+  static clearCache() {
+    this.#cache.clear();
+    return CacheService.clear();
+  }
+
+  /**
+   * Prefetch data for faster subsequent loads
+   * @param {string} type - Data type
+   */
+  static async prefetch(type) {
+    try {
+      await this.fetchHosts(type);
+    } catch (error) {
+      console.warn(`Prefetch failed for ${type}:`, error);
+    }
+  }
+}
+
+/* ============================================================================
+   ACCESSIBILITY UTILITIES
+   ============================================================================ */
+class A11yAnnouncer {
+  static #announcer = null;
+
+  /**
+   * Initialize the announcer element
+   */
+  static #init() {
+    if (this.#announcer) return;
+
+    this.#announcer = document.createElement('div');
+    this.#announcer.id = 'a11y-announcer';
+    this.#announcer.setAttribute('role', 'status');
+    this.#announcer.setAttribute('aria-live', 'polite');
+    this.#announcer.setAttribute('aria-atomic', 'true');
+    this.#announcer.className = 'visually-hidden';
+    
+    // Ensure element is accessible but hidden
+    Object.assign(this.#announcer.style, {
+      position: 'absolute',
+      left: '-10000px',
+      width: '1px',
+      height: '1px',
+      overflow: 'hidden'
+    });
+
+    document.body.appendChild(this.#announcer);
+  }
+
+  /**
+   * Announce a message to screen readers
+   * @param {string} message - Message to announce
+   * @param {string} priority - 'polite' or 'assertive'
+   */
+  static announce(message, priority = 'polite') {
+    this.#init();
+    
+    this.#announcer.setAttribute('aria-live', priority);
+    
+    // Clear and set message with a slight delay for screen readers
+    this.#announcer.textContent = '';
+    setTimeout(() => {
+      this.#announcer.textContent = message;
+    }, 100);
+  }
+}
+
+class FocusManager {
+  static #focusStack = [];
+
+  /**
+   * Trap focus within a container
+   * @param {HTMLElement} container - Container element
+   * @returns {Function} - Cleanup function
+   */
+  static trap(container) {
+    const focusable = container.querySelectorAll(
+      'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"]):not([disabled])'
+    );
+    
+    if (focusable.length === 0) return () => {};
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    const handleKeyDown = (e) => {
+      if (e.key !== 'Tab') return;
+
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+
+    container.addEventListener('keydown', handleKeyDown);
+    
+    // Store previous focus
+    this.#focusStack.push(document.activeElement);
+    
+    // Focus first element
+    first.focus();
+
+    // Return cleanup function
+    return () => {
+      container.removeEventListener('keydown', handleKeyDown);
+      this.release();
+    };
+  }
+
+  /**
+   * Release focus trap and restore previous focus
+   */
+  static release() {
+    const previousFocus = this.#focusStack.pop();
+    if (previousFocus && previousFocus.focus) {
+      previousFocus.focus();
+    }
+  }
+
+  /**
+   * Save current focus
+   */
+  static save() {
+    this.#focusStack.push(document.activeElement);
+  }
+
+  /**
+   * Restore last saved focus
+   */
+  static restore() {
+    this.release();
+  }
+}
+
+class KeyboardNavigation {
+  /**
+   * Setup keyboard navigation for table
+   * @param {HTMLElement} table - Table element
+   * @returns {Function} - Cleanup function
+   */
+  static setupTableNavigation(table) {
+    let currentRow = -1;
+    const tbody = table.querySelector('tbody');
+    if (!tbody) return () => {};
+
+    const getRows = () => Array.from(tbody.querySelectorAll('tr:not(.empty-state-row)'));
+
+    const handleKeyDown = (e) => {
+      const rows = getRows();
+      if (rows.length === 0) return;
+
+      switch (e.key) {
+        case 'ArrowDown':
+          e.preventDefault();
+          currentRow = Math.min(currentRow + 1, rows.length - 1);
+          rows[currentRow]?.focus();
+          break;
+        case 'ArrowUp':
+          e.preventDefault();
+          currentRow = Math.max(currentRow - 1, 0);
+          rows[currentRow]?.focus();
+          break;
+        case 'Home':
+          e.preventDefault();
+          currentRow = 0;
+          rows[0]?.focus();
+          break;
+        case 'End':
+          e.preventDefault();
+          currentRow = rows.length - 1;
+          rows[currentRow]?.focus();
+          break;
+      }
+    };
+
+    // Make rows focusable
+    const updateRowsFocusability = () => {
+      getRows().forEach(row => {
+        row.setAttribute('tabindex', '0');
+      });
+    };
+
+    updateRowsFocusability();
+    table.addEventListener('keydown', handleKeyDown);
+
+    // Observer to update focusability when rows change
+    const observer = new MutationObserver(updateRowsFocusability);
+    observer.observe(tbody, { childList: true, subtree: true });
+
+    // Return cleanup function
+    return () => {
+      table.removeEventListener('keydown', handleKeyDown);
+      observer.disconnect();
+    };
+  }
+}
+
+class ResponsiveTable {
+  /**
+   * Convert table to responsive layout based on viewport
+   * @param {HTMLElement} table - Table element
+   * @returns {Function} - Cleanup function
+   */
+  static makeResponsive(table) {
+    const wrapper = table.closest('.table-wrapper');
+    if (!wrapper) return () => {};
+
+    const checkResponsive = () => {
+      const isMobile = window.innerWidth < 768;
+      if (isMobile) {
+        table.classList.add('table-responsive-mobile');
+      } else {
+        table.classList.remove('table-responsive-mobile');
+      }
+    };
+
+    checkResponsive();
+    
+    const throttledCheck = Utils.throttle(checkResponsive, 150);
+    window.addEventListener('resize', throttledCheck, { passive: true });
+
+    // Return cleanup function
+    return () => {
+      window.removeEventListener('resize', throttledCheck);
+    };
+  }
+}
+
+/* ============================================================================
    STATE MANAGEMENT
    ============================================================================ */
 class StateManager {
   #state = {};
   #listeners = new Map();
+  #lifecycle = null;
   
   constructor(initialState = {}) {
     this.#state = { ...initialState };
+    this.#lifecycle = new ComponentLifecycle();
   }
   
   get(key) {
@@ -382,12 +1030,21 @@ class StateManager {
     }
     this.#listeners.get(key).add(callback);
     
-    return () => this.#listeners.get(key)?.delete(callback);
+    // Register cleanup
+    const unsubscribe = () => this.#listeners.get(key)?.delete(callback);
+    this.#lifecycle.onDestroy(unsubscribe);
+    
+    return unsubscribe;
   }
   
   reset() {
     this.#state = {};
     this.#listeners.clear();
+  }
+  
+  destroy() {
+    this.reset();
+    this.#lifecycle.destroy();
   }
 }
 
@@ -509,8 +1166,13 @@ class TableManager {
   #state = null;
   #renderToken = null;
   #idleCallbackId = null;
+  #lifecycle = null;
+  #keyboardNavigationCleanup = null;
+  #responsiveCleanup = null;
   
   constructor(containerId, searchInputId, clearIconId, options = {}) {
+    this.#lifecycle = new ComponentLifecycle();
+    
     this.#elements = {
       container: document.getElementById(containerId),
       searchInput: document.getElementById(searchInputId),
@@ -537,6 +1199,9 @@ class TableManager {
     });
     
     this.#init();
+    
+    // Register cleanup
+    this.#lifecycle.onDestroy(() => this.#cleanup());
   }
   
   #init() {
@@ -546,14 +1211,56 @@ class TableManager {
     if (this.#elements.searchInput) {
       const debouncedSearch = Utils.debounce(() => this.#performSearch());
       this.#elements.searchInput.addEventListener('input', debouncedSearch);
-      this.#elements.searchInput.addEventListener('keydown', (e) => {
+      this.#lifecycle.onDestroy(() => {
+        this.#elements.searchInput.removeEventListener('input', debouncedSearch);
+      });
+      
+      const handleKeydown = (e) => {
         if (e.key === 'Escape') this.#clearSearch();
+      };
+      this.#elements.searchInput.addEventListener('keydown', handleKeydown);
+      this.#lifecycle.onDestroy(() => {
+        this.#elements.searchInput.removeEventListener('keydown', handleKeydown);
       });
     }
     
     if (this.#elements.clearIcon) {
-      this.#elements.clearIcon.addEventListener('click', () => this.#clearSearch());
+      const handleClick = () => this.#clearSearch();
+      this.#elements.clearIcon.addEventListener('click', handleClick);
+      this.#lifecycle.onDestroy(() => {
+        this.#elements.clearIcon.removeEventListener('click', handleClick);
+      });
     }
+
+    // Listen to global events
+    const unsubDataLoad = globalEventBus.on('data-loaded', (data) => {
+      this.generateTable(data);
+    });
+    this.#lifecycle.onDestroy(unsubDataLoad);
+  }
+  
+  #cleanup() {
+    // Cancel any pending renders
+    if (this.#idleCallbackId) {
+      Utils.cancelIdleWork(this.#idleCallbackId);
+    }
+    
+    // Cleanup keyboard navigation
+    if (this.#keyboardNavigationCleanup) {
+      this.#keyboardNavigationCleanup();
+    }
+    
+    // Cleanup responsive handler
+    if (this.#responsiveCleanup) {
+      this.#responsiveCleanup();
+    }
+    
+    // Destroy state
+    this.#state?.destroy();
+  }
+  
+  destroy() {
+    this.#lifecycle.destroy();
   }
   
   generateTable(rawData) {
@@ -613,6 +1320,10 @@ class TableManager {
     
     // Attach event handlers
     this.#attachTableEvents();
+    
+    // Setup accessibility features
+    this.#keyboardNavigationCleanup = KeyboardNavigation.setupTableNavigation(table);
+    this.#responsiveCleanup = ResponsiveTable.makeResponsive(table);
     
     // Render rows
     this.#renderTableBody();
@@ -1059,6 +1770,9 @@ class TableManager {
       }
       
       resultsElement.style.display = 'block';
+      
+      // Announce to screen readers
+      A11yAnnouncer.announce(message);
     } else if (resultsElement) {
       resultsElement.style.display = 'none';
     }
@@ -1086,8 +1800,11 @@ class ComparisonManager {
   #elements = {};
   #data = null;
   #services = [];
+  #lifecycle = null;
   
   constructor(containerId, select1Id, select2Id, data) {
+    this.#lifecycle = new ComponentLifecycle();
+    
     this.#elements = {
       container: document.getElementById(containerId),
       select1: document.getElementById(select1Id),
@@ -1137,8 +1854,21 @@ class ComparisonManager {
       services: Object.keys(this.#data[host])
     })));
     
-    this.#elements.select1.addEventListener('change', () => this.#handleCompare());
-    this.#elements.select2.addEventListener('change', () => this.#handleCompare());
+    const handleChange1 = () => this.#handleCompare();
+    const handleChange2 = () => this.#handleCompare();
+    
+    this.#elements.select1.addEventListener('change', handleChange1);
+    this.#elements.select2.addEventListener('change', handleChange2);
+    
+    // Register cleanup
+    this.#lifecycle.onDestroy(() => {
+      this.#elements.select1.removeEventListener('change', handleChange1);
+      this.#elements.select2.removeEventListener('change', handleChange2);
+    });
+  }
+  
+  destroy() {
+    this.#lifecycle.destroy();
   }
   
   #handleCompare() {
@@ -1541,10 +2271,13 @@ class PerformanceMonitor {
 class App {
   #loadingManager = null;
   #performanceMonitor = null;
+  #lifecycle = null;
+  #tableManagers = [];
   
   constructor() {
     this.#loadingManager = new LoadingManager();
     this.#performanceMonitor = new PerformanceMonitor();
+    this.#lifecycle = new ComponentLifecycle();
   }
   
   async init() {
@@ -1557,12 +2290,14 @@ class App {
         'host-search-input',
         'clear-host-search'
       );
+      this.#tableManagers.push(fileHostsTable);
       
       const adultHostsTable = new TableManager(
         'adult-hosts-table-container',
         'adult-host-search-input',
         'clear-adult-host-search'
       );
+      this.#tableManagers.push(adultHostsTable);
       
       // Show loaders
       const loaders = [
@@ -1616,10 +2351,23 @@ class App {
       this.#performanceMonitor.mark('fully-loaded');
       this.#performanceMonitor.log('Application initialized', 'dom-ready');
       
+      // Clean up expired cache entries periodically
+      CacheService.cleanExpired().then(count => {
+        if (count > 0) {
+          console.log(`🧹 Cleaned ${count} expired cache entries`);
+        }
+      });
+      
     } catch (error) {
       console.error('❌ Critical application error:', error);
       this.#loadingManager.hideAll();
     }
+  }
+  
+  destroy() {
+    // Cleanup all table managers
+    this.#tableManagers.forEach(manager => manager.destroy());
+    this.#lifecycle.destroy();
   }
 }
 
