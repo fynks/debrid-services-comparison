@@ -1815,12 +1815,6 @@ class ComparisonManager {
     this.#data = transformed.data;
     this.#services = transformed.services || DataTransformer.extractServices(transformed.data);
     
-    console.log('ComparisonManager initialized with:', {
-      servicesCount: this.#services.length,
-      services: this.#services,
-      hostsCount: Object.keys(this.#data).length
-    });
-    
     this.#init();
   }
   
@@ -1847,12 +1841,6 @@ class ComparisonManager {
       option2.textContent = service;
       this.#elements.select2.appendChild(option2);
     });
-    
-    console.log('Populated dropdowns with services:', this.#services);
-    console.log('Sample host data:', Object.keys(this.#data).slice(0, 2).map(host => ({
-      host,
-      services: Object.keys(this.#data[host])
-    })));
     
     const handleChange1 = () => this.#handleCompare();
     const handleChange2 = () => this.#handleCompare();
