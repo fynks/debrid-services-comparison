@@ -7,6 +7,7 @@
 
   <p>
     <a href="https://github.com/fynks/debrid-services-comparison/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/fynks/debrid-services-comparison?style=for-the-badge&logo=github"></a>
+    <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/fynks/debrid-services-comparison?style=for-the-badge"></a>
     <a href="#available-hosts"><img alt="Tracked Services" src="https://img.shields.io/badge/Services-10-4caf50?style=for-the-badge&logo=rocket&logoColor=white"></a>
     <a href="https://debridcompare.xyz"><img alt="Web App" src="https://img.shields.io/badge/Interactive-Web_App-green?style=for-the-badge&logo=google-chrome&logoColor=white"></a>
   </p>
@@ -84,22 +85,22 @@ flowchart TD
 
 | **Plan Duration**     | **AllDebrid**                           | **Premiumize** | **Real-Debrid** | **TorBox**        | **Debrid-Link** | **LinkSnappy** | **Mega-Debrid** | **Deepbrid**       | **High-Way**   | **Offcloud** |
 | :-------------------- | :-------------------------------------- | :------------- | :-------------- | :---------------- | :-------------- | :------------- | :-------------- | :----------------- | :------------- | :----------- |
-| **Free / Trial**      | 7-day trial¹                            | ❌              | ❌               | Free tier²        | ❌               | ❌              | ❌               | Limited hosts only | Limited Hosts⁶ | ❌            |
+| **Free / Trial**      | [7-day trial¹](#footnote-1)                            | ❌              | ❌               | [Free tier²](#footnote-2)        | ❌               | ❌              | ❌               | Limited hosts only | [Limited Hosts⁶](#footnote-6) | ❌            |
 | **7 Days**            | ❌                                       | ❌              | ❌               | ❌                 | ❌               | $4.99          | ❌               | ❌                  | ❌              | ❌            |
-| **15 Days**           | €2.99 (one-time)⁴                       | ❌              | €3.00           | ❌                 | €3.00           | ❌              | ❌               | €4.50              | ❌              | ❌            |
-| **30 Days**           | €2.99 (recurring)³<br>€3.99 (one-time)⁴ | $11.99         | €4.00           | From $3.00/month⁵ | €4.00           | $12.99         | €4.00           | €4.99              | From €5.99     | $9.99        |
-| **90 Days**           | €8.99 (one-time)⁴                       | $29.99         | €9.00           | ❌                 | €9.00           | $29.99         | €9.00           | €12.99             | From €15.99    | $29.97       |
-| **180 Days**          | €15.99 (one-time)⁴                      | ❌              | €16.00          | ❌                 | €16.00          | $54.99         | €16.00          | €19.99             | From €29.99    | ❌            |
-| **300 Days**          | €24.99 (one-time)⁴                      | ❌              | ❌               | ❌                 | €25.00          | ❌              | ❌               | ❌                  | ❌              | ❌            |
+| **15 Days**           | [€2.99 (one-time)⁴](#footnote-4)                       | ❌              | €3.00           | ❌                 | €3.00           | ❌              | ❌               | €4.50              | ❌              | ❌            |
+| **30 Days**           | [€2.99 (recurring)³](#footnote-3)<br>[€3.99 (one-time)⁴](#footnote-4) | $11.99         | €4.00           | [From $3.00/month⁵](#footnote-5) | €4.00           | $12.99         | €4.00           | €4.99              | From €5.99     | $9.99        |
+| **90 Days**           | [€8.99 (one-time)⁴](#footnote-4)                       | $29.99         | €9.00           | ❌                 | €9.00           | $29.99         | €9.00           | €12.99             | From €15.99    | $29.97       |
+| **180 Days**          | [€15.99 (one-time)⁴](#footnote-4)                      | ❌              | €16.00          | ❌                 | €16.00          | $54.99         | €16.00          | €19.99             | From €29.99    | ❌            |
+| **300 Days**          | [€24.99 (one-time)⁴](#footnote-4)                      | ❌              | ❌               | ❌                 | €25.00          | ❌              | ❌               | ❌                  | ❌              | ❌            |
 | **365 Days / 1 Year** | ❌                                       | $79.99         | ❌               | ❌                 | ❌               | ❌              | ❌               | €32.99             | ❌              | $69.99       |
 
 > [!NOTE]
-> - **¹ AllDebrid Free Trial**: 7-day trial requires phone verification.
-> - **² TorBox Free Tier**: Limited speed and features; no torrenting.
-> - **³ AllDebrid Recurring**: Auto-renews monthly at €2.99
-> - **⁴ AllDebrid / Debrid-Link One-Time**: Non-recurring payment. Often better value than recurring.
-> - **⁵ TorBox Tiers**: Multiple plans starting at $3.00/month. Higher tiers unlock more features.
-> - **⁶ High-Way**: Limited Hoster, FreeMB through activity in the forum
+> - <span id="footnote-1">**¹ AllDebrid Free Trial**</span>: 7-day trial requires phone verification. [Verify pricing →](https://alldebrid.com/offer/)
+> - <span id="footnote-2">**² TorBox Free Tier**</span>: Limited speed and features; no torrenting. [Verify pricing →](https://torbox.app/pricing)
+> - <span id="footnote-3">**³ AllDebrid Recurring**</span>: Auto-renews monthly at €2.99. [Verify pricing →](https://alldebrid.com/offer/)
+> - <span id="footnote-4">**⁴ AllDebrid / Debrid-Link One-Time**</span>: Non-recurring payment. Often better value than recurring. [Verify pricing →](https://alldebrid.com/offer/)
+> - <span id="footnote-5">**⁵ TorBox Tiers**</span>: Multiple plans starting at $3.00/month. Higher tiers unlock more features. [Verify pricing →](https://torbox.app/pricing)
+> - <span id="footnote-6">**⁶ High-Way**</span>: Limited Hoster, FreeMB through activity in the forum. [Verify pricing →](https://high-way.me/pages/tariffs)
 
 ### Up-to-date Pricing
 
@@ -143,6 +144,9 @@ flowchart TD
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 </div>
+
+> [!TIP]
+> **Quick find:** Use your browser's Find feature (`Ctrl+F` / `Cmd+F`) to quickly locate a specific host in the table below.
 
 | **Service Name** | **Real-Debrid** | **AllDebrid** | **TorBox** | **Deepbrid** | **Premiumize** | **Offcloud** | **Debrid-Link** | **Mega-Debrid** | **LinkSnappy** | **High-Way** |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -214,7 +218,6 @@ flowchart TD
 | Comedy Central | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Coomer | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Coub | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| Crunchyroll | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Ctfile | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Daclips | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
 | Dagbladet | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
@@ -222,7 +225,6 @@ flowchart TD
 | Dailymotion | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Dailyuploads | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ |
 | Daofile | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| Darikibox | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Darkibox | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Data nodes | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Datafilehost | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
@@ -233,7 +235,6 @@ flowchart TD
 | Ddl.to | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
 | Ddlstorage | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Ddownload | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ |
-| Ddownload10 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Deezer | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Depositfiles | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Dev-host | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
@@ -324,7 +325,6 @@ flowchart TD
 | Google | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Google drive | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
 | Gorillavid | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
-| Harefile | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Heroupload | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Hexupload / hexload | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
 | Hitfile | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
@@ -423,7 +423,6 @@ flowchart TD
 | Ozibox | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Pan baidu | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Panopto | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Paramount+ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Pcloud | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Periscope | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Pillowcase | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
@@ -489,7 +488,6 @@ flowchart TD
 | Stream.cz | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
 | Streamable | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
 | Streamcloud | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
-| Streamers | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Streamtape | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ |
 | Subyshare | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Swisstransfer | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
@@ -509,7 +507,6 @@ flowchart TD
 | Tf1 | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Tiktok | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Tlc | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Trashbytes | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Trilulilu | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
 | Tubitv | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
 | Tumblr | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
@@ -545,14 +542,12 @@ flowchart TD
 | Uplod | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Uppit | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Upshared | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| Upstream | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Uptobox | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Upvid | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
 | Uqload | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
 | Usenet | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Userscloud | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Usersdrive | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ |
-| Userupload | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Ustream | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
 | Veoh | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Verystream | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
@@ -570,7 +565,6 @@ flowchart TD
 | Viking file | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Vimeo | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Viooz | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| Vipfile | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Vk | ❌ | ❌ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Vlive | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
 | Vodlocker | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
@@ -591,14 +585,14 @@ flowchart TD
 | Xiaohongshu | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Xubster | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Xvidstage | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| Yandex disk | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| Yandex video | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Yandex Disk | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Yandex Video | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Youdbox | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Youku | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
 | Youtube | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ |
 | Youwatch | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Yunfile | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| **Total = 452** | **39/452** | **61/452** | **117/452** | **81/452** | **31/452** | **218/452** | **56/452** | **136/452** | **17/452** | **14/452** |
+| **Total = 442** | **39/442** | **61/442** | **117/442** | **81/442** | **31/442** | **218/442** | **56/442** | **136/442** | **17/442** | **14/442** |
 
 <br>
 
@@ -613,7 +607,7 @@ flowchart TD
 ### Usenet Support
 
 > [!TIP]
-> Usenet is a global system for sharing files and messages in topic-based groups. Think of it as a giant, searchable forum where you can find discussions and download content.
+> Usenet is a giant, searchable forum where you can find discussions and download content.
 
 | Service         | AllDebrid | TorBox | Premiumize | Real-Debrid | Debrid-Link | LinkSnappy | Mega-Debrid | Deepbrid | High-Way | Offcloud |
 |-----------------|:---------:|:------:|:----------:|:-----------:|:-----------:|:----------:|:-----------:|:--------:|:--------:|:--------:|
