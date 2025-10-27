@@ -1,9 +1,6 @@
 # robots.txt for debridcompare.xyz
 User-agent: *
 Allow: /
-Disallow: /cgi-bin/
-Disallow: /admin/
-Disallow: /*.json$
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
@@ -14,11 +11,11 @@ Sitemap: https://debridcompare.xyz/sitemap.xml
 # Specific user agents
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 0
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 0
+Crawl-delay: 1
 
 User-agent: Slurp
 Allow: /
@@ -28,4 +25,4 @@ Allow: /
 
 User-agent: Baiduspider
 Allow: /
-Crawl-delay: 2
+Crawl-delay: 1
