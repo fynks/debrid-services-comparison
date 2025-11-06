@@ -16,65 +16,53 @@
 
 </div>
 
----
+## Quick Navigation
 
 <div align="center">
 
-## 🚀 Quick Navigation
+[Intro](#what-are-debrid-services) | [Comparison](#feature-comparison) | [Pricing](#pricing-comparison)
+| [File Hosts](#file-hosts) | [Tools & Apps](#tools-and-applications)
 
-**Getting Started** → [What is Debrid?](#what-are-debrid-services) • [Quick Start](#quick-start-guide) • [Choose Service](#-choosing-the-right-service)
+</div><br>
 
-**Compare** → [Pricing](#pricing-comparison) • [Features](#-feature-comparison) • [File Hosts](#file-hosts) • [Speed Tests](#speed-test)
+## Table of Contents
 
-**Use It** → [Tools & Apps](#tools-and-applications) • [Setup Guides](#quick-start-guide) • [Community](#community-resources)
+<details><summary>👉 Click to expand</summary>
 
-</div>
-
----
-
-## 📑 Table of Contents
-
-<details><summary>👉 Click to expand full navigation</summary>
-
-### Getting Started
 - [What are Debrid Services?](#what-are-debrid-services)
-  - [How It Works](#how-it-works)
-  - [Key Benefits](#key-benefits)
 - [Quick Start Guide](#quick-start-guide)
-- [Choosing the Right Service](#-choosing-the-right-service)
-
-### Service Comparison
-- [Feature Comparison](#-feature-comparison)
+- [Choosing the Right Service](#choosing-the-right-service)
 - [Pricing Comparison](#pricing-comparison)
 - [Available Hosts](#available-hosts)
   - [File Hosts](#file-hosts)
   - [Usenet Support](#usenet-support)
   - [Adult Hosts](#adult-hosts)
-- [Speed Test](#speed-test)
+  - [Host Coverage Summary](#host-coverage-summary)
 - [Policies](#policies)
-
-### Tools & Integration
+- [Speed Test](#speed-test)
 - [Tools and Applications](#tools-and-applications)
-  - [Media Management](#media-management)
-  - [Streaming Add-ons](#streaming-add-ons)
-  - [Download Managers](#download-managers)
-  - [Browser Extensions](#browser-extensions)
-  - [Mobile Applications](#mobile-applications)
-
-### Community & Support
+  - [Media Management](#-media-management)
+  - [Streaming Add-ons](#-streaming-add-ons)
+  - [Download Managers](#-download-managers)
+  - [Browser Extensions](#-browser-extensions)
+  - [Mobile Applications](#-mobile-applications)
 - [Community Resources](#community-resources)
+  - [Reddit Communities](#reddit-communities)
+  - [Useful Resources](#useful-resources)
+- [Disclaimer](#disclaimer)
 - [Contributing](#contributing)
-- [Support this Project](#support-this-project)
+- [Support This Project](#support-this-project)
+
 
 </details>
 
 ## What are Debrid Services?
 
-Debrid ("multi-hoster") services act as paid aggregation layers between you and dozens/hundreds of individual file hosts. You give them a link (or torrent/magnet) → they fetch, cache, and re‑serve it back to you at high speed (often via CDN‑like infrastructure) with fewer throttles and no host ads.
+Debrid ("multi-hoster") services act as paid aggregation layers between you and dozens/hundreds of individual file hosts. You give them a link (or torrent/magnet) → they fetch, cache, and re-serve it back to you at high speed (often via CDN-like infrastructure) with fewer throttles and no host ads.
 
 ### Key Benefits
 
-- **High-speed downloads** - no countdowns or captchas
+- **High-speed downloads** - no countdowns or CAPTCHAs
 - **One subscription** - access to hundreds of file hosts
 - **Remote torrent/magnet fetching** - privacy and seedless downloading
 - **Streaming-ready links** - compatible with media servers and apps
@@ -103,59 +91,32 @@ flowchart TD
 > [!TIP]
 > Think of debrid services as a **premium bridge** between you and file-hosting sites, providing instant access to cached content at maximum speed.
 
-<div align="right">
-
-[(↑ Back to Top)](#table-of-contents)
-
-</div>
-
 ---
+
 
 ## Quick Start Guide
 
-### 🎯 3 Simple Steps to Get Started
+### 3 Simple Steps to Get Started
 
-<table>
-<tr>
-<td width="33%" valign="top">
+#### 1. **Choose a Service**:
+ - Compare **[Pricing](#pricing-comparison)**, **[Features](#feature-comparison)**, and **[Host Support](#file-hosts)** to find your best match.
 
-**1️⃣ Choose a Service**
+#### 2. **Sign Up & Configure**:
+ - Create an account, activate your subscription, and get your API key for tool integrations.
 
-Compare [pricing](#pricing-comparison), [features](#-feature-comparison), and [host support](#file-hosts) to find your best match.
+#### 3. **Start Using**:
+ - Add links/torrents via web interface, install [browser extensions](#browser-extensions), or integrate with [media tools](#tools-and-applications). Files are cached and ready to stream instantly!
 
-💡 **New users**: Start with a 15-30 day plan to test performance.
 
-</td>
-<td width="33%" valign="top">
+### Popular Use Cases
 
-**2️⃣ Sign Up & Configure**
-
-Create an account, activate your subscription, and get your API key for tool integrations.
-
-📱 Most services offer web dashboards and mobile apps.
-
-</td>
-<td width="33%" valign="top">
-
-**3️⃣ Start Using**
-
-Add links/torrents via web interface, install [browser extensions](#browser-extensions), or integrate with [media tools](#tools-and-applications).
-
-⚡ Files are cached and ready to stream/download instantly!
-
-</td>
-</tr>
-</table>
-
-### 🎬 Popular Use Cases
-
-| Use Case | Recommended Tools | Best Services |
-|:---------|:------------------|:-------------|
-| **Streaming with Stremio** | [Torrentio](#streaming-add-ons), [Comet](#streaming-add-ons), [MediaFusion](#streaming-add-ons) | Real-Debrid, AllDebrid, Premiumize |
-| **Plex/Jellyfin Library** | [Debrid Media Manager](#media-management), [Zurg](#media-management) | Real-Debrid, AllDebrid, Premiumize |
-| **Direct Downloads** | [Browser Extensions](#browser-extensions), [JDownloader](#download-managers) | Any service with good host coverage |
-| **Torrent Downloads** | [RDT Client](#download-managers), Web Dashboard | Real-Debrid, AllDebrid, TorBox |
-| **Usenet Access** | Built-in Usenet support | Premiumize, TorBox, Offcloud |
+| Use Case | Recommended Tools |
+| :--- | :--- |
+| **Streaming with Stremio** | [Torrentio](#-streaming-add-ons), [Comet](#-streaming-add-ons), [MediaFusion](#-streaming-add-ons) |
+| **Plex/Jellyfin Library** | [Debrid Media Manager](#-media-management), [Zurg](#-media-management) |
+| **Direct Downloads** | [Browser Extensions](#-browser-extensions), [JDownloader](#-download-managers) |
+| **Torrent Downloads** | [RDT Client](#-download-managers), Web Dashboard |
+| **Usenet Access** | Built-in Usenet support |
 
 > [!TIP]
 > **First time?** Try the free tiers ([TorBox](#pricing-comparison), [AllDebrid trial](#pricing-comparison)) or start with a short-term plan to test speeds in your region.
@@ -168,23 +129,24 @@ Add links/torrents via web interface, install [browser extensions](#browser-exte
 
 ---
 
-## 🏆 Choosing the Right Service
+## Choosing the Right Service
 
 ### At-a-Glance Comparison
-
-| Service | Best For | Starting Price | Key Strengths |
-|:--------|:---------|:---------------|:--------------|
-| **Real-Debrid** | Stremio users, torrent caching | €4.00/month | 🔥 Most popular, great cached content, stable |
-| **AllDebrid** | Budget-conscious users | €2.99/month | 💰 Best value, 7-day trial, reliable |
-| **Premiumize** | Usenet + torrents | $11.99/month | 🌐 Usenet included, premium features |
-| **TorBox** | New tech, free tier | Free / $3+/month | 🆕 Modern interface, growing library |
-| **Debrid-Link** | Host variety | €4.00/month | 🌍 Good host support, competitive |
-| **LinkSnappy** | Maximum host coverage | $12.99/month | 📊 Most hosts supported (218+) |
+| Service | Best For | Starting Price |
+| :--- | :--- | :--- |
+| **Real-Debrid** | Stremio users, torrent caching | €4.00/month |
+| **AllDebrid** | Budget-conscious users | €2.99/month |
+| **Premiumize** | Usenet + torrents | $11.99/month |
+| **TorBox** | New tech, free tier | Free / $3+/month |
+| **Debrid-Link** | Host variety | €4.00/month |
+| **LinkSnappy** | Maximum host coverage | $12.99/month |
 
 ### Decision Helper
 
 <details>
 <summary><strong>🤔 Still not sure? Click here for personalized recommendations</strong></summary>
+
+<br>
 
 **Choose Real-Debrid if:**
 - ✅ You use Stremio or similar streaming apps
@@ -214,6 +176,7 @@ Add links/torrents via web interface, install [browser extensions](#browser-exte
 
 </details>
 
+<br>
 <div align="right">
 
 [(↑ Back to Top)](#table-of-contents)
@@ -222,36 +185,18 @@ Add links/torrents via web interface, install [browser extensions](#browser-exte
 
 ---
 
-## 📊 Feature Comparison
+## Feature Comparison
 
 ### Core Features Matrix
 
 | Feature | Real-Debrid | AllDebrid | Premiumize | TorBox | Debrid-Link | LinkSnappy | Others |
 |:--------|:-----------:|:---------:|:----------:|:------:|:-----------:|:----------:|:------:|
 | **Torrent Support** | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
-| **Usenet Access** | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ (Offcloud) |
-| **Free Trial/Tier** | ❌ | ✅ (7-day) | ❌ | ✅ | ❌ | ❌ | Varies |
+| **Usenet Access** | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ <br> (Offcloud) |
+| **Free Trial/Tier** | ❌ | ✅ <br> (7-day) | ❌ | ✅ | ❌ | ❌ | Varies |
 | **API Access** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **Mobile Apps** | 3rd-party | PWA | Official | Official | Web | Web | Varies |
-| **VPN Included** | ❌ | ❌ | Optional | ❌ | ❌ | ❌ | ❌ |
 | **Cloud Storage** | Temp cache | Temp cache | Yes | Yes | Temp cache | Temp cache | Varies |
-| **Max File Size** | Unlimited | Unlimited | Unlimited | Varies | Unlimited | Varies | Varies |
-| **Adult Content** | ✅ | ✅ | ✅ | ⚠️ Limited | ✅ | ✅ | Varies |
-
-### Host Coverage Summary
-
-| Service | Total Hosts | Popular Hosts | Usenet |
-|:--------|:------------|:--------------|:-------|
-| **Offcloud** | 218 | ✅✅✅ | ✅ |
-| **Mega-Debrid** | 136 | ✅✅ | ❌ |
-| **TorBox** | 117 | ✅✅✅ | ✅ |
-| **Deepbrid** | 81 | ✅✅ | ❌ |
-| **AllDebrid** | 61 | ✅✅✅ | ❌ |
-| **Debrid-Link** | 56 | ✅✅ | ❌ |
-| **Real-Debrid** | 39 | ✅✅✅ | ❌ |
-| **Premiumize** | 31 | ✅✅✅ | ✅ |
-| **LinkSnappy** | 17 | ✅✅ | ❌ |
-| **High-Way** | 14 | ✅ | ❌ |
 
 > [!NOTE]
 > **Host count doesn't tell the whole story!** Services with fewer hosts often support the most popular ones (Mega, Rapidgator, Mediafire, etc.). Check the [detailed host table](#file-hosts) for specific hosts you use.
@@ -264,14 +209,14 @@ Add links/torrents via web interface, install [browser extensions](#browser-exte
 
 ---
 
-## 💰 Pricing Comparison
+## Pricing Comparison
 
 > [!TIP]
 > **Best Value Picks:**
 > - 🏆 **Budget**: AllDebrid (€2.99/month recurring)
 > - 🔥 **Popular**: Real-Debrid (€4.00/month)
 > - 🆓 **Free Option**: TorBox (limited features)
-> - 💎 **Premium**: Premiumize ($11.99/month with Usenet)
+
 
 ### Price Comparison Table
 
@@ -292,7 +237,7 @@ Add links/torrents via web interface, install [browser extensions](#browser-exte
 > - <span id="footnote-3">**³ AllDebrid Recurring**</span>: Auto-renews monthly at €2.99. [Verify pricing →](https://alldebrid.com/offer/)
 > - <span id="footnote-4">**⁴ AllDebrid / Debrid-Link One-Time**</span>: Non-recurring payment. Often better value than recurring. [Verify pricing →](https://alldebrid.com/offer/)
 > - <span id="footnote-5">**⁵ TorBox Tiers**</span>: Multiple plans starting at $3.00/month. Higher tiers unlock more features. [Verify pricing →](https://torbox.app/pricing)
-> - <span id="footnote-6">**⁶ High-Way**</span>: Limited Hoster, FreeMB through activity in the forum. [Verify pricing →](https://high-way.me/pages/tariffs)
+> - <span id="footnote-6">**⁶ High-Way**</span>: Limited Hoster, Free MB through activity in the forum. [Verify pricing →](https://high-way.me/pages/tariffs)
 
 ### Up-to-date Pricing
 
@@ -312,7 +257,7 @@ Add links/torrents via web interface, install [browser extensions](#browser-exte
 | Mega-Debrid | [mega-debrid.eu/offres](https://www.mega-debrid.eu/index.php?page=offres)  |
 | Deepbrid    | [deepbrid.com/signup](https://www.deepbrid.com/signup)                     |
 | High-Way    | [high-way.me/pages/tariffs](https://high-way.me/pages/tariffs)             |
-| Offcloud    | [https://offcloud.com/#pricing](https://offcloud.com/#pricing)             |
+| Offcloud    | [offcloud.com/#pricing](https://offcloud.com/#pricing)                     |
 
 </details><br>
 
@@ -326,18 +271,21 @@ Add links/torrents via web interface, install [browser extensions](#browser-exte
 
 </div>
 
-## 🌐 Available Hosts
 
-### 📁 File Hosts
+---
 
-<div align="center">
+## Available Hosts
+
+### File Hosts
+
+<br><div align="center">
 
 > **💡 Pro Tip:** Use the [**interactive web app**](https://debridcompare.xyz) for advanced search, filters, and side-by-side comparison!
 
 </div>
 
 <details>
-<summary><strong>🔍 How to Use This Table</strong></summary>
+<summary><strong>How to Use This Table</strong></summary><br>
 
 - **Search**: Use `Ctrl+F` (Windows/Linux) or `Cmd+F` (Mac) to find specific hosts
 - **Popular hosts**: Look for Mega, Rapidgator, Katfile, Mediafire, 1Fichier, Turbobit
@@ -347,8 +295,6 @@ Add links/torrents via web interface, install [browser extensions](#browser-exte
 </details>
 
 <br>
-
-### Complete Host Support Matrix
 
 | **Service Name** | **Real-Debrid** | **AllDebrid** | **TorBox** | **Deepbrid** | **Premiumize** | **Offcloud** | **Debrid-Link** | **Mega-Debrid** | **LinkSnappy** | **High-Way** |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -806,39 +752,44 @@ Add links/torrents via web interface, install [browser extensions](#browser-exte
 
 </div>
 
-### 📡 Usenet Support
+### Usenet Support
 
 > [!TIP]
 > **What is Usenet?** A decentralized network offering fast, private file downloads with excellent retention. Unlike torrents, Usenet doesn't require seeding and offers consistent high speeds.
+
 
 | Service         | AllDebrid | TorBox | Premiumize | Real-Debrid | Debrid-Link | LinkSnappy | Mega-Debrid | Deepbrid | High-Way | Offcloud |
 |-----------------|:---------:|:------:|:----------:|:-----------:|:-----------:|:----------:|:-----------:|:--------:|:--------:|:--------:|
 | **Usenet**      |    ❌     |   ✅   |     ✅     |      ❌     |      ❌     |     ❌     |      ❌     |    ❌    |    ❌    |    ✅    |
 
-**Services with Usenet:** Premiumize (included), TorBox (included), Offcloud (included)
 
-> [!NOTE]
-> If Usenet access is important to you, **Premiumize** is the most established option with premium Usenet infrastructure.
+### Adult Hosts
+
+> Support varies. Some services exclude adult content for legal/policy reasons.
+
+👉 [See Detailed Adult Host Support](./Adult-hosts.md)
 
 
-### 🔞 Adult Hosts
+### Host Coverage Summary
 
-> [!WARNING]
-> Adult content support varies by service due to legal and policy restrictions. Some services have limited or no support for adult file hosts.
+| Service | Total Hosts | Usenet |
+| :--- | :--- | :--- |
+| **Offcloud** | 218 | ✅ |
+| **Mega-Debrid** | 136 | ❌ |
+| **TorBox** | 117 | ✅ |
+| **Deepbrid** | 81 | ❌ |
+| **AllDebrid** | 61 | ❌ |
+| **Debrid-Link** | 56 | ❌ |
+| **Real-Debrid** | 39 | ❌ |
+| **Premiumize** | 31 | ✅ |
+| **LinkSnappy** | 17 | ❌ |
+| **High-Way** | 14 | ❌ |
 
-**Quick Reference:**
-- ✅ **Full Support**: Real-Debrid, AllDebrid, Premiumize, Debrid-Link, LinkSnappy, Offcloud
-- ⚠️ **Limited Support**: TorBox (restricted), Deepbrid (limited hosts)
-- ❌ **No Support**: Check individual service policies
 
-👉 **[See Detailed Adult Host Support →](./Adult-hosts.md)**
-
-### 📊 Live Status
+### Live Status
 
 > [!TIP]
-> **Before reporting issues:** Always check the official status pages first! Many "problems" are temporary host downtimes or maintenance windows.
-
-Service availability and host support can change in real time. Use these official status pages to check current host connectivity, server health, and service uptime.
+> Service availability and host support can change often. Use official status pages to check current status.
 
 <details><summary>👉 <strong>Click to view all status page links</strong></summary>
 
@@ -853,10 +804,9 @@ Service availability and host support can change in real time. Use these officia
 | **Mega-Debrid** | [mega-debrid.eu/hebergeurs](https://www.mega-debrid.eu/index.php?page=hebergeurs) |
 | **Deepbrid**    | [deepbrid.com/status](https://www.deepbrid.com/status)                            |
 | **High-Way**    | [high-way.me/pages/status](https://high-way.me/pages/status)                      |
-| **Offcloud**    | [https://offcloud.com/list](https://offcloud.com/list)                            |
+| **Offcloud**    | [offcloud.com/list](https://offcloud.com/list)                                    |
 
 </details>
-
 <br>
 
 <div align="right">
@@ -865,9 +815,14 @@ Service availability and host support can change in real time. Use these officia
 
 </div>
 
+
+
 ## Policies
 
-> 💡 Official Terms, Privacy, Refund, and Support pages for each provider. Refund eligibility varies widely; always verify before purchase.
+**💡 Official *Terms*, *Privacy*, *Refund*, and *Support* pages for each provider.**
+
+> [!WARNING]
+> Refund eligibility varies widely; always verify before purchase.
 
 | **Service** | **Terms**                                                                             | **Privacy**                                                  | **Refund Policy**                                     | **Support/Contact**                                             |
 | ----------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ----------------------------------------------------- | --------------------------------------------------------------- |
@@ -882,6 +837,8 @@ Service availability and host support can change in real time. Use these officia
 | High-Way    | [Terms](https://high-way.me/help/terms)                                               | [Privacy](https://high-way.me/help/privacy-policy)           | See Terms                                             | [Support](https://high-way.me/pages/support/)                   |
 | Offcloud    | [Terms](https://offcloud.com/terms)                                                   | [Privacy](https://offcloud.com/terms)                        | See Terms                                             | [Contact](https://github.com/Offcloud/offcloud-log)             |
 
+
+> [!TIP]
 > If a link returns 404, try the site’s footer “Legal/Help” links or contact support.
 
 <div align="right">
@@ -890,20 +847,24 @@ Service availability and host support can change in real time. Use these officia
 
 </div>
 
-## ⚡ Speed Test
+---
+
+## Speed Test
 
 > [!IMPORTANT]
 > **Speed varies by:**
-> - 🌍 Your geographical location
-> - 🕐 Time of day (peak vs. off-peak)
-> - 🖥️ Target file host server load
-> - 🌐 Your ISP routing and connection
+> - Your geographical location
+> - Time of day (peak vs. off-peak)
+> - Target file host server load
+> - Your ISP routing and connection
 >
 > **Always test before buying long-term plans!**
 
-### 🎯 Official Speed Tests
+
+### Official Speed Tests
 
 Test direct download speeds from each provider's servers:
+
 
 | **Service**     | **Speed Test Page**                                                          |
 | :-------------- | :--------------------------------------------------------------------------- |
@@ -927,13 +888,7 @@ For a more accurate assessment, follow these steps:
 5. **Test during peak and off-peak hours** to gauge performance variability.
 
 </details>
-
-#### Factors That Affect Speed
-- Geographical distance to provider’s servers  
-- Time of day and network congestion  
-- Performance of the original file host (e.g., Rapidgator vs. Katfile)  
-- Your ISP’s routing and potential throttling  
-- Local network setup (Wi-Fi vs. Ethernet, router quality)
+<br>
 
 > [!WARNING] 
 > Advertised "unlimited" speeds may be subject to fair-use policies or soft caps under heavy usage.
@@ -944,8 +899,9 @@ For a more accurate assessment, follow these steps:
 
 </div>
 
+---
 
-## 🛠️ Tools and Applications
+## Tools and Applications
 
 > [!TIP]
 > **New to debrid tools?** Start with:
@@ -953,38 +909,42 @@ For a more accurate assessment, follow these steps:
 > - 📦 **Debrid Media Manager** for library organization
 > - 🌐 **Browser extensions** for quick link unrestricting
 
----
-
 ### 📚 Media Management
 
 *Organize, sync, and manage your debrid content with media servers*
 
-| Tool | Description | Official Link |
-| :--- | :---------- | :------------ |
-| **Debrid Media Manager** | Web-based manager for organizing and streaming debrid content with Trakt integration | [Website](https://debridmediamanager.com/) <br> [GitHub](https://github.com/debridmediamanager/debrid-media-manager) |
-| **CineSync** | Automated media organization and symlink manager for Plex/Jellyfin/Emby with Bazarr support | [GitHub](https://github.com/sureshfizzy/CineSync) |
-| **Zurg** | WebDAV server that mounts Real-Debrid as a network drive for media servers | [GitHub](https://github.com/debridmediamanager/zurg-testing) |
+| Tool | Description |
+| :--- | :---------- |
+| **[Debrid Media Manager](https://debridmediamanager.com/)** | Web-based manager for organizing and streaming debrid content with Trakt integration |
+| **[CineSync](https://github.com/sureshfizzy/CineSync)** | Automated media organization and symlink manager for Plex/Jellyfin/Emby with Bazarr support |
+| **[Zurg](https://github.com/debridmediamanager/zurg-testing)** | WebDAV server that mounts Real-Debrid as a network drive for media servers |
+
+<br>
 
 ### 🎬 Streaming Add-ons
 
 *Direct streaming to Stremio and other media players*
 
-| Tool | Description | Official Link |
-| :--- | :---------- | :------------ |
-| **Comet** | Advanced Stremio add-on with real-time torrent indexing and multi-debrid support | [GitHub](https://github.com/g0ldyy/comet) |
-| **MediaFusion** | Universal Stremio add-on with sports, live TV, and extensive debrid service support | [GitHub](https://github.com/mhdzumair/MediaFusion) |
-| **Torrentio** | Popular Stremio add-on with simple setup and reliable debrid integration | [Website](https://torrentio.strem.fun/) |
+| Tool | Description |
+| :--- | :---------- |
+| **[Comet](https://github.com/g0ldyy/comet)** | Advanced Stremio add-on with real-time torrent indexing and multi-debrid support |
+| **[MediaFusion](https://github.com/mhdzumair/MediaFusion)** | Universal Stremio add-on with sports, live TV, and extensive debrid service support |
+| **[Torrentio](https://torrentio.strem.fun/)** | Popular Stremio add-on with simple setup and reliable debrid integration |
+
+<br>
 
 ### 📥 Download Managers
 
 *Automate and manage your debrid downloads*
 
-| Tool | Description | Official Link |
-| :--- | :---------- | :------------ |
-| **RDT Client** | Web-based torrent client for Real-Debrid, AllDebrid, and Premiumize with Sonarr/Radarr integration | [GitHub](https://github.com/rogerfar/rdt-client) |
-| **Seanime** | Self-hosted anime media server with AniList integration and auto-download features | [GitHub](https://github.com/5rahim/seanime) |
-| **pyLoad** | Free and open-source download manager supporting 100+ file hosts with plugin system | [GitHub](https://github.com/pyload/pyload) |
-| **JDownloader** | Popular download manager with extensive host support and automatic link extraction | [Website](https://jdownloader.org/) |
+| Tool | Description |
+| :--- | :---------- |
+| **[RDT Client](https://github.com/rogerfar/rdt-client)** | Web-based torrent client for Real-Debrid, AllDebrid, and Premiumize with Sonarr/Radarr integration |
+| **[Seanime](https://github.com/5rahim/seanime)** | Self-hosted anime media server with AniList integration and auto-download features |
+| **[pyLoad](https://github.com/pyload/pyload)** | Free and open-source download manager supporting 100+ file hosts with plugin system |
+| **[JDownloader](https://jdownloader.org/)** | Popular download manager with extensive host support and automatic link extraction |
+
+<br>
 
 ### 🌐 Browser Extensions
 
@@ -992,27 +952,37 @@ For a more accurate assessment, follow these steps:
 
 | Tool | Description | Official Link |
 | :--- | :---------- | :------------ |
-| **Real-Debrid Torrent Plugin** | One-click torrent adding with context menu integration for Chrome and Firefox | [Chrome](https://chromewebstore.google.com/detail/real-debrid-extension/oefkkgfcahbeccgckjgbnfclcmnjgidg) |
-| **AllDebrid Helper** | Quick link unrestrict with clipboard monitoring and browser notifications | [Official Link](https://alldebrid.com/tools/) |
-| **Deebrid Extension** | Browser extension for easy link unrestricting and download management | [Chrome](https://chromewebstore.google.com/detail/deepbrid-%E2%80%93-browser-extens/ampccappllebdaplacfcopfdgofmohmh) <br> [Firefox](https://addons.mozilla.org/en-US/firefox/addon/deepbrid-browser-extension/) |
+| **[Real-Debrid Torrent Plugin](https://chromewebstore.google.com/detail/real-debrid-extension/oefkkgfcahbeccgckjgbnfclcmnjgidg)** | One-click torrent adding with context menu integration for Chrome and Firefox |
+| **[AllDebrid Helper](https://alldebrid.com/tools/)** | Quick link unrestrict with clipboard monitoring and browser notifications |
+| **[Deebrid Extension](https://chromewebstore.google.com/detail/deepbrid-%E2%80%93-browser-extens/ampccappllebdaplacfcopfdgofmohmh)** | Browser extension for easy link unrestricting and download management |
+
+<br>
 
 ### 📱 Mobile Applications
 
 *Access your debrid service on the go*
 
-| App | Description | Official Link |
-| :-- | :---------- | :------------ |
-| **Stremio** | Cross-platform streaming app with debrid add-on support and device sync | [Website](https://www.stremio.com/downloads) |
-| **AllDebrid App** | Official AllDebrid PWA for link management and downloads | [PWA](https://alldebrid.com/m/) |
-| **Unchained** | Community-driven Real-Debrid app for managing downloads | [Unchained](https://github.com/LivingWithHippos/unchained-android) |
-| **VLC** | Universal media player with direct link playback and subtitle support | [Website](https://play.google.com/store/apps/details?id=org.videolan.vlc) |
+| App | Description |
+| :-- | :---------- |
+| **[Stremio](https://www.stremio.com/downloads)** | Cross-platform streaming app with debrid add-on support and device sync |
+| **[AllDebrid App](https://alldebrid.com/m/)** | Official AllDebrid PWA for link management and downloads |
+| **[Unchained](https://github.com/LivingWithHippos/unchained-android)** | Community-driven Real-Debrid app for managing downloads |
+| **[VLC](https://play.google.com/store/apps/details?id=org.videolan.vlc)** | Universal media player with direct link playback and subtitle support |
 
-## 👥 Community Resources
+<div align="right">
+
+[(↑ Back to Top)](#table-of-contents)
+
+</div>
+
+---
+
+## Community Resources
 
 > [!TIP]
 > **Get help faster:** Check Reddit communities and GitHub discussions for setup guides, troubleshooting, and service updates.
 
-### 💬 Reddit Communities
+### Reddit Communities
 
 *Active communities for support, news, and discussions*
 
@@ -1026,16 +996,18 @@ For a more accurate assessment, follow these steps:
 - [r/DataHoarder](https://www.reddit.com/r/DataHoarder) - Data archiving and storage
 
 
-### 📚 Useful Resources
+### Useful Resources
 
 *Guides, tools, and service monitoring*
 
-- 🌟 [Awesome Debrid](https://github.com/debridmediamanager/awesome-debrid) - Curated list of tools and resources
-- 📰 [TorrentFreak](https://torrentfreak.com/) - Latest news and updates
-- 💬 [GitHub Discussions](https://github.com/fynks/debrid-services-comparison/discussions) - Ask questions and share experiences
-- 🔍 [Is Real-Debrid Down?](https://debridmediamanager.com/is-real-debrid-down-or-just-me) - Service status checker
+- [Awesome Debrid](https://github.com/debridmediamanager/awesome-debrid) - Curated list of tools and resources
+- [TorrentFreak](https://torrentfreak.com/) - News and updates
+- [GitHub Discussions](https://github.com/fynks/debrid-services-comparison/discussions) - Ask questions and share experiences
+- [Is Real-Debrid Down](https://debridmediamanager.com/is-real-debrid-down-or-just-me) - Service status checker
 
-> **Pro Tip:** Join multiple communities to get diverse perspectives and faster support responses!
+> [!TIP]
+> Join multiple communities to get diverse perspectives and faster support responses!
+
 
 <div align="right">
 
@@ -1043,7 +1015,9 @@ For a more accurate assessment, follow these steps:
 
 </div>
 
-## ⚖️ Disclaimer
+---
+
+## Disclaimer
 
 > [!IMPORTANT]
 > This is an **independent, community-maintained comparison guide**. We are not affiliated with any debrid service.
@@ -1051,7 +1025,7 @@ For a more accurate assessment, follow these steps:
 This project aims to provide accurate and up-to-date information, but the debrid service landscape is dynamic. Please keep the following in mind:
 
 - **Services change frequently**: Pricing, host support, refund policies, and features change often—always check official sites before purchase.
-- **Final cost may vary**: Prices are subject to exchange rates, regional taxes, or payment processing fees. Actual charge may differ.
+- **Final cost may vary**: Prices are subject to exchange rates, regional taxes, or payment processing fees. Actual charges may differ.
 - **Data accuracy**: Data is community-sourced and not guaranteed for accuracy, uptime, or feature availability.
 - **No affiliation**: This project is independent and not affiliated with any listed service.
 - **Use at your own discretion**: Choose and use debrid services at your own discretion; test with short-term plans first.
@@ -1068,7 +1042,7 @@ This project aims to provide accurate and up-to-date information, but the debrid
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 **Help keep this guide accurate and up-to-date!**
 
@@ -1083,14 +1057,7 @@ We welcome contributions from the community:
 
 > 🛡️ **Quality assurance:** All PRs are reviewed and verified against official sources before merging.
 
-**[📖 See Full Contribution Guidelines →](./CONTRIBUTING.md)**
-
-### Quick Contribute
-
-1. 🍴 Fork this repository
-2. ✏️ Make your changes
-3. 📤 Submit a pull request with source links
-4. ✅ Wait for review and merge
+**[📖 See Contribution Guidelines →](./CONTRIBUTING.md)**
 
 <div align="right">
 
@@ -1106,20 +1073,21 @@ We welcome contributions from the community:
 
 > ✨ This guide is **free, open-source, and community-run**. If it helped: starring, reporting corrections, or using a referral link helps sustain maintenance (at no extra cost to you).
 
-| Service     | Referral                                               | Direct Signup                                                    |
-| :---------- | :----------------------------------------------------- | :--------------------------------------------------------------- |
-| AllDebrid   | [Referral](https://alldebrid.com/?uid=3wvya&lang=en)   | [Signup](https://alldebrid.com/register/)                        |
-| Real-Debrid | [Referral](https://real-debrid.com/?id=10990901)       | [Signup](https://real-debrid.com/)                               |
-| TorBox      | –                                                      | [Signup](https://torbox.app/login)                               |
-| Premiumize  | –                                                      | [Signup](https://www.premiumize.me/register)                     |
-| LinkSnappy  | [Referral](https://linksnappy.com/?ref=774668)         | [Signup](https://linksnappy.com/home#Register)                   |
-| Debrid-Link | [Referral](https://debrid-link.com/id/7B3BO)           | [Signup](https://debrid-link.com/webapp/register)                |
-| Mega-Debrid | –                                                      | [Signup](https://www.mega-debrid.eu/index.php?page=freeregister) |
-| Deepbrid    | [Referral](https://www.deepbrid.com/aff/go/upward1971) | [Signup](https://www.deepbrid.com/signup)                        |
-| Offcloud    | [Referral](https://offcloud.com/?=c44b1fa5)            | [Signup](https://offcloud.com/register)                          |
-| High-Way    | –                                                      | [Signup](https://high-way.me/login/login)                        |
+| Service     | Referral Link                                           | Direct Signup                                                    |
+| :---------- | :------------------------------------------------------ | :--------------------------------------------------------------- |
+| AllDebrid   | [Use Referral](https://alldebrid.com/?uid=3wvya&lang=en) | [Direct Signup](https://alldebrid.com/register/)                 |
+| Real-Debrid | [Use Referral](https://real-debrid.com/?id=10990901)     | [Direct Signup](https://real-debrid.com/)                        |
+| TorBox      | –                                                       | [Direct Signup](https://torbox.app/login)                        |
+| Premiumize  | –                                                       | [Direct Signup](https://www.premiumize.me/register)              |
+| LinkSnappy  | [Use Referral](https://linksnappy.com/?ref=774668)       | [Direct Signup](https://linksnappy.com/home#Register)            |
+| Debrid-Link | [Use Referral](https://debrid-link.com/id/7B3BO)         | [Direct Signup](https://debrid-link.com/webapp/register)         |
+| Mega-Debrid | –                                                       | [Direct Signup](https://www.mega-debrid.eu/index.php?page=freeregister) |
+| Deepbrid    | [Use Referral](https://www.deepbrid.com/aff/go/upward1971) | [Direct Signup](https://www.deepbrid.com/signup)                 |
+| Offcloud    | [Use Referral](https://offcloud.com/?=c44b1fa5)          | [Direct Signup](https://offcloud.com/register)                   |
+| High-Way    | –                                                       | [Direct Signup](https://high-way.me/login/login)                 |
 
 </div>
+<br>
 
 <div align="right">
 
