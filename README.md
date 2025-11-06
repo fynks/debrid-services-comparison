@@ -14,14 +14,12 @@
 
   <a href="https://debridcompare.xyz/"><img src="./dist/images/og.png" alt="Screenshot of interactive comparison web app" width="880" style="border-radius:2px"></a>
 
-</div>
-
-## Quick Navigation
+</div><br>
 
 <div align="center">
 
-[Intro](#what-are-debrid-services) | [Comparison](#feature-comparison) | [Pricing](#pricing-comparison)
-| [File Hosts](#file-hosts) | [Tools & Apps](#tools-and-applications)
+**[Intro](#what-are-debrid-services) | [Comparison](#feature-comparison) | [Pricing](#pricing-comparison)
+| [File Hosts](#file-hosts) | [Tools & Apps](#tools-and-applications)**
 
 </div><br>
 
