@@ -70,20 +70,9 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 ### How It Works
 
 <br>
-
-```mermaid
-flowchart TD
-    A[User provides file link or torrent] --> B{File on supported host?}
-    B -->|Yes| C[Debrid service fetches file]
-    C --> D[File cached on high-speed servers]
-    D --> E{Stream or download?}
-    E -->|Stream| F[Direct streaming link provided]
-    E -->|Download| G[High-speed download link provided]
-    F --> H[Access file instantly]
-    G --> H
-    H --> I[File cached for 24-72 hours]
-```
-
+<p align="center">
+  <img src="dist/images/flowchart.svg" alt="Debrid flowchart" width="700">
+</p>
 <br>
 
 > [!TIP]

@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 930" style="max-width: 800px;">
+  <defs>
+    <style>
+      /* Light mode (default) */
+      .box { fill: #fff; stroke: #333; stroke-width: 2; }
+      .diamond { fill: #fff; stroke: #333; stroke-width: 2; }
+      .text { font-family: Arial, sans-serif; font-size: 14px; text-anchor: middle; fill: #333; }
+      .arrow { stroke: #333; stroke-width: 2; fill: none; marker-end: url(#arrowhead-light); }
+      .label { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; fill: #333; }
+      #arrowhead-light { display: block; }
+      #arrowhead-dark { display: none; }
+      
+      /* Dark mode */
+      @media (prefers-color-scheme: dark) {
+        .box { fill: #1c1c1c; stroke: #8b949e; stroke-width: 2; }
+        .diamond { fill: #1c1c1c; stroke: #8b949e; stroke-width: 2; }
+        .text { fill: #c9d1d9; }
+        .arrow { stroke: #8b949e; marker-end: url(#arrowhead-dark); }
+        .label { fill: #8b949e; }
+        #arrowhead-light { display: none; }
+        #arrowhead-dark { display: block; }
+      }
+    </style>
+    <marker id="arrowhead-light" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#333" />
+    </marker>
+    <marker id="arrowhead-dark" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#8b949e" />
+    </marker>
+  </defs>
+  
+  <!-- Node A -->
+  <rect x="250" y="20" width="300" height="60" rx="5" class="box"/>
+  <text x="400" y="55" class="text">User provides file link or torrent</text>
+  
+  <!-- Arrow A to B -->
+  <path d="M 400 80 L 400 130" class="arrow"/>
+  
+  <!-- Node B (Diamond) -->
+  <path d="M 400 130 L 500 180 L 400 230 L 300 180 Z" class="diamond"/>
+  <text x="400" y="180" class="text">File on supported</text>
+  <text x="400" y="195" class="text">host?</text>
+  
+  <!-- Arrow B to C -->
+  <path d="M 400 230 L 400 270" class="arrow"/>
+  <text x="430" y="255" class="label">Yes</text>
+  
+  <!-- Node C -->
+  <rect x="275" y="270" width="250" height="60" rx="5" class="box"/>
+  <text x="400" y="305" class="text">Debrid service fetches file</text>
+  
+  <!-- Arrow C to D -->
+  <path d="M 400 330 L 400 370" class="arrow"/>
+  
+  <!-- Node D -->
+  <rect x="250" y="370" width="300" height="60" rx="5" class="box"/>
+  <text x="400" y="405" class="text">File cached on high-speed servers</text>
+  
+  <!-- Arrow D to E -->
+  <path d="M 400 430 L 400 480" class="arrow"/>
+  
+  <!-- Node E (Diamond) -->
+  <path d="M 400 480 L 500 530 L 400 580 L 300 530 Z" class="diamond"/>
+  <text x="400" y="530" class="text">Stream or</text>
+  <text x="400" y="545" class="text">download?</text>
+  
+  <!-- Arrow E to F (Stream) -->
+  <path d="M 300 530 L 150 530 L 150 650" class="arrow"/>
+  <text x="200" y="525" class="label">Stream</text>
+  
+  <!-- Arrow E to G (Download) -->
+  <path d="M 500 530 L 650 530 L 650 650" class="arrow"/>
+  <text x="600" y="525" class="label">Download</text>
+  
+  <!-- Node F -->
+  <rect x="25" y="650" width="250" height="60" rx="5" class="box"/>
+  <text x="150" y="685" class="text">Direct streaming link provided</text>
+  
+  <!-- Node G -->
+  <rect x="525" y="650" width="250" height="60" rx="5" class="box"/>
+  <text x="650" y="685" class="text">High-speed download link provided</text>
+  
+  <!-- Arrow F to H -->
+  <path d="M 150 710 L 150 750 L 400 750" class="arrow"/>
+  
+  <!-- Arrow G to H -->
+  <path d="M 650 710 L 650 750 L 400 750" class="arrow"/>
+  
+  <!-- Node H -->
+  <rect x="275" y="750" width="250" height="60" rx="5" class="box"/>
+  <text x="400" y="785" class="text">Access file instantly</text>
+  
+  <!-- Arrow H to I -->
+  <path d="M 400 810 L 400 850" class="arrow"/>
+  
+  <!-- Node I -->
+  <rect x="250" y="850" width="300" height="60" rx="5" class="box"/>
+  <text x="400" y="885" class="text">File cached for 24-72 hours</text>
+</svg>
