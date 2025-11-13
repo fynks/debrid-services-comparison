@@ -7,13 +7,20 @@
     
     <!-- Homepage -->
     <url>
-        <loc>https://debridcompare.xyz/</loc>
-        <lastmod>2025-01-11T00:00:00+00:00</lastmod>
-        <changefreq>weekly</changefreq>
+        <loc>https://debridcompare.xyz</loc>
+        <lastmod>2025-11-13T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
         <priority>1.0</priority>
         <image:image>
             <image:loc>https://debridcompare.xyz/images/og.png</image:loc>
             <image:title>Debrid Services Comparison Tool</image:title>
             <image:caption>Compare 10 premium debrid services including AllDebrid, Real-Debrid, TorBox, and more</image:caption>
         </image:image>
+        <image:image>
+            <image:loc>https://debridcompare.xyz/images/flowchart.svg</image:loc>
+            <image:title>How Debrid Services Work Flowchart</image:title>
+            <image:caption>A visual explanation of how debrid services provide high-speed downloads.</image:caption>
+        </image:image>
     </url>
+
+</urlset>

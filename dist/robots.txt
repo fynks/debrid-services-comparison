@@ -2,27 +2,5 @@
 User-agent: *
 Allow: /
 
-# Crawl-delay for respectful crawling
-Crawl-delay: 1
-
 # Sitemaps
 Sitemap: https://debridcompare.xyz/sitemap.xml
-
-# Specific user agents
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 1
-
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 1
-
-User-agent: Slurp
-Allow: /
-
-User-agent: DuckDuckBot
-Allow: /
-
-User-agent: Baiduspider
-Allow: /
-Crawl-delay: 1
