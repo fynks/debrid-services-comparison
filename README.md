@@ -216,7 +216,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 | **90 Days**           | [€8.99 (one-time)⁴](#footnote-4)                       | $29.99         | €9.00           | ❌                 | €9.00           | $29.99         | €9.00           | €12.99             | From €15.99    | $29.97       |
 | **180 Days**          | [€15.99 (one-time)⁴](#footnote-4)                      | ❌              | €16.00          | ❌                 | €16.00          | $54.99         | €16.00          | €19.99             | From €29.99    | ❌            |
 | **300 Days**          | [€24.99 (one-time)⁴](#footnote-4)                      | ❌              | ❌               | ❌                 | €25.00          | ❌              | ❌               | ❌                  | ❌              | ❌            |
-| **365 Days / 1 Year** | ❌                                       | $79.99         | ❌               | ❌                 | ❌               | ❌              | ❌               | €32.99             | ❌              | $69.99       |
+| **365 Days / 1 Year** | ❌                                       | $79.99         | ❌               | [From $33.00/year⁵](#footnote-5)                 | ❌               | ❌              | ❌               | €32.99             | ❌              | $69.99       |
 
 > [!NOTE]
 > - <span id="footnote-1">**¹ AllDebrid Free Trial**</span>: 7-day trial requires phone verification. [Verify pricing →](https://alldebrid.com/offer/)
