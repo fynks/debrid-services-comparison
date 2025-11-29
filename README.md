@@ -223,7 +223,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 > - <span id="footnote-2">**² TorBox Free Tier**</span>: Limited speed and features; no torrenting. [Verify pricing →](https://torbox.app/pricing)
 > - <span id="footnote-3">**³ AllDebrid Recurring**</span>: Auto-renews monthly at €2.99. [Verify pricing →](https://alldebrid.com/offer/)
 > - <span id="footnote-4">**⁴ AllDebrid / Debrid-Link One-Time**</span>: Non-recurring payment. Often better value than recurring. [Verify pricing →](https://alldebrid.com/offer/)
-> - <span id="footnote-5">**⁵ TorBox Tiers**</span>: Multiple plans starting at $3.00/month. Higher tiers unlock more features. [Verify pricing →](https://torbox.app/pricing)
+> - <span id="footnote-5">**⁵ TorBox Tiers**</span>: Multiple plans starting at $3.00/month. Higher tiers unlock more features. [Verify pricing →](https://torbox.app/subscription)
 > - <span id="footnote-6">**⁶ High-Way**</span>: Limited Hoster, Free MB through activity in the forum. [Verify pricing →](https://high-way.me/pages/tariffs)
 
 ### Up-to-date Pricing
