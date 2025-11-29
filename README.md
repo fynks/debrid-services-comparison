@@ -35,7 +35,6 @@
   - [File Hosts](#file-hosts)
   - [Usenet Support](#usenet-support)
   - [Adult Hosts](#adult-hosts)
-  - [Host Coverage Summary](#host-coverage-summary)
 - [Policies](#policies)
 - [Speed Test](#speed-test)
 - [Tools and Applications](#tools-and-applications)
@@ -755,23 +754,6 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 > Support varies. Some services exclude adult content for legal/policy reasons.
 
 👉 [See Detailed Adult Host Support](./Adult-hosts.md)
-
-
-### Host Coverage Summary
-
-| Service | Total Hosts | Usenet |
-| :--- | :--- | :--- |
-| **Offcloud** | 218 | ✅ |
-| **Mega-Debrid** | 136 | ❌ |
-| **TorBox** | 117 | ✅ |
-| **Deepbrid** | 81 | ❌ |
-| **AllDebrid** | 61 | ❌ |
-| **Debrid-Link** | 56 | ❌ |
-| **Real-Debrid** | 39 | ❌ |
-| **Premiumize** | 31 | ✅ |
-| **LinkSnappy** | 17 | ❌ |
-| **High-Way** | 14 | ❌ |
-
 
 ### Live Status
 
