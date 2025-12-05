@@ -12,7 +12,7 @@
     <a href="https://debridcompare.xyz"><img alt="Web App" src="https://img.shields.io/badge/Interactive-Web_App-green?style=for-the-badge&logo=google-chrome&logoColor=white"></a>
   </p>
 
-  <a href="https://debridcompare.xyz/"><img src="./dist/images/og.png" alt="Interactive debrid services comparison web app showing side-by-side feature comparison, pricing, and host support tables with filtering and search capabilities" width="880" style="border-radius:2px"></a>
+  <a href="https://debridcompare.xyz/"><img src="./dist/images/og.png" alt="Interactive debrid services comparison web app showing side-by-side feature comparison, pricing, and host support tables with filtering and search capabilities" width="880" style="border-radius:8px"></a>
 
 </div><br>
 
