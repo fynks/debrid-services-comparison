@@ -12,7 +12,7 @@
     <a href="https://debridcompare.xyz"><img alt="Web App" src="https://img.shields.io/badge/Interactive-Web_App-green?style=for-the-badge&logo=google-chrome&logoColor=white"></a>
   </p>
 
-  <a href="https://debridcompare.xyz/"><img src="./dist/images/og.png" alt="Screenshot of interactive comparison web app" width="880" style="border-radius:2px"></a>
+  <a href="https://debridcompare.xyz/"><img src="./dist/images/og.png" alt="Interactive debrid services comparison web app showing side-by-side feature comparison, pricing, and host support tables with filtering and search capabilities" width="880" style="border-radius:2px"></a>
 
 </div><br>
 
@@ -27,25 +27,29 @@
 
 <details><summary>👉 Click to expand</summary>
 
+- [Table of Contents](#table-of-contents)
 - [What are Debrid Services?](#what-are-debrid-services)
-- [Quick Start Guide](#quick-start-guide)
+  - [Key Benefits](#key-benefits)
+  - [How It Works](#how-it-works)
+- [Try the Interactive Web App](#-try-the-interactive-web-app)
 - [Choosing the Right Service](#choosing-the-right-service)
+- [Quick Start Guide](#quick-start-guide)
 - [Pricing Comparison](#pricing-comparison)
 - [Available Hosts](#available-hosts)
-  - [File Hosts](#file-hosts)
+  - [Top 20 Popular Hosts](#top-20-popular-hosts)
+  - [Complete Host List](#complete-host-list)
   - [Usenet Support](#usenet-support)
   - [Adult Hosts](#adult-hosts)
+  - [Live Status](#live-status)
 - [Policies](#policies)
 - [Speed Test](#speed-test)
 - [Tools and Applications](#tools-and-applications)
-  - [Media Management](#-media-management)
-  - [Streaming Add-ons](#-streaming-add-ons)
-  - [Download Managers](#-download-managers)
-  - [Browser Extensions](#-browser-extensions)
-  - [Mobile Applications](#-mobile-applications)
+  - [📚 Media Management](#-media-management)
+  - [🎬 Streaming Add-ons](#-streaming-add-ons)
+  - [📥 Download Managers](#-download-managers)
+  - [🌐 Browser Extensions](#-browser-extensions)
+  - [📱 Mobile Applications](#-mobile-applications)
 - [Community Resources](#community-resources)
-  - [Reddit Communities](#reddit-communities)
-  - [Useful Resources](#useful-resources)
 - [Disclaimer](#disclaimer)
 - [Contributing](#contributing)
 - [Support This Project](#support-this-project)
@@ -70,7 +74,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 <br>
 <p align="center">
-  <img src="dist/images/flowchart.svg" alt="Debrid flowchart" width="700">
+  <img src="dist/images/flowchart.svg" alt="Flowchart showing how debrid services work: User provides link or torrent to debrid service, which fetches content from file hosts, then streams back to user at high speed without ads or throttling" width="700">
 </p>
 <br>
 
@@ -80,36 +84,13 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 ---
 
 
-## Quick Start Guide
+<div align="center">
 
-### 3 Simple Steps to Get Started
+## 🚀 Try the Interactive Web App
 
-#### 1. **Choose a Service**:
- - Compare **[Pricing](#pricing-comparison)**, **[Features](#feature-comparison)**, and **[Host Support](#file-hosts)** to find your best match.
+**Filter, compare, and find your perfect debrid service with our advanced comparison tool!**
 
-#### 2. **Sign Up & Configure**:
- - Create an account, activate your subscription, and get your API key for tool integrations.
-
-#### 3. **Start Using**:
- - Add links/torrents via web interface, install [browser extensions](#browser-extensions), or integrate with [media tools](#tools-and-applications). Files are cached and ready to stream instantly!
-
-
-### Popular Use Cases
-
-| Use Case | Recommended Tools |
-| :--- | :--- |
-| **Streaming with Stremio** | [Torrentio](#-streaming-add-ons), [Comet](#-streaming-add-ons), [MediaFusion](#-streaming-add-ons) |
-| **Plex/Jellyfin Library** | [Debrid Media Manager](#-media-management), [Zurg](#-media-management) |
-| **Direct Downloads** | [Browser Extensions](#-browser-extensions), [JDownloader](#-download-managers) |
-| **Torrent Downloads** | [RDT Client](#-download-managers), Web Dashboard |
-| **Usenet Access** | Built-in Usenet support |
-
-> [!TIP]
-> **First time?** Try the free tiers ([TorBox](#pricing-comparison), [AllDebrid trial](#pricing-comparison)) or start with a short-term plan to test speeds in your region.
-
-<div align="right">
-
-[(↑ Back to Top)](#table-of-contents)
+[![Open Web App](https://img.shields.io/badge/Open-Interactive_App-4CAF50?style=for-the-badge&logo=google-chrome&logoColor=white)](https://debridcompare.xyz)
 
 </div>
 
@@ -117,17 +98,30 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 ## Choosing the Right Service
 
-### At-a-Glance Comparison
-| Service | Best For | Starting Price |
-| :--- | :--- | :--- |
-| **Real-Debrid** | Stremio users, torrent caching | €4.00/month |
-| **AllDebrid** | Budget-conscious users | €2.99/month |
-| **Premiumize** | Usenet + torrents | $11.99/month |
-| **TorBox** | New tech, free tier | Free / $3+/month |
-| **Debrid-Link** | Host variety | €4.00/month |
-| **LinkSnappy** | Maximum host coverage | $12.99/month |
+### Core Features Matrix
 
-### Decision Helper
+| Feature | Real-Debrid | AllDebrid | Premiumize | TorBox | Debrid-Link | LinkSnappy | Others |
+|:--------|:-----------:|:---------:|:----------:|:------:|:-----------:|:----------:|:------:|
+| **Torrent Support** | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
+| **Usenet Access** | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ <br> (Offcloud) |
+| **Free Trial/Tier** | ❌ | ✅ <br> (7-day) | ❌ | ✅ | ❌ | ❌ | Varies |
+| **API Access** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Mobile Apps** | 3rd-party | PWA | Official | Official | Web | Web | Varies |
+| **Cloud Storage** | Temp cache | Temp cache | Yes | Yes | Temp cache | Temp cache | Varies |
+
+<br>
+
+### 📌 Quick Decision Matrix:
+
+| Your Priority | Recommended Service | See Details |
+|:-------------|:-------------------|:-----------|
+|**Stremio Streaming** | Real-Debrid | [→ Pricing](#pricing-comparison) |
+|**Lowest Price** | AllDebrid | [→ Pricing](#pricing-comparison) |
+|**Usenet + Torrents** | Premiumize | [→ Feature Comparison](#feature-comparison) |
+|**Try Before Buy** | TorBox | [→ Pricing](#pricing-comparison) |
+|**Maximum Hosts** | LinkSnappy | [→ File Hosts](#file-hosts) |
+|**Plex/Jellyfin Setup** | Premiumize | [→ Media Tools](#-media-management) |
+
 
 <details>
 <summary><strong>🤔 Still not sure? Click here for personalized recommendations</strong></summary>
@@ -161,8 +155,11 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 - ✅ You download from many different sources
 
 </details>
-
 <br>
+
+> [!TIP]
+> **Still deciding?** Check our **[File Hosts](#file-hosts)** table or try the **[Interactive Web App](https://debridcompare.xyz)** for advanced filtering!
+
 <div align="right">
 
 [(↑ Back to Top)](#table-of-contents)
@@ -171,21 +168,25 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 ---
 
-## Feature Comparison
+## Quick Start Guide
 
-### Core Features Matrix
+### 3 Simple Steps to Get Started
 
-| Feature | Real-Debrid | AllDebrid | Premiumize | TorBox | Debrid-Link | LinkSnappy | Others |
-|:--------|:-----------:|:---------:|:----------:|:------:|:-----------:|:----------:|:------:|
-| **Torrent Support** | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
-| **Usenet Access** | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ <br> (Offcloud) |
-| **Free Trial/Tier** | ❌ | ✅ <br> (7-day) | ❌ | ✅ | ❌ | ❌ | Varies |
-| **API Access** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Mobile Apps** | 3rd-party | PWA | Official | Official | Web | Web | Varies |
-| **Cloud Storage** | Temp cache | Temp cache | Yes | Yes | Temp cache | Temp cache | Varies |
+#### 1. **Choose a Service**:
+ - Not sure? See **[Choosing the Right Service](#choosing-the-right-service)** for personalized recommendations
+ - Compare **[Pricing](#pricing-comparison)** and **[Host Support](#file-hosts)**
 
-> [!NOTE]
-> **Host count doesn't tell the whole story!** Services with fewer hosts often support the most popular ones (Mega, Rapidgator, Mediafire, etc.). Check the [detailed host table](#file-hosts) for specific hosts you use.
+
+#### 2. **Sign Up & Configure**:
+ - Create an account, activate your subscription, and get your API key for tool integrations
+ - Most services offer instant activation
+
+#### 3. **Start Using**:
+ - Add links/torrents via web interface, install **[browser extensions](#-browser-extensions)**, or integrate with **[media tools](#-media-management)**
+ - Files are cached and ready to stream instantly!
+
+> [!TIP]
+> **First time?** Try the free tiers ([TorBox](#pricing-comparison), [AllDebrid trial](#pricing-comparison)) or start with a short-term plan to test speeds in your region.
 
 <div align="right">
 
@@ -262,25 +263,58 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 ## Available Hosts
 
-### File Hosts
-
-<br><div align="center">
+<div align="center">
 
 > **💡 Pro Tip:** Use the [**interactive web app**](https://debridcompare.xyz) for advanced search, filters, and side-by-side comparison!
 
 </div>
 
+### Top 20 Popular Hosts
+
+These hosts account for ~80% of typical usage. Most debrid services support these popular hosts.
+
+| **Service Name** | **Real-Debrid** | **AllDebrid** | **TorBox** | **Deepbrid** | **Premiumize** | **Offcloud** | **Debrid-Link** | **Mega-Debrid** | **LinkSnappy** | **High-Way** |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1Fichier | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Clicknupload | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
+| Dailymotion | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Drop.download | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
+| Dropbox | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |
+| Filefactory | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ |
+| Filer.net | ❌ | ❌ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Filestore | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
+| Google drive | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| Hexupload / hexload | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| Hitfile | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
+| Isra.cloud | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ |
+| Katfile | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Mediafire | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
+| Mega | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Rapidgator | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ |
+| Scribd | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| Turbobit | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Vimeo | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
+
+> [!TIP]
+> - Use **[Ctrl+F / Cmd+F](#complete-host-list)** in the complete table below or 
+> - Try the **[Interactive Web App](https://debridcompare.xyz)** ↗️
+> - Check the **[Complete Host List](#complete-host-list)** for all supported hosts
+
+<div align="right">
+
+[(↑ Back to Top)](#table-of-contents)
+
+</div>
+
+---
+
+### Complete Host List
+
+Comprehensive list of all supported file hosts across all services.
+
 <details>
-<summary><strong>How to Use This Table</strong></summary><br>
+<summary><strong>👉 Click to expand complete host list</strong></summary><br>
 
-- **Search**: Use `Ctrl+F` (Windows/Linux) or `Cmd+F` (Mac) to find specific hosts
-- **Popular hosts**: Look for Mega, Rapidgator, Katfile, Mediafire, 1Fichier, Turbobit
-- **Total support**: See the bottom row for each service's total host count
-- **Checkmarks**: ✅ = Supported, ❌ = Not supported
-
-</details>
-
-<br>
 
 | **Service Name** | **Real-Debrid** | **AllDebrid** | **TorBox** | **Deepbrid** | **Premiumize** | **Offcloud** | **Debrid-Link** | **Mega-Debrid** | **LinkSnappy** | **High-Way** |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -654,7 +688,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 | Uktv play | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Uloz | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Unibytes | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| Unlimitzone | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Unlimitzone | ❌ | ❌ | ❌ | ❌
 | Upasias | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Upload | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Upload4earn | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
@@ -727,6 +761,15 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 | Youwatch | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Yunfile | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | **Total = 442** | **39/442** | **61/442** | **117/442** | **81/442** | **31/442** | **218/442** | **56/442** | **136/442** | **17/442** | **14/442** |
+
+</details>
+<br>
+
+> [!TIP]
+> - **Search**: Use `Ctrl+F` (Windows/Linux) or `Cmd+F` (Mac) to find specific hosts
+> - **Total support**: See the bottom row for each service's total host count
+> - **Checkmarks**: ✅ = Supported, ❌ = Not supported
+> - **Too long?** Use the **[Top 20 Popular Hosts](#top-20-popular-hosts)** quick reference above
 
 <br>
 
@@ -813,6 +856,18 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 <div align="right">
 
 [(↑ Back to Top)](#table-of-contents)
+
+</div>
+
+---
+
+<div align="center">
+
+## 🚀 Try the Interactive Web App
+
+**Filter, compare, and find your perfect debrid service with our advanced comparison tool!**
+
+[![Open Web App](https://img.shields.io/badge/Open-Interactive_App-4CAF50?style=for-the-badge&logo=google-chrome&logoColor=white)](https://debridcompare.xyz)
 
 </div>
 
