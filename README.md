@@ -267,7 +267,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 > **💡 Pro Tip:** Use the [**interactive web app**](https://debridcompare.xyz) for advanced search, filters, and side-by-side comparison!
 
-</div>
+</div><br>
 
 ### Top 20 Popular Hosts
 
@@ -762,6 +762,7 @@ Comprehensive list of all supported file hosts across all services.
 | Yunfile | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | **Total = 442** | **39/442** | **61/442** | **117/442** | **81/442** | **31/442** | **218/442** | **56/442** | **136/442** | **17/442** | **14/442** |
 
+<br>
 </details>
 <br>
 
@@ -781,6 +782,8 @@ Comprehensive list of all supported file hosts across all services.
 
 </div>
 
+---
+
 ### Usenet Support
 
 > [!TIP]
@@ -792,11 +795,15 @@ Comprehensive list of all supported file hosts across all services.
 | **Usenet**      |    ❌     |   ✅   |     ✅     |      ❌     |      ❌     |     ❌     |      ❌     |    ❌    |    ❌    |    ✅    |
 
 
+---
+
 ### Adult Hosts
 
 > Support varies. Some services exclude adult content for legal/policy reasons.
 
 👉 [See Detailed Adult Host Support](./Adult-hosts.md)
+
+---
 
 ### Live Status
 
