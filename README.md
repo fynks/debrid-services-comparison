@@ -18,8 +18,8 @@
 
 <div align="center">
 
-**[Intro](#what-are-debrid-services) | [Comparison](#feature-comparison) | [Pricing](#pricing-comparison)
-| [File Hosts](#file-hosts) | [Tools & Apps](#tools-and-applications)**
+**[Intro](#what-are-debrid-services) | [Comparison](#core-features-matrix) | [Pricing](#pricing-comparison)
+| [File Hosts](#available-hosts) | [Tools & Apps](#tools-and-applications)**
 
 </div><br>
 
