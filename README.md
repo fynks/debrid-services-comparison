@@ -90,7 +90,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 **Filter, compare, and find your perfect debrid service with our advanced comparison tool!**
 
-[![Open Web App](https://img.shields.io/badge/Open-Interactive_App-4CAF50?style=for-the-badge&logo=google-chrome&logoColor=white)](https://debridcompare.xyz)
+[![Open Web App](https://img.shields.io/badge/Open-Interactive_App-4CAF50?style=for-the-badge&logo=google-chrome&logoColor=white)](https://debridcompare.pages.dev )
 
 </div>
 
