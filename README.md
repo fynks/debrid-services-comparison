@@ -9,10 +9,10 @@
     <a href="https://github.com/fynks/debrid-services-comparison/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/fynks/debrid-services-comparison?style=for-the-badge&logo=github"></a>
     <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/fynks/debrid-services-comparison?style=for-the-badge"></a>
     <a href="#available-hosts"><img alt="Tracked Services" src="https://img.shields.io/badge/Services-10-4caf50?style=for-the-badge&logo=rocket&logoColor=white"></a>
-    <a href="https://debridcompare.xyz"><img alt="Web App" src="https://img.shields.io/badge/Interactive-Web_App-green?style=for-the-badge&logo=google-chrome&logoColor=white"></a>
+    <a href="https://debridcompare.pages.dev"><img alt="Web App" src="https://img.shields.io/badge/Interactive-Web_App-green?style=for-the-badge&logo=google-chrome&logoColor=white"></a>
   </p>
 
-  <a href="https://debridcompare.xyz/"><img src="./dist/images/og.png" alt="Interactive debrid services comparison web app showing side-by-side feature comparison, pricing, and host support tables with filtering and search capabilities" width="880" style="border-radius:8px"></a>
+  <a href="https://debridcompare.pages.dev/"><img src="./dist/images/og.png" alt="Interactive debrid services comparison web app showing side-by-side feature comparison, pricing, and host support tables with filtering and search capabilities" width="880" style="border-radius:8px"></a>
 
 </div><br>
 
@@ -158,7 +158,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 <br>
 
 > [!TIP]
-> **Still deciding?** Check our **[File Hosts](#file-hosts)** table or try the **[Interactive Web App](https://debridcompare.xyz)** for advanced filtering!
+> **Still deciding?** Check our **[File Hosts](#file-hosts)** table or try the **[Interactive Web App](https://debridcompare.pages.dev)** for advanced filtering!
 
 <div align="right">
 
@@ -265,7 +265,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 <div align="center">
 
-> **💡 Pro Tip:** Use the [**interactive web app**](https://debridcompare.xyz) for advanced search, filters, and side-by-side comparison!
+> **💡 Pro Tip:** Use the [**interactive web app**](https://debridcompare.pages.dev) for advanced search, filters, and side-by-side comparison!
 
 </div><br>
 
@@ -298,7 +298,7 @@ These hosts account for ~80% of typical usage. Most debrid services support thes
 
 > [!TIP]
 > - Use **[Ctrl+F / Cmd+F](#complete-host-list)** in the complete table below or 
-> - Try the **[Interactive Web App](https://debridcompare.xyz)** ↗️
+> - Try the **[Interactive Web App](https://debridcompare.pages.dev)** ↗️
 > - Check the **[Complete Host List](#complete-host-list)** for all supported hosts
 
 <div align="right">
@@ -875,7 +875,7 @@ Comprehensive list of all supported file hosts across all services.
 
 **Filter, compare, and find your perfect debrid service with our advanced comparison tool!**
 
-[![Open Web App](https://img.shields.io/badge/Open-Interactive_App-4CAF50?style=for-the-badge&logo=google-chrome&logoColor=white)](https://debridcompare.xyz)
+[![Open Web App](https://img.shields.io/badge/Open-Interactive_App-4CAF50?style=for-the-badge&logo=google-chrome&logoColor=white)](https://debridcompare.pages.dev)
 
 </div>
 

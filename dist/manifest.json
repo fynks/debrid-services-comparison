@@ -1,7 +1,7 @@
 {
 "name": "Debrid Compare",
 "short_name": "DSC",
-"start_url": "https://debridcompare.xyz",
+"start_url": "https://debridcompare.pages.dev",
 "display": "standalone",
 "description": "Compare leading debrid / multi-hoster services for pricing, host coverage, policies & tools.",
 "lang": "en",

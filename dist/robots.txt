@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://debridcompare.xyz/sitemap.xml
+Sitemap: https://debridcompare.pages.dev/sitemap.xml
