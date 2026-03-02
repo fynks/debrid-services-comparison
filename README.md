@@ -103,7 +103,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 | Feature | Real-Debrid | AllDebrid | Premiumize | TorBox | Debrid-Link | LinkSnappy | Others |
 |:--------|:-----------:|:---------:|:----------:|:------:|:-----------:|:----------:|:------:|
 | **Torrent Support** | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
-| **Usenet Access** | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ <br> (Offcloud) |
+| **Usenet Access** | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | Platform Dependent |
 | **Free Trial/Tier** | ❌ | ✅ <br> (7-day) | ❌ | ✅ | ❌ | ❌ | Varies |
 | **API Access** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **Mobile Apps** | 3rd-party | PWA | Official | Official | Web | Web | Varies |
@@ -714,7 +714,6 @@ Comprehensive list of all supported file hosts across all services.
 | Uptobox | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Upvid | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
 | Uqload | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Usenet | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Userscloud | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Usersdrive | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ |
 | Ustream | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
@@ -793,7 +792,7 @@ Comprehensive list of all supported file hosts across all services.
 
 | Service         | AllDebrid | TorBox | Premiumize | Real-Debrid | Debrid-Link | LinkSnappy | Mega-Debrid | Deepbrid | High-Way | Offcloud |
 |-----------------|:---------:|:------:|:----------:|:-----------:|:-----------:|:----------:|:-----------:|:--------:|:--------:|:--------:|
-| **Usenet**      |    ❌     |   ✅   |     ✅     |      ❌     |      ❌     |     ❌     |      ❌     |    ❌    |    ❌    |    ✅    |
+| **Usenet**      |    ❌     |   ✅   |     ✅     |      ❌     |      ❌     |     ❌     |      ❌     |    ✅    |    ❌    |    ✅    |
 
 
 ---
