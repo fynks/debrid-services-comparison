@@ -735,8 +735,7 @@ class DataService {
 
     // Fetch from network
     try {
-      const response = await Utils.fetchWithFallback(urls);
-      const data = await response.json();
+      const data = await Utils.fetchWithFallback(urls);
       
       // Cache in memory and IndexedDB
       this.#cache.set(cacheKey, data);
@@ -2137,23 +2136,6 @@ const UIFeatures = (() => {
     window.addEventListener('scroll', throttledUpdate, { passive: true });
   };
 
-  // Back to top button
-  const setupBackToTop = () => {
-    const btn = document.getElementById('backToTop');
-    if (!btn) return;
-    
-    const updateVisibility = () => {
-      btn.classList.toggle('visible', window.pageYOffset > CONFIG.PERFORMANCE.SCROLL_THRESHOLD);
-    };
-    
-    const throttledUpdate = Utils.throttle(updateVisibility, 150);
-    window.addEventListener('scroll', throttledUpdate, { passive: true });
-    
-    btn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  };
-
   // Navigation highlight
   const setupNavHighlight = () => {
     if (!('IntersectionObserver' in window)) return;
@@ -2220,7 +2202,6 @@ const UIFeatures = (() => {
   return Object.freeze({
     setupScrollAnimations,
     setupHeaderElevation,
-    setupBackToTop,
     setupNavHighlight,
     setupURLComparison,
     setupOfflineDetection
