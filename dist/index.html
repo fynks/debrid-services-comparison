@@ -29,8 +29,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <!-- Preload critical resources -->
-    <link rel="preload" as="style" href="/css/styles-min.css">
-    <link rel="preload" as="script" href="/js/app-min.js">
+    <link rel="preload" as="style" href="/css/styles-min.css?v=1dt4yi7">
+    <link rel="preload" as="script" href="/js/app-min.js?v=1d1dl7l">
     
     <!-- Fonts -->
     <link rel="preload" as="style"
@@ -62,17 +62,6 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
     <link rel="manifest" href="manifest.json">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-        onload="this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
-    </noscript>
 
     <script>
         (function () {
@@ -286,7 +275,7 @@
 
 
     <link rel="stylesheet" href="./css/styles.css">
-    <script src="js/app.js" defer></script>
+    <script src="./js/app-min.js" defer></script>
 
     <!-- Verification Tags -->
      <meta name="google-site-verification" content="yh6OZ9qZhOAVRs3tkFAwwBYIb3BKrveBy6C0QEVHpw0" />
@@ -2163,38 +2152,11 @@
             }
         })();
 
-        // Scrollspy & Smooth Scroll - Separate Module
+        // Smooth Scroll - Separate Module
         (function() {
             'use strict';
             
             const init = () => {
-                const nav = document.getElementById('primary-navigation');
-                if (!nav) return;
-                
-                // Scrollspy for active nav link
-                const sectionIds = Array.from(nav.querySelectorAll('a[href^="#"]') || [])
-                    .map(a => a.getAttribute('href'))
-                    .filter(Boolean);
-                const sections = sectionIds.map(id => document.querySelector(id)).filter(Boolean);
-                
-                if ('IntersectionObserver' in window && sections.length) {
-                    const observer = new IntersectionObserver(entries => {
-                        entries.forEach(entry => {
-                            const id = '#' + entry.target.id;
-                            const link = nav.querySelector(`a[href="${id}"]`);
-                            if (link && entry.isIntersecting) {
-                                nav.querySelectorAll('.nav-link.active').forEach(l => {
-                                    l.classList.remove('active');
-                                    l.removeAttribute('aria-current');
-                                });
-                                link.classList.add('active');
-                                link.setAttribute('aria-current', 'page');
-                            }
-                        });
-                    }, { rootMargin: '-40% 0px -50% 0px', threshold: [0, 0.25, 0.5, 1] });
-                    sections.forEach(sec => observer.observe(sec));
-                }
-
                 // Smooth scroll for anchor links
                 const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
                 document.querySelectorAll('a[href^="#"]').forEach(anchor => {

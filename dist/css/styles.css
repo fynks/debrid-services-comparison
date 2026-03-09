@@ -3,9 +3,9 @@
   *,
   *::before,
   *::after {
-    animation-duration: .01ms !important;
+    animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: .01ms !important;
+    transition-duration: 0.01ms !important;
     scroll-behavior: auto !important
   }
 }
@@ -150,9 +150,9 @@
   *,
   *::before,
   *::after {
-    animation-duration: .01ms !important;
+    animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: .01ms !important;
+    transition-duration: 0.01ms !important;
     scroll-behavior: auto !important
   }
 }
@@ -333,10 +333,10 @@ button:focus-visible {
 .header-blur-bg {
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0);
-  backdrop-filter: blur(0) saturate(100%);
-  -webkit-backdrop-filter: blur(0) saturate(100%);
-  border-bottom: 1px solid transparent;
+  background: rgba(255, 255, 255, .9);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  border-bottom: 1px solid var(--border-primary);
   transition: all var(--transition-normal);
   z-index: -1;
   will-change: backdrop-filter, background, border-bottom;
@@ -365,7 +365,7 @@ button:focus-visible {
 }
 
 [data-theme="dark"] .header-blur-bg {
-  background: rgba(15, 23, 42, 0);
+  background: rgba(15, 23, 42, .9);
 }
 
 [data-theme="dark"] .site-header.is-scrolled .header-blur-bg {
@@ -4265,51 +4265,6 @@ table tbody tr[tabindex="0"] {
   }
 }
 
-/* ===== ENHANCED LOADING STATES ===== */
-.btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  pointer-events: none;
-  filter: grayscale(0.3);
-}
-
-.btn:disabled:hover {
-  transform: none;
-}
-
-/* Loading spinner animation */
-.loading-spinner {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  border: 3px solid var(--border-primary);
-  border-top-color: var(--primary);
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Search results animation */
-.search-results {
-  animation: slideDown 0.2s ease-out;
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* ===== IMPROVED TOUCH TARGETS ===== */
 @media (pointer: coarse) {
   button,
@@ -4406,36 +4361,6 @@ table tbody tr[tabindex="0"] {
 
 .error-state .btn {
   margin-top: var(--space-lg);
-}
-
-/* ===== LOAD ALL BUTTON ENHANCEMENTS ===== */
-.load-all-container {
-  animation: fadeIn 0.3s ease-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.load-all-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-sm);
-  transition: all 0.2s ease;
-}
-
-.load-all-btn svg {
-  transition: transform 0.2s ease;
-}
-
-.load-all-btn:hover:not(:disabled) svg {
-  transform: translateY(3px);
 }
 
 /* ===== COMPARISON TABLE MOBILE IMPROVEMENTS ===== */
