@@ -325,13 +325,14 @@
                                 </svg>
                             </button>
                         </div>
+                        <div class="mobile-nav-links" aria-label="Mobile navigation links"></div>
                         <a href="#what-are-debrid-services" class="nav-link">
                             <span class="nav-link-text">Intro</span>
                         </a>
                         <a href="#debrid-pricing-comparison" class="nav-link">
                             <span class="nav-link-text">Pricing</span>
                         </a>
-                        <div class="nav-dropdown">
+                        <div class="nav-dropdown" data-label="Compare">
                             <button class="nav-link nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
                                 <span class="nav-link-text">Compare</span>
                                 <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -353,7 +354,7 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="nav-dropdown">
+                        <div class="nav-dropdown" data-label="Resources">
                             <button class="nav-link nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
                                 <span class="nav-link-text">Resources</span>
                                 <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -375,7 +376,7 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="nav-dropdown">
+                        <div class="nav-dropdown" data-label="Info">
                             <button class="nav-link nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
                                 <span class="nav-link-text">Info</span>
                                 <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1845,7 +1846,7 @@
                 elements.body.style.right = '0';
             };
 
-            const unlockScroll = () => {
+            const unlockScroll = (shouldRestore = true) => {
                 if (!elements.body) return;
                 const saved = Number(elements.body.dataset.navScrollLock || scrollPosition || 0);
                 elements.body.style.removeProperty('top');
@@ -1856,7 +1857,9 @@
                 elements.body.style.removeProperty('left');
                 elements.body.style.removeProperty('right');
                 delete elements.body.dataset.navScrollLock;
-                requestAnimationFrame(() => window.scrollTo(0, saved));
+                if (shouldRestore) {
+                    requestAnimationFrame(() => window.scrollTo(0, saved));
+                }
             };
             
             // Check if mobile
@@ -1898,7 +1901,8 @@
                 }
             };
             
-            const closeNav = () => {
+            const closeNav = (options = {}) => {
+                const { restoreScroll = true } = options;
                 if (!elements.nav || !state.isOpen) return;
                 
                 state.isOpen = false;
@@ -1920,7 +1924,45 @@
                 
                 // Close all dropdowns when closing nav
                 closeAllDropdowns();
-                unlockScroll();
+                unlockScroll(restoreScroll);
+            };
+
+            const buildMobileLinks = () => {
+                if (!elements.nav) return;
+                const mobileList = elements.nav.querySelector('.mobile-nav-links');
+                if (!mobileList) return;
+
+                mobileList.innerHTML = '';
+                const sourceLinks = [];
+
+                Array.from(elements.nav.children).forEach(child => {
+                    if (child.matches('a.nav-link')) {
+                        sourceLinks.push(child);
+                        return;
+                    }
+
+                    if (child.matches('.nav-dropdown')) {
+                        child.querySelectorAll('a.nav-dropdown-item').forEach(item => sourceLinks.push(item));
+                    }
+                });
+
+                sourceLinks.forEach(link => {
+                    const href = link.getAttribute('href');
+                    const text = (link.textContent || '').trim();
+                    if (!href || !text) return;
+
+                    const mobileLink = document.createElement('a');
+                    mobileLink.className = 'mobile-nav-link';
+                    mobileLink.href = href;
+                    mobileLink.textContent = text;
+
+                    const target = link.getAttribute('target');
+                    const rel = link.getAttribute('rel');
+                    if (target) mobileLink.setAttribute('target', target);
+                    if (rel) mobileLink.setAttribute('rel', rel);
+
+                    mobileList.appendChild(mobileLink);
+                });
             };
             
             // Toggle navigation
@@ -1981,6 +2023,7 @@
                 
                 // Initialize dropdowns
                 elements.dropdownTriggers = Array.from(document.querySelectorAll('.nav-dropdown-trigger'));
+                buildMobileLinks();
                 
                 // Set initial aria-hidden state
                 if (elements.nav && state.isMobile) {
@@ -2020,14 +2063,37 @@
                 
                 // Link click handler - close nav on mobile when clicking links
                 if (elements.nav) {
-                    const links = elements.nav.querySelectorAll('a.nav-link:not(.nav-dropdown-trigger), a.nav-dropdown-item');
+                    const links = elements.nav.querySelectorAll('a.mobile-nav-link, a.nav-link:not(.nav-dropdown-trigger), a.nav-dropdown-item');
                     links.forEach(link => {
-                        link.addEventListener('click', () => {
+                        link.addEventListener('click', (e) => {
                             if (state.isMobile && state.isOpen) {
-                                // Small delay to allow navigation to start
-                                setTimeout(() => closeNav(), 100);
+                                const href = link.getAttribute('href') || '';
+                                const isInPageAnchor = href.startsWith('#') && href.length > 1;
+
+                                if (isInPageAnchor) {
+                                    const target = document.querySelector(href);
+                                    if (target) {
+                                        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                                        e.preventDefault();
+                                        closeNav({ restoreScroll: false });
+                                        requestAnimationFrame(() => {
+                                            target.scrollIntoView({
+                                                behavior: prefersReduced ? 'auto' : 'smooth',
+                                                block: 'start'
+                                            });
+
+                                            const focusEl = target.querySelector('h1,h2,h3,h4,h5,h6') || target;
+                                            focusEl.setAttribute('tabindex', '-1');
+                                            focusEl.focus({ preventScroll: true });
+                                            setTimeout(() => focusEl.removeAttribute('tabindex'), 400);
+                                        });
+                                        return;
+                                    }
+                                }
+
+                                closeNav({ restoreScroll: true });
                             }
-                        }, { passive: true });
+                        }, { passive: false });
                     });
                 }
                 
@@ -2133,6 +2199,7 @@
                 const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
                 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                     anchor.addEventListener('click', (e) => {
+                        if (e.defaultPrevented) return;
                         const id = anchor.getAttribute('href');
                         const target = id && document.querySelector(id);
                         if (!target) return;
