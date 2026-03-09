@@ -1640,7 +1640,6 @@
 
         <!-- Footer -->
         <footer class="site-footer" role="contentinfo">
-            <div class="footer-grid-bg"></div>
             <div class="container">
                 <div class="content-container">
                     <div class="footer-content">
@@ -1651,35 +1650,13 @@
                                         stroke-width="2">
                                         <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
                                     </svg>
-                                    <div class="footer-logo-glow"></div>
                                 </div>
                                 <div class="footer-brand-text">
                                     <h4>Debrid Compare</h4>
                                     <p class="footer-tagline">Your Ultimate Comparison Hub</p>
                                 </div>
                             </div>
-                            <p class="footer-description">
-                                A comprehensive, community-driven comparison of premium debrid services.
-                                Compare pricing, features, and host support to find the best service for your needs.
-                            </p>
-                            <div class="footer-stats">
-                                <div class="footer-stat">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                        <circle cx="9" cy="7" r="4"></circle>
-                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                    </svg>
-                                    <span>10 Services</span>
-                                </div>
-                                <div class="footer-stat">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                                    </svg>
-                                    <span>450+ Hosts</span>
-                                </div>
-                            </div>
+                            
                         </div>
 
                         <div class="footer-section">
@@ -1757,7 +1734,7 @@
                         <div class="footer-bottom-content">
                             <div class="footer-left">
                                 <p class="footer-copyright">
-                                    &copy; 2025 <strong>Debrid Compare</strong>. 
+                                    &copy; <span id="year"></span> <strong>Debrid Compare</strong>. <br>
                                     <span class="made-with">Made with <span class="heart-icon">❤️</span></span>
                                     by <a href="https://github.com/fynks" target="_blank" rel="noopener noreferrer">Fynks</a>
                                 </p>
@@ -1799,6 +1776,9 @@
     </div>
 
     <!-- JavaScript -->
+     <script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
     <script>
         // Mobile Navigation Manager - Lightweight & Performance Optimized
         (function() {

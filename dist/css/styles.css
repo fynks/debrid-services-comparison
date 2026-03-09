@@ -3137,41 +3137,21 @@ select:hover {
 .site-footer {
   background: var(--bg-secondary);
   border-top: 1px solid var(--border-primary);
-  padding: var(--space-7xl) 0 var(--space-4xl);
+  padding: var(--space-5xl) 0 var(--space-3xl);
   margin-top: auto;
   position: relative;
-  overflow: hidden;
-}
-
-.footer-grid-bg {
-  position: absolute;
-  inset: 0;
-  background-image: 
-    linear-gradient(to right, var(--border-primary) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--border-primary) 1px, transparent 1px);
-  background-size: 60px 60px;
-  opacity: 0.3;
-  mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
-  -webkit-mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+  overflow: visible;
 }
 
 .site-footer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--primary), transparent);
-  opacity: 0.5;
+  content: none;
 }
 
 .footer-content {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr 1fr;
-  gap: var(--space-4xl);
-  margin-bottom: var(--space-5xl);
+  gap: var(--space-3xl);
+  margin-bottom: var(--space-4xl);
   position: relative;
   z-index: 1;
 }
@@ -3183,7 +3163,7 @@ select:hover {
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .footer-content {
     grid-template-columns: 1fr;
     gap: var(--space-4xl);
@@ -3199,33 +3179,23 @@ select:hover {
 .footer-brand {
   display: flex;
   align-items: center;
-  gap: var(--space-lg);
+  gap: var(--space-md);
   margin-bottom: 0;
 }
 
 .footer-logo-wrapper {
-  position: relative;
-  width: 48px;
-  height: 48px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .footer-logo {
-  width: 42px;
-  height: 42px;
+  width: 28px;
+  height: 28px;
   color: var(--primary);
-  position: relative;
-  z-index: 1;
-  filter: drop-shadow(0 2px 8px rgba(99, 102, 241, .3));
-}
-
-.footer-logo-glow {
-  position: absolute;
-  inset: -12px;
-  background: radial-gradient(circle, rgba(99, 102, 241, .12) 0%, transparent 70%);
-  border-radius: 50%;
+  filter: none;
 }
 
 .footer-brand-text {
@@ -3236,12 +3206,9 @@ select:hover {
 
 .footer-brand h4 {
   margin: 0;
-  font-size: var(--text-2xl);
-  font-weight: var(--font-extrabold);
-  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
   line-height: 1.2;
 }
 
@@ -3257,43 +3224,12 @@ select:hover {
 .footer-description {
   margin: 0;
   color: var(--text-secondary);
-  line-height: 1.7;
+  line-height: 1.6;
   font-size: var(--text-sm);
 }
 
-.footer-stats {
-  display: flex;
-  gap: var(--space-sm);
-  flex-wrap: wrap;
-}
-
-.footer-stat {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-xs);
-  padding: var(--space-sm) var(--space-md);
-  background: var(--bg-primary);
-  border: 1px solid var(--border-primary);
-  border-radius: var(--radius-lg);
-  font-size: var(--text-xs);
-  font-weight: var(--font-semibold);
-  color: var(--text-secondary);
-  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
-}
-
-.footer-stat:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(99, 102, 241, .15);
-  border-color: var(--primary);
-  color: var(--primary);
-}
-
-.footer-stat svg {
-  display: none;
-}
-
 .footer-section h5 {
-  margin: 0 0 var(--space-xl);
+  margin: 0 0 var(--space-md);
   font-size: var(--text-base);
   font-weight: var(--font-bold);
   color: var(--text-primary);
@@ -3302,7 +3238,13 @@ select:hover {
 }
 
 .footer-section h5::after {
-  display: none;
+  content: '';
+  display: block;
+  width: 52px;
+  height: 2px;
+  margin-top: var(--space-xs);
+  background: var(--primary);
+  border-radius: var(--radius-full);
 }
 
 .footer-links {
@@ -3311,7 +3253,7 @@ select:hover {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  gap: var(--space-xs);
 }
 
 .footer-links li {
@@ -3321,13 +3263,13 @@ select:hover {
 .footer-links a {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-sm);
+  gap: var(--space-xs);
   color: var(--text-secondary);
   text-decoration: none;
   font-size: var(--text-sm);
   line-height: 1.5;
-  padding: var(--space-xs) 0;
-  transition: color var(--transition-fast), transform var(--transition-fast);
+  padding: 2px 0;
+  transition: color var(--transition-fast);
   position: relative;
 }
 
@@ -3344,7 +3286,6 @@ select:hover {
 
 .footer-links a:hover {
   color: var(--primary);
-  transform: translateX(4px);
 }
 
 .footer-links a:hover::before {
@@ -3356,7 +3297,7 @@ select:hover {
 }
 
 .footer-bottom {
-  padding-top: var(--space-4xl);
+  padding-top: var(--space-2xl);
   border-top: 1px solid var(--border-primary);
   position: relative;
   z-index: 1;
@@ -3375,6 +3316,39 @@ select:hover {
     flex-direction: column;
     text-align: center;
     gap: var(--space-xl);
+  }
+
+  .footer-section,
+  .footer-brand-section,
+  .footer-brand-text,
+  .footer-left,
+  .footer-right {
+    text-align: center;
+  }
+
+  .footer-brand,
+  .footer-links,
+  .footer-copyright,
+  .footer-meta {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-links a {
+    justify-content: center;
+  }
+
+  .footer-links a::before {
+    display: none;
+  }
+
+  .footer-disclaimer {
+    text-align: center;
+  }
+
+  .footer-section h5::after {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .footer-right {
@@ -3424,7 +3398,6 @@ select:hover {
   margin: 0;
   font-size: var(--text-xs);
   color: var(--text-muted);
-  font-style: italic;
   line-height: 1.5;
 }
 
@@ -3447,10 +3420,10 @@ select:hover {
   gap: var(--space-xs);
   font-size: var(--text-xs);
   color: var(--text-muted);
-  padding: var(--space-xs) var(--space-md);
-  background: var(--bg-primary);
-  border: 1px solid var(--border-primary);
-  border-radius: var(--radius-lg);
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
 }
 
 .last-updated svg {
@@ -3459,24 +3432,20 @@ select:hover {
 }
 
 .github-link {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: var(--bg-primary);
-  border: 1px solid var(--border-primary);
-  border-radius: var(--radius-lg);
+  width: auto;
+  height: auto;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
   color: var(--text-secondary);
-  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  transition: color var(--transition-fast);
 }
 
 .github-link:hover {
-  background: var(--primary);
-  border-color: var(--primary);
-  color: #fff;
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 4px 16px rgba(99, 102, 241, .3);
+  color: var(--primary);
 }
 
 .github-link:focus-visible {
@@ -3535,10 +3504,6 @@ select:hover {
 
     .footer-content {
       grid-template-columns:repeat(2, 1fr); gap:var(--space-xl)
-    }
-
-    .footer-brand h3 {
-      font-size:var(--text-lg)
     }
 
     .important-notes-grid {
@@ -3652,27 +3617,20 @@ select:hover {
     }
 
     .footer-content {
-      gap:var(--space-lg)
-    }
-
-    .site-footer .footer-section {
-      background:var(--bg-primary); border:1px solid var(--border-primary); border-radius:var(--radius-lg); padding:var(--space-xl)
+      grid-template-columns:1fr;
+      gap:var(--space-xl)
     }
 
     .site-footer .footer-section h4, .site-footer .footer-section h5 {
-      margin-top:0; margin-bottom:var(--space-md); text-align:center
+      margin-top:0; margin-bottom:var(--space-sm); text-align:center
     }
 
     .footer-brand {
-      text-align:center; padding-bottom:0; border-bottom:0; margin-bottom:var(--space-md)
+      text-align:center; margin-bottom:var(--space-sm)
     }
 
     .footer-description {
-      margin-bottom:var(--space-md)
-    }
-
-    .footer-stats {
-      justify-content:center
+      margin-bottom:0
     }
 
     .footer-links {
@@ -3684,15 +3642,15 @@ select:hover {
     }
 
     .footer-links a {
-      display:block; padding:10px 12px; border-radius:var(--radius-md); background:transparent; border:1px solid transparent; text-decoration:none
+      display:inline-flex; padding:4px 0; border-radius:0; background:transparent; border:0; text-decoration:none
     }
 
     .footer-links a:hover {
-      background:var(--bg-secondary); border-color:var(--border-primary)
+      background:transparent; border-color:transparent
     }
 
     .footer-links a:active {
-      background:var(--bg-tertiary)
+      background:transparent
     }
 
     .footer-bottom {
@@ -3773,34 +3731,6 @@ select:hover {
 
     .comparison-table th:first-child, .comparison-table td:first-child {
       position:sticky; left:0; z-index:101; box-shadow:1px 0 3px -1px rgba(0, 0, 0, .1)
-    }
-
-    .footer-content {
-      grid-template-columns:1fr; gap:var(--space-lg)
-    }
-
-    .footer-brand {
-      text-align:center; padding-bottom:0; border-bottom:0; margin-bottom:var(--space-md)
-    }
-
-    .footer-links {
-      justify-content:center
-    }
-
-    .footer-links h4 {
-      text-align:center; margin-bottom:var(--space-md)
-    }
-
-    .footer-bottom {
-      text-align:center
-    }
-
-    .footer-bottom-content {
-      flex-direction:column; align-items:center; text-align:center
-    }
-
-    .footer-right {
-      text-align:center
     }
 
     .hero-meta {
@@ -3896,30 +3826,6 @@ select:hover {
 
     th, td {
       padding:var(--space-sm) var(--space-md)
-    }
-
-    .site-footer {
-      padding:var(--space-5xl) 0 var(--space-3xl)
-    }
-
-    .footer-content {
-      gap:var(--space-md); margin-bottom:var(--space-3xl)
-    }
-
-    .footer-section h4, .footer-section h5 {
-      margin-bottom:var(--space-lg)
-    }
-
-    .footer-bottom {
-      padding-top:var(--space-3xl)
-    }
-
-    .footer-bottom-content {
-      gap:var(--space-lg)
-    }
-
-    .footer-meta {
-      gap:var(--space-md)
     }
 
     .speed-section {
