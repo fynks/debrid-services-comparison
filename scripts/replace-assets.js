@@ -49,51 +49,30 @@ function replaceAssets() {
     const cssTarget = cssHash ? `href="/css/styles-min.css?v=${cssHash}"` : 'href="/css/styles-min.css"';
     const jsTarget = jsHash ? `src="/js/app-min.js?v=${jsHash}"` : 'src="/js/app-min.js"';
 
-    // Replace CSS links in head - more flexible patterns
-    const cssPatterns = [
-      /href=["']\.\/css\/styles\.css["']/g,
-      /href=["']css\/styles\.css["']/g,
-      /href=["'][^"']*\/styles\.css["']/g
-    ];
+    // Normalize all stylesheet/script/preload references to minified assets with one hash.
+    const cssHrefPattern = /href=["'](?:\.\/|\/)?css\/(?:styles|styles-min)\.css(?:\?[^"']*)?["']/g;
+    const jsSrcPattern = /src=["'](?:\.\/|\/)?js\/(?:app|app-min)\.js(?:\?[^"']*)?["']/g;
+    const jsHrefPattern = /href=["'](?:\.\/|\/)?js\/(?:app|app-min)\.js(?:\?[^"']*)?["']/g;
 
-    cssPatterns.forEach(pattern => {
-      const matches = updatedHeadContent.match(pattern);
-      if (matches) {
-        updatedHeadContent = updatedHeadContent.replace(pattern, cssTarget);
-        cssReplaced += matches.length;
-      }
-    });
-
-    // Ensure existing preload to styles-min.css carries the same version hash
-    if (cssHash) {
-      const preloadMinCssPattern = /href=["']\/?css\/styles-min\.css["']/g;
-      if (preloadMinCssPattern.test(updatedHeadContent)) {
-        updatedHeadContent = updatedHeadContent.replace(preloadMinCssPattern, `href="/css/styles-min.css?v=${cssHash}"`);
-      }
+    const cssMatches = updatedHeadContent.match(cssHrefPattern);
+    if (cssMatches) {
+      updatedHeadContent = updatedHeadContent.replace(cssHrefPattern, cssTarget);
+      cssReplaced += cssMatches.length;
     }
 
-    // Update JS preload tags to include version hash
-    if (jsHash) {
-      const preloadMinJsPattern = /href=["']\/?js\/app-min\.js["']/g;
-      if (preloadMinJsPattern.test(updatedHeadContent)) {
-        updatedHeadContent = updatedHeadContent.replace(preloadMinJsPattern, `href="/js/app-min.js?v=${jsHash}"`);
-      }
+    const jsSrcHeadMatches = updatedHeadContent.match(jsSrcPattern);
+    if (jsSrcHeadMatches) {
+      updatedHeadContent = updatedHeadContent.replace(jsSrcPattern, jsTarget);
+      jsReplaced += jsSrcHeadMatches.length;
     }
 
-    // Replace JS script src in head - more flexible patterns
-    const jsPatterns = [
-      /src=["']\.\/js\/app\.js["']/g,
-      /src=["']js\/app\.js["']/g,
-      /src=["'][^"']*\/app\.js["']/g
-    ];
-
-    jsPatterns.forEach(pattern => {
-      const matches = updatedHeadContent.match(pattern);
-      if (matches) {
-        updatedHeadContent = updatedHeadContent.replace(pattern, jsTarget);
-        jsReplaced += matches.length;
-      }
-    });
+    // Preload script links use href (not src), so normalize them too.
+    const jsHrefHeadMatches = updatedHeadContent.match(jsHrefPattern);
+    if (jsHrefHeadMatches) {
+      const jsHrefTarget = jsHash ? `href="/js/app-min.js?v=${jsHash}"` : 'href="/js/app-min.js"';
+      updatedHeadContent = updatedHeadContent.replace(jsHrefPattern, jsHrefTarget);
+      jsReplaced += jsHrefHeadMatches.length;
+    }
 
     // Also check for script tags at the end of body (common pattern)
     const bodyMatch = html.match(/(<body[^>]*>)([\s\S]*?)(<\/body>)/i);
@@ -101,13 +80,11 @@ function replaceAssets() {
       const [fullBodyTag, bodyStart, bodyContent, bodyEnd] = bodyMatch;
       let updatedBodyContent = bodyContent;
 
-      jsPatterns.forEach(pattern => {
-        const matches = updatedBodyContent.match(pattern);
-        if (matches) {
-          updatedBodyContent = updatedBodyContent.replace(pattern, jsTarget);
-          jsReplaced += matches.length;
-        }
-      });
+      const jsSrcBodyMatches = updatedBodyContent.match(jsSrcPattern);
+      if (jsSrcBodyMatches) {
+        updatedBodyContent = updatedBodyContent.replace(jsSrcPattern, jsTarget);
+        jsReplaced += jsSrcBodyMatches.length;
+      }
 
       // Reconstruct the body if changes were made
       if (updatedBodyContent !== bodyContent) {

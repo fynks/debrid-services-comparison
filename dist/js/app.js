@@ -9,8 +9,8 @@
    ============================================================================ */
 const CONFIG = Object.freeze({
   API: {
-    FILE_HOSTS: ['./json/file-hosts-optimized.json', './json/file-hosts.json'],
-    ADULT_HOSTS: ['./json/adult-hosts-optimized.json', './json/adult-hosts.json'],
+    FILE_HOSTS: ['./json/file-hosts-optimized.json'],
+    ADULT_HOSTS: ['./json/adult-hosts-optimized.json'],
     TIMEOUT: 8000,
     RETRY_ATTEMPTS: 2
   },
