@@ -35,6 +35,7 @@
 - [Choosing the Right Service](#choosing-the-right-service)
 - [Quick Start Guide](#quick-start-guide)
 - [Pricing Comparison](#pricing-comparison)
+- [Cache Capacity Comparison](#cache-capacity-comparison)
 - [Available Hosts](#available-hosts)
   - [Top 20 Popular Hosts](#top-20-popular-hosts)
   - [Complete Host List](#complete-host-list)
@@ -251,6 +252,34 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 > **Last updated: March 9, 2026**
 
 <br>
+
+<div align="right">
+
+[(↑ Back to Top)](#table-of-contents)
+
+</div>
+
+---
+
+## Cache Capacity Comparison
+
+> [!NOTE]
+> "Cache size" is not standardized across providers. Some services publish a fixed cloud quota, while others only publish per-download limits (or no public number at all).
+
+| **Service** | **Published Capacity** | **What This Means** |
+| :--- | :--- | :--- |
+| **Premiumize** | **1 TB (1,000 GB)** | **Dedicated Persistent Cloud:** A fixed storage quota. Files stay until deleted. Exceeding it requires &quot;Booster Points&quot; or deleting old data. |
+| **TorBox** | **10 GB / 200 GB / 1 TB** (Plan-dependent) | **Max Download Size:** Per-torrent ceiling (Pro plan = 1 TB). Also limited by **1–10 concurrent slots** rather than a total GB storage quota. |
+| **Real-Debrid** | **2,000 GB (2 TB)** (Per Torrent) | **Max File Limit:** No fixed total &quot;Cloud&quot; size. You can add files up to 2 TB each. The &quot;Torrents&quot; list acts as a temporary cache (files purged after inactivity). |
+| **Offcloud** | **100 GB / 50 GB** | **Cloud Storage Quota:** Standard premium accounts get **100 GB** of space. Legacy/Lifetime promo accounts are often capped at **50 GB**. |
+| **Debrid-Link** | **2,000 GB (2 TB)** (Per Torrent) | **Seedbox Limit:** No fixed total storage quota; however, individual torrents/files cannot exceed 2 TB. Features a daily traffic limit (approx. 500GB-2TB). |
+| **AllDebrid** | **Not publicly specified** | **Fair Use System:** Does not list a fixed GB storage quota. Focuses on high-speed caching; limits are based on the number of active torrents and fair use. |
+| **LinkSnappy** | **Not publicly specified** | **Traffic-Based:** No fixed cloud storage quota advertised. Usage is governed by daily download traffic limits (typically \~250 GB/day). |
+
+> [!TIP]
+> For services marked "Not publicly specified," the practical limit is often governed by fair-use systems, per-file caps, retention windows, or dynamic backend policies rather than one static number.
+
+> **Last verified: March 21, 2026**
 
 <div align="right">
 
