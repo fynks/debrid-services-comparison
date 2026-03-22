@@ -2136,6 +2136,28 @@ const UIFeatures = (() => {
     window.addEventListener('scroll', throttledUpdate, { passive: true });
   };
 
+  // Back-to-top button behavior
+  const setupBackToTop = () => {
+    const backToTop = document.getElementById('backToTop');
+    if (!backToTop) return;
+
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const updateVisibility = () => {
+      backToTop.classList.toggle('visible', window.pageYOffset > 300);
+    };
+
+    updateVisibility();
+    window.addEventListener('scroll', Utils.throttle(updateVisibility), { passive: true });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: prefersReduced ? 'auto' : 'smooth'
+      });
+    });
+  };
+
   // Navigation highlight
   const setupNavHighlight = () => {
     if (!('IntersectionObserver' in window)) return;
@@ -2202,6 +2224,7 @@ const UIFeatures = (() => {
   return Object.freeze({
     setupScrollAnimations,
     setupHeaderElevation,
+    setupBackToTop,
     setupNavHighlight,
     setupURLComparison,
     setupOfflineDetection
