@@ -1,6 +1,4 @@
-# robots.txt for debridcompare.xyz
 User-agent: *
 Allow: /
 
-# Sitemaps
 Sitemap: https://debridcompare.pages.dev/sitemap.xml

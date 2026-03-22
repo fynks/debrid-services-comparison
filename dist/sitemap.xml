@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 
-                           http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-    
-    <!-- Homepage -->
-    <url>
-        <loc>https://debridcompare.pages.dev</loc>
-        <lastmod>2026-03-08T00:00:00+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>1.0</priority>
-        <image:image>
-            <image:loc>https://debridcompare.pages.dev/images/og.png</image:loc>
-            <image:title>Debrid Services Comparison Tool</image:title>
-            <image:caption>Compare 10 premium debrid services including AllDebrid, Real-Debrid, TorBox, and more</image:caption>
-        </image:image>
-        <image:image>
-            <image:loc>https://debridcompare.pages.dev/images/flowchart.svg</image:loc>
-            <image:title>How Debrid Services Work Flowchart</image:title>
-            <image:caption>A visual explanation of how debrid services provide high-speed downloads.</image:caption>
-        </image:image>
-    </url>
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://debridcompare.pages.dev/</loc>
+    <lastmod>2026-03-22</lastmod>
+  </url>
 </urlset>
