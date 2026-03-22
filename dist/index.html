@@ -301,7 +301,7 @@
                             <span class="logo-secondary">Compare</span>
                         </span>
                     </a>
-                    <nav id="primary-navigation" class="header-nav" aria-label="Main navigation" aria-hidden="true"
+                    <nav id="primary-navigation" class="header-nav" aria-label="Main navigation" inert
                         role="navigation">
                         <div class="nav-mobile-header">
                             <div class="nav-mobile-brand">
@@ -322,7 +322,7 @@
                             <span class="nav-link-text">Pricing</span>
                         </a>
                         <div class="nav-dropdown" data-label="Compare">
-                            <button class="nav-link nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+                            <button class="nav-link nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true" aria-label="Toggle Compare menu">
                                 <span class="nav-link-text">Compare</span>
                                 <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <polyline points="6 9 12 15 18 9"></polyline>
@@ -344,7 +344,7 @@
                             </div>
                         </div>
                         <div class="nav-dropdown" data-label="Resources">
-                            <button class="nav-link nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+                            <button class="nav-link nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true" aria-label="Toggle Resources menu">
                                 <span class="nav-link-text">Resources</span>
                                 <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <polyline points="6 9 12 15 18 9"></polyline>
@@ -366,7 +366,7 @@
                             </div>
                         </div>
                         <div class="nav-dropdown" data-label="Info">
-                            <button class="nav-link nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+                            <button class="nav-link nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true" aria-label="Toggle Info menu">
                                 <span class="nav-link-text">Info</span>
                                 <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <polyline points="6 9 12 15 18 9"></polyline>
@@ -460,7 +460,7 @@
                                 <svg class="icon-badge" role="img" aria-hidden="true">
                                     <use href="#icon-logo" stroke="currentColor" stroke-width="2" fill="none" />
                                 </svg>
-                                <h3>Maximum Download Speeds</h3>
+                                <h3 id="benefit-maximum-speeds">Maximum Download Speeds</h3>
                                 <p>Bypass host throttling with direct links</p>
                             </article>
                             <article class="benefit-card" role="article">
@@ -469,7 +469,7 @@
                                     <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
                                     <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
                                 </svg>
-                                <h3>Multi‑Host Access</h3>
+                                <h3 id="benefit-multi-host-access">Multi‑Host Access</h3>
                                 <p>One subscription supports hundreds of hosts</p>
                             </article>
                             <article class="benefit-card" role="article">
@@ -481,7 +481,7 @@
                                     <polyline points="7.5,19.79 7.5,14.6 3,12" />
                                     <polyline points="21,12 16.5,14.6 16.5,19.79" />
                                 </svg>
-                                <h3>Torrent‑to‑Link Conversion</h3>
+                                <h3 id="benefit-torrent-link-conversion">Torrent‑to‑Link Conversion</h3>
                                 <p>Add magnet/torrent and get a direct URL</p>
                             </article>
                             <article class="benefit-card" role="article">
@@ -490,7 +490,7 @@
                                     <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
                                     <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                                 </svg>
-                                <h3>Ad‑Free Experience</h3>
+                                <h3 id="benefit-ad-free-experience">Ad‑Free Experience</h3>
                                 <p>No popups, countdowns, or captchas</p>
                             </article>
                         </div>
@@ -649,9 +649,9 @@
                                         <span class="service-name">AllDebrid</span>
                                         <span class="referral-badge">Referral Link</span>
                                         <p class="referral-benefit">From €2.99/month</p>
-                                        <button class="referral-cta-button">
+                                        <span class="referral-cta-button" aria-hidden="true">
                                             Get Started
-                                        </button>
+                                        </span>
                                     </div>
                                 </a>
 
@@ -661,9 +661,9 @@
                                         <span class="service-name">Real-Debrid</span>
                                         <span class="referral-badge">Referral Link</span>
                                         <p class="referral-benefit">From €3/month</p>
-                                        <button class="referral-cta-button">
+                                        <span class="referral-cta-button" aria-hidden="true">
                                             Get Started
-                                        </button>
+                                        </span>
                                     </div>
                                 </a>
                                 
@@ -673,9 +673,9 @@
                                         <span class="service-name">LinkSnappy</span>
                                         <span class="referral-badge">Referral Link</span>
                                         <p class="referral-benefit">From $12.99/month</p>
-                                        <button class="referral-cta-button">
+                                        <span class="referral-cta-button" aria-hidden="true">
                                             Get Started
-                                        </button>
+                                        </span>
                                     </div>
                                 </a>
                                 
@@ -685,9 +685,9 @@
                                         <span class="service-name">Debrid-Link</span>
                                         <span class="referral-badge">Referral Link</span>
                                         <p class="referral-benefit">From €3/month</p>
-                                        <button class="referral-cta-button">
+                                        <span class="referral-cta-button" aria-hidden="true">
                                             Get Started
-                                        </button>
+                                        </span>
                                     </div>
                                 </a>
                                 
@@ -697,9 +697,9 @@
                                         <span class="service-name">Deepbrid</span>
                                         <span class="referral-badge">Referral Link</span>
                                         <p class="referral-benefit">From €4.50/month</p>
-                                        <button class="referral-cta-button">
+                                        <span class="referral-cta-button" aria-hidden="true">
                                             Get Started
-                                        </button>
+                                        </span>
                                     </div>
                                 </a>
                                 
@@ -709,9 +709,9 @@
                                         <span class="service-name">Offcloud</span>
                                         <span class="referral-badge">Referral Link</span>
                                         <p class="referral-benefit">From $9.99/month</p>
-                                        <button class="referral-cta-button">
+                                        <span class="referral-cta-button" aria-hidden="true">
                                             Get Started
-                                        </button>
+                                        </span>
                                     </div>
                                 </a>
                             </div>
@@ -736,7 +736,7 @@
                                 </svg>
                                 <input type="search" id="host-search-input" class="search-input"
                                     placeholder="Paste a URL or search hosts (e.g., Mega, https://rapidgator.net/file/...)"
-                                    aria-label="Search file hosts or paste URL" autocomplete="off" />
+                                    aria-label="Search file hosts or paste URL" aria-controls="file-hosts-table-container" role="searchbox" autocomplete="off" />
                                 <button id="clear-host-search" class="clear-icon" aria-label="Clear search"
                                     type="button">
                                     <svg class="clear-icon-svg" role="img" aria-hidden="true">
@@ -747,7 +747,7 @@
                         </div>
 
                         <div id="file-hosts-table-container" class="data-table-container" role="region"
-                            aria-live="polite">
+                            aria-live="polite" aria-label="File hosts results table">
                             <div class="loading-state" aria-busy="true">
                                 <div class="loading-spinner"></div>
                                 <p>Loading file hosts...</p>
@@ -795,7 +795,7 @@
                                     <path d="M21 12V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v7"></path>
                                     <path d="M3 13v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6"></path>
                                 </svg>
-                                <h3>Ready to Compare</h3>
+                                <h3 id="compare-ready-title">Ready to Compare</h3>
                                 <p>Select two services above to see a detailed comparison</p>
                             </div>
                         </div>
@@ -883,7 +883,7 @@
                                 </svg>
                                 <input type="search" id="adult-host-search-input" class="search-input"
                                     placeholder="Search adult hosts or paste URL..." aria-label="Search adult hosts or paste URL"
-                                    autocomplete="off" />
+                                    aria-controls="adult-hosts-table-container" role="searchbox" autocomplete="off" />
                                 <button id="clear-adult-host-search" class="clear-icon" aria-label="Clear search"
                                     type="button">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -895,7 +895,7 @@
                         </div>
 
                         <div id="adult-hosts-table-container" class="data-table-container" role="region"
-                            aria-live="polite">
+                            aria-live="polite" aria-label="Adult hosts results table">
                             <div class="loading-state" aria-busy="true">
                                 <div class="loading-spinner"></div>
                                 <p>Loading adult hosts...</p>
@@ -1027,7 +1027,7 @@
 
                         <div class="speed-section">
                             <div class="speed-header">
-                                <h3>Official Speed Test Tools</h3>
+                                <h3 id="official-speed-test-tools">Official Speed Test Tools</h3>
                                 <p>Test download speeds directly from service providers</p>
                             </div>
                             <div class="speed-grid">
@@ -1178,7 +1178,7 @@
                                 </svg>
 
                                 <div class="note-content">
-                                    <h3>Services change frequently</h3>
+                                    <h3 id="note-services-change-frequently">Services change frequently</h3>
                                     <p>Pricing, host support, refund policies, and features may be updated without
                                         notice. Always verify details on the <strong>official service websites</strong>
                                         before purchasing.</p>
@@ -1189,7 +1189,7 @@
                                     <use href="#icon-money" stroke="currentColor" stroke-width="2" fill="none" />
                                 </svg>
                                 <div class="note-content">
-                                    <h3>Final cost may vary</h3>
+                                    <h3 id="note-final-cost-may-vary">Final cost may vary</h3>
                                     <p>Displayed prices are subject to exchange rates, regional taxes, or payment
                                         processing fees. Your actual charge may differ slightly.</p>
                                 </div>
@@ -1199,7 +1199,7 @@
                                     <use href="#icon-document" stroke="currentColor" stroke-width="2" fill="none" />
                                 </svg>
                                 <div class="note-content">
-                                    <h3>Data accuracy</h3>
+                                    <h3 id="note-data-accuracy">Data accuracy</h3>
                                     <p>While we strive for completeness, this comparison reflects community reports and
                                         public information. We do <strong>not guarantee</strong> uptime, speed, download
                                         success, or feature availability.</p>
@@ -1210,7 +1210,7 @@
                                     <use href="#icon-user" stroke="currentColor" stroke-width="2" fill="none" />
                                 </svg>
                                 <div class="note-content">
-                                    <h3>No affiliation</h3>
+                                    <h3 id="note-no-affiliation">No affiliation</h3>
                                     <p>This project is independent and <strong>not affiliated</strong> with any listed
                                         service.</p>
                                 </div>
@@ -1220,7 +1220,7 @@
                                     <use href="#icon-check" stroke="currentColor" stroke-width="2" fill="none" />
                                 </svg>
                                 <div class="note-content">
-                                    <h3>Use at your own discretion</h3>
+                                    <h3 id="note-use-at-your-own-discretion">Use at your own discretion</h3>
                                     <p>Choosing a debrid service involves personal judgment. Test short-term plans first
                                         and review terms carefully.</p>
                                 </div>
@@ -1230,7 +1230,7 @@
                                     <use href="#icon-lock" stroke="currentColor" stroke-width="2" fill="none" />
                                 </svg>
                                 <div class="note-content">
-                                    <h3>Legal responsibility</h3>
+                                    <h3 id="note-legal-responsibility">Legal responsibility</h3>
                                     <p>Debrid services are tools. You are responsible for complying with copyright laws
                                         and terms of use when accessing content.</p>
                                 </div>
@@ -1260,13 +1260,13 @@
                         <!-- Media Management -->
                         <div class="resources-section-wrapper">
                             <div class="resource-section-header">
-                                <h2>
+                                <h3 id="resources-media-management">
                                     <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
                                         <path d="M4 12c0 2.21 3.582 4 8 4s8-1.79 8-4" />
                                     </svg>
                                     Media Management
-                                </h2>
+                                </h3>
                             </div>
                             
                             <div class="resources-grid">
@@ -1303,12 +1303,12 @@
                         <!-- Streaming Add-ons -->
                         <div class="resources-section-wrapper">
                             <div class="resource-section-header">
-                                <h2>
+                                <h3 id="resources-streaming-addons">
                                     <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <polygon points="5 3 19 12 5 21 5 3" />
                                     </svg>
                                     Streaming Add-ons
-                                </h2>
+                                </h3>
                             </div>
                             
                             <div class="resources-grid">
@@ -1345,14 +1345,14 @@
                         <!-- Download Managers -->
                         <div class="resources-section-wrapper">
                             <div class="resource-section-header">
-                                <h2>
+                                <h3 id="resources-download-managers">
                                     <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                                         <polyline points="7 10 12 15 17 10" />
                                         <line x1="12" y1="15" x2="12" y2="3" />
                                     </svg>
                                     Download Managers
-                                </h2>
+                                </h3>
                             </div>
                             
                             <div class="resources-grid">
@@ -1398,7 +1398,7 @@
                         <!-- Browser Extensions -->
                         <div class="resources-section-wrapper">
                             <div class="resource-section-header">
-                                <h2>
+                                <h3 id="resources-browser-extensions">
                                     <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <circle cx="12" cy="12" r="10" />
                                         <circle cx="12" cy="12" r="4" />
@@ -1407,7 +1407,7 @@
                                         <line x1="10.88" y1="21.94" x2="15.46" y2="14" />
                                     </svg>
                                     Browser Extensions
-                                </h2>
+                                </h3>
                             </div>
                             
                             <div class="resources-grid">
@@ -1448,13 +1448,13 @@
                         <!-- Mobile Applications -->
                         <div class="resources-section-wrapper">
                             <div class="resource-section-header">
-                                <h2>
+                                <h3 id="resources-mobile-applications">
                                     <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
                                         <line x1="12" y1="18" x2="12.01" y2="18" />
                                     </svg>
                                     Mobile Applications
-                                </h2>
+                                </h3>
                             </div>
                             
                             <div class="resources-grid">
@@ -1499,14 +1499,14 @@
                         <!-- Community Resources -->
                         <div class="resources-section-wrapper">
                             <div class="resource-section-header">
-                                <h2>
+                                <h3 id="resources-reddit-communities">
                                     <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
                                         <circle cx="9" cy="7" r="4"></circle>
                                         <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path>
                                     </svg>
                                     Reddit Communities
-                                </h2>
+                                </h3>
                             </div>
                             
                             <div class="resources-grid">
@@ -1580,12 +1580,12 @@
                         <!-- Useful Resources -->
                         <div class="resources-section-wrapper">
                             <div class="resource-section-header">
-                                <h2>
+                                <h3 id="resources-useful-links">
                                     <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                                     </svg>
                                     Useful Resources
-                                </h2>
+                                </h3>
                             </div>
                             
                             <div class="resources-grid">
@@ -1652,7 +1652,7 @@
                                     </svg>
                                 </div>
                                 <div class="footer-brand-text">
-                                    <h4>Debrid Compare</h4>
+                                    <h2 id="footer-brand-title">Debrid Compare</h2>
                                     <p class="footer-tagline">Your Ultimate Comparison Hub</p>
                                 </div>
                             </div>
@@ -1660,7 +1660,7 @@
                         </div>
 
                         <div class="footer-section">
-                            <h5>Quick Links</h5>
+                            <h3 id="footer-quick-links">Quick Links</h3>
                             <ul class="footer-links">
                                 <li><a href="#debrid-pricing-comparison">
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1686,7 +1686,7 @@
                         </div>
 
                         <div class="footer-section">
-                            <h5>Resources</h5>
+                            <h3 id="footer-resources">Resources</h3>
                             <ul class="footer-links">
                                 <li><a href="#debrid-resources-tools">
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1710,7 +1710,7 @@
                         </div>
 
                         <div class="footer-section">
-                            <h5>Community</h5>
+                            <h3 id="footer-community">Community</h3>
                             <ul class="footer-links">
                                 <li><a href="https://github.com/fynks/debrid-services-comparison/discussions" target="_blank"
                                         rel="noopener noreferrer">
@@ -1865,7 +1865,7 @@
                 }
                 
                 if (elements.nav) {
-                    elements.nav.setAttribute('aria-hidden', 'false');
+                    elements.nav.removeAttribute('inert');
                     elements.nav.setAttribute('data-open', 'true');
                 }
             };
@@ -1887,7 +1887,7 @@
                 }
                 
                 if (elements.nav) {
-                    elements.nav.setAttribute('aria-hidden', 'true');
+                    elements.nav.setAttribute('inert', '');
                     elements.nav.removeAttribute('data-open');
                 }
                 
@@ -1971,12 +1971,16 @@
                     closeNav();
                 }
                 
-                // Update aria-hidden based on viewport
+                // Update inert based on viewport
                 if (elements.nav) {
                     if (state.isMobile) {
-                        elements.nav.setAttribute('aria-hidden', state.isOpen ? 'false' : 'true');
+                        if (state.isOpen) {
+                            elements.nav.removeAttribute('inert');
+                        } else {
+                            elements.nav.setAttribute('inert', '');
+                        }
                     } else {
-                        elements.nav.removeAttribute('aria-hidden');
+                        elements.nav.removeAttribute('inert');
                     }
                 }
             };
@@ -1994,9 +1998,9 @@
                 elements.dropdownTriggers = Array.from(document.querySelectorAll('.nav-dropdown-trigger'));
                 buildMobileLinks();
                 
-                // Set initial aria-hidden state
+                // Set initial inert state
                 if (elements.nav && state.isMobile) {
-                    elements.nav.setAttribute('aria-hidden', 'true');
+                    elements.nav.setAttribute('inert', '');
                 }
                 
                 // Nav toggle click handler
@@ -2193,6 +2197,59 @@
                 }, { passive: true });
             };
             
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
+            } else {
+                init();
+            }
+        })();
+
+        // Accessibility labels for static + dynamic interactive elements
+        (function() {
+            'use strict';
+
+            const normalizeLabel = (text) => (text || '').replace(/\s+/g, ' ').trim();
+
+            const inferLabel = (element) => {
+                const explicitText = normalizeLabel(element.textContent);
+                if (explicitText) return explicitText;
+
+                const placeholders = [
+                    element.getAttribute('placeholder'),
+                    element.getAttribute('title'),
+                    element.getAttribute('name'),
+                    element.id
+                ].filter(Boolean);
+
+                return placeholders.length ? normalizeLabel(placeholders[0]) : '';
+            };
+
+            const applyLabels = () => {
+                const interactiveSelector = 'button, a[href], input, select, textarea, [role="button"], [role="link"], [tabindex]:not([tabindex="-1"])';
+                document.querySelectorAll(interactiveSelector).forEach((element) => {
+                    if (element.hasAttribute('aria-label') || element.hasAttribute('aria-labelledby')) {
+                        return;
+                    }
+
+                    const label = inferLabel(element);
+                    if (label) {
+                        element.setAttribute('aria-label', label);
+                    }
+                });
+            };
+
+            const init = () => {
+                applyLabels();
+
+                const observer = new MutationObserver(() => applyLabels());
+                observer.observe(document.body, {
+                    subtree: true,
+                    childList: true,
+                    attributes: true,
+                    attributeFilter: ['class', 'href', 'title']
+                });
+            };
+
             if (document.readyState === 'loading') {
                 document.addEventListener('DOMContentLoaded', init);
             } else {
