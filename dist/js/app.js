@@ -462,17 +462,12 @@ const Utils = (() => {
     const errors = [];
 
     for (const url of urls) {
-      for (let attempt = 0; attempt <= CONFIG.API.RETRY_ATTEMPTS; attempt++) {
-        try {
-          const response = await fetchWithTimeout(url, options);
-          return await response.json();
-        } catch (error) {
-          errors.push({ url, attempt, error: error.message });
-          if (attempt < CONFIG.API.RETRY_ATTEMPTS) {
-            // Exponential back-off: 200ms, 400ms, …
-            await new Promise(r => setTimeout(r, 200 * 2 ** attempt));
-          }
-        }
+      try {
+        const response = await fetchWithTimeout(url, options);
+        return await response.json();
+      } catch (error) {
+        errors.push({ url, error: error.message });
+        continue;
       }
     }
 
@@ -1018,21 +1013,9 @@ class StateManager {
   }
 
   update(updates) {
-    const changed = [];
-
     Object.entries(updates).forEach(([key, value]) => {
-      const oldValue = this.#state[key];
-      this.#state[key] = value;
-      if (this.#listeners.has(key)) {
-        changed.push({ key, value, oldValue });
-      }
+      this.set(key, value);
     });
-
-    // Notify after all values are in place
-    changed.forEach(({ key, value, oldValue }) => {
-      this.#listeners.get(key)?.forEach(cb => cb(value, oldValue));
-    });
-
     return this;
   }
 
@@ -1870,6 +1853,24 @@ class ComparisonManager {
     this.#lifecycle.destroy();
   }
 
+  #handleCompare() {
+    const service1 = this.#elements.select1.value;
+    const service2 = this.#elements.select2.value;
+
+    console.log('Comparing services:', { service1, service2 });
+
+    if (!service1 || !service2) {
+      this.#showEmptyState();
+      return;
+    }
+
+    if (service1 === service2) {
+      this.#showSameProviderWarning();
+      return;
+    }
+
+    this.#renderComparison(service1, service2);
+  }
 
   #renderComparison(service1, service2) {
     const hosts = Object.keys(this.#data);
@@ -2293,8 +2294,8 @@ class App {
 
       // Fetch data
       const dataPromises = [
-        DataService.fetchHosts('file-hosts'),
-        DataService.fetchHosts('adult-hosts')
+        Utils.fetchWithFallback(CONFIG.API.FILE_HOSTS),
+        Utils.fetchWithFallback(CONFIG.API.ADULT_HOSTS)
       ];
 
       const results = await Promise.allSettled(dataPromises);
