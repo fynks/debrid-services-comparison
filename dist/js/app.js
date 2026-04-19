@@ -52,11 +52,11 @@ class ComponentLifecycle {
   onDestroy(fn) {
     if (this.#isDestroyed) {
       console.warn('Cannot register cleanup on destroyed component');
-      return () => {};
+      return () => { };
     }
-    
+
     this.#cleanupFns.push(fn);
-    
+
     // Return unregister function
     return () => {
       const index = this.#cleanupFns.indexOf(fn);
@@ -73,7 +73,7 @@ class ComponentLifecycle {
     if (this.#isDestroyed) {
       return;
     }
-    
+
     this.#isDestroyed = true;
     this.#cleanupFns.forEach(fn => {
       try {
@@ -107,15 +107,15 @@ class EventBus {
     if (!this.#events.has(event)) {
       this.#events.set(event, new Set());
     }
-    
+
     const listeners = this.#events.get(event);
-    
+
     if (listeners.size >= this.#maxListeners) {
       console.warn(`Event "${event}" has reached max listeners (${this.#maxListeners})`);
     }
-    
+
     listeners.add(callback);
-    
+
     // Return unsubscribe function
     return () => this.off(event, callback);
   }
@@ -143,7 +143,7 @@ class EventBus {
   emit(event, data) {
     const listeners = this.#events.get(event);
     if (listeners) {
-      listeners.forEach(callback => {
+      [...listeners].forEach(callback => {
         try {
           callback(data);
         } catch (error) {
@@ -161,8 +161,8 @@ class EventBus {
    */
   once(event, callback) {
     const wrappedCallback = (data) => {
-      callback(data);
       this.off(event, wrappedCallback);
+      callback(data);
     };
     return this.on(event, wrappedCallback);
   }
@@ -229,7 +229,7 @@ class CacheService {
       const db = await this.#openDB();
       const transaction = db.transaction(CONFIG.CACHE.STORE_NAME, 'readonly');
       const store = transaction.objectStore(CONFIG.CACHE.STORE_NAME);
-      
+
       return new Promise((resolve, reject) => {
         const request = store.get(key);
         request.onsuccess = () => {
@@ -267,7 +267,7 @@ class CacheService {
       const db = await this.#openDB();
       const transaction = db.transaction(CONFIG.CACHE.STORE_NAME, 'readwrite');
       const store = transaction.objectStore(CONFIG.CACHE.STORE_NAME);
-      
+
       const cacheEntry = {
         value,
         expiresAt: ttl ? Date.now() + ttl : null
@@ -293,7 +293,7 @@ class CacheService {
       const db = await this.#openDB();
       const transaction = db.transaction(CONFIG.CACHE.STORE_NAME, 'readwrite');
       const store = transaction.objectStore(CONFIG.CACHE.STORE_NAME);
-      
+
       return new Promise((resolve, reject) => {
         const request = store.delete(key);
         request.onsuccess = () => resolve();
@@ -313,7 +313,7 @@ class CacheService {
       const db = await this.#openDB();
       const transaction = db.transaction(CONFIG.CACHE.STORE_NAME, 'readwrite');
       const store = transaction.objectStore(CONFIG.CACHE.STORE_NAME);
-      
+
       return new Promise((resolve, reject) => {
         const request = store.clear();
         request.onsuccess = () => resolve();
@@ -333,7 +333,7 @@ class CacheService {
       const db = await this.#openDB();
       const transaction = db.transaction(CONFIG.CACHE.STORE_NAME, 'readwrite');
       const store = transaction.objectStore(CONFIG.CACHE.STORE_NAME);
-      
+
       return new Promise((resolve, reject) => {
         const request = store.openCursor();
         let deletedCount = 0;
@@ -368,7 +368,7 @@ const memoize = (fn, options = {}) => {
   const maxSize = options.maxSize || 100;
   const keyGenerator = options.keyGenerator || JSON.stringify;
 
-  const memoized = function(...args) {
+  const memoized = function (...args) {
     const key = keyGenerator(args);
 
     if (cache.has(key)) {
@@ -399,18 +399,14 @@ const memoize = (fn, options = {}) => {
 const Utils = (() => {
   // Performance-optimized debounce with WeakMap cache
   const debounceCache = new WeakMap();
-  
+
   const debounce = (func, wait = CONFIG.PERFORMANCE.DEBOUNCE_DELAY) => {
-    if (debounceCache.has(func)) return debounceCache.get(func);
-    
     let timeoutId;
-    const debounced = function executeDebouncedFunction(...args) {
+    const debounced = function (...args) {
       clearTimeout(timeoutId);
       timeoutId = setTimeout(() => func.apply(this, args), wait);
     };
-    
     debounced.cancel = () => clearTimeout(timeoutId);
-    debounceCache.set(func, debounced);
     return debounced;
   };
 
@@ -418,12 +414,12 @@ const Utils = (() => {
   const throttle = (func, limit = CONFIG.PERFORMANCE.THROTTLE_DELAY) => {
     let waiting = false;
     let lastArgs = null;
-    
+
     return function executeThrottledFunction(...args) {
       if (!waiting) {
         func.apply(this, args);
         waiting = true;
-        
+
         requestAnimationFrame(() => {
           setTimeout(() => {
             waiting = false;
@@ -444,17 +440,17 @@ const Utils = (() => {
     const { timeout = CONFIG.API.TIMEOUT, ...fetchOptions } = options;
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), timeout);
-    
+
     try {
       const response = await fetch(url, {
         ...fetchOptions,
         signal: controller.signal
       });
-      
+
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
-      
+
       return response;
     } finally {
       clearTimeout(timeoutId);
@@ -464,7 +460,7 @@ const Utils = (() => {
   // Cascade fetch with multiple fallback URLs
   const fetchWithFallback = async (urls, options = {}) => {
     const errors = [];
-    
+
     for (const url of urls) {
       try {
         const response = await fetchWithTimeout(url, options);
@@ -474,14 +470,14 @@ const Utils = (() => {
         continue;
       }
     }
-    
+
     throw new Error(`All fetch attempts failed: ${JSON.stringify(errors)}`);
   };
 
   // Efficient DOM element creation with attributes
   const createElement = (tag, attributes = {}, children = []) => {
     const element = document.createElement(tag);
-    
+
     Object.entries(attributes).forEach(([key, value]) => {
       if (key === 'className') {
         element.className = value;
@@ -493,7 +489,7 @@ const Utils = (() => {
         element.setAttribute(key, value);
       }
     });
-    
+
     children.forEach(child => {
       if (typeof child === 'string') {
         element.appendChild(document.createTextNode(child));
@@ -501,7 +497,7 @@ const Utils = (() => {
         element.appendChild(child);
       }
     });
-    
+
     return element;
   };
 
@@ -533,9 +529,9 @@ const Utils = (() => {
    */
   const extractHostnameFromURL = (input) => {
     if (!input || typeof input !== 'string') return null;
-    
+
     let normalized = input.trim();
-    
+
     // If it doesn't start with a protocol, try to detect if it's a URL
     if (!normalized.match(/^https?:\/\//i)) {
       // Check if it looks like a URL (contains dots and domain-like patterns)
@@ -550,25 +546,25 @@ const Utils = (() => {
         return null;
       }
     }
-    
+
     try {
       // Replace common typos in protocol
       normalized = normalized.replace(/^https?[:;.]+\/*/i, 'https://');
-      
+
       // Parse the URL
       const url = new URL(normalized);
       let hostname = url.hostname.toLowerCase();
-      
+
       // Remove 'www.' prefix
       hostname = hostname.replace(/^www\d*\./i, '');
-      
+
       // Handle subdomains - extract main domain
       const parts = hostname.split('.');
-      
+
       // If it's a known multi-level TLD (co.uk, com.au, etc.)
       const multiLevelTLDs = ['co.uk', 'com.au', 'co.nz', 'co.za', 'com.br', 'co.jp'];
       const lastTwoParts = parts.slice(-2).join('.');
-      
+
       if (multiLevelTLDs.includes(lastTwoParts)) {
         // Keep last 3 parts (domain + multi-level TLD)
         if (parts.length >= 3) {
@@ -580,12 +576,12 @@ const Utils = (() => {
           hostname = parts.slice(-2).join('.');
         }
       }
-      
+
       // Extract just the domain name without TLD for searching
       const domainName = hostname.split('.')[0];
-      
+
       return domainName;
-      
+
     } catch (error) {
       // If URL parsing fails, try to extract domain manually
       const manualMatch = normalized.match(/\/\/([^/:?#]+)/);
@@ -595,7 +591,7 @@ const Utils = (() => {
         const domainName = hostname.split('.')[0];
         return domainName;
       }
-      
+
       return null;
     }
   };
@@ -606,7 +602,7 @@ const Utils = (() => {
    */
   const normalizeHostname = (hostname) => {
     if (!hostname) return '';
-    
+
     return hostname
       .toLowerCase()
       .replace(/[^a-z0-9]/g, '') // Remove non-alphanumeric
@@ -621,19 +617,19 @@ const Utils = (() => {
   const calculateSimilarity = memoize((str1, str2) => {
     const s1 = normalizeHostname(str1);
     const s2 = normalizeHostname(str2);
-    
+
     if (!s1 || !s2) return 0;
-    
+
     // Exact match
     if (s1 === s2) return 100;
-    
+
     // One contains the other
     if (s1.includes(s2) || s2.includes(s1)) {
       const longer = Math.max(s1.length, s2.length);
       const shorter = Math.min(s1.length, s2.length);
       return Math.round((shorter / longer) * 95);
     }
-    
+
     // Check if they start similarly
     const minLength = Math.min(s1.length, s2.length);
     let matchingChars = 0;
@@ -644,15 +640,15 @@ const Utils = (() => {
         break;
       }
     }
-    
+
     if (matchingChars >= 3) {
       return Math.round((matchingChars / Math.max(s1.length, s2.length)) * 85);
     }
-    
+
     // Levenshtein-like distance for fuzzy matching
     const maxLength = Math.max(s1.length, s2.length);
     if (maxLength === 0) return 100;
-    
+
     let distance = levenshteinDistance(s1, s2);
     return Math.max(0, Math.round((1 - distance / maxLength) * 80));
   }, {
@@ -666,15 +662,15 @@ const Utils = (() => {
    */
   const levenshteinDistance = (str1, str2) => {
     const matrix = [];
-    
+
     for (let i = 0; i <= str2.length; i++) {
       matrix[i] = [i];
     }
-    
+
     for (let j = 0; j <= str1.length; j++) {
       matrix[0][j] = j;
     }
-    
+
     for (let i = 1; i <= str2.length; i++) {
       for (let j = 1; j <= str1.length; j++) {
         if (str2.charAt(i - 1) === str1.charAt(j - 1)) {
@@ -688,7 +684,7 @@ const Utils = (() => {
         }
       }
     }
-    
+
     return matrix[str2.length][str1.length];
   };
 
@@ -736,11 +732,11 @@ class DataService {
     // Fetch from network
     try {
       const data = await Utils.fetchWithFallback(urls);
-      
+
       // Cache in memory and IndexedDB
       this.#cache.set(cacheKey, data);
       await CacheService.set(cacheKey, data);
-      
+
       return data;
     } catch (error) {
       console.error(`Failed to fetch ${type}:`, error);
@@ -787,7 +783,7 @@ class A11yAnnouncer {
     this.#announcer.setAttribute('aria-live', 'polite');
     this.#announcer.setAttribute('aria-atomic', 'true');
     this.#announcer.className = 'visually-hidden';
-    
+
     // Ensure element is accessible but hidden
     Object.assign(this.#announcer.style, {
       position: 'absolute',
@@ -807,9 +803,9 @@ class A11yAnnouncer {
    */
   static announce(message, priority = 'polite') {
     this.#init();
-    
+
     this.#announcer.setAttribute('aria-live', priority);
-    
+
     // Clear and set message with a slight delay for screen readers
     this.#announcer.textContent = '';
     setTimeout(() => {
@@ -830,8 +826,8 @@ class FocusManager {
     const focusable = container.querySelectorAll(
       'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"]):not([disabled])'
     );
-    
-    if (focusable.length === 0) return () => {};
+
+    if (focusable.length === 0) return () => { };
 
     const first = focusable[0];
     const last = focusable[focusable.length - 1];
@@ -853,10 +849,10 @@ class FocusManager {
     };
 
     container.addEventListener('keydown', handleKeyDown);
-    
+
     // Store previous focus
     this.#focusStack.push(document.activeElement);
-    
+
     // Focus first element
     first.focus();
 
@@ -901,7 +897,7 @@ class KeyboardNavigation {
   static setupTableNavigation(table) {
     let currentRow = -1;
     const tbody = table.querySelector('tbody');
-    if (!tbody) return () => {};
+    if (!tbody) return () => { };
 
     const getRows = () => Array.from(tbody.querySelectorAll('tr:not(.empty-state-row)'));
 
@@ -963,7 +959,7 @@ class ResponsiveTable {
    */
   static makeResponsive(table) {
     const wrapper = table.closest('.table-wrapper');
-    if (!wrapper) return () => {};
+    if (!wrapper) return () => { };
 
     const checkResponsive = () => {
       const isMobile = window.innerWidth < 768;
@@ -975,7 +971,7 @@ class ResponsiveTable {
     };
 
     checkResponsive();
-    
+
     const throttledCheck = Utils.throttle(checkResponsive, 150);
     window.addEventListener('resize', throttledCheck, { passive: true });
 
@@ -993,54 +989,54 @@ class StateManager {
   #state = {};
   #listeners = new Map();
   #lifecycle = null;
-  
+
   constructor(initialState = {}) {
     this.#state = { ...initialState };
     this.#lifecycle = new ComponentLifecycle();
   }
-  
+
   get(key) {
     return key ? this.#state[key] : { ...this.#state };
   }
-  
+
   set(key, value) {
     const oldValue = this.#state[key];
     this.#state[key] = value;
-    
+
     if (this.#listeners.has(key)) {
       this.#listeners.get(key).forEach(callback => {
         callback(value, oldValue);
       });
     }
-    
+
     return this;
   }
-  
+
   update(updates) {
     Object.entries(updates).forEach(([key, value]) => {
       this.set(key, value);
     });
     return this;
   }
-  
+
   subscribe(key, callback) {
     if (!this.#listeners.has(key)) {
       this.#listeners.set(key, new Set());
     }
     this.#listeners.get(key).add(callback);
-    
+
     // Register cleanup
     const unsubscribe = () => this.#listeners.get(key)?.delete(callback);
     this.#lifecycle.onDestroy(unsubscribe);
-    
+
     return unsubscribe;
   }
-  
+
   reset() {
     this.#state = {};
     this.#listeners.clear();
   }
-  
+
   destroy() {
     this.reset();
     this.#lifecycle.destroy();
@@ -1053,11 +1049,11 @@ class StateManager {
 class LoadingManager {
   #loaders = new Map();
   #template = null;
-  
+
   constructor() {
     this.#template = this.#createTemplate();
   }
-  
+
   #createTemplate() {
     const template = document.createElement('template');
     template.innerHTML = `
@@ -1074,50 +1070,50 @@ class LoadingManager {
     `;
     return template;
   }
-  
+
   show(target, text = 'Loading...') {
-    const element = typeof target === 'string' 
-      ? document.querySelector(target) 
+    const element = typeof target === 'string'
+      ? document.querySelector(target)
       : target;
-    
+
     if (!element) return null;
-    
+
     const loaderId = `loader-${Date.now()}-${Math.random().toString(36).slice(2, 11)}`;
     const loader = this.#template.content.cloneNode(true).firstElementChild;
-    
+
     loader.dataset.loaderId = loaderId;
     loader.querySelector('.loading-text').textContent = text;
-    
+
     // Ensure parent has positioning context
     if (getComputedStyle(element).position === 'static') {
       element.style.position = 'relative';
     }
-    
+
     element.appendChild(loader);
     this.#loaders.set(loaderId, { element: loader, parent: element });
-    
+
     // Trigger animation
     requestAnimationFrame(() => {
       loader.classList.add('loading-overlay--visible');
     });
-    
+
     return loaderId;
   }
-  
+
   hide(loaderId) {
     const loaderData = this.#loaders.get(loaderId);
     if (!loaderData) return;
-    
+
     const { element } = loaderData;
     element.classList.remove('loading-overlay--visible');
     element.classList.add('loading-overlay--hiding');
-    
+
     setTimeout(() => {
       element.remove();
       this.#loaders.delete(loaderId);
     }, CONFIG.ANIMATION.DURATION);
   }
-  
+
   hideAll() {
     this.#loaders.forEach((_, loaderId) => this.hide(loaderId));
   }
@@ -1131,10 +1127,10 @@ class DataTransformer {
     if (!data?.services || !data?.supported) {
       return { isIndexed: false, data };
     }
-    
+
     const { services, supported } = data;
     const transformed = {};
-    
+
     Object.entries(supported).forEach(([host, indices]) => {
       transformed[host] = Object.fromEntries(
         services.map((service, idx) => [
@@ -1143,14 +1139,14 @@ class DataTransformer {
         ])
       );
     });
-    
+
     return {
       isIndexed: true,
       data: transformed,
       services
     };
   }
-  
+
   static extractServices(data) {
     const firstHost = Object.values(data)[0];
     return firstHost ? Object.keys(firstHost) : [];
@@ -1168,17 +1164,17 @@ class TableManager {
   #lifecycle = null;
   #keyboardNavigationCleanup = null;
   #responsiveCleanup = null;
-  
+
   constructor(containerId, searchInputId, clearIconId, options = {}) {
     this.#lifecycle = new ComponentLifecycle();
-    
+
     this.#elements = {
       container: document.getElementById(containerId),
       searchInput: document.getElementById(searchInputId),
       clearIcon: document.getElementById(clearIconId),
       loadAllBtn: null
     };
-    
+
     this.options = {
       sortable: true,
       chunkSize: CONFIG.PERFORMANCE.RENDER_CHUNK_SIZE,
@@ -1186,7 +1182,7 @@ class TableManager {
       enableLazyLoad: true, // Enable lazy loading feature
       ...options
     };
-    
+
     this.#state = new StateManager({
       currentData: {},
       filteredData: {},
@@ -1196,16 +1192,16 @@ class TableManager {
       isFullyLoaded: false,
       isSearchActive: false
     });
-    
+
     this.#init();
-    
+
     // Register cleanup
     this.#lifecycle.onDestroy(() => this.#cleanup());
   }
-  
+
   #init() {
     if (!this.#elements.container) return;
-    
+
     // Bind event handlers
     if (this.#elements.searchInput) {
       const debouncedSearch = Utils.debounce(() => this.#performSearch());
@@ -1213,7 +1209,7 @@ class TableManager {
       this.#lifecycle.onDestroy(() => {
         this.#elements.searchInput.removeEventListener('input', debouncedSearch);
       });
-      
+
       const handleKeydown = (e) => {
         if (e.key === 'Escape') this.#clearSearch();
       };
@@ -1222,7 +1218,7 @@ class TableManager {
         this.#elements.searchInput.removeEventListener('keydown', handleKeydown);
       });
     }
-    
+
     if (this.#elements.clearIcon) {
       const handleClick = () => this.#clearSearch();
       this.#elements.clearIcon.addEventListener('click', handleClick);
@@ -1237,45 +1233,45 @@ class TableManager {
     });
     this.#lifecycle.onDestroy(unsubDataLoad);
   }
-  
+
   #cleanup() {
     // Cancel any pending renders
     if (this.#idleCallbackId) {
       Utils.cancelIdleWork(this.#idleCallbackId);
     }
-    
+
     // Cleanup keyboard navigation
     if (this.#keyboardNavigationCleanup) {
       this.#keyboardNavigationCleanup();
     }
-    
+
     // Cleanup responsive handler
     if (this.#responsiveCleanup) {
       this.#responsiveCleanup();
     }
-    
+
     // Destroy state
     this.#state?.destroy();
   }
-  
+
   destroy() {
     this.#lifecycle.destroy();
   }
-  
+
   generateTable(rawData) {
     if (!this.#elements.container || !rawData) {
       this.#showEmptyState('No data available');
       return;
     }
-    
+
     // Transform data if needed
     const { data, services } = DataTransformer.transformIndexedData(rawData);
-    
+
     if (!Object.keys(data).length) {
       this.#showEmptyState('No data available');
       return;
     }
-    
+
     // Update state
     this.#state.update({
       currentData: data,
@@ -1285,14 +1281,14 @@ class TableManager {
       isFullyLoaded: false,
       isSearchActive: false
     });
-    
+
     this.#renderTable();
   }
-  
+
   #renderTable() {
     const { columns } = this.#state.get();
     const tableId = this.#elements.container.id.replace('-container', '');
-    
+
     // Create table structure
     const table = Utils.createElement('table', {
       id: tableId,
@@ -1300,90 +1296,95 @@ class TableManager {
       role: 'table',
       'aria-label': 'Service Comparison Table'
     });
-    
+
     // Create header
+
     const thead = Utils.createElement('thead');
-    thead.innerHTML = this.#generateHeaderHTML(columns);
+    thead.appendChild(this.#generateHeaderRow(columns));
     table.appendChild(thead);
-    
+
     // Create body
     const tbody = Utils.createElement('tbody');
     table.appendChild(tbody);
-    
+
     // Create wrapper
     const wrapper = Utils.createElement('div', { className: 'table-wrapper' }, [table]);
-    
+
     // Replace container content
     this.#elements.container.innerHTML = '';
     this.#elements.container.appendChild(wrapper);
-    
+
     // Attach event handlers
     this.#attachTableEvents();
-    
+
     // Setup accessibility features
     this.#keyboardNavigationCleanup = KeyboardNavigation.setupTableNavigation(table);
     this.#responsiveCleanup = ResponsiveTable.makeResponsive(table);
-    
+
     // Render rows
     this.#renderTableBody();
   }
-  
-  #generateHeaderHTML(columns) {
-    const generateHeaderCell = (label, dataColumn) => `
-      <th class="sortable" 
-          data-column="${dataColumn}" 
-          tabindex="0" 
-          role="columnheader" 
-          aria-sort="none">
-        <span>${label}</span>
-        <svg class="sort-icon" width="12" height="12" viewBox="0 0 24 24" 
-             fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M12 5v14M5 12l7-7 7 7"/>
-        </svg>
-      </th>
-    `;
-    
-    const columnHeaders = columns
-      .map(col => generateHeaderCell(col, col))
-      .join('');
-    
-    return `
-      <tr>
-        ${generateHeaderCell('Service Name', 'service')}
-        ${columnHeaders}
-      </tr>
-    `;
+
+  #generateHeaderRow(columns) {
+    const row = Utils.createElement('tr');
+
+    const makeHeaderCell = (label, dataColumn) => {
+      const th = Utils.createElement('th', {
+        className: 'sortable',
+        tabindex: '0',
+        role: 'columnheader',
+        'aria-sort': 'none',
+        dataset: { column: dataColumn }
+      });
+      const span = Utils.createElement('span', {}, [label]); // text node — safe
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('width', '12'); svg.setAttribute('height', '12');
+      svg.setAttribute('viewBox', '0 0 24 24'); svg.setAttribute('fill', 'none');
+      svg.setAttribute('stroke', 'currentColor'); svg.setAttribute('stroke-width', '2');
+      svg.setAttribute('aria-hidden', 'true');
+      svg.classList.add('sort-icon');
+      const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      path.setAttribute('d', 'M12 5v14M5 12l7-7 7 7');
+      svg.appendChild(path);
+      th.appendChild(span);
+      th.appendChild(svg);
+      return th;
+    };
+
+    row.appendChild(makeHeaderCell('Service Name', 'service'));
+    columns.forEach(col => row.appendChild(makeHeaderCell(col, col)));
+    return row;
   }
-  
+
   #renderTableBody() {
     const table = this.#elements.container?.querySelector('table');
     const tbody = table?.querySelector('tbody');
     if (!tbody) return;
-    
+
     const { filteredData, columns, isFullyLoaded, isSearchActive } = this.#state.get();
     let entries = Object.entries(filteredData);
-    
+
     // Cancel any pending render
     if (this.#idleCallbackId) {
       Utils.cancelIdleWork(this.#idleCallbackId);
     }
-    
+
     // Generate unique render token
     const token = Symbol('render');
     this.#renderToken = token;
-    
+
     // Clear tbody
     tbody.textContent = '';
-    
+
     if (!entries.length) {
       this.#renderEmptyRow(tbody, columns.length + 1);
       return;
     }
-    
+
     // Limit entries if not fully loaded and not searching
     const shouldLimit = this.options.enableLazyLoad && !isFullyLoaded && !isSearchActive;
     const displayLimit = shouldLimit ? this.options.initialLimit : entries.length;
-    
+
     // If limiting, only show first N entries
     if (shouldLimit && entries.length > displayLimit) {
       entries = entries.slice(0, displayLimit);
@@ -1394,26 +1395,26 @@ class TableManager {
       this.#renderChunked(tbody, entries, columns, token, false);
     }
   }
-  
+
   #renderChunked(tbody, entries, columns, token, showLoadMore) {
     let index = 0;
     const chunkSize = this.options.chunkSize;
-    
+
     const renderNextChunk = () => {
       // Check if render was cancelled
       if (this.#renderToken !== token) return;
-      
+
       const fragment = document.createDocumentFragment();
       const limit = Math.min(entries.length, index + chunkSize);
-      
+
       for (; index < limit; index++) {
         const [host, hostData] = entries[index];
         const row = this.#createTableRow(host, hostData, columns);
         fragment.appendChild(row);
       }
-      
+
       tbody.appendChild(fragment);
-      
+
       // Continue rendering if more entries exist
       if (index < entries.length) {
         this.#idleCallbackId = Utils.scheduleIdleWork(renderNextChunk);
@@ -1422,45 +1423,45 @@ class TableManager {
         this.#showLoadAllButton();
       }
     };
-    
+
     this.#idleCallbackId = Utils.scheduleIdleWork(renderNextChunk);
   }
-  
+
   #showLoadAllButton() {
     // Remove existing button if any
     this.#removeLoadAllButton();
-    
+
     const { filteredData } = this.#state.get();
     const totalEntries = Object.keys(filteredData).length;
     const displayedEntries = this.options.initialLimit;
     const remainingEntries = totalEntries - displayedEntries;
-    
+
     // Create button container
     const buttonContainer = Utils.createElement('div', {
       className: 'load-all-container',
       style: 'text-align: center; padding: var(--space-2xl) 0; margin-top: var(--space-xl);'
     });
-    
+
     // Create button
     const loadAllBtn = Utils.createElement('button', {
       className: 'btn load-all-btn',
       type: 'button'
     });
-    
+
     loadAllBtn.innerHTML = `
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
         <polyline points="6 9 12 15 18 9"></polyline>
       </svg>
       Load All ${totalEntries} Hosts (${remainingEntries} more)
     `;
-    
+
     loadAllBtn.addEventListener('click', () => this.#loadAllEntries(), { once: true });
-    
+
     buttonContainer.appendChild(loadAllBtn);
-    
+
     // Store reference
     this.#elements.loadAllBtn = buttonContainer;
-    
+
     // Insert after table wrapper
     const wrapper = this.#elements.container.querySelector('.table-wrapper');
     if (wrapper && wrapper.nextSibling) {
@@ -1469,69 +1470,63 @@ class TableManager {
       this.#elements.container.appendChild(buttonContainer);
     }
   }
-  
+
   #removeLoadAllButton() {
     if (this.#elements.loadAllBtn) {
       this.#elements.loadAllBtn.remove();
       this.#elements.loadAllBtn = null;
     }
   }
-  
+
   #loadAllEntries() {
-    // Update state to show all entries
     this.#state.update({ isFullyLoaded: true });
-    
-    // Show loading indicator on button
+
     const btn = this.#elements.loadAllBtn?.querySelector('.load-all-btn');
     if (btn) {
       btn.disabled = true;
-      btn.innerHTML = `
-        <div class="loading-spinner" style="width: 20px; height: 20px; margin-right: 8px;"></div>
-        Loading...
-      `;
+      btn.innerHTML = `<div class="loading-spinner" style="width:20px;height:20px;margin-right:8px;"></div>Loading...`;
     }
-    
-    // Re-render table body with all entries
+
     setTimeout(() => {
       this.#removeLoadAllButton();
       this.#renderTableBody();
     }, 100);
   }
-  
+
   #createTableRow(host, hostData, columns) {
     const row = Utils.createElement('tr', {
       role: 'row',
       dataset: { host: host.toLowerCase() }
     });
-    
+
     // Service name cell
     const serviceCell = this.#createServiceCell(host);
     row.appendChild(serviceCell);
-    
+
     // Status cells
     columns.forEach(column => {
       const statusCell = this.#createStatusCell(hostData[column]);
       row.appendChild(statusCell);
     });
-    
+
     return row;
   }
-  
+
   #createServiceCell(serviceName) {
     const cell = Utils.createElement('td', {
       className: 'service-cell',
       role: 'gridcell'
     });
-    
+
     const serviceInfo = Utils.createElement('div', { className: 'service-info' });
     const nameSpan = Utils.createElement('span', { className: 'service-name' }, [serviceName]);
-    
+
     serviceInfo.appendChild(nameSpan);
     cell.appendChild(serviceInfo);
-    
+
     return cell;
   }
-  
+
   #createStatusCell(status) {
     const isSupported = status === '✅';
     const cell = Utils.createElement('td', {
@@ -1542,40 +1537,40 @@ class TableManager {
         supported: isSupported ? 'true' : 'false'
       }
     });
-    
+
     const indicator = Utils.createElement('span', {
       className: 'status-indicator',
       'aria-hidden': 'true',
       dataset: { supported: isSupported ? 'true' : 'false' }
     }, [isSupported ? '✅' : '❌']);
-    
+
     const srText = Utils.createElement('span', {
       className: 'visually-hidden'
     }, [isSupported ? 'Supported' : 'Not supported']);
-    
+
     cell.appendChild(indicator);
     cell.appendChild(srText);
-    
+
     return cell;
   }
-  
+
   #renderEmptyRow(tbody, colSpan) {
     const row = Utils.createElement('tr');
     const cell = Utils.createElement('td', {
       className: 'empty-state-row',
       colSpan
     }, ['No services match your current filters.']);
-    
+
     row.appendChild(cell);
     tbody.appendChild(row);
   }
-  
+
   #attachTableEvents() {
     if (!this.options.sortable) return;
-    
+
     const thead = this.#elements.container.querySelector('thead');
     if (!thead) return;
-    
+
     thead.addEventListener('click', (e) => this.#handleSort(e));
     thead.addEventListener('keydown', (e) => {
       const sortableHeader = e.target.closest('.sortable');
@@ -1585,41 +1580,41 @@ class TableManager {
       }
     });
   }
-  
+
   #handleSort(event) {
     const header = event.target.closest('.sortable');
     if (!header) return;
-    
+
     const column = header.dataset.column;
     const { sort, currentData } = this.#state.get();
-    
+
     // Determine sort direction
-    const direction = sort.column === column && sort.direction === 'asc' 
-      ? 'desc' 
+    const direction = sort.column === column && sort.direction === 'asc'
+      ? 'desc'
       : 'asc';
-    
+
     // Update state
     this.#state.set('sort', { column, direction });
-    
+
     // Update ARIA attributes
     const allHeaders = this.#elements.container.querySelectorAll('[role="columnheader"]');
     allHeaders.forEach(h => h.setAttribute('aria-sort', 'none'));
     header.setAttribute('aria-sort', direction === 'asc' ? 'ascending' : 'descending');
-    
+
     // Sort data
     const sortedData = this.#sortData(currentData, column, direction);
     this.#state.set('filteredData', sortedData);
-    
+
     // Re-render
     this.#renderTableBody();
   }
-  
+
   #sortData(data, column, direction) {
     const entries = Object.entries(data);
-    
+
     entries.sort(([hostA, dataA], [hostB, dataB]) => {
       let valueA, valueB;
-      
+
       if (column === 'service') {
         valueA = hostA.toLowerCase();
         valueB = hostB.toLowerCase();
@@ -1627,42 +1622,42 @@ class TableManager {
         valueA = dataA[column] === '✅' ? 1 : 0;
         valueB = dataB[column] === '✅' ? 1 : 0;
       }
-      
+
       if (valueA < valueB) return direction === 'asc' ? -1 : 1;
       if (valueA > valueB) return direction === 'asc' ? 1 : -1;
       return 0;
     });
-    
+
     return Object.fromEntries(entries);
   }
-  
+
   #performSearch() {
     const rawSearchTerm = (this.#elements.searchInput?.value || '').trim();
     const { currentData } = this.#state.get();
-    
+
     if (rawSearchTerm) {
       let searchTerm = rawSearchTerm.toLowerCase();
       let extractedHostname = null;
       let isURLSearch = false;
-      
+
       // Try to extract hostname from URL
       extractedHostname = Utils.extractHostnameFromURL(rawSearchTerm);
-      
+
       if (extractedHostname) {
         searchTerm = extractedHostname.toLowerCase();
         isURLSearch = true;
       }
-      
+
       // Perform search with fuzzy matching
       let filtered;
-      
+
       if (isURLSearch) {
         // Use fuzzy matching for URL-based searches
         const matches = [];
-        
+
         Object.entries(currentData).forEach(([host, hostData]) => {
           const similarity = Utils.calculateSimilarity(host, searchTerm);
-          
+
           // Include if similarity is above threshold (60%)
           if (similarity >= 60) {
             matches.push({
@@ -1672,10 +1667,10 @@ class TableManager {
             });
           }
         });
-        
+
         // Sort by similarity score (highest first)
         matches.sort((a, b) => b.similarity - a.similarity);
-        
+
         // Convert back to object
         filtered = Object.fromEntries(
           matches.map(({ host, hostData }) => [host, hostData])
@@ -1688,63 +1683,63 @@ class TableManager {
           )
         );
       }
-      
+
       // When searching, mark as search active and load all
       this.#state.update({
         filteredData: filtered,
         isSearchActive: true,
         isFullyLoaded: true // Auto-load all when searching
       });
-      
+
       // Remove load all button if present
       this.#removeLoadAllButton();
-      
+
       if (this.#elements.clearIcon) {
         this.#elements.clearIcon.style.display = 'block';
       }
-      
+
       // Update search results message
-      const resultMessage = isURLSearch 
+      const resultMessage = isURLSearch
         ? `Found ${Object.keys(filtered).length} host(s) matching "${extractedHostname}"`
         : `Showing ${Object.keys(filtered).length} of ${Object.keys(currentData).length} services`;
-      
+
       this.#updateSearchResults(resultMessage, Object.keys(filtered).length, Object.keys(currentData).length, isURLSearch);
     } else {
       this.#clearSearch();
     }
-    
+
     this.#renderTableBody();
   }
-  
+
   #clearSearch() {
     if (this.#elements.searchInput) {
       this.#elements.searchInput.value = '';
     }
-    
+
     const { currentData } = this.#state.get();
-    
+
     // When clearing search, reset to limited view if was initially limited
     const shouldResetToLimited = this.options.enableLazyLoad;
-    
+
     this.#state.update({
       filteredData: { ...currentData },
       isSearchActive: false,
       isFullyLoaded: shouldResetToLimited ? false : true
     });
-    
+
     if (this.#elements.clearIcon) {
       this.#elements.clearIcon.style.display = 'none';
     }
-    
+
     this.#updateSearchResults('', 0, 0);
     this.#renderTableBody();
   }
-  
+
   #updateSearchResults(message, filteredCount, totalCount, isURLSearch = false) {
     if (!this.#elements.container) return;
-    
+
     let resultsElement = this.#elements.container.querySelector('.search-results');
-    
+
     if (message) {
       if (!resultsElement) {
         resultsElement = Utils.createElement('div', {
@@ -1754,7 +1749,7 @@ class TableManager {
         });
         this.#elements.container.insertBefore(resultsElement, this.#elements.container.firstChild);
       }
-      
+
       // Add URL indicator if it's a URL search
       if (isURLSearch) {
         resultsElement.innerHTML = `
@@ -1767,26 +1762,26 @@ class TableManager {
       } else {
         resultsElement.textContent = message;
       }
-      
+
       resultsElement.style.display = 'block';
-      
+
       // Announce to screen readers
       A11yAnnouncer.announce(message);
     } else if (resultsElement) {
       resultsElement.style.display = 'none';
     }
   }
-  
+
   #showEmptyState(message) {
     if (!this.#elements.container) return;
-    
+
     const emptyState = Utils.createElement('div', {
       className: 'empty-state'
     });
-    
+
     const emptyMessage = Utils.createElement('p', {}, [message]);
     emptyState.appendChild(emptyMessage);
-    
+
     this.#elements.container.innerHTML = '';
     this.#elements.container.appendChild(emptyState);
   }
@@ -1800,26 +1795,26 @@ class ComparisonManager {
   #data = null;
   #services = [];
   #lifecycle = null;
-  
+
   constructor(containerId, select1Id, select2Id, data) {
     this.#lifecycle = new ComponentLifecycle();
-    
+
     this.#elements = {
       container: document.getElementById(containerId),
       select1: document.getElementById(select1Id),
       select2: document.getElementById(select2Id)
     };
-    
+
     const transformed = DataTransformer.transformIndexedData(data);
     this.#data = transformed.data;
     this.#services = transformed.services || DataTransformer.extractServices(transformed.data);
-    
+
     this.#init();
   }
-  
+
   #init() {
     if (!this.#elements.select1 || !this.#elements.select2) return;
-    
+
     // Clear existing options except the first placeholder option
     while (this.#elements.select1.options.length > 1) {
       this.#elements.select1.remove(1);
@@ -1827,77 +1822,77 @@ class ComparisonManager {
     while (this.#elements.select2.options.length > 1) {
       this.#elements.select2.remove(1);
     }
-    
+
     // Populate select dropdowns with service options
     this.#services.forEach(service => {
       const option1 = document.createElement('option');
       option1.value = service;
       option1.textContent = service;
       this.#elements.select1.appendChild(option1);
-      
+
       const option2 = document.createElement('option');
       option2.value = service;
       option2.textContent = service;
       this.#elements.select2.appendChild(option2);
     });
-    
+
     const handleChange1 = () => this.#handleCompare();
     const handleChange2 = () => this.#handleCompare();
-    
+
     this.#elements.select1.addEventListener('change', handleChange1);
     this.#elements.select2.addEventListener('change', handleChange2);
-    
+
     // Register cleanup
     this.#lifecycle.onDestroy(() => {
       this.#elements.select1.removeEventListener('change', handleChange1);
       this.#elements.select2.removeEventListener('change', handleChange2);
     });
   }
-  
+
   destroy() {
     this.#lifecycle.destroy();
   }
-  
+
   #handleCompare() {
     const service1 = this.#elements.select1.value;
     const service2 = this.#elements.select2.value;
-    
+
     console.log('Comparing services:', { service1, service2 });
-    
+
     if (!service1 || !service2) {
       this.#showEmptyState();
       return;
     }
-    
+
     if (service1 === service2) {
       this.#showSameProviderWarning();
       return;
     }
-    
+
     this.#renderComparison(service1, service2);
   }
-  
+
   #renderComparison(service1, service2) {
     const hosts = Object.keys(this.#data);
     const stats = this.#calculateStats(service1, service2, hosts);
-    
+
     const table = this.#createComparisonTable(service1, service2, hosts);
     const header = this.#createComparisonHeader(service1, service2, stats);
-    
+
     this.#elements.container.innerHTML = '';
     this.#elements.container.appendChild(header);
     this.#elements.container.appendChild(table);
     this.#elements.container.style.display = 'block';
   }
-  
+
   #createComparisonHeader(service1, service2, stats) {
     const header = Utils.createElement('div', { className: 'comparison-header' });
-    
+
     const title = Utils.createElement('h3', {}, [`Comparing ${service1} vs ${service2}`]);
     header.appendChild(title);
-    
+
     const statsDiv = Utils.createElement('div', { className: 'comparison-stats' });
-    
+
     const createStatItem = (label, value) => {
       const stat = Utils.createElement('div', { className: 'stat' });
       const statLabel = Utils.createElement('span', { className: 'stat-label' }, [label]);
@@ -1906,20 +1901,20 @@ class ComparisonManager {
       stat.appendChild(statValue);
       return stat;
     };
-    
+
     statsDiv.appendChild(createStatItem('Shared', stats.shared));
     statsDiv.appendChild(createStatItem(`${service1} Only`, stats.service1Only));
     statsDiv.appendChild(createStatItem(`${service2} Only`, stats.service2Only));
-    
+
     header.appendChild(statsDiv);
-    
+
     return header;
   }
-  
+
   #createComparisonTable(service1, service2, hosts) {
     const wrapper = Utils.createElement('div', { className: 'table-wrapper' });
     const table = Utils.createElement('table', { className: 'comparison-table' });
-    
+
     // Header
     const thead = Utils.createElement('thead');
     thead.innerHTML = `
@@ -1931,7 +1926,7 @@ class ComparisonManager {
       </tr>
     `;
     table.appendChild(thead);
-    
+
     // Body
     const tbody = Utils.createElement('tbody');
     hosts.forEach(host => {
@@ -1941,20 +1936,20 @@ class ComparisonManager {
       }
     });
     table.appendChild(tbody);
-    
+
     wrapper.appendChild(table);
     return wrapper;
   }
-  
+
   #createComparisonRow(host, service1, service2) {
     const hostData = this.#data[host];
-    
+
     // Safety check: if hostData is undefined, skip this host
     if (!hostData) {
       console.warn(`Host data not found for: ${host}`);
       return null;
     }
-    
+
     // Try to find the service keys with case-insensitive matching
     const findServiceKey = (serviceName) => {
       // First try exact match
@@ -1967,16 +1962,16 @@ class ComparisonManager {
       );
       return serviceKey;
     };
-    
+
     const serviceKey1 = findServiceKey(service1);
     const serviceKey2 = findServiceKey(service2);
-    
+
     const supported1 = serviceKey1 ? hostData[serviceKey1] === '✅' : false;
     const supported2 = serviceKey2 ? hostData[serviceKey2] === '✅' : false;
-    
+
     let statusClass = 'neither-supported';
     let statusText = 'Neither';
-    
+
     if (supported1 && supported2) {
       statusClass = 'both-supported';
       statusText = 'Both';
@@ -1987,24 +1982,24 @@ class ComparisonManager {
       statusClass = 'service2-only';
       statusText = `${service2} only`;
     }
-    
+
     const row = Utils.createElement('tr', {
       className: `comparison-row ${statusClass}`,
       dataset: { status: statusClass }
     });
-    
+
     // Host name
     const hostCell = Utils.createElement('td', { className: 'service-name' }, [host]);
     row.appendChild(hostCell);
-    
+
     // Service 1 status
     const status1Cell = this.#createStatusCell(supported1);
     row.appendChild(status1Cell);
-    
+
     // Service 2 status
     const status2Cell = this.#createStatusCell(supported2);
     row.appendChild(status2Cell);
-    
+
     // Status text
     const statusTextCell = Utils.createElement('td', { className: 'status-text' });
     const badge = Utils.createElement('span', {
@@ -2012,37 +2007,37 @@ class ComparisonManager {
     }, [statusText]);
     statusTextCell.appendChild(badge);
     row.appendChild(statusTextCell);
-    
+
     return row;
   }
-  
+
   #createStatusCell(isSupported) {
     const cell = Utils.createElement('td', {
       className: `support-status ${isSupported ? 'supported' : 'not-supported'}`,
       dataset: { supported: isSupported ? 'true' : 'false' }
     });
-    
+
     const indicator = Utils.createElement('span', {
       className: 'status-indicator',
       'aria-hidden': 'true',
       dataset: { supported: isSupported ? 'true' : 'false' }
     }, [isSupported ? '✅' : '❌']);
-    
+
     const srText = Utils.createElement('span', {
       className: 'visually-hidden'
     }, [isSupported ? 'Supported' : 'Not supported']);
-    
+
     cell.appendChild(indicator);
     cell.appendChild(srText);
-    
+
     return cell;
   }
-  
+
   #calculateStats(service1, service2, hosts) {
     let shared = 0;
     let service1Only = 0;
     let service2Only = 0;
-    
+
     // Helper function to find service key with case-insensitive matching
     const findServiceKey = (hostData, serviceName) => {
       // First try exact match
@@ -2054,25 +2049,25 @@ class ComparisonManager {
         key => key.toLowerCase() === serviceName.toLowerCase()
       );
     };
-    
+
     hosts.forEach(host => {
       const hostData = this.#data[host];
       if (!hostData) return;
-      
+
       const serviceKey1 = findServiceKey(hostData, service1);
       const serviceKey2 = findServiceKey(hostData, service2);
-      
+
       const supported1 = serviceKey1 ? hostData[serviceKey1] === '✅' : false;
       const supported2 = serviceKey2 ? hostData[serviceKey2] === '✅' : false;
-      
+
       if (supported1 && supported2) shared++;
       else if (supported1) service1Only++;
       else if (supported2) service2Only++;
     });
-    
+
     return { shared, service1Only, service2Only };
   }
-  
+
   #showEmptyState() {
     this.#elements.container.innerHTML = `
       <div class="empty-state">
@@ -2082,7 +2077,7 @@ class ComparisonManager {
     `;
     this.#elements.container.style.display = 'block';
   }
-  
+
   #showSameProviderWarning() {
     this.#elements.container.innerHTML = `
       <div class="warning-state">
@@ -2102,10 +2097,10 @@ const UIFeatures = (() => {
   // Intersection Observer for scroll animations
   const setupScrollAnimations = () => {
     if (!('IntersectionObserver' in window)) return;
-    
+
     const elements = document.querySelectorAll('.section, .status-card, .referral-card');
     if (!elements.length) return;
-    
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -2117,7 +2112,7 @@ const UIFeatures = (() => {
       threshold: CONFIG.INTERSECTION.THRESHOLD,
       rootMargin: '0px 0px -50px 0px'
     });
-    
+
     elements.forEach(el => observer.observe(el));
   };
 
@@ -2125,13 +2120,13 @@ const UIFeatures = (() => {
   const setupHeaderElevation = () => {
     const header = document.querySelector('.site-header');
     if (!header) return;
-    
+
     const updateHeader = () => {
       header.classList.toggle('is-scrolled', window.scrollY > 8);
     };
-    
+
     updateHeader();
-    
+
     const throttledUpdate = Utils.throttle(updateHeader);
     window.addEventListener('scroll', throttledUpdate, { passive: true });
   };
@@ -2161,23 +2156,23 @@ const UIFeatures = (() => {
   // Navigation highlight
   const setupNavHighlight = () => {
     if (!('IntersectionObserver' in window)) return;
-    
+
     const links = Array.from(document.querySelectorAll('.header-nav .nav-link[href^="#"]'));
     if (!links.length) return;
-    
+
     const sections = links
       .map(link => document.querySelector(link.getAttribute('href')))
       .filter(Boolean);
-    
+
     const linkMap = new Map(
       links.map(link => [link.getAttribute('href'), link])
     );
-    
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         const id = `#${entry.target.id}`;
         const link = linkMap.get(id);
-        
+
         if (link && entry.isIntersecting) {
           links.forEach(l => l.removeAttribute('aria-current'));
           link.setAttribute('aria-current', 'page');
@@ -2187,7 +2182,7 @@ const UIFeatures = (() => {
       threshold: CONFIG.INTERSECTION.THRESHOLD,
       rootMargin: CONFIG.INTERSECTION.ROOT_MARGIN
     });
-    
+
     sections.forEach(section => observer.observe(section));
   };
 
@@ -2196,12 +2191,12 @@ const UIFeatures = (() => {
     const params = new URLSearchParams(window.location.search);
     const provider1 = params.get('compare');
     const provider2 = params.get('with');
-    
+
     if (provider1 && provider2) {
       requestAnimationFrame(() => {
         const select1 = document.getElementById('provider1');
         const select2 = document.getElementById('provider2');
-        
+
         if (select1 && select2) {
           select1.value = provider1;
           select2.value = provider2;
@@ -2216,7 +2211,7 @@ const UIFeatures = (() => {
     const showStatus = (isOnline) => {
       console.log(isOnline ? '✅ Connection restored' : '⚠️ You are offline');
     };
-    
+
     window.addEventListener('online', () => showStatus(true));
     window.addEventListener('offline', () => showStatus(false));
   };
@@ -2236,21 +2231,21 @@ const UIFeatures = (() => {
    ============================================================================ */
 class PerformanceMonitor {
   #marks = new Map();
-  
+
   constructor() {
     this.mark('start');
   }
-  
+
   mark(name) {
     this.#marks.set(name, performance.now());
   }
-  
+
   measure(name, startMark = 'start') {
     const start = this.#marks.get(startMark) || 0;
     const end = performance.now();
     return end - start;
   }
-  
+
   log(name, startMark = 'start') {
     const duration = this.measure(name, startMark);
     console.log(`⏱️ ${name}: ${duration.toFixed(2)}ms`);
@@ -2265,17 +2260,17 @@ class App {
   #performanceMonitor = null;
   #lifecycle = null;
   #tableManagers = [];
-  
+
   constructor() {
     this.#loadingManager = new LoadingManager();
     this.#performanceMonitor = new PerformanceMonitor();
     this.#lifecycle = new ComponentLifecycle();
   }
-  
+
   async init() {
     try {
       this.#performanceMonitor.mark('dom-ready');
-      
+
       // Initialize tables
       const fileHostsTable = new TableManager(
         'file-hosts-table-container',
@@ -2283,32 +2278,32 @@ class App {
         'clear-host-search'
       );
       this.#tableManagers.push(fileHostsTable);
-      
+
       const adultHostsTable = new TableManager(
         'adult-hosts-table-container',
         'adult-host-search-input',
         'clear-adult-host-search'
       );
       this.#tableManagers.push(adultHostsTable);
-      
+
       // Show loaders
       const loaders = [
         this.#loadingManager.show('#file-hosts-table-container', 'Loading file hosts...'),
         this.#loadingManager.show('#adult-hosts-table-container', 'Loading adult hosts...')
       ];
-      
+
       // Fetch data
       const dataPromises = [
         Utils.fetchWithFallback(CONFIG.API.FILE_HOSTS),
         Utils.fetchWithFallback(CONFIG.API.ADULT_HOSTS)
       ];
-      
+
       const results = await Promise.allSettled(dataPromises);
-      
+
       // Process results
       results.forEach((result, index) => {
         this.#loadingManager.hide(loaders[index]);
-        
+
         if (result.status === 'fulfilled') {
           if (index === 0) {
             fileHostsTable.generateTable(result.value);
@@ -2318,8 +2313,8 @@ class App {
           }
         } else {
           console.error(`Failed to load dataset ${index}:`, result.reason);
-          const containerId = index === 0 
-            ? '#file-hosts-table-container' 
+          const containerId = index === 0
+            ? '#file-hosts-table-container'
             : '#adult-hosts-table-container';
           const container = document.querySelector(containerId);
           if (container) {
@@ -2331,7 +2326,7 @@ class App {
           }
         }
       });
-      
+
       // Setup UI features
       UIFeatures.setupScrollAnimations();
       UIFeatures.setupHeaderElevation();
@@ -2339,23 +2334,23 @@ class App {
       UIFeatures.setupNavHighlight();
       UIFeatures.setupURLComparison();
       UIFeatures.setupOfflineDetection();
-      
+
       this.#performanceMonitor.mark('fully-loaded');
       this.#performanceMonitor.log('Application initialized', 'dom-ready');
-      
+
       // Clean up expired cache entries periodically
       CacheService.cleanExpired().then(count => {
         if (count > 0) {
           console.log(`🧹 Cleaned ${count} expired cache entries`);
         }
       });
-      
+
     } catch (error) {
       console.error('❌ Critical application error:', error);
       this.#loadingManager.hideAll();
     }
   }
-  
+
   destroy() {
     // Cleanup all table managers
     this.#tableManagers.forEach(manager => manager.destroy());
