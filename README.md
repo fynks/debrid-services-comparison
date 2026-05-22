@@ -129,12 +129,6 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 <br>
 
-**Choose Real-Debrid if:**
-- ✅ You use Stremio or similar streaming apps
-- ✅ You want the largest cached torrent library
-- ✅ You need reliable, fast performance
-- ✅ Community tools/guides matter to you
-
 **Choose AllDebrid if:**
 - ✅ You want the cheapest reliable option
 - ✅ You want to test with a 7-day trial
@@ -295,6 +289,9 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 > **💡 Pro Tip:** Use the [**interactive web app**](https://debridcompare.pages.dev) for advanced search, filters, and side-by-side comparison!
 
 </div><br>
+
+> [!WARNING]
+> Real-Debrid has started returning copyright-infringement errors on many cached torrents. Read more on: [Torrent Freak](https://torrentfreak.com/real-debrids-renewed-piracy-crackdown-follows-corporate-restructuring/) 
 
 ### Top 20 Popular Hosts
 
