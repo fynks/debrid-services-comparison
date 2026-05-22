@@ -242,7 +242,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 </details><br>
 
-> **Last updated: March 9, 2026**
+> **Last updated: May 22, 2026**
 
 <br>
 
@@ -687,7 +687,7 @@ Comprehensive list of all supported file hosts across all services.
 
 <br>
 
-> **Last updated: March 9, 2026**
+> **Last updated: May 22, 2026**
 
 <div align="right">
 
