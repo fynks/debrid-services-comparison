@@ -1336,7 +1336,7 @@ class TableManager {
         'aria-sort': 'none',
         dataset: { column: dataColumn }
       });
-      const span = Utils.createElement('span', {}, [label]); // text node — safe
+      const span = Utils.createElement('span', {}, [label]); // text node - safe
       const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
       svg.setAttribute('width', '12'); svg.setAttribute('height', '12');
       svg.setAttribute('viewBox', '0 0 24 24'); svg.setAttribute('fill', 'none');
