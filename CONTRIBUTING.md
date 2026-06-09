@@ -12,7 +12,7 @@ Thank you for your interest in improving this project! Your contributions help k
    - Change observed (e.g., "AllDebrid now supports Terabox")
    - Proof: **Link to official page or screenshot**
    - Date of observation
-4. Submit — maintainers will review and update
+4. Submit - maintainers will review and update
 
 ### Submit a Pull Request
 1. Fork the repository
