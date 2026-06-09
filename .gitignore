@@ -1,4 +1,8 @@
-docs/.vitepress/dist
-docs/.vitepress/cache
 node_modules
-tbd.md
+
+# Build output (Vite builds to dist/)
+dist/
+
+# Optimized JSON (regenerated on build)
+public/json/file-hosts-optimized.json
+public/json/adult-hosts-optimized.json
