@@ -5,15 +5,17 @@
  */
 
 /* ============================================================================
+   DIRECT JSON IMPORTS (bundled at build time, no runtime fetch needed)
+   ============================================================================ */
+import fileHostsData from '../json/file-hosts-optimized.json' with { type: 'json' };
+import adultHostsData from '../json/adult-hosts-optimized.json' with { type: 'json' };
+import { ComponentLifecycle } from './core/ComponentLifecycle.js';
+import { DataTransformer } from './services/DataTransformer.js';
+
+/* ============================================================================
    CONFIGURATION & CONSTANTS
    ============================================================================ */
 const CONFIG = Object.freeze({
-  API: {
-    FILE_HOSTS: ['./json/file-hosts-optimized.json'],
-    ADULT_HOSTS: ['./json/adult-hosts-optimized.json'],
-    TIMEOUT: 8000,
-    RETRY_ATTEMPTS: 2
-  },
   PERFORMANCE: {
     DEBOUNCE_DELAY: 250,
     THROTTLE_DELAY: 100,
@@ -28,337 +30,8 @@ const CONFIG = Object.freeze({
   ANIMATION: {
     DURATION: 250,
     EASING: 'cubic-bezier(0.4, 0, 0.2, 1)'
-  },
-  CACHE: {
-    DB_NAME: 'debrid-cache',
-    DB_VERSION: 1,
-    STORE_NAME: 'api-cache',
-    DEFAULT_TTL: 3600000 // 1 hour in milliseconds
   }
 });
-
-/* ============================================================================
-   COMPONENT LIFECYCLE MANAGEMENT
-   ============================================================================ */
-class ComponentLifecycle {
-  #cleanupFns = [];
-  #isDestroyed = false;
-
-  /**
-   * Register a cleanup function to be called when component is destroyed
-   * @param {Function} fn - Cleanup function
-   * @returns {Function} - Unregister function
-   */
-  onDestroy(fn) {
-    if (this.#isDestroyed) {
-      console.warn('Cannot register cleanup on destroyed component');
-      return () => { };
-    }
-
-    this.#cleanupFns.push(fn);
-
-    // Return unregister function
-    return () => {
-      const index = this.#cleanupFns.indexOf(fn);
-      if (index > -1) {
-        this.#cleanupFns.splice(index, 1);
-      }
-    };
-  }
-
-  /**
-   * Destroy component and run all cleanup functions
-   */
-  destroy() {
-    if (this.#isDestroyed) {
-      return;
-    }
-
-    this.#isDestroyed = true;
-    this.#cleanupFns.forEach(fn => {
-      try {
-        fn();
-      } catch (error) {
-        console.error('Error in cleanup function:', error);
-      }
-    });
-    this.#cleanupFns = [];
-  }
-
-  get isDestroyed() {
-    return this.#isDestroyed;
-  }
-}
-
-/* ============================================================================
-   EVENT BUS FOR DECOUPLED ARCHITECTURE
-   ============================================================================ */
-class EventBus {
-  #events = new Map();
-  #maxListeners = 100; // Prevent memory leaks
-
-  /**
-   * Subscribe to an event
-   * @param {string} event - Event name
-   * @param {Function} callback - Event handler
-   * @returns {Function} - Unsubscribe function
-   */
-  on(event, callback) {
-    if (!this.#events.has(event)) {
-      this.#events.set(event, new Set());
-    }
-
-    const listeners = this.#events.get(event);
-
-    if (listeners.size >= this.#maxListeners) {
-      console.warn(`Event "${event}" has reached max listeners (${this.#maxListeners})`);
-    }
-
-    listeners.add(callback);
-
-    // Return unsubscribe function
-    return () => this.off(event, callback);
-  }
-
-  /**
-   * Unsubscribe from an event
-   * @param {string} event - Event name
-   * @param {Function} callback - Event handler to remove
-   */
-  off(event, callback) {
-    const listeners = this.#events.get(event);
-    if (listeners) {
-      listeners.delete(callback);
-      if (listeners.size === 0) {
-        this.#events.delete(event);
-      }
-    }
-  }
-
-  /**
-   * Emit an event
-   * @param {string} event - Event name
-   * @param {*} data - Event data
-   */
-  emit(event, data) {
-    const listeners = this.#events.get(event);
-    if (listeners) {
-      [...listeners].forEach(callback => {
-        try {
-          callback(data);
-        } catch (error) {
-          console.error(`Error in event listener for "${event}":`, error);
-        }
-      });
-    }
-  }
-
-  /**
-   * Subscribe to an event only once
-   * @param {string} event - Event name
-   * @param {Function} callback - Event handler
-   * @returns {Function} - Unsubscribe function
-   */
-  once(event, callback) {
-    const wrappedCallback = (data) => {
-      this.off(event, wrappedCallback);
-      callback(data);
-    };
-    return this.on(event, wrappedCallback);
-  }
-
-  /**
-   * Clear all listeners
-   */
-  clear() {
-    this.#events.clear();
-  }
-
-  /**
-   * Get number of listeners for an event
-   * @param {string} event - Event name
-   * @returns {number} - Number of listeners
-   */
-  listenerCount(event) {
-    return this.#events.get(event)?.size || 0;
-  }
-}
-
-// Global event bus instance
-const globalEventBus = new EventBus();
-
-/* ============================================================================
-   INDEXEDDB CACHE SERVICE
-   ============================================================================ */
-class CacheService {
-  static #dbPromise = null;
-
-  /**
-   * Open IndexedDB database
-   * @returns {Promise<IDBDatabase>}
-   */
-  static async #openDB() {
-    if (this.#dbPromise) {
-      return this.#dbPromise;
-    }
-
-    this.#dbPromise = new Promise((resolve, reject) => {
-      const request = indexedDB.open(CONFIG.CACHE.DB_NAME, CONFIG.CACHE.DB_VERSION);
-
-      request.onerror = () => reject(request.error);
-      request.onsuccess = () => resolve(request.result);
-
-      request.onupgradeneeded = (event) => {
-        const db = event.target.result;
-        if (!db.objectStoreNames.contains(CONFIG.CACHE.STORE_NAME)) {
-          db.createObjectStore(CONFIG.CACHE.STORE_NAME);
-        }
-      };
-    });
-
-    return this.#dbPromise;
-  }
-
-  /**
-   * Get cached value
-   * @param {string} key - Cache key
-   * @returns {Promise<*>} - Cached value or null
-   */
-  static async get(key) {
-    try {
-      const db = await this.#openDB();
-      const transaction = db.transaction(CONFIG.CACHE.STORE_NAME, 'readonly');
-      const store = transaction.objectStore(CONFIG.CACHE.STORE_NAME);
-
-      return new Promise((resolve, reject) => {
-        const request = store.get(key);
-        request.onsuccess = () => {
-          const result = request.result;
-          if (result) {
-            // Check if expired
-            if (result.expiresAt && result.expiresAt < Date.now()) {
-              // Delete expired entry
-              this.delete(key);
-              resolve(null);
-            } else {
-              resolve(result.value);
-            }
-          } else {
-            resolve(null);
-          }
-        };
-        request.onerror = () => reject(request.error);
-      });
-    } catch (error) {
-      console.error('Cache get error:', error);
-      return null;
-    }
-  }
-
-  /**
-   * Set cached value
-   * @param {string} key - Cache key
-   * @param {*} value - Value to cache
-   * @param {number} ttl - Time to live in milliseconds
-   * @returns {Promise<void>}
-   */
-  static async set(key, value, ttl = CONFIG.CACHE.DEFAULT_TTL) {
-    try {
-      const db = await this.#openDB();
-      const transaction = db.transaction(CONFIG.CACHE.STORE_NAME, 'readwrite');
-      const store = transaction.objectStore(CONFIG.CACHE.STORE_NAME);
-
-      const cacheEntry = {
-        value,
-        expiresAt: ttl ? Date.now() + ttl : null
-      };
-
-      return new Promise((resolve, reject) => {
-        const request = store.put(cacheEntry, key);
-        request.onsuccess = () => resolve();
-        request.onerror = () => reject(request.error);
-      });
-    } catch (error) {
-      console.error('Cache set error:', error);
-    }
-  }
-
-  /**
-   * Delete cached value
-   * @param {string} key - Cache key
-   * @returns {Promise<void>}
-   */
-  static async delete(key) {
-    try {
-      const db = await this.#openDB();
-      const transaction = db.transaction(CONFIG.CACHE.STORE_NAME, 'readwrite');
-      const store = transaction.objectStore(CONFIG.CACHE.STORE_NAME);
-
-      return new Promise((resolve, reject) => {
-        const request = store.delete(key);
-        request.onsuccess = () => resolve();
-        request.onerror = () => reject(request.error);
-      });
-    } catch (error) {
-      console.error('Cache delete error:', error);
-    }
-  }
-
-  /**
-   * Clear all cached values
-   * @returns {Promise<void>}
-   */
-  static async clear() {
-    try {
-      const db = await this.#openDB();
-      const transaction = db.transaction(CONFIG.CACHE.STORE_NAME, 'readwrite');
-      const store = transaction.objectStore(CONFIG.CACHE.STORE_NAME);
-
-      return new Promise((resolve, reject) => {
-        const request = store.clear();
-        request.onsuccess = () => resolve();
-        request.onerror = () => reject(request.error);
-      });
-    } catch (error) {
-      console.error('Cache clear error:', error);
-    }
-  }
-
-  /**
-   * Clean up expired cache entries
-   * @returns {Promise<number>} - Number of deleted entries
-   */
-  static async cleanExpired() {
-    try {
-      const db = await this.#openDB();
-      const transaction = db.transaction(CONFIG.CACHE.STORE_NAME, 'readwrite');
-      const store = transaction.objectStore(CONFIG.CACHE.STORE_NAME);
-
-      return new Promise((resolve, reject) => {
-        const request = store.openCursor();
-        let deletedCount = 0;
-
-        request.onsuccess = (event) => {
-          const cursor = event.target.result;
-          if (cursor) {
-            const entry = cursor.value;
-            if (entry.expiresAt && entry.expiresAt < Date.now()) {
-              cursor.delete();
-              deletedCount++;
-            }
-            cursor.continue();
-          } else {
-            resolve(deletedCount);
-          }
-        };
-        request.onerror = () => reject(request.error);
-      });
-    } catch (error) {
-      console.error('Cache cleanExpired error:', error);
-      return 0;
-    }
-  }
-}
 
 /* ============================================================================
    MEMOIZATION UTILITY
@@ -433,45 +106,6 @@ const Utils = (() => {
         lastArgs = args;
       }
     };
-  };
-
-  // Lazy fetch with timeout and abort controller
-  const fetchWithTimeout = async (url, options = {}) => {
-    const { timeout = CONFIG.API.TIMEOUT, ...fetchOptions } = options;
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), timeout);
-
-    try {
-      const response = await fetch(url, {
-        ...fetchOptions,
-        signal: controller.signal
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-      }
-
-      return response;
-    } finally {
-      clearTimeout(timeoutId);
-    }
-  };
-
-  // Cascade fetch with multiple fallback URLs
-  const fetchWithFallback = async (urls, options = {}) => {
-    const errors = [];
-
-    for (const url of urls) {
-      try {
-        const response = await fetchWithTimeout(url, options);
-        return await response.json();
-      } catch (error) {
-        errors.push({ url, error: error.message });
-        continue;
-      }
-    }
-
-    throw new Error(`All fetch attempts failed: ${JSON.stringify(errors)}`);
   };
 
   // Efficient DOM element creation with attributes
@@ -691,8 +325,6 @@ const Utils = (() => {
   return Object.freeze({
     debounce,
     throttle,
-    fetchWithTimeout,
-    fetchWithFallback,
     createElement,
     scheduleIdleWork,
     cancelIdleWork,
@@ -701,69 +333,6 @@ const Utils = (() => {
     calculateSimilarity
   });
 })();
-
-/* ============================================================================
-   DATA SERVICE LAYER
-   ============================================================================ */
-class DataService {
-  static #cache = new Map();
-
-  /**
-   * Fetch data with caching and fallback support
-   * @param {string} type - Data type ('file-hosts' or 'adult-hosts')
-   * @returns {Promise<Object>} - Fetched data
-   */
-  static async fetchHosts(type) {
-    const urls = type === 'file-hosts' ? CONFIG.API.FILE_HOSTS : CONFIG.API.ADULT_HOSTS;
-    const cacheKey = `hosts-${type}`;
-
-    // Check memory cache first
-    if (this.#cache.has(cacheKey)) {
-      return this.#cache.get(cacheKey);
-    }
-
-    // Check IndexedDB cache
-    const cachedData = await CacheService.get(cacheKey);
-    if (cachedData) {
-      this.#cache.set(cacheKey, cachedData);
-      return cachedData;
-    }
-
-    // Fetch from network
-    try {
-      const data = await Utils.fetchWithFallback(urls);
-
-      // Cache in memory and IndexedDB
-      this.#cache.set(cacheKey, data);
-      await CacheService.set(cacheKey, data);
-
-      return data;
-    } catch (error) {
-      console.error(`Failed to fetch ${type}:`, error);
-      throw error;
-    }
-  }
-
-  /**
-   * Clear all cached data
-   */
-  static clearCache() {
-    this.#cache.clear();
-    return CacheService.clear();
-  }
-
-  /**
-   * Prefetch data for faster subsequent loads
-   * @param {string} type - Data type
-   */
-  static async prefetch(type) {
-    try {
-      await this.fetchHosts(type);
-    } catch (error) {
-      console.warn(`Prefetch failed for ${type}:`, error);
-    }
-  }
-}
 
 /* ============================================================================
    ACCESSIBILITY UTILITIES
@@ -1044,116 +613,6 @@ class StateManager {
 }
 
 /* ============================================================================
-   LOADING MANAGER
-   ============================================================================ */
-class LoadingManager {
-  #loaders = new Map();
-  #template = null;
-
-  constructor() {
-    this.#template = this.#createTemplate();
-  }
-
-  #createTemplate() {
-    const template = document.createElement('template');
-    template.innerHTML = `
-      <div class="loading-overlay" role="status" aria-live="polite">
-        <div class="loading-content">
-          <div class="loading-spinner" aria-hidden="true">
-            <div class="spinner-ring"></div>
-            <div class="spinner-ring"></div>
-            <div class="spinner-ring"></div>
-          </div>
-          <p class="loading-text"></p>
-        </div>
-      </div>
-    `;
-    return template;
-  }
-
-  show(target, text = 'Loading...') {
-    const element = typeof target === 'string'
-      ? document.querySelector(target)
-      : target;
-
-    if (!element) return null;
-
-    const loaderId = `loader-${Date.now()}-${Math.random().toString(36).slice(2, 11)}`;
-    const loader = this.#template.content.cloneNode(true).firstElementChild;
-
-    loader.dataset.loaderId = loaderId;
-    loader.querySelector('.loading-text').textContent = text;
-
-    // Ensure parent has positioning context
-    if (getComputedStyle(element).position === 'static') {
-      element.style.position = 'relative';
-    }
-
-    element.appendChild(loader);
-    this.#loaders.set(loaderId, { element: loader, parent: element });
-
-    // Trigger animation
-    requestAnimationFrame(() => {
-      loader.classList.add('loading-overlay--visible');
-    });
-
-    return loaderId;
-  }
-
-  hide(loaderId) {
-    const loaderData = this.#loaders.get(loaderId);
-    if (!loaderData) return;
-
-    const { element } = loaderData;
-    element.classList.remove('loading-overlay--visible');
-    element.classList.add('loading-overlay--hiding');
-
-    setTimeout(() => {
-      element.remove();
-      this.#loaders.delete(loaderId);
-    }, CONFIG.ANIMATION.DURATION);
-  }
-
-  hideAll() {
-    this.#loaders.forEach((_, loaderId) => this.hide(loaderId));
-  }
-}
-
-/* ============================================================================
-   DATA TRANSFORMER
-   ============================================================================ */
-class DataTransformer {
-  static transformIndexedData(data) {
-    if (!data?.services || !data?.supported) {
-      return { isIndexed: false, data };
-    }
-
-    const { services, supported } = data;
-    const transformed = {};
-
-    Object.entries(supported).forEach(([host, indices]) => {
-      transformed[host] = Object.fromEntries(
-        services.map((service, idx) => [
-          service,
-          indices.includes(idx) ? '✅' : '❌'
-        ])
-      );
-    });
-
-    return {
-      isIndexed: true,
-      data: transformed,
-      services
-    };
-  }
-
-  static extractServices(data) {
-    const firstHost = Object.values(data)[0];
-    return firstHost ? Object.keys(firstHost) : [];
-  }
-}
-
-/* ============================================================================
    TABLE MANAGER
    ============================================================================ */
 class TableManager {
@@ -1227,11 +686,6 @@ class TableManager {
       });
     }
 
-    // Listen to global events
-    const unsubDataLoad = globalEventBus.on('data-loaded', (data) => {
-      this.generateTable(data);
-    });
-    this.#lifecycle.onDestroy(unsubDataLoad);
   }
 
   #cleanup() {
@@ -1788,309 +1242,6 @@ class TableManager {
 }
 
 /* ============================================================================
-   COMPARISON MANAGER
-   ============================================================================ */
-class ComparisonManager {
-  #elements = {};
-  #data = null;
-  #services = [];
-  #lifecycle = null;
-
-  constructor(containerId, select1Id, select2Id, data) {
-    this.#lifecycle = new ComponentLifecycle();
-
-    this.#elements = {
-      container: document.getElementById(containerId),
-      select1: document.getElementById(select1Id),
-      select2: document.getElementById(select2Id)
-    };
-
-    const transformed = DataTransformer.transformIndexedData(data);
-    this.#data = transformed.data;
-    this.#services = transformed.services || DataTransformer.extractServices(transformed.data);
-
-    this.#init();
-  }
-
-  #init() {
-    if (!this.#elements.select1 || !this.#elements.select2) return;
-
-    // Clear existing options except the first placeholder option
-    while (this.#elements.select1.options.length > 1) {
-      this.#elements.select1.remove(1);
-    }
-    while (this.#elements.select2.options.length > 1) {
-      this.#elements.select2.remove(1);
-    }
-
-    // Populate select dropdowns with service options
-    this.#services.forEach(service => {
-      const option1 = document.createElement('option');
-      option1.value = service;
-      option1.textContent = service;
-      this.#elements.select1.appendChild(option1);
-
-      const option2 = document.createElement('option');
-      option2.value = service;
-      option2.textContent = service;
-      this.#elements.select2.appendChild(option2);
-    });
-
-    const handleChange1 = () => this.#handleCompare();
-    const handleChange2 = () => this.#handleCompare();
-
-    this.#elements.select1.addEventListener('change', handleChange1);
-    this.#elements.select2.addEventListener('change', handleChange2);
-
-    // Register cleanup
-    this.#lifecycle.onDestroy(() => {
-      this.#elements.select1.removeEventListener('change', handleChange1);
-      this.#elements.select2.removeEventListener('change', handleChange2);
-    });
-  }
-
-  destroy() {
-    this.#lifecycle.destroy();
-  }
-
-  #handleCompare() {
-    const service1 = this.#elements.select1.value;
-    const service2 = this.#elements.select2.value;
-
-    console.log('Comparing services:', { service1, service2 });
-
-    if (!service1 || !service2) {
-      this.#showEmptyState();
-      return;
-    }
-
-    if (service1 === service2) {
-      this.#showSameProviderWarning();
-      return;
-    }
-
-    this.#renderComparison(service1, service2);
-  }
-
-  #renderComparison(service1, service2) {
-    const hosts = Object.keys(this.#data);
-    const stats = this.#calculateStats(service1, service2, hosts);
-
-    const table = this.#createComparisonTable(service1, service2, hosts);
-    const header = this.#createComparisonHeader(service1, service2, stats);
-
-    this.#elements.container.innerHTML = '';
-    this.#elements.container.appendChild(header);
-    this.#elements.container.appendChild(table);
-    this.#elements.container.style.display = 'block';
-  }
-
-  #createComparisonHeader(service1, service2, stats) {
-    const header = Utils.createElement('div', { className: 'comparison-header' });
-
-    const title = Utils.createElement('h3', {}, [`Comparing ${service1} vs ${service2}`]);
-    header.appendChild(title);
-
-    const statsDiv = Utils.createElement('div', { className: 'comparison-stats' });
-
-    const createStatItem = (label, value) => {
-      const stat = Utils.createElement('div', { className: 'stat' });
-      const statLabel = Utils.createElement('span', { className: 'stat-label' }, [label]);
-      const statValue = Utils.createElement('span', { className: 'stat-value' }, [String(value)]);
-      stat.appendChild(statLabel);
-      stat.appendChild(statValue);
-      return stat;
-    };
-
-    statsDiv.appendChild(createStatItem('Shared', stats.shared));
-    statsDiv.appendChild(createStatItem(`${service1} Only`, stats.service1Only));
-    statsDiv.appendChild(createStatItem(`${service2} Only`, stats.service2Only));
-
-    header.appendChild(statsDiv);
-
-    return header;
-  }
-
-  #createComparisonTable(service1, service2, hosts) {
-    const wrapper = Utils.createElement('div', { className: 'table-wrapper' });
-    const table = Utils.createElement('table', { className: 'comparison-table' });
-
-    // Header
-    const thead = Utils.createElement('thead');
-    thead.innerHTML = `
-      <tr>
-        <th>Host</th>
-        <th>${service1}</th>
-        <th>${service2}</th>
-        <th>Status</th>
-      </tr>
-    `;
-    table.appendChild(thead);
-
-    // Body
-    const tbody = Utils.createElement('tbody');
-    hosts.forEach(host => {
-      const row = this.#createComparisonRow(host, service1, service2);
-      if (row) {
-        tbody.appendChild(row);
-      }
-    });
-    table.appendChild(tbody);
-
-    wrapper.appendChild(table);
-    return wrapper;
-  }
-
-  #createComparisonRow(host, service1, service2) {
-    const hostData = this.#data[host];
-
-    // Safety check: if hostData is undefined, skip this host
-    if (!hostData) {
-      console.warn(`Host data not found for: ${host}`);
-      return null;
-    }
-
-    // Try to find the service keys with case-insensitive matching
-    const findServiceKey = (serviceName) => {
-      // First try exact match
-      if (hostData[serviceName] !== undefined) {
-        return serviceName;
-      }
-      // Then try case-insensitive match
-      const serviceKey = Object.keys(hostData).find(
-        key => key.toLowerCase() === serviceName.toLowerCase()
-      );
-      return serviceKey;
-    };
-
-    const serviceKey1 = findServiceKey(service1);
-    const serviceKey2 = findServiceKey(service2);
-
-    const supported1 = serviceKey1 ? hostData[serviceKey1] === '✅' : false;
-    const supported2 = serviceKey2 ? hostData[serviceKey2] === '✅' : false;
-
-    let statusClass = 'neither-supported';
-    let statusText = 'Neither';
-
-    if (supported1 && supported2) {
-      statusClass = 'both-supported';
-      statusText = 'Both';
-    } else if (supported1) {
-      statusClass = 'service1-only';
-      statusText = `${service1} only`;
-    } else if (supported2) {
-      statusClass = 'service2-only';
-      statusText = `${service2} only`;
-    }
-
-    const row = Utils.createElement('tr', {
-      className: `comparison-row ${statusClass}`,
-      dataset: { status: statusClass }
-    });
-
-    // Host name
-    const hostCell = Utils.createElement('td', { className: 'service-name' }, [host]);
-    row.appendChild(hostCell);
-
-    // Service 1 status
-    const status1Cell = this.#createStatusCell(supported1);
-    row.appendChild(status1Cell);
-
-    // Service 2 status
-    const status2Cell = this.#createStatusCell(supported2);
-    row.appendChild(status2Cell);
-
-    // Status text
-    const statusTextCell = Utils.createElement('td', { className: 'status-text' });
-    const badge = Utils.createElement('span', {
-      className: `status-badge ${statusClass}`
-    }, [statusText]);
-    statusTextCell.appendChild(badge);
-    row.appendChild(statusTextCell);
-
-    return row;
-  }
-
-  #createStatusCell(isSupported) {
-    const cell = Utils.createElement('td', {
-      className: `support-status ${isSupported ? 'supported' : 'not-supported'}`,
-      dataset: { supported: isSupported ? 'true' : 'false' }
-    });
-
-    const indicator = Utils.createElement('span', {
-      className: 'status-indicator',
-      'aria-hidden': 'true',
-      dataset: { supported: isSupported ? 'true' : 'false' }
-    }, [isSupported ? '✅' : '❌']);
-
-    const srText = Utils.createElement('span', {
-      className: 'visually-hidden'
-    }, [isSupported ? 'Supported' : 'Not supported']);
-
-    cell.appendChild(indicator);
-    cell.appendChild(srText);
-
-    return cell;
-  }
-
-  #calculateStats(service1, service2, hosts) {
-    let shared = 0;
-    let service1Only = 0;
-    let service2Only = 0;
-
-    // Helper function to find service key with case-insensitive matching
-    const findServiceKey = (hostData, serviceName) => {
-      // First try exact match
-      if (hostData[serviceName] !== undefined) {
-        return serviceName;
-      }
-      // Then try case-insensitive match
-      return Object.keys(hostData).find(
-        key => key.toLowerCase() === serviceName.toLowerCase()
-      );
-    };
-
-    hosts.forEach(host => {
-      const hostData = this.#data[host];
-      if (!hostData) return;
-
-      const serviceKey1 = findServiceKey(hostData, service1);
-      const serviceKey2 = findServiceKey(hostData, service2);
-
-      const supported1 = serviceKey1 ? hostData[serviceKey1] === '✅' : false;
-      const supported2 = serviceKey2 ? hostData[serviceKey2] === '✅' : false;
-
-      if (supported1 && supported2) shared++;
-      else if (supported1) service1Only++;
-      else if (supported2) service2Only++;
-    });
-
-    return { shared, service1Only, service2Only };
-  }
-
-  #showEmptyState() {
-    this.#elements.container.innerHTML = `
-      <div class="empty-state">
-        <h3>Select Two Services to Compare</h3>
-        <p>Choose services from the dropdowns above to see a detailed comparison.</p>
-      </div>
-    `;
-    this.#elements.container.style.display = 'block';
-  }
-
-  #showSameProviderWarning() {
-    this.#elements.container.innerHTML = `
-      <div class="warning-state">
-        <div class="warning-icon">⚠️</div>
-        <h3>Same Service Selected</h3>
-        <p>Please select two different services to compare</p>
-      </div>
-    `;
-    this.#elements.container.style.display = 'block';
-  }
-}
-
-/* ============================================================================
    UI FEATURES
    ============================================================================ */
 const UIFeatures = (() => {
@@ -2256,13 +1407,11 @@ class PerformanceMonitor {
    APPLICATION BOOTSTRAP
    ============================================================================ */
 class App {
-  #loadingManager = null;
   #performanceMonitor = null;
   #lifecycle = null;
   #tableManagers = [];
 
   constructor() {
-    this.#loadingManager = new LoadingManager();
     this.#performanceMonitor = new PerformanceMonitor();
     this.#lifecycle = new ComponentLifecycle();
   }
@@ -2271,7 +1420,7 @@ class App {
     try {
       this.#performanceMonitor.mark('dom-ready');
 
-      // Initialize tables
+      // Initialize tables with directly imported data
       const fileHostsTable = new TableManager(
         'file-hosts-table-container',
         'host-search-input',
@@ -2286,46 +1435,12 @@ class App {
       );
       this.#tableManagers.push(adultHostsTable);
 
-      // Show loaders
-      const loaders = [
-        this.#loadingManager.show('#file-hosts-table-container', 'Loading file hosts...'),
-        this.#loadingManager.show('#adult-hosts-table-container', 'Loading adult hosts...')
-      ];
+      // Data is imported directly at module scope — no fetch needed
+      fileHostsTable.generateTable(fileHostsData);
+      adultHostsTable.generateTable(adultHostsData);
 
-      // Fetch data
-      const dataPromises = [
-        Utils.fetchWithFallback(CONFIG.API.FILE_HOSTS),
-        Utils.fetchWithFallback(CONFIG.API.ADULT_HOSTS)
-      ];
-
-      const results = await Promise.allSettled(dataPromises);
-
-      // Process results
-      results.forEach((result, index) => {
-        this.#loadingManager.hide(loaders[index]);
-
-        if (result.status === 'fulfilled') {
-          if (index === 0) {
-            fileHostsTable.generateTable(result.value);
-            new ComparisonManager('compare-table-container', 'provider1', 'provider2', result.value);
-          } else {
-            adultHostsTable.generateTable(result.value);
-          }
-        } else {
-          console.error(`Failed to load dataset ${index}:`, result.reason);
-          const containerId = index === 0
-            ? '#file-hosts-table-container'
-            : '#adult-hosts-table-container';
-          const container = document.querySelector(containerId);
-          if (container) {
-            container.innerHTML = `
-              <div class="error-state">
-                <p>Failed to load data. Please check your connection and refresh.</p>
-              </div>
-            `;
-          }
-        }
-      });
+      // Lazy-load ComparisonManager on first user interaction
+      this.#setupComparisonLazyLoad(fileHostsData);
 
       // Setup UI features
       UIFeatures.setupScrollAnimations();
@@ -2338,21 +1453,53 @@ class App {
       this.#performanceMonitor.mark('fully-loaded');
       this.#performanceMonitor.log('Application initialized', 'dom-ready');
 
-      // Clean up expired cache entries periodically
-      CacheService.cleanExpired().then(count => {
-        if (count > 0) {
-          console.log(`🧹 Cleaned ${count} expired cache entries`);
-        }
-      });
-
     } catch (error) {
       console.error('❌ Critical application error:', error);
-      this.#loadingManager.hideAll();
+    }
+  }
+
+  /**
+   * Lazily initializes the ComparisonManager via dynamic import
+   * Only loads the module when the user interacts with the comparison section
+   */
+  #setupComparisonLazyLoad(hostsData) {
+    let comparisonManager = null;
+
+    const initComparison = async () => {
+      if (comparisonManager) return;
+      try {
+        const { ComparisonManager } = await import('./components/ComparisonManager.js');
+        comparisonManager = new ComparisonManager(
+          'compare-table-container',
+          'provider1',
+          'provider2',
+          hostsData
+        );
+      } catch (error) {
+        console.error('Failed to load ComparisonManager:', error);
+      }
+    };
+
+    // Init on first focus/click on either select
+    const select1 = document.getElementById('provider1');
+    const select2 = document.getElementById('provider2');
+
+    if (select1) {
+      select1.addEventListener('focus', initComparison, { once: true });
+      select1.addEventListener('click', initComparison, { once: true });
+    }
+    if (select2) {
+      select2.addEventListener('focus', initComparison, { once: true });
+      select2.addEventListener('click', initComparison, { once: true });
+    }
+
+    // Also eager-load if URL has comparison params
+    if (window.location.search.includes('compare=')) {
+      initComparison();
     }
   }
 
   destroy() {
-    // Cleanup all table managers
     this.#tableManagers.forEach(manager => manager.destroy());
     this.#lifecycle.destroy();
   }

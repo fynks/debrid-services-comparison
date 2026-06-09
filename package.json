@@ -10,7 +10,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "optimize-json": "scripts/json-optimizer.sh data/file-hosts.json public/json/file-hosts-optimized.json && scripts/json-optimizer.sh data/adult-hosts.json public/json/adult-hosts-optimized.json",
+    "optimize-json": "scripts/json-optimizer.sh data/file-hosts.json src/json/file-hosts-optimized.json && scripts/json-optimizer.sh data/adult-hosts.json src/json/adult-hosts-optimized.json",
     "build": "npm run optimize-json && vite build && workbox generateSW workbox-config.js",
     "preview": "vite preview"
   },
