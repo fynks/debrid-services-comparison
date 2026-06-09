@@ -27,11 +27,9 @@
 
 <details><summary>👉 Click to expand</summary>
 
-- [Table of Contents](#table-of-contents)
 - [What are Debrid Services?](#what-are-debrid-services)
   - [Key Benefits](#key-benefits)
   - [How It Works](#how-it-works)
-- [Try the Interactive Web App](#-try-the-interactive-web-app)
 - [Choosing the Right Service](#choosing-the-right-service)
 - [Quick Start Guide](#quick-start-guide)
 - [Pricing Comparison](#pricing-comparison)
@@ -42,10 +40,12 @@
   - [Adult Hosts](#adult-hosts)
   - [Live Status](#live-status)
 - [Policies](#policies)
+- [🚀 Try the Interactive Web App](#-try-the-interactive-web-app-1)
 - [Speed Test](#speed-test)
 - [Tools and Applications](#tools-and-applications)
-  - [📚 Media Management](#-media-management)
-  - [🎬 Streaming Add-ons](#-streaming-add-ons)
+  - [🎬 Media Centers \& Streaming Apps](#-media-centers--streaming-apps)
+  - [🔌 Streaming Add-ons](#-streaming-add-ons)
+  - [📚 Media Management \& Automation](#-media-management--automation)
   - [📥 Download Managers](#-download-managers)
   - [🌐 Browser Extensions](#-browser-extensions)
   - [📱 Mobile Applications](#-mobile-applications)
@@ -821,28 +821,53 @@ For a more accurate assessment, follow these steps:
 > - 🎬 **Stremio** + **Torrentio** for easy streaming
 > - 📦 **Debrid Media Manager** for library organization
 > - 🌐 **Browser extensions** for quick link unrestricting
+> - 🏠 **DUMB** for a full self-hosted debrid media server stack
 
-### 📚 Media Management
+---
 
-*Organize, sync, and manage your debrid content with media servers*
+### 🎬 Media Centers & Streaming Apps
 
-| Tool | Description |
-| :--- | :---------- |
-| **[Debrid Media Manager](https://debridmediamanager.com/)** | Web-based manager for organizing and streaming debrid content with Trakt integration |
-| **[CineSync](https://github.com/sureshfizzy/CineSync)** | Automated media organization and symlink manager for Plex/Jellyfin/Emby with Bazarr support |
-| **[Zurg](https://github.com/debridmediamanager/zurg-testing)** | WebDAV server that mounts Real-Debrid as a network drive for media servers |
+*Primary frontends for consuming content via debrid services*
+
+| App | Platforms | Debrid Support |
+| :--- | :--- | :--- |
+| **[Stremio](https://www.stremio.com/downloads)** | Windows, macOS, Linux, Android, iOS, Fire TV | ✅ Via Add-ons |
+| **[Kodi](https://kodi.tv/)** | Windows, macOS, Linux, Android, iOS, Fire TV | ✅ Via Add-ons |
+| **[Plex](https://www.plex.tv/)** | All platforms | ✅ Via Zurg/Rclone |
+| **[Jellyfin](https://jellyfin.org/)** | All platforms | ✅ Via Zurg/Rclone |
+| **[Infuse](https://firecore.com/infuse)** | Apple platforms | ✅ Via WebDAV |
 
 <br>
 
-### 🎬 Streaming Add-ons
+### 🔌 Streaming Add-ons
 
-*Direct streaming to Stremio and other media players*
+*Direct streaming to Stremio and other media players via debrid*
+
+| Add-on | Description |
+| :--- | :--- |
+| **[Torrentio](https://torrentio.strem.fun/)** | Most popular Stremio add-on; simple setup, reliable debrid integration with cached links first |
+| **[AIOStreams](https://github.com/Viren070/AIOStreams)** | Consolidates multiple Stremio add-ons into one with advanced filtering &amp; sorting |
+| **[Comet](https://github.com/g0ldyy/comet)** | Cache-first debrid search; often delivers cleaner results than Torrentio |
+| **[MediaFusion](https://github.com/mhdzumair/MediaFusion)** | Universal add-on for Movies, Series, Sports &amp; Live TV; supports private trackers via Jackett |
+| **[Jackettio](https://github.com/arvida42/jackettio)** | Integrates Jackett with debrid for private tracker support inside Stremio |
+
+
+<br>
+
+### 📚 Media Management & Automation
+
+*Organize, sync, automate, and manage your debrid content*
 
 | Tool | Description |
 | :--- | :---------- |
-| **[Comet](https://github.com/g0ldyy/comet)** | Advanced Stremio add-on with real-time torrent indexing and multi-debrid support |
-| **[MediaFusion](https://github.com/mhdzumair/MediaFusion)** | Universal Stremio add-on with sports, live TV, and extensive debrid service support |
-| **[Torrentio](https://torrentio.strem.fun/)** | Popular Stremio add-on with simple setup and reliable debrid integration |
+| **[Debrid Media Manager](https://debridmediamanager.com/)** | Web UI to browse, manage, and stream your debrid torrent library with Trakt integration |
+| **[CineSync](https://github.com/sureshfizzy/CineSync)** | Automated media organization and symlink manager for Plex/Jellyfin/Emby with Bazarr support |
+| **[Zurg](https://github.com/debridmediamanager/zurg-testing)** | Mounts Real-Debrid library as a local WebDAV filesystem; essential for Plex/Jellyfin setups |
+| **[Rclone](https://rclone.org/)** | Mounts Zurg/debrid WebDAV storage as a local drive; use VFS cache for optimal Plex performance |
+| **[Riven](https://github.com/rivenmedia/riven)** | Automated media manager; symlinks debrid content into organized Plex/Jellyfin libraries - replaces Sonarr/Radarr workflow |
+| **[CLI-Debrid](https://github.com/godver3/cli_debrid)** | Lightweight CLI-based debrid downloader and media manager; alternative to Riven |
+| **[DUMB](https://github.com/I-am-PUID-0/DUMB)** | Docker all-in-one stack (Zurg + Rclone + Riven + Plex/Jellyfin); best for beginners building a full debrid server |
+| **[Sonarr](https://sonarr.tv/) / [Radarr](https://radarr.video/)** | Automated TV/Movie downloaders; use with debrid via CLI-Debrid or custom scripts |
 
 <br>
 
@@ -863,8 +888,8 @@ For a more accurate assessment, follow these steps:
 
 *Quick link unrestricting directly from your browser*
 
-| Tool | Description | Official Link |
-| :--- | :---------- | :------------ |
+| Tool | Description |
+| :--- | :---------- |
 | **[Real-Debrid Torrent Plugin](https://chromewebstore.google.com/detail/real-debrid-extension/oefkkgfcahbeccgckjgbnfclcmnjgidg)** | One-click torrent adding with context menu integration for Chrome and Firefox |
 | **[AllDebrid Helper](https://alldebrid.com/tools/)** | Quick link unrestrict with clipboard monitoring and browser notifications |
 | **[Deebrid Extension](https://chromewebstore.google.com/detail/deepbrid-%E2%80%93-browser-extens/ampccappllebdaplacfcopfdgofmohmh)** | Browser extension for easy link unrestricting and download management |
@@ -875,12 +900,15 @@ For a more accurate assessment, follow these steps:
 
 *Access your debrid service on the go*
 
-| App | Description |
-| :-- | :---------- |
-| **[Stremio](https://www.stremio.com/downloads)** | Cross-platform streaming app with debrid add-on support and device sync |
-| **[AllDebrid App](https://alldebrid.com/m/)** | Official AllDebrid PWA for link management and downloads |
-| **[Unchained](https://github.com/LivingWithHippos/unchained-android)** | Community-driven Real-Debrid app for managing downloads |
-| **[VLC](https://play.google.com/store/apps/details?id=org.videolan.vlc)** | Universal media player with direct link playback and subtitle support |
+| App | Platform | Description |
+| :-- | :------- | :---------- |
+| **[Stremio](https://www.stremio.com/downloads)** | Android, iOS | Cross-platform streaming app with debrid add-on support and device sync |
+| **[Syncler](https://syncler.net/)** | Android | Streaming app with native debrid support |
+| **[Unchained](https://github.com/LivingWithHippos/unchained-android)** | Android | Community-driven Real-Debrid app for managing downloads |
+| **[AllDebrid App](https://alldebrid.com/m/)** | All browsers (PWA) | Official AllDebrid PWA for link management and downloads |
+| **[TorBox PWA](https://torbox.app/)** | All browsers (PWA) | TorBox's official Progressive Web App |
+| **[Premiumize App](https://www.premiumize.me/apps)** | Android, iOS | Official mobile app for Premiumize |
+| **[VLC](https://play.google.com/store/apps/details?id=org.videolan.vlc)** | Android, iOS | Universal media player with direct link playback and subtitle support |
 
 <div align="right">
 
@@ -889,6 +917,7 @@ For a more accurate assessment, follow these steps:
 </div>
 
 ---
+
 
 ## Community Resources
 
@@ -939,7 +968,7 @@ For a more accurate assessment, follow these steps:
 
 A **debrid service** (also called a "multi-hoster") is a paid intermediary between you and file-hosting sites or torrent networks. You submit a link or magnet → the service fetches and caches the content on its own high-bandwidth servers → you get a fast, ad-free direct download or stream link.
 
-Instead of connecting directly to a slow, throttled, or ad-ridden file host, the debrid service uses its own premium infrastructure and delivers content straight to you — with no waiting, no captchas, and no throttling.
+Instead of connecting directly to a slow, throttled, or ad-ridden file host, the debrid service uses its own premium infrastructure and delivers content straight to you - with no waiting, no captchas, and no throttling.
 
 </details>
 
@@ -985,11 +1014,11 @@ Since May 2026, Real-Debrid has been applying a keyword-based content filter tha
 <details>
 <summary><strong>Is there a free tier or trial available?</strong></summary>
 
-Yes — a few options to test before paying:
+Yes - a few options to test before paying:
 
-- **TorBox** — Permanent free tier, no credit card required. Limited speed and concurrent slots but fully functional for testing.
-- **AllDebrid** — 7-day free trial (requires phone number verification).
-- **Debrid-Link** — Limited free trial tier.
+- **TorBox** - Permanent free tier, no credit card required. Limited speed and concurrent slots but fully functional for testing.
+- **AllDebrid** - 7-day free trial (requires phone number verification).
+- **Debrid-Link** - Limited free trial tier.
 
 > Always test with a free or short-term plan before committing to a long-term subscription.
 
@@ -1000,7 +1029,7 @@ Yes — a few options to test before paying:
 <details>
 <summary><strong>Do debrid services support torrents?</strong></summary>
 
-Most do. Instead of downloading P2P from seeders, you submit a magnet link to the debrid service — it fetches the torrent remotely on its own servers and gives you a direct download link. Your IP is never exposed to the torrent swarm.
+Most do. Instead of downloading P2P from seeders, you submit a magnet link to the debrid service - it fetches the torrent remotely on its own servers and gives you a direct download link. Your IP is never exposed to the torrent swarm.
 
 | | Traditional P2P | Via Debrid |
 |---|---|---|
@@ -1020,12 +1049,12 @@ Most do. Instead of downloading P2P from seeders, you submit a magnet link to th
 
 Only a few services offer Usenet support:
 
-- ✅ **TorBox Pro** — Full Usenet support included
-- ✅ **Premiumize** — Full Usenet support with 1 TB cloud storage
+- ✅ **TorBox Pro** - Full Usenet support included
+- ✅ **Premiumize** - Full Usenet support with 1 TB cloud storage
 
 **No Usenet support:** Real-Debrid, AllDebrid, Debrid-Link, LinkSnappy, Mega-Debrid, Deepbrid, High-Way ❌
 
-Usenet is a separate decentralised network — no P2P exposure, no seeding required, and consistently high speeds. Worth considering if DMCA-driven torrent cache removals are a concern.
+Usenet is a separate decentralised network - no P2P exposure, no seeding required, and consistently high speeds. Worth considering if DMCA-driven torrent cache removals are a concern.
 
 </details>
 
@@ -1034,7 +1063,7 @@ Usenet is a separate decentralised network — no P2P exposure, no seeding requi
 <details>
 <summary><strong>What is torrent caching / "instant" availability?</strong></summary>
 
-When any previous user has downloaded a torrent through a debrid service, it gets stored ("cached") on the service's servers. Cached content is served to you instantly — no waiting for peers or seeders. In Stremio add-ons like Torrentio or Comet, cached results appear with a **⚡** icon.
+When any previous user has downloaded a torrent through a debrid service, it gets stored ("cached") on the service's servers. Cached content is served to you instantly - no waiting for peers or seeders. In Stremio add-ons like Torrentio or Comet, cached results appear with a **⚡** icon.
 
 Cache hit rates vary by service and content popularity.
 
@@ -1053,7 +1082,7 @@ Cache hit rates vary by service and content popularity.
 3. Paste your API key during the add-on configuration and click **Install**
 4. Cached links will appear marked with ⚡ when you search for content
 
-> **Tip:** AIOStreams supports multiple debrid providers simultaneously — useful for maximising cache coverage across services.
+> **Tip:** AIOStreams supports multiple debrid providers simultaneously - useful for maximising cache coverage across services.
 
 </details>
 
@@ -1064,7 +1093,7 @@ Cache hit rates vary by service and content popularity.
 
 1. Sign up for a debrid service
 2. In Kodi, open your add-on's **Account** or **Debrid** settings section
-3. Authorise your account — usually via a device code on the debrid website
+3. Authorise your account - usually via a device code on the debrid website
 4. Most popular Kodi add-ons and builds support Real-Debrid, AllDebrid, and TorBox natively
 
 </details>
@@ -1092,9 +1121,9 @@ This creates an effectively unlimited media server backed by debrid cloud storag
 
 Policies vary by service:
 
-- **TorBox** ✅ — Explicitly allows sharing across multiple devices and locations
-- **Real-Debrid** ❌ — Does not allow sharing; actively monitors for multi-IP usage and enforces bans
-- **AllDebrid / Premiumize / Debrid-Link** ⚠️ — Check each service's current Terms of Service
+- **TorBox** ✅ - Explicitly allows sharing across multiple devices and locations
+- **Real-Debrid** ❌ - Does not allow sharing; actively monitors for multi-IP usage and enforces bans
+- **AllDebrid / Premiumize / Debrid-Link** ⚠️ - Check each service's current Terms of Service
 
 </details>
 
@@ -1103,7 +1132,7 @@ Policies vary by service:
 <details>
 <summary><strong>Are debrid services legal?</strong></summary>
 
-Debrid services are legal tools — they act as technical intermediaries providing faster access to file-hosting infrastructure. What content you access through them may be legally questionable depending on your country and local copyright law. You are responsible for complying with all applicable laws and terms of service.
+Debrid services are legal tools - they act as technical intermediaries providing faster access to file-hosting infrastructure. What content you access through them may be legally questionable depending on your country and local copyright law. You are responsible for complying with all applicable laws and terms of service.
 
 We do not endorse copyright infringement. See our [Disclaimer](https://debridcompare.pages.dev/) for full details.
 
