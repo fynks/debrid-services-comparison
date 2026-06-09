@@ -35,7 +35,6 @@
 - [Choosing the Right Service](#choosing-the-right-service)
 - [Quick Start Guide](#quick-start-guide)
 - [Pricing Comparison](#pricing-comparison)
-- [Cache Capacity Comparison](#cache-capacity-comparison)
 - [Available Hosts](#available-hosts)
   - [Top 20 Popular Hosts](#top-20-popular-hosts)
   - [Complete Host List](#complete-host-list)
@@ -51,6 +50,7 @@
   - [🌐 Browser Extensions](#-browser-extensions)
   - [📱 Mobile Applications](#-mobile-applications)
 - [Community Resources](#community-resources)
+- [FAQ](#faq)
 - [Disclaimer](#disclaimer)
 - [Contributing](#contributing)
 - [Support This Project](#support-this-project)
@@ -251,34 +251,6 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 [(↑ Back to Top)](#table-of-contents)
 
 </div>
-
----
-
-## Cache Capacity Comparison
-
-> [!NOTE]
-> "Cache size" is not standardized across providers. Some services publish a fixed cloud quota, while others only publish per-download limits (or no public number at all).
-
-| **Service** | **Published Capacity** | **What This Means** |
-| :--- | :--- | :--- |
-| **Premiumize** | **1 TB (1,000 GB)** | **Dedicated Persistent Cloud:** A fixed storage quota. Files stay until deleted. Exceeding it requires &quot;Booster Points&quot; or deleting old data. |
-| **TorBox** | **10 GB / 200 GB / 1 TB** (Plan-dependent) | **Max Download Size:** Per-torrent ceiling (Pro plan = 1 TB). Also limited by **1–10 concurrent slots** rather than a total GB storage quota. |
-| **Real-Debrid** | **2,000 GB (2 TB)** (Per Torrent) | **Max File Limit:** No fixed total &quot;Cloud&quot; size. You can add files up to 2 TB each. The &quot;Torrents&quot; list acts as a temporary cache (files purged after inactivity). |
-| **Debrid-Link** | **2,000 GB (2 TB)** (Per Torrent) | **Seedbox Limit:** No fixed total storage quota; however, individual torrents/files cannot exceed 2 TB. Features a daily traffic limit (approx. 500GB-2TB). |
-| **AllDebrid** | **Not publicly specified** | **Fair Use System:** Does not list a fixed GB storage quota. Focuses on high-speed caching; limits are based on the number of active torrents and fair use. |
-| **LinkSnappy** | **Not publicly specified** | **Traffic-Based:** No fixed cloud storage quota advertised. Usage is governed by daily download traffic limits (typically \~250 GB/day). |
-
-> [!TIP]
-> For services marked "Not publicly specified," the practical limit is often governed by fair-use systems, per-file caps, retention windows, or dynamic backend policies rather than one static number.
-
-> **Last verified: March 21, 2026**
-
-<div align="right">
-
-[(↑ Back to Top)](#table-of-contents)
-
-</div>
-
 
 ---
 
@@ -958,6 +930,218 @@ For a more accurate assessment, follow these steps:
 
 ---
 
+## FAQ
+
+> Frequently asked questions about debrid services, features, compatibility, and usage.
+
+<details>
+<summary><strong>What exactly is a debrid service?</strong></summary>
+
+A **debrid service** (also called a "multi-hoster") is a paid intermediary between you and file-hosting sites or torrent networks. You submit a link or magnet → the service fetches and caches the content on its own high-bandwidth servers → you get a fast, ad-free direct download or stream link.
+
+Instead of connecting directly to a slow, throttled, or ad-ridden file host, the debrid service uses its own premium infrastructure and delivers content straight to you — with no waiting, no captchas, and no throttling.
+
+</details>
+
+---
+
+<details>
+<summary><strong>Which debrid service should I start with?</strong></summary>
+
+| Use Case | Recommended |
+|:---------|:-----------|
+| Best overall / Stremio + Kodi | **TorBox** (multi-IP, no-logs, free tier) |
+| Widest app & add-on compatibility | **Real-Debrid** *(but see warning below)* |
+| Usenet + torrents combo | **TorBox Pro** or **Premiumize** |
+| Persistent cloud storage | **Premiumize** |
+| Free to start, no card needed | **TorBox** |
+
+> ⚠️ **Real-Debrid (2025–2026):** Real-Debrid has been actively removing cached files flagged for copyright infringement, causing widespread broken streams in Stremio and Kodi. It also enforces a strict single-IP policy that can trigger account suspension when used across multiple locations. Many users have migrated to TorBox or AllDebrid as alternatives.
+
+Use our **[comparison table](https://debridcompare.pages.dev/)** to filter by features and supported hosts.
+
+</details>
+
+---
+
+<details>
+<summary><strong>⚠️ What's happening with Real-Debrid in 2026?</strong></summary>
+
+Since May 2026, Real-Debrid has been applying a keyword-based content filter that blocks cached files whose filenames contain common release tags (WEB-DL, WEBRip, AMZN, NF, CR, YTS, RARBG, and others). The result is widespread "File was removed from debrid service due to copyright infringement" errors in Stremio, Kodi, and other apps.
+
+**Key facts:**
+- Real-Debrid confirmed the filtering is a compliance measure under the EU's Digital Services Act (DSA) and French law
+- This is not a service outage - the subscription itself is active, but a large portion of cached content is now inaccessible
+- Some users report losing 50–70% of their cached libraries overnight
+- Real-Debrid also retains user logs (including IP and activity) for up to 6 months after account cancellation
+- The service still has value for older/niche content where its historical cache depth remains strong
+
+**Current alternatives:** TorBox (no equivalent filter as of June 2026, multi-IP, no-logs policy) and AllDebrid are the most commonly recommended replacements. Some power users run TorBox as their primary service and keep Real-Debrid as a fallback for content TorBox hasn't cached yet.
+
+</details>
+
+---
+
+<details>
+<summary><strong>Is there a free tier or trial available?</strong></summary>
+
+Yes — a few options to test before paying:
+
+- **TorBox** — Permanent free tier, no credit card required. Limited speed and concurrent slots but fully functional for testing.
+- **AllDebrid** — 7-day free trial (requires phone number verification).
+- **Debrid-Link** — Limited free trial tier.
+
+> Always test with a free or short-term plan before committing to a long-term subscription.
+
+</details>
+
+---
+
+<details>
+<summary><strong>Do debrid services support torrents?</strong></summary>
+
+Most do. Instead of downloading P2P from seeders, you submit a magnet link to the debrid service — it fetches the torrent remotely on its own servers and gives you a direct download link. Your IP is never exposed to the torrent swarm.
+
+| | Traditional P2P | Via Debrid |
+|---|---|---|
+| **Speed** | Throttled by ISP/seeders | Full bandwidth |
+| **IP exposure** | Your IP in swarm | Debrid's IP only |
+| **Seeding required** | Yes | No |
+
+**Services with torrent support:** Real-Debrid, AllDebrid, TorBox, Premiumize, Debrid-Link, Mega-Debrid, Deepbrid, High-Way ✅  
+**No torrent support:** LinkSnappy ❌
+
+</details>
+
+---
+
+<details>
+<summary><strong>Which debrid services support Usenet?</strong></summary>
+
+Only a few services offer Usenet support:
+
+- ✅ **TorBox Pro** — Full Usenet support included
+- ✅ **Premiumize** — Full Usenet support with 1 TB cloud storage
+
+**No Usenet support:** Real-Debrid, AllDebrid, Debrid-Link, LinkSnappy, Mega-Debrid, Deepbrid, High-Way ❌
+
+Usenet is a separate decentralised network — no P2P exposure, no seeding required, and consistently high speeds. Worth considering if DMCA-driven torrent cache removals are a concern.
+
+</details>
+
+---
+
+<details>
+<summary><strong>What is torrent caching / "instant" availability?</strong></summary>
+
+When any previous user has downloaded a torrent through a debrid service, it gets stored ("cached") on the service's servers. Cached content is served to you instantly — no waiting for peers or seeders. In Stremio add-ons like Torrentio or Comet, cached results appear with a **⚡** icon.
+
+Cache hit rates vary by service and content popularity.
+
+> **Note:** Real-Debrid's cache coverage has been significantly reduced by its ongoing copyright filter. TorBox currently has no equivalent filter.
+
+</details>
+
+---
+
+
+<details>
+<summary><strong>How do I use a debrid service with Stremio?</strong></summary>
+
+1. Sign up for a debrid service and generate an **API key** from your account dashboard
+2. In Stremio, install an add-on such as **Torrentio**, **AIOStreams**, or **Comet**
+3. Paste your API key during the add-on configuration and click **Install**
+4. Cached links will appear marked with ⚡ when you search for content
+
+> **Tip:** AIOStreams supports multiple debrid providers simultaneously — useful for maximising cache coverage across services.
+
+</details>
+
+---
+
+<details>
+<summary><strong>How do I use a debrid service with Kodi?</strong></summary>
+
+1. Sign up for a debrid service
+2. In Kodi, open your add-on's **Account** or **Debrid** settings section
+3. Authorise your account — usually via a device code on the debrid website
+4. Most popular Kodi add-ons and builds support Real-Debrid, AllDebrid, and TorBox natively
+
+</details>
+
+---
+
+<details>
+<summary><strong>Can I use a debrid service with Plex or Jellyfin?</strong></summary>
+
+Yes. The most common setup:
+
+1. Use **Zurg** to mount your debrid library as a WebDAV filesystem
+2. Use **Rclone** (with VFS cache) to mount it as a local drive on your server
+3. Point Plex or Jellyfin at the mounted directory as a local media library
+4. Optionally use **Riven** or **CLI-Debrid** for automated Sonarr/Radarr-style library management with symlinks
+
+This creates an effectively unlimited media server backed by debrid cloud storage.
+
+</details>
+
+---
+
+<details>
+<summary><strong>Can I share my debrid account?</strong></summary>
+
+Policies vary by service:
+
+- **TorBox** ✅ — Explicitly allows sharing across multiple devices and locations
+- **Real-Debrid** ❌ — Does not allow sharing; actively monitors for multi-IP usage and enforces bans
+- **AllDebrid / Premiumize / Debrid-Link** ⚠️ — Check each service's current Terms of Service
+
+</details>
+
+---
+
+<details>
+<summary><strong>Are debrid services legal?</strong></summary>
+
+Debrid services are legal tools — they act as technical intermediaries providing faster access to file-hosting infrastructure. What content you access through them may be legally questionable depending on your country and local copyright law. You are responsible for complying with all applicable laws and terms of service.
+
+We do not endorse copyright infringement. See our [Disclaimer](https://debridcompare.pages.dev/) for full details.
+
+</details>
+
+---
+
+<details>
+<summary><strong>Do debrid services offer refunds?</strong></summary>
+
+Most services have **no public refund policy** or only refund for technical failures on their end. Always verify the refund policy before purchasing and start with a free tier or short-term plan to test compatibility in your region first.
+
+</details>
+
+---
+
+<details>
+<summary><strong>Where can I get community support?</strong></summary>
+
+| Community | Link |
+|:----------|:-----|
+| r/debrid | https://www.reddit.com/r/debrid/ |
+| r/StremioAddons | https://www.reddit.com/r/StremioAddons/ |
+| r/Piracy | https://www.reddit.com/r/Piracy/ |
+| TorBox Discord | https://discord.gg/torbox |
+| Real-Debrid Forum | https://forum.real-debrid.com/ |
+| GitHub Discussions | https://github.com/fynks/debrid-services-comparison/discussions |
+
+</details>
+
+<div align="right">
+
+[(↑ Back to Top)](#table-of-contents)
+
+</div>
+
+---
+
 ## Disclaimer
 
 > [!IMPORTANT]
@@ -965,7 +1149,7 @@ For a more accurate assessment, follow these steps:
 
 This project aims to provide accurate and up-to-date information, but the debrid service landscape is dynamic. Please keep the following in mind:
 
-- **Services change frequently**: Pricing, host support, refund policies, and features change often—always check official sites before purchase.
+- **Services change frequently**: Pricing, host support, refund policies, and features change often-always check official sites before purchase.
 - **Final cost may vary**: Prices are subject to exchange rates, regional taxes, or payment processing fees. Actual charges may differ.
 - **Data accuracy**: Data is community-sourced and not guaranteed for accuracy, uptime, or feature availability.
 - **No affiliation**: This project is independent and not affiliated with any listed service.
