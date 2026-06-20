@@ -279,30 +279,22 @@
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <div class="page-wrapper">
         <header class="site-header">
-            <div class="header-blur-bg"></div>
             <div class="container">
                 <div class="header-content">
-                    <a href="/" class="site-title">
-                        <div class="logo-wrapper">
-                            <svg class="logo-icon" role="img" aria-label="Debrid Comparison Logo">
-                                <use href="#icon-logo" stroke="currentColor" stroke-width="2" fill="none" />
-                            </svg>
-                            <div class="logo-glow"></div>
-                        </div>
-                        <span class="logo-text">
-                            <span class="logo-primary">Debrid</span>
-                            <span class="logo-secondary">Compare</span>
-                        </span>
+                    <a href="/" class="site-title" aria-label="DebridCompare Home">
+                        <svg class="logo-icon" role="img" aria-hidden="true">
+                            <use href="#icon-logo" stroke="currentColor" stroke-width="2" fill="none" />
+                        </svg>
+                        <span>DebridCompare</span>
                     </a>
                     <nav id="primary-navigation" class="header-nav" aria-label="Main navigation" inert
                         role="navigation">
                         <div class="nav-mobile-header">
                             <div class="nav-mobile-brand">
                                 <span class="nav-mobile-title">Menu</span>
-                                <span class="nav-mobile-subtitle">Jump to a section</span>
                             </div>
                             <button class="nav-close" id="navClose" type="button" aria-label="Close navigation menu">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="2" aria-hidden="true">
                                     <use href="#icon-close" />
                                 </svg>
@@ -310,82 +302,26 @@
                         </div>
                         <div class="mobile-nav-links" aria-label="Mobile navigation links"></div>
                         <a href="#what-are-debrid-services" class="nav-link">
-                            <span class="nav-link-text">Intro</span>
+                            <span class="nav-link-text">About</span>
                         </a>
                         <a href="#debrid-pricing-comparison" class="nav-link">
                             <span class="nav-link-text">Pricing</span>
                         </a>
-                        <div class="nav-dropdown" data-label="Compare">
-                            <button class="nav-link nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true"
-                                aria-label="Toggle Compare menu">
-                                <span class="nav-link-text">Compare</span>
-                                <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <polyline points="6 9 12 15 18 9"></polyline>
-                                </svg>
-                            </button>
-                            <div class="nav-dropdown-menu" role="menu">
-                                <a href="#compare-debrid-services" class="nav-dropdown-item" role="menuitem">
-                                    <span>Services</span>
-                                </a>
-                                <a href="#supported-file-hosts" class="nav-dropdown-item" role="menuitem">
-                                    <span>File Hosts</span>
-                                </a>
-                                <a href="#usenet-support" class="nav-dropdown-item" role="menuitem">
-                                    <span>Usenet</span>
-                                </a>
-                                <a href="#adult-content-file-hosts" class="nav-dropdown-item" role="menuitem">
-                                    <span>Adult Hosts</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="nav-dropdown" data-label="Resources">
-                            <button class="nav-link nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true"
-                                aria-label="Toggle Resources menu">
-                                <span class="nav-link-text">Resources</span>
-                                <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <polyline points="6 9 12 15 18 9"></polyline>
-                                </svg>
-                            </button>
-                            <div class="nav-dropdown-menu" role="menu">
-                                <a href="#debrid-resources-tools" class="nav-dropdown-item" role="menuitem">
-                                    <span>Tools & Apps</span>
-                                </a>
-                                <a href="#debrid-speed-test" class="nav-dropdown-item" role="menuitem">
-                                    <span>Speed Test</span>
-                                </a>
-                                <a href="#service-status-monitoring" class="nav-dropdown-item" role="menuitem">
-                                    <span>Status Monitor</span>
-                                </a>
-                                <a href="#debrid-resources-tools" class="nav-dropdown-item" role="menuitem">
-                                    <span>Community</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="nav-dropdown" data-label="Info">
-                            <button class="nav-link nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true"
-                                aria-label="Toggle Info menu">
-                                <span class="nav-link-text">Info</span>
-                                <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <polyline points="6 9 12 15 18 9"></polyline>
-                                </svg>
-                            </button>
-                            <div class="nav-dropdown-menu" role="menu">
-                                <a href="#refund-policies-legal" class="nav-dropdown-item" role="menuitem">
-                                    <span>Policies & Legal</span>
-                                </a>
-                                <a href="https://github.com/fynks/debrid-services-comparison/blob/main/CONTRIBUTING.md"
-                                    class="nav-dropdown-item" role="menuitem" target="_blank" rel="noopener noreferrer">
-                                    <span>Contribute</span>
-                                </a>
-                                <a href="https://github.com/fynks/debrid-services-comparison" class="nav-dropdown-item"
-                                    role="menuitem" target="_blank" rel="noopener noreferrer">
-                                    <span>GitHub</span>
-                                </a>
-                            </div>
-                        </div>
+                        <a href="#compare-debrid-services" class="nav-link">
+                            <span class="nav-link-text">Compare</span>
+                        </a>
+                        <a href="#supported-file-hosts" class="nav-link">
+                            <span class="nav-link-text">Hosts</span>
+                        </a>
+                        <a href="#debrid-resources-tools" class="nav-link">
+                            <span class="nav-link-text">Tools</span>
+                        </a>
+                        <a href="#debrid-speed-test" class="nav-link">
+                            <span class="nav-link-text">Speed Test</span>
+                        </a>
+                        <a href="#refund-policies-legal" class="nav-link">
+                            <span class="nav-link-text">Policies</span>
+                        </a>
                     </nav>
                     <div class="header-actions">
                         <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode"
