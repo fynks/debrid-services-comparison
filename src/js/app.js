@@ -37,15 +37,15 @@ const CONFIG = Object.freeze({
    DEBRID SERVICE STATUS PAGES
    ============================================================================ */
 const SERVICE_STATUS_PAGES = Object.freeze({
-  'AllDebrid': 'https://alldebrid.com/hosts/',
-  'Real-Debrid': 'https://real-debrid.com/status',
-  'TorBox': 'https://torbox.app/status',
-  'Premiumize': 'https://www.premiumize.me/status',
-  'Debrid-Link': 'https://debrid-link.com/status',
-  'LinkSnappy': 'https://linksnappy.com/status',
-  'Mega-Debrid': 'https://mega-debrid.net/',
+  'AllDebrid': 'https://alldebrid.com/status/',
+  'Real-Debrid': 'https://real-debrid.com/compare',
+  'TorBox': 'https://torbox.app/hosters',
+  'Premiumize': 'https://www.premiumize.me/services',
+  'Debrid-Link': 'https://debrid-link.com/webapp/status',
+  'LinkSnappy': 'https://linksnappy.com/myaccount/status',
+  'Mega-Debrid': 'https://www.mega-debrid.eu/index.php?page=hosters',
   'Deepbrid': 'https://www.deepbrid.com/status',
-  'High-Way': 'https://high-way.tv/'
+  'High-Way': 'https://high-way.me/pages/status/'
 });
 
 /* ============================================================================
