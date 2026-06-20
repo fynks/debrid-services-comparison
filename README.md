@@ -115,17 +115,26 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 | Your Priority | Recommended Service | See Details |
 |:-------------|:-------------------|:-----------|
+|**🏆 Best Overall / Stremio + Kodi** | **TorBox** | [→ Pricing](#pricing-comparison) |
 |**Lowest Price** | AllDebrid | [→ Pricing](#pricing-comparison) |
-|**Usenet + Torrents** | Premiumize | [→ Feature Comparison](#feature-comparison) |
+|**Usenet + Torrents** | TorBox Pro / Premiumize | [→ Feature Comparison](#feature-comparison) |
 |**Try Before Buy** | TorBox | [→ Pricing](#pricing-comparison) |
 |**Maximum Hosts** | LinkSnappy | [→ File Hosts](#file-hosts) |
 |**Plex/Jellyfin Setup** | Premiumize | [→ Media Tools](#-media-management) |
+|**Legacy Cache / Niche Content** | Real-Debrid ⚠️ | [→ RD Warning](#-whats-happening-with-real-debrid-in-2026) |
 
 
 <details>
 <summary><strong>🤔 Still not sure? Click here for personalized recommendations</strong></summary>
 
 <br>
+
+**Choose TorBox if:**
+- ✅ You want the best all-rounder for Stremio / Kodi
+- ✅ Multi-IP usage (no account sharing bans)
+- ✅ You want a free tier to test before buying
+- ✅ Privacy matters (no-logs policy)
+- ✅ You like modern interfaces and responsive support
 
 **Choose AllDebrid if:**
 - ✅ You want the cheapest reliable option
@@ -137,15 +146,15 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 - ✅ You want premium support
 - ✅ Privacy and security are priorities
 
-**Choose TorBox if:**
-- ✅ You want to try free first
-- ✅ You like modern interfaces
-- ✅ You're okay with a newer service
-
 **Choose LinkSnappy if:**
 - ✅ You need support for obscure file hosts
 - ✅ Maximum host coverage is critical
 - ✅ You download from many different sources
+
+**Choose Real-Debrid if (⚠️ with caution):**
+- ✅ You need legacy cache depth for older/niche content
+- ✅ You're already subscribed and some 1080p content still works
+- ❌ **Not recommended** as a primary service - copyright filtering blocks 50-70% of cached content as of June 2026
 
 </details>
 <br>
@@ -194,6 +203,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 > [!TIP]
 > **Best Value Picks:**
 > - 🏆 **Budget**: AllDebrid (€2.99/month recurring)
+> - 🔥 **Best Overall**: TorBox (from $3.00/month - free tier available)
 > - 🆓 **Free Option**: TorBox (limited features)
 
 
@@ -938,8 +948,9 @@ Instead of connecting directly to a slow, throttled, or ad-ridden file host, the
 | Usenet + torrents combo | **TorBox Pro** or **Premiumize** |
 | Persistent cloud storage | **Premiumize** |
 | Free to start, no card needed | **TorBox** |
+| Legacy/niche content (fallback) | **Real-Debrid** ⚠️ - [see warning](#-whats-happening-with-real-debrid-in-2026) |
 
-> ⚠️ **Real-Debrid (2025–2026):** Real-Debrid has been actively removing cached files flagged for copyright infringement, causing widespread broken streams in Stremio and Kodi. It also enforces a strict single-IP policy that can trigger account suspension when used across multiple locations. Many users have migrated to TorBox or AllDebrid as alternatives.
+> ⚠️ **Real-Debrid (2025–2026):** Real-Debrid has been actively removing cached files flagged for copyright infringement, causing widespread broken streams in Stremio and Kodi. It also enforces a strict single-IP policy that can trigger account suspension when used across multiple locations. **TorBox** is now the most commonly recommended replacement - it has no equivalent copyright filter (as of June 2026), allows multi-IP usage, and has a no-logs policy. Many users who switched report a better overall experience.
 
 Use our **[comparison table](https://debridcompare.pages.dev/)** to filter by features and supported hosts.
 
@@ -950,16 +961,22 @@ Use our **[comparison table](https://debridcompare.pages.dev/)** to filter by fe
 <details>
 <summary><strong>⚠️ What's happening with Real-Debrid in 2026?</strong></summary>
 
-Since May 2026, Real-Debrid has been applying a keyword-based content filter that blocks cached files whose filenames contain common release tags (WEB-DL, WEBRip, AMZN, NF, CR, YTS, RARBG, and others). The result is widespread "File was removed from debrid service due to copyright infringement" errors in Stremio, Kodi, and other apps.
+Since May 2026, Real-Debrid has been applying a **keyword-based content filter** that blocks cached files whose filenames contain common release tags (WEB-DL, WEBDL, WEBRip, AMZN, NF, CR, YTS, RARBG, and others). The result is widespread "File was removed from debrid service due to copyright infringement" errors in Stremio, Kodi, and other apps.
 
-**Key facts:**
-- Real-Debrid confirmed the filtering is a compliance measure under the EU's Digital Services Act (DSA) and French law
-- This is not a service outage - the subscription itself is active, but a large portion of cached content is now inaccessible
-- Some users report losing 50–70% of their cached libraries overnight
-- Real-Debrid also retains user logs (including IP and activity) for up to 6 months after account cancellation
-- The service still has value for older/niche content where its historical cache depth remains strong
+**Key facts (sourced from [TorrentFreak](https://torrentfreak.com/real-debrids-renewed-piracy-crackdown-follows-corporate-restructuring/), Reddit communities, and RD's own statements):**
 
-**Current alternatives:** TorBox (no equivalent filter as of June 2026, multi-IP, no-logs policy) and AllDebrid are the most commonly recommended replacements. Some power users run TorBox as their primary service and keep Real-Debrid as a fallback for content TorBox hasn't cached yet.
+- **Confirmed by Real-Debrid:** The filtering is a compliance measure under the EU's Digital Services Act (DSA) and French law (LCEN), responding to keyword lists from "trusted flaggers" (per Article 16 of the DSA)
+- **Corporate restructuring:** RD's parent company XT Network converted from SARL to SAS on May 7, 2026, with founders replaced by holding companies - days before the crackdown. RD says the restructuring is unrelated to the filtering
+- **50–70% library loss:** [ElfHosted's LitterBox tool](https://litterbox.elfhosted.com/) found that most users lost 50–70% of their cached libraries. Stremio users were hit less hard than Plex/Jellyfin/Emby users with Sonarr/Radarr
+- **4K vs 1080p:** The filter primarily targets files with "WEB-DL", "WEBRip", "AMZN" etc. in the filename. 1080p releases are less likely to use these naming patterns, so many 1080p streams still work while 4K/HDR streams are heavily affected
+- **New torrents blocked:** Users report that even newly added torrents are automatically flagged as infringing and cannot be cached
+- **Silent treatment:** RD's official social media has been silent for over 6 months. The r/RealDebrid subreddit removed its megathread and now requires moderator approval for all posts
+- **Log retention:** Real-Debrid retains user logs (including IP and activity) for up to 6 months after account cancellation
+- **Single-IP policy:** RD enforces a strict single-IP policy that can trigger account suspension when used across multiple locations
+
+**Current state (June 2026):** Real-Debrid still works for some content (particularly 1080p non-WEB releases and older/niche cache), but its reliability for mainstream streaming is severely degraded.
+
+**Current alternatives:** **TorBox** (no equivalent copyright filter as of June 2026, multi-IP allowed, no-logs policy, free tier available) is the most commonly recommended replacement on Reddit. **AllDebrid** is also a popular budget alternative. Some power users run TorBox as their primary service and keep Real-Debrid as a fallback for niche content where RD's historical cache depth remains unmatched.
 
 </details>
 
