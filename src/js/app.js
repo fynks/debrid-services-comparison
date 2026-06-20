@@ -34,6 +34,21 @@ const CONFIG = Object.freeze({
 });
 
 /* ============================================================================
+   DEBRID SERVICE STATUS PAGES
+   ============================================================================ */
+const SERVICE_STATUS_PAGES = Object.freeze({
+  'AllDebrid': 'https://alldebrid.com/hosts/',
+  'Real-Debrid': 'https://real-debrid.com/status',
+  'TorBox': 'https://torbox.app/status',
+  'Premiumize': 'https://www.premiumize.me/status',
+  'Debrid-Link': 'https://debrid-link.com/status',
+  'LinkSnappy': 'https://linksnappy.com/status',
+  'Mega-Debrid': 'https://mega-debrid.net/',
+  'Deepbrid': 'https://www.deepbrid.com/status',
+  'High-Way': 'https://high-way.tv/'
+});
+
+/* ============================================================================
    MEMOIZATION UTILITY
    ============================================================================ */
 const memoize = (fn, options = {}) => {
@@ -853,6 +868,7 @@ class TableManager {
   #renderChunked(tbody, entries, columns, token, showLoadMore) {
     let index = 0;
     const chunkSize = this.options.chunkSize;
+    const { isSearchActive } = this.#state.get();
 
     const renderNextChunk = () => {
       // Check if render was cancelled
@@ -863,7 +879,7 @@ class TableManager {
 
       for (; index < limit; index++) {
         const [host, hostData] = entries[index];
-        const row = this.#createTableRow(host, hostData, columns);
+        const row = this.#createTableRow(host, hostData, columns, isSearchActive);
         fragment.appendChild(row);
       }
 
@@ -947,7 +963,7 @@ class TableManager {
     }, 100);
   }
 
-  #createTableRow(host, hostData, columns) {
+  #createTableRow(host, hostData, columns, isSearchActive = false) {
     const row = Utils.createElement('tr', {
       role: 'row',
       dataset: { host: host.toLowerCase() }
@@ -959,7 +975,7 @@ class TableManager {
 
     // Status cells
     columns.forEach(column => {
-      const statusCell = this.#createStatusCell(hostData[column]);
+      const statusCell = this.#createStatusCell(hostData[column], column, isSearchActive);
       row.appendChild(statusCell);
     });
 
@@ -981,7 +997,7 @@ class TableManager {
     return cell;
   }
 
-  #createStatusCell(status) {
+  #createStatusCell(status, serviceName, isSearchActive = false) {
     const isSupported = status === '✅';
     const cell = Utils.createElement('td', {
       className: 'status-cell',
@@ -1004,6 +1020,48 @@ class TableManager {
 
     cell.appendChild(indicator);
     cell.appendChild(srText);
+
+    // Add live status button only when searching AND the service actually supports this host
+    const statusPageUrl = SERVICE_STATUS_PAGES[serviceName];
+    if (isSearchActive && isSupported && statusPageUrl) {
+      const statusLink = Utils.createElement('a', {
+        href: statusPageUrl,
+        target: '_blank',
+        rel: 'noopener noreferrer',
+        className: 'live-status-link',
+        title: `Check live host status for ${serviceName}`,
+        'aria-label': `Check live host status for ${serviceName}`
+      });
+
+      const statusIcon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      statusIcon.setAttribute('width', '11');
+      statusIcon.setAttribute('height', '11');
+      statusIcon.setAttribute('viewBox', '0 0 24 24');
+      statusIcon.setAttribute('fill', 'none');
+      statusIcon.setAttribute('stroke', 'currentColor');
+      statusIcon.setAttribute('stroke-width', '2');
+      statusIcon.setAttribute('stroke-linecap', 'round');
+      statusIcon.setAttribute('stroke-linejoin', 'round');
+      statusIcon.setAttribute('aria-hidden', 'true');
+      statusIcon.classList.add('live-status-icon');
+      const path1 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      path1.setAttribute('d', 'M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6');
+      const poly = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+      poly.setAttribute('points', '15 3 21 3 21 9');
+      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', '10');
+      line.setAttribute('y1', '14');
+      line.setAttribute('x2', '21');
+      line.setAttribute('y2', '3');
+      statusIcon.appendChild(path1);
+      statusIcon.appendChild(poly);
+      statusIcon.appendChild(line);
+
+      const statusText = document.createTextNode('Status');
+      statusLink.appendChild(statusIcon);
+      statusLink.appendChild(statusText);
+      cell.appendChild(statusLink);
+    }
 
     return cell;
   }

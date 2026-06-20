@@ -1909,6 +1909,77 @@ th {
   transform: scale(1.1);
 }
 
+/* ===== LIVE STATUS LINK (below checkmarks in search table) ===== */
+.live-status-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  margin-top: 4px;
+  padding: 2px 7px;
+  font-size: 0.65rem;
+  font-weight: var(--font-medium);
+  line-height: 1.4;
+  color: var(--primary);
+  background: transparent;
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.live-status-link:hover,
+.live-status-link:focus-visible {
+  color: #fff;
+  background: var(--primary);
+  border-color: var(--primary);
+  box-shadow: 0 1px 4px rgba(79, 70, 229, 0.3);
+}
+
+.live-status-link:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.live-status-link .live-status-icon {
+  flex-shrink: 0;
+  opacity: 0.8;
+  transition: opacity var(--transition-fast);
+}
+
+.live-status-link:hover .live-status-icon,
+.live-status-link:focus-visible .live-status-icon {
+  opacity: 1;
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .live-status-link {
+  border-color: var(--border-secondary);
+  color: var(--primary-light);
+}
+
+[data-theme="dark"] .live-status-link:hover,
+[data-theme="dark"] .live-status-link:focus-visible {
+  color: #fff;
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+/* Mobile: slightly larger touch target */
+@media (max-width: 768px) {
+  .live-status-link {
+    padding: 3px 8px;
+    font-size: 0.7rem;
+    gap: 4px;
+  }
+}
+
 .empty-state-row {
   text-align: center;
   padding: var(--space-2xl) !important;

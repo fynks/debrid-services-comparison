@@ -6,3 +6,5 @@ node_modules
 # Optimized JSON (regenerated on build)
 public/json/file-hosts-optimized.json
 public/json/adult-hosts-optimized.json
+src/json/adult-hosts-optimized.json
+src/json/file-hosts-optimized.json
