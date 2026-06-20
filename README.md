@@ -34,7 +34,6 @@
 - [Quick Start Guide](#quick-start-guide)
 - [Pricing Comparison](#pricing-comparison)
 - [Available Hosts](#available-hosts)
-  - [Top 20 Popular Hosts](#top-20-popular-hosts)
   - [Complete Host List](#complete-host-list)
   - [Usenet Support](#usenet-support)
   - [Adult Hosts](#adult-hosts)
@@ -264,46 +263,6 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 > [!WARNING]
 > Real-Debrid has started returning copyright-infringement errors on many cached torrents. Read more on: [Torrent Freak](https://torrentfreak.com/real-debrids-renewed-piracy-crackdown-follows-corporate-restructuring/) 
-
-### Top 20 Popular Hosts
-
-These hosts account for ~80% of typical usage. Most debrid services support these popular hosts.
-
-| **Service Name** | **Real-Debrid** | **AllDebrid** | **TorBox** | **Deepbrid** | **Premiumize** | **Debrid-Link** | **Mega-Debrid** | **LinkSnappy** | **High-Way** |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1Fichier | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 4Shared | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Clicknupload | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
-| Dailyuploads | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ |
-| Drop.download | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
-| Filer.net | ❌ | ❌ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ |
-| Filefactory | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ |
-| Filestore | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
-| Google drive | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| Hexupload / hexload | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ |
-| Hitfile | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
-| Isra.cloud | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Katfile | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Mediafire | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
-| Mega | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Rapidgator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Soundcloud | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ |
-| Turbobit | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Vidoza | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ |
-| Worldbytez | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ |
-
-> [!TIP]
-> - Use **[Ctrl+F / Cmd+F](#complete-host-list)** in the complete table below or 
-> - Try the **[Interactive Web App](https://debridcompare.pages.dev)** ↗️
-> - Check the **[Complete Host List](#complete-host-list)** for all supported hosts
-
-<div align="right">
-
-[(↑ Back to Top)](#table-of-contents)
-
-</div>
-
----
 
 ### Complete Host List
 
@@ -653,8 +612,6 @@ Comprehensive list of all supported file hosts across all services.
 > - **Search**: Use `Ctrl+F` (Windows/Linux) or `Cmd+F` (Mac) to find specific hosts
 > - **Total support**: See the bottom row for each service's total host count
 > - **Checkmarks**: ✅ = Supported, ❌ = Not supported
-> - **Too long?** Use the **[Top 20 Popular Hosts](#top-20-popular-hosts)** quick reference above
-
 <br>
 
 > **Last updated: May 22, 2026**
