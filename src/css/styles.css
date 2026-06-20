@@ -848,17 +848,17 @@ button:focus-visible {
 /* ===== HERO SECTION ===== */
 .hero-section {
   position: relative;
-  padding: calc(var(--header-height) + var(--space-5xl)) 0 var(--space-5xl);
+  padding: calc(var(--header-height) + var(--space-6xl)) 0 var(--space-7xl);
   background: var(--bg-primary);
   border-bottom: 1px solid var(--border-primary);
-  display: flex;
+  display: grid;
   align-items: center;
-  min-height: 50vh;
+  min-height: clamp(480px, 65vh, 720px);
 }
 
 .hero-content {
   text-align: center;
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -866,7 +866,7 @@ button:focus-visible {
   font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
   font-weight: var(--font-bold);
   line-height: 1.15;
-  margin: 0 0 var(--space-lg);
+  margin: 0 0 var(--space-xl);
   color: var(--text-primary);
   letter-spacing: -.02em;
 }
@@ -882,33 +882,35 @@ button:focus-visible {
 .hero-description {
   font-size: var(--text-lg);
   color: var(--text-secondary);
-  margin: 0 0 var(--space-3xl);
-  max-width: 550px;
+  margin: 0 0 var(--space-4xl);
+  max-width: 600px;
   margin-inline: auto;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 .hero-actions {
   display: flex;
-  gap: var(--space-md);
+  gap: var(--space-lg);
   justify-content: center;
-  margin-bottom: var(--space-4xl);
+  margin-bottom: var(--space-5xl);
   flex-wrap: wrap;
 }
 
 .hero-stats {
   display: flex;
-  gap: var(--space-4xl);
+  gap: var(--space-6xl);
   justify-content: center;
   flex-wrap: wrap;
-  padding: var(--space-xl) 0 0;
+  padding: var(--space-3xl) 0 0;
   border-top: 1px solid var(--border-primary);
-  max-width: 400px;
+  max-width: 500px;
   margin: 0 auto;
 }
 
 .stat-item {
   text-align: center;
+  flex: 1;
+  min-width: 100px;
 }
 
 .stat-number {
