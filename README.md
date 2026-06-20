@@ -115,7 +115,6 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 | Your Priority | Recommended Service | See Details |
 |:-------------|:-------------------|:-----------|
-|**Stremio Streaming** | Real-Debrid | [→ Pricing](#pricing-comparison) |
 |**Lowest Price** | AllDebrid | [→ Pricing](#pricing-comparison) |
 |**Usenet + Torrents** | Premiumize | [→ Feature Comparison](#feature-comparison) |
 |**Try Before Buy** | TorBox | [→ Pricing](#pricing-comparison) |
@@ -195,7 +194,6 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 > [!TIP]
 > **Best Value Picks:**
 > - 🏆 **Budget**: AllDebrid (€2.99/month recurring)
-> - 🔥 **Popular**: Real-Debrid (€4.00/month)
 > - 🆓 **Free Option**: TorBox (limited features)
 
 
@@ -937,7 +935,6 @@ Instead of connecting directly to a slow, throttled, or ad-ridden file host, the
 | Use Case | Recommended |
 |:---------|:-----------|
 | Best overall / Stremio + Kodi | **TorBox** (multi-IP, no-logs, free tier) |
-| Widest app & add-on compatibility | **Real-Debrid** *(but see warning below)* |
 | Usenet + torrents combo | **TorBox Pro** or **Premiumize** |
 | Persistent cloud storage | **Premiumize** |
 | Free to start, no card needed | **TorBox** |
