@@ -1,7 +1,7 @@
 node_modules
 
 # Build output (Vite builds to dist/)
-dist/
+/dist/
 
 # Optimized JSON (regenerated on build)
 public/json/file-hosts-optimized.json
