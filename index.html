@@ -2168,9 +2168,13 @@
                                         e.preventDefault();
                                         closeNav({ restoreScroll: false });
                                         requestAnimationFrame(() => {
-                                            target.scrollIntoView({
-                                                behavior: prefersReduced ? 'auto' : 'smooth',
-                                                block: 'start'
+                                            const header = document.querySelector('.site-header');
+                                            const headerHeight = header ? header.offsetHeight : 80;
+                                            const offset = headerHeight + 16;
+                                            const rect = target.getBoundingClientRect();
+                                            window.scrollTo({
+                                                top: Math.max(0, window.scrollY + rect.top - offset),
+                                                behavior: prefersReduced ? 'auto' : 'smooth'
                                             });
 
                                             const focusEl = target.querySelector('h1,h2,h3,h4,h5,h6') || target;
@@ -2269,9 +2273,13 @@
                         if (!target) return;
 
                         e.preventDefault();
-                        target.scrollIntoView({
-                            behavior: prefersReduced ? 'auto' : 'smooth',
-                            block: 'start'
+                        const header = document.querySelector('.site-header');
+                        const headerHeight = header ? header.offsetHeight : 80;
+                        const offset = headerHeight + 16;
+                        const rect = target.getBoundingClientRect();
+                        window.scrollTo({
+                            top: Math.max(0, window.scrollY + rect.top - offset),
+                            behavior: prefersReduced ? 'auto' : 'smooth'
                         });
 
                         const focusEl = target.querySelector('h1,h2,h3,h4,h5,h6') || target;
