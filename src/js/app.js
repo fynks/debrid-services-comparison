@@ -11,6 +11,7 @@ import fileHostsData from '../json/file-hosts-optimized.json' with { type: 'json
 import adultHostsData from '../json/adult-hosts-optimized.json' with { type: 'json' };
 import { ComponentLifecycle } from './core/ComponentLifecycle.js';
 import { DataTransformer } from './services/DataTransformer.js';
+import { createElement } from './utils/dom.js';
 
 /* ============================================================================
    CONFIGURATION & CONSTANTS
@@ -121,33 +122,6 @@ const Utils = (() => {
         lastArgs = args;
       }
     };
-  };
-
-  // Efficient DOM element creation with attributes
-  const createElement = (tag, attributes = {}, children = []) => {
-    const element = document.createElement(tag);
-
-    Object.entries(attributes).forEach(([key, value]) => {
-      if (key === 'className') {
-        element.className = value;
-      } else if (key === 'dataset') {
-        Object.assign(element.dataset, value);
-      } else if (key.startsWith('on') && typeof value === 'function') {
-        element.addEventListener(key.slice(2).toLowerCase(), value);
-      } else {
-        element.setAttribute(key, value);
-      }
-    });
-
-    children.forEach(child => {
-      if (typeof child === 'string') {
-        element.appendChild(document.createTextNode(child));
-      } else if (child instanceof Node) {
-        element.appendChild(child);
-      }
-    });
-
-    return element;
   };
 
   // Schedule work during idle time

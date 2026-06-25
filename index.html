@@ -1143,7 +1143,7 @@
                         </div>
 
                         <div class="important-notes-grid">
-                            <div class="note-card note-card">
+                            <div class="note-card">
                                 <svg class="note-icon" role="img" aria-hidden="true">
                                     <use href="#icon-note" stroke="currentColor" stroke-width="2" fill="none" />
                                 </svg>
@@ -1155,7 +1155,7 @@
                                         before purchasing.</p>
                                 </div>
                             </div>
-                            <div class="note-card note-card">
+                            <div class="note-card">
                                 <svg class="note-icon" role="img" aria-hidden="true">
                                     <use href="#icon-money" stroke="currentColor" stroke-width="2" fill="none" />
                                 </svg>
@@ -1165,7 +1165,7 @@
                                         processing fees. Your actual charge may differ slightly.</p>
                                 </div>
                             </div>
-                            <div class="note-card note-card">
+                            <div class="note-card">
                                 <svg class="note-icon" role="img" aria-hidden="true">
                                     <use href="#icon-document" stroke="currentColor" stroke-width="2" fill="none" />
                                 </svg>
@@ -1176,7 +1176,7 @@
                                         success, or feature availability.</p>
                                 </div>
                             </div>
-                            <div class="note-card note-card">
+                            <div class="note-card">
                                 <svg class="note-icon" role="img" aria-hidden="true">
                                     <use href="#icon-user" stroke="currentColor" stroke-width="2" fill="none" />
                                 </svg>
@@ -1186,7 +1186,7 @@
                                         service.</p>
                                 </div>
                             </div>
-                            <div class="note-card note-card">
+                            <div class="note-card">
                                 <svg class="note-icon" role="img" aria-hidden="true">
                                     <use href="#icon-check" stroke="currentColor" stroke-width="2" fill="none" />
                                 </svg>
@@ -1196,7 +1196,7 @@
                                         and review terms carefully.</p>
                                 </div>
                             </div>
-                            <div class="note-card note-card">
+                            <div class="note-card">
                                 <svg class="note-icon" role="img" aria-hidden="true">
                                     <use href="#icon-lock" stroke="currentColor" stroke-width="2" fill="none" />
                                 </svg>
@@ -2224,39 +2224,6 @@
                         setTimeout(() => focusEl.removeAttribute('tabindex'), 400);
                     }, { passive: false });
                 });
-            };
-
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', init);
-            } else {
-                init();
-            }
-        })();
-
-        // Back to top button
-        (function () {
-            'use strict';
-
-            const init = () => {
-                const backToTop = document.getElementById('backToTop');
-                if (!backToTop) return;
-
-                const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-                window.addEventListener('scroll', () => {
-                    if (window.pageYOffset > 300) {
-                        backToTop.classList.add('visible');
-                    } else {
-                        backToTop.classList.remove('visible');
-                    }
-                }, { passive: true });
-
-                backToTop.addEventListener('click', () => {
-                    window.scrollTo({
-                        top: 0,
-                        behavior: prefersReduced ? 'auto' : 'smooth'
-                    });
-                }, { passive: true });
             };
 
             if (document.readyState === 'loading') {
