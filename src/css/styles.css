@@ -1835,35 +1835,6 @@ th {
   }
 }
 
-/* ===== RESPONSIVE TABLE MOBILE MODE ===== */
-.table-responsive-mobile tbody tr {
-  display: flex;
-  flex-direction: column;
-  border-bottom: 2px solid var(--border-primary);
-  padding: var(--space-md) 0
-}
-
-.table-responsive-mobile td {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--space-sm) var(--space-md);
-  border-bottom: none;
-  text-align: right
-}
-
-.table-responsive-mobile td::before {
-  content: attr(data-label);
-  font-weight: var(--font-semibold);
-  color: var(--text-primary);
-  margin-right: var(--space-lg);
-  white-space: nowrap
-}
-
-.table-responsive-mobile thead {
-  display: none
-}
-
 .filter-results {
   text-align: center;
   padding: .1em;
