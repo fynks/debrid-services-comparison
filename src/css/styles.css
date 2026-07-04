@@ -873,7 +873,7 @@ a:hover {
   border-bottom: 1px solid var(--border-primary);
   display: grid;
   align-items: center;
-  min-height: clamp(480px, 65vh, 720px);
+  min-height: calc(100vh - var(--header-height));
 }
 
 .hero-content {
@@ -3219,7 +3219,7 @@ select:hover {
 
   @media (max-width:900px) {
     .hero-section {
-      padding:clamp(3.5rem, 10vw, 5rem) 0 clamp(3rem, 8vw, 4rem); min-height:clamp(460px, 65vh, 720px)
+      padding:clamp(3.5rem, 10vw, 5rem) 0 clamp(3rem, 8vw, 4rem); min-height:auto
     }
 
     .footer-content {
@@ -3323,7 +3323,7 @@ select:hover {
 
   @media (max-width:700px) {
     .hero-section {
-      padding:clamp(3rem, 9vw, 4rem) 0 clamp(2.5rem, 7vw, 3.5rem); min-height:clamp(480px, 70vh, 760px)
+      padding:clamp(3rem, 9vw, 4rem) 0 clamp(2.5rem, 7vw, 3.5rem); min-height:auto
     }
   }
 
