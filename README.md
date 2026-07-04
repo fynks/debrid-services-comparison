@@ -203,8 +203,9 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 > [!TIP]
 > **Best Value Picks:**
 > - 🏆 **Budget**: AllDebrid (€2.99/month recurring)
-> - 🔥 **Best Overall**: TorBox (from $3.00/month - free tier available)
+> - 🔥 **Best Overall**: TorBox (Essential $3 / Standard $5 / Pro $10 - free tier available)
 > - 🆓 **Free Option**: TorBox (limited features)
+> - 💪 **Power Users**: Premiumize (€69.99/year with 1TB storage + Usenet)
 
 
 ### Price Comparison Table
@@ -214,18 +215,18 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 | **Free / Trial** | [7-day trial¹](#footnote-1) | ❌ | ❌ | [Free tier²](#footnote-2) | ❌ | ❌ | ❌ | Limited hosts only | [Limited Hosts⁶](#footnote-6) |
 | **7 Days** | ❌ | ❌ | ❌ | ❌ | ❌ | $4.99 | ❌ | ❌ | ❌ |
 | **15 Days** | [€2.99 (one-time)⁴](#footnote-4) | ❌ | €3.00 | ❌ | €3.00 | ❌ | ❌ | €4.50 | ❌ |
-| **30 Days** | [€2.99 (recurring)³](#footnote-3)&lt;br&gt;[€3.99 (one-time)⁴](#footnote-4) | $11.99 | €4.00 | [From $3.00/month⁵](#footnote-5) | €4.00 | $12.99 | €4.00 | €4.99 | From €5.99 |
+| **30 Days** | [€2.99 (recurring)³](#footnote-3)&lt;br&gt;[€3.99 (one-time)⁴](#footnote-4) | €9.99 | €4.00 | [Essential $3 / Standard $5 / Pro $10⁵](#footnote-5) | €4.00 | $12.99 | €4.00 | €4.99 | From €5.99 |
 | **90 Days** | [€8.99 (one-time)⁴](#footnote-4) | $29.99 | €9.00 | ❌ | €9.00 | $29.99 | €9.00 | €12.99 | From €15.99 |
 | **180 Days** | [€15.99 (one-time)⁴](#footnote-4) | ❌ | €16.00 | ❌ | €16.00 | $54.99 | €16.00 | €19.99 | From €29.99 |
 | **300 Days** | [€24.99 (one-time)⁴](#footnote-4) | ❌ | ❌ | ❌ | €25.00 | ❌ | ❌ | ❌ | ❌ |
-| **365 Days / 1 Year** | ❌ | $79.99 | ❌ | [From $33.00/year⁵](#footnote-5) | ❌ | ❌ | ❌ | €32.99 | ❌ |
+| **365 Days / 1 Year** | ❌ | €69.99 | ❌ | [Essential $33 / Pro $110⁵](#footnote-5) | ❌ | ❌ | ❌ | €32.99 | ❌ |
 
 > [!NOTE]
 > - <span id="footnote-1">**¹ AllDebrid Free Trial**</span>: 7-day trial requires phone verification. [Verify pricing →](https://alldebrid.com/offer/)
 > - <span id="footnote-2">**² TorBox Free Tier**</span>: Limited speed and features; no torrenting. [Verify pricing →](https://torbox.app/pricing)
 > - <span id="footnote-3">**³ AllDebrid Recurring**</span>: Auto-renews monthly at €2.99. [Verify pricing →](https://alldebrid.com/offer/)
 > - <span id="footnote-4">**⁴ AllDebrid / Debrid-Link One-Time**</span>: Non-recurring payment. Often better value than recurring. [Verify pricing →](https://alldebrid.com/offer/)
-> - <span id="footnote-5">**⁵ TorBox Tiers**</span>: Multiple plans starting at $3.00/month. Higher tiers unlock more features. [Verify pricing →](https://torbox.app/subscription)
+> - <span id="footnote-5">**⁵ TorBox Tiers**</span>: Free (3 slots, 10 downloads/mo), Essential ($3/mo, unlimited DL, 300GB storage), Standard ($5/mo, 500GB storage, 14-day seeding), Pro ($10/mo, 1TB storage, 80Gbps, Usenet, 30-day seeding). [Verify pricing →](https://torbox.app/subscription)
 > - <span id="footnote-6">**⁶ High-Way**</span>: Limited Hoster, Free MB through activity in the forum. [Verify pricing →](https://high-way.me/pages/tariffs)
 
 ### Up-to-date Pricing
@@ -249,7 +250,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 </details><br>
 
-> **Last updated: May 22, 2026**
+> **Last updated: July 4, 2026**
 
 <br>
 
@@ -622,7 +623,7 @@ Comprehensive list of all supported file hosts across all services.
 > - **Checkmarks**: ✅ = Supported, ❌ = Not supported
 <br>
 
-> **Last updated: May 22, 2026**
+> **Last updated: July 4, 2026**
 
 <div align="right">
 
@@ -783,10 +784,11 @@ For a more accurate assessment, follow these steps:
 
 > [!TIP]
 > **New to debrid tools?** Start with:
-> - 🎬 **Stremio** + **Torrentio** for easy streaming
+> - 🎬 **Stremio** + **Comet** or **AIOStreams** for easy streaming
 > - 📦 **Debrid Media Manager** for library organization
 > - 🌐 **Browser extensions** for quick link unrestricting
 > - 🏠 **DUMB** for a full self-hosted debrid media server stack
+> - 🔁 **Riven** for automated Plex/Jellyfin library management
 
 ---
 
@@ -815,6 +817,8 @@ For a more accurate assessment, follow these steps:
 | **[Comet](https://github.com/g0ldyy/comet)** | Cache-first debrid search; often delivers cleaner results than Torrentio |
 | **[MediaFusion](https://github.com/mhdzumair/MediaFusion)** | Universal add-on for Movies, Series, Sports &amp; Live TV; supports private trackers via Jackett |
 | **[Jackettio](https://github.com/arvida42/jackettio)** | Integrates Jackett with debrid for private tracker support inside Stremio |
+| **[StremThru](https://github.com/aymene69/stremthru)** | Self-hostable proxy that tunnels Stremio add-on requests through your own server |
+| **[Annatar](https://github.com/Spuxy/Annatar)** | Self-hosted media discovery add-on with advanced search capabilities |
 
 
 <br>
@@ -843,6 +847,7 @@ For a more accurate assessment, follow these steps:
 | Tool | Description |
 | :--- | :---------- |
 | **[RDT Client](https://github.com/rogerfar/rdt-client)** | Web-based torrent client for Real-Debrid, AllDebrid, and Premiumize with Sonarr/Radarr integration |
+| **[Decypharr](https://github.com/decypharr/decypharr)** | Modern debrid download manager with web UI; supports multiple services and automated workflows |
 | **[Seanime](https://github.com/5rahim/seanime)** | Self-hosted anime media server with AniList integration and auto-download features |
 | **[pyLoad](https://github.com/pyload/pyload)** | Free and open-source download manager supporting 100+ file hosts with plugin system |
 | **[JDownloader](https://jdownloader.org/)** | Popular download manager with extensive host support and automatic link extraction |
@@ -855,9 +860,10 @@ For a more accurate assessment, follow these steps:
 
 | Tool | Description |
 | :--- | :---------- |
+| **[Magnetar](https://github.com/fuwn/magnetar)** | Open-source browser extension for adding magnet/torrent links to debrid services; supports RD, AD, DL, PM, TB |
 | **[Real-Debrid Torrent Plugin](https://chromewebstore.google.com/detail/real-debrid-extension/oefkkgfcahbeccgckjgbnfclcmnjgidg)** | One-click torrent adding with context menu integration for Chrome and Firefox |
 | **[AllDebrid Helper](https://alldebrid.com/tools/)** | Quick link unrestrict with clipboard monitoring and browser notifications |
-| **[Deebrid Extension](https://chromewebstore.google.com/detail/deepbrid-%E2%80%93-browser-extens/ampccappllebdaplacfcopfdgofmohmh)** | Browser extension for easy link unrestricting and download management |
+| **[Deepbrid Extension](https://chromewebstore.google.com/detail/deepbrid-%E2%80%93-browser-extens/ampccappllebdaplacfcopfdgofmohmh)** | Browser extension for easy link unrestricting and download management |
 
 <br>
 
@@ -870,10 +876,25 @@ For a more accurate assessment, follow these steps:
 | **[Stremio](https://www.stremio.com/downloads)** | Android, iOS | Cross-platform streaming app with debrid add-on support and device sync |
 | **[Syncler](https://syncler.net/)** | Android | Streaming app with native debrid support |
 | **[Unchained](https://github.com/LivingWithHippos/unchained-android)** | Android | Community-driven Real-Debrid app for managing downloads |
+| **[Debrify](https://github.com/its-Dhruv/Debrify)** | Android | Modern debrid client for Android with Material You design |
+| **[Ferrite](https://github.com/FerriteApp/Ferrite)** | Android, iOS | Open-source media player with native debrid integration |
 | **[AllDebrid App](https://alldebrid.com/m/)** | All browsers (PWA) | Official AllDebrid PWA for link management and downloads |
 | **[TorBox PWA](https://torbox.app/)** | All browsers (PWA) | TorBox's official Progressive Web App |
 | **[Premiumize App](https://www.premiumize.me/apps)** | Android, iOS | Official mobile app for Premiumize |
 | **[VLC](https://play.google.com/store/apps/details?id=org.videolan.vlc)** | Android, iOS | Universal media player with direct link playback and subtitle support |
+
+<br>
+
+### 🔧 Proxy & Infrastructure
+
+*Tools for self-hosting and extending debrid infrastructure*
+
+| Tool | Description |
+| :--- | :---------- |
+| **[MediaFlow Proxy](https://github.com/mhdzumair/MediaFlow)** | High-performance proxy designed for debrid streaming; bypass IP restrictions and ISP throttling |
+| **[StremThru](https://github.com/aymene69/stremthru)** | Self-hostable proxy for Stremio add-on requests; enhances privacy and reliability |
+| **[Rclone](https://rclone.org/)** | Mounts debrid WebDAV storage as local drive; use with VFS cache for optimal Plex/Jellyfin performance |
+| **[DavDebrid](https://github.com/jeremyb/sys/blob/main/davdebrid)** | Lightweight WebDAV bridge for debrid services; simple alternative to Zurg for basic mounting |
 
 <div align="right">
 
@@ -897,8 +918,12 @@ For a more accurate assessment, follow these steps:
 - [r/RealDebrid](https://www.reddit.com/r/RealDebrid) - Real-Debrid support and updates
 - [r/AllDebrid](https://www.reddit.com/r/AllDebrid) - AllDebrid discussion
 - [r/Premiumize](https://www.reddit.com/r/Premiumize) - Premiumize users
+- [r/TorBoxApp](https://www.reddit.com/r/TorBoxApp) - TorBox community and support
 - [r/debridmediamanager](https://www.reddit.com/r/debridmediamanager) - DMM support and tutorials
 - [r/StremioAddons](https://www.reddit.com/r/StremioAddons) - Stremio add-ons and configuration
+- [r/Addons4Kodi](https://www.reddit.com/r/Addons4Kodi) - Kodi add-ons and debrid integration
+- [r/SynclerApp](https://www.reddit.com/r/SynclerApp) - Syncler streaming app discussion
+- [r/seedboxes](https://www.reddit.com/r/seedboxes) - Seedbox and debrid comparisons
 - [r/usenet](https://www.reddit.com/r/usenet) - Usenet and debrid discussion
 - [r/DataHoarder](https://www.reddit.com/r/DataHoarder) - Data archiving and storage
 
@@ -908,6 +933,10 @@ For a more accurate assessment, follow these steps:
 *Guides, tools, and service monitoring*
 
 - [Awesome Debrid](https://github.com/debridmediamanager/awesome-debrid) - Curated list of tools and resources
+- [StreamStack](https://streamstack.me/) - Debrid streaming setup guides and tools
+- [Savvy Guides](https://savvyguides.dev/) - Step-by-step tutorials for debrid media server setups
+- [Stremio Addons Directory](https://stremio-addons.com/) - Community-driven directory of Stremio add-ons
+- [LeechListing](https://leechlisting.com/) - Tools and resources for debrid and Usenet automation
 - [TorrentFreak](https://torrentfreak.com/) - News and updates
 - [GitHub Discussions](https://github.com/fynks/debrid-services-comparison/discussions) - Ask questions and share experiences
 - [Is Real-Debrid Down](https://debridmediamanager.com/is-real-debrid-down-or-just-me) - Service status checker
