@@ -85,18 +85,18 @@
   --transition-fast: .15s ease;
   --transition-normal: .2s ease;
   /* Alert system */
-  --alert-info-bg: rgba(59, 130, 246, .1);
-  --alert-info-border: rgba(59, 130, 246, .35);
-  --alert-info-text: #1e40af;
-  --alert-warning-bg: rgba(245, 158, 11, .1);
-  --alert-warning-border: rgba(245, 158, 11, .4);
-  --alert-warning-text: #92400e;
-  --alert-success-bg: rgba(16, 185, 129, .1);
-  --alert-success-border: rgba(16, 185, 129, .35);
-  --alert-success-text: #065f46;
-  --alert-error-bg: rgba(239, 68, 68, .1);
-  --alert-error-border: rgba(239, 68, 68, .35);
-  --alert-error-text: #991b1b;
+  --alert-info-bg: rgba(59, 130, 246, .06);
+  --alert-info-border: rgba(59, 130, 246, .3);
+  --alert-info-text: #3b5ba5;
+  --alert-warning-bg: rgba(245, 158, 11, .06);
+  --alert-warning-border: rgba(245, 158, 11, .35);
+  --alert-warning-text: #9a6b15;
+  --alert-success-bg: rgba(16, 185, 129, .06);
+  --alert-success-border: rgba(16, 185, 129, .3);
+  --alert-success-text: #0d7a55;
+  --alert-error-bg: rgba(239, 68, 68, .06);
+  --alert-error-border: rgba(239, 68, 68, .3);
+  --alert-error-text: #b53434;
   color-scheme: light dark
 }
 
@@ -120,18 +120,18 @@
   --shadow-lg: 0 4px 6px -1px rgb(0 0 0 / .4);
   --shadow-card-hover: 0 4px 12px rgb(0 0 0 / .3);
   /* Alert system - dark */
-  --alert-info-bg: rgba(59, 130, 246, .15);
-  --alert-info-border: rgba(59, 130, 246, .4);
-  --alert-info-text: #93c5fd;
-  --alert-warning-bg: rgba(245, 158, 11, .15);
-  --alert-warning-border: rgba(245, 158, 11, .45);
-  --alert-warning-text: #fcd34d;
-  --alert-success-bg: rgba(16, 185, 129, .15);
-  --alert-success-border: rgba(16, 185, 129, .4);
-  --alert-success-text: #6ee7b7;
-  --alert-error-bg: rgba(239, 68, 68, .15);
-  --alert-error-border: rgba(239, 68, 68, .4);
-  --alert-error-text: #fca5a5;
+  --alert-info-bg: rgba(59, 130, 246, .08);
+  --alert-info-border: rgba(59, 130, 246, .3);
+  --alert-info-text: #7aa2f0;
+  --alert-warning-bg: rgba(245, 158, 11, .08);
+  --alert-warning-border: rgba(245, 158, 11, .35);
+  --alert-warning-text: #d4a843;
+  --alert-success-bg: rgba(16, 185, 129, .08);
+  --alert-success-border: rgba(16, 185, 129, .3);
+  --alert-success-text: #4dbf96;
+  --alert-error-bg: rgba(239, 68, 68, .08);
+  --alert-error-border: rgba(239, 68, 68, .3);
+  --alert-error-text: #e07070;
   color-scheme: dark
 }
 
@@ -1227,42 +1227,35 @@ table button:focus-visible {
   display: flex;
   align-items: flex-start;
   gap: var(--space-md);
-  padding: var(--space-xl);
+  padding: var(--space-lg) var(--space-xl);
   border-radius: var(--radius-lg);
-  margin: var(--space-xl) 0;
-  border: 1px solid var(--border-primary)
+  margin: var(--space-lg) 0;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  font-size: 0.95rem;
 }
 
-/* Unified alert system using CSS variables */
-.alert-info {
-  background: var(--alert-info-bg);
-  border-color: var(--alert-info-border);
+/* Only the icon carries colour; body text inherits page colour */
+.alert-info .alert-icon {
   color: var(--alert-info-text);
 }
 
-.alert-warning {
-  background: var(--alert-warning-bg);
-  border-color: var(--alert-warning-border);
+.alert-warning .alert-icon {
   color: var(--alert-warning-text);
 }
 
-.alert-success {
-  background: var(--alert-success-bg);
-  border-color: var(--alert-success-border);
+.alert-success .alert-icon {
   color: var(--alert-success-text);
 }
 
-.alert-error {
-  background: var(--alert-error-bg);
-  border-color: var(--alert-error-border);
+.alert-error .alert-icon {
   color: var(--alert-error-text);
 }
 
 .alert-icon {
   flex-shrink: 0;
-  width: 24px;
-  height: 24px;
-  margin-top: 2px
+  width: 20px;
+  height: 20px;
 }
 
 .alert-icon,
