@@ -1575,20 +1575,96 @@ th {
   transform: scale(1.1);
 }
 
+/* ===== COMPARISON STATUS BADGES ===== */
+.status-badge {
+  display: inline-block;
+  padding: 3px 12px;
+  font-size: 0.75rem;
+  font-weight: var(--font-semibold);
+  line-height: 1.5;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  user-select: none;
+}
+
+/* Both supported = green */
+.status-badge.both-supported {
+  background: #d1fae5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+/* Neither supported = red */
+.status-badge.neither-supported {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+/* Only one service = amber/warning */
+.status-badge.service1-only,
+.status-badge.service2-only {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+
+/* Dark mode */
+[data-theme="dark"] .status-badge.both-supported {
+  background: #064e3b;
+  color: #6ee7b7;
+  border-color: #065f46;
+}
+
+[data-theme="dark"] .status-badge.neither-supported {
+  background: #7f1d1d;
+  color: #fca5a5;
+  border-color: #991b1b;
+}
+
+[data-theme="dark"] .status-badge.service1-only,
+[data-theme="dark"] .status-badge.service2-only {
+  background: #78350f;
+  color: #fcd34d;
+  border-color: #92400e;
+}
+
+/* High contrast */
+@media (prefers-contrast: high) {
+  .status-badge.both-supported {
+    background: #006400;
+    color: #fff;
+    border-color: #004d00;
+  }
+  .status-badge.neither-supported {
+    background: #8b0000;
+    color: #fff;
+    border-color: #660000;
+  }
+  .status-badge.service1-only,
+  .status-badge.service2-only {
+    background: #7c2d12;
+    color: #fff;
+    border-color: #5c1a0a;
+  }
+}
+
 /* ===== LIVE STATUS LINK (below checkmarks in search table) ===== */
 .live-status-link {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 3px;
+  gap: 4px;
   margin-top: 4px;
-  padding: 2px 7px;
-  font-size: 0.65rem;
-  font-weight: var(--font-medium);
+  padding: 3px 10px;
+  font-size: 0.68rem;
+  font-weight: var(--font-semibold);
   line-height: 1.4;
-  color: var(--accent);
-  background: transparent;
-  border: 1px solid var(--border-primary);
+  color: #1e40af;
+  background: #dbeafe;
+  border: 1px solid #bfdbfe;
   border-radius: var(--radius-full);
   text-decoration: none;
   white-space: nowrap;
@@ -1615,7 +1691,7 @@ th {
 
 .live-status-link .live-status-icon {
   flex-shrink: 0;
-  opacity: 0.8;
+  opacity: 0.85;
   transition: opacity var(--transition-fast);
 }
 
@@ -1626,8 +1702,9 @@ th {
 
 /* Dark mode adjustments */
 [data-theme="dark"] .live-status-link {
-  border-color: var(--border-secondary);
-  color: var(--accent-muted);
+  color: #93c5fd;
+  background: rgba(59, 130, 246, 0.18);
+  border-color: rgba(59, 130, 246, 0.35);
 }
 
 [data-theme="dark"] .live-status-link:hover,
@@ -1637,12 +1714,22 @@ th {
   border-color: var(--accent);
 }
 
+/* High contrast */
+@media (prefers-contrast: high) {
+  .live-status-link {
+    color: #fff;
+    background: #1e3a5f;
+    border-color: #3b82f6;
+    font-weight: 700;
+  }
+}
+
 /* Mobile: slightly larger touch target */
 @media (max-width: 768px) {
   .live-status-link {
-    padding: 3px 8px;
-    font-size: 0.7rem;
-    gap: 4px;
+    padding: 4px 10px;
+    font-size: 0.72rem;
+    gap: 5px;
   }
 }
 
