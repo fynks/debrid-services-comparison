@@ -215,7 +215,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 | **Free / Trial** | [7-day trial¹](#footnote-1) | ❌ | ❌ | [Free tier²](#footnote-2) | ❌ | ❌ | ❌ | Limited hosts only | [Limited Hosts⁶](#footnote-6) |
 | **7 Days** | ❌ | ❌ | ❌ | ❌ | ❌ | $4.99 | ❌ | ❌ | ❌ |
 | **15 Days** | [€2.99 (one-time)⁴](#footnote-4) | ❌ | €3.00 | ❌ | €3.00 | ❌ | ❌ | €4.50 | ❌ |
-| **30 Days** | [€2.99 (recurring)³](#footnote-3)&lt;br&gt;[€3.99 (one-time)⁴](#footnote-4) | €9.99 | €4.00 | [Essential $3 / Standard $5 / Pro $10⁵](#footnote-5) | €4.00 | $12.99 | €4.00 | €4.99 | From €5.99 |
+| **30 Days** | [€2.99³/](#footnote-3) <br> [€3.99⁴](#footnote-4) | €9.99 | €4.00 | [Essential $3/ <br> Standard $5 / <br> Pro $10⁵](#footnote-5) | €4.00 | $12.99 | €4.00 | €4.99 | From €5.99 |
 | **90 Days** | [€8.99 (one-time)⁴](#footnote-4) | $29.99 | €9.00 | ❌ | €9.00 | $29.99 | €9.00 | €12.99 | From €15.99 |
 | **180 Days** | [€15.99 (one-time)⁴](#footnote-4) | ❌ | €16.00 | ❌ | €16.00 | $54.99 | €16.00 | €19.99 | From €29.99 |
 | **300 Days** | [€24.99 (one-time)⁴](#footnote-4) | ❌ | ❌ | ❌ | €25.00 | ❌ | ❌ | ❌ | ❌ |
