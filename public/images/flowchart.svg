@@ -41,9 +41,18 @@
   <text x="400" y="180" class="text">File on supported</text>
   <text x="400" y="195" class="text">host?</text>
   
-  <!-- Arrow B to C -->
+  <!-- Arrow B to C (Yes) -->
   <path d="M 400 230 L 400 270" class="arrow"/>
   <text x="430" y="255" class="label">Yes</text>
+
+  <!-- Arrow B to NoNode (No) -->
+  <path d="M 500 180 L 580 180 L 580 230" class="arrow"/>
+  <text x="535" y="173" class="label">No</text>
+
+  <!-- NoNode: unsupported host terminal -->
+  <rect x="520" y="230" width="180" height="50" rx="5" class="box"/>
+  <text x="610" y="250" class="text">Host not supported</text>
+  <text x="610" y="268" class="text" style="font-size:12px">Try another service</text>
   
   <!-- Node C -->
   <rect x="275" y="270" width="250" height="60" rx="5" class="box"/>
@@ -81,11 +90,11 @@
   <text x="650" y="685" class="text">High-speed download link provided</text>
   
   <!-- Arrow F to H -->
-  <path d="M 150 710 L 150 750 L 400 750" class="arrow"/>
-  
+  <path d="M 150 710 L 150 780 L 275 780" class="arrow"/>
+
   <!-- Arrow G to H -->
-  <path d="M 650 710 L 650 750 L 400 750" class="arrow"/>
-  
+  <path d="M 650 710 L 650 780 L 525 780" class="arrow"/>
+
   <!-- Node H -->
   <rect x="275" y="750" width="250" height="60" rx="5" class="box"/>
   <text x="400" y="785" class="text">Access file instantly</text>
