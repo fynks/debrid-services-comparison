@@ -273,6 +273,10 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 > [!WARNING]
 > Real-Debrid has started returning copyright-infringement errors on many cached torrents. Read more on: [Torrent Freak](https://torrentfreak.com/real-debrids-renewed-piracy-crackdown-follows-corporate-restructuring/) 
 
+
+> [!NOTE]
+> Even though Rapidgator is listed as a supported file hoster for Torbox, it is constantly "Offline". For more details visit this [Issue](https://github.com/debridcompare/debridcompare/issues/34)
+
 ### Complete Host List
 
 Comprehensive list of all supported file hosts across all services.
