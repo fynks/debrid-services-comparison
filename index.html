@@ -218,7 +218,7 @@
         "name": "Which is the best debrid service in 2026?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The best debrid service depends on your specific needs. Real-Debrid and AllDebrid offer excellent value with wide host support and competitive pricing (€3-4/month). TorBox provides a free tier for testing. Premiumize excels in reliability and customer support. Debrid-Link and LinkSnappy offer extensive host lists. Compare features, pricing, supported hosts, refund policies, and speed test results to find the best fit for your requirements."
+          "text": "The best debrid service depends on your specific needs. Premiumize excels in reliability, customer support, and privacy features. Real-Debrid and AllDebrid offer excellent value with wide host support and competitive pricing (€3-4/month), though Real-Debrid has been affected by copyright filtering. TorBox offers a free tier but issued a major Terms of Service overhaul in July 2026 (opaque ownership, expanded telemetry, indefinite data retention) and has experienced repeated outages - verify current policies before subscribing. Debrid-Link and LinkSnappy offer extensive host lists. Compare features, pricing, supported hosts, refund policies, and speed test results to find the best fit for your requirements."
         }
       }, {
         "@type": "Question",
@@ -747,6 +747,30 @@
                             <div><b>Rapidgator</b> is listed as a supported file hoster for <b>TorBox</b>, but it is constantly "Offline". For more details, visit this <a
                                     href="https://github.com/debridcompare/debridcompare/issues/34"
                                     target="_blank" rel="noopener noreferrer">issue ↗</a> </div>
+                        </div>
+
+                        <!-- TorBox Advisory -->
+                        <div class="alert alert-warning" role="alert">
+                            <svg class="alert-icon" role="img" aria-hidden="true">
+                                <use href="#icon-alert" stroke="currentColor" stroke-width="1.5" fill="none" />
+                            </svg>
+                            <div>
+                                <b>TorBox advisory (August 2026):</b> TorBox overhauled its Terms of Service introducing expanded telemetry collection (IP/geolocation/session-replay), broad data-disclosure clauses, and indefinite retention of "deleted" data - abandoning its former no-logs, privacy-first positioning. Its stability has also declined, with repeated mid-2026 outages including a multi-day general outage (Aug 19–21). Verify <a href="https://torbox.app/policies" target="_blank" rel="noopener noreferrer">current policies ↗</a> before subscribing or renewing.
+                                <details style="margin-top: var(--space-sm);">
+                                    <summary style="cursor: pointer; font-weight: var(--font-semibold);">Reliability &amp; outage timeline (Mid-2026)</summary>
+                                    <div style="margin-top: var(--space-sm); font-size: 0.9rem;">
+                                        Users on <a href="https://www.reddit.com/r/TorBoxApp/" target="_blank" rel="noopener noreferrer">r/TorBoxApp ↗</a> report frequent outages - including six outages within four days (August 2026). The official <a href="https://status.torbox.app/incidents" target="_blank" rel="noopener noreferrer">status page ↗</a> confirms:
+                                        <ul style="margin: var(--space-sm) 0 0; padding-left: 1.25rem;">
+                                            <li><b>Aug 19–21, 2026</b> - Major multi-day general outage; API down repeatedly over ~38 hours (<a href="https://status.torbox.app/incident/1022223" target="_blank" rel="noopener noreferrer">incident ↗</a>)</li>
+                                            <li><b>Aug 18, 2026</b> - API timeouts; database hit by an attacker (<a href="https://status.torbox.app/incident/1019820" target="_blank" rel="noopener noreferrer">incident ↗</a>)</li>
+                                            <li><b>Aug 8 &amp; Aug 3, 2026</b> - General outages (upstream provider issues)</li>
+                                            <li><b>Jul 14–21, 2026</b> - Sparse outage, APAC fallback, partial SNAM outage</li>
+                                            <li><b>Jun 2–16, 2026</b> - Multiple API error waves, WEUR mitigation, network events</li>
+                                        </ul>
+                                        Third-party monitoring put availability at roughly <b>95% over the trailing 30 days</b>. Check <a href="https://status.torbox.app" target="_blank" rel="noopener noreferrer">status.torbox.app ↗</a> before assuming a problem is on your end.
+                                    </div>
+                                </details>
+                            </div>
                         </div>
                     </div>
 
@@ -1398,7 +1422,7 @@
                                         <span class="tag">Docker</span>
                                         <span class="tag">All-in-One</span>
                                     </div>
-                                    <p class="resource-description">Debrid Unlimited Media Bridge — Docker AIO stack
+                                    <p class="resource-description">Debrid Unlimited Media Bridge - Docker AIO stack
                                         (Zurg+Rclone+Riven+Plex/Jellyfin)</p>
                                 </a>
                             </div>
