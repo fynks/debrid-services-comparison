@@ -115,36 +115,37 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 | Your Priority | Recommended Service | See Details |
 |:-------------|:-------------------|:-----------|
-|**🏆 Best Overall / Stremio + Kodi** | **TorBox** | [→ Pricing](#pricing-comparison) |
+|**🏆 Best Overall / Stremio + Kodi** | **Premiumize** | [→ Pricing](#pricing-comparison) |
 |**Lowest Price** | AllDebrid | [→ Pricing](#pricing-comparison) |
-|**Usenet + Torrents** | TorBox Pro / Premiumize | [→ Feature Comparison](#feature-comparison) |
-|**Try Before Buy** | TorBox | [→ Pricing](#pricing-comparison) |
+|**Usenet + Torrents** | Premiumize / TorBox Pro ⚠️ | [→ Feature Comparison](#feature-comparison) |
+|**Try Before Buy** | AllDebrid (7-day trial) / TorBox free tier ⚠️ | [→ Pricing](#pricing-comparison) |
 |**Maximum Hosts** | LinkSnappy | [→ File Hosts](#file-hosts) |
 |**Plex/Jellyfin Setup** | Premiumize | [→ Media Tools](#-media-management) |
 |**Legacy Cache / Niche Content** | Real-Debrid ⚠️ | [→ RD Warning](#-whats-happening-with-real-debrid-in-2026) |
+|**TorBox (any use)** | TorBox ⚠️ | [→ TorBox Warning](#️-whats-happening-with-torbox-in-2026) |
 
+
+> [!WARNING]
+> **⚠️ TorBox advisory (August 2026):** TorBox changed its Terms of Service - introducing expanded telemetry collection (IP/geolocation/session-replay), broad data-disclosure clauses, and indefinite retention of "deleted" data - abandoning its former no-logs, privacy-first positioning. Its stability has also declined, with repeated outages through mid-2026 including a multi-day general outage (Aug 19–21). TorBox still works when online, but verify [current policies](https://torbox.app/policies) before subscribing or renewing.
+>
+> 👉 **Full details & outage timeline:** [What's happening with TorBox in 2026?](#️-whats-happening-with-torbox-in-2026)
 
 <details>
 <summary><strong>🤔 Still not sure? Click here for personalized recommendations</strong></summary>
 
 <br>
 
-**Choose TorBox if:**
-- ✅ You want the best all-rounder for Stremio / Kodi
-- ✅ Multi-IP usage (no account sharing bans)
-- ✅ You want a free tier to test before buying
-- ✅ Privacy matters (no-logs policy)
-- ✅ You like modern interfaces and responsive support
+**Choose Premiumize if:**
+- ✅ You want the highest quality option with strong seeders and hosters
+- ✅ You use Usenet alongside torrents
+- ✅ You want persistent cloud storage (1 TB) and auto-delete privacy features
+- ✅ You want premium support
+- ✅ Privacy and security are priorities
 
 **Choose AllDebrid if:**
 - ✅ You want the cheapest reliable option
 - ✅ You want to test with a 7-day trial
 - ✅ Budget is your top priority
-
-**Choose Premiumize if:**
-- ✅ You use Usenet alongside torrents
-- ✅ You want premium support
-- ✅ Privacy and security are priorities
 
 **Choose LinkSnappy if:**
 - ✅ You need support for obscure file hosts
@@ -202,10 +203,9 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 > [!TIP]
 > **Best Value Picks:**
-> - 🏆 **Budget**: AllDebrid (€2.99/month recurring)
-> - 🔥 **Best Overall**: TorBox (Essential $3 / Standard $5 / Pro $10 - free tier available)
-> - 🆓 **Free Option**: TorBox (limited features)
-> - 💪 **Power Users**: Premiumize (€69.99/year with 1TB storage + Usenet)
+> - 🏆 **Best Overall**: Premiumize (€69.99/year with 1TB storage + Usenet)
+> - 💰 **Budget**: AllDebrid (€2.99/month recurring)
+> - 🆓 **Free Options**: TorBox free tier ⚠️ ([see warning](#️-whats-happening-with-torbox-in-2026)), AllDebrid 7-day trial
 
 
 ### Price Comparison Table
@@ -663,6 +663,9 @@ Comprehensive list of all supported file hosts across all services.
 > [!TIP]
 > Service availability and host support can change often. Use official status pages to check current status.
 
+> [!WARNING]
+> TorBox has had repeated outages in 2026 (see the [TorBox advisory](#️-whats-happening-with-torbox-in-2026)) - check [status.torbox.app](https://status.torbox.app) before assuming a problem is on your end.
+
 <details><summary>👉 <strong>Click to view all status page links</strong></summary>
 
 | **Service**     | **Live Host Status Page**                                                         |
@@ -671,7 +674,7 @@ Comprehensive list of all supported file hosts across all services.
 | **Real-Debrid** | [real-debrid.com/compare](https://real-debrid.com/compare)                        |
 | **Premiumize**  | [premiumize.me/services](https://www.premiumize.me/services)                      |
 | **LinkSnappy**  | [linksnappy.com/myaccount/status](https://linksnappy.com/myaccount/status)        |
-| **TorBox**      | [torbox.app/hosters](https://torbox.app/hosters)                                  |
+| **TorBox**      | [torbox.app/hosters](https://torbox.app/hosters) · [status.torbox.app](https://status.torbox.app)                                  |
 | **Debrid-Link** | [debrid-link.com/webapp/status](https://debrid-link.com/webapp/status)            |
 | **Mega-Debrid** | [mega-debrid.eu/hebergeurs](https://www.mega-debrid.eu/index.php?page=hebergeurs) |
 | **Deepbrid**    | [deepbrid.com/status](https://www.deepbrid.com/status)                            |
@@ -793,6 +796,8 @@ For a more accurate assessment, follow these steps:
 > - 🌐 **Browser extensions** for quick link unrestricting
 > - 🏠 **DUMB** for a full self-hosted debrid media server stack
 > - 🔁 **Riven** for automated Plex/Jellyfin library management
+>
+> ⚠️ **Note:** Some tools (e.g., Nuvio) have removed TorBox integration following its 2026 TOS overhaul ([advisory](#️-whats-happening-with-torbox-in-2026)) - verify debrid support before committing to a tool/service combo.
 
 ---
 
@@ -977,13 +982,15 @@ Instead of connecting directly to a slow, throttled, or ad-ridden file host, the
 
 | Use Case | Recommended |
 |:---------|:-----------|
-| Best overall / Stremio + Kodi | **TorBox** (multi-IP, no-logs, free tier) |
-| Usenet + torrents combo | **TorBox Pro** or **Premiumize** |
+| Best overall / Stremio + Kodi | **Premiumize** (quality seeders/hosters, 1TB cloud storage, Usenet) |
+| Usenet + torrents combo | **Premiumize** (TorBox Pro ⚠️ still offers it - [see warning](#-whats-happening-with-torbox-in-2026)) |
 | Persistent cloud storage | **Premiumize** |
-| Free to start, no card needed | **TorBox** |
+| Free to start, no card needed | **AllDebrid 7-day trial** (phone verification required) / TorBox free tier ⚠️ |
 | Legacy/niche content (fallback) | **Real-Debrid** ⚠️ - [see warning](#-whats-happening-with-real-debrid-in-2026) |
 
-> ⚠️ **Real-Debrid (2025–2026):** Real-Debrid has been actively removing cached files flagged for copyright infringement, causing widespread broken streams in Stremio and Kodi. It also enforces a strict single-IP policy that can trigger account suspension when used across multiple locations. **TorBox** is now the most commonly recommended replacement - it has no equivalent copyright filter (as of June 2026), allows multi-IP usage, and has a no-logs policy. Many users who switched report a better overall experience.
+> ⚠️ **Real-Debrid (2025–2026):** Real-Debrid has been actively removing cached files flagged for copyright infringement, causing widespread broken streams in Stremio and Kodi. It also enforces a strict single-IP policy that can trigger account suspension when used across multiple locations.
+
+> ⚠️ **TorBox (July 2026):** A TOS overhaul and declining reliability have made TorBox a risky pick - see the [full advisory](#️-whats-happening-with-torbox-in-2026). **Premiumize** is now the most commonly recommended replacement for privacy-conscious users.
 
 Use our **[comparison table](https://debridcompare.pages.dev/)** to filter by features and supported hosts.
 
@@ -1009,7 +1016,43 @@ Since May 2026, Real-Debrid has been applying a **keyword-based content filter**
 
 **Current state (June 2026):** Real-Debrid still works for some content (particularly 1080p non-WEB releases and older/niche cache), but its reliability for mainstream streaming is severely degraded.
 
-**Current alternatives:** **TorBox** (no equivalent copyright filter as of June 2026, multi-IP allowed, no-logs policy, free tier available) is the most commonly recommended replacement on Reddit. **AllDebrid** is also a popular budget alternative. Some power users run TorBox as their primary service and keep Real-Debrid as a fallback for niche content where RD's historical cache depth remains unmatched.
+**Current alternatives:** **Premiumize** (strong hosters/seeders, Usenet, 1TB cloud storage) is the most commonly recommended replacement on Reddit and community guides. **AllDebrid** is a popular budget alternative. Some power users run multiple services in parallel for redundancy.
+
+</details>
+
+---
+
+#### ⚠️ What's happening with TorBox in 2026?
+
+<details>
+<summary><strong>Click here for details</strong></summary>
+
+On **July 31, 2026**, TorBox replaced its Terms of Service and Privacy Policy with versions that fundamentally changed the service's legal posture. Key changes ([source: TROYPOINT analysis](https://troypoint.com/torbox-changes-their-terms-of-service/), [TorBox Policies](https://torbox.app/policies)):
+
+- **Opaque ownership**: The core service is now operated by **Anonymous Systems FZ-LLC**, registered in a Ras Al Khaimah (UAE) free-trade zone where beneficial ownership need not be publicly disclosed. Billing, legal, and DMCA inquiries are handled by a separate Delaware entity (**ReAnonymous LLC**).
+- **Expanded telemetry**: Users consent to collection of IP addresses, device identifiers, precise IP-based geolocation, and full session-replay data (cursor movements, clicks, scrolling, taps) - a major departure from the previous "minimal data / no PII" policy.
+- **Broad disclosure rights**: Data may be handed over to comply with law, respond to "governmental requests," or "protect TorBox, users, third parties, or the public."
+- **Indefinite data retention**: The previous promise that deleting your history or account erases associated data has been downgraded to "where reasonably feasible." Data may persist indefinitely in caches, logs, backups, payment/security/abuse/legal/DMCA records - with **no retention timeline**.
+- **Full user liability**: TorBox now defines itself as a "neutral technology service," and its terms push 100% of legal liability for submitted/cached content onto users.
+
+### ⚠️ Reliability & Outages (Mid-2026)
+
+TorBox's service stability has also degraded noticeably. Users on [r/TorBoxApp](https://www.reddit.com/r/TorBoxApp/) report frequent outages - including a widely-shared thread complaining about [six outages within four days](https://www.reddit.com/r/TorBoxApp/comments/1vu6t54/for_the_6th_time_in_the_last_4_days_torbox_is/) in August 2026. The official [status page](https://status.torbox.app/incidents) confirms a heavy incident load:
+
+| Date | Incident | Notes |
+|:-----|:---------|:------|
+| **Aug 19–21, 2026** | General outage | Major multi-day instability; API down repeatedly with multiple "we're back" / "still stabilising" flip-flops over ~38 hours before resolution ([incident](https://status.torbox.app/incident/1022223)) |
+| **Aug 18, 2026** | API timeouts | Database hit by an attacker; TorBox stated it would "look further into protecting ourselves" ([incident](https://status.torbox.app/incident/1019820)) |
+| **Aug 8, 2026** | General outage | ~30 min downtime |
+| **Aug 3, 2026** | General outage | Connection issues between TorBox and upstream providers (Cloudflare/Supabase tickets opened) |
+| **Jul 14–21, 2026** | Sparse outage, APAC fallback, partial SNAM outage | Regional degradation across several locations |
+| **Jun 2–16, 2026** | Multiple API error waves, WEUR mitigation, network events | Repeated instability across regions |
+
+Third-party monitoring put availability at roughly **95% over the trailing 30 days (as of Aug 22, 2026)** with a dozen incidents that month - well below what users expect from a paid service.
+
+**Community response:** [TROYPOINT removed all TorBox tutorials, reviews, and rankings](https://troypoint.com/best-debrid-services/) from its websites on August 9, 2026, citing the operators' refusal to answer questions about the new TOS/ownership. Other community outlets have followed suit or issued warnings.
+
+**Current state (August 2026):** TorBox remains functional when online (torrents, Usenet on Pro, free tier, multi-IP sharing), but its former privacy-first reputation no longer holds and its reliability has degraded with frequent outages. **Verify the current policies before subscribing or renewing**, monitor [status.torbox.app](https://status.torbox.app), use a VPN, and consider **Premiumize** as the leading alternative for privacy-focused users.
 
 </details>
 
@@ -1071,7 +1114,7 @@ When any previous user has downloaded a torrent through a debrid service, it get
 
 Cache hit rates vary by service and content popularity.
 
-> **Note:** Real-Debrid's cache coverage has been significantly reduced by its ongoing copyright filter. TorBox currently has no equivalent filter.
+> **Note:** Real-Debrid's cache coverage has been significantly reduced by its ongoing copyright filter. TorBox currently has no equivalent filter, but see its [TOS warning](#️-whats-happening-with-torbox-in-2026).
 
 </details>
 
@@ -1125,7 +1168,7 @@ This creates an effectively unlimited media server backed by debrid cloud storag
 
 Policies vary by service:
 
-- **TorBox** ✅ - Explicitly allows sharing across multiple devices and locations
+- **TorBox** ⚠️ - Still technically allows sharing across multiple devices and locations, but review the [July 2026 TOS changes](#-whats-happening-with-torbox-in-2026) - expanded telemetry now ties shared usage to collected IP/geolocation data
 - **Real-Debrid** ❌ - Does not allow sharing; actively monitors for multi-IP usage and enforces bans
 - **AllDebrid / Premiumize / Debrid-Link** ⚠️ - Check each service's current Terms of Service
 
