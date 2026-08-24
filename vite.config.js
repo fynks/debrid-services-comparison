@@ -27,6 +27,9 @@ export default defineConfig({
   },
 
   server: {
-    open: true,
+    open: false,
+    host: true,
+    // Allow the ephemeral preview host used by the development environment.
+    allowedHosts: true
   }
 });
