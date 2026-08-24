@@ -1991,6 +1991,18 @@ select:hover { border-color: var(--brand); }
   margin-top: auto;
   position: relative;
   color: var(--text-secondary);
+  /* The footer is a dark band in BOTH themes, so scope light-on-dark tokens
+     here. (Without this, light-mode's dark text tokens render dark-on-dark.) */
+  --text-primary: #f1f5f9;
+  --text-secondary: #c2cad8;
+  --text-tertiary: #9aa6b6;
+  --text-muted: #8893a5;
+  --brand: #22d3ee;
+  --brand-strong: #5ad7e8;
+  --brand-bright: #5ad7e8;
+  --on-brand: #04222b;
+  --border-primary: rgba(241, 245, 249, 0.12);
+  --border-secondary: rgba(241, 245, 249, 0.20);
 }
 [data-theme="dark"] .site-footer { background: var(--ink); }
 .footer-content {
