@@ -909,13 +909,9 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 }
 input:disabled, select:disabled, textarea:disabled { opacity: 0.6; cursor: not-allowed; }
 
-/* row focus ring (keyboard table nav, set by JS) */
-tr:focus-within {
-  outline: 3px solid var(--brand);
-  outline-offset: -3px;
-  position: relative;
-  z-index: 1;
-}
+/* keyboard row focus is handled below (table tbody tr:focus); we intentionally
+   do NOT outline every row on :focus-within so individual links keep their own
+   clean focus ring. */
 
 /* ===== 15. CARD BASE ===== */
 .card {
@@ -958,15 +954,12 @@ table a:focus-visible, table button:focus-visible {
 }
 .benefit-card:hover { border-color: var(--brand); transform: translateY(-2px); box-shadow: var(--shadow-card-hover); }
 .benefit-card .icon-badge {
-  width: 44px; height: 44px;
+  width: 30px; height: 30px;
   color: var(--brand);
   margin-bottom: var(--space-lg);
-  padding: 10px;
-  background: var(--brand-soft);
-  border-radius: var(--radius-md);
-  transition: color var(--transition-fast), background var(--transition-fast);
+  transition: color var(--transition-fast);
 }
-.benefit-card:hover .icon-badge { color: var(--on-brand); background: var(--brand); }
+.benefit-card:hover .icon-badge { color: var(--brand-strong); }
 .benefit-card h3 {
   margin: 0 0 var(--space-sm);
   font-size: var(--text-base);
@@ -997,9 +990,7 @@ table a:focus-visible, table button:focus-visible {
 
 .alert-icon {
   flex-shrink: 0;
-  width: 22px; height: 22px;
-  padding: 4px;
-  border-radius: var(--radius-sm);
+  width: 20px; height: 20px;
   margin-top: 1px;
 }
 
@@ -1008,33 +999,28 @@ table a:focus-visible, table button:focus-visible {
   background: var(--info-soft);
   color: var(--text-primary);
 }
-.alert-info .alert-icon { color: var(--info); background: color-mix(in srgb, var(--info) 14%, transparent); }
+.alert-info .alert-icon { color: var(--info); }
 
 .alert-warning {
   border-left-color: var(--warning);
   background: var(--warning-soft);
   color: var(--text-primary);
 }
-.alert-warning .alert-icon { color: var(--warning-fg); background: color-mix(in srgb, var(--warning) 16%, transparent); }
+.alert-warning .alert-icon { color: var(--warning); }
 
 .alert-error, .alert-critical {
   border-left-color: var(--critical);
   background: var(--critical-soft);
   color: var(--text-primary);
 }
-.alert-error .alert-icon, .alert-critical .alert-icon { color: var(--critical-fg); background: color-mix(in srgb, var(--critical) 16%, transparent); }
+.alert-error .alert-icon, .alert-critical .alert-icon { color: var(--critical); }
 
 .alert-success {
   border-left-color: var(--success);
   background: var(--success-soft);
   color: var(--text-primary);
 }
-.alert-success .alert-icon { color: var(--success-fg); background: color-mix(in srgb, var(--success) 16%, transparent); }
-
-[data-theme="dark"] .alert-info .alert-icon { color: var(--info); }
-[data-theme="dark"] .alert-warning .alert-icon { color: var(--warning); }
-[data-theme="dark"] .alert-error .alert-icon, [data-theme="dark"] .alert-critical .alert-icon { color: var(--critical); }
-[data-theme="dark"] .alert-success .alert-icon { color: var(--success); }
+.alert-success .alert-icon { color: var(--success); }
 
 /* nested details inside alert (TorBox timeline) */
 .alert details { margin-top: var(--space-sm); border-top: 1px solid color-mix(in srgb, var(--warning) 30%, transparent); padding-top: var(--space-sm); }
@@ -1220,7 +1206,7 @@ th[aria-sort="descending"] .sort-icon { transform: rotate(180deg); }
   background-size: 18px 18px;
 }
 .status-indicator[data-supported="true"] {
-  background-color: var(--success-soft);
+  background-color: transparent;
   color: var(--success);
 }
 .status-indicator[data-supported="false"] {
@@ -1252,27 +1238,34 @@ th[aria-sort="descending"] .sort-icon { transform: rotate(180deg); }
 
 .support-status .status-indicator { display: inline-grid; }
 
-/* Static usenet table emoji cells (.status-badge.supported/unsupported) */
-.status-badge.supported {
-  display: inline-grid;
-  place-items: center;
-  width: 22px; height: 22px;
+/* Usenet table cells — plain glyphs, no surrounding box (matches .status-indicator) */
+.status-badge.supported,
+.status-badge.unsupported {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  padding: 0;
   font-size: 0;
-  background: var(--success-soft) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23047857' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='4 12 10 18 20 6'/></svg>") no-repeat center / 13px 13px;
-  border-radius: var(--radius-sm);
+  line-height: 0;
+  vertical-align: middle;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 18px 18px;
+}
+.status-badge.supported {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23047857' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='4 12 10 18 20 6'/></svg>");
 }
 [data-theme="dark"] .status-badge.supported {
-  background: var(--success-soft) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2334d399' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='4 12 10 18 20 6'/></svg>") no-repeat center / 13px 13px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2334d399' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='4 12 10 18 20 6'/></svg>");
 }
 .status-badge.unsupported {
-  display: inline-grid;
-  place-items: center;
-  width: 22px; height: 22px;
-  font-size: 0;
-  background: transparent url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><line x1='6' y1='12' x2='18' y2='12'/></svg>") no-repeat center / 13px 13px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><line x1='6' y1='12' x2='18' y2='12'/></svg>");
 }
 [data-theme="dark"] .status-badge.unsupported {
-  background: transparent url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><line x1='6' y1='12' x2='18' y2='12'/></svg>") no-repeat center / 13px 13px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><line x1='6' y1='12' x2='18' y2='12'/></svg>");
 }
 
 /* ===== 22. COMPARISON STATUS BADGES ===== */
@@ -2129,7 +2122,7 @@ table tbody tr[tabindex="0"] { cursor: pointer; }
   .hero-stats { gap: var(--space-2xl); }
   .features-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-md); }
   .benefit-card { padding: var(--space-lg); min-height: 140px; }
-  .benefit-card .icon-badge { width: 36px; height: 36px; margin-bottom: var(--space-md); }
+  .benefit-card .icon-badge { width: 26px; height: 26px; margin-bottom: var(--space-md); }
   .comparison-stats { gap: var(--space-lg); }
   .comparison-table th, .comparison-table td { padding: var(--space-md); font-size: var(--text-sm); }
   .compare-controls { grid-template-columns: 1fr; gap: var(--space-lg); align-items: center; justify-items: center; max-width: 100%; }
