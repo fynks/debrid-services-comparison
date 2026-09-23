@@ -100,14 +100,14 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 ### Core Features Matrix
 
-| Feature | Real-Debrid | AllDebrid | Premiumize | TorBox | Debrid-Link | LinkSnappy | Others |
-|:--------|:-----------:|:---------:|:----------:|:------:|:-----------:|:----------:|:------:|
-| **Torrent Support** | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
-| **Usenet Access** | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | Platform Dependent |
-| **Free Trial/Tier** | ❌ | ✅ <br> (7-day) | ❌ | ✅ | ❌ | ❌ | Varies |
-| **API Access** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Mobile Apps** | 3rd-party | PWA | Official | Official | Web | Web | Varies |
-| **Cloud Storage** | Temp cache | Temp cache | Yes | Yes | Temp cache | Temp cache | Varies |
+| Feature | Real-Debrid | AllDebrid | Premiumize | TorBox | Debrid-Link | LinkSnappy | World-Debrid | Others |
+|:--------|:-----------:|:---------:|:----------:|:------:|:-----------:|:----------:|:------------:|:------:|
+| **Torrent Support** | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | Yes <br> (Premium) | ✅ |
+| **Usenet Access** | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | No | Platform Dependent |
+| **Free Trial/Tier** | ❌ | ✅ <br> (7-day) | ❌ | ✅ | ❌ | ❌ | Yes <br> (1 link/month) | Varies |
+| **API Access** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | Not stated | ✅ |
+| **Mobile Apps** | 3rd-party | PWA | Official | Official | Web | Web | Web | Varies |
+| **Cloud Storage** | Temp cache | Temp cache | Yes | Yes | Temp cache | Temp cache | Not stated | Varies |
 
 <br>
 
@@ -210,16 +210,16 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 ### Price Comparison Table
 
-| **Plan Duration** | **AllDebrid** | **Premiumize** | **Real-Debrid** | **TorBox** | **Debrid-Link** | **LinkSnappy** | **Mega-Debrid** | **Deepbrid** | **High-Way** |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Free / Trial** | [7-day trial¹](#footnote-1) | ❌ | ❌ | [Free tier²](#footnote-2) | ❌ | ❌ | ❌ | Limited hosts only | [Limited Hosts⁶](#footnote-6) |
-| **7 Days** | ❌ | ❌ | ❌ | ❌ | ❌ | $4.99 | ❌ | ❌ | ❌ |
-| **15 Days** | [€2.99 (one-time)⁴](#footnote-4) | ❌ | €3.00 | ❌ | €3.00 | ❌ | ❌ | €4.50 | ❌ |
-| **30 Days** | [€2.99³/](#footnote-3) <br> [€3.99⁴](#footnote-4) | €9.99 | €4.00 | [Essential $3/ <br> Standard $5 / <br> Pro $10⁵](#footnote-5) | €4.00 | $12.99 | €4.00 | €4.99 | From €5.99 |
-| **90 Days** | [€8.99 (one-time)⁴](#footnote-4) | $29.99 | €9.00 | ❌ | €9.00 | $29.99 | €9.00 | €12.99 | From €15.99 |
-| **180 Days** | [€15.99 (one-time)⁴](#footnote-4) | ❌ | €16.00 | ❌ | €16.00 | $54.99 | €16.00 | €19.99 | From €29.99 |
-| **300 Days** | [€24.99 (one-time)⁴](#footnote-4) | ❌ | ❌ | ❌ | €25.00 | ❌ | ❌ | ❌ | ❌ |
-| **365 Days / 1 Year** | ❌ | €69.99 | ❌ | [Essential $33 / Pro $110⁵](#footnote-5) | ❌ | ❌ | ❌ | €32.99 | ❌ |
+| **Plan Duration** | **AllDebrid** | **Premiumize** | **Real-Debrid** | **TorBox** | **Debrid-Link** | **LinkSnappy** | **Mega-Debrid** | **Deepbrid** | **High-Way** | **World-Debrid** |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Free / Trial** | [7-day trial¹](#footnote-1) | ❌ | ❌ | [Free tier²](#footnote-2) | ❌ | ❌ | ❌ | Limited hosts only | [Limited Hosts⁶](#footnote-6) | [Free tier⁷](#footnote-7) |
+| **7 Days** | ❌ | ❌ | ❌ | ❌ | ❌ | $4.99 | ❌ | ❌ | ❌ | No |
+| **15 Days** | [€2.99 (one-time)⁴](#footnote-4) | ❌ | €3.00 | ❌ | €3.00 | ❌ | ❌ | €4.50 | ❌ | €2.49 (one-time) |
+| **30 Days** | [€2.99³/](#footnote-3) <br> [€3.99⁴](#footnote-4) | €9.99 | €4.00 | [Essential $3/ <br> Standard $5 / <br> Pro $10⁵](#footnote-5) | €4.00 | $12.99 | €4.00 | €4.99 | From €5.99 | [€2.79 (recurring)⁷](#footnote-7) <br> €3.49 (one-time) |
+| **90 Days** | [€8.99 (one-time)⁴](#footnote-4) | $29.99 | €9.00 | ❌ | €9.00 | $29.99 | €9.00 | €12.99 | From €15.99 | €9.99 (one-time) |
+| **180 Days** | [€15.99 (one-time)⁴](#footnote-4) | ❌ | €16.00 | ❌ | €16.00 | $54.99 | €16.00 | €19.99 | From €29.99 | €14.99 (one-time) |
+| **300 Days** | [€24.99 (one-time)⁴](#footnote-4) | ❌ | ❌ | ❌ | €25.00 | ❌ | ❌ | ❌ | ❌ | €23.99 (one-time) |
+| **365 Days / 1 Year** | ❌ | €69.99 | ❌ | [Essential $33 / Pro $110⁵](#footnote-5) | ❌ | ❌ | ❌ | €32.99 | ❌ | No |
 
 > [!NOTE]
 > - <span id="footnote-1">**¹ AllDebrid Free Trial**</span>: 7-day trial requires phone verification. [Verify pricing →](https://alldebrid.com/offer/)
@@ -228,6 +228,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 > - <span id="footnote-4">**⁴ AllDebrid / Debrid-Link One-Time**</span>: Non-recurring payment. Often better value than recurring. [Verify pricing →](https://alldebrid.com/offer/)
 > - <span id="footnote-5">**⁵ TorBox Tiers**</span>: Free (3 slots, 10 downloads/mo), Essential ($3/mo, unlimited DL, 300GB storage), Standard ($5/mo, 500GB storage, 14-day seeding), Pro ($10/mo, 1TB storage, 80Gbps, Usenet, 30-day seeding). [Verify pricing →](https://torbox.app/subscription)
 > - <span id="footnote-6">**⁶ High-Way**</span>: Limited Hoster, Free MB through activity in the forum. [Verify pricing →](https://high-way.me/pages/tariffs)
+> - <span id="footnote-7">**⁷ World-Debrid**</span>: Free account with 1 unlocked link per month, no credit card. Monthly plan auto-renews at €2.79; the other plans are one-time payments. Torrents are Premium only. [Verify pricing →](https://world-debrid.com/plans)
 
 ### Up-to-date Pricing
 
@@ -247,10 +248,11 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 | Mega-Debrid | [mega-debrid.eu/offres](https://www.mega-debrid.eu/index.php?page=offres)  |
 | Deepbrid    | [deepbrid.com/signup](https://www.deepbrid.com/signup)                     |
 | High-Way    | [high-way.me/pages/tariffs](https://high-way.me/pages/tariffs)             |
+| World-Debrid | [world-debrid.com/plans](https://world-debrid.com/plans) |
 
 </details><br>
 
-> **Last updated: July 4, 2026**
+> **Last updated: September 23, 2026**
 
 <br>
 
@@ -709,6 +711,7 @@ Comprehensive list of all supported file hosts across all services.
 | Mega-Debrid | [Conditions](https://www.mega-debrid.eu/index.php?page=conditionsutilisation&lang=en) | [Privacy](https://www.mega-debrid.eu/index.php?page=privacy) | Check CGV                                             | [Support](https://megadebrid.freshdesk.com/support/tickets/new) |
 | Deepbrid    | [Terms](https://www.deepbrid.com/page/terms)                                          | [Privacy](https://www.deepbrid.com/page/privacy)             | [Refund](https://www.deepbrid.com/page/refund-policy) | [Support](https://www.deepbrid.com/contact-form)                |
 | High-Way    | [Terms](https://high-way.me/help/terms)                                               | [Privacy](https://high-way.me/help/privacy-policy)           | See Terms                                             | [Support](https://high-way.me/pages/support/)                   |
+| World-Debrid | [Terms](https://world-debrid.com/terms) | [Privacy](https://world-debrid.com/privacy) | See Terms | [Support](https://world-debrid.com/support) |
 
 
 
@@ -873,6 +876,7 @@ For a more accurate assessment, follow these steps:
 | **[Real-Debrid Torrent Plugin](https://chromewebstore.google.com/detail/real-debrid-extension/oefkkgfcahbeccgckjgbnfclcmnjgidg)** | One-click torrent adding with context menu integration for Chrome and Firefox |
 | **[AllDebrid Helper](https://alldebrid.com/tools/)** | Quick link unrestrict with clipboard monitoring and browser notifications |
 | **[Deepbrid Extension](https://chromewebstore.google.com/detail/deepbrid-%E2%80%93-browser-extens/ampccappllebdaplacfcopfdgofmohmh)** | Browser extension for easy link unrestricting and download management |
+| **[World-Debrid Extension](https://chromewebstore.google.com/detail/world-debrid/ccegpimidfpanbifnoonpjlgainfjloi)** | Official extension for Chrome and [Firefox](https://addons.mozilla.org/firefox/addon/world-debrid/); adds a button next to compatible links and magnets |
 
 <br>
 
