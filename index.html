@@ -25,20 +25,17 @@
     <meta name="google-site-verification" content="yh6OZ9qZhOAVRs3tkFAwwBYIb3BKrveBy6C0QEVHpw0" />
     <meta name="msvalidate.01" content="EAEFE7EF6DC835E9B8C0C88394E0F32F" />
 
-    <!-- DNS Prefetch & Preconnect for Performance -->
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Font: self-hosted Inter (variable, latin). Preloaded so the hero text —
+         the LCP element — paints in Inter on the first frame instead of waiting
+         on a fonts.googleapis.com stylesheet and then a fonts.gstatic.com woff2.
+         See src/styles/globals.css and scripts/sync-fonts.ts. -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin.woff2" crossorigin>
 
-    <!-- Fonts: Inter (UI/body) + JetBrains Mono (tabular data, monograms) -->
-    <link rel="preload" as="style"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-        onload="this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
-    </noscript>
+    <!-- App entry. `type="module"` is deferred by default, so hoisting it into
+         <head> does not change when it runs (still after the document is
+         parsed) — it just lets the browser discover and fetch the bundle in
+         parallel with HTML parsing instead of after the last byte arrives. -->
+    <script type="module" src="/src/main.js"></script>
 
     <!-- Theme color per scheme -->
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
@@ -696,8 +693,6 @@
     <button id="back-to-top" type="button" aria-label="Back to top" tabindex="-1" class="fixed bottom-5 right-5 z-40 inline-flex h-11 w-11 items-center justify-center rounded-full border border-input bg-background text-foreground opacity-0 ring-1 ring-foreground/5 transition-all duration-300 ease-out translate-y-2 pointer-events-none sm:bottom-6 sm:right-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
         <svg class="h-5 w-5" aria-hidden="true"><use href="#i-arrow-up"/></svg>
     </button>
-
-    <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>

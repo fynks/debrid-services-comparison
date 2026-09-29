@@ -1,16 +1,20 @@
 import { defineConfig } from 'vite';
 import tailwindcss from '@tailwindcss/vite';
 import { createHash } from 'node:crypto';
-import { existsSync, readdirSync, writeFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { DEFAULT_TARGETS, optimizeAllHosts, optimizeHostsFile } from './scripts/optimize-json.ts';
+import { syncAllFonts } from './scripts/sync-fonts.ts';
 
 /**
  * Vite plugin that:
  * 1. Keeps `src/json/*-optimized.json` synchronized with `data/*.json` on
  *    both `vite dev` and `vite build` (with HMR on source JSON edits).
- * 2. Compacts inline JSON-LD and strips HTML comments/indentation in production builds.
- * 3. Emits a lightweight, self-contained `dist/sw.js` keyed by the build's
+ * 2. Copies the self-hosted Inter woff2 subsets into `public/fonts/`.
+ * 3. Compacts inline JSON-LD and strips HTML comments/indentation in production builds.
+ * 4. Inlines the built stylesheet into <head> so first paint needs no
+ *    render-blocking extra request.
+ * 5. Emits a lightweight, self-contained `dist/sw.js` keyed by the build's
  *    content hash (replacing the external `workbox-cli` build step and 16 KB workbox runtime).
  */
 function buildPipelinePlugin() {
@@ -26,6 +30,7 @@ function buildPipelinePlugin() {
     },
     buildStart() {
       optimizeAllHosts();
+      syncAllFonts({ quiet: !isBuild });
     },
     configureServer(server) {
       for (const inputPath of inputToOutput.keys()) {
@@ -100,8 +105,8 @@ self.addEventListener('fetch',e=>{
   }
   const isStatic=
     url.pathname.startsWith('/assets/')||
-    /\\.(?:png|jpg|jpeg|gif|webp|svg|ico)$/i.test(url.pathname)||
-    /^https:\\/\\/fonts\\.(?:googleapis|gstatic)\\.com/.test(url.href);
+    url.pathname.startsWith('/fonts/')||
+    /\\.(?:png|jpg|jpeg|gif|webp|svg|ico|woff2?|ttf|otf)$/i.test(url.pathname);
   if(isStatic){
     e.respondWith((async()=>{
       const cache=await caches.open(STATIC_CACHE);
@@ -122,8 +127,68 @@ self.addEventListener('fetch',e=>{
 });
 `;
       writeFileSync(path.join(distDir, 'sw.js'), swCode, 'utf8');
+
+      inlineStylesheets(distDir);
     },
   };
+}
+
+/**
+ * Inline every emitted stylesheet into `<head>` and drop the standalone files.
+ *
+ * The app ships a single ~36 KB (≈7 KB gzipped) stylesheet. Previously Vite
+ * emitted it as `assets/css/index-*.css` referenced from the very end of the
+ * 46 KB HTML document, so the browser only discovered a *render-blocking*
+ * stylesheet after parsing the entire page — an extra round trip sitting
+ * directly in front of first paint.
+ *
+ * Inlining costs less than it saves: brotli/gzip compresses the CSS better when
+ * it shares a stream with the HTML, and the whole critical path collapses to a
+ * single request. This is the "inline critical CSS" technique from tools like
+ * `critical`, without needing a headless browser at build time — the stylesheet
+ * is already small enough that splitting critical/non-critical would only add a
+ * second request for the remainder.
+ */
+function inlineStylesheets(distDir) {
+  const htmlPath = path.join(distDir, 'index.html');
+  const cssDir = path.join(distDir, 'assets', 'css');
+  if (!existsSync(htmlPath) || !existsSync(cssDir)) return;
+
+  let html = readFileSync(htmlPath, 'utf8');
+
+  for (const file of readdirSync(cssDir).filter((f) => f.endsWith('.css')).sort()) {
+    const href = `/assets/css/${file}`;
+    const linkPattern = new RegExp(`<link[^>]*href="${href.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"[^>]*>`);
+    if (!linkPattern.test(html)) continue;
+
+    const css = readFileSync(path.join(cssDir, file), 'utf8');
+    if (/<\/style/i.test(css)) {
+      // Would terminate the <style> element early and corrupt the page.
+      throw new Error(
+        `[inline-css] ${file} contains "</style", which cannot be inlined safely.`
+      );
+    }
+
+    html = html.replace(linkPattern, '');
+
+    // Anchor after the viewport meta so the CSSOM exists before the body is
+    // parsed — no unstyled flash, and nothing above the fold waits on network.
+    const anchor = /<meta name="viewport"[^>]*>/;
+    if (!anchor.test(html)) {
+      throw new Error('[inline-css] could not find the viewport meta to anchor the inlined <style>.');
+    }
+    html = html.replace(anchor, (match) => `${match}<style>${css}</style>`);
+
+    rmSync(path.join(cssDir, file));
+    console.log(
+      `[inline-css] ${file} → inlined into index.html (${css.length.toLocaleString()}B raw)`
+    );
+  }
+
+  writeFileSync(htmlPath, html, 'utf8');
+  if (existsSync(cssDir) && readdirSync(cssDir).length === 0) {
+    rmSync(cssDir, { recursive: true });
+  }
 }
 
 export default defineConfig({

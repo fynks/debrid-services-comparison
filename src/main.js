@@ -1,6 +1,11 @@
 // App entry - wires the static HTML shell (index.html) to the
 // dynamic components (tables, search, comparison, mobile nav,
 // theme toggle, back-to-top).
+//
+// Boot order matters for the metrics: the counts and the mounted components are
+// the page's content, so they run first. The scroll observer is initialised
+// after them so it measures section offsets against the final layout once,
+// rather than measuring the empty shell and having to measure again.
 
 import './styles/globals.css';
 
@@ -39,13 +44,9 @@ for (const el of document.querySelectorAll('[data-mount="hosts-count"]')) {
 const yearEl = document.querySelector('[data-current-year]');
 if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-// ---- 2. Boot interactive bits ----
-initThemeToggle();
-initMobileNav();
-initScrollSpy();
-initBackToTop();
-
-// ---- 3. Mount the dynamic components into their placeholders ----
+// ---- 2. Mount the dynamic components into their placeholders ----
+// Runs before the scroll observer so section offsets are measured against the
+// final layout once, instead of pre-mount and then again.
 const fileHostsSlot = document.querySelector(
   '[data-mount="host-support-table"][data-host-source="file"]'
 );
@@ -70,6 +71,12 @@ initStatusGrid(mountPoint('status-grid'));
 initSpeedTestGrid(mountPoint('speed-test-grid'));
 initResourceGroups(mountPoint('resource-groups'));
 initDisclaimerCards(mountPoint('disclaimer-cards'));
+
+// ---- 3. Boot interactive bits ----
+initThemeToggle();
+initMobileNav();
+initScrollSpy();
+initBackToTop();
 
 // ---- 4. Hash deep links + SW ----
 handleDeepLinks();
