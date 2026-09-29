@@ -1,125 +1,138 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "tw-animate-css";
 
 /* ============================================================================
-   Design tokens — light + dark.
-   These map directly into Tailwind's `bg-background`, `text-foreground`, etc.
-   via the `tailwind.config.js` color tokens.
+   shadcn/ui-compatible design tokens (light + dark).
+   Mapped into Tailwind's `bg-background`, `text-foreground`, etc.
    ============================================================================ */
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme {
+  --color-background: hsl(0 0% 100%);
+  --color-foreground: hsl(222 47% 11%);
+
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(222 47% 11%);
+
+  --color-popover: hsl(0 0% 100%);
+  --color-popover-foreground: hsl(222 47% 11%);
+
+  --color-primary: hsl(192 91% 25%);
+  --color-primary-foreground: hsl(0 0% 100%);
+
+  --color-secondary: hsl(210 40% 96%);
+  --color-secondary-foreground: hsl(222 47% 11%);
+
+  --color-muted: hsl(210 40% 96%);
+  --color-muted-foreground: hsl(215 16% 47%);
+
+  --color-accent: hsl(210 40% 96%);
+  --color-accent-foreground: hsl(222 47% 11%);
+
+  --color-destructive: hsl(0 72% 51%);
+  --color-destructive-foreground: hsl(0 0% 100%);
+
+  --color-border: hsl(214 32% 91%);
+  --color-input: hsl(214 32% 91%);
+  --color-ring: hsl(192 91% 25%);
+
+  --radius: 0.5rem;
+
+  /* Domain semantic tokens */
+  --color-success: hsl(158 64% 30%);
+  --color-success-foreground: hsl(0 0% 100%);
+  --color-success-muted: hsl(152 76% 95%);
+
+  --color-warning: hsl(32 95% 36%);
+  --color-warning-foreground: hsl(0 0% 100%);
+  --color-warning-muted: hsl(38 95% 95%);
+
+  --color-info: hsl(221 83% 53%);
+  --color-info-foreground: hsl(0 0% 100%);
+  --color-info-muted: hsl(214 95% 96%);
+
+  /* Typography */
+  --font-sans:
+    "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    sans-serif;
+  --font-mono:
+    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222 47% 11%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
-
-    --primary: 192 91% 25%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222 47% 11%;
-
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
-
-    --accent: 210 40% 96%;
-    --accent-foreground: 222 47% 11%;
-
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 192 91% 25%;
-
-    --radius: 0.5rem;
-
-    /* Domain semantic tokens */
-    --success: 158 64% 30%;
-    --success-foreground: 0 0% 100%;
-    --success-muted: 152 76% 95%;
-
-    --warning: 32 95% 36%;
-    --warning-foreground: 0 0% 100%;
-    --warning-muted: 38 95% 95%;
-
-    --info: 221 83% 53%;
-    --info-foreground: 0 0% 100%;
-    --info-muted: 214 95% 96%;
-
     color-scheme: light;
   }
 
-  [data-theme='dark'] {
-    --background: 222 47% 6%;
-    --foreground: 210 40% 98%;
+  [data-theme="dark"] {
+    --color-background: hsl(222 47% 6%);
+    --color-foreground: hsl(210 40% 98%);
 
-    --card: 222 47% 8%;
-    --card-foreground: 210 40% 98%;
+    --color-card: hsl(222 47% 8%);
+    --color-card-foreground: hsl(210 40% 98%);
 
-    --popover: 222 47% 8%;
-    --popover-foreground: 210 40% 98%;
+    --color-popover: hsl(222 47% 8%);
+    --color-popover-foreground: hsl(210 40% 98%);
 
-    --primary: 187 95% 43%;
-    --primary-foreground: 222 47% 6%;
+    --color-primary: hsl(187 95% 43%);
+    --color-primary-foreground: hsl(222 47% 6%);
 
-    --secondary: 217 33% 14%;
-    --secondary-foreground: 210 40% 98%;
+    --color-secondary: hsl(217 33% 14%);
+    --color-secondary-foreground: hsl(210 40% 98%);
 
-    --muted: 217 33% 14%;
-    --muted-foreground: 215 20% 70%;
+    --color-muted: hsl(217 33% 14%);
+    --color-muted-foreground: hsl(215 20% 70%);
 
-    --accent: 217 33% 14%;
-    --accent-foreground: 210 40% 98%;
+    --color-accent: hsl(217 33% 14%);
+    --color-accent-foreground: hsl(210 40% 98%);
 
-    --destructive: 0 63% 45%;
-    --destructive-foreground: 210 40% 98%;
+    --color-destructive: hsl(0 63% 45%);
+    --color-destructive-foreground: hsl(210 40% 98%);
 
-    --border: 217 33% 18%;
-    --input: 217 33% 18%;
-    --ring: 187 95% 43%;
+    --color-border: hsl(217 33% 18%);
+    --color-input: hsl(217 33% 18%);
+    --color-ring: hsl(187 95% 43%);
 
-    --success: 158 64% 50%;
-    --success-foreground: 222 47% 6%;
-    --success-muted: 158 64% 12%;
+    --color-success: hsl(158 64% 50%);
+    --color-success-foreground: hsl(222 47% 6%);
+    --color-success-muted: hsl(158 64% 12%);
 
-    --warning: 38 95% 56%;
-    --warning-foreground: 222 47% 6%;
-    --warning-muted: 38 70% 14%;
+    --color-warning: hsl(38 95% 56%);
+    --color-warning-foreground: hsl(222 47% 6%);
+    --color-warning-muted: hsl(38 70% 14%);
 
-    --info: 217 91% 70%;
-    --info-foreground: 222 47% 6%;
-    --info-muted: 217 60% 16%;
+    --color-info: hsl(217 91% 70%);
+    --color-info-foreground: hsl(222 47% 6%);
+    --color-info-muted: hsl(217 60% 16%);
 
     color-scheme: dark;
   }
 }
 
 /* ============================================================================
-   Base layer — typography reset, smooth fonts, focus rings, etc.
+   Base layer
    ============================================================================ */
+
 @layer base {
   *,
   *::before,
   *::after {
-    border-color: hsl(var(--border));
+    border-color: var(--color-border);
   }
 
   html {
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
     scroll-behavior: smooth;
-    scroll-padding-top: 5rem; /* account for sticky header */
+    scroll-padding-top: 5rem;
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
-    font-feature-settings: 'cv11', 'ss01', 'ss03';
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv11", "ss01", "ss03";
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -132,22 +145,20 @@
     font-variant-numeric: tabular-nums;
   }
 
-  /* Visible, restrained focus rings. */
-  :where(button, [role='button'], a, input, select, textarea, [tabindex]):focus-visible {
-    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  :where(button, [role="button"], a, input, select, textarea, [tabindex]):focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
   }
 
-  /* Subtle heading rhythm */
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    @apply tracking-tight text-balance;
+    text-wrap: balance;
   }
 
-  /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -159,34 +170,65 @@
     }
   }
 
-  /* Skip link */
   .skip-link {
-    @apply sr-only;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
   }
   .skip-link:focus-visible {
-    @apply not-sr-only fixed left-2 top-2 z-50 rounded-md bg-primary px-3 py-2 text-primary-foreground;
+    position: fixed;
+    left: 0.5rem;
+    top: 0.5rem;
+    z-index: 50;
+    width: auto;
+    height: auto;
+    padding: 0.5rem 0.75rem;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+    border-radius: var(--radius);
   }
 }
 
 /* ============================================================================
-   Utilities used across the application.
+   Component utilities
    ============================================================================ */
-@layer utilities {
-  .container-page {
-    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
-  }
+@utility container-page {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 72rem;
+  padding-inline: 1rem;
+}
 
+@utility container-prose {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 48rem;
+  padding-inline: 1rem;
+}
+
+@utility border-hairline {
+  border-color: var(--color-border);
+}
+
+@media (min-width: 640px) {
+  .container-page,
   .container-prose {
-    @apply mx-auto w-full max-w-3xl px-4 sm:px-6;
+    padding-inline: 1.5rem;
   }
+}
 
-  /* Hairline border that respects dark mode. */
-  .border-hairline {
-    @apply border border-border/80;
-  }
-
-  /* Subtle dotted underline used for inline links. */
-  .link-underline {
-    @apply underline decoration-border decoration-1 underline-offset-4 hover:decoration-foreground;
+@media (min-width: 1024px) {
+  .container-page {
+    padding-inline: 2rem;
   }
 }

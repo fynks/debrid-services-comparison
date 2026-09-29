@@ -53,7 +53,6 @@ export function SiteHeader() {
     return () => observer.disconnect();
   }, []);
 
-  // Close mobile menu when a link is clicked.
   const handleLinkClick = () => setOpen(false);
 
   return (
@@ -63,25 +62,25 @@ export function SiteHeader() {
       </a>
       <header
         className={cn(
-          'sticky top-0 z-40 w-full border-b border-transparent bg-background/95 backdrop-blur transition-colors',
+          'sticky top-0 z-40 w-full border-b border-transparent bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70 transition-colors',
           scrolled && 'border-border',
         )}
       >
         <div className="container-page flex h-14 items-center justify-between gap-2">
           <a
             href="/"
-            className="flex items-center gap-2 font-semibold tracking-tight"
+            className="flex items-center gap-2 font-semibold tracking-tight text-foreground"
             aria-label="DebridCompare home"
           >
             <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-primary text-primary-foreground">
-              <Zap className="h-4 w-4" aria-hidden="true" />
+              <Zap className="h-3.5 w-3.5" aria-hidden="true" />
             </span>
             <span>DebridCompare</span>
           </a>
 
           <nav
             aria-label="Primary"
-            className="hidden md:flex md:items-center md:gap-1"
+            className="hidden md:flex md:items-center md:gap-0.5"
           >
             {NAV_ITEMS.map((item) => (
               <a
@@ -125,7 +124,7 @@ export function SiteHeader() {
         <div
           id="mobile-nav"
           className={cn(
-            'md:hidden border-t border-border overflow-hidden transition-[max-height] duration-200',
+            'overflow-hidden border-t border-border bg-background transition-[max-height] duration-200 md:hidden',
             open ? 'max-h-[80vh]' : 'max-h-0',
           )}
           aria-hidden={!open}

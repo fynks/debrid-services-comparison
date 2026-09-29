@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import {
   Select,
   SelectContent,
@@ -31,24 +31,33 @@ interface RowData {
   b: boolean;
 }
 
+/** Read deep-link params on first render. */
+function readInitialSelection(
+  services: readonly ServiceId[],
+): [ServiceId | '', ServiceId | ''] {
+  if (typeof window === 'undefined') return ['', ''];
+  const params = new URLSearchParams(window.location.search);
+  const compare = params.get('compare');
+  const withP = params.get('with');
+  const aOk =
+    compare && (services as readonly string[]).includes(compare)
+      ? (compare as ServiceId)
+      : '';
+  const bOk =
+    withP && (services as readonly string[]).includes(withP)
+      ? (withP as ServiceId)
+      : '';
+  return [aOk, bOk];
+}
+
 export function ServiceComparison({ data }: ServiceComparisonProps) {
   const services = data.services;
-  const [a, setA] = useState<ServiceId | ''>('');
-  const [b, setB] = useState<ServiceId | ''>('');
-
-  // Allow deep linking via ?compare=&with= params.
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const params = new URLSearchParams(window.location.search);
-    const compare = params.get('compare');
-    const withP = params.get('with');
-    if (compare && services.includes(compare as ServiceId)) {
-      setA(compare as ServiceId);
-    }
-    if (withP && services.includes(withP as ServiceId)) {
-      setB(withP as ServiceId);
-    }
-  }, [services]);
+  const [a, setA] = useState<ServiceId | ''>(() =>
+    readInitialSelection(services)[0],
+  );
+  const [b, setB] = useState<ServiceId | ''>(() =>
+    readInitialSelection(services)[1],
+  );
 
   const rows = useMemo<RowData[]>(() => {
     if (!a || !b) return [];
@@ -159,7 +168,7 @@ export function ServiceComparison({ data }: ServiceComparisonProps) {
                 <tr className="border-b border-border bg-muted/40">
                   <th
                     scope="col"
-                    className="sticky left-0 z-10 bg-muted/40 px-3 py-2 text-left text-xs font-medium uppercase tracking-wider text-muted-foreground"
+                    className="sticky left-0 z-20 border-r border-border bg-muted px-3 py-2 text-left text-xs font-medium uppercase tracking-wider text-muted-foreground"
                   >
                     Host
                   </th>
@@ -187,11 +196,11 @@ export function ServiceComparison({ data }: ServiceComparisonProps) {
                 {rows.map((r) => (
                   <tr
                     key={r.host}
-                    className="border-b border-border/50 last:border-0"
+                    className="group border-b border-border/50 last:border-0 transition-colors hover:bg-muted/30"
                   >
                     <th
                       scope="row"
-                      className="sticky left-0 z-10 bg-background px-3 py-1.5 text-left font-normal"
+                      className="sticky left-0 z-10 border-r border-border bg-background px-3 py-1.5 text-left font-normal transition-colors group-hover:bg-muted/30"
                     >
                       {r.host}
                     </th>

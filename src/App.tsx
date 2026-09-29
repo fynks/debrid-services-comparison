@@ -24,6 +24,7 @@ import { UsenetTable } from '@/components/services/usenet-table';
 import { PoliciesTable } from '@/components/services/policies-table';
 import { StatusGrid, SpeedTestGrid } from '@/components/services/status-grid';
 import { ResourceGroupSection } from '@/components/resources/resource-group';
+import { DisclaimerCards } from '@/components/common/disclaimer-cards';
 
 import fileHostsRaw from '@/json/file-hosts-optimized.json';
 import adultHostsRaw from '@/json/adult-hosts-optimized.json';
@@ -388,31 +389,11 @@ export default function App() {
             title="Important information"
             description="Information is updated regularly but debrid services change frequently. Verify details on official sites."
           />
-          <div className="space-y-3 text-sm text-muted-foreground">
-            <p>
-              Pricing, host support, refund policies, and features may be
-              updated without notice. Always verify details on the official
-              service websites before purchasing.
-            </p>
-            <p>
-              While we strive for completeness, this comparison reflects
-              community reports and public information. We do not guarantee
-              uptime, speed, download success, or feature availability.
-            </p>
-            <p>
-              This project is independent and not affiliated with any listed
-              service. Choosing a debrid service involves personal judgment —
-              test short-term plans first and review terms carefully.
-            </p>
-            <p>
-              Debrid services are tools. You are responsible for complying with
-              copyright laws and terms of use when accessing content.
-            </p>
-          </div>
-          <div className="mt-4">
+          <DisclaimerCards />
+          <div className="mt-6">
             <Alert variant="warning">
-              This is an open-source, community-maintained guide. It does not
-              endorse or promote unauthorized file sharing.
+              <strong>This is an open-source, community-maintained guide.</strong>{' '}
+              It does not endorse or promote unauthorized file sharing.
             </Alert>
           </div>
         </section>

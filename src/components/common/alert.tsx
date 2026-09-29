@@ -15,9 +15,15 @@ const VARIANT_ICON: Record<AlertVariant, LucideIcon> = {
 };
 
 const VARIANT_CLASSES: Record<AlertVariant, string> = {
-  info: 'border-info/30 bg-info-muted/40 text-info-foreground',
-  warning: 'border-warning/30 bg-warning-muted/40 text-warning-foreground',
-  tip: 'border-primary/20 bg-primary/5 text-foreground',
+  info: 'border-info/30 bg-info-muted/60 text-info-foreground',
+  warning: 'border-warning/40 bg-warning-muted/70 text-warning-foreground',
+  tip: 'border-primary/25 bg-primary/5 text-foreground',
+};
+
+const VARIANT_ICON_COLOR: Record<AlertVariant, string> = {
+  info: 'text-info',
+  warning: 'text-warning',
+  tip: 'text-primary',
 };
 
 export function Alert({
@@ -31,7 +37,7 @@ export function Alert({
     <div
       role="status"
       className={cn(
-        'flex items-start gap-3 rounded-md border p-4 text-sm',
+        'flex items-start gap-3 rounded-md border px-4 py-3 text-sm leading-relaxed',
         VARIANT_CLASSES[variant],
         className,
       )}
@@ -40,13 +46,11 @@ export function Alert({
       <Icon
         className={cn(
           'mt-0.5 h-4 w-4 shrink-0',
-          variant === 'info' && 'text-info',
-          variant === 'warning' && 'text-warning',
-          variant === 'tip' && 'text-primary',
+          VARIANT_ICON_COLOR[variant],
         )}
         aria-hidden="true"
       />
-      <div className="text-foreground/90 [&_a]:underline [&_a]:underline-offset-4 [&_a:hover]:text-foreground">
+      <div className="text-foreground/90 [&_a]:font-medium [&_a]:underline [&_a]:underline-offset-4 [&_a:hover]:text-foreground">
         {children}
       </div>
     </div>

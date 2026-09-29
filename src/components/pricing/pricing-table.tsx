@@ -14,7 +14,7 @@ export function PricingTable() {
           <tr className="border-b border-border bg-muted/40">
             <th
               scope="col"
-              className="sticky left-0 z-10 bg-muted/40 px-3 py-2 text-left text-xs font-medium uppercase tracking-wider text-muted-foreground"
+              className="sticky left-0 z-20 border-r border-border bg-muted px-3 py-2 text-left text-xs font-medium uppercase tracking-wider text-muted-foreground"
             >
               Plan
             </th>
@@ -35,13 +35,17 @@ export function PricingTable() {
               key={row.plan}
               className={
                 row.isHighlight
-                  ? 'border-b border-border/50 bg-info-muted/20 last:border-0'
-                  : 'border-b border-border/50 last:border-0'
+                  ? 'group border-b border-border/60 bg-info-muted/30 transition-colors hover:bg-info-muted/50 last:border-0'
+                  : 'group border-b border-border/40 transition-colors hover:bg-muted/40 last:border-0'
               }
             >
               <th
                 scope="row"
-                className="sticky left-0 z-10 bg-background px-3 py-2 text-left font-medium text-foreground"
+                className={
+                  row.isHighlight
+                    ? 'sticky left-0 z-10 border-r border-border bg-info-muted px-3 py-2.5 text-left font-medium text-foreground transition-colors group-hover:bg-info-muted/50'
+                    : 'sticky left-0 z-10 border-r border-border bg-background px-3 py-2 text-left font-medium text-foreground transition-colors group-hover:bg-muted/40'
+                }
               >
                 {row.plan}
               </th>
@@ -50,7 +54,11 @@ export function PricingTable() {
                 return (
                   <td
                     key={s}
-                    className="whitespace-nowrap px-3 py-2 text-muted-foreground"
+                    className={
+                      row.isHighlight
+                        ? 'whitespace-nowrap px-3 py-2.5 text-foreground'
+                        : 'whitespace-nowrap px-3 py-2 text-muted-foreground'
+                    }
                   >
                     {value ?? <span className="text-muted-foreground/40">—</span>}
                   </td>
@@ -73,7 +81,7 @@ export function ReferralLinks() {
           href={ref.url}
           target="_blank"
           rel="noopener noreferrer sponsored"
-          className="group flex flex-col rounded-md border border-border p-3 transition-colors hover:border-foreground/30 hover:bg-muted/40"
+          className="group relative flex flex-col rounded-md border border-border p-3 transition-colors hover:border-foreground/30 hover:bg-muted/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           aria-label={`Sign up for ${SERVICES[ref.service].name} (referral)`}
         >
           <div className="flex items-center justify-between">

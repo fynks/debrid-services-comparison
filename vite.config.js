@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
 import path from 'node:path';
 
 export default defineConfig({
@@ -13,14 +14,13 @@ export default defineConfig({
     },
   },
 
-  plugins: [react()],
+  plugins: [react(), tailwindcss()],
 
   build: {
     outDir: 'dist',
     emptyOutDir: true,
     sourcemap: false,
     cssCodeSplit: true,
-    // Vite 8 uses Rolldown + Oxc.
     target: 'es2020',
     rolldownOptions: {
       output: {
@@ -32,8 +32,6 @@ export default defineConfig({
           }
           return 'assets/[name]-[hash][extname]';
         },
-        // Split vendor code so React + Radix + lucide-react stay
-        // cached across deploys when only app code changes.
         codeSplitting: {
           groups: [
             {
@@ -46,7 +44,7 @@ export default defineConfig({
             },
             {
               name: 'icons-vendor',
-              test: /[\\/]node_modules[\\/](lucide-react|cmdk|class-variance-authority|clsx|tailwind-merge|tailwindcss-animate)[\\/]/,
+              test: /[\\/]node_modules[\\/](lucide-react|cmdk|class-variance-authority|clsx|tailwind-merge|tw-animate-css)[\\/]/,
             },
           ],
         },

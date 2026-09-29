@@ -169,8 +169,15 @@ export function HostSupportTable({
         role="region"
         aria-live="polite"
         aria-label={resultsLabel}
-        className="overflow-x-auto rounded-lg border border-border"
+        className="relative overflow-x-auto rounded-lg border border-border bg-card"
       >
+        {/* Subtle fade-out hint at the right edge on mobile, signaling
+            horizontal scroll. Pointer-events-none so it never intercepts
+            taps. */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 right-0 z-30 w-8 bg-gradient-to-l from-card to-transparent md:hidden"
+        />
         <table
           className="w-full min-w-max text-sm tabular-nums"
           aria-label={resultsLabel}
@@ -201,7 +208,7 @@ export function HostSupportTable({
               <tr>
                 <td
                   colSpan={services.length + 1}
-                  className="px-4 py-12 text-center text-sm text-muted-foreground"
+                  className="px-4 py-16 text-center text-sm text-muted-foreground"
                 >
                   No hosts match your search.
                 </td>
@@ -210,11 +217,11 @@ export function HostSupportTable({
               visibleEntries.map(([host, supportedIndices]) => (
                 <tr
                   key={host}
-                  className="border-b border-border/50 last:border-0 hover:bg-muted/30"
+                  className="group border-b border-border/40 last:border-0 transition-colors hover:bg-muted/30"
                 >
                   <th
                     scope="row"
-                    className="sticky left-0 z-10 bg-background px-3 py-2 text-left font-normal text-foreground"
+                    className="sticky left-0 z-10 bg-card px-3 py-2 text-left font-normal text-foreground border-r border-border transition-colors group-hover:bg-muted/30"
                   >
                     {host}
                   </th>
@@ -233,7 +240,7 @@ export function HostSupportTable({
                               href={url}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-flex items-center justify-center text-success hover:text-success/80 focus-visible:rounded-full"
+                              className="inline-flex h-7 w-7 items-center justify-center rounded-md text-success transition-colors hover:bg-success-muted hover:text-success focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                               aria-label={`${host} supported by ${service} — open status page`}
                               title={`Check live status for ${service}`}
                             >
@@ -250,7 +257,7 @@ export function HostSupportTable({
                           )
                         ) : (
                           <span
-                            className="text-muted-foreground/40"
+                            className="block text-center text-muted-foreground/30 select-none"
                             aria-label={`${host} not supported by ${service}`}
                           >
                             —
@@ -328,7 +335,10 @@ function SortHeader({
       className={cn(
         'px-3 py-2 text-left text-xs font-medium text-muted-foreground',
         className,
-        sticky && 'sticky left-0 z-10 bg-muted/40',
+        // Solid background + right-edge divider so the sticky cell
+        // never bleeds through when the table is scrolled horizontally
+        // on narrow screens.
+        sticky && 'sticky left-0 z-20 bg-muted border-r border-border',
       )}
     >
       <button

@@ -25,15 +25,24 @@ const BENEFITS = [
 
 export function BenefitsSection() {
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
       {BENEFITS.map(({ icon: Icon, title, description }) => (
         <div
           key={title}
-          className="rounded-lg border border-border p-5"
+          className="rounded-lg border border-border bg-card p-4"
         >
-          <Icon className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
-          <h3 className="mt-3 text-sm font-semibold">{title}</h3>
-          <p className="mt-1 text-sm text-muted-foreground">{description}</p>
+          <span
+            aria-hidden="true"
+            className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-muted text-foreground"
+          >
+            <Icon className="h-4 w-4" />
+          </span>
+          <h3 className="mt-3 text-sm font-semibold tracking-tight text-foreground">
+            {title}
+          </h3>
+          <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+            {description}
+          </p>
         </div>
       ))}
     </div>

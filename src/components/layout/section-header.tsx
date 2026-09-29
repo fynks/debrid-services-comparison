@@ -23,20 +23,20 @@ export function SectionHeader({
   className,
 }: SectionHeaderProps) {
   return (
-    <div className={cn('mb-8 flex flex-col gap-2', className)}>
+    <div className={cn('mb-8 max-w-2xl', className)}>
       {eyebrow ? (
-        <p className="text-2xs font-medium uppercase tracking-wider text-muted-foreground">
+        <p className="mb-2 text-2xs font-semibold uppercase tracking-wider text-muted-foreground">
           {eyebrow}
         </p>
       ) : null}
       <h2
         id={id}
-        className="text-2xl font-semibold tracking-tight sm:text-3xl"
+        className="text-2xl font-semibold tracking-tight text-balance sm:text-3xl"
       >
         {title}
       </h2>
       {description ? (
-        <p className="max-w-2xl text-sm text-muted-foreground sm:text-base">
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-base">
           {description}
         </p>
       ) : null}
