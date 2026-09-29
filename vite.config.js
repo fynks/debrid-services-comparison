@@ -20,11 +20,10 @@ export default defineConfig({
     emptyOutDir: true,
     sourcemap: false,
     cssCodeSplit: true,
-    target: 'es2019',
-    minify: 'esbuild',
-    rollupOptions: {
+    // Vite 8 uses Rolldown + Oxc.
+    target: 'es2020',
+    rolldownOptions: {
       output: {
-        // Keep JS bundle names similar to old build for caching predictability
         entryFileNames: 'assets/js/[name]-[hash].js',
         chunkFileNames: 'assets/js/[name]-[hash].js',
         assetFileNames: ({ name }) => {
@@ -33,9 +32,23 @@ export default defineConfig({
           }
           return 'assets/[name]-[hash][extname]';
         },
-        manualChunks: {
-          // Split React into its own chunk for better caching across pages
-          'react-vendor': ['react', 'react-dom'],
+        // Split vendor code so React + Radix + lucide-react stay
+        // cached across deploys when only app code changes.
+        codeSplitting: {
+          groups: [
+            {
+              name: 'react-vendor',
+              test: /[\\/]node_modules[\\/](react|react-dom|scheduler)[\\/]/,
+            },
+            {
+              name: 'radix-vendor',
+              test: /[\\/]node_modules[\\/]@radix-ui[\\/]/,
+            },
+            {
+              name: 'icons-vendor',
+              test: /[\\/]node_modules[\\/](lucide-react|cmdk|class-variance-authority|clsx|tailwind-merge|tailwindcss-animate)[\\/]/,
+            },
+          ],
         },
       },
     },
