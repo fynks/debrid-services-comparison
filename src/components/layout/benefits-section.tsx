@@ -25,7 +25,7 @@ const BENEFITS = [
 
 export function BenefitsSection() {
   return (
-    <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-4">
       {BENEFITS.map(({ icon: Icon, title, description }) => (
         <div
           key={title}

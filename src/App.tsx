@@ -17,6 +17,7 @@ import { SiteFooter } from '@/components/layout/site-footer';
 import { SectionHeader } from '@/components/layout/section-header';
 import { BenefitsSection } from '@/components/layout/benefits-section';
 import { Alert } from '@/components/common/alert';
+import { BackToTop } from '@/components/common/back-to-top';
 import { Button } from '@/components/ui/button';
 import { HostSupportTable } from '@/components/hosts/host-support-table';
 import { ServiceComparison } from '@/components/comparison/service-comparison';
@@ -197,30 +198,26 @@ export default function App() {
               .
             </Alert>
             <Alert variant="warning">
-              <strong>Rapidgator</strong> is listed as a supported file hoster
-              for <strong>TorBox</strong>, but it is constantly “Offline”. See{' '}
-              <a
-                href="https://github.com/debridcompare/debridcompare/issues/34"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                this issue
-              </a>
-              .
-            </Alert>
-            <Alert variant="warning">
-              <strong>TorBox advisory (August 2026):</strong> TorBox overhauled
-              its Terms of Service — introducing expanded telemetry collection
-              (IP / geolocation / session-replay), broad data-disclosure
-              clauses, and indefinite retention of “deleted” data. Verify{' '}
+              <strong>TorBox advisory:</strong> TorBox's August 2026 ToS
+              overhaul expanded telemetry collection (IP, geolocation,
+              session-replay) and indefinite data retention. Rapidgator is
+              also listed as supported but constantly offline —{' '}
               <a
                 href="https://torbox.app/policies"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                current policies
+                review policies
               </a>{' '}
-              before subscribing or renewing.
+              and{' '}
+              <a
+                href="https://github.com/debridcompare/debridcompare/issues/34"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                tracked issues
+              </a>{' '}
+              before subscribing.
             </Alert>
           </div>
         </section>
@@ -351,12 +348,13 @@ export default function App() {
             title="Tools, apps, & community resources"
             description="Media managers, streaming add-ons, download managers, browser extensions, mobile apps, and community resources that work with debrid services."
           />
-          <div className="space-y-10">
-            {RESOURCE_GROUPS.map((group) => (
+          <div className="space-y-2">
+            {RESOURCE_GROUPS.map((group, idx) => (
               <ResourceGroupSection
                 key={group.id}
                 group={group}
                 iconMap={RESOURCE_ICONS}
+                initialOpen={idx === 0}
               />
             ))}
           </div>
@@ -391,6 +389,7 @@ export default function App() {
         </section>
       </main>
       <SiteFooter />
+      <BackToTop />
     </>
   );
 }
