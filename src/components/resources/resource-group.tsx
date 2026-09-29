@@ -14,11 +14,11 @@ export function ResourceGroupSection({ group, iconMap }: ResourceGroupSectionPro
       <div className="flex items-baseline gap-2">
         {Icon ? (
           <Icon
-            className="h-3.5 w-3.5 translate-y-[2px] text-muted-foreground"
+            className="h-3.5 w-3.5 shrink-0 translate-y-[2px] text-muted-foreground"
             aria-hidden="true"
           />
         ) : null}
-        <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+        <h3 className="text-2xs font-semibold uppercase tracking-wider text-muted-foreground sm:text-sm">
           {group.title}
         </h3>
       </div>

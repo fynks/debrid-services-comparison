@@ -74,31 +74,36 @@ export function PricingTable() {
 
 export function ReferralLinks() {
   return (
-    <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+    // Mobile: 1 column — full-width cards are easier to scan and tap.
+    // sm: 2 columns. lg: 4. The card layout is always the same:
+    // service name + badge on top, benefit + arrow at the bottom.
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
       {REFERRAL_LINKS.map((ref) => (
         <a
           key={ref.service}
           href={ref.url}
           target="_blank"
           rel="noopener noreferrer sponsored"
-          className="group relative flex flex-col rounded-md border border-border p-3 transition-colors hover:border-foreground/30 hover:bg-muted/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+          className="group flex flex-col justify-between rounded-lg border border-border bg-card p-3.5 transition-colors hover:border-foreground/30 hover:bg-muted/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 sm:p-4"
           aria-label={`Sign up for ${SERVICES[ref.service].name} (referral)`}
         >
-          <div className="flex items-center justify-between">
-            <span className="font-medium">
+          <div className="flex items-start justify-between gap-2">
+            <span className="text-sm font-medium leading-tight">
               {SERVICES[ref.service].name}
             </span>
-            <Badge variant="muted" className="text-2xs">
+            <Badge variant="muted" className="shrink-0 text-2xs">
               Referral
             </Badge>
           </div>
-          <span className="mt-1 text-sm tabular-nums text-muted-foreground">
-            {ref.benefit}
-          </span>
-          <span className="mt-3 inline-flex items-center gap-1 text-xs text-muted-foreground group-hover:text-foreground">
-            Get started
-            <ExternalLink className="h-3 w-3" aria-hidden="true" />
-          </span>
+          <div className="mt-3 flex items-end justify-between gap-2">
+            <span className="text-xs tabular-nums text-muted-foreground sm:text-sm">
+              {ref.benefit}
+            </span>
+            <ExternalLink
+              className="h-3.5 w-3.5 shrink-0 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground"
+              aria-hidden="true"
+            />
+          </div>
         </a>
       ))}
     </div>

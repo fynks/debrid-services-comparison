@@ -58,6 +58,15 @@
     sans-serif;
   --font-mono:
     "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Type scale — text-2xs adds the smallest step between xs (0.75rem)
+     and the 0.6875rem badge/microcopy size we use throughout. */
+  --text-2xs: 0.6875rem; /* 11px */
+  --text-2xs--line-height: 1rem; /* 16px */
+  --text-xs: 0.75rem; /* 12px */
+  --text-xs--line-height: 1.125rem; /* 18px */
+  --text-sm: 0.8125rem; /* 13px — slightly tighter than Tailwind default */
+  --text-sm--line-height: 1.25rem; /* 20px */
 }
 
 @layer base {

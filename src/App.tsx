@@ -69,7 +69,7 @@ export default function App() {
           aria-labelledby="hero-title"
           className="container-page pb-12 pt-4 sm:pb-16 sm:pt-8"
         >
-          <div className="mx-auto max-w-3xl">
+          <div className="mx-auto max-w-3xl text-center sm:text-left">
             <p className="mb-2 text-2xs font-medium uppercase tracking-wider text-muted-foreground">
               2026 · Live reference
             </p>
@@ -84,7 +84,7 @@ export default function App() {
               and policies for the most-used debrid services.
             </p>
 
-            <div className="mt-6 flex flex-wrap gap-2">
+            <div className="mt-6 flex flex-wrap justify-center gap-2 sm:justify-start">
               <a
                 href="#debrid-pricing-comparison"
                 className="inline-flex items-center gap-1.5 rounded-md bg-primary px-3.5 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90"
@@ -144,16 +144,12 @@ export default function App() {
           </div>
 
           <div className="mt-12">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-              Support this project
-            </h3>
-            <p className="mt-1 text-sm text-muted-foreground">
-              Use these referral links to sign up — it helps maintain this
-              free resource at no extra cost to you.
-            </p>
-            <div className="mt-4">
-              <ReferralLinks />
-            </div>
+            <SectionHeader
+              eyebrow="Support this project"
+              title="Help keep this resource free"
+              description="Use these referral links to sign up — it helps maintain this free resource at no extra cost to you."
+            />
+            <ReferralLinks />
           </div>
         </section>
 

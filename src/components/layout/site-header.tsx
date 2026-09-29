@@ -62,8 +62,11 @@ export function SiteHeader() {
       </a>
       <header
         className={cn(
-          'sticky top-0 z-40 w-full border-b border-transparent bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70 transition-colors',
-          scrolled && 'border-border',
+          // Solid background + scroll-aware hairline border. No
+          // backdrop-blur — keeps the header crisp on mobile, avoids
+          // the "glassmorphism" feel that fights the dense data tables.
+          'sticky top-0 z-40 w-full border-b bg-background transition-colors',
+          scrolled ? 'border-border' : 'border-transparent',
         )}
       >
         <div className="container-page flex h-14 items-center justify-between gap-2">
