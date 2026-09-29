@@ -21,7 +21,7 @@ function check(cond: boolean, msg: string) {
 }
 
 if (!existsSync(INDEX)) {
-  console.error('dist/index.html missing — run `npm run build` first');
+  console.error('dist/index.html missing - run `npm run build` first');
   process.exit(1);
 }
 

@@ -79,7 +79,7 @@ function refundCell(href, text) {
   } else {
     const span = document.createElement('span');
     span.className = 'text-muted-foreground/40';
-    span.textContent = '—';
+    span.textContent = '-';
     td.appendChild(span);
   }
   return td;
@@ -93,7 +93,7 @@ function refundOrDash(value) {
   } else {
     const span = document.createElement('span');
     span.className = 'text-muted-foreground';
-    span.textContent = value ?? '—';
+    span.textContent = value ?? '-';
     td.appendChild(span);
   }
   return td;

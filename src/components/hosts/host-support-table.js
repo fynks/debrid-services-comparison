@@ -23,7 +23,9 @@ export function initHostSupportTable(slot, { source, data, initialLimit = 60 } =
   const services = data.services;
   const hostCount = Object.keys(data.supported).length;
   const resultsLabel =
-    source === 'adult' ? 'Adult hosts table' : `File hosts table — ${hostCount} hosts`;
+    source === 'adult'
+      ? 'Adult hosts table'
+      : `File hosts table (${hostCount} hosts)`;
   const searchPlaceholder =
     source === 'adult'
       ? 'Search adult hosts or paste a URL…'
@@ -141,7 +143,7 @@ export function initHostSupportTable(slot, { source, data, initialLimit = 60 } =
   itemB.className = 'inline-flex items-center gap-1.5';
   const dash = document.createElement('span');
   dash.className = 'text-muted-foreground/60';
-  dash.textContent = '—';
+  dash.textContent = '-';
   itemB.appendChild(dash);
   itemB.appendChild(document.createTextNode('not supported'));
   legend.appendChild(itemB);
@@ -329,7 +331,7 @@ export function initHostSupportTable(slot, { source, data, initialLimit = 60 } =
             'inline-flex h-7 w-7 items-center justify-center rounded-md text-success transition-colors hover:bg-success-muted hover:text-success focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2';
           a.setAttribute(
             'aria-label',
-            `${host} supported by ${service} — open status page`
+            `${host} supported by ${service}. Open status page`
           );
           a.title = `Check live status for ${service}`;
           a.appendChild(
@@ -352,7 +354,7 @@ export function initHostSupportTable(slot, { source, data, initialLimit = 60 } =
           'aria-label',
           `${host} not supported by ${service}`
         );
-        sp.textContent = '—';
+        sp.textContent = '-';
         td.appendChild(sp);
       }
       tr.appendChild(td);

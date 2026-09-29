@@ -1,5 +1,5 @@
 // Tiny DOM utilities used by the dynamic components.
-// Static markup lives in index.html — these helpers are for the bits
+// Static markup lives in index.html - these helpers are for the bits
 // that must change in response to user interaction (search, sort,
 // select, table re-render, scroll-spy, etc.).
 
@@ -57,7 +57,7 @@ export function findAncestor(el, selector) {
 /**
  * Find the first mount point whose `data-mount` attribute matches
  * `name`. Used as the bridge between static HTML and dynamic
- * components — every dynamic component lives in a `data-mount="…"`
+ * components - every dynamic component lives in a `data-mount="…"`
  * placeholder in index.html.
  */
 export function mountPoint(name) {

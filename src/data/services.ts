@@ -2,7 +2,7 @@ import type { ServiceId, ServiceInfo } from '@/types/data';
 
 /**
  * Static service metadata. Factual content sourced from the original
- * index.html / status pages — no claims invented here.
+ * index.html / status pages - no claims invented here.
  */
 export const SERVICES: Record<ServiceId, ServiceInfo> = {
   AllDebrid: {

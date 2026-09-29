@@ -1,7 +1,7 @@
 // Two-service side-by-side host comparison.
 //
 // Reads `?compare=&with=` query params on mount and dispatches URL
-// updates on change. Builds the entire UI from scratch — the static
+// updates on change. Builds the entire UI from scratch - the static
 // HTML only provides a `[data-mount="service-comparison"]` placeholder.
 
 import { icon } from '../../lib/icons.js';
@@ -232,7 +232,7 @@ function readInitialSelection(services) {
 }
 
 function createSelect(value, services, id, label, onChange) {
-  // Native select — simpler and accessible by default. Dropdown styled
+  // Native select - simpler and accessible by default. Dropdown styled
   // via CSS to match the rest of the design system.
   const wrap = document.createElement('div');
   wrap.className = 'relative';
@@ -304,7 +304,7 @@ function cell(supported, service, host) {
       a.rel = 'noopener noreferrer';
       a.setAttribute(
         'aria-label',
-        `${host} supported by ${name} — open status page`
+        `${host} supported by ${name}. Open status page`
       );
       a.className = 'inline-flex items-center text-success hover:text-success/80';
       a.appendChild(icon('check', { class: 'h-4 w-4', 'aria-hidden': 'true' }));

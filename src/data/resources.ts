@@ -1,7 +1,7 @@
 import type { ResourceGroup } from '@/types/data';
 
 /**
- * Resources / tools / community — preserved verbatim from the
+ * Resources / tools / community - preserved verbatim from the
  * original index.html "Tools, Apps & Community Resources" section.
  */
 

@@ -1,4 +1,4 @@
-// Fuzzy URL hostname matching — extracted from the React host-support
+// Fuzzy URL hostname matching - extracted from the React host-support
 // table. Used to detect when the user pastes a URL like
 // "https://rapidgator.net/file/abc" and resolve it to the matching host
 // row in the table.
@@ -59,7 +59,7 @@ export function normalizeHostname(hostname) {
     .replace(/\d+$/g, '');
 }
 
-/** Iterative Levenshtein distance — O(n) space. */
+/** Iterative Levenshtein distance - O(n) space. */
 export function levenshteinDistance(a, b) {
   if (a === b) return 0;
   if (!a.length) return b.length;
@@ -83,7 +83,7 @@ export function levenshteinDistance(a, b) {
   return prev[b.length];
 }
 
-/** Score 0–100 — higher means `host` is more likely to match `needle`. */
+/** Score 0–100 - higher means `host` is more likely to match `needle`. */
 export function similarityScore(host, needle) {
   if (!needle) return 100;
   const a = normalizeHostname(host);

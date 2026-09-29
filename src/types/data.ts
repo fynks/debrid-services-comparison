@@ -21,7 +21,7 @@ export interface OptimizedHostsData {
   supported: Record<string, number[]>;
 }
 
-/** Flattened host support table — used by components. */
+/** Flattened host support table - used by components. */
 export type HostSupportMatrix = Record<string, Record<ServiceId, boolean>>;
 
 /** Status indicator shown in tables */

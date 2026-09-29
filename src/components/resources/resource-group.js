@@ -1,4 +1,4 @@
-// Resources section — collapsible groups using native <details>/<summary>.
+// Resources section - collapsible groups using native <details>/<summary>.
 //
 // The first group (Media Centers) opens by default. The other 8 stay
 // collapsed so users don't scroll past ~70 links at once.
@@ -139,7 +139,7 @@ function buildCard(item) {
 
 /**
  * Render an icon by referencing the inline SVG sprite in index.html.
- * (No second copy of the icons lives in this module — they're in the
+ * (No second copy of the icons lives in this module - they're in the
  * page-level <defs>.) If the symbol isn't found, render an empty SVG.
  * Icon names are normalized to lowercase so the data files can use
  * PascalCase keys (Tv, Database, …) and still resolve to i-tv,

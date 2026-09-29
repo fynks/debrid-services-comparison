@@ -1,5 +1,5 @@
 // Highlight the nav link for the section currently in view.
-// Uses scroll position + an offset threshold — keeps it cheap
+// Uses scroll position + an offset threshold - keeps it cheap
 // (no IntersectionObserver required).
 
 export function initScrollSpy() {

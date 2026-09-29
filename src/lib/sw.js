@@ -1,4 +1,4 @@
-// Service worker registration (PWA). Silent on failure — SW is a
+// Service worker registration (PWA). Silent on failure - SW is a
 // progressive enhancement and shouldn't break the page.
 
 export function registerServiceWorker() {

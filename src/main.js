@@ -1,4 +1,4 @@
-// App entry — wires the static HTML shell (index.html) to the
+// App entry - wires the static HTML shell (index.html) to the
 // dynamic components (tables, search, comparison, mobile nav,
 // theme toggle, back-to-top).
 

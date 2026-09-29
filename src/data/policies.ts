@@ -73,7 +73,7 @@ export const POLICY_ROWS: PolicyRow[] = [
 
 export const POLICY_SERVICES: ServiceId[] = POLICY_ROWS.map((r) => r.service);
 
-/** Usenet support — preserved from the original `index.html` usenet table. */
+/** Usenet support - preserved from the original `index.html` usenet table. */
 export const USENET_SUPPORT: Array<{ service: ServiceId; supported: boolean }> = [
   { service: 'AllDebrid', supported: false },
   { service: 'TorBox', supported: true },

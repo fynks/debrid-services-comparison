@@ -60,7 +60,7 @@ export function initPricingTable(slot) {
       if (value == null) {
         const dash = document.createElement('span');
         dash.className = 'text-muted-foreground/40';
-        dash.textContent = '—';
+        dash.textContent = '-';
         td.appendChild(dash);
       } else {
         td.appendChild(document.createTextNode(String(value)));

@@ -35,7 +35,7 @@ function assert(cond: boolean, msg: string) {
 const jsDir = resolve(DIST, 'assets/js');
 const indexPath = resolve(DIST, 'index.html');
 if (!existsSync(jsDir) || !existsSync(indexPath)) {
-  console.error('dist missing — run `npm run build` first');
+  console.error('dist missing - run `npm run build` first');
   process.exit(1);
 }
 

@@ -1,4 +1,4 @@
-# Stack Comparison — Debrid Services Comparison
+# Stack Comparison - Debrid Services Comparison
 
 This document compares the four implementations of the DebridCompare frontend so we can pick the best path forward.
 
@@ -17,11 +17,11 @@ This document compares the four implementations of the DebridCompare frontend so
 
 | Pros | Cons |
 |---|---|
-| Zero build step — drop a `<script>` and go | ~130 KB gzipped is roughly **3×** what the current build ships |
-| No dependencies to update | Hand-rolled search / sort / scroll-spy — fragile and untested |
+| Zero build step - drop a `<script>` and go | ~130 KB gzipped is roughly **3×** what the current build ships |
+| No dependencies to update | Hand-rolled search / sort / scroll-spy - fragile and untested |
 | Works without JS bundler | Inline JSON-LD, no code-split, no cache-friendly chunks |
 | | Site rebuild required for every change |
-| | No TypeScript — typo bugs in production |
+| | No TypeScript - typo bugs in production |
 
 **Verdict:** Acceptable for the original 2018-era deployment, but the size and lack of structure make any feature work painful.
 
@@ -29,7 +29,7 @@ This document compares the four implementations of the DebridCompare frontend so
 
 | Pros | Cons |
 |---|---|
-| Familiar mental model — most devs know React | 51.9 KB of vendor JS (`preact`/`react` + `radix`) before app code runs |
+| Familiar mental model - most devs know React | 51.9 KB of vendor JS (`preact`/`react` + `radix`) before app code runs |
 | shadcn primitives give us accessible Radix Select / Tooltip / Tabs | Radix Select portal required jsdom polyfill workarounds in tests |
 | Full TypeScript strict typing across the data layer | `class-variance-authority` + `tailwind-merge` add ~3 KB of dependency surface |
 | Code-split into 4 cache-friendly vendor chunks | `lucide-react` adds 13 KB even though we only use 32 icons |
@@ -41,7 +41,7 @@ This document compares the four implementations of the DebridCompare frontend so
 
 | Pros | Cons |
 |---|---|
-| Same DX as React via `preact/compat` | Radix Select still ships its portal machinery (~29 KB) — biggest chunk |
+| Same DX as React via `preact/compat` | Radix Select still ships its portal machinery (~29 KB) - biggest chunk |
 | shadcn primitives unchanged, so all accessibility work is preserved | Tooltip, Tabs, Card, Separator installed and then deleted in commit 718af6a |
 | TypeScript strict typing preserved | `lucide-react` still adds 13 KB for ~32 icons |
 | Total gzipped: ~86 KB (similar to React, surprisingly) | Aliases (`react` → `preact/compat`) require careful tsconfig paths |
@@ -53,15 +53,15 @@ This document compares the four implementations of the DebridCompare frontend so
 
 | Pros | Cons |
 |---|---|
-| **~39 KB gzipped total** — roughly 55% smaller than Preact, 70% smaller than React | No virtual DOM — manual DOM building requires care (see `__node_N__` bug from earlier turn, now fixed) |
-| Static markup in `index.html` is indexable by crawlers, view-source-able, and parseable without JS | Component reusability is reduced — each section is a one-off template, not a `<BenefitSection />` prop-driven component |
-| 21 inline SVG symbols cover every icon — no `lucide-react` runtime | morphdom is a 2 KB dependency we need to keep around for the table patch path |
+| **~39 KB gzipped total** - roughly 55% smaller than Preact, 70% smaller than React | No virtual DOM - manual DOM building requires care (see `__node_N__` bug from earlier turn, now fixed) |
+| Static markup in `index.html` is indexable by crawlers, view-source-able, and parseable without JS | Component reusability is reduced - each section is a one-off template, not a `<BenefitSection />` prop-driven component |
+| 21 inline SVG symbols cover every icon - no `lucide-react` runtime | morphdom is a 2 KB dependency we need to keep around for the table patch path |
 | All accessibility primitives (Radix Select, etc.) replaced by ~10 lines of vanilla DOM | Hand-rolled ARIA combobox / focus trap / scroll-spy means more code surface to maintain than shadcn |
-| Code-split morphdom chunk (2.1 KB) is the only vendor chunk — everything else is page markup | Type safety on JS components is weaker — `cn()` strings are untyped by necessity |
+| Code-split morphdom chunk (2.1 KB) is the only vendor chunk - everything else is page markup | Type safety on JS components is weaker - `cn()` strings are untyped by necessity |
 | 50+ automated static-HTML checks catch missing icons / wrong padding / broken labels at build time | Testing the visual rendering requires jsdom + 31 runtime assertions vs. React Testing Library's ergonomics |
 | Page works partially with JS disabled (search/sort just doesn't light up) | |
 
-**Verdict:** Best payload-to-feature ratio. The trade-off is more care with DOM construction — but `npm run verify` catches the common bugs automatically.
+**Verdict:** Best payload-to-feature ratio. The trade-off is more care with DOM construction - but `npm run verify` catches the common bugs automatically.
 
 ## Bundle deltas at a glance
 
@@ -76,19 +76,19 @@ vanilla + morphdom (current)  ............ ~39 KB gzip  (−70%)
 
 | From → To | Effort | Risk |
 |---|---|---|
-| Original → React | High — rewrite every component, introduce build tooling | Low — well-trodden migration path |
-| React → Preact | Low — alias swaps, no component changes | Low — Preact's compat layer is mature |
-| Preact → Vanilla | Medium — port every component, hand-roll ARIA combobox, manual DOM | Medium — first iteration leaked `__node_N__` markers, fixed by moving static markup to HTML |
-| Vanilla → Preact (rollback) | Low — components have small surface area | Low — easy revert |
+| Original → React | High - rewrite every component, introduce build tooling | Low - well-trodden migration path |
+| React → Preact | Low - alias swaps, no component changes | Low - Preact's compat layer is mature |
+| Preact → Vanilla | Medium - port every component, hand-roll ARIA combobox, manual DOM | Medium - first iteration leaked `__node_N__` markers, fixed by moving static markup to HTML |
+| Vanilla → Preact (rollback) | Low - components have small surface area | Low - easy revert |
 
 ## Recommendation
 
 **Stay on vanilla + static HTML.** Three reasons:
 
-1. **Bundle** — at 39 KB gzipped we're below the React baseline by a factor of 2.2× and below Preact by 2.2×. For a content-heavy reference site that has to load fast on slow networks, this matters more than DX niceties.
-2. **Maintainability** — the page is essentially static. 9 out of 11 sections render identical content for every visitor. Shipping them as HTML rather than rebuilding them in JS on every page load is the right architectural choice. Only the host-support-table, service-comparison, pricing-table, status-grid, speed-test-grid, policies-table, usenet-table, resource-groups, and disclaimer-cards need JS — and they're all isolated to their `[data-mount]` slots.
-3. **Tests catch the failure modes** — the `static-checks.ts` and `icon-references.ts` scripts run on every build and would have caught the original "missing icons" and "leaked node markers" bugs in CI, not at runtime. That's the safety net a hand-rolled vanilla build needs to be maintainable.
+1. **Bundle** - at 39 KB gzipped we're below the React baseline by a factor of 2.2× and below Preact by 2.2×. For a content-heavy reference site that has to load fast on slow networks, this matters more than DX niceties.
+2. **Maintainability** - the page is essentially static. 9 out of 11 sections render identical content for every visitor. Shipping them as HTML rather than rebuilding them in JS on every page load is the right architectural choice. Only the host-support-table, service-comparison, pricing-table, status-grid, speed-test-grid, policies-table, usenet-table, resource-groups, and disclaimer-cards need JS - and they're all isolated to their `[data-mount]` slots.
+3. **Tests catch the failure modes** - the `static-checks.ts` and `icon-references.ts` scripts run on every build and would have caught the original "missing icons" and "leaked node markers" bugs in CI, not at runtime. That's the safety net a hand-rolled vanilla build needs to be maintainable.
 
 The trade-off is real (no JSX, more boilerplate per component), but it's paid once per component and the bundle savings compound on every page view.
 
-If we ever need richer interactions (animations, virtualized lists beyond the 60-row initial render, drag-and-drop), we'd want to revisit — but for the current content density, vanilla is the right call.
+If we ever need richer interactions (animations, virtualized lists beyond the 60-row initial render, drag-and-drop), we'd want to revisit - but for the current content density, vanilla is the right call.

@@ -32,7 +32,7 @@ export default defineConfig({
           }
           return 'assets/[name]-[hash][extname]';
         },
-        // Single entry — small enough that we don't bother with vendor
+        // Single entry: small enough that we don't bother with vendor
         // splits. If a future page or chunk grows, we can split again.
       },
     },

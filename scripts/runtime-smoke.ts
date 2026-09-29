@@ -1,4 +1,4 @@
-// Runtime smoke test — exercises the real Vite-built bundle inside jsdom
+// Runtime smoke test - exercises the real Vite-built bundle inside jsdom
 // by importing the bundled modules directly (jsdom doesn't support
 // `<script type="module">` natively, so we bypass HTML loading and import
 // the bundles as ES modules in a JSDOM-equipped Node process).
@@ -7,7 +7,7 @@
 //   - Preact + Radix (Select, Tooltip, Tabs) imports resolve cleanly
 //   - Radix Select renders without portal runtime errors
 //   - The built app's render() function actually executes without
-//     throwing — i.e. Preact compat handles Slot/forwardRef correctly
+//     throwing - i.e. Preact compat handles Slot/forwardRef correctly
 import jsdom, { VirtualConsole } from 'jsdom';
 import { readFileSync, readdirSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';

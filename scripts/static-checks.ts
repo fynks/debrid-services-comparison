@@ -1,4 +1,4 @@
-// Static HTML validation — runs against the built dist/index.html to
+// Static HTML validation - runs against the built dist/index.html to
 // catch rendering / structural bugs that the runtime smoke can't see.
 //
 // Checks:
@@ -32,7 +32,7 @@ function check(cond: boolean, msg: string) {
 }
 
 if (!existsSync(INDEX)) {
-  console.error('dist/index.html missing — run `npm run build` first');
+  console.error('dist/index.html missing - run `npm run build` first');
   process.exit(1);
 }
 
