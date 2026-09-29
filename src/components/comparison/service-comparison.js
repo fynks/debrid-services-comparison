@@ -11,6 +11,11 @@ import { SERVICES } from '../../data/services.ts';
 export function initServiceComparison(slot, { data } = {}) {
   if (!slot) return;
   const services = data.services;
+  const serviceToBit = new Map(services.map((s, idx) => [s, 1 << idx]));
+  const hostEntries = Object.entries(data.supported).map(([host, mask]) => ({
+    host,
+    mask,
+  }));
 
   let a = readInitialSelection(services)[0];
   let b = readInitialSelection(services)[1];
@@ -90,13 +95,13 @@ export function initServiceComparison(slot, { data } = {}) {
 
   function computeRows() {
     if (!a || !b) return [];
-    const aIdx = services.indexOf(a);
-    const bIdx = services.indexOf(b);
-    if (aIdx < 0 || bIdx < 0) return [];
-    return Object.entries(data.supported).map(([host, idxs]) => ({
+    const aBit = serviceToBit.get(a) ?? 0;
+    const bBit = serviceToBit.get(b) ?? 0;
+    if (!aBit || !bBit) return [];
+    return hostEntries.map(({ host, mask }) => ({
       host,
-      a: idxs.includes(aIdx),
-      b: idxs.includes(bIdx),
+      a: (mask & aBit) !== 0,
+      b: (mask & bBit) !== 0,
     }));
   }
 
@@ -174,6 +179,7 @@ export function initServiceComparison(slot, { data } = {}) {
     table.appendChild(thead);
 
     const tbody = document.createElement('tbody');
+    const frag = document.createDocumentFragment();
     for (const r of rows) {
       const tr = document.createElement('tr');
       tr.className =
@@ -190,8 +196,9 @@ export function initServiceComparison(slot, { data } = {}) {
       sTd.className = 'px-3 py-1.5';
       sTd.appendChild(statusBadge(r, a, b));
       tr.appendChild(sTd);
-      tbody.appendChild(tr);
+      frag.appendChild(tr);
     }
+    tbody.appendChild(frag);
     table.appendChild(tbody);
     wrap.appendChild(table);
     body.appendChild(wrap);

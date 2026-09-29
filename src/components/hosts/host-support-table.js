@@ -21,7 +21,17 @@ const SERVICE_STATUS_PAGES = Object.fromEntries(
 export function initHostSupportTable(slot, { source, data, initialLimit = 60 } = {}) {
   if (!slot) return;
   const services = data.services;
-  const hostCount = Object.keys(data.supported).length;
+
+  // Pre-index host entries with their build-time bitmask and normalized search strings.
+  const serviceToBit = new Map(services.map((s, idx) => [s, 1 << idx]));
+  const baseEntries = Object.entries(data.supported).map(([host, mask]) => ({
+    host,
+    hostLower: host.toLowerCase(),
+    hostNorm: normalizeHostname(host),
+    mask,
+  }));
+
+  const hostCount = baseEntries.length;
   const resultsLabel =
     source === 'adult'
       ? 'Adult hosts table'
@@ -211,36 +221,39 @@ export function initHostSupportTable(slot, { source, data, initialLimit = 60 } =
     return th;
   }
 
-  function filteredEntries() {
-    const entries = Object.entries(data.supported);
-    const term = state.debounced.trim();
-    entries.sort(([aHost, aSupp], [bHost, bSupp]) => {
-      if (state.sort.column === 'service') {
-        return state.sort.direction === 'asc'
-          ? aHost.localeCompare(bHost)
-          : bHost.localeCompare(aHost);
-      }
-      const idx = services.indexOf(state.sort.column);
-      const aHas = idx >= 0 && aSupp.includes(idx) ? 1 : 0;
-      const bHas = idx >= 0 && bSupp.includes(idx) ? 1 : 0;
-      return state.sort.direction === 'asc' ? aHas - bHas : bHas - aHas;
+  function sortedEntries() {
+    if (state.sort.column === 'service') {
+      return state.sort.direction === 'asc'
+        ? baseEntries
+        : baseEntries.slice().reverse();
+    }
+    const bit = serviceToBit.get(state.sort.column) ?? 0;
+    const asc = state.sort.direction === 'asc';
+    return baseEntries.slice().sort((a, b) => {
+      const aHas = (a.mask & bit) !== 0 ? 1 : 0;
+      const bHas = (b.mask & bit) !== 0 ? 1 : 0;
+      return asc ? aHas - bHas : bHas - aHas;
     });
+  }
+
+  function filteredEntries() {
+    const entries = sortedEntries();
+    const term = state.debounced.trim();
     if (!term) return entries;
     const extracted = extractHostnameFromURL(term);
     if (extracted) {
       const needle = normalizeHostname(extracted);
       return entries
-        .map(([host, supp]) => ({
-          host,
-          supp,
-          score: similarityScore(host, needle),
+        .map((entry) => ({
+          entry,
+          score: similarityScore(entry.hostNorm, needle),
         }))
         .filter((m) => m.score >= 60)
         .sort((a, b) => b.score - a.score)
-        .map(({ host, supp }) => [host, supp]);
+        .map(({ entry }) => entry);
     }
     const needle = term.toLowerCase();
-    return entries.filter(([host]) => host.toLowerCase().includes(needle));
+    return entries.filter((entry) => entry.hostLower.includes(needle));
   }
 
   function render() {
@@ -270,8 +283,7 @@ export function initHostSupportTable(slot, { source, data, initialLimit = 60 } =
     }
     thead.replaceChildren(trh);
 
-    // Rebuild tbody
-    tbody.replaceChildren();
+    // Rebuild tbody in a single DocumentFragment commit
     if (visible.length === 0) {
       const tr = document.createElement('tr');
       const td = document.createElement('td');
@@ -280,11 +292,13 @@ export function initHostSupportTable(slot, { source, data, initialLimit = 60 } =
         'px-4 py-16 text-center text-sm text-muted-foreground';
       td.textContent = 'No hosts match your search.';
       tr.appendChild(td);
-      tbody.appendChild(tr);
+      tbody.replaceChildren(tr);
     } else {
-      for (const [host, supportedIndices] of visible) {
-        tbody.appendChild(rowFor(host, supportedIndices));
+      const frag = document.createDocumentFragment();
+      for (const entry of visible) {
+        frag.appendChild(rowFor(entry));
       }
+      tbody.replaceChildren(frag);
     }
 
     // Load-all button
@@ -303,7 +317,7 @@ export function initHostSupportTable(slot, { source, data, initialLimit = 60 } =
     }
   }
 
-  function rowFor(host, supportedIndices) {
+  function rowFor({ host, mask }) {
     const tr = document.createElement('tr');
     tr.className =
       'group border-b border-border/40 last:border-0 transition-colors hover:bg-muted/30';
@@ -318,8 +332,8 @@ export function initHostSupportTable(slot, { source, data, initialLimit = 60 } =
     services.forEach((service, idx) => {
       const td = document.createElement('td');
       td.className = 'px-2 py-2 text-center';
-      td.dataset.supported = String(supportedIndices.includes(idx));
-      const supported = supportedIndices.includes(idx);
+      const supported = (mask & (1 << idx)) !== 0;
+      td.dataset.supported = String(supported);
       if (supported) {
         const url = SERVICE_STATUS_PAGES[service];
         if (url) {
@@ -375,9 +389,9 @@ export function initHostSupportTable(slot, { source, data, initialLimit = 60 } =
   render();
 }
 
-function similarityScore(host, needle) {
+function similarityScore(hostNorm, needle) {
   if (!needle) return 100;
-  const a = normalizeHostname(host);
+  const a = hostNorm;
   const b = needle;
   if (!a || !b) return 0;
   if (a === b) return 100;

@@ -15,10 +15,13 @@ export type ServiceId =
   | 'Deepbrid'
   | 'High-Way';
 
-/** Optimized JSON shape produced by scripts/json-optimizer.sh */
+/** Optimized JSON shape produced by scripts/optimize-json.ts */
 export interface OptimizedHostsData {
   services: ServiceId[];
-  supported: Record<string, number[]>;
+  /**
+   * Bitmask per host: bit `i` (`1 << i`) is set when `services[i]` supports the host.
+   */
+  supported: Record<string, number>;
 }
 
 /** Flattened host support table - used by components. */

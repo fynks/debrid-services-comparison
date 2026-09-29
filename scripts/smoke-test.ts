@@ -52,13 +52,11 @@ assert(fileHosts.services.includes('TorBox'), 'includes TorBox');
 console.log('\nSupport matrix (inlined)');
 function toSupportMatrix(data: OptimizedHostsData) {
   const matrix: Record<string, Record<string, boolean>> = {};
-  for (const [host, idxs] of Object.entries(data.supported)) {
+  for (const [host, mask] of Object.entries(data.supported)) {
     matrix[host] = {};
-    for (const id of data.services) matrix[host][id] = false;
-    for (const i of idxs) {
-      const id = data.services[i];
-      if (id) matrix[host][id] = true;
-    }
+    data.services.forEach((id, idx) => {
+      matrix[host][id] = (mask & (1 << idx)) !== 0;
+    });
   }
   return matrix;
 }
@@ -128,7 +126,11 @@ console.log('\nAdult hosts');
 const adult = JSON.parse(
   readFileSync(resolve(ROOT, 'src/json/adult-hosts-optimized.json'), 'utf8'),
 ) as OptimizedHostsData;
-assert(adult.services.length === fileHosts.services.length, 'same services in adult and file hosts');
+assert(adult.services.length === fileHosts.services.length, 'same services count in adult and file hosts');
+assert(
+  adult.services.every((s, idx) => s === fileHosts.services[idx] && s in SERVICES),
+  'adult and file hosts share canonical SERVICE_ORDER and valid ServiceIds',
+);
 assert(Object.keys(adult.supported).length > 10, 'adult hosts > 10');
 
 console.log('\n---');

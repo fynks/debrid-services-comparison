@@ -7,17 +7,15 @@
     "skipLibCheck": true,
 
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": false,
+    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "moduleDetection": "force",
     "noEmit": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "preact",
 
     "strict": true,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true,
 
@@ -25,15 +23,11 @@
     "allowSyntheticDefaultImports": true,
 
     "paths": {
-      "@/*": ["./src/*"],
-      "react": ["./node_modules/preact/compat"],
-      "react/jsx-runtime": ["./node_modules/preact/jsx-runtime"],
-      "react-dom": ["./node_modules/preact/compat"],
-      "react-dom/*": ["./node_modules/preact/compat/*"]
+      "@/*": ["./src/*"]
     },
 
     "types": ["vite/client", "node"]
   },
-  "include": ["src", "vite.config.js"],
-  "exclude": ["node_modules", "dist", "scripts"]
+  "include": ["src", "scripts/optimize-json.ts", "vite.config.js"],
+  "exclude": ["node_modules", "dist"]
 }
