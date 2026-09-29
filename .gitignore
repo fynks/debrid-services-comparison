@@ -8,3 +8,19 @@ public/json/file-hosts-optimized.json
 public/json/adult-hosts-optimized.json
 src/json/adult-hosts-optimized.json
 src/json/file-hosts-optimized.json
+
+# Editor
+.vscode
+.idea
+*.swp
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Test artifacts
+coverage/
+.eslintcache
