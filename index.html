@@ -59,7 +59,7 @@
     <link rel="manifest" href="/manifest.json">
 
     <script>
-        // Set theme synchronously before React boots to avoid FOUC.
+        // Set theme synchronously before app boots to avoid FOUC.
         (function () {
             try {
                 var saved = localStorage.getItem('theme');
@@ -271,8 +271,8 @@
             JavaScript is disabled. Interactive comparison and filtering won't work.
         </div>
     </noscript>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>

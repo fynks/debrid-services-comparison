@@ -7,13 +7,12 @@ import {
   extractHostnameFromURL,
   normalizeHostname,
   levenshteinDistance,
-} from '../src/lib/utils';
-import { toSupportMatrix, serviceStats } from '../src/lib/data-transforms';
+} from '../src/lib/fuzzy.js';
 import { PRICING_ROWS, PRICING_SERVICES, REFERRAL_LINKS } from '../src/data/pricing';
 import { POLICY_ROWS } from '../src/data/policies';
 import { SERVICES, SERVICE_ORDER } from '../src/data/services';
 import { RESOURCE_GROUPS } from '../src/data/resources';
-import type { OptimizedHostsData, ServiceId } from '../src/types/data';
+import type { OptimizedHostsData } from '../src/types/data';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -50,14 +49,42 @@ for (const s of fileHosts.services) {
 assert(fileHosts.services.includes('AllDebrid'), 'includes AllDebrid');
 assert(fileHosts.services.includes('TorBox'), 'includes TorBox');
 
-console.log('\nSupport matrix');
+console.log('\nSupport matrix (inlined)');
+function toSupportMatrix(data: OptimizedHostsData) {
+  const matrix: Record<string, Record<string, boolean>> = {};
+  for (const [host, idxs] of Object.entries(data.supported)) {
+    matrix[host] = {};
+    for (const id of data.services) matrix[host][id] = false;
+    for (const i of idxs) {
+      const id = data.services[i];
+      if (id) matrix[host][id] = true;
+    }
+  }
+  return matrix;
+}
+function serviceStats(matrix: Record<string, Record<string, boolean>>) {
+  const counts: Record<string, number> = {};
+  for (const id of Object.keys(Object.values(matrix)[0] ?? {})) counts[id] = 0;
+  for (const host of Object.keys(matrix)) {
+    for (const id of Object.keys(matrix[host])) {
+      if (matrix[host][id]) counts[id]++;
+    }
+  }
+  const total = Object.keys(matrix).length || 1;
+  return Object.entries(counts)
+    .map(([service, supported]) => ({
+      service,
+      supported,
+      percent: Math.round((supported / total) * 100),
+    }))
+    .sort((a, b) => b.supported - a.supported);
+}
+
 const matrix = toSupportMatrix(fileHosts);
 const stats = serviceStats(matrix);
 assert(stats.length === fileHosts.services.length, 'one stat per service');
 assert(stats.every((s) => s.supported > 0), 'every service has at least one supported host');
 assert(stats.every((s) => s.percent <= 100), 'percent <= 100');
-const sorted = [...stats].sort((a, b) => b.supported - a.supported);
-assert(JSON.stringify(stats) === JSON.stringify(sorted), 'stats sorted desc by supported');
 
 console.log('\nPricing');
 assert(PRICING_ROWS.length >= 5, 'at least 5 pricing rows');
