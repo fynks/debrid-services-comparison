@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================================
+   Design tokens — light + dark.
+   These map directly into Tailwind's `bg-background`, `text-foreground`, etc.
+   via the `tailwind.config.js` color tokens.
+   ============================================================================ */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 192 91% 25%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 192 91% 25%;
+
+    --radius: 0.5rem;
+
+    /* Domain semantic tokens */
+    --success: 158 64% 30%;
+    --success-foreground: 0 0% 100%;
+    --success-muted: 152 76% 95%;
+
+    --warning: 32 95% 36%;
+    --warning-foreground: 0 0% 100%;
+    --warning-muted: 38 95% 95%;
+
+    --info: 221 83% 53%;
+    --info-foreground: 0 0% 100%;
+    --info-muted: 214 95% 96%;
+
+    color-scheme: light;
+  }
+
+  [data-theme='dark'] {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 187 95% 43%;
+    --primary-foreground: 222 47% 6%;
+
+    --secondary: 217 33% 14%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 14%;
+    --muted-foreground: 215 20% 70%;
+
+    --accent: 217 33% 14%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 45%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 18%;
+    --input: 217 33% 18%;
+    --ring: 187 95% 43%;
+
+    --success: 158 64% 50%;
+    --success-foreground: 222 47% 6%;
+    --success-muted: 158 64% 12%;
+
+    --warning: 38 95% 56%;
+    --warning-foreground: 222 47% 6%;
+    --warning-muted: 38 70% 14%;
+
+    --info: 217 91% 70%;
+    --info-foreground: 222 47% 6%;
+    --info-muted: 217 60% 16%;
+
+    color-scheme: dark;
+  }
+}
+
+/* ============================================================================
+   Base layer — typography reset, smooth fonts, focus rings, etc.
+   ============================================================================ */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    border-color: hsl(var(--border));
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem; /* account for sticky header */
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: 'cv11', 'ss01', 'ss03';
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Tabular numerals for prices and data. */
+  .tabular-nums,
+  table,
+  [data-tabular] {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Visible, restrained focus rings. */
+  :where(button, [role='button'], a, input, select, textarea, [tabindex]):focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  /* Subtle heading rhythm */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply tracking-tight text-balance;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Skip link */
+  .skip-link {
+    @apply sr-only;
+  }
+  .skip-link:focus-visible {
+    @apply not-sr-only fixed left-2 top-2 z-50 rounded-md bg-primary px-3 py-2 text-primary-foreground;
+  }
+}
+
+/* ============================================================================
+   Utilities used across the application.
+   ============================================================================ */
+@layer utilities {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-prose {
+    @apply mx-auto w-full max-w-3xl px-4 sm:px-6;
+  }
+
+  /* Hairline border that respects dark mode. */
+  .border-hairline {
+    @apply border border-border/80;
+  }
+
+  /* Subtle dotted underline used for inline links. */
+  .link-underline {
+    @apply underline decoration-border decoration-1 underline-offset-4 hover:decoration-foreground;
+  }
+}
