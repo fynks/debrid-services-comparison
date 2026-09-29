@@ -3,7 +3,7 @@ module.exports = {
   globDirectory: "dist/",
   // Explicitly disable precaching for lean SW install
   globPatterns: [],
-  
+
   // Enhanced runtime caching strategies
   runtimeCaching: [
     // 1. Navigation routes (for SPAs) - Network first with offline fallback
@@ -79,7 +79,6 @@ module.exports = {
       }
     },
 
-
     // 5. JSON responses (local and API) - NetworkFirst with timeout
     {
       urlPattern: ({url}) => /\.json$/i.test(url.pathname) || /\/api\//i.test(url.pathname) || /^https:\/\/api\./i.test(url.href),
@@ -117,27 +116,27 @@ module.exports = {
 
   // Service worker output
   swDest: "dist/sw.js",
-  
+
   // Disable sourcemaps in production
   sourcemap: false,
-  
+
   // Immediate activation
   skipWaiting: true,
   clientsClaim: true,
-  
+
   // Additional improvements
   cleanupOutdatedCaches: true, // Remove old caches automatically
   navigateFallback: null, // No fallback since no precaching
-  
+
   // Ignore specific query parameters
   ignoreURLParametersMatching: [
     /^utm_/, // Marketing params
     /^fbclid$/ // Facebook click ID
   ],
-  
+
   // Maximum file size to cache (15MB)
   maximumFileSizeToCacheInBytes: 15 * 1024 * 1024,
-  
+
   // Mode for generated SW
   mode: 'production'
 };

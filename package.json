@@ -1,24 +1,42 @@
 {
-  "name": "@fynks/debrid-service-comparison",
-  "version": "2.0.1",
-  "description": "A concise comparison of pricing and supported hosts for popular debrid services including AllDebrid, Real-Debrid, LinkSnappy, Premiumize, Debrid-Link, TorBox, and Mega-Debrid.",
-  "main": "index.js",
-  "homepage": "https://debridcompare.pages.dev/",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/fynks/debrid-services-comparison"
-  },
+  "name": "debrid-services-comparison",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Compare leading debrid / multi-hoster services for pricing, host coverage, policies & tools.",
   "scripts": {
     "dev": "vite",
-    "optimize-json": "scripts/json-optimizer.sh data/file-hosts.json src/json/file-hosts-optimized.json && scripts/json-optimizer.sh data/adult-hosts.json src/json/adult-hosts-optimized.json",
-    "build": "npm run optimize-json && vite build && workbox generateSW workbox-config.js",
-    "preview": "vite preview"
+    "optimize-json": "bash scripts/json-optimizer.sh data/file-hosts.json src/json/file-hosts-optimized.json && bash scripts/json-optimizer.sh data/adult-hosts.json src/json/adult-hosts-optimized.json",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "smoke-test": "tsx scripts/smoke-test.ts",
+    "smoke-test:runtime": "tsx scripts/runtime-smoke-vanilla.ts",
+    "check:static": "tsx scripts/static-checks.ts",
+    "check:icons": "tsx scripts/icon-references.ts",
+    "test": "npm run typecheck && npm run lint && npm run smoke-test && npm run check:static && npm run check:icons",
+    "verify": "npm run build && npm run smoke-test:runtime && npm run check:static && npm run check:icons",
+    "build": "npm run optimize-json && vite build && workbox generateSW workbox-config.cjs",
+    "preview": "vite preview --host 0.0.0.0",
+    "prebuild": "npm run optimize-json"
   },
-  "author": "fynks",
   "dependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "morphdom": "^2.7.5",
+    "tailwindcss": "^4.3.3",
+    "tw-animate-css": "^1.4.0",
     "workbox-cli": "^7.4.1"
   },
   "devDependencies": {
-    "vite": "^8.2.1"
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^24.10.0",
+    "@typescript-eslint/eslint-plugin": "^8.46.0",
+    "@typescript-eslint/parser": "^8.46.0",
+    "eslint": "^10.11.0",
+    "globals": "^16.5.0",
+    "jsdom": "^30.1.1",
+    "tsx": "^4.20.6",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.46.0",
+    "vite": "^8.3.1"
   }
 }

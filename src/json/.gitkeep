@@ -1,0 +1,2 @@
+# Optimized host JSON files (file-hosts-optimized.json, adult-hosts-optimized.json)
+# are generated at build time via `npm run optimize-json` and are gitignored.

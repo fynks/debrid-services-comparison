@@ -1,0 +1,255 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* ============================================================================
+   shadcn/ui-compatible design tokens (light + dark).
+   Mapped into Tailwind's `bg-background`, `text-foreground`, etc.
+   ============================================================================ */
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme {
+  --color-background: hsl(0 0% 100%);
+  --color-foreground: hsl(222 47% 11%);
+
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(222 47% 11%);
+
+  --color-popover: hsl(0 0% 100%);
+  --color-popover-foreground: hsl(222 47% 11%);
+
+  --color-primary: hsl(192 91% 25%);
+  --color-primary-foreground: hsl(0 0% 100%);
+
+  --color-secondary: hsl(210 40% 96%);
+  --color-secondary-foreground: hsl(222 47% 11%);
+
+  --color-muted: hsl(210 40% 96%);
+  --color-muted-foreground: hsl(215 16% 47%);
+
+  --color-accent: hsl(210 40% 96%);
+  --color-accent-foreground: hsl(222 47% 11%);
+
+  --color-destructive: hsl(0 72% 51%);
+  --color-destructive-foreground: hsl(0 0% 100%);
+
+  --color-border: hsl(214 32% 91%);
+  --color-input: hsl(214 32% 91%);
+  --color-ring: hsl(192 91% 25%);
+
+  /* Default radius. Used by Tailwind's `rounded-md` and `rounded-lg`.
+     We pick 0.5rem so a single radius shows up everywhere; consistency
+     over hierarchy. */
+  --radius: 0.5rem;
+
+  /* Domain semantic tokens */
+  --color-success: hsl(158 64% 30%);
+  --color-success-foreground: hsl(0 0% 100%);
+  --color-success-muted: hsl(152 76% 95%);
+
+  --color-warning: hsl(32 95% 36%);
+  --color-warning-foreground: hsl(0 0% 100%);
+  --color-warning-muted: hsl(38 95% 95%);
+
+  --color-info: hsl(221 83% 53%);
+  --color-info-foreground: hsl(0 0% 100%);
+  --color-info-muted: hsl(214 95% 96%);
+
+  /* Typography */
+  --font-sans:
+    "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    sans-serif;
+  --font-mono:
+    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Type scale — text-2xs adds the smallest step between xs (0.75rem)
+     and the 0.6875rem badge/microcopy size we use throughout. */
+  --text-2xs: 0.6875rem; /* 11px */
+  --text-2xs--line-height: 1rem; /* 16px */
+  --text-xs: 0.75rem; /* 12px */
+  --text-xs--line-height: 1.125rem; /* 18px */
+  --text-sm: 0.8125rem; /* 13px — slightly tighter than Tailwind default */
+  --text-sm--line-height: 1.25rem; /* 20px */
+
+  /* Border radius scale — single radius across the product so cards,
+     inputs, badges, and pills share the same visual weight. Override
+     Tailwind's defaults so `rounded-md` and `rounded-lg` produce the
+     same value. */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  [data-theme="dark"] {
+    --color-background: hsl(222 47% 6%);
+    --color-foreground: hsl(210 40% 98%);
+
+    --color-card: hsl(222 47% 8%);
+    --color-card-foreground: hsl(210 40% 98%);
+
+    --color-popover: hsl(222 47% 8%);
+    --color-popover-foreground: hsl(210 40% 98%);
+
+    --color-primary: hsl(187 95% 43%);
+    --color-primary-foreground: hsl(222 47% 6%);
+
+    --color-secondary: hsl(217 33% 14%);
+    --color-secondary-foreground: hsl(210 40% 98%);
+
+    --color-muted: hsl(217 33% 14%);
+    --color-muted-foreground: hsl(215 20% 70%);
+
+    --color-accent: hsl(217 33% 14%);
+    --color-accent-foreground: hsl(210 40% 98%);
+
+    --color-destructive: hsl(0 63% 45%);
+    --color-destructive-foreground: hsl(210 40% 98%);
+
+    --color-border: hsl(217 33% 18%);
+    --color-input: hsl(217 33% 18%);
+    --color-ring: hsl(187 95% 43%);
+
+    --color-success: hsl(158 64% 50%);
+    --color-success-foreground: hsl(222 47% 6%);
+    --color-success-muted: hsl(158 64% 12%);
+
+    --color-warning: hsl(38 95% 56%);
+    --color-warning-foreground: hsl(222 47% 6%);
+    --color-warning-muted: hsl(38 70% 14%);
+
+    --color-info: hsl(217 91% 70%);
+    --color-info-foreground: hsl(222 47% 6%);
+    --color-info-muted: hsl(217 60% 16%);
+
+    color-scheme: dark;
+  }
+}
+
+/* ============================================================================
+   Base layer
+   ============================================================================ */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    border-color: var(--color-border);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv11", "ss01", "ss03";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Tabular numerals for prices and data. */
+  .tabular-nums,
+  table,
+  [data-tabular] {
+    font-variant-numeric: tabular-nums;
+  }
+
+  :where(button, [role="button"], a, input, select, textarea, [tabindex]):focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  .skip-link {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  .skip-link:focus-visible {
+    position: fixed;
+    left: 0.5rem;
+    top: 0.5rem;
+    z-index: 50;
+    width: auto;
+    height: auto;
+    padding: 0.5rem 0.75rem;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+    border-radius: var(--radius);
+  }
+}
+
+/* ============================================================================
+   Component utilities
+   ============================================================================ */
+@utility container-page {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 72rem;
+  padding-inline: 1rem;
+}
+
+@utility container-prose {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 48rem;
+  padding-inline: 1rem;
+}
+
+@utility border-hairline {
+  border-color: var(--color-border);
+}
+
+@media (min-width: 640px) {
+  .container-page,
+  .container-prose {
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-page {
+    padding-inline: 2rem;
+  }
+}
