@@ -16,7 +16,7 @@ export function initServiceComparison(slot, { data } = {}) {
   let b = readInitialSelection(services)[1];
 
   const root = document.createElement('div');
-  root.className = 'space-y-6';
+  root.className = 'space-y-6 pb-4 sm:pb-6';
 
   // Top row: two selects + "vs" divider
   const topRow = document.createElement('div');
@@ -39,7 +39,7 @@ export function initServiceComparison(slot, { data } = {}) {
 
   const vsDiv = document.createElement('div');
   vsDiv.className =
-    'hidden text-center text-xs font-semibold uppercase tracking-widest text-muted-foreground sm:block';
+    'hidden text-center text-xs font-semibold uppercase tracking-widest text-muted-foreground sm:block sm:pb-2';
   vsDiv.textContent = 'vs';
   topRow.appendChild(vsDiv);
 
@@ -83,6 +83,7 @@ export function initServiceComparison(slot, { data } = {}) {
   root.appendChild(statusRow);
 
   const body = document.createElement('div');
+  body.className = 'min-h-[280px] sm:min-h-[320px]';
   root.appendChild(body);
 
   slot.replaceChildren(root);
@@ -133,7 +134,7 @@ export function initServiceComparison(slot, { data } = {}) {
     if (!a || !b) {
       const empty = document.createElement('div');
       empty.className =
-        'rounded-lg border border-dashed border-border p-12 text-center text-sm text-muted-foreground';
+        'flex min-h-[200px] items-center justify-center rounded-lg border border-dashed border-border px-6 py-10 text-center text-sm text-muted-foreground sm:min-h-[240px] sm:py-14';
       empty.textContent = 'Pick two services above to start the comparison.';
       body.appendChild(empty);
       return;

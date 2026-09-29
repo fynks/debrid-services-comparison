@@ -141,14 +141,18 @@ function buildCard(item) {
  * Render an icon by referencing the inline SVG sprite in index.html.
  * (No second copy of the icons lives in this module — they're in the
  * page-level <defs>.) If the symbol isn't found, render an empty SVG.
+ * Icon names are normalized to lowercase so the data files can use
+ * PascalCase keys (Tv, Database, …) and still resolve to i-tv,
+ * i-database, etc.
  */
 function spriteUse(name, className) {
   const SVG_NS = 'http://www.w3.org/2000/svg';
+  const id = 'i-' + String(name).toLowerCase();
   const svg = document.createElementNS(SVG_NS, 'svg');
   svg.setAttribute('class', className);
   svg.setAttribute('aria-hidden', 'true');
   const use = document.createElementNS(SVG_NS, 'use');
-  use.setAttribute('href', `#i-${name}`);
+  use.setAttribute('href', `#${id}`);
   svg.appendChild(use);
   return svg;
 }

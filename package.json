@@ -10,8 +10,11 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "smoke-test": "tsx scripts/smoke-test.ts",
-    "smoke-test:runtime": "tsx scripts/runtime-smoke.ts",
-    "test": "npm run typecheck && npm run lint && npm run smoke-test",
+    "smoke-test:runtime": "tsx scripts/runtime-smoke-vanilla.ts",
+    "check:static": "tsx scripts/static-checks.ts",
+    "check:icons": "tsx scripts/icon-references.ts",
+    "test": "npm run typecheck && npm run lint && npm run smoke-test && npm run check:static && npm run check:icons",
+    "verify": "npm run build && npm run smoke-test:runtime && npm run check:static && npm run check:icons",
     "build": "npm run optimize-json && vite build && workbox generateSW workbox-config.cjs",
     "preview": "vite preview --host 0.0.0.0",
     "prebuild": "npm run optimize-json"
