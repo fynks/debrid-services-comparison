@@ -3,12 +3,6 @@
 
 export function registerServiceWorker() {
   if (!('serviceWorker' in navigator)) return;
-  if (
-    typeof navigator.userAgent === 'string' &&
-    /jsdom/i.test(navigator.userAgent)
-  ) {
-    return;
-  }
   window.addEventListener('load', () => {
     navigator.serviceWorker
       .register('/sw.js')

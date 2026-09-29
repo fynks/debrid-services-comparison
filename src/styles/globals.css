@@ -1,8 +1,9 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import "tailwindcss" source(none);
+@source "../../index.html";
+@source "../";
 
 /* ============================================================================
-   shadcn/ui-compatible design tokens (light + dark).
+   Design tokens (light + dark).
    Mapped into Tailwind's `bg-background`, `text-foreground`, etc.
    ============================================================================ */
 
@@ -13,16 +14,9 @@
   --color-foreground: hsl(222 47% 11%);
 
   --color-card: hsl(0 0% 100%);
-  --color-card-foreground: hsl(222 47% 11%);
-
-  --color-popover: hsl(0 0% 100%);
-  --color-popover-foreground: hsl(222 47% 11%);
 
   --color-primary: hsl(192 91% 25%);
   --color-primary-foreground: hsl(0 0% 100%);
-
-  --color-secondary: hsl(210 40% 96%);
-  --color-secondary-foreground: hsl(222 47% 11%);
 
   --color-muted: hsl(210 40% 96%);
   --color-muted-foreground: hsl(215 16% 47%);
@@ -30,29 +24,21 @@
   --color-accent: hsl(210 40% 96%);
   --color-accent-foreground: hsl(222 47% 11%);
 
-  --color-destructive: hsl(0 72% 51%);
-  --color-destructive-foreground: hsl(0 0% 100%);
-
   --color-border: hsl(214 32% 91%);
   --color-input: hsl(214 32% 91%);
   --color-ring: hsl(192 91% 25%);
 
-  /* Default radius. Used by Tailwind's `rounded-md` and `rounded-lg`.
-     We pick 0.5rem so a single radius shows up everywhere; consistency
-     over hierarchy. */
+  /* Default radius. Used by Tailwind's `rounded-md` and `rounded-lg`. */
   --radius: 0.5rem;
 
   /* Domain semantic tokens */
   --color-success: hsl(158 64% 30%);
-  --color-success-foreground: hsl(0 0% 100%);
   --color-success-muted: hsl(152 76% 95%);
 
   --color-warning: hsl(32 95% 36%);
-  --color-warning-foreground: hsl(0 0% 100%);
   --color-warning-muted: hsl(38 95% 95%);
 
   --color-info: hsl(221 83% 53%);
-  --color-info-foreground: hsl(0 0% 100%);
   --color-info-muted: hsl(214 95% 96%);
 
   /* Typography */
@@ -72,9 +58,7 @@
   --text-sm--line-height: 1.25rem; /* 20px */
 
   /* Border radius scale — single radius across the product so cards,
-     inputs, badges, and pills share the same visual weight. Override
-     Tailwind's defaults so `rounded-md` and `rounded-lg` produce the
-     same value. */
+     inputs, badges, and pills share the same visual weight. */
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.5rem;
@@ -91,16 +75,9 @@
     --color-foreground: hsl(210 40% 98%);
 
     --color-card: hsl(222 47% 8%);
-    --color-card-foreground: hsl(210 40% 98%);
-
-    --color-popover: hsl(222 47% 8%);
-    --color-popover-foreground: hsl(210 40% 98%);
 
     --color-primary: hsl(187 95% 43%);
     --color-primary-foreground: hsl(222 47% 6%);
-
-    --color-secondary: hsl(217 33% 14%);
-    --color-secondary-foreground: hsl(210 40% 98%);
 
     --color-muted: hsl(217 33% 14%);
     --color-muted-foreground: hsl(215 20% 70%);
@@ -108,23 +85,17 @@
     --color-accent: hsl(217 33% 14%);
     --color-accent-foreground: hsl(210 40% 98%);
 
-    --color-destructive: hsl(0 63% 45%);
-    --color-destructive-foreground: hsl(210 40% 98%);
-
     --color-border: hsl(217 33% 18%);
     --color-input: hsl(217 33% 18%);
     --color-ring: hsl(187 95% 43%);
 
     --color-success: hsl(158 64% 50%);
-    --color-success-foreground: hsl(222 47% 6%);
     --color-success-muted: hsl(158 64% 12%);
 
     --color-warning: hsl(38 95% 56%);
-    --color-warning-foreground: hsl(222 47% 6%);
     --color-warning-muted: hsl(38 70% 14%);
 
     --color-info: hsl(217 91% 70%);
-    --color-info-foreground: hsl(222 47% 6%);
     --color-info-muted: hsl(217 60% 16%);
 
     color-scheme: dark;
@@ -230,20 +201,8 @@
   padding-inline: 1rem;
 }
 
-@utility container-prose {
-  margin-inline: auto;
-  width: 100%;
-  max-width: 48rem;
-  padding-inline: 1rem;
-}
-
-@utility border-hairline {
-  border-color: var(--color-border);
-}
-
 @media (min-width: 640px) {
-  .container-page,
-  .container-prose {
+  .container-page {
     padding-inline: 1.5rem;
   }
 }

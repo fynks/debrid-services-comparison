@@ -9,7 +9,7 @@ This document compares the four implementations of the DebridCompare frontend so
 | Original (vanilla DOM, commit 3c8c29f baseline) | 4.4 KB | 9 KB | 39 KB (1 chunk) | + 80 KB inline | **~130 KB** | 1 HTML + 1 CSS + 2 JS, no code split |
 | React + shadcn (commit ecef1b1) | 4.4 KB | 9 KB | 21 KB app | + 9.9 KB react-vendor + 29 KB radix + 13 KB icons = 51.9 KB | **~86 KB** | 4 cache-friendly vendor chunks |
 | Preact + Radix swap (commit 50b0fea) | 4.4 KB | 8.3 KB | 21 KB app | + 9.9 KB preact-vendor + 29 KB radix + 13 KB icons = 51.9 KB | **~86 KB** | Same as React |
-| **Vanilla JS + morphdom + static HTML (current)** | 11.2 KB | 7.6 KB | 18.5 KB entry | + 2.1 KB morphdom | **~39 KB** | Markup in HTML, JS mounts into `[data-mount]` slots |
+| **Vanilla JS + static HTML (current)** | 10.4 KB | 6.8 KB | 17.8 KB entry | 0 KB (none) | **~35 KB** | Markup in HTML, JS mounts into `[data-mount]` slots |
 
 ## Bundle-by-bundle pros and cons
 
@@ -49,16 +49,15 @@ This document compares the four implementations of the DebridCompare frontend so
 
 **Verdict:** Honest improvement over plain React (kills React-DOM weight) but the Radix dependency dominates the bundle. PR #37 baseline.
 
-### Vanilla JS + morphdom + static HTML (**current**, commit 24809f1)
+### Vanilla JS + static HTML (**current**)
 
 | Pros | Cons |
 |---|---|
-| **~39 KB gzipped total** - roughly 55% smaller than Preact, 70% smaller than React | No virtual DOM - manual DOM building requires care (see `__node_N__` bug from earlier turn, now fixed) |
+| **~35 KB gzipped total** - zero runtime JS dependencies, ~59% smaller than Preact, ~73% smaller than React | No virtual DOM - manual DOM building requires care |
 | Static markup in `index.html` is indexable by crawlers, view-source-able, and parseable without JS | Component reusability is reduced - each section is a one-off template, not a `<BenefitSection />` prop-driven component |
-| 21 inline SVG symbols cover every icon - no `lucide-react` runtime | morphdom is a 2 KB dependency we need to keep around for the table patch path |
-| All accessibility primitives (Radix Select, etc.) replaced by ~10 lines of vanilla DOM | Hand-rolled ARIA combobox / focus trap / scroll-spy means more code surface to maintain than shadcn |
-| Code-split morphdom chunk (2.1 KB) is the only vendor chunk - everything else is page markup | Type safety on JS components is weaker - `cn()` strings are untyped by necessity |
-| 50+ automated static-HTML checks catch missing icons / wrong padding / broken labels at build time | Testing the visual rendering requires jsdom + 31 runtime assertions vs. React Testing Library's ergonomics |
+| 21 inline SVG symbols cover every icon - no `lucide-react` runtime | Hand-rolled ARIA combobox / focus trap / scroll-spy means more code surface to maintain than shadcn |
+| All accessibility primitives (Radix Select, etc.) replaced by ~10 lines of vanilla DOM | Type safety on JS components is weaker - `cn()` strings are untyped by necessity |
+| Single JS entry chunk (no vendor chunks needed) - stateful controls (`<input>`, `<select>`) stay mounted while `replaceChildren()` swaps table bodies | |
 | Page works partially with JS disabled (search/sort just doesn't light up) | |
 
 **Verdict:** Best payload-to-feature ratio. The trade-off is more care with DOM construction - but `npm run verify` catches the common bugs automatically.
@@ -69,7 +68,7 @@ This document compares the four implementations of the DebridCompare frontend so
 original (jQuery-style, 2018) ............ ~130 KB gzip
 react 19 + radix (commit ecef1b1) ........ ~86 KB gzip  (−34%)
 preact  + radix (commit 50b0fea) ......... ~86 KB gzip  (−34%)
-vanilla + morphdom (current)  ............ ~39 KB gzip  (−70%)
+vanilla + static HTML (current) .......... ~35 KB gzip  (−73%)
 ```
 
 ## Migration cost
@@ -85,9 +84,9 @@ vanilla + morphdom (current)  ............ ~39 KB gzip  (−70%)
 
 **Stay on vanilla + static HTML.** Three reasons:
 
-1. **Bundle** - at 39 KB gzipped we're below the React baseline by a factor of 2.2× and below Preact by 2.2×. For a content-heavy reference site that has to load fast on slow networks, this matters more than DX niceties.
+1. **Bundle** - at ~35 KB gzipped we're below the React and Preact baselines by a factor of ~2.5×. For a content-heavy reference site that has to load fast on slow networks, this matters more than DX niceties.
 2. **Maintainability** - the page is essentially static. 9 out of 11 sections render identical content for every visitor. Shipping them as HTML rather than rebuilding them in JS on every page load is the right architectural choice. Only the host-support-table, service-comparison, pricing-table, status-grid, speed-test-grid, policies-table, usenet-table, resource-groups, and disclaimer-cards need JS - and they're all isolated to their `[data-mount]` slots.
-3. **Tests catch the failure modes** - the `static-checks.ts` and `icon-references.ts` scripts run on every build and would have caught the original "missing icons" and "leaked node markers" bugs in CI, not at runtime. That's the safety net a hand-rolled vanilla build needs to be maintainable.
+3. **Zero-bloat toolchain** - Vite 8 (Rolldown + Oxc) + TypeScript handles bundling, tree-shaking, and static analysis at native speed without external linter or runtime dependencies.
 
 The trade-off is real (no JSX, more boilerplate per component), but it's paid once per component and the bundle savings compound on every page view.
 
