@@ -1,0 +1,107 @@
+import type { ServiceId, ServiceInfo } from '@/types/data';
+
+/**
+ * Static service metadata. Factual content sourced from the original
+ * index.html / status pages — no claims invented here.
+ */
+export const SERVICES: Record<ServiceId, ServiceInfo> = {
+  AllDebrid: {
+    id: 'AllDebrid',
+    name: 'AllDebrid',
+    website: 'https://alldebrid.com',
+    statusPage: 'https://alldebrid.com/status/',
+    speedTest: undefined,
+    tagline: 'Cheapest reliable option, 7-day trial',
+    hasFreeTier: true,
+    hasUsenet: false,
+  },
+  'Real-Debrid': {
+    id: 'Real-Debrid',
+    name: 'Real-Debrid',
+    website: 'https://real-debrid.com',
+    statusPage: 'https://real-debrid.com/compare',
+    speedTest: 'https://real-debrid.com/speedtest',
+    tagline: 'Wide host support, value pricing',
+    hasFreeTier: false,
+    hasUsenet: false,
+  },
+  TorBox: {
+    id: 'TorBox',
+    name: 'TorBox',
+    website: 'https://torbox.app',
+    statusPage: 'https://torbox.app/hosters',
+    speedTest: 'https://www.torbox.app/speedtest',
+    tagline: 'Free tier + Usenet, recent policy changes',
+    hasFreeTier: true,
+    hasUsenet: true,
+  },
+  Premiumize: {
+    id: 'Premiumize',
+    name: 'Premiumize',
+    website: 'https://www.premiumize.me',
+    statusPage: 'https://www.premiumize.me/services',
+    speedTest: 'https://www.premiumize.me/speedtest',
+    tagline: 'Reliability + Usenet + cloud storage',
+    hasFreeTier: false,
+    hasUsenet: true,
+  },
+  'Debrid-Link': {
+    id: 'Debrid-Link',
+    name: 'Debrid-Link',
+    website: 'https://debrid-link.com',
+    statusPage: 'https://debrid-link.com/webapp/status',
+    speedTest: 'https://debrid-link.com/webapp/speedtest',
+    tagline: 'Competitive pricing, growing host list',
+    hasFreeTier: false,
+    hasUsenet: false,
+  },
+  LinkSnappy: {
+    id: 'LinkSnappy',
+    name: 'LinkSnappy',
+    website: 'https://linksnappy.com',
+    statusPage: 'https://linksnappy.com/myaccount/status',
+    tagline: 'Largest obscure-host coverage',
+    hasFreeTier: false,
+    hasUsenet: false,
+  },
+  'Mega-Debrid': {
+    id: 'Mega-Debrid',
+    name: 'Mega-Debrid',
+    website: 'https://www.mega-debrid.eu',
+    statusPage: 'https://www.mega-debrid.eu/index.php?page=hebergeurs',
+    speedTest: 'https://www.mega-debrid.eu/index.php?page=network',
+    tagline: 'Long-running EU-based multi-hoster',
+    hasFreeTier: false,
+    hasUsenet: false,
+  },
+  Deepbrid: {
+    id: 'Deepbrid',
+    name: 'Deepbrid',
+    website: 'https://www.deepbrid.com',
+    statusPage: 'https://www.deepbrid.com/status',
+    tagline: 'Limited-host free tier available',
+    hasFreeTier: true,
+    hasUsenet: false,
+  },
+  'High-Way': {
+    id: 'High-Way',
+    name: 'High-Way',
+    website: 'https://high-way.me',
+    statusPage: 'https://high-way.me/pages/status/',
+    tagline: 'Niche multi-hoster',
+    hasFreeTier: false,
+    hasUsenet: false,
+  },
+};
+
+export const SERVICE_ORDER: ServiceId[] = [
+  'AllDebrid',
+  'Real-Debrid',
+  'TorBox',
+  'Premiumize',
+  'Debrid-Link',
+  'LinkSnappy',
+  'Mega-Debrid',
+  'Deepbrid',
+  'High-Way',
+];
