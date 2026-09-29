@@ -16,7 +16,7 @@ export function StatusGrid() {
           aria-label={`Open ${SERVICES[service].name} status page`}
         >
           <div className="flex items-center justify-between gap-2">
-            <span className="font-medium text-foreground">
+            <span className="text-sm font-semibold leading-tight text-foreground">
               {SERVICES[service].name}
             </span>
             <Badge variant="success" className="text-2xs">
@@ -53,11 +53,11 @@ export function SpeedTestGrid() {
         >
           <div className="flex items-center gap-3">
             <Gauge
-              className="h-4 w-4 text-muted-foreground transition-colors group-hover:text-foreground"
+              className="h-4 w-4 shrink-0 text-muted-foreground transition-colors group-hover:text-foreground"
               aria-hidden="true"
             />
             <div>
-              <span className="font-medium text-foreground">
+              <span className="text-sm font-semibold leading-tight text-foreground">
                 {SERVICES[service].name}
               </span>
               <p className="mt-0.5 text-xs text-muted-foreground">
@@ -66,7 +66,7 @@ export function SpeedTestGrid() {
             </div>
           </div>
           <ArrowUpRight
-            className="h-4 w-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground"
+            className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground"
             aria-hidden="true"
           />
         </a>

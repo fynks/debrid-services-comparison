@@ -141,7 +141,13 @@ export function SiteHeader() {
                 key={item.href}
                 href={item.href}
                 onClick={handleLinkClick}
-                className="rounded-md px-2.5 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground"
+                aria-current={active === item.href ? 'page' : undefined}
+                className={cn(
+                  'rounded-md px-2.5 py-2 text-sm transition-colors',
+                  active === item.href
+                    ? 'bg-muted text-foreground'
+                    : 'text-muted-foreground hover:bg-muted hover:text-foreground',
+                )}
               >
                 {item.label}
               </a>

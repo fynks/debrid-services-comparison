@@ -37,6 +37,9 @@
   --color-input: hsl(214 32% 91%);
   --color-ring: hsl(192 91% 25%);
 
+  /* Default radius. Used by Tailwind's `rounded-md` and `rounded-lg`.
+     We pick 0.5rem so a single radius shows up everywhere; consistency
+     over hierarchy. */
   --radius: 0.5rem;
 
   /* Domain semantic tokens */
@@ -67,6 +70,15 @@
   --text-xs--line-height: 1.125rem; /* 18px */
   --text-sm: 0.8125rem; /* 13px — slightly tighter than Tailwind default */
   --text-sm--line-height: 1.25rem; /* 20px */
+
+  /* Border radius scale — single radius across the product so cards,
+     inputs, badges, and pills share the same visual weight. Override
+     Tailwind's defaults so `rounded-md` and `rounded-lg` produce the
+     same value. */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
 }
 
 @layer base {

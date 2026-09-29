@@ -10,15 +10,15 @@ interface ResourceGroupSectionProps {
 export function ResourceGroupSection({ group, iconMap }: ResourceGroupSectionProps) {
   const Icon = iconMap[group.icon];
   return (
-    <section className="space-y-4">
-      <div className="flex items-baseline gap-2">
+    <section className="space-y-3">
+      <div className="flex items-center gap-2">
         {Icon ? (
           <Icon
-            className="h-3.5 w-3.5 shrink-0 translate-y-[2px] text-muted-foreground"
+            className="h-3.5 w-3.5 shrink-0 text-muted-foreground"
             aria-hidden="true"
           />
         ) : null}
-        <h3 className="text-2xs font-semibold uppercase tracking-wider text-muted-foreground sm:text-sm">
+        <h3 className="text-2xs font-semibold uppercase tracking-wider text-muted-foreground sm:text-xs">
           {group.title}
         </h3>
       </div>
@@ -36,14 +36,16 @@ export function ResourceGroupSection({ group, iconMap }: ResourceGroupSectionPro
                   href={mainHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="absolute inset-0 z-0 rounded-lg focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
+                  className="absolute inset-0 z-0 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                   aria-label={item.name}
                 >
                   <span className="sr-only">{item.name}</span>
                 </a>
               ) : null}
               <div className="relative z-10 flex items-start justify-between gap-2">
-                <span className="font-medium text-foreground">{item.name}</span>
+                <span className="text-sm font-semibold leading-tight text-foreground">
+                  {item.name}
+                </span>
                 {hasExtra ? null : (
                   <ArrowUpRight
                     className="h-3.5 w-3.5 shrink-0 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground"
@@ -69,7 +71,7 @@ export function ResourceGroupSection({ group, iconMap }: ResourceGroupSectionPro
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-0.5 font-medium text-primary underline-offset-4 hover:underline"
+                      className="inline-flex items-center gap-0.5 font-medium text-primary underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded"
                     >
                       {link.label}
                       <ArrowUpRight

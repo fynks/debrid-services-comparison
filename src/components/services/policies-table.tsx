@@ -10,10 +10,10 @@ export function PoliciesTable() {
         aria-label="Policies and legal information"
       >
         <thead>
-          <tr className="border-b border-border bg-muted/40">
+          <tr className="border-b border-border">
             <th
               scope="col"
-              className="sticky left-0 z-10 bg-muted/40 px-3 py-2 text-left text-xs font-medium uppercase tracking-wider text-muted-foreground"
+              className="sticky left-0 z-20 border-r border-border bg-muted px-3 py-2 text-left text-xs font-medium uppercase tracking-wider text-muted-foreground"
             >
               Service
             </th>
@@ -35,11 +35,11 @@ export function PoliciesTable() {
           {POLICY_ROWS.map((row) => (
             <tr
               key={row.service}
-              className="border-b border-border/50 last:border-0"
+              className="group border-b border-border/40 last:border-0 transition-colors hover:bg-muted/30"
             >
               <th
                 scope="row"
-                className="sticky left-0 z-10 bg-background px-3 py-2 text-left font-medium"
+                className="sticky left-0 z-10 border-r border-border bg-background px-3 py-2 text-left font-medium transition-colors group-hover:bg-muted/30"
               >
                 {SERVICES[row.service].name}
               </th>

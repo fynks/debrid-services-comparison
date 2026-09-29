@@ -17,6 +17,7 @@ import { SiteFooter } from '@/components/layout/site-footer';
 import { SectionHeader } from '@/components/layout/section-header';
 import { BenefitsSection } from '@/components/layout/benefits-section';
 import { Alert } from '@/components/common/alert';
+import { Button } from '@/components/ui/button';
 import { HostSupportTable } from '@/components/hosts/host-support-table';
 import { ServiceComparison } from '@/components/comparison/service-comparison';
 import { PricingTable, ReferralLinks } from '@/components/pricing/pricing-table';
@@ -85,25 +86,20 @@ export default function App() {
             </p>
 
             <div className="mt-6 flex flex-wrap justify-center gap-2 sm:justify-start">
-              <a
-                href="#debrid-pricing-comparison"
-                className="inline-flex items-center gap-1.5 rounded-md bg-primary px-3.5 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90"
-              >
-                View pricing
-                <ChevronRight className="h-3.5 w-3.5" aria-hidden="true" />
-              </a>
-              <a
-                href="#compare-debrid-services"
-                className="inline-flex items-center gap-1.5 rounded-md border border-border bg-background px-3.5 py-2 text-sm font-medium text-foreground hover:bg-muted"
-              >
-                Compare two services
-              </a>
-              <a
-                href="#supported-file-hosts"
-                className="inline-flex items-center gap-1.5 rounded-md border border-border bg-background px-3.5 py-2 text-sm font-medium text-foreground hover:bg-muted"
-              >
-                Browse {Object.keys(fileHosts.supported).length} hosts
-              </a>
+              <Button asChild size="default">
+                <a href="#debrid-pricing-comparison">
+                  View pricing
+                  <ChevronRight className="h-3.5 w-3.5" aria-hidden="true" />
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="default">
+                <a href="#compare-debrid-services">Compare two services</a>
+              </Button>
+              <Button asChild variant="outline" size="default">
+                <a href="#supported-file-hosts">
+                  Browse {Object.keys(fileHosts.supported).length} hosts
+                </a>
+              </Button>
             </div>
           </div>
 

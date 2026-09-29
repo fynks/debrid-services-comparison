@@ -49,20 +49,20 @@ const ITEMS: DisclaimerItem[] = [
 
 export function DisclaimerCards() {
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
       {ITEMS.map(({ icon: Icon, title, body }) => (
         <article
           key={title}
           className="rounded-lg border border-border bg-card p-4"
         >
           <Icon
-            className="h-4 w-4 text-muted-foreground"
+            className="h-4 w-4 shrink-0 text-muted-foreground"
             aria-hidden="true"
           />
-          <h3 className="mt-3 text-sm font-semibold tracking-tight text-foreground">
+          <h3 className="mt-3 text-sm font-semibold leading-tight tracking-tight text-foreground">
             {title}
           </h3>
-          <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+          <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
             {body}
           </p>
         </article>

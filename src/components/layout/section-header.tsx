@@ -10,8 +10,9 @@ interface SectionHeaderProps {
   className?: string;
   /**
    * `start` (default) — eyebrow, title and description hug the left edge
-   * on larger screens but stay inside the page gutter.
-   * `center` — also center-aligns on larger screens (used for hero only).
+   * on larger screens but center on mobile for visual balance with the
+   * narrow gutter.
+   * `center` — also center-aligns on larger screens (hero variants).
    */
   align?: 'start' | 'center';
 }
@@ -19,10 +20,6 @@ interface SectionHeaderProps {
 /**
  * Restrained section header used throughout the page.
  * No gradients, no oversized glow, no icon — just typographic hierarchy.
- *
- * On mobile (< sm), the header is center-aligned so titles don't crash
- * into the left edge when the section is short. On larger screens it
- * snaps back to left alignment by default.
  */
 export function SectionHeader({
   id,
@@ -34,12 +31,9 @@ export function SectionHeader({
   align = 'start',
 }: SectionHeaderProps) {
   return (
-    <div
+    <header
       className={cn(
         'mb-8 max-w-2xl',
-        // Center section titles on mobile for visual balance with the
-        // page's narrow gutter; snap back to left alignment on larger
-        // screens where the rest of the page is also left-aligned.
         align === 'center'
           ? 'text-center'
           : 'text-center sm:text-left',
@@ -58,11 +52,11 @@ export function SectionHeader({
         {title}
       </h2>
       {description ? (
-        <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-base sm:text-pretty">
+        <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base sm:leading-relaxed sm:text-pretty">
           {description}
         </p>
       ) : null}
       {children}
-    </div>
+    </header>
   );
 }

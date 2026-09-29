@@ -15,9 +15,9 @@ const VARIANT_ICON: Record<AlertVariant, LucideIcon> = {
 };
 
 const VARIANT_CLASSES: Record<AlertVariant, string> = {
-  info: 'border-info/30 bg-info-muted/60 text-info-foreground',
-  warning: 'border-warning/40 bg-warning-muted/70 text-warning-foreground',
-  tip: 'border-primary/25 bg-primary/5 text-foreground',
+  info: 'border-info/30 bg-info-muted/70 text-foreground',
+  warning: 'border-warning/40 bg-warning-muted/70 text-foreground',
+  tip: 'border-primary/25 bg-primary/[0.04] text-foreground',
 };
 
 const VARIANT_ICON_COLOR: Record<AlertVariant, string> = {
@@ -26,6 +26,14 @@ const VARIANT_ICON_COLOR: Record<AlertVariant, string> = {
   tip: 'text-primary',
 };
 
+/**
+ * Restrained inline alert — used for context inside a section.
+ *
+ * Two roles depending on urgency:
+ * - `info` and `tip` -> role="status" (polite announcement)
+ * - `warning`        -> role="alert" (assertive — assistive tech
+ *   interrupts the user)
+ */
 export function Alert({
   variant = 'info',
   className,
@@ -33,9 +41,10 @@ export function Alert({
   ...props
 }: AlertProps) {
   const Icon = VARIANT_ICON[variant];
+  const isWarning = variant === 'warning';
   return (
     <div
-      role="status"
+      role={isWarning ? 'alert' : 'status'}
       className={cn(
         'flex items-start gap-3 rounded-md border px-4 py-3 text-sm leading-relaxed',
         VARIANT_CLASSES[variant],
@@ -50,7 +59,7 @@ export function Alert({
         )}
         aria-hidden="true"
       />
-      <div className="text-foreground/90 [&_a]:font-medium [&_a]:underline [&_a]:underline-offset-4 [&_a:hover]:text-foreground">
+      <div className="min-w-0 flex-1 text-foreground/90 [&_a]:font-medium [&_a]:text-foreground [&_a]:underline [&_a]:underline-offset-4 [&_a:hover]:text-primary">
         {children}
       </div>
     </div>

@@ -8,6 +8,7 @@ import {
 } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { Alert } from '@/components/common/alert';
 import { SERVICES } from '@/data/services';
 import type { ServiceId } from '@/types/data';
 import { Check, RotateCcw, X } from 'lucide-react';
@@ -134,9 +135,7 @@ export function ServiceComparison({ data }: ServiceComparisonProps) {
       </div>
 
       {sameService ? (
-        <div className="rounded-md border border-warning-muted bg-warning-muted/50 p-4 text-sm text-warning">
-          Please select two different services.
-        </div>
+        <Alert variant="warning">Please select two different services.</Alert>
       ) : null}
 
       {!a || !b ? (
