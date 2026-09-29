@@ -1,13 +1,19 @@
 // Highlight the nav link for the section currently in view.
 //
-// Section offsets are measured once and cached instead of being read on every
-// scroll event. Reading `offsetTop` forces a synchronous layout of the whole
-// document (Lighthouse reports this as a "forced reflow", ~52 ms of it during
-// boot on a Moto G Power), and doing it per scroll event also stalls input.
+// Uses an IntersectionObserver rather than reading geometry. The previous
+// implementation read `offsetTop` for every section, which forces a synchronous
+// layout of the whole document — Lighthouse reported that as a forced reflow,
+// and because it runs after the components have mounted it had to lay out the
+// full ~3,200-element tree (~85 ms on a Moto G Power).
 //
-// The cache is invalidated by a ResizeObserver, so it stays correct when
-// components mount, a host table expands via "Load all", or a new two-service
-// comparison re-renders and shifts everything below it.
+// The observer hands us `boundingClientRect` for free, so no layout is ever
+// forced from script. A section counts as "reached" once its top edge is at or
+// above the 120px line under the sticky header, which is exactly the condition
+// the old `offsetTop <= scrollY + 120` test expressed.
+
+/** Offset of the highlight line from the top of the viewport, matching the
+ * sticky header height plus a little breathing room. */
+const LINE_OFFSET = 120;
 
 export function initScrollSpy() {
   const links = document.querySelectorAll('[data-nav-link]');
@@ -17,21 +23,13 @@ export function initScrollSpy() {
   const sections = ids.map((id) => document.getElementById(id)).filter(Boolean);
   if (!sections.length) return;
 
-  /** @type {{id: string, top: number}[] | null} */
-  let offsets = null;
-  let rafId = 0;
-
-  /** Single batched layout read covering every observed section. */
-  function measure() {
-    offsets = sections.map((sec) => ({ id: sec.id, top: sec.offsetTop }));
-  }
+  /** section id -> has its top edge passed the highlight line? */
+  const reached = new Map();
 
   function paint() {
-    if (!offsets) measure();
-    const y = window.scrollY + 120;
     let active = '';
-    for (const sec of offsets) {
-      if (sec.top <= y) active = sec.id;
+    for (const sec of sections) {
+      if (reached.get(sec.id)) active = sec.id;
     }
     for (const a of links) {
       const isActive = a.dataset.navLink === active;
@@ -43,36 +41,19 @@ export function initScrollSpy() {
     }
   }
 
-  /** Coalesce scroll/resize bursts into one paint per frame. */
-  function schedulePaint() {
-    if (rafId) return;
-    rafId = requestAnimationFrame(() => {
-      rafId = 0;
+  // Shrink the root so it starts at the highlight line; sections above it are
+  // reported as not intersecting, but their (negative) top still marks them as
+  // reached — which is what keeps the last-passed section highlighted once it
+  // has scrolled out of view.
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        reached.set(entry.target.id, entry.boundingClientRect.top <= LINE_OFFSET);
+      }
       paint();
-    });
-  }
-
-  function invalidate() {
-    offsets = null;
-  }
-
-  window.addEventListener('scroll', schedulePaint, { passive: true });
-  window.addEventListener(
-    'resize',
-    () => {
-      invalidate();
-      schedulePaint();
     },
-    { passive: true }
+    { rootMargin: `-${LINE_OFFSET}px 0px 0px 0px`, threshold: 0 }
   );
 
-  if (typeof ResizeObserver !== 'undefined') {
-    const observer = new ResizeObserver(() => {
-      invalidate();
-      schedulePaint();
-    });
-    observer.observe(document.body);
-  }
-
-  schedulePaint();
+  for (const sec of sections) observer.observe(sec);
 }

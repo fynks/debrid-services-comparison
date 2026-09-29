@@ -5,6 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- The only two external requests this page makes. They are placed first so
+         the parser discovers them immediately: at build time ~36 KB of CSS is
+         inlined into <head> (see the `app-styles` marker below), and anything
+         sitting after it would not be seen until most of the document had
+         arrived. `type="module"` is deferred, so hoisting the entry script does
+         not change when it runs, only when it starts downloading. -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin.woff2" crossorigin>
+    <script type="module" src="/src/main.js"></script>
+
+    <!-- Replaced with the built stylesheet at build time by `inlineStylesheets`
+         in vite.config.js. Inlining removes a render-blocking request; keeping
+         it after the two links above keeps those on the fast path. -->
+    <meta name="app-styles">
+
     <title>Debrid Services Comparison - Compare Pricing, 300+ Hosts & Features</title>
     <meta name="description"
         content="Compare premium debrid services: AllDebrid, Real-Debrid, TorBox & more for pricing, host support, refund, speed. Find best hoster for streaming and downloads.">
@@ -24,18 +38,6 @@
     <meta name="google-site-verification" content="nlH9UKmiZsYOuMXXnRc9pKL-AW5rECWikqcUqzri-yQ">
     <meta name="google-site-verification" content="yh6OZ9qZhOAVRs3tkFAwwBYIb3BKrveBy6C0QEVHpw0" />
     <meta name="msvalidate.01" content="EAEFE7EF6DC835E9B8C0C88394E0F32F" />
-
-    <!-- Font: self-hosted Inter (variable, latin). Preloaded so the hero text —
-         the LCP element — paints in Inter on the first frame instead of waiting
-         on a fonts.googleapis.com stylesheet and then a fonts.gstatic.com woff2.
-         See src/styles/globals.css and scripts/sync-fonts.ts. -->
-    <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin.woff2" crossorigin>
-
-    <!-- App entry. `type="module"` is deferred by default, so hoisting it into
-         <head> does not change when it runs (still after the document is
-         parsed) — it just lets the browser discover and fetch the bundle in
-         parallel with HTML parsing instead of after the last byte arrives. -->
-    <script type="module" src="/src/main.js"></script>
 
     <!-- Theme color per scheme -->
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">

@@ -128,9 +128,40 @@ self.addEventListener('fetch',e=>{
 `;
       writeFileSync(path.join(distDir, 'sw.js'), swCode, 'utf8');
 
+      preloadEntryScript(distDir);
       inlineStylesheets(distDir);
     },
   };
+}
+
+/**
+ * Add a `<link rel="modulepreload">` for the entry chunk at the very top of
+ * `<head>`.
+ *
+ * Vite's HTML transform relocates the built `<script type="module">` to the end
+ * of `<head>`, so the bundle is not discovered until the parser has consumed the
+ * whole head — which, once the stylesheet is inlined, is ~48 KB in. A preload
+ * next to the font hint starts the fetch (and parse/compile) immediately; the
+ * script tag later in the head then reuses it, so it is still fetched once.
+ */
+function preloadEntryScript(distDir) {
+  const htmlPath = path.join(distDir, 'index.html');
+  if (!existsSync(htmlPath)) return;
+
+  const html = readFileSync(htmlPath, 'utf8');
+  if (html.includes('rel="modulepreload"')) return;
+
+  const entry = html.match(/<script type="module"[^>]*src="([^"]+)"[^>]*>/);
+  const anchor = /<link rel="preload" as="font"[^>]*>/;
+  if (!entry || !anchor.test(html)) return;
+
+  // Credentials mode must match the script tag or the preload is discarded and
+  // the module is fetched twice.
+  const crossorigin = /\bcrossorigin\b/.test(entry[0]) ? ' crossorigin' : '';
+  const link = `<link rel="modulepreload"${crossorigin} href="${entry[1]}">`;
+
+  writeFileSync(htmlPath, html.replace(anchor, (match) => match + link), 'utf8');
+  console.log(`[modulepreload] ${entry[1]} → preloaded from the top of <head>`);
 }
 
 /**
@@ -171,13 +202,17 @@ function inlineStylesheets(distDir) {
 
     html = html.replace(linkPattern, '');
 
-    // Anchor after the viewport meta so the CSSOM exists before the body is
-    // parsed — no unstyled flash, and nothing above the fold waits on network.
-    const anchor = /<meta name="viewport"[^>]*>/;
+    // Inline at the `<meta name="app-styles">` marker, which sits immediately
+    // after the font preload and entry script. Anchoring there keeps those two
+    // requests at the very top of the document — if the sheet went in first,
+    // the parser would have to consume ~36 KB of CSS before it ever saw them.
+    const anchor = /<meta name="app-styles"[^>]*>/;
     if (!anchor.test(html)) {
-      throw new Error('[inline-css] could not find the viewport meta to anchor the inlined <style>.');
+      throw new Error(
+        '[inline-css] could not find <meta name="app-styles"> to inline the stylesheet into.'
+      );
     }
-    html = html.replace(anchor, (match) => `${match}<style>${css}</style>`);
+    html = html.replace(anchor, `<style>${css}</style>`);
 
     rmSync(path.join(cssDir, file));
     console.log(
