@@ -1,36 +1,34 @@
 // Host-support matrix table.
 //
-// - Search supports substring + URL/hostname fuzzy matching.
-// - Sortable by host name or per-service support.
-// - Sticky first column for horizontal scroll on narrow screens.
-// - "Load all" lazy-loads beyond initialLimit when not searching.
-// - Re-renders only the table body when state changes — header and
-//   chrome stay mounted.
+// Search supports substring + URL/hostname fuzzy matching.
+// Sortable by host name or per-service support.
+// Sticky first column for horizontal scroll on narrow screens.
+// "Load all" lazy-loads beyond initialLimit when not searching.
 
 import { icon } from '../../lib/icons.js';
-import { Input } from '../common/input.js';
-import { Button } from '../common/button.js';
+import { cn } from '../../lib/dom.js';
 import { SERVICES, SERVICE_ORDER } from '../../data/services.ts';
-import { extractHostnameFromURL, normalizeHostname, levenshteinDistance } from '../../lib/fuzzy.js';
+import {
+  extractHostnameFromURL,
+  normalizeHostname,
+  levenshteinDistance,
+} from '../../lib/fuzzy.js';
 
 const SERVICE_STATUS_PAGES = Object.fromEntries(
   SERVICE_ORDER.map((id) => [id, SERVICES[id].statusPage])
 );
 
-const SEARCH_PLACEHOLDER_DEFAULT = 'Search hosts or paste URL…';
-const INITIAL_LIMIT_DEFAULT = 60;
-
-export function HostSupportTable({
-  data,
-  searchPlaceholder = SEARCH_PLACEHOLDER_DEFAULT,
-  initialLimit = INITIAL_LIMIT_DEFAULT,
-  resultsLabel,
-  id = 'hosts',
-} = {}) {
+export function initHostSupportTable(slot, { source, data, initialLimit = 60 } = {}) {
+  if (!slot) return;
   const services = data.services;
   const hostCount = Object.keys(data.supported).length;
+  const resultsLabel =
+    source === 'adult' ? 'Adult hosts table' : `File hosts table — ${hostCount} hosts`;
+  const searchPlaceholder =
+    source === 'adult'
+      ? 'Search adult hosts or paste a URL…'
+      : `Search ${hostCount}+ hosts or paste a URL…`;
 
-  // Mutable state held in a plain object.
   let state = {
     search: '',
     debounced: '',
@@ -38,9 +36,9 @@ export function HostSupportTable({
     fullyLoaded: false,
   };
 
-  // Root container
-  const root = document.createElement('div');
-  root.className = 'space-y-4';
+  // Build the table once; re-render only thead row + tbody.
+  const wrap = document.createElement('div');
+  wrap.className = 'space-y-4';
 
   // Search row
   const row = document.createElement('div');
@@ -49,19 +47,21 @@ export function HostSupportTable({
 
   const searchWrap = document.createElement('div');
   searchWrap.className = 'relative w-full sm:max-w-sm';
-  const sIcon = icon('search', {
-    class: 'pointer-events-none absolute left-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground',
+
+  const searchIcon = icon('search', {
+    class:
+      'pointer-events-none absolute left-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground',
     'aria-hidden': 'true',
   });
-  searchWrap.appendChild(sIcon);
+  searchWrap.appendChild(searchIcon);
 
-  const input = Input({
-    type: 'search',
-    placeholder: searchPlaceholder,
-    class: 'pl-8 pr-8',
-    'aria-label': resultsLabel,
-    'aria-controls': `${id}-table-region`,
-  });
+  const input = document.createElement('input');
+  input.type = 'search';
+  input.className =
+    'flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 pl-8 pr-8 text-sm shadow-none transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1';
+  input.placeholder = searchPlaceholder;
+  input.setAttribute('aria-label', resultsLabel);
+  input.setAttribute('aria-controls', `${source}-hosts-region`);
   searchWrap.appendChild(input);
 
   const clearBtn = document.createElement('button');
@@ -69,10 +69,8 @@ export function HostSupportTable({
   clearBtn.className =
     'absolute right-1.5 top-1/2 inline-flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded text-muted-foreground hover:bg-muted hover:text-foreground';
   clearBtn.setAttribute('aria-label', 'Clear search');
-  clearBtn.appendChild(
-    icon('x', { class: 'h-3.5 w-3.5', 'aria-hidden': 'true' })
-  );
   clearBtn.style.display = 'none';
+  clearBtn.appendChild(icon('x', { class: 'h-3.5 w-3.5', 'aria-hidden': 'true' }));
   clearBtn.addEventListener('click', () => {
     input.value = '';
     state.search = '';
@@ -90,51 +88,44 @@ export function HostSupportTable({
   row.appendChild(searchWrap);
 
   const counter = document.createElement('p');
-  counter.className =
-    'text-xs text-muted-foreground tabular-nums';
+  counter.className = 'text-xs text-muted-foreground tabular-nums';
   counter.setAttribute('aria-live', 'polite');
   row.appendChild(counter);
 
-  root.appendChild(row);
+  wrap.appendChild(row);
 
-  // Region wrapper
+  // Region
   const region = document.createElement('div');
-  region.id = `${id}-table-region`;
+  region.id = `${source}-hosts-region`;
   region.setAttribute('role', 'region');
   region.setAttribute('aria-live', 'polite');
   region.setAttribute('aria-label', resultsLabel);
   region.className =
     'relative overflow-x-auto rounded-lg border border-border bg-card';
 
-  // Mobile fade hint
   const fade = document.createElement('div');
   fade.setAttribute('aria-hidden', 'true');
   fade.className =
     'pointer-events-none absolute inset-y-0 right-0 z-30 w-8 bg-gradient-to-l from-card to-transparent md:hidden';
   region.appendChild(fade);
 
-  // Table
   const table = document.createElement('table');
   table.className = 'w-full min-w-max text-sm tabular-nums';
   table.setAttribute('aria-label', resultsLabel);
 
-  // thead (rebuilt on each render to update sort indicators)
   const thead = document.createElement('thead');
   table.appendChild(thead);
-
-  // tbody (will be replaced on each render)
   const tbody = document.createElement('tbody');
   table.appendChild(tbody);
 
   region.appendChild(table);
-  root.appendChild(region);
+  wrap.appendChild(region);
 
-  // Load-all button + legend
+  // Load-all + legend
   const bottom = document.createElement('div');
   bottom.className = 'flex flex-col items-center gap-4';
-  root.appendChild(bottom);
+  wrap.appendChild(bottom);
 
-  // Legend
   const legend = document.createElement('div');
   legend.className =
     'flex flex-wrap items-center gap-3 text-2xs text-muted-foreground';
@@ -158,19 +149,18 @@ export function HostSupportTable({
   const itemC = document.createElement('span');
   itemC.className = 'inline-flex items-center gap-1.5';
   itemC.appendChild(
-    icon('external-link', {
-      class: 'h-3.5 w-3.5',
-      'aria-hidden': 'true',
-    })
+    icon('external-link', { class: 'h-3.5 w-3.5', 'aria-hidden': 'true' })
   );
   itemC.appendChild(
     document.createTextNode('click a checkmark to open live status')
   );
   legend.appendChild(itemC);
 
-  root.appendChild(legend);
+  wrap.appendChild(legend);
 
-  // --- sort header helper ---
+  slot.replaceChildren(wrap);
+
+  // ---- helpers ----
   function sortHeaderCell(label, column, sticky, extra = '') {
     const th = document.createElement('th');
     th.scope = 'col';
@@ -183,22 +173,20 @@ export function HostSupportTable({
           : 'descending'
         : 'none'
     );
-    th.className =
-      'px-3 py-2 text-left text-xs font-medium text-muted-foreground ' +
-      extra +
-      (sticky
-        ? ' sticky left-0 z-20 bg-muted border-r border-border'
-        : '');
+    th.className = cn(
+      'px-3 py-2 text-left text-xs font-medium text-muted-foreground',
+      extra,
+      sticky && 'sticky left-0 z-20 bg-muted border-r border-border'
+    );
     const btn = document.createElement('button');
     btn.type = 'button';
-    btn.className =
-      'inline-flex items-center gap-1 rounded text-xs uppercase tracking-wider hover:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring ' +
-      (isActive ? 'text-foreground' : '');
+    btn.className = cn(
+      'inline-flex items-center gap-1 rounded text-xs uppercase tracking-wider hover:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring',
+      isActive && 'text-foreground'
+    );
     btn.appendChild(document.createTextNode(label));
     const ind = document.createElement('span');
-    ind.className =
-      'select-none ' +
-      (isActive ? '' : 'text-muted-foreground/40');
+    ind.className = cn('select-none', !isActive && 'text-muted-foreground/40');
     ind.textContent = isActive
       ? state.sort.direction === 'asc'
         ? '↑'
@@ -221,7 +209,6 @@ export function HostSupportTable({
     return th;
   }
 
-  // --- filtering ---
   function filteredEntries() {
     const entries = Object.entries(data.supported);
     const term = state.debounced.trim();
@@ -270,8 +257,19 @@ export function HostSupportTable({
       ? `${filtered.length} of ${hostCount} hosts`
       : `${hostCount} hosts`;
 
-    // Replace tbody contents
-    tbody.innerHTML = '';
+    // Rebuild thead
+    const trh = document.createElement('tr');
+    trh.className = 'border-b border-border bg-muted/40';
+    trh.appendChild(sortHeaderCell('Host', 'service', true));
+    for (const s of services) {
+      trh.appendChild(
+        sortHeaderCell(SERVICES[s]?.name ?? s, s, false, 'text-center')
+      );
+    }
+    thead.replaceChildren(trh);
+
+    // Rebuild tbody
+    tbody.replaceChildren();
     if (visible.length === 0) {
       const tr = document.createElement('tr');
       const td = document.createElement('td');
@@ -287,28 +285,17 @@ export function HostSupportTable({
       }
     }
 
-    // Refresh header sort indicators — replace the whole thead row.
-    const trh2 = document.createElement('tr');
-    trh2.className = 'border-b border-border bg-muted/40';
-    trh2.appendChild(sortHeaderCell('Host', 'service', true));
-    for (const s of services) {
-      trh2.appendChild(
-        sortHeaderCell(SERVICES[s]?.name ?? s, s, false, 'text-center')
-      );
-    }
-    thead.replaceChildren(trh2);
-
     // Load-all button
-    bottom.innerHTML = '';
+    bottom.replaceChildren();
     if (!showingAll && filtered.length > initialLimit) {
-      const btn = Button({
-        variant: 'outline',
-        type: 'button',
-        children: `Load all ${filtered.length} hosts`,
-        onClick: () => {
-          state.fullyLoaded = true;
-          render();
-        },
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className =
+        'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md border border-input bg-background px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2';
+      btn.textContent = `Load all ${filtered.length} hosts`;
+      btn.addEventListener('click', () => {
+        state.fullyLoaded = true;
+        render();
       });
       bottom.appendChild(btn);
     }
@@ -374,7 +361,6 @@ export function HostSupportTable({
     return tr;
   }
 
-  // Debounce via rAF
   let rafId = 0;
   function scheduleDebounce() {
     if (rafId) cancelAnimationFrame(rafId);
@@ -385,7 +371,6 @@ export function HostSupportTable({
   }
 
   render();
-  return root;
 }
 
 function similarityScore(host, needle) {

@@ -1,21 +1,20 @@
+// Two-service side-by-side host comparison.
+//
+// Reads `?compare=&with=` query params on mount and dispatches URL
+// updates on change. Builds the entire UI from scratch — the static
+// HTML only provides a `[data-mount="service-comparison"]` placeholder.
+
 import { icon } from '../../lib/icons.js';
-import { Alert } from '../common/alert.js';
-import { Select } from '../ui/select.js';
-import { Button } from '../common/button.js';
-import { Badge } from '../common/badge.js';
+import { cn } from '../../lib/dom.js';
 import { SERVICES } from '../../data/services.ts';
 
-/**
- * Two-service side-by-side host comparison. Reads `?compare=&with=`
- * query params on mount and dispatches URL updates on change.
- */
-export function ServiceComparison({ data } = {}) {
+export function initServiceComparison(slot, { data } = {}) {
+  if (!slot) return;
   const services = data.services;
 
   let a = readInitialSelection(services)[0];
   let b = readInitialSelection(services)[1];
 
-  // Root container
   const root = document.createElement('div');
   root.className = 'space-y-6';
 
@@ -26,21 +25,14 @@ export function ServiceComparison({ data } = {}) {
 
   const aWrap = document.createElement('div');
   const aLabel = document.createElement('label');
-  aLabel.htmlFor = 'compare-First service';
+  aLabel.htmlFor = 'compare-first';
   aLabel.className = 'mb-1.5 block text-xs font-medium text-muted-foreground';
   aLabel.textContent = 'First service';
   aWrap.appendChild(aLabel);
-  const aSelect = Select({
-    id: 'compare-First service',
-    'aria-label': 'First service',
-    value: a,
-    options: services.map((s) => ({ value: s, label: SERVICES[s]?.name ?? s })),
-    placeholder: 'Choose a service…',
-    onChange: (v) => {
-      a = v;
-      syncUrl();
-      render();
-    },
+  const aSelect = createSelect(a, services, 'compare-first', 'First service', (v) => {
+    a = v;
+    syncUrl();
+    render();
   });
   aWrap.appendChild(aSelect);
   topRow.appendChild(aWrap);
@@ -53,64 +45,47 @@ export function ServiceComparison({ data } = {}) {
 
   const bWrap = document.createElement('div');
   const bLabel = document.createElement('label');
-  bLabel.htmlFor = 'compare-Second service';
+  bLabel.htmlFor = 'compare-second';
   bLabel.className = 'mb-1.5 block text-xs font-medium text-muted-foreground';
   bLabel.textContent = 'Second service';
   bWrap.appendChild(bLabel);
-  const bSelect = Select({
-    id: 'compare-Second service',
-    'aria-label': 'Second service',
-    value: b,
-    options: services.map((s) => ({ value: s, label: SERVICES[s]?.name ?? s })),
-    placeholder: 'Choose a service…',
-    onChange: (v) => {
-      b = v;
-      syncUrl();
-      render();
-    },
+  const bSelect = createSelect(b, services, 'compare-second', 'Second service', (v) => {
+    b = v;
+    syncUrl();
+    render();
   });
   bWrap.appendChild(bSelect);
   topRow.appendChild(bWrap);
 
   root.appendChild(topRow);
 
-  // Status line + reset button row
+  // Status line + reset
   const statusRow = document.createElement('div');
   statusRow.className =
     'flex flex-wrap items-center justify-between gap-x-3 gap-y-2';
   const statusText = document.createElement('p');
-  statusText.className =
-    'min-w-0 flex-1 text-xs text-muted-foreground';
+  statusText.className = 'min-w-0 flex-1 text-xs text-muted-foreground';
   statusRow.appendChild(statusText);
-  const resetBtn = Button({
-    variant: 'ghost',
-    size: 'sm',
-    type: 'button',
-    children: (() => {
-      const wrap = document.createDocumentFragment();
-      wrap.appendChild(
-        icon('rotate-ccw', {
-          class: 'h-3.5 w-3.5',
-          'aria-hidden': 'true',
-        })
-      );
-      wrap.appendChild(document.createTextNode('Reset'));
-      return wrap;
-    })(),
-    onClick: () => {
-      a = '';
-      b = '';
-      syncUrl();
-      render();
-    },
+
+  const resetBtn = document.createElement('button');
+  resetBtn.type = 'button';
+  resetBtn.className =
+    'inline-flex h-8 shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-md px-3 text-xs font-medium text-muted-foreground hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1';
+  resetBtn.appendChild(icon('rotate-ccw', { class: 'h-3.5 w-3.5', 'aria-hidden': 'true' }));
+  resetBtn.appendChild(document.createTextNode('Reset'));
+  resetBtn.addEventListener('click', () => {
+    a = '';
+    b = '';
+    syncUrl();
+    render();
   });
-  resetBtn.classList.add('shrink-0');
   statusRow.appendChild(resetBtn);
   root.appendChild(statusRow);
 
-  // Body (alerts + stats + table)
   const body = document.createElement('div');
   root.appendChild(body);
+
+  slot.replaceChildren(root);
 
   function computeRows() {
     if (!a || !b) return [];
@@ -135,7 +110,6 @@ export function ServiceComparison({ data } = {}) {
       else if (r.b) bOnly++;
     }
 
-    // Status line
     if (a && b) {
       const aName = SERVICES[a]?.name ?? a;
       const bName = SERVICES[b]?.name ?? b;
@@ -149,13 +123,10 @@ export function ServiceComparison({ data } = {}) {
     }
     resetBtn.style.display = a || b ? '' : 'none';
 
-    body.innerHTML = '';
+    body.replaceChildren();
     if (a && a === b) {
       body.appendChild(
-        Alert({
-          variant: 'warning',
-          children: 'Please select two different services.',
-        })
+        warningAlert('Please select two different services.')
       );
       return;
     }
@@ -170,31 +141,19 @@ export function ServiceComparison({ data } = {}) {
 
     // Stats
     const statsGrid = document.createElement('div');
-    statsGrid.className =
-      'grid grid-cols-1 gap-3 sm:grid-cols-3';
+    statsGrid.className = 'grid grid-cols-1 gap-3 sm:grid-cols-3';
+    statsGrid.appendChild(statCard('Both', shared, 'border-success/30 bg-success-muted/40'));
     statsGrid.appendChild(
-      statCard('Both', shared, 'border-success/30 bg-success-muted/40')
+      statCard(`${SERVICES[a].name} only`, aOnly, 'border-info/30 bg-info-muted/40')
     );
     statsGrid.appendChild(
-      statCard(
-        `${SERVICES[a].name} only`,
-        aOnly,
-        'border-info/30 bg-info-muted/40'
-      )
-    );
-    statsGrid.appendChild(
-      statCard(
-        `${SERVICES[b].name} only`,
-        bOnly,
-        'border-warning/30 bg-warning-muted/40'
-      )
+      statCard(`${SERVICES[b].name} only`, bOnly, 'border-warning/30 bg-warning-muted/40')
     );
     body.appendChild(statsGrid);
 
     // Table
     const wrap = document.createElement('div');
-    wrap.className =
-      'overflow-x-auto rounded-lg border border-border';
+    wrap.className = 'overflow-x-auto rounded-lg border border-border';
 
     const table = document.createElement('table');
     table.className = 'w-full min-w-max text-sm tabular-nums';
@@ -206,9 +165,7 @@ export function ServiceComparison({ data } = {}) {
     const thead = document.createElement('thead');
     const trh = document.createElement('tr');
     trh.className = 'border-b border-border bg-muted/40';
-    trh.appendChild(
-      th('Host', 'sticky left-0 z-20 border-r border-border bg-muted')
-    );
+    trh.appendChild(th('Host', 'sticky left-0 z-20 border-r border-border bg-muted'));
     trh.appendChild(th(SERVICES[a].name, 'text-center'));
     trh.appendChild(th(SERVICES[b].name, 'text-center'));
     trh.appendChild(th('Status'));
@@ -220,16 +177,12 @@ export function ServiceComparison({ data } = {}) {
       const tr = document.createElement('tr');
       tr.className =
         'group border-b border-border/50 last:border-0 transition-colors hover:bg-muted/30';
-      tr.appendChild(
-        (() => {
-          const t = document.createElement('th');
-          t.scope = 'row';
-          t.className =
-            'sticky left-0 z-10 border-r border-border bg-background px-3 py-1.5 text-left font-normal transition-colors group-hover:bg-muted/30';
-          t.textContent = r.host;
-          return t;
-        })()
-      );
+      const labelTh = document.createElement('th');
+      labelTh.scope = 'row';
+      labelTh.className =
+        'sticky left-0 z-10 border-r border-border bg-background px-3 py-1.5 text-left font-normal transition-colors group-hover:bg-muted/30';
+      labelTh.textContent = r.host;
+      tr.appendChild(labelTh);
       tr.appendChild(cell(r.a, a, r.host));
       tr.appendChild(cell(r.b, b, r.host));
       const sTd = document.createElement('td');
@@ -253,7 +206,6 @@ export function ServiceComparison({ data } = {}) {
     window.history.replaceState(null, '', url);
   }
 
-  // Listen for deep-link events from HashDeepLinks.
   if (typeof window !== 'undefined') {
     window.addEventListener('deep-link:compare', (e) => {
       const { compare, with: withP } = e.detail || {};
@@ -265,7 +217,6 @@ export function ServiceComparison({ data } = {}) {
   }
 
   render();
-  return root;
 }
 
 function readInitialSelection(services) {
@@ -279,9 +230,43 @@ function readInitialSelection(services) {
   ];
 }
 
+function createSelect(value, services, id, label, onChange) {
+  // Native select — simpler and accessible by default. Dropdown styled
+  // via CSS to match the rest of the design system.
+  const wrap = document.createElement('div');
+  wrap.className = 'relative';
+  const sel = document.createElement('select');
+  sel.id = id;
+  sel.setAttribute('aria-label', label);
+  sel.className =
+    'flex h-9 w-full appearance-none rounded-md border border-input bg-background px-3 py-1 pr-8 text-sm shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50';
+
+  const placeholder = document.createElement('option');
+  placeholder.value = '';
+  placeholder.textContent = 'Choose a service…';
+  sel.appendChild(placeholder);
+  for (const s of services) {
+    const opt = document.createElement('option');
+    opt.value = s;
+    opt.textContent = SERVICES[s]?.name ?? s;
+    if (s === value) opt.selected = true;
+    sel.appendChild(opt);
+  }
+  sel.addEventListener('change', (e) => onChange(e.target.value));
+  wrap.appendChild(sel);
+
+  const chev = icon('chevron-down', {
+    class:
+      'pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground',
+    'aria-hidden': 'true',
+  });
+  wrap.appendChild(chev);
+  return wrap;
+}
+
 function statCard(label, value, classes) {
   const d = document.createElement('div');
-  d.className = `rounded-md border p-3 ${classes}`;
+  d.className = cn('rounded-md border p-3', classes);
   const p = document.createElement('p');
   p.className =
     'text-2xs font-semibold uppercase tracking-wider text-muted-foreground';
@@ -297,8 +282,10 @@ function statCard(label, value, classes) {
 function th(label, extra = '') {
   const t = document.createElement('th');
   t.scope = 'col';
-  t.className =
-    `px-3 py-2 text-left text-xs font-medium uppercase tracking-wider text-muted-foreground ${extra}`;
+  t.className = cn(
+    'px-3 py-2 text-left text-xs font-medium uppercase tracking-wider text-muted-foreground',
+    extra
+  );
   t.textContent = label;
   return t;
 }
@@ -318,11 +305,8 @@ function cell(supported, service, host) {
         'aria-label',
         `${host} supported by ${name} — open status page`
       );
-      a.className =
-        'inline-flex items-center text-success hover:text-success/80';
-      a.appendChild(
-        icon('check', { class: 'h-4 w-4', 'aria-hidden': 'true' })
-      );
+      a.className = 'inline-flex items-center text-success hover:text-success/80';
+      a.appendChild(icon('check', { class: 'h-4 w-4', 'aria-hidden': 'true' }));
       td.appendChild(a);
     } else {
       td.appendChild(
@@ -344,21 +328,45 @@ function cell(supported, service, host) {
 }
 
 function statusBadge(row, a, b) {
-  let label, variant;
   const aName = SERVICES[a].name;
   const bName = SERVICES[b].name;
+  let label, variant;
   if (row.a && row.b) {
     label = 'Both';
-    variant = 'success';
+    variant = 'border-transparent bg-success-muted text-success';
   } else if (row.a) {
     label = `${aName} only`;
-    variant = 'info';
+    variant = 'border-transparent bg-info-muted text-info';
   } else if (row.b) {
     label = `${bName} only`;
-    variant = 'warning';
+    variant = 'border-transparent bg-warning-muted text-warning';
   } else {
     label = 'Neither';
-    variant = 'muted';
+    variant = 'border-transparent bg-muted text-muted-foreground';
   }
-  return Badge({ variant, children: label });
+  const span = document.createElement('span');
+  span.className = cn(
+    'inline-flex items-center rounded-md border px-2 py-0.5 text-2xs font-medium',
+    variant
+  );
+  span.textContent = label;
+  return span;
+}
+
+function warningAlert(message) {
+  const wrap = document.createElement('div');
+  wrap.setAttribute('role', 'alert');
+  wrap.className =
+    'flex items-start gap-3 rounded-md border border-warning/40 bg-warning-muted/70 px-4 py-3 text-sm leading-relaxed text-foreground';
+  wrap.appendChild(
+    icon('alert-triangle', {
+      class: 'mt-0.5 h-4 w-4 shrink-0 text-warning',
+      'aria-hidden': 'true',
+    })
+  );
+  const body = document.createElement('div');
+  body.className = 'min-w-0 flex-1';
+  body.textContent = message;
+  wrap.appendChild(body);
+  return wrap;
 }

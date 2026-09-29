@@ -2,7 +2,8 @@ import { icon } from '../../lib/icons.js';
 import { POLICY_ROWS } from '../../data/policies.ts';
 import { SERVICES } from '../../data/services.ts';
 
-export function PoliciesTable() {
+export function initPoliciesTable(slot) {
+  if (!slot) return;
   const wrap = document.createElement('div');
   wrap.className = 'overflow-x-auto rounded-lg border border-border';
 
@@ -10,20 +11,16 @@ export function PoliciesTable() {
   table.className = 'w-full min-w-max text-sm';
   table.setAttribute('aria-label', 'Policies and legal information');
 
-  // Header
   const thead = document.createElement('thead');
   const trh = document.createElement('tr');
   trh.className = 'border-b border-border';
-  trh.appendChild(
-    headerCell('Service', { sticky: true })
-  );
+  trh.appendChild(headerCell('Service', { sticky: true }));
   for (const label of ['Terms', 'Privacy', 'Refund', 'Support']) {
     trh.appendChild(headerCell(label));
   }
   thead.appendChild(trh);
   table.appendChild(thead);
 
-  // Body
   const tbody = document.createElement('tbody');
   for (const row of POLICY_ROWS) {
     const tr = document.createElement('tr');
@@ -45,19 +42,19 @@ export function PoliciesTable() {
     tbody.appendChild(tr);
   }
   table.appendChild(tbody);
-
   wrap.appendChild(table);
-  return wrap;
+  slot.replaceChildren(wrap);
 }
 
 function headerCell(label, opts = {}) {
   const th = document.createElement('th');
   th.scope = 'col';
+  const stickyClass = opts.sticky
+    ? ' sticky left-0 z-20 border-r border-border bg-muted'
+    : '';
   th.className =
     'px-3 py-2 text-left text-xs font-medium uppercase tracking-wider text-muted-foreground' +
-    (opts.sticky
-      ? ' sticky left-0 z-20 border-r border-border bg-muted'
-      : '');
+    stickyClass;
   th.textContent = label;
   return th;
 }
@@ -70,11 +67,7 @@ function policyLink(href, text) {
   a.className =
     'inline-flex items-center gap-1 text-foreground underline-offset-4 hover:underline';
   a.textContent = text;
-  const ext = icon('external-link', {
-    class: 'h-3 w-3',
-    'aria-hidden': 'true',
-  });
-  a.appendChild(ext);
+  a.appendChild(icon('external-link', { class: 'h-3 w-3', 'aria-hidden': 'true' }));
   return a;
 }
 

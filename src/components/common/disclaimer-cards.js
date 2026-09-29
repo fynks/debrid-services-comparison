@@ -1,5 +1,3 @@
-import { icon } from '../../lib/icons.js';
-
 const ITEMS = [
   {
     icon: 'file-text',
@@ -33,30 +31,34 @@ const ITEMS = [
   },
 ];
 
-export function DisclaimerCards() {
+export function initDisclaimerCards(slot) {
+  if (!slot) return;
   const grid = document.createElement('div');
-  grid.className =
-    'grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3';
+  grid.className = 'grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3';
   for (const { icon: name, title, body } of ITEMS) {
     grid.appendChild(card(name, title, body));
   }
-  return grid;
+  slot.replaceChildren(grid);
 }
 
 function card(iconName, title, body) {
   const el = document.createElement('article');
   el.className = 'rounded-lg border border-border bg-card p-4';
-  el.appendChild(
-    icon(iconName, {
-      class: 'h-4 w-4 shrink-0 text-muted-foreground',
-      'aria-hidden': 'true',
-    })
-  );
+  const SVG_NS = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(SVG_NS, 'svg');
+  svg.setAttribute('class', 'h-4 w-4 shrink-0 text-muted-foreground');
+  svg.setAttribute('aria-hidden', 'true');
+  const use = document.createElementNS(SVG_NS, 'use');
+  use.setAttribute('href', `#i-${iconName}`);
+  svg.appendChild(use);
+  el.appendChild(svg);
+
   const h = document.createElement('h3');
   h.className =
     'mt-3 text-sm font-semibold leading-tight tracking-tight text-foreground';
   h.textContent = title;
   el.appendChild(h);
+
   const p = document.createElement('p');
   p.className = 'mt-1.5 text-sm leading-relaxed text-muted-foreground';
   p.textContent = body;

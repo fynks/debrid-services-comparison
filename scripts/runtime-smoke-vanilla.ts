@@ -1,12 +1,16 @@
 // Runtime smoke test for the **vanilla** build.
 //
-// What it verifies:
+// The static markup (header, hero, benefits, footer, section headers,
+// alert boxes) now lives in dist/index.html. The dynamic bits
+// (host-support-table, service-comparison, pricing-table, etc.) are
+// mounted by the JS bundle into `[data-mount="…"]` placeholders.
+//
+// What this verifies:
+//   - dist/index.html is well-formed and contains all required sections.
 //   - All bundled JS chunks load and execute without throwing.
-//   - The app actually mounts DOM under `#app` (the vanilla target).
-//   - The component primitives (HostSupportTable, ServiceComparison, etc.)
-//     can be invoked standalone and return Elements without error.
-//   - The morphdom bundle is reachable.
-//   - There are no console errors during initial mount.
+//   - The dynamic components mount into their placeholders.
+//   - No console errors during boot.
+
 import jsdom, { VirtualConsole } from 'jsdom';
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
@@ -29,10 +33,13 @@ function assert(cond: boolean, msg: string) {
 }
 
 const jsDir = resolve(DIST, 'assets/js');
-if (!existsSync(jsDir)) {
-  console.error('dist/assets/js missing — run `npm run build` first');
+const indexPath = resolve(DIST, 'index.html');
+if (!existsSync(jsDir) || !existsSync(indexPath)) {
+  console.error('dist missing — run `npm run build` first');
   process.exit(1);
 }
+
+const indexHtml = readFileSync(indexPath, 'utf8');
 
 // Find the bundled entry.
 const entry = readdirSync(jsDir).find(
@@ -41,7 +48,15 @@ const entry = readdirSync(jsDir).find(
 assert(!!entry, `entry bundle present (${entry})`);
 if (!entry) process.exit(1);
 
-// Set up jsdom with #app target.
+// Strip the inline <script type="module"> tags from the HTML so we
+// can drive the page manually via Node-side imports. (jsdom doesn't
+// execute ES modules natively; we polyfill globals and import the
+// entry bundle ourselves.)
+const htmlNoScript = indexHtml.replace(
+  /<script[^>]*type="module"[^>]*>[\s\S]*?<\/script>/g,
+  ''
+);
+
 const errors: string[] = [];
 const virtualConsole = new VirtualConsole();
 virtualConsole.on('jsdomError', (err) =>
@@ -51,14 +66,11 @@ virtualConsole.on('error', (...args) =>
   errors.push(`console.error: ${args.map(String).join(' ')}`),
 );
 
-const dom = new JSDOM(
-  '<!doctype html><html><head></head><body><div id="app"></div></body></html>',
-  {
-    url: 'http://localhost/',
-    pretendToBeVisual: true,
-    virtualConsole,
-  },
-);
+const dom = new JSDOM(htmlNoScript, {
+  url: 'http://localhost/',
+  pretendToBeVisual: true,
+  virtualConsole,
+});
 
 const win = dom.window as unknown as Record<string, unknown>;
 const G = globalThis as unknown as Record<string, unknown>;
@@ -103,16 +115,51 @@ const polyMatchMedia = (q: string) =>
   }) as unknown as MediaQueryList;
 assign('matchMedia', polyMatchMedia);
 (win as Record<string, unknown>).matchMedia = polyMatchMedia;
-
 assign('requestAnimationFrame', (cb: FrameRequestCallback) =>
   setTimeout(() => cb(performance.now()), 16) as unknown as number,
 );
 assign('cancelAnimationFrame', (h: number) => clearTimeout(h));
-
-// Polyfill localStorage (jsdom usually has it but be safe).
 assign('localStorage', win.localStorage);
 
-// Now import the bundled entry.
+// Verify static sections are present in the HTML before JS even runs.
+const checkIds = [
+  'what-are-debrid-services',
+  'debrid-pricing-comparison',
+  'supported-file-hosts',
+  'compare-debrid-services',
+  'usenet-support',
+  'service-status-monitoring',
+  'refund-policies-legal',
+  'debrid-resources-tools',
+  'disclaimers',
+];
+for (const id of checkIds) {
+  const el = dom.window.document.getElementById(id);
+  assert(!!el, `section #${id} present in static HTML`);
+}
+
+// Verify static markup pieces.
+const headerEl = dom.window.document.querySelector('header');
+assert(!!headerEl, 'site header present');
+const footerEl = dom.window.document.querySelector('footer');
+assert(!!footerEl, 'site footer present');
+const heroTitle = dom.window.document.getElementById('hero-title');
+assert(
+  !!heroTitle && heroTitle.textContent === 'Compare premium debrid services',
+  'hero h1 has correct title'
+);
+const benefitsCards = dom.window.document.querySelectorAll(
+  '#what-are-debrid-services .grid.grid-cols-1.sm\\:grid-cols-4 > div.rounded-lg'
+);
+assert(benefitsCards.length === 4, `4 benefit cards rendered (got ${benefitsCards.length})`);
+
+// Verify SVG icon sprite is inlined.
+const sprite = dom.window.document.querySelector('svg defs');
+assert(!!sprite, 'inline SVG sprite present');
+const symbols = dom.window.document.querySelectorAll('svg symbol');
+assert(symbols.length >= 15, `at least 15 icon symbols (got ${symbols.length})`);
+
+// Now drive the JS entry.
 const entryUrl = pathToFileURL(resolve(jsDir, entry!)).href;
 try {
   await import(entryUrl);
@@ -123,54 +170,108 @@ try {
 // Allow render to settle (microtask + a tick).
 await new Promise<void>((r) => setTimeout(r, 500));
 
-// Also dynamic-import the heavy chunk(s) so we exercise their code paths.
-const hostSupportChunk = readdirSync(jsDir).find(
-  (f) => f.startsWith('host-support-table-') && f.endsWith('.js'),
+// Verify the dynamic components mounted.
+const fileHostsSlot = dom.window.document.querySelector(
+  '[data-mount="host-support-table"][data-host-source="file"]'
 );
-if (hostSupportChunk) {
-  try {
-    await import(pathToFileURL(resolve(jsDir, hostSupportChunk)).href);
-  } catch (e) {
-    errors.push(
-      `host-support-table chunk failed: ${(e as Error).message}`,
-    );
-  }
-}
-const cmpChunk = readdirSync(jsDir).find(
-  (f) => f.startsWith('service-comparison-') && f.endsWith('.js'),
-);
-if (cmpChunk) {
-  try {
-    await import(pathToFileURL(resolve(jsDir, cmpChunk)).href);
-  } catch (e) {
-    errors.push(`service-comparison chunk failed: ${(e as Error).message}`);
-  }
-}
-
-const root = dom.window.document.getElementById('app');
 assert(
-  !!root && root.children.length > 0,
-  `app rendered into #app (children=${root?.children.length})`,
+  !!fileHostsSlot && fileHostsSlot.children.length > 0,
+  `host-support-table mounted into #file slot (children=${fileHostsSlot?.children.length})`
+);
+const adultHostsSlot = dom.window.document.querySelector(
+  '[data-mount="host-support-table"][data-host-source="adult"]'
+);
+assert(
+  !!adultHostsSlot && adultHostsSlot.children.length > 0,
+  `host-support-table mounted into #adult slot (children=${adultHostsSlot?.children.length})`
+);
+const cmpSlot = dom.window.document.querySelector(
+  '[data-mount="service-comparison"]'
+);
+assert(
+  !!cmpSlot && cmpSlot.children.length > 0,
+  `service-comparison mounted (children=${cmpSlot?.children.length})`
+);
+const pricingSlot = dom.window.document.querySelector(
+  '[data-mount="pricing-table"]'
+);
+assert(
+  !!pricingSlot && pricingSlot.querySelector('table'),
+  'pricing-table mounted (has <table>)'
+);
+const referralSlot = dom.window.document.querySelector(
+  '[data-mount="referral-links"]'
+);
+assert(
+  !!referralSlot && referralSlot.children.length > 0,
+  'referral-links mounted'
+);
+const usenetSlot = dom.window.document.querySelector(
+  '[data-mount="usenet-table"]'
+);
+assert(
+  !!usenetSlot && usenetSlot.querySelector('table'),
+  'usenet-table mounted'
+);
+const policiesSlot = dom.window.document.querySelector(
+  '[data-mount="policies-table"]'
+);
+assert(
+  !!policiesSlot && policiesSlot.querySelector('table'),
+  'policies-table mounted'
+);
+const statusSlot = dom.window.document.querySelector(
+  '[data-mount="status-grid"]'
+);
+assert(
+  !!statusSlot && statusSlot.children.length > 0,
+  'status-grid mounted'
+);
+const speedSlot = dom.window.document.querySelector(
+  '[data-mount="speed-test-grid"]'
+);
+assert(
+  !!speedSlot && speedSlot.children.length > 0,
+  'speed-test-grid mounted'
+);
+const resourceSlot = dom.window.document.querySelector(
+  '[data-mount="resource-groups"]'
+);
+assert(
+  !!resourceSlot && resourceSlot.children.length >= 8,
+  `resource-groups mounted (groups=${resourceSlot?.children.length})`
+);
+const disclaimerSlot = dom.window.document.querySelector(
+  '[data-mount="disclaimer-cards"]'
+);
+const disclaimerGrid = disclaimerSlot?.querySelector(':scope > div');
+assert(
+  !!disclaimerGrid && disclaimerGrid.children.length === 6,
+  `disclaimer-cards mounted (cards=${disclaimerGrid?.children.length})`
 );
 
-// Verify presence of key sections.
-const checkIds = [
-  'what-are-debrid-services',
-  'benefits',
-  'debrid-pricing-comparison',
-  'supported-file-hosts',
-  'compare-debrid-services',
-  'usenet-support',
-  'service-status-monitoring',
-  'refund-policies-legal',
-  'debrid-resources-tools',
-];
-for (const id of checkIds) {
-  const el = dom.window.document.getElementById(id);
-  assert(!!el, `section #${id} present`);
-}
+// Verify counts filled in.
+const hostCount = dom.window.document.querySelector(
+  '[data-mount="hosts-count"]'
+);
+assert(
+  !!hostCount && /^\d+$/.test(hostCount.textContent || ''),
+  `hosts count filled (${hostCount?.textContent})`
+);
+const heroCount = dom.window.document.querySelector(
+  '[data-mount="hero-host-count"]'
+);
+assert(
+  !!heroCount && /^\d+$/.test(heroCount.textContent || ''),
+  `hero host count filled (${heroCount?.textContent})`
+);
+const yearEl = dom.window.document.querySelector('[data-current-year]');
+assert(
+  !!yearEl && yearEl.textContent === String(new Date().getFullYear()),
+  `year filled (${yearEl?.textContent})`
+);
 
-// Verify morphdom bundle is reachable.
+// morphdom chunk.
 const morphdomChunk = readdirSync(jsDir).find(
   (f) => f.startsWith('morphdom') && f.endsWith('.js'),
 );

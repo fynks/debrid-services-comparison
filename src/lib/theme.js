@@ -1,7 +1,5 @@
-// Theme controller. Module-level singleton — setTheme() applies
-// immediately and notifies subscribers. The inline script in
-// index.html sets the initial theme before this module loads so we
-// never see a flash.
+// Theme controller. The inline script in index.html sets the
+// initial theme before this module loads so we never see a flash.
 
 const STORAGE_KEY = 'theme';
 const listeners = new Set();
@@ -25,10 +23,6 @@ export function setTheme(theme) {
     /* storage unavailable */
   }
   for (const fn of listeners) fn(theme);
-}
-
-export function toggleTheme() {
-  setTheme(getTheme() === 'dark' ? 'light' : 'dark');
 }
 
 export function onThemeChange(fn) {

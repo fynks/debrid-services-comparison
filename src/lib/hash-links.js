@@ -1,12 +1,8 @@
 // Hash deep-link handler. Reads `?compare=` and `?with=` query params
-// on load and dispatches a custom event that `ServiceComparison` can
-// listen for. Also exposes a small helper to scroll to a hash once the
-// DOM has settled.
+// and dispatches a custom event that `ServiceComparison` listens for.
 
-export function HashDeepLinks() {
+export function handleDeepLinks() {
   if (typeof window === 'undefined') return;
-
-  // Dispatch after first paint so listeners are attached.
   queueMicrotask(() => {
     const params = new URLSearchParams(window.location.search);
     const compare = params.get('compare');
@@ -19,8 +15,6 @@ export function HashDeepLinks() {
       );
     }
   });
-
-  // Honor `#hash` anchors after layout settles.
   if (window.location.hash) {
     setTimeout(() => {
       const el = document.querySelector(window.location.hash);
