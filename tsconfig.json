@@ -28,6 +28,11 @@
 
     "types": ["vite/client", "node"]
   },
-  "include": ["src", "scripts/optimize-json.ts", "vite.config.js"],
+  "include": [
+    "src",
+    "scripts/optimize-json.ts",
+    "scripts/sync-fonts.ts",
+    "vite.config.js"
+  ],
   "exclude": ["node_modules", "dist"]
 }

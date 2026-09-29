@@ -9,6 +9,9 @@ public/json/adult-hosts-optimized.json
 src/json/adult-hosts-optimized.json
 src/json/file-hosts-optimized.json
 
+# Self-hosted font subsets (copied from @fontsource-variable/inter on build)
+public/fonts/
+
 # Editor
 .vscode
 .idea

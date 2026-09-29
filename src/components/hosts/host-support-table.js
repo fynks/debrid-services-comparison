@@ -361,15 +361,16 @@ export function initHostSupportTable(slot, { source, data, initialLimit = 60 } =
           );
         }
       } else {
-        const sp = document.createElement('span');
-        sp.className =
-          'block text-center text-muted-foreground/30 select-none';
-        sp.setAttribute(
+        // The dash *is* the cell content, so style the <td> directly instead of
+        // nesting a presentational <span> — one less element per unsupported
+        // cell across a 328-row table. Putting `aria-label` on the <td> is also
+        // more correct: a `cell` supports accessible naming, a bare span does not.
+        td.className += ' text-muted-foreground/30 select-none';
+        td.setAttribute(
           'aria-label',
           `${host} not supported by ${service}`
         );
-        sp.textContent = '-';
-        td.appendChild(sp);
+        td.textContent = '-';
       }
       tr.appendChild(td);
     });
