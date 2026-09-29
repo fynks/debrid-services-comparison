@@ -13,6 +13,7 @@
     "moduleDetection": "force",
     "noEmit": true,
     "jsx": "react-jsx",
+    "jsxImportSource": "preact",
 
     "strict": true,
     "noUnusedLocals": false,
@@ -24,7 +25,11 @@
     "allowSyntheticDefaultImports": true,
 
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "react": ["./node_modules/preact/compat"],
+      "react/jsx-runtime": ["./node_modules/preact/jsx-runtime"],
+      "react-dom": ["./node_modules/preact/compat"],
+      "react-dom/*": ["./node_modules/preact/compat/*"]
     },
 
     "types": ["vite/client", "node"]

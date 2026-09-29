@@ -139,7 +139,9 @@ export function HostSupportTable({
           <Input
             type="search"
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) =>
+              setSearch((e.target as HTMLInputElement).value)
+            }
             placeholder={searchPlaceholder}
             className="pl-8 pr-8"
             aria-label={resultsLabel}
