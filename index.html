@@ -396,7 +396,7 @@
                 <li><a href="#debrid-resources-tools" data-nav-link="debrid-resources-tools" class="rounded-md px-2.5 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground">Resources</a></li>
             </ul>
 
-            <button id="theme-toggle" type="button" class="inline-flex h-9 w-9 items-center justify-center rounded-md border border-input bg-background text-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1" aria-label="Toggle dark mode">
+            <button id="theme-toggle" type="button" class="ml-auto inline-flex h-9 w-9 items-center justify-center rounded-md border border-input bg-background text-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 sm:ml-0" aria-label="Toggle dark mode">
                 <svg class="h-4 w-4" aria-hidden="true" data-theme-icon><use href="#i-moon"/></svg>
             </button>
 
@@ -422,7 +422,6 @@
         <!-- What are debrid services / hero / benefits -->
         <section id="what-are-debrid-services" aria-labelledby="hero-title" class="container-page pb-14 pt-4 sm:pb-20 sm:pt-8">
             <div class="mx-auto max-w-3xl text-center">
-                <p class="mb-2 text-2xs font-medium uppercase tracking-wider text-muted-foreground">2026 · Live reference</p>
                 <h1 id="hero-title" class="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">Compare premium debrid services</h1>
                 <p class="mt-3 text-base text-muted-foreground sm:text-lg">A side-by-side reference of pricing, supported hosts, features, and policies for the most-used debrid services.</p>
 
@@ -483,7 +482,6 @@
         <!-- Pricing -->
         <section id="debrid-pricing-comparison" aria-labelledby="pricing-title" class="container-page border-t border-border py-14 sm:py-20">
             <header class="mx-auto mb-8 max-w-2xl text-center">
-                <p class="mb-2 text-2xs font-semibold uppercase tracking-wider text-muted-foreground">Pricing</p>
                 <h2 id="pricing-title" class="text-2xl font-semibold tracking-tight sm:text-3xl">Pricing comparison</h2>
                 <p class="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">Subscription costs across all major debrid services. Highlighted row is the most-popular monthly plan.</p>
             </header>
@@ -508,8 +506,7 @@
         <!-- File hosts -->
         <section id="supported-file-hosts" aria-labelledby="hosts-title" class="container-page border-t border-border bg-muted/30 py-14 sm:py-20">
             <header class="mx-auto mb-8 max-w-2xl text-center">
-                <p class="mb-2 text-2xs font-semibold uppercase tracking-wider text-muted-foreground">Hosts</p>
-                <h2 id="hosts-title" class="text-2xl font-semibold tracking-tight sm:text-3xl">Supported file hosts · <span data-mount="hosts-count">…</span> services</h2>
+                <h2 id="hosts-title" class="text-2xl font-semibold tracking-tight sm:text-3xl">Supported file hosts</h2>
                 <p class="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">Search any host or paste a URL to find which services support it. Click a checkmark to open the service's live status page.</p>
             </header>
             <div data-mount="host-support-table" data-host-source="file"></div>
@@ -518,7 +515,6 @@
         <!-- Compare -->
         <section id="compare-debrid-services" aria-labelledby="compare-title" class="container-page border-t border-border bg-muted/30 py-14 sm:py-20">
             <header class="mx-auto mb-8 max-w-2xl text-center">
-                <p class="mb-2 text-2xs font-semibold uppercase tracking-wider text-muted-foreground">Side-by-side</p>
                 <h2 id="compare-title" class="text-2xl font-semibold tracking-tight sm:text-3xl">Compare any two services</h2>
                 <p class="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">See the exact host overlap, exclusive coverage, and shared support between two services.</p>
             </header>
@@ -613,7 +609,6 @@
         <!-- Resources -->
         <section id="debrid-resources-tools" aria-labelledby="resources-title" class="container-page border-t border-border py-14 sm:py-20">
             <header class="mx-auto mb-8 max-w-2xl text-center">
-                <p class="mb-2 text-2xs font-semibold uppercase tracking-wider text-muted-foreground">Tools & community</p>
                 <h2 id="resources-title" class="text-2xl font-semibold tracking-tight sm:text-3xl">Tools, apps, & community resources</h2>
                 <p class="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">Media managers, streaming add-ons, download managers, browser extensions, mobile apps, and community resources that work with debrid services.</p>
             </header>
@@ -690,7 +685,7 @@
         </div>
     </footer>
 
-    <button id="back-to-top" type="button" aria-label="Back to top" tabindex="-1" class="fixed bottom-5 right-5 z-40 inline-flex h-11 w-11 items-center justify-center rounded-full border border-input bg-background text-foreground opacity-0 ring-1 ring-foreground/5 transition-all duration-300 ease-out translate-y-2 pointer-events-none sm:bottom-6 sm:right-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
+    <button id="back-to-top" type="button" aria-label="Back to top" tabindex="-1" class="fixed bottom-5 right-5 z-40 inline-flex h-11 w-11 items-center justify-center rounded-full border border-input bg-background text-foreground opacity-0 ring-1 ring-foreground/5 transition-all duration-300 ease-out translate-y-2 pointer-events-none hover:-translate-y-1 hover:bg-accent hover:text-accent-foreground hover:shadow-lg hover:shadow-foreground/10 sm:bottom-6 sm:right-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
         <svg class="h-5 w-5" aria-hidden="true"><use href="#i-arrow-up"/></svg>
     </button>
 </body>

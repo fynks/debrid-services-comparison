@@ -138,35 +138,46 @@ export function initHostSupportTable(slot, { source, data, initialLimit = 60 } =
   bottom.className = 'flex flex-col items-center gap-4';
   wrap.appendChild(bottom);
 
-  const legend = document.createElement('div');
+  const legend = document.createElement('ul');
   legend.className =
-    'flex flex-wrap items-center gap-3 text-2xs text-muted-foreground';
-  const itemA = document.createElement('span');
-  itemA.className = 'inline-flex items-center gap-1.5';
-  itemA.appendChild(
-    icon('check', { class: 'h-3.5 w-3.5 text-success', 'aria-hidden': 'true' })
-  );
-  itemA.appendChild(document.createTextNode('supported'));
-  legend.appendChild(itemA);
+    'mx-auto grid w-fit grid-cols-1 justify-items-start gap-x-6 gap-y-2 text-xs text-muted-foreground sm:flex sm:flex-wrap sm:items-center sm:justify-center';
+  legend.setAttribute('aria-label', 'Host support legend');
 
-  const itemB = document.createElement('span');
-  itemB.className = 'inline-flex items-center gap-1.5';
+  const legendItem = (label, symbol, symbolClasses) => {
+    const item = document.createElement('li');
+    item.className = 'inline-flex items-center gap-2';
+    const mark = document.createElement('span');
+    mark.className =
+      'inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full ' +
+      symbolClasses;
+    mark.appendChild(symbol);
+    item.appendChild(mark);
+    item.appendChild(document.createTextNode(label));
+    return item;
+  };
+
+  legend.appendChild(
+    legendItem(
+      'Supported',
+      icon('check', { class: 'h-3.5 w-3.5', 'aria-hidden': 'true' }),
+      'bg-success-muted text-success'
+    )
+  );
+
   const dash = document.createElement('span');
-  dash.className = 'text-muted-foreground/60';
+  dash.className = 'text-xs font-semibold';
   dash.textContent = '-';
-  itemB.appendChild(dash);
-  itemB.appendChild(document.createTextNode('not supported'));
-  legend.appendChild(itemB);
+  legend.appendChild(
+    legendItem('Not supported', dash, 'bg-muted text-muted-foreground/70')
+  );
 
-  const itemC = document.createElement('span');
-  itemC.className = 'inline-flex items-center gap-1.5';
-  itemC.appendChild(
-    icon('external-link', { class: 'h-3.5 w-3.5', 'aria-hidden': 'true' })
+  legend.appendChild(
+    legendItem(
+      'Click a checkmark to open live status',
+      icon('external-link', { class: 'h-3.5 w-3.5', 'aria-hidden': 'true' }),
+      'bg-accent text-muted-foreground'
+    )
   );
-  itemC.appendChild(
-    document.createTextNode('click a checkmark to open live status')
-  );
-  legend.appendChild(itemC);
 
   wrap.appendChild(legend);
 

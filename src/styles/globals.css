@@ -259,3 +259,37 @@
     --text-5xl: 3.5rem;
   }
 }
+
+main > section > header > p:first-child {
+  margin-bottom: 0.75rem;
+  color: var(--color-primary);
+  font-size: 0.8125rem;
+  font-weight: 650;
+  letter-spacing: 0;
+}
+
+main > section > header > h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+main > section > header > p:last-child {
+  margin-inline: auto;
+  margin-top: 0.875rem;
+  max-width: 42rem;
+  color: var(--color-muted-foreground);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+@media (min-width: 640px) {
+  main > section > header > h2 {
+    font-size: 2.25rem;
+  }
+
+  main > section > header > p:last-child {
+    font-size: 1.125rem;
+  }
+}
