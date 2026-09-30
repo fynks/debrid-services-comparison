@@ -2,18 +2,6 @@
 @source "../../index.html";
 @source "../";
 
-/* ============================================================================
-   Self-hosted Inter.
-
-   Replaces the `fonts.googleapis.com` stylesheet + `fonts.gstatic.com` woff2
-   round trip. The files are copied into `public/fonts/` at build time by
-   `scripts/sync-fonts.ts`; the `unicode-range` values below are the fontsource
-   (= Google Fonts) `latin` / `latin-ext` subsets verbatim, so glyph coverage is
-   identical to what the hosted CSS delivered.
-
-   `font-display: swap` matches the previous `&display=swap` parameter.
-   ============================================================================ */
-
 @font-face {
   font-family: "Inter";
   font-style: normal;
