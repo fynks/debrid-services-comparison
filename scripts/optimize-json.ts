@@ -3,16 +3,6 @@
 // Converts verbose per-host `{ [service]: "✅" | "❌" }` dictionaries in
 // `data/*.json` into compact indexed `{ services, supported }` payloads in
 // `src/json/*-optimized.json`.
-//
-// Improvements over the legacy bash + python script:
-//   - Pure Node/TypeScript (zero bash / python3 external runtime dependency).
-//   - Normalizes legacy service aliases (e.g. "RealDebrid" → "Real-Debrid")
-//     and validates every service against `SERVICES` / `SERVICE_ORDER`.
-//   - Uses canonical `SERVICE_ORDER` instead of alphabetical sorting so table
-//     columns match the rest of the UI.
-//   - Pre-sorts host names in ascending `localeCompare` order at build time so
-//     the client doesn't need to sort on initial render.
-//   - Idempotent writes: only touches output files when content changes.
 
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve, basename, extname } from 'node:path';

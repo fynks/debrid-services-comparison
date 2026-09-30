@@ -5,18 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- The only two external requests this page makes. They are placed first so
-         the parser discovers them immediately: at build time ~36 KB of CSS is
-         inlined into <head> (see the `app-styles` marker below), and anything
-         sitting after it would not be seen until most of the document had
-         arrived. `type="module"` is deferred, so hoisting the entry script does
-         not change when it runs, only when it starts downloading. -->
     <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin.woff2" crossorigin>
     <script type="module" src="/src/main.js"></script>
 
-    <!-- Replaced with the built stylesheet at build time by `inlineStylesheets`
-         in vite.config.js. Inlining removes a render-blocking request; keeping
-         it after the two links above keeps those on the fast path. -->
     <meta name="app-styles">
 
     <title>Debrid Services Comparison - Compare Pricing, 300+ Hosts & Features</title>
