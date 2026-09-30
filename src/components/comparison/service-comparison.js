@@ -26,12 +26,12 @@ export function initServiceComparison(slot, { data } = {}) {
   // Top row: two selects + "vs" divider
   const topRow = document.createElement('div');
   topRow.className =
-    'grid grid-cols-1 gap-4 sm:grid-cols-[1fr_auto_1fr] sm:items-end';
+    'mx-auto grid max-w-3xl grid-cols-1 gap-4 sm:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] sm:items-end';
 
   const aWrap = document.createElement('div');
   const aLabel = document.createElement('label');
   aLabel.htmlFor = 'compare-first';
-  aLabel.className = 'mb-1.5 block text-xs font-medium text-muted-foreground';
+  aLabel.className = 'mb-1.5 block text-center text-xs font-medium text-muted-foreground';
   aLabel.textContent = 'First service';
   aWrap.appendChild(aLabel);
   const aSelect = createSelect(a, services, 'compare-first', 'First service', (v) => {
@@ -51,7 +51,7 @@ export function initServiceComparison(slot, { data } = {}) {
   const bWrap = document.createElement('div');
   const bLabel = document.createElement('label');
   bLabel.htmlFor = 'compare-second';
-  bLabel.className = 'mb-1.5 block text-xs font-medium text-muted-foreground';
+  bLabel.className = 'mb-1.5 block text-center text-xs font-medium text-muted-foreground';
   bLabel.textContent = 'Second service';
   bWrap.appendChild(bLabel);
   const bSelect = createSelect(b, services, 'compare-second', 'Second service', (v) => {
@@ -67,7 +67,7 @@ export function initServiceComparison(slot, { data } = {}) {
   // Status line + reset
   const statusRow = document.createElement('div');
   statusRow.className =
-    'flex flex-wrap items-center justify-between gap-x-3 gap-y-2';
+    'mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-x-3 gap-y-2 text-center';
   const statusText = document.createElement('p');
   statusText.className = 'min-w-0 flex-1 text-xs text-muted-foreground';
   statusRow.appendChild(statusText);
@@ -88,7 +88,7 @@ export function initServiceComparison(slot, { data } = {}) {
   root.appendChild(statusRow);
 
   const body = document.createElement('div');
-  body.className = 'min-h-[280px] sm:min-h-[320px]';
+  body.className = '';
   root.appendChild(body);
 
   slot.replaceChildren(root);
@@ -139,7 +139,7 @@ export function initServiceComparison(slot, { data } = {}) {
     if (!a || !b) {
       const empty = document.createElement('div');
       empty.className =
-        'flex min-h-[200px] items-center justify-center rounded-lg border border-dashed border-border px-6 py-10 text-center text-sm text-muted-foreground sm:min-h-[240px] sm:py-14';
+        'flex items-center justify-center rounded-lg border border-dashed border-border px-6 py-8 text-center text-sm text-muted-foreground';
       empty.textContent = 'Pick two services above to start the comparison.';
       body.appendChild(empty);
       return;
@@ -147,7 +147,7 @@ export function initServiceComparison(slot, { data } = {}) {
 
     // Stats
     const statsGrid = document.createElement('div');
-    statsGrid.className = 'grid grid-cols-1 gap-3 sm:grid-cols-3';
+    statsGrid.className = 'grid grid-cols-1 gap-3 pb-4 sm:grid-cols-3';
     statsGrid.appendChild(statCard('Both', shared, 'border-success/30 bg-success-muted/40'));
     statsGrid.appendChild(
       statCard(`${SERVICES[a].name} only`, aOnly, 'border-info/30 bg-info-muted/40')

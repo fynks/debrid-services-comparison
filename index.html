@@ -388,15 +388,13 @@
                 DebridCompare
             </a>
 
-            <ul class="hidden items-center gap-1 sm:flex" data-nav-list>
+            <ul class="hidden items-center gap-1 sm:ml-auto sm:flex" data-nav-list>
                 <li><a href="#services" data-nav-link="services" class="rounded-md px-2.5 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground">Services</a></li>
                 <li><a href="#debrid-pricing-comparison" data-nav-link="debrid-pricing-comparison" class="rounded-md px-2.5 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground">Pricing</a></li>
                 <li><a href="#supported-file-hosts" data-nav-link="supported-file-hosts" class="rounded-md px-2.5 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground">Hosts</a></li>
                 <li><a href="#compare-debrid-services" data-nav-link="compare-debrid-services" class="rounded-md px-2.5 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground">Compare</a></li>
                 <li><a href="#debrid-resources-tools" data-nav-link="debrid-resources-tools" class="rounded-md px-2.5 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground">Resources</a></li>
             </ul>
-
-            <div class="flex-1"></div>
 
             <button id="theme-toggle" type="button" class="inline-flex h-9 w-9 items-center justify-center rounded-md border border-input bg-background text-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1" aria-label="Toggle dark mode">
                 <svg class="h-4 w-4" aria-hidden="true" data-theme-icon><use href="#i-moon"/></svg>
@@ -423,18 +421,18 @@
 
         <!-- What are debrid services / hero / benefits -->
         <section id="what-are-debrid-services" aria-labelledby="hero-title" class="container-page pb-14 pt-4 sm:pb-20 sm:pt-8">
-            <div class="mx-auto max-w-3xl text-center sm:text-left">
+            <div class="mx-auto max-w-3xl text-center">
                 <p class="mb-2 text-2xs font-medium uppercase tracking-wider text-muted-foreground">2026 · Live reference</p>
-                <h1 id="hero-title" class="text-3xl font-semibold tracking-tight sm:text-4xl">Compare premium debrid services</h1>
+                <h1 id="hero-title" class="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">Compare premium debrid services</h1>
                 <p class="mt-3 text-base text-muted-foreground sm:text-lg">A side-by-side reference of pricing, supported hosts, features, and policies for the most-used debrid services.</p>
 
-                <div class="mt-6 flex flex-wrap justify-center gap-2 sm:justify-start">
-                    <a href="#debrid-pricing-comparison" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
+                <div class="mt-6 flex flex-wrap justify-center gap-2">
+                    <a href="#debrid-pricing-comparison" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 lg:px-5 lg:py-3 lg:text-base">
                         View pricing
                         <svg class="h-3.5 w-3.5" aria-hidden="true"><use href="#i-chevron-right"/></svg>
                     </a>
-                    <a href="#compare-debrid-services" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md border border-input bg-background px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">Compare two services</a>
-                    <a href="#supported-file-hosts" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md border border-input bg-background px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
+                    <a href="#compare-debrid-services" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md border border-input bg-background px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 lg:px-5 lg:py-3 lg:text-base">Compare two services</a>
+                    <a href="#supported-file-hosts" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md border border-input bg-background px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 lg:px-5 lg:py-3 lg:text-base">
                         Browse <span data-mount="hero-host-count">…</span> hosts
                     </a>
                 </div>
@@ -484,10 +482,10 @@
 
         <!-- Pricing -->
         <section id="debrid-pricing-comparison" aria-labelledby="pricing-title" class="container-page border-t border-border py-14 sm:py-20">
-            <header class="mb-8 max-w-2xl text-center sm:text-left">
+            <header class="mx-auto mb-8 max-w-2xl text-center">
                 <p class="mb-2 text-2xs font-semibold uppercase tracking-wider text-muted-foreground">Pricing</p>
                 <h2 id="pricing-title" class="text-2xl font-semibold tracking-tight sm:text-3xl">Pricing comparison</h2>
-                <p class="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">Subscription costs across all major debrid services. Highlighted row is the most-popular monthly plan.</p>
+                <p class="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">Subscription costs across all major debrid services. Highlighted row is the most-popular monthly plan.</p>
             </header>
             <div data-mount="pricing-table"></div>
             <div class="mt-4">
@@ -498,10 +496,10 @@
             </div>
 
             <div class="mt-12">
-                <header class="mb-8 max-w-2xl text-center sm:text-left">
+                <header class="mx-auto mb-8 max-w-2xl text-center">
                     <p class="mb-2 text-2xs font-semibold uppercase tracking-wider text-muted-foreground">Support this project</p>
                     <h3 class="text-2xl font-semibold tracking-tight sm:text-3xl">Help keep this resource free</h3>
-                    <p class="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">Use these referral links to sign up. It helps maintain this free resource at no extra cost to you.</p>
+                    <p class="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">Use these referral links to sign up. It helps maintain this free resource at no extra cost to you.</p>
                 </header>
                 <div data-mount="referral-links"></div>
             </div>
@@ -509,20 +507,20 @@
 
         <!-- File hosts -->
         <section id="supported-file-hosts" aria-labelledby="hosts-title" class="container-page border-t border-border bg-muted/30 py-14 sm:py-20">
-            <header class="mb-8 max-w-2xl text-center sm:text-left">
+            <header class="mx-auto mb-8 max-w-2xl text-center">
                 <p class="mb-2 text-2xs font-semibold uppercase tracking-wider text-muted-foreground">Hosts</p>
                 <h2 id="hosts-title" class="text-2xl font-semibold tracking-tight sm:text-3xl">Supported file hosts · <span data-mount="hosts-count">…</span> services</h2>
-                <p class="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">Search any host or paste a URL to find which services support it. Click a checkmark to open the service's live status page.</p>
+                <p class="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">Search any host or paste a URL to find which services support it. Click a checkmark to open the service's live status page.</p>
             </header>
             <div data-mount="host-support-table" data-host-source="file"></div>
         </section>
 
         <!-- Compare -->
         <section id="compare-debrid-services" aria-labelledby="compare-title" class="container-page border-t border-border bg-muted/30 py-14 sm:py-20">
-            <header class="mb-8 max-w-2xl text-center sm:text-left">
+            <header class="mx-auto mb-8 max-w-2xl text-center">
                 <p class="mb-2 text-2xs font-semibold uppercase tracking-wider text-muted-foreground">Side-by-side</p>
                 <h2 id="compare-title" class="text-2xl font-semibold tracking-tight sm:text-3xl">Compare any two services</h2>
-                <p class="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">See the exact host overlap, exclusive coverage, and shared support between two services.</p>
+                <p class="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">See the exact host overlap, exclusive coverage, and shared support between two services.</p>
             </header>
             <div data-mount="service-comparison"></div>
             <div class="mt-6 space-y-3">
@@ -539,10 +537,10 @@
 
         <!-- Usenet -->
         <section id="usenet-support" aria-labelledby="usenet-title" class="container-page border-t border-border py-14 sm:py-20">
-            <header class="mb-8 max-w-2xl text-center sm:text-left">
+            <header class="mx-auto mb-8 max-w-2xl text-center">
                 <p class="mb-2 text-2xs font-semibold uppercase tracking-wider text-muted-foreground">Usenet</p>
                 <h2 id="usenet-title" class="text-2xl font-semibold tracking-tight sm:text-3xl">Usenet support</h2>
-                <p class="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">Which debrid services support Usenet newsgroups in addition to torrents and hosters.</p>
+                <p class="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">Which debrid services support Usenet newsgroups in addition to torrents and hosters.</p>
             </header>
             <div role="status" class="flex items-start gap-3 rounded-md border border-info/30 bg-info-muted/70 px-4 py-3 text-sm leading-relaxed text-foreground">
                 <svg class="mt-0.5 h-4 w-4 shrink-0 text-info" aria-hidden="true"><use href="#i-info"/></svg>
@@ -556,20 +554,20 @@
 
         <!-- Adult hosts -->
         <section id="adult-content-file-hosts" aria-labelledby="adult-hosts-title" class="container-page border-t border-border py-14 sm:py-20">
-            <header class="mb-8 max-w-2xl text-center sm:text-left">
+            <header class="mx-auto mb-8 max-w-2xl text-center">
                 <p class="mb-2 text-2xs font-semibold uppercase tracking-wider text-muted-foreground">Adult hosts</p>
                 <h2 id="adult-hosts-title" class="text-2xl font-semibold tracking-tight sm:text-3xl">Adult content file hosts</h2>
-                <p class="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">Which services support major adult file hosts.</p>
+                <p class="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">Which services support major adult file hosts.</p>
             </header>
             <div data-mount="host-support-table" data-host-source="adult"></div>
         </section>
 
         <!-- Speed test -->
         <section id="debrid-speed-test" aria-labelledby="speed-title" class="container-page border-t border-border bg-muted/30 py-14 sm:py-20">
-            <header class="mb-8 max-w-2xl text-center sm:text-left">
+            <header class="mx-auto mb-8 max-w-2xl text-center">
                 <p class="mb-2 text-2xs font-semibold uppercase tracking-wider text-muted-foreground">Speed test</p>
                 <h2 id="speed-title" class="text-2xl font-semibold tracking-tight sm:text-3xl">Speed test & performance</h2>
-                <p class="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">Run download speed tests directly from each provider's own network.</p>
+                <p class="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">Run download speed tests directly from each provider's own network.</p>
             </header>
             <div data-mount="speed-test-grid"></div>
             <div class="mt-4">
@@ -582,10 +580,10 @@
 
         <!-- Status -->
         <section id="service-status-monitoring" aria-labelledby="status-title" class="container-page border-t border-border py-14 sm:py-20">
-            <header class="mb-8 max-w-2xl text-center sm:text-left">
+            <header class="mx-auto mb-8 max-w-2xl text-center">
                 <p class="mb-2 text-2xs font-semibold uppercase tracking-wider text-muted-foreground">Status</p>
                 <h2 id="status-title" class="text-2xl font-semibold tracking-tight sm:text-3xl">Live service status</h2>
-                <p class="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">Check real-time status, uptime, and official supported-host lists for all services.</p>
+                <p class="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">Check real-time status, uptime, and official supported-host lists for all services.</p>
             </header>
             <div data-mount="status-grid"></div>
             <div class="mt-4">
@@ -598,10 +596,10 @@
 
         <!-- Policies -->
         <section id="refund-policies-legal" aria-labelledby="policies-title" class="container-page border-t border-border bg-muted/30 py-14 sm:py-20">
-            <header class="mb-8 max-w-2xl text-center sm:text-left">
+            <header class="mx-auto mb-8 max-w-2xl text-center">
                 <p class="mb-2 text-2xs font-semibold uppercase tracking-wider text-muted-foreground">Policies</p>
                 <h2 id="policies-title" class="text-2xl font-semibold tracking-tight sm:text-3xl">Refund policies, terms, & legal information</h2>
-                <p class="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">Review terms, privacy policies, and refund options for each service.</p>
+                <p class="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">Review terms, privacy policies, and refund options for each service.</p>
             </header>
             <div data-mount="policies-table"></div>
             <div class="mt-4">
@@ -614,10 +612,10 @@
 
         <!-- Resources -->
         <section id="debrid-resources-tools" aria-labelledby="resources-title" class="container-page border-t border-border py-14 sm:py-20">
-            <header class="mb-8 max-w-2xl text-center sm:text-left">
+            <header class="mx-auto mb-8 max-w-2xl text-center">
                 <p class="mb-2 text-2xs font-semibold uppercase tracking-wider text-muted-foreground">Tools & community</p>
                 <h2 id="resources-title" class="text-2xl font-semibold tracking-tight sm:text-3xl">Tools, apps, & community resources</h2>
-                <p class="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">Media managers, streaming add-ons, download managers, browser extensions, mobile apps, and community resources that work with debrid services.</p>
+                <p class="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">Media managers, streaming add-ons, download managers, browser extensions, mobile apps, and community resources that work with debrid services.</p>
             </header>
             <div class="space-y-2" data-mount="resource-groups"></div>
             <div class="mt-8">
@@ -630,10 +628,10 @@
 
         <!-- Disclaimers -->
         <section id="disclaimers" aria-labelledby="disclaimers-title" class="container-page border-t border-border bg-muted/30 py-14 sm:py-20">
-            <header class="mb-8 max-w-2xl text-center sm:text-left">
+            <header class="mx-auto mb-8 max-w-2xl text-center">
                 <p class="mb-2 text-2xs font-semibold uppercase tracking-wider text-muted-foreground">Disclaimers</p>
                 <h2 id="disclaimers-title" class="text-2xl font-semibold tracking-tight sm:text-3xl">Important information</h2>
-                <p class="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">Information is updated regularly but debrid services change frequently. Verify details on official sites.</p>
+                <p class="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">Information is updated regularly but debrid services change frequently. Verify details on official sites.</p>
             </header>
             <div data-mount="disclaimer-cards"></div>
             <div class="mt-6">

@@ -55,10 +55,10 @@ export function initHostSupportTable(slot, { source, data, initialLimit = 60 } =
   // Search row
   const row = document.createElement('div');
   row.className =
-    'flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between';
+    'flex flex-col items-center gap-3';
 
   const searchWrap = document.createElement('div');
-  searchWrap.className = 'relative w-full sm:max-w-sm';
+  searchWrap.className = 'relative w-full max-w-md';
 
   const searchIcon = icon('search', {
     class:
@@ -100,7 +100,7 @@ export function initHostSupportTable(slot, { source, data, initialLimit = 60 } =
   row.appendChild(searchWrap);
 
   const counter = document.createElement('p');
-  counter.className = 'text-xs text-muted-foreground tabular-nums';
+  counter.className = 'text-center text-xs text-muted-foreground tabular-nums';
   counter.setAttribute('aria-live', 'polite');
   row.appendChild(counter);
 
