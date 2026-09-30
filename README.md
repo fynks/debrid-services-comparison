@@ -1,7 +1,7 @@
 <div align="center">
   <h1>⚡ Debrid Services Comparison</h1>
 
-  <p><strong>Compare various debrid services across 300+ file hosts, pricing, policies, and tools.</strong></p>
+  <p>Compare various debrid services across 300+ file hosts, pricing, policies, and tools.</p>
 
   <p>
     <a href="https://debridcompare.pages.dev"><img alt="Web App" src="https://img.shields.io/badge/Open_Interactive-Web_App_↗-green?style=for-the-badge&logo=google-chrome&logoColor=white"></a>
