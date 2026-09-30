@@ -1,15 +1,14 @@
 <div align="center">
-  <h1>
-    ⚡ Debrid Services Comparison
-  </h1>
+  <h1>⚡ Debrid Services Comparison</h1>
 
-  <p><strong>Compare leading debrid services for pricing, host coverage, features, and tools</strong></p>
+  <p><strong>Compare various debrid services across 300+ file hosts, pricing, policies, and tools.</strong></p>
 
   <p>
+    <a href="https://debridcompare.pages.dev"><img alt="Web App" src="https://img.shields.io/badge/Open_Interactive-Web_App_↗-green?style=for-the-badge&logo=google-chrome&logoColor=white"></a>
+    <br>
     <a href="https://github.com/fynks/debrid-services-comparison/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/fynks/debrid-services-comparison?style=for-the-badge&logo=github"></a>
     <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/fynks/debrid-services-comparison?style=for-the-badge"></a>
-    <a href="#available-hosts"><img alt="Tracked Services" src="https://img.shields.io/badge/Services-10-4caf50?style=for-the-badge&logo=rocket&logoColor=white"></a>
-    <a href="https://debridcompare.pages.dev"><img alt="Web App" src="https://img.shields.io/badge/Interactive-Web_App-green?style=for-the-badge&logo=google-chrome&logoColor=white"></a>
+    <a href="#available-hosts"><img alt="Tracked Services" src="https://img.shields.io/badge/Services-9-4caf50?style=for-the-badge&logo=rocket&logoColor=white"></a>
   </p>
 
   <a href="https://debridcompare.pages.dev/"><img src="./public/images/og.png" alt="Interactive debrid services comparison web app showing side-by-side feature comparison, pricing, and host support tables with filtering and search capabilities" width="880" style="border-radius:8px"></a>
@@ -18,8 +17,8 @@
 
 <div align="center">
 
-**[Intro](#what-are-debrid-services) | [Comparison](#core-features-matrix) | [Pricing](#pricing-comparison)
-| [File Hosts](#available-hosts) | [Tools & Apps](#tools-and-applications)**
+**[Open the tool](https://debridcompare.pages.dev/) | [Choose a service](#choosing-the-right-service) | [Pricing](#pricing-comparison)
+| [Search hosts](#available-hosts) | [Tools & Apps](#tools-and-applications) | [FAQ](#faq)**
 
 </div><br>
 
@@ -39,7 +38,6 @@
   - [Adult Hosts](#adult-hosts)
   - [Live Status](#live-status)
 - [Policies](#policies)
-- [🚀 Try the Interactive Web App](#-try-the-interactive-web-app-1)
 - [Speed Test](#speed-test)
 - [Tools and Applications](#tools-and-applications)
   - [🎬 Media Centers \& Streaming Apps](#-media-centers--streaming-apps)
@@ -84,18 +82,6 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 ---
 
 
-<div align="center">
-
-## 🚀 Try the Interactive Web App
-
-**Filter, compare, and find your perfect debrid service with our advanced comparison tool!**
-
-[![Open Web App](https://img.shields.io/badge/Open-Interactive_App-4CAF50?style=for-the-badge&logo=google-chrome&logoColor=white)](https://debridcompare.pages.dev )
-
-</div>
-
----
-
 ## Choosing the Right Service
 
 ### Core Features Matrix
@@ -117,11 +103,11 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 |:-------------|:-------------------|:-----------|
 |**🏆 Best Overall / Stremio + Kodi** | **Premiumize** | [→ Pricing](#pricing-comparison) |
 |**Lowest Price** | AllDebrid | [→ Pricing](#pricing-comparison) |
-|**Usenet + Torrents** | Premiumize / TorBox Pro ⚠️ | [→ Feature Comparison](#feature-comparison) |
+|**Usenet + Torrents** | Premiumize / TorBox Pro ⚠️ | [→ Usenet support](#usenet-support) |
 |**Try Before Buy** | AllDebrid (7-day trial) / TorBox free tier ⚠️ | [→ Pricing](#pricing-comparison) |
-|**Maximum Hosts** | LinkSnappy | [→ File Hosts](#file-hosts) |
-|**Plex/Jellyfin Setup** | Premiumize | [→ Media Tools](#-media-management) |
-|**Legacy Cache / Niche Content** | Real-Debrid ⚠️ | [→ RD Warning](#-whats-happening-with-real-debrid-in-2026) |
+|**Maximum Hosts** | LinkSnappy | [→ File Hosts](#available-hosts) |
+|**Plex/Jellyfin Setup** | Premiumize | [→ Media Tools](#tools-and-applications) |
+|**Legacy Cache / Niche Content** | Real-Debrid ⚠️ | [→ RD Warning](#real-debrid-2026-changes) |
 |**TorBox (any use)** | TorBox ⚠️ | [→ TorBox Warning](#️-whats-happening-with-torbox-in-2026) |
 
 
@@ -161,7 +147,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 <br>
 
 > [!TIP]
-> **Still deciding?** Check our **[File Hosts](#file-hosts)** table or try the **[Interactive Web App](https://debridcompare.pages.dev)** for advanced filtering!
+> **Still deciding?** Check our **[File Hosts](#available-hosts)** reference or [compare services in the web tool](https://debridcompare.pages.dev/).
 
 <div align="right">
 
@@ -177,7 +163,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 #### 1. **Choose a Service**:
  - Not sure? See **[Choosing the Right Service](#choosing-the-right-service)** for personalized recommendations
- - Compare **[Pricing](#pricing-comparison)** and **[Host Support](#file-hosts)**
+ - Compare **[Pricing](#pricing-comparison)** and **[Host Support](#available-hosts)**
 
 
 #### 2. **Sign Up & Configure**:
@@ -185,7 +171,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
  - Most services offer instant activation
 
 #### 3. **Start Using**:
- - Add links/torrents via web interface, install **[browser extensions](#-browser-extensions)**, or integrate with **[media tools](#-media-management)**
+ - Add links/torrents via web interface, install **[browser extensions](#-browser-extensions)**, or integrate with **[media tools](#tools-and-applications)**
  - Files are cached and ready to stream instantly!
 
 > [!TIP]
@@ -723,18 +709,6 @@ Comprehensive list of all supported file hosts across all services.
 
 ---
 
-<div align="center">
-
-## 🚀 Try the Interactive Web App
-
-**Filter, compare, and find your perfect debrid service with our advanced comparison tool!**
-
-[![Open Web App](https://img.shields.io/badge/Open-Interactive_App-4CAF50?style=for-the-badge&logo=google-chrome&logoColor=white)](https://debridcompare.pages.dev)
-
-</div>
-
----
-
 ## Speed Test
 
 > [!IMPORTANT]
@@ -986,7 +960,7 @@ Instead of connecting directly to a slow, throttled, or ad-ridden file host, the
 | Usenet + torrents combo | **Premiumize** (TorBox Pro ⚠️ still offers it - [see warning](#-whats-happening-with-torbox-in-2026)) |
 | Persistent cloud storage | **Premiumize** |
 | Free to start, no card needed | **AllDebrid 7-day trial** (phone verification required) / TorBox free tier ⚠️ |
-| Legacy/niche content (fallback) | **Real-Debrid** ⚠️ - [see warning](#-whats-happening-with-real-debrid-in-2026) |
+| Legacy/niche content (fallback) | **Real-Debrid** ⚠️ - [see warning](#real-debrid-2026-changes) |
 
 > ⚠️ **Real-Debrid (2025–2026):** Real-Debrid has been actively removing cached files flagged for copyright infringement, causing widespread broken streams in Stremio and Kodi. It also enforces a strict single-IP policy that can trigger account suspension when used across multiple locations.
 
@@ -997,6 +971,8 @@ Use our **[comparison table](https://debridcompare.pages.dev/)** to filter by fe
 </details>
 
 ---
+
+### Real-Debrid: 2026 changes
 
 <details>
 <summary><strong>⚠️ What's happening with Real-Debrid in 2026?</strong></summary>
