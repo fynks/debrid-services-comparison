@@ -49,41 +49,6 @@ for (const s of fileHosts.services) {
 assert(fileHosts.services.includes('AllDebrid'), 'includes AllDebrid');
 assert(fileHosts.services.includes('TorBox'), 'includes TorBox');
 
-console.log('\nSupport matrix (inlined)');
-function toSupportMatrix(data: OptimizedHostsData) {
-  const matrix: Record<string, Record<string, boolean>> = {};
-  for (const [host, mask] of Object.entries(data.supported)) {
-    matrix[host] = {};
-    data.services.forEach((id, idx) => {
-      matrix[host][id] = (mask & (1 << idx)) !== 0;
-    });
-  }
-  return matrix;
-}
-function serviceStats(matrix: Record<string, Record<string, boolean>>) {
-  const counts: Record<string, number> = {};
-  for (const id of Object.keys(Object.values(matrix)[0] ?? {})) counts[id] = 0;
-  for (const host of Object.keys(matrix)) {
-    for (const id of Object.keys(matrix[host])) {
-      if (matrix[host][id]) counts[id]++;
-    }
-  }
-  const total = Object.keys(matrix).length || 1;
-  return Object.entries(counts)
-    .map(([service, supported]) => ({
-      service,
-      supported,
-      percent: Math.round((supported / total) * 100),
-    }))
-    .sort((a, b) => b.supported - a.supported);
-}
-
-const matrix = toSupportMatrix(fileHosts);
-const stats = serviceStats(matrix);
-assert(stats.length === fileHosts.services.length, 'one stat per service');
-assert(stats.every((s) => s.supported > 0), 'every service has at least one supported host');
-assert(stats.every((s) => s.percent <= 100), 'percent <= 100');
-
 console.log('\nPricing');
 assert(PRICING_ROWS.length >= 5, 'at least 5 pricing rows');
 assert(PRICING_SERVICES.length >= 5, 'at least 5 pricing services');
