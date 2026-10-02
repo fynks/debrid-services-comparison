@@ -31,7 +31,7 @@ export const SERVICES: Record<ServiceId, ServiceInfo> = {
     website: 'https://torbox.app',
     statusPage: 'https://torbox.app/hosters',
     speedTest: 'https://www.torbox.app/speedtest',
-    tagline: 'Free tier + Usenet, recent policy changes',
+    tagline: 'Free tier + Usenet',
     hasFreeTier: true,
     hasUsenet: true,
   },
