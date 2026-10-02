@@ -103,18 +103,17 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 |:-------------|:-------------------|:-----------|
 |**🏆 Best Overall / Stremio + Kodi** | **Premiumize** | [→ Pricing](#pricing-comparison) |
 |**Lowest Price** | AllDebrid | [→ Pricing](#pricing-comparison) |
-|**Usenet + Torrents** | Premiumize / TorBox Pro ⚠️ | [→ Usenet support](#usenet-support) |
-|**Try Before Buy** | AllDebrid (7-day, SMS-verified trial) / TorBox free tier ⚠️ | [→ Pricing](#pricing-comparison) |
+|**Usenet + Torrents** | Premiumize / TorBox Pro | [→ Usenet support](#usenet-support) |
+|**Try Before Buy** | AllDebrid (7-day, SMS-verified trial) / TorBox free tier | [→ Pricing](#pricing-comparison) |
 |**Maximum Hosts** | LinkSnappy | [→ File Hosts](#available-hosts) |
 |**Plex/Jellyfin Setup** | Premiumize | [→ Media Tools](#tools-and-applications) |
 |**Legacy Cache / Niche Content** | Real-Debrid ⚠️ | [→ RD Warning](#real-debrid-2026-changes) |
-|**TorBox (any use)** | TorBox ⚠️ | [→ TorBox Warning](#️-whats-happening-with-torbox-in-2026) |
 
+
+<a id="torbox-note"></a>
 
 > [!WARNING]
-> **⚠️ TorBox policy/status note:** Its [Terms](https://torbox.app/policies/terms) (updated July 31) and [Privacy Policy](https://torbox.app/policies/privacy) (updated August 24) describe account, technical, usage, and download-request data, with category-specific retention. The policy describes user-submitted support recordings; it does not support a blanket claim of automatic session replay or indefinite retention. The Terms prohibit account/API-key sharing. The [status page](https://status.torbox.app/) reported all services online at its October 2 update; check it for current incidents and maintenance.
->
-> 👉 **Policy and status details:** [What's happening with TorBox in 2026?](#️-whats-happening-with-torbox-in-2026)
+> **TorBox:** Its Terms changed to prohibit account/API-key sharing, and the service has had multiple downtime incidents. Review the current [Terms](https://torbox.app/policies/terms) and [status page](https://status.torbox.app/) before subscribing or renewing.
 
 <details>
 <summary><strong>🤔 Still not sure? Click here for personalized recommendations</strong></summary>
@@ -761,8 +760,6 @@ For a more accurate assessment, follow these steps:
 > - 🏠 **DUMB** for a full self-hosted debrid media server stack
 > - 🔁 **Riven** for automated Plex/Jellyfin library management
 >
-> ⚠️ **Note:** Some tools (e.g., Nuvio) have removed TorBox integration following its 2026 TOS overhaul ([advisory](#️-whats-happening-with-torbox-in-2026)) - verify debrid support before committing to a tool/service combo.
-
 ---
 
 ### 🎬 Media Centers & Streaming Apps
@@ -948,14 +945,14 @@ Instead of connecting directly to a file host, a debrid service may use its own 
 | Use Case | Recommended |
 |:---------|:-----------|
 | Best overall / Stremio + Kodi | **Premiumize** (quality seeders/hosters, 1TB cloud storage, Usenet) |
-| Usenet + torrents combo | **Premiumize** (TorBox Pro ⚠️ still offers it - [see warning](#️-whats-happening-with-torbox-in-2026)) |
+| Usenet + torrents combo | **Premiumize** (TorBox Pro also supports Usenet) |
 | Persistent cloud storage | **Premiumize** |
-| Free to start, no card needed | **AllDebrid 7-day trial** (phone verification required) / TorBox free tier ⚠️ |
+| Free to start, no card needed | **AllDebrid 7-day trial** (phone verification required) / TorBox free tier |
 | Legacy/niche content (fallback) | **Real-Debrid** ⚠️ - [see warning](#real-debrid-2026-changes) |
 
 > ⚠️ **Real-Debrid (2025–2026):** The copyright-related cache claims above are based on the linked reporting and community observations; official terms state that services and hosts may change. Separately, its terms require personal account use and prohibit account or generated-link sharing; connections are recorded to detect sharing. See [official terms](https://real-debrid.com/terms).
 
-> **TorBox policy/status:** Review its current [Terms](https://torbox.app/policies/terms), [Privacy Policy](https://torbox.app/policies/privacy), and [status page](https://status.torbox.app/) before choosing or renewing. Its status page reported all services online at the October 2 update and lists scheduled APAC maintenance for October 8–9. The [full advisory](#️-whats-happening-with-torbox-in-2026) summarizes the published policy and retention categories.
+> For the terms change and downtime history, see the [TorBox note](#torbox-note).
 
 Use our **[comparison table](https://debridcompare.pages.dev/)** to filter by features and supported hosts.
 
@@ -984,29 +981,6 @@ Since May 2026, Real-Debrid has been applying a **keyword-based content filter**
 **Current state (June 2026):** Real-Debrid still works for some content (particularly 1080p non-WEB releases and older/niche cache), but its reliability for mainstream streaming is severely degraded.
 
 **Current alternatives:** **Premiumize** (strong hosters/seeders, Usenet, 1TB cloud storage) is the most commonly recommended replacement on Reddit and community guides. **AllDebrid** is a popular budget alternative. Some power users run multiple services in parallel for redundancy.
-
-</details>
-
----
-
-#### ⚠️ What's happening with TorBox in 2026?
-
-<details>
-<summary><strong>Click here for details</strong></summary>
-
-TorBox’s current public documents are the [Terms of Service](https://torbox.app/policies/terms), last updated July 31, 2026, and the [Privacy Policy](https://torbox.app/policies/privacy), last updated August 24, 2026. The Terms identify Anonymous Systems FZ-LLC as the operator and say certain legal, billing, payment, compliance, and administrative functions may be handled by ReAnonymous LLC.
-
-- **Information described:** The Privacy Policy covers account, login, payment, technical, usage, download-request, cache, API, and support data. It lists IP addresses, device identifiers, approximate IP-derived location, pages/features used, and session information.
-- **Support recordings:** The policy describes support recordings and diagnostic information submitted for troubleshooting, including screen/cursor details through Jam.dev. This is not evidence of blanket automatic session replay during ordinary use.
-- **Retention:** Periods differ by category. The policy lists bandwidth/usage data up to 30 days; some payment/fraud-linked IP, device, and connection identifiers up to one year; download information while an account is active or until removal; and legal/security records as reasonably necessary. Backups may persist for a limited period, and deleting an item may not immediately delete all related records.
-- **Disclosure:** The policy says information may be preserved or disclosed for legal process, governmental requests, enforcement, fraud/abuse prevention, or protection of TorBox, users, third parties, or the public.
-- **Account security:** The Terms describe account activity as the account holder’s responsibility and prohibit sharing accounts, credentials, and API keys. The Terms generally do not refund the current billing period; some one-time, cryptocurrency, or voucher purchases have additional restrictions.
-
-### Reliability & official status
-
-The official [status page](https://status.torbox.app/) records service incidents and maintenance. Its history includes API timeouts on August 18, general-outage intervals on August 19–21, and later maintenance/outage entries in September. At its last update on **October 2, 2026 at 07:40 EDT**, it reported **all services online**. It also lists [APAC network maintenance](https://status.torbox.app/maintenance/1078821) scheduled for October 8, 2026 at 5:00pm EDT through October 9 at 3:00am EDT.
-
-**Current state (October 2, 2026):** TorBox remains functional when online (torrents, Usenet on Pro, free tier); its current Terms prohibit account/API-key sharing. Check the [current policies](https://torbox.app/policies) and [status page](https://status.torbox.app/) before subscribing or renewing.
 
 </details>
 
@@ -1068,7 +1042,7 @@ A provider may return a matching item from its cache if it is still available an
 
 Cache results and retention vary by provider, plan, and content.
 
-> **Note:** Real-Debrid's cache coverage has been significantly reduced by its ongoing copyright filter. TorBox currently has no equivalent filter, but see its [TOS warning](#️-whats-happening-with-torbox-in-2026).
+> **Note:** Real-Debrid's cache coverage has been significantly reduced by its ongoing copyright filter.
 
 </details>
 
@@ -1122,7 +1096,7 @@ This creates an effectively unlimited media server backed by debrid cloud storag
 
 Policies vary by service:
 
-- **TorBox** ⚠️ - Current Terms prohibit sharing accounts/API keys. Review the [current Terms](https://torbox.app/policies/terms) and [Privacy Policy](https://torbox.app/policies/privacy) before using the account across devices or locations.
+- **TorBox** - See the [central terms and downtime note](#torbox-note) and review its current [Terms](https://torbox.app/policies/terms).
 - **Real-Debrid** ❌ - Terms say the account is for personal use, connections are recorded to detect sharing, and account/generated-link sharing may lead to suspension ([official Terms](https://real-debrid.com/terms))
 - **AllDebrid / Premiumize / Debrid-Link** ⚠️ - Check each service's current Terms of Service
 
