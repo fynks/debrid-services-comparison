@@ -923,6 +923,7 @@ For a more accurate assessment, follow these steps:
 - [TorrentFreak](https://torrentfreak.com/) - News and updates
 - [GitHub Discussions](https://github.com/fynks/debrid-services-comparison/discussions) - Ask questions and share experiences
 - [Is Real-Debrid Down](https://debridmediamanager.com/is-real-debrid-down-or-just-me) - Service status checker
+- [Real-Debrid Account Rules](https://torentio.com/real-debrid-account-rules/) - Unofficial list of Real-Debrid account rules and limitations
 
 > [!TIP]
 > Join multiple communities to get diverse perspectives and faster support responses!

@@ -472,6 +472,13 @@ export const RESOURCE_GROUPS: ResourceGroup[] = [
         description: 'Directory of free premium link generators',
         tags: ['Directory', 'Free PLGs'],
       },
+      {
+        name: 'Real-Debrid Account Rules',
+        url: 'https://torentio.com/real-debrid-account-rules/',
+        description:
+          'Unofficial list of Real-Debrid account rules and limitations',
+        tags: ['Rules', 'Unofficial'],
+      },
     ],
   },
 ];
