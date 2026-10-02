@@ -112,7 +112,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 
 > [!WARNING]
-> **⚠️ TorBox policy/status note (checked October 2, 2026):** Its [Terms](https://torbox.app/policies/terms) (updated July 31) and [Privacy Policy](https://torbox.app/policies/privacy) (updated August 24) describe account, technical, usage, and download-request data, with category-specific retention. The policy describes user-submitted support recordings; it does not support a blanket claim of automatic session replay or indefinite retention. The Terms prohibit account/API-key sharing. The [status page](https://status.torbox.app/) reported all services online at its October 2 update; check it for current incidents and maintenance.
+> **⚠️ TorBox policy/status note:** Its [Terms](https://torbox.app/policies/terms) (updated July 31) and [Privacy Policy](https://torbox.app/policies/privacy) (updated August 24) describe account, technical, usage, and download-request data, with category-specific retention. The policy describes user-submitted support recordings; it does not support a blanket claim of automatic session replay or indefinite retention. The Terms prohibit account/API-key sharing. The [status page](https://status.torbox.app/) reported all services online at its October 2 update; check it for current incidents and maintenance.
 >
 > 👉 **Policy and status details:** [What's happening with TorBox in 2026?](#️-whats-happening-with-torbox-in-2026)
 
@@ -185,11 +185,11 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 ## Pricing Comparison
 
 > [!TIP]
-> **Verified price examples (official pages checked October 2, 2026):**
+> **Price examples from provider pages:**
 > - **AllDebrid:** €2.99 per 30 days recurring, or €3.99 for a one-time 30-day plan; a 7-day SMS-verified free tryout is listed for new members.
 > - **Premiumize:** €9.99 / US$11.99 for one month, or €69.99 / US$79.99 for one year; VAT may apply.
 > - **TorBox:** Free plan; paid public tiers are $3, $5, and $10 per month.
-> - **Real-Debrid:** Its official pricing page returned 403 to this audit, so no price is asserted here.
+> - **Previously listed prices:** Some older Real-Debrid, TorBox, Premiumize, and Deepbrid values are retained in the table with notes because current public offers did not confirm those terms.
 
 
 ### Price Comparison Table
@@ -198,24 +198,25 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Free / Trial** | [7-day trial¹](#footnote-1) | ❌ | [—²](#footnote-2) | [Free tier³](#footnote-3) | ❌ | ❌ | ❌ | Limited hosts only | [Limited Hosts⁶](#footnote-6) |
 | **7 Days** | ❌ | ❌ | [—²](#footnote-2) | [—⁵](#footnote-5) | ❌ | $4.99 USD | ❌ | ❌ | ❌ |
-| **15 Days** | [€2.99 (one-time)⁴](#footnote-4) | ❌ | [—²](#footnote-2) | [—⁵](#footnote-5) | €3.00 | ❌ | ❌ | [—⁷](#footnote-7) | ❌ |
-| **30 Days** | €2.99 recurring / [€3.99 one-time⁴](#footnote-4) | €9.99 / US$11.99 | [—²](#footnote-2) | [Essential $3 / Standard $5 / Pro $10⁵](#footnote-5) | €4.00 | $12.99 USD | €4.00 | €4.99 | Premium €5.99 / Unlimited €9.99⁸ |
-| **90 Days** | [€8.99 (one-time)⁴](#footnote-4) | — | [—²](#footnote-2) | [—⁵](#footnote-5) | €9.00 | $29.99 USD | €9.00 | €12.99 | Premium €15.99 / Unlimited €24.99⁸ |
-| **180 Days** | [€15.99 (one-time)⁴](#footnote-4) | — | [—²](#footnote-2) | [—⁵](#footnote-5) | €16.00 | $54.99 USD | €16.00 | €19.99 | Premium €29.99 / Unlimited €44.99⁸ |
+| **15 Days** | [€2.99 (one-time)⁴](#footnote-4) | ❌ | [€3.00²](#footnote-2) | [—⁵](#footnote-5) | €3.00 | ❌ | ❌ | [€4.50⁷](#footnote-7) | ❌ |
+| **30 Days** | €2.99 recurring / [€3.99 one-time⁴](#footnote-4) | €9.99 / US$11.99 | [€4.00²](#footnote-2) | [Essential $3 / Standard $5 / Pro $10⁵](#footnote-5) | €4.00 | $12.99 USD | €4.00 | €4.99 | Premium €5.99 / Unlimited €9.99⁸ |
+| **90 Days** | [€8.99 (one-time)⁴](#footnote-4) | [US$29.99⁹](#footnote-9) | [€9.00²](#footnote-2) | [—⁵](#footnote-5) | €9.00 | $29.99 USD | €9.00 | €12.99 | Premium €15.99 / Unlimited €24.99⁸ |
+| **180 Days** | [€15.99 (one-time)⁴](#footnote-4) | — | [€16.00²](#footnote-2) | [—⁵](#footnote-5) | €16.00 | $54.99 USD | €16.00 | €19.99 | Premium €29.99 / Unlimited €44.99⁸ |
 | **300 Days** | [€24.99 (one-time)⁴](#footnote-4) | — | [—²](#footnote-2) | [—⁵](#footnote-5) | €25.00 | ❌ | ❌ | ❌ | ❌ |
-| **365 Days / 1 Year** | ❌ | €69.99 / US$79.99 | [—²](#footnote-2) | [—⁵](#footnote-5) | ❌ | ❌ | ❌ | €32.99 | Premium €47.99 / Unlimited €71.99⁸ |
+| **365 Days / 1 Year** | ❌ | €69.99 / US$79.99 | [—²](#footnote-2) | [Essential $33 / Pro $110⁵](#footnote-5) | ❌ | ❌ | ❌ | €32.99 | Premium €47.99 / Unlimited €71.99⁸ |
 
 > [!NOTE]
 > - <span id="footnote-1">**¹ AllDebrid Free Tryout**</span>: 7 days, SMS verification, new members only, subject to fair-use limits. [Official offer →](https://alldebrid.com/offer/)
-> - <span id="footnote-2">**² Real-Debrid pricing**</span>: The official [pricing page](https://real-debrid.com/premium) returned 403 during this check; prices are omitted rather than guessed.
+> - <span id="footnote-2">**² Real-Debrid pricing**</span>: The official [pricing page](https://real-debrid.com/premium) may block access. The €3/€4/€9/€16 figures shown for 15/30/90/180 days are retained from a previous table and are not confirmed current.
 > - <span id="footnote-3">**³ TorBox Free Tier**</span>: $0/month; the official page lists 1 concurrent slot, 10 downloads/month, a 10GB maximum download size, and 250Mbps. See current limits on [TorBox pricing](https://torbox.app/pricing).
 > - <span id="footnote-4">**⁴ AllDebrid one-time plans**</span>: Non-recurring prices; the offer page lists €2.99 for 15 days and €3.99/€8.99/€15.99/€24.99 for 30/90/180/300 days. Its recurring 30-day plan is €2.99. [Official offer →](https://alldebrid.com/offer/)
-> - <span id="footnote-5">**⁵ TorBox monthly tiers**</span>: Essential $3/month, Standard $5/month, Pro $10/month; the current public page lists monthly prices, not annual prices. [Official pricing →](https://torbox.app/pricing)
+> - <span id="footnote-5">**⁵ TorBox tiers**</span>: The [official pricing page](https://torbox.app/pricing) lists Essential $3/month, Standard $5/month, and Pro $10/month. Essential $33 / Pro $110 annual figures are retained from a previous table and are not shown on that page.
 > - <span id="footnote-6">**⁶ High-Way**</span>: Limited Hoster, Free MB through activity in the forum. [Verify pricing →](https://high-way.me/pages/tariffs/)
-> - <span id="footnote-7">**⁷ Deepbrid short offer**</span>: The homepage labels €4.50 as a 14-day trial while the Terms describe a 15-day offer; it is excluded until the duration is clear. [Homepage](https://www.deepbrid.com/home) · [Terms](https://www.deepbrid.com/page/terms)
+> - <span id="footnote-7">**⁷ Deepbrid short offer**</span>: The table retains its previous €4.50 entry in the 15-day row. The [homepage](https://www.deepbrid.com/home) labels €4.50 as 14 days while the [Terms](https://www.deepbrid.com/page/terms) describe a 15-day offer; the current duration and price are not confirmed.
 > - <span id="footnote-8">**⁸ High-Way package prices**</span>: Lowest listed 250GB/month packages: Premium €5.99/€15.99/€29.99/€47.99 and Unlimited €9.99/€24.99/€44.99/€71.99 for 1/3/6/12 months. Larger volume packages cost more. [Premium packages](https://high-way.me/choosep.php) · [Unlimited packages](https://high-way.me/chooseu.php)
+> - <span id="footnote-9">**⁹ Premiumize 90-day price**</span>: US$29.99 was listed in the previous comparison; the current public pricing page does not show that term, so this historical figure may no longer apply. [Official pricing →](https://www.premiumize.me/premium)
 >
-> **Price legend:** A dash (—) means no current public price was verified for that exact term; it does not mean the service is unavailable. Prices checked October 2, 2026; confirm the provider’s current offer before purchase.
+> **Price legend:** A dash (—) means no price is listed for that term; it does not mean the service is unavailable. Entries described in these notes as previously listed may no longer apply. Confirm current offers before purchase.
 
 ### Up-to-date Pricing
 
@@ -238,7 +239,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 </details><br>
 
-> **Pricing checked: October 2, 2026**
+
 
 <br>
 
@@ -615,7 +616,7 @@ Comprehensive list of all supported file hosts across all services.
 > - **Checkmarks**: ✅ = Supported, ❌ = Not supported
 <br>
 
-> **Last updated: July 4, 2026**
+
 
 <div align="right">
 
@@ -967,7 +968,7 @@ Instead of connecting directly to a file host, a debrid service may use its own 
 
 > ⚠️ **Real-Debrid (2025–2026):** The copyright-related cache claims above are based on the linked reporting and community observations; official terms state that services and hosts may change. Separately, its terms require personal account use and prohibit account or generated-link sharing; connections are recorded to detect sharing. See [official terms](https://real-debrid.com/terms).
 
-> **TorBox policy/status (checked October 2, 2026):** Review its current [Terms](https://torbox.app/policies/terms), [Privacy Policy](https://torbox.app/policies/privacy), and [status page](https://status.torbox.app/) before choosing or renewing. Its status page reported all services online at the October 2 update and lists scheduled APAC maintenance for October 8–9. The [full advisory](#️-whats-happening-with-torbox-in-2026) summarizes the published policy and retention categories.
+> **TorBox policy/status:** Review its current [Terms](https://torbox.app/policies/terms), [Privacy Policy](https://torbox.app/policies/privacy), and [status page](https://status.torbox.app/) before choosing or renewing. Its status page reported all services online at the October 2 update and lists scheduled APAC maintenance for October 8–9. The [full advisory](#️-whats-happening-with-torbox-in-2026) summarizes the published policy and retention categories.
 
 Use our **[comparison table](https://debridcompare.pages.dev/)** to filter by features and supported hosts.
 

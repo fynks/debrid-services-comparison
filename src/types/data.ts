@@ -52,7 +52,7 @@ export interface ServiceInfo {
 export interface PricingRow {
   /** Display label e.g. "30 Days". */
   plan: string;
-  /** Per-service value. A missing cell means no public price was verified for this term. */
+  /** Per-service value. A missing cell means no price is listed for this term. */
   cells: Partial<Record<ServiceId, string>>;
   /** True when this row should be visually highlighted. */
   isHighlight?: boolean;
