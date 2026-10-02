@@ -1,8 +1,7 @@
 import type { ResourceGroup } from '@/types/data';
 
 /**
- * Resources / tools / community - preserved verbatim from the
- * original index.html "Tools, Apps & Community Resources" section.
+ * Curated tools, apps, and community links, checked on 2026-10-02.
  */
 
 export const RESOURCE_GROUPS: ResourceGroup[] = [
@@ -83,7 +82,7 @@ export const RESOURCE_GROUPS: ResourceGroup[] = [
       },
       {
         name: 'Zurg',
-        url: 'https://github.com/debridmediamanager/zurg-testing',
+        url: 'https://github.com/debridmediamanager/zurg-public',
         description:
           'WebDAV server that mounts Real-Debrid as a network drive for media servers',
         tags: ['WebDAV', 'Mount'],
@@ -249,7 +248,7 @@ export const RESOURCE_GROUPS: ResourceGroup[] = [
         name: 'Stremio',
         url: 'https://www.stremio.com/downloads',
         description:
-          'Cross-platform streaming app with debrid add-on support and device sync',
+          'Streaming app with debrid add-ons; iOS availability is limited and varies by region',
         tags: ['Cross-platform', 'Streaming'],
       },
       {
@@ -294,11 +293,11 @@ export const RESOURCE_GROUPS: ResourceGroup[] = [
         tags: ['Media Player', 'Universal'],
       },
       {
-        name: 'Premiumize App',
-        url: 'https://www.premiumize.me/plugins',
+        name: 'Premiumize Web',
+        url: 'https://www.premiumize.me/features',
         description:
-          'Official Premiumize mobile app for downloads and management',
-        tags: ['Android/iOS', 'Official'],
+          'Official overview of cloud storage, remote upload, WebDAV, RSS, and API features',
+        tags: ['Web', 'Official'],
       },
     ],
   },
@@ -449,10 +448,10 @@ export const RESOURCE_GROUPS: ResourceGroup[] = [
         tags: ['Guides', 'Setup'],
       },
       {
-        name: 'GitHub Discussions',
-        url: 'https://github.com/fynks/debrid-services-comparison/discussions',
-        description: 'Ask questions and share experiences',
-        tags: ['Q&A', 'Community'],
+        name: 'GitHub Issues',
+        url: 'https://github.com/fynks/debrid-services-comparison/issues',
+        description: 'Report questions, corrections, and broken links',
+        tags: ['Feedback', 'Community'],
       },
       {
         name: 'Is Real-Debrid Down',
@@ -473,11 +472,10 @@ export const RESOURCE_GROUPS: ResourceGroup[] = [
         tags: ['Directory', 'Free PLGs'],
       },
       {
-        name: 'Real-Debrid Account Rules',
-        url: 'https://torentio.com/real-debrid-account-rules/',
-        description:
-          'Unofficial list of Real-Debrid account rules and limitations',
-        tags: ['Rules', 'Unofficial'],
+        name: 'Real-Debrid Terms of Service',
+        url: 'https://real-debrid.com/terms',
+        description: 'Official account-use, sharing, and service terms',
+        tags: ['Official', 'Terms'],
       },
     ],
   },

@@ -26,8 +26,8 @@ const ITEMS = [
   },
   {
     icon: 'scale',
-    title: 'Legal responsibility',
-    body: 'Debrid services are tools. You are responsible for complying with copyright laws and terms of use when accessing content.',
+    title: 'Legal information',
+    body: 'The legal status of a service or a particular use depends on jurisdiction, content, authorization, and other facts. This guide is not legal advice; review local law and provider terms.',
   },
 ];
 
