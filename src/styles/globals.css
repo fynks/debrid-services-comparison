@@ -159,6 +159,11 @@
     font-variant-numeric: tabular-nums;
   }
 
+  table th + th,
+  table td + td {
+    border-inline-start: 1px solid var(--color-border);
+  }
+
   :where(button, [role="button"], a, input, select, textarea, [tabindex]):focus-visible {
     outline: 2px solid var(--color-ring);
     outline-offset: 2px;

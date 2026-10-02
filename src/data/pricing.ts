@@ -38,7 +38,7 @@ export const PRICING_ROWS: PricingRow[] = [
     plan: '15 Days',
     cells: {
       AllDebrid: '€2.99 (one-time)',
-      'Real-Debrid': '€3.00*',
+      'Real-Debrid': '€3.00',
       'Debrid-Link': '€3.00',
     },
   },
@@ -47,7 +47,7 @@ export const PRICING_ROWS: PricingRow[] = [
     cells: {
       AllDebrid: '€2.99 recurring / €3.99 one-time',
       Premiumize: '€9.99 / US$11.99',
-      'Real-Debrid': '€4.00*',
+      'Real-Debrid': '€4.00',
       TorBox: 'Essential $3 / Standard $5 / Pro $10',
       'Debrid-Link': '€4.00',
       LinkSnappy: '$12.99 USD',
@@ -61,7 +61,7 @@ export const PRICING_ROWS: PricingRow[] = [
     plan: '90 Days',
     cells: {
       AllDebrid: '€8.99 (one-time)',
-      'Real-Debrid': '€9.00*',
+      'Real-Debrid': '€9.00',
       'Debrid-Link': '€9.00',
       LinkSnappy: '$29.99 USD',
       'Mega-Debrid': '€9.00',
@@ -73,7 +73,7 @@ export const PRICING_ROWS: PricingRow[] = [
     plan: '180 Days',
     cells: {
       AllDebrid: '€15.99 (one-time)',
-      'Real-Debrid': '€16.00*',
+      'Real-Debrid': '€16.00',
       'Debrid-Link': '€16.00',
       LinkSnappy: '$54.99 USD',
       'Mega-Debrid': '€16.00',
@@ -92,7 +92,6 @@ export const PRICING_ROWS: PricingRow[] = [
     plan: '365 Days / 1 Year',
     cells: {
       Premiumize: '€69.99 / US$79.99 (€5.75 / US$6.57 per month)',
-      TorBox: 'Essential $33 / Pro $110*',
       Deepbrid: '€32.99',
       'High-Way': 'Premium €47.99 / Unlimited €71.99',
     },

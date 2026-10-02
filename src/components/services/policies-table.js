@@ -34,10 +34,10 @@ export function initPoliciesTable(slot) {
     th.textContent = SERVICES[row.service].name;
     tr.appendChild(th);
 
-    tr.appendChild(refundCell(row.terms, 'TOS'));
-    tr.appendChild(refundCell(row.privacy, 'Privacy'));
-    tr.appendChild(refundOrDash(row.refund));
-    tr.appendChild(refundCell(row.support, 'Contact'));
+    tr.appendChild(refundCell(row.terms, row.termsLabel ?? 'TOS'));
+    tr.appendChild(refundCell(row.privacy, row.privacyLabel ?? 'Privacy'));
+    tr.appendChild(refundOrDash(row.refund, row.refundLabel ?? 'Refunds'));
+    tr.appendChild(refundCell(row.support, row.supportLabel ?? 'Contact'));
 
     tbody.appendChild(tr);
   }
@@ -85,11 +85,11 @@ function refundCell(href, text) {
   return td;
 }
 
-function refundOrDash(value) {
+function refundOrDash(value, label) {
   const td = document.createElement('td');
   td.className = 'px-3 py-2';
   if (value && value.startsWith('http')) {
-    td.appendChild(policyLink(value, 'Refunds'));
+    td.appendChild(policyLink(value, label));
   } else {
     const span = document.createElement('span');
     span.className = 'text-muted-foreground';

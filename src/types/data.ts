@@ -62,9 +62,13 @@ export interface PricingRow {
 export interface PolicyRow {
   service: ServiceId;
   terms?: string;
+  termsLabel?: string;
   privacy?: string;
+  privacyLabel?: string;
   refund?: string | 'See TOS' | 'See Terms' | 'Check CGV' | 'Not stated';
+  refundLabel?: string;
   support?: string;
+  supportLabel?: string;
 }
 
 /** Referral link for support-this-project section. */
