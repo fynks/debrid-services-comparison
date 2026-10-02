@@ -1,6 +1,5 @@
 import type { PolicyRow, ServiceId } from '@/types/data';
 
-/** Official policy, refund, and support destinations checked on 2026-10-02. */
 export const POLICY_ROWS: PolicyRow[] = [
   {
     service: 'AllDebrid',

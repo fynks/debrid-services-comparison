@@ -1,8 +1,5 @@
 import type { ResourceGroup } from '@/types/data';
 
-/**
- * Curated tools, apps, and community links, checked on 2026-10-02.
- */
 
 export const RESOURCE_GROUPS: ResourceGroup[] = [
   {
