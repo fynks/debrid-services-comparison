@@ -1,11 +1,5 @@
 import type { PricingRow, ServiceId } from '@/types/data';
 
-/**
- * Prices are displayed in provider currencies and billing terms. Values marked
- * with an asterisk were retained from an earlier version and are not confirmed
- * as current. Missing cells mean no price is listed for that term.
- */
-
 export const PRICING_SERVICES: ServiceId[] = [
   'AllDebrid',
   'Premiumize',
@@ -15,6 +9,7 @@ export const PRICING_SERVICES: ServiceId[] = [
   'LinkSnappy',
   'Mega-Debrid',
   'Deepbrid',
+  'High-Way',
 ];
 
 export const PRICING_ROWS: PricingRow[] = [
@@ -22,8 +17,9 @@ export const PRICING_ROWS: PricingRow[] = [
     plan: 'Free / Trial',
     cells: {
       AllDebrid: '7-day trial (SMS required)',
-      TorBox: 'Free plan ($0/mo)',
-      Deepbrid: 'Limited Hosts',
+      TorBox: 'Free tier',
+      Deepbrid: 'Limited hosts only',
+      'High-Way': 'Limited hosts',
     },
   },
   {
@@ -33,25 +29,31 @@ export const PRICING_ROWS: PricingRow[] = [
     },
   },
   {
+    plan: '14 Days',
+    cells: {
+      Deepbrid: '€4.50',
+    },
+  },
+  {
     plan: '15 Days',
     cells: {
       AllDebrid: '€2.99 (one-time)',
-      'Real-Debrid': '€3*',
-      'Debrid-Link': '€3',
-      Deepbrid: '€4.50*',
+      'Real-Debrid': '€3.00*',
+      'Debrid-Link': '€3.00',
     },
   },
   {
     plan: '30 Days',
     cells: {
-      AllDebrid: '€2.99 / 30d recurring · €3.99 one-time',
+      AllDebrid: '€2.99 recurring / €3.99 one-time',
       Premiumize: '€9.99 / US$11.99',
-      'Real-Debrid': '€4*',
-      TorBox: 'Essential $3 / Standard $5 / Pro $10 per month',
-      'Debrid-Link': '€4',
+      'Real-Debrid': '€4.00*',
+      TorBox: 'Essential $3 / Standard $5 / Pro $10',
+      'Debrid-Link': '€4.00',
       LinkSnappy: '$12.99 USD',
-      'Mega-Debrid': '€4',
+      'Mega-Debrid': '€4.00',
       Deepbrid: '€4.99',
+      'High-Way': 'Premium €5.99 / Unlimited €9.99',
     },
     isHighlight: true,
   },
@@ -59,38 +61,40 @@ export const PRICING_ROWS: PricingRow[] = [
     plan: '90 Days',
     cells: {
       AllDebrid: '€8.99 (one-time)',
-      Premiumize: 'US$29.99*',
-      'Real-Debrid': '€9*',
-      'Debrid-Link': '€9',
+      'Real-Debrid': '€9.00*',
+      'Debrid-Link': '€9.00',
       LinkSnappy: '$29.99 USD',
-      'Mega-Debrid': '€9',
+      'Mega-Debrid': '€9.00',
       Deepbrid: '€12.99',
+      'High-Way': 'Premium €15.99 / Unlimited €24.99',
     },
   },
   {
     plan: '180 Days',
     cells: {
       AllDebrid: '€15.99 (one-time)',
-      'Real-Debrid': '€16*',
-      'Debrid-Link': '€16',
+      'Real-Debrid': '€16.00*',
+      'Debrid-Link': '€16.00',
       LinkSnappy: '$54.99 USD',
-      'Mega-Debrid': '€16',
+      'Mega-Debrid': '€16.00',
       Deepbrid: '€19.99',
+      'High-Way': 'Premium €29.99 / Unlimited €44.99',
     },
   },
   {
     plan: '300 Days',
     cells: {
       AllDebrid: '€24.99 (one-time)',
-      'Debrid-Link': '€25',
+      'Debrid-Link': '€25.00',
     },
   },
   {
-    plan: '365 Days',
+    plan: '365 Days / 1 Year',
     cells: {
-      Premiumize: '€69.99 / US$79.99',
+      Premiumize: '€69.99 / US$79.99 (€5.75 / US$6.57 per month)',
       TorBox: 'Essential $33 / Pro $110*',
       Deepbrid: '€32.99',
+      'High-Way': 'Premium €47.99 / Unlimited €71.99',
     },
   },
 ];
