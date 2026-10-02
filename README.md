@@ -644,9 +644,6 @@ Comprehensive list of all supported file hosts across all services.
 > [!TIP]
 > Service availability and host support can change often. Use official status pages to check current status.
 
-> [!WARNING]
-> TorBox’s [official status page](https://status.torbox.app/) reported all services online at its October 2, 2026 update and lists recent incidents and scheduled maintenance; check it for current status before troubleshooting.
-
 <details><summary>👉 <strong>Click to view all status page links</strong></summary>
 
 | **Service**     | **Live Host Status Page**                                                         |
@@ -687,14 +684,12 @@ Comprehensive list of all supported file hosts across all services.
 | TorBox | [Current Terms](https://torbox.app/policies/terms) | [Current Privacy Policy](https://torbox.app/policies/privacy) | [Terms / refund provisions](https://torbox.app/policies/terms) | [Support](https://support.torbox.app/) |
 | Debrid-Link | [Terms](https://debrid-link.com/tos) | [Privacy](https://debrid-link.com/privacy) | [Unused accounts: up to 14 days](https://debrid-link.com/tos) | [Contact](https://debrid-link.com/contact) |
 | Premiumize | [Legal](https://www.premiumize.me/legal#tos) | [Privacy](https://www.premiumize.me/privacy) | [Refund terms](https://www.premiumize.me/legal#refund) | [Help](https://www.premiumize.me/help) |
-| Mega-Debrid | [Conditions](https://www.mega-debrid.eu/index.php?page=conditionsutilisation&lang=en) | [Privacy](https://www.mega-debrid.eu/index.php?page=privacy) | No public refund terms verified | Not publicly available (Freshdesk portal suspended) |
+| Mega-Debrid | [Conditions](https://www.mega-debrid.eu/index.php?page=conditionsutilisation&lang=en) | [Privacy](https://www.mega-debrid.eu/index.php?page=privacy) | No public refund terms verified | [Help](https://help.mega-debrid.eu/) |
 | Deepbrid | [Terms](https://www.deepbrid.com/page/terms) | [Privacy](https://www.deepbrid.com/page/privacy) | [Refund policy](https://www.deepbrid.com/page/refund-policy) | [Helpdesk (login required)](https://www.deepbrid.com/helpdesk) |
 | High-Way | [Terms](https://high-way.me/help/terms) | [Privacy](https://high-way.me/help/privacy-policy) | [14-day withdrawal information](https://high-way.me/help/widerrufsbelehrung/) | [Contact](https://high-way.me/help/contact/) |
 
-
-
 > [!TIP]
-> Some support portals require an account. Mega-Debrid’s linked Freshdesk portal currently reports that the support portal is suspended; its public contact page returned the homepage, and no working public replacement was verified. Deepbrid’s helpdesk sends visitors to sign-in.
+> Some support portals require an account.
 
 <div align="right">
 

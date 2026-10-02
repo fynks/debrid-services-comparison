@@ -50,6 +50,7 @@ export const POLICY_ROWS: PolicyRow[] = [
       'https://www.mega-debrid.eu/index.php?page=conditionsutilisation&lang=en',
     privacy: 'https://www.mega-debrid.eu/index.php?page=privacy',
     refund: 'No public refund terms verified',
+    support: 'https://help.mega-debrid.eu/',
   },
   {
     service: 'Deepbrid',
