@@ -113,7 +113,10 @@ export function initHostSupportTable(slot, { source, data, initialLimit = 60 } =
   region.setAttribute('aria-live', 'polite');
   region.setAttribute('aria-label', resultsLabel);
   region.className =
-    'relative overflow-x-auto rounded-lg border border-border bg-card';
+    'relative z-0 overflow-x-auto rounded-lg border border-border bg-card';
+
+  const regionFrame = document.createElement('div');
+  regionFrame.className = 'relative';
 
   const fade = document.createElement('div');
   fade.setAttribute('aria-hidden', 'true');
@@ -131,7 +134,40 @@ export function initHostSupportTable(slot, { source, data, initialLimit = 60 } =
   table.appendChild(tbody);
 
   region.appendChild(table);
-  wrap.appendChild(region);
+  regionFrame.appendChild(region);
+
+  if (source === 'adult') {
+    region.classList.add('blur-sm');
+    region.inert = true;
+    region.setAttribute('aria-hidden', 'true');
+
+    const ageGate = document.createElement('div');
+    ageGate.className =
+      'absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 rounded-lg bg-background/75 px-4 text-center backdrop-blur-sm';
+    ageGate.setAttribute('role', 'group');
+    ageGate.setAttribute('aria-label', 'Age confirmation');
+
+    const agePrompt = document.createElement('p');
+    agePrompt.className = 'text-sm font-medium text-foreground';
+    agePrompt.textContent = 'Confirm you are 18 or older to view these hosts.';
+    ageGate.appendChild(agePrompt);
+
+    const confirmAge = document.createElement('button');
+    confirmAge.type = 'button';
+    confirmAge.className =
+      'inline-flex min-h-9 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:opacity-90';
+    confirmAge.textContent = 'I am 18 or older';
+    confirmAge.addEventListener('click', () => {
+      region.classList.remove('blur-sm');
+      region.inert = false;
+      region.removeAttribute('aria-hidden');
+      ageGate.remove();
+    });
+    ageGate.appendChild(confirmAge);
+    regionFrame.appendChild(ageGate);
+  }
+
+  wrap.appendChild(regionFrame);
 
   // Load-all + legend
   const bottom = document.createElement('div');
