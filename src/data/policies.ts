@@ -1,22 +1,19 @@
 import type { PolicyRow, ServiceId } from '@/types/data';
 
-/**
- * Policy / legal links preserved verbatim from the original
- * `index.html` policies section.
- */
+/** Official policy, refund, and support destinations checked on 2026-10-02. */
 export const POLICY_ROWS: PolicyRow[] = [
   {
     service: 'AllDebrid',
     terms: 'https://alldebrid.com/tos/',
     privacy: 'https://alldebrid.com/privacy/',
-    refund: 'See TOS',
+    refund: 'https://alldebrid.com/tos/',
     support: 'https://alldebrid.com/contact/',
   },
   {
     service: 'Real-Debrid',
     terms: 'https://real-debrid.com/terms',
     privacy: 'https://real-debrid.com/privacy',
-    refund: 'Not stated',
+    refund: 'https://real-debrid.com/terms',
     support: 'https://real-debrid.com/support',
   },
   {
@@ -28,16 +25,16 @@ export const POLICY_ROWS: PolicyRow[] = [
   },
   {
     service: 'TorBox',
-    terms: 'https://torbox.app/terms',
-    privacy: 'https://torbox.app/privacy',
-    refund: 'https://torbox.app/terms#refunds',
+    terms: 'https://torbox.app/policies/terms',
+    privacy: 'https://torbox.app/policies/privacy',
+    refund: 'https://torbox.app/policies/terms',
     support: 'https://support.torbox.app/',
   },
   {
     service: 'Debrid-Link',
     terms: 'https://debrid-link.com/tos',
     privacy: 'https://debrid-link.com/privacy',
-    refund: 'See TOS',
+    refund: 'https://debrid-link.com/tos',
     support: 'https://debrid-link.com/contact',
   },
   {
@@ -52,22 +49,21 @@ export const POLICY_ROWS: PolicyRow[] = [
     terms:
       'https://www.mega-debrid.eu/index.php?page=conditionsutilisation&lang=en',
     privacy: 'https://www.mega-debrid.eu/index.php?page=privacy',
-    refund: 'Check CGV',
-    support: 'https://megadebrid.freshdesk.com/support/tickets/new',
+    refund: 'No public refund terms verified',
   },
   {
     service: 'Deepbrid',
     terms: 'https://www.deepbrid.com/page/terms',
     privacy: 'https://www.deepbrid.com/page/privacy',
     refund: 'https://www.deepbrid.com/page/refund-policy',
-    support: 'https://www.deepbrid.com/contact-form',
+    support: 'https://www.deepbrid.com/helpdesk',
   },
   {
     service: 'High-Way',
     terms: 'https://high-way.me/help/terms',
     privacy: 'https://high-way.me/help/privacy-policy',
-    refund: 'See Terms',
-    support: 'https://high-way.me/pages/support/',
+    refund: 'https://high-way.me/help/widerrufsbelehrung/',
+    support: 'https://high-way.me/help/contact/',
   },
 ];
 

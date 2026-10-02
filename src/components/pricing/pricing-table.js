@@ -58,9 +58,15 @@ export function initPricingTable(slot) {
         td.className = 'whitespace-nowrap px-3 py-2 text-muted-foreground';
       }
       if (value == null) {
+        td.setAttribute(
+          'aria-label',
+          'No current public price verified for this term'
+        );
         const dash = document.createElement('span');
         dash.className = 'text-muted-foreground/40';
         dash.textContent = '-';
+        dash.setAttribute('aria-hidden', 'true');
+        dash.title = 'No current public price verified for this term';
         td.appendChild(dash);
       } else {
         td.appendChild(document.createTextNode(String(value)));

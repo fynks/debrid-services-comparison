@@ -57,27 +57,27 @@
 
 ## What are Debrid Services?
 
-Debrid ("multi-hoster") services act as paid aggregation layers between you and dozens/hundreds of individual file hosts. You give them a link (or torrent/magnet) → they fetch, cache, and re-serve it back to you at high speed (often via CDN-like infrastructure) with fewer throttles and no host ads.
+Debrid ("multi-hoster") services act as paid aggregation layers between you and dozens/hundreds of individual file hosts. You give them a link (or torrent/magnet) → where the provider supports the source, it may fetch the item or return a cached copy. Speed, cache status, ads, and host restrictions depend on the service, plan, host, and source.
 
 ### Key Benefits
 
-- **High-speed downloads** - no countdowns or CAPTCHAs
+- **Direct downloads** - supported links may avoid some host-side waits or CAPTCHAs; speeds and restrictions vary
 - **One subscription** - access to hundreds of file hosts
-- **Remote torrent/magnet fetching** - privacy and seedless downloading
+- **Remote torrent/magnet fetching** - retrieval is handled by the provider; privacy, seeding, and retention depend on its terms and plan
 - **Streaming-ready links** - compatible with media servers and apps
-- **Cloud storage** - automatic file caching (24-72 hours)
+- **Cloud storage and caching** - available space and retention vary by provider and plan
 - **API access** - automation and third-party integrations
 
 ### How It Works
 
 <br>
 <p align="center">
-  <img src="public/images/flowchart.svg" alt="Flowchart showing how debrid services work: User provides link or torrent to debrid service, which fetches content from file hosts, then streams back to user at high speed without ads or throttling" width="700">
+  <img src="public/images/flowchart.svg" alt="Flowchart showing a user giving a link or torrent to a debrid service, which may fetch supported content and return a link; speed and availability vary by provider and source" width="700">
 </p>
 <br>
 
 > [!TIP]
-> Think of debrid services as a **premium bridge** between you and file-hosting sites, providing instant access to cached content at maximum speed.
+> Think of debrid services as a **premium bridge** between you and file-hosting sites. A matching cached item may be available quickly, but speed and availability depend on the provider, plan, source, and cache state.
 
 ---
 
@@ -104,7 +104,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 |**🏆 Best Overall / Stremio + Kodi** | **Premiumize** | [→ Pricing](#pricing-comparison) |
 |**Lowest Price** | AllDebrid | [→ Pricing](#pricing-comparison) |
 |**Usenet + Torrents** | Premiumize / TorBox Pro ⚠️ | [→ Usenet support](#usenet-support) |
-|**Try Before Buy** | AllDebrid (7-day trial) / TorBox free tier ⚠️ | [→ Pricing](#pricing-comparison) |
+|**Try Before Buy** | AllDebrid (7-day, SMS-verified trial) / TorBox free tier ⚠️ | [→ Pricing](#pricing-comparison) |
 |**Maximum Hosts** | LinkSnappy | [→ File Hosts](#available-hosts) |
 |**Plex/Jellyfin Setup** | Premiumize | [→ Media Tools](#tools-and-applications) |
 |**Legacy Cache / Niche Content** | Real-Debrid ⚠️ | [→ RD Warning](#real-debrid-2026-changes) |
@@ -112,9 +112,9 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 
 > [!WARNING]
-> **⚠️ TorBox advisory (August 2026):** TorBox changed its Terms of Service - introducing expanded telemetry collection (IP/geolocation/session-replay), broad data-disclosure clauses, and indefinite retention of "deleted" data - abandoning its former no-logs, privacy-first positioning. Its stability has also declined, with repeated outages through mid-2026 including a multi-day general outage (Aug 19–21). TorBox still works when online, but verify [current policies](https://torbox.app/policies) before subscribing or renewing.
+> **⚠️ TorBox policy/status note (checked October 2, 2026):** Its [Terms](https://torbox.app/policies/terms) (updated July 31) and [Privacy Policy](https://torbox.app/policies/privacy) (updated August 24) describe account, technical, usage, and download-request data, with category-specific retention. The policy describes user-submitted support recordings; it does not support a blanket claim of automatic session replay or indefinite retention. The Terms prohibit account/API-key sharing. The [status page](https://status.torbox.app/) reported all services online at its October 2 update; check it for current incidents and maintenance.
 >
-> 👉 **Full details & outage timeline:** [What's happening with TorBox in 2026?](#️-whats-happening-with-torbox-in-2026)
+> 👉 **Policy and status details:** [What's happening with TorBox in 2026?](#️-whats-happening-with-torbox-in-2026)
 
 <details>
 <summary><strong>🤔 Still not sure? Click here for personalized recommendations</strong></summary>
@@ -122,16 +122,13 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 <br>
 
 **Choose Premiumize if:**
-- ✅ You want the highest quality option with strong seeders and hosters
+- ✅ You want the published 1 TB cloud-storage plan with WebDAV, FTP, SFTP, remote upload, and API access
+- ✅ You prefer a one-year plan; the official page lists €69.99 / US$79.99 (VAT may apply)
 - ✅ You use Usenet alongside torrents
-- ✅ You want persistent cloud storage (1 TB) and auto-delete privacy features
-- ✅ You want premium support
-- ✅ Privacy and security are priorities
 
 **Choose AllDebrid if:**
-- ✅ You want the cheapest reliable option
-- ✅ You want to test with a 7-day trial
-- ✅ Budget is your top priority
+- ✅ You want a 30-day recurring plan listed at €2.99 or a one-time 30-day plan at €3.99
+- ✅ You want to try the 7-day free offer (SMS verification; new members; fair-use limits apply)
 
 **Choose LinkSnappy if:**
 - ✅ You need support for obscure file hosts
@@ -168,14 +165,14 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 #### 2. **Sign Up & Configure**:
  - Create an account, activate your subscription, and get your API key for tool integrations
- - Most services offer instant activation
+ - Activation time and payment methods vary; check the provider’s current checkout and terms
 
 #### 3. **Start Using**:
  - Add links/torrents via web interface, install **[browser extensions](#-browser-extensions)**, or integrate with **[media tools](#tools-and-applications)**
- - Files are cached and ready to stream instantly!
+ - A matching cached item may be available quickly; uncached requests and streaming support vary by service and source
 
 > [!TIP]
-> **First time?** Try the free tiers ([TorBox](#pricing-comparison), [AllDebrid trial](#pricing-comparison)) or start with a short-term plan to test speeds in your region.
+> **First time?** Try the free options ([TorBox](#pricing-comparison), [AllDebrid trial](#pricing-comparison)) or start with a short-term plan. Check the provider’s current limits, terms, and price before purchase.
 
 <div align="right">
 
@@ -188,32 +185,37 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 ## Pricing Comparison
 
 > [!TIP]
-> **Best Value Picks:**
-> - 🏆 **Best Overall**: Premiumize (€69.99/year with 1TB storage + Usenet)
-> - 💰 **Budget**: AllDebrid (€2.99/month recurring)
-> - 🆓 **Free Options**: TorBox free tier ⚠️ ([see warning](#️-whats-happening-with-torbox-in-2026)), AllDebrid 7-day trial
+> **Verified price examples (official pages checked October 2, 2026):**
+> - **AllDebrid:** €2.99 per 30 days recurring, or €3.99 for a one-time 30-day plan; a 7-day SMS-verified free tryout is listed for new members.
+> - **Premiumize:** €9.99 / US$11.99 for one month, or €69.99 / US$79.99 for one year; VAT may apply.
+> - **TorBox:** Free plan; paid public tiers are $3, $5, and $10 per month.
+> - **Real-Debrid:** Its official pricing page returned 403 to this audit, so no price is asserted here.
 
 
 ### Price Comparison Table
 
 | **Plan Duration** | **AllDebrid** | **Premiumize** | **Real-Debrid** | **TorBox** | **Debrid-Link** | **LinkSnappy** | **Mega-Debrid** | **Deepbrid** | **High-Way** |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Free / Trial** | [7-day trial¹](#footnote-1) | ❌ | ❌ | [Free tier²](#footnote-2) | ❌ | ❌ | ❌ | Limited hosts only | [Limited Hosts⁶](#footnote-6) |
-| **7 Days** | ❌ | ❌ | ❌ | ❌ | ❌ | $4.99 | ❌ | ❌ | ❌ |
-| **15 Days** | [€2.99 (one-time)⁴](#footnote-4) | ❌ | €3.00 | ❌ | €3.00 | ❌ | ❌ | €4.50 | ❌ |
-| **30 Days** | [€2.99³/](#footnote-3) <br> [€3.99⁴](#footnote-4) | €9.99 | €4.00 | [Essential $3/ <br> Standard $5 / <br> Pro $10⁵](#footnote-5) | €4.00 | $12.99 | €4.00 | €4.99 | From €5.99 |
-| **90 Days** | [€8.99 (one-time)⁴](#footnote-4) | $29.99 | €9.00 | ❌ | €9.00 | $29.99 | €9.00 | €12.99 | From €15.99 |
-| **180 Days** | [€15.99 (one-time)⁴](#footnote-4) | ❌ | €16.00 | ❌ | €16.00 | $54.99 | €16.00 | €19.99 | From €29.99 |
-| **300 Days** | [€24.99 (one-time)⁴](#footnote-4) | ❌ | ❌ | ❌ | €25.00 | ❌ | ❌ | ❌ | ❌ |
-| **365 Days / 1 Year** | ❌ | €69.99 | ❌ | [Essential $33 / Pro $110⁵](#footnote-5) | ❌ | ❌ | ❌ | €32.99 | ❌ |
+| **Free / Trial** | [7-day trial¹](#footnote-1) | ❌ | [—²](#footnote-2) | [Free tier³](#footnote-3) | ❌ | ❌ | ❌ | Limited hosts only | [Limited Hosts⁶](#footnote-6) |
+| **7 Days** | ❌ | ❌ | [—²](#footnote-2) | [—⁵](#footnote-5) | ❌ | $4.99 USD | ❌ | ❌ | ❌ |
+| **15 Days** | [€2.99 (one-time)⁴](#footnote-4) | ❌ | [—²](#footnote-2) | [—⁵](#footnote-5) | €3.00 | ❌ | ❌ | [—⁷](#footnote-7) | ❌ |
+| **30 Days** | €2.99 recurring / [€3.99 one-time⁴](#footnote-4) | €9.99 / US$11.99 | [—²](#footnote-2) | [Essential $3 / Standard $5 / Pro $10⁵](#footnote-5) | €4.00 | $12.99 USD | €4.00 | €4.99 | Premium €5.99 / Unlimited €9.99⁸ |
+| **90 Days** | [€8.99 (one-time)⁴](#footnote-4) | — | [—²](#footnote-2) | [—⁵](#footnote-5) | €9.00 | $29.99 USD | €9.00 | €12.99 | Premium €15.99 / Unlimited €24.99⁸ |
+| **180 Days** | [€15.99 (one-time)⁴](#footnote-4) | — | [—²](#footnote-2) | [—⁵](#footnote-5) | €16.00 | $54.99 USD | €16.00 | €19.99 | Premium €29.99 / Unlimited €44.99⁸ |
+| **300 Days** | [€24.99 (one-time)⁴](#footnote-4) | — | [—²](#footnote-2) | [—⁵](#footnote-5) | €25.00 | ❌ | ❌ | ❌ | ❌ |
+| **365 Days / 1 Year** | ❌ | €69.99 / US$79.99 | [—²](#footnote-2) | [—⁵](#footnote-5) | ❌ | ❌ | ❌ | €32.99 | Premium €47.99 / Unlimited €71.99⁸ |
 
 > [!NOTE]
-> - <span id="footnote-1">**¹ AllDebrid Free Trial**</span>: 7-day trial requires phone verification. [Verify pricing →](https://alldebrid.com/offer/)
-> - <span id="footnote-2">**² TorBox Free Tier**</span>: Limited speed and features; no torrenting. [Verify pricing →](https://torbox.app/pricing)
-> - <span id="footnote-3">**³ AllDebrid Recurring**</span>: Auto-renews monthly at €2.99. [Verify pricing →](https://alldebrid.com/offer/)
-> - <span id="footnote-4">**⁴ AllDebrid / Debrid-Link One-Time**</span>: Non-recurring payment. Often better value than recurring. [Verify pricing →](https://alldebrid.com/offer/)
-> - <span id="footnote-5">**⁵ TorBox Tiers**</span>: Free (3 slots, 10 downloads/mo), Essential ($3/mo, unlimited DL, 300GB storage), Standard ($5/mo, 500GB storage, 14-day seeding), Pro ($10/mo, 1TB storage, 80Gbps, Usenet, 30-day seeding). [Verify pricing →](https://torbox.app/subscription)
-> - <span id="footnote-6">**⁶ High-Way**</span>: Limited Hoster, Free MB through activity in the forum. [Verify pricing →](https://high-way.me/pages/tariffs)
+> - <span id="footnote-1">**¹ AllDebrid Free Tryout**</span>: 7 days, SMS verification, new members only, subject to fair-use limits. [Official offer →](https://alldebrid.com/offer/)
+> - <span id="footnote-2">**² Real-Debrid pricing**</span>: The official [pricing page](https://real-debrid.com/premium) returned 403 during this check; prices are omitted rather than guessed.
+> - <span id="footnote-3">**³ TorBox Free Tier**</span>: $0/month; the official page lists 1 concurrent slot, 10 downloads/month, a 10GB maximum download size, and 250Mbps. See current limits on [TorBox pricing](https://torbox.app/pricing).
+> - <span id="footnote-4">**⁴ AllDebrid one-time plans**</span>: Non-recurring prices; the offer page lists €2.99 for 15 days and €3.99/€8.99/€15.99/€24.99 for 30/90/180/300 days. Its recurring 30-day plan is €2.99. [Official offer →](https://alldebrid.com/offer/)
+> - <span id="footnote-5">**⁵ TorBox monthly tiers**</span>: Essential $3/month, Standard $5/month, Pro $10/month; the current public page lists monthly prices, not annual prices. [Official pricing →](https://torbox.app/pricing)
+> - <span id="footnote-6">**⁶ High-Way**</span>: Limited Hoster, Free MB through activity in the forum. [Verify pricing →](https://high-way.me/pages/tariffs/)
+> - <span id="footnote-7">**⁷ Deepbrid short offer**</span>: The homepage labels €4.50 as a 14-day trial while the Terms describe a 15-day offer; it is excluded until the duration is clear. [Homepage](https://www.deepbrid.com/home) · [Terms](https://www.deepbrid.com/page/terms)
+> - <span id="footnote-8">**⁸ High-Way package prices**</span>: Lowest listed 250GB/month packages: Premium €5.99/€15.99/€29.99/€47.99 and Unlimited €9.99/€24.99/€44.99/€71.99 for 1/3/6/12 months. Larger volume packages cost more. [Premium packages](https://high-way.me/choosep.php) · [Unlimited packages](https://high-way.me/chooseu.php)
+>
+> **Price legend:** A dash (—) means no current public price was verified for that exact term; it does not mean the service is unavailable. Prices checked October 2, 2026; confirm the provider’s current offer before purchase.
 
 ### Up-to-date Pricing
 
@@ -228,15 +230,15 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 | Real-Debrid | [real-debrid.com/premium](https://real-debrid.com/premium)                 |
 | TorBox      | [torbox.app/pricing](https://torbox.app/pricing)                           |
 | Premiumize  | [premiumize.me/premium](https://www.premiumize.me/premium)                 |
-| LinkSnappy  | [linksnappy.com/myaccount/extend](https://linksnappy.com/myaccount/extend) |
+| LinkSnappy  | [Official FAQ / pricing](https://linksnappy.com/index.php?act=faqs) |
 | Debrid-Link | [debrid-link.com/premium](https://debrid-link.com/premium)                 |
 | Mega-Debrid | [mega-debrid.eu/offres](https://www.mega-debrid.eu/index.php?page=offres)  |
-| Deepbrid    | [deepbrid.com/signup](https://www.deepbrid.com/signup)                     |
-| High-Way    | [high-way.me/pages/tariffs](https://high-way.me/pages/tariffs)             |
+| Deepbrid    | [Official homepage / pricing](https://www.deepbrid.com/home)                |
+| High-Way    | [Official tariffs](https://high-way.me/pages/tariffs/)                     |
 
 </details><br>
 
-> **Last updated: July 4, 2026**
+> **Pricing checked: October 2, 2026**
 
 <br>
 
@@ -261,7 +263,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 
 > [!NOTE]
-> Even though Rapidgator is listed as a supported file hoster for Torbox, it is constantly "Offline". For more details visit this [Issue](https://github.com/debridcompare/debridcompare/issues/34)
+> Even though Rapidgator is listed as a supported file hoster for Torbox, it is constantly "Offline". For more details visit this [Issue](https://github.com/fynks/debrid-services-comparison/issues/34)
 
 ### Complete Host List
 
@@ -626,7 +628,7 @@ Comprehensive list of all supported file hosts across all services.
 ### Usenet Support
 
 > [!TIP]
-> **What is Usenet?** A decentralized network offering fast, private file downloads with excellent retention. Unlike torrents, Usenet doesn't require seeding and offers consistent high speeds.
+> **What is Usenet?** A distributed system for discussion and file articles, not a peer-to-peer swarm. Speed, completion, retention, privacy, and logging depend on the news provider, debrid plan, and requested articles; check the provider’s current terms.
 
 
 | Service         | AllDebrid | TorBox | Premiumize | Real-Debrid | Debrid-Link | LinkSnappy | Mega-Debrid | Deepbrid | High-Way |
@@ -650,7 +652,7 @@ Comprehensive list of all supported file hosts across all services.
 > Service availability and host support can change often. Use official status pages to check current status.
 
 > [!WARNING]
-> TorBox has had repeated outages in 2026 (see the [TorBox advisory](#️-whats-happening-with-torbox-in-2026)) - check [status.torbox.app](https://status.torbox.app) before assuming a problem is on your end.
+> TorBox’s [official status page](https://status.torbox.app/) reported all services online at its October 2, 2026 update and lists recent incidents and scheduled maintenance; check it for current status before troubleshooting.
 
 <details><summary>👉 <strong>Click to view all status page links</strong></summary>
 
@@ -684,22 +686,22 @@ Comprehensive list of all supported file hosts across all services.
 > [!WARNING]
 > Refund eligibility varies widely; always verify before purchase.
 
-| **Service** | **Terms**                                                                             | **Privacy**                                                  | **Refund Policy**                                     | **Support/Contact**                                             |
-| ----------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ----------------------------------------------------- | --------------------------------------------------------------- |
-| AllDebrid   | [TOS](https://alldebrid.com/tos/)                                                     | [Privacy](https://alldebrid.com/privacy/)                    | See TOS                                               | [Contact](https://alldebrid.com/contact/)                       |
-| Real-Debrid | [Terms](https://real-debrid.com/terms)                                                | [Privacy](https://real-debrid.com/privacy)                   | Not stated                                            | [Support](https://real-debrid.com/support)                      |
-| LinkSnappy  | [TOS](https://linksnappy.com/tos)                                                     | [Privacy](https://linksnappy.com/privacy-policy)             | [Refunds](https://linksnappy.com/refund-policy)       | [Support](https://support.linksnappy.com/support/tickets/new)   |
-| TorBox      | [Terms](https://torbox.app/terms)                                                     | [Privacy](https://torbox.app/privacy)                        | [Refunds](https://torbox.app/terms#refunds)           | [Support](https://support.torbox.app/)                          |
-| Debrid-Link | [TOS](https://debrid-link.com/tos)                                                    | [Privacy](https://debrid-link.com/privacy)                   | See TOS                                               | [Contact](https://debrid-link.com/contact)                      |
-| Premiumize  | [Legal](https://www.premiumize.me/legal#tos)                                          | [Privacy](https://www.premiumize.me/privacy)                 | [Refund](https://www.premiumize.me/legal#refund)      | [Help](https://www.premiumize.me/help)                          |
-| Mega-Debrid | [Conditions](https://www.mega-debrid.eu/index.php?page=conditionsutilisation&lang=en) | [Privacy](https://www.mega-debrid.eu/index.php?page=privacy) | Check CGV                                             | [Support](https://megadebrid.freshdesk.com/support/tickets/new) |
-| Deepbrid    | [Terms](https://www.deepbrid.com/page/terms)                                          | [Privacy](https://www.deepbrid.com/page/privacy)             | [Refund](https://www.deepbrid.com/page/refund-policy) | [Support](https://www.deepbrid.com/contact-form)                |
-| High-Way    | [Terms](https://high-way.me/help/terms)                                               | [Privacy](https://high-way.me/help/privacy-policy)           | See Terms                                             | [Support](https://high-way.me/pages/support/)                   |
+| **Service** | **Terms** | **Privacy** | **Refund Policy** | **Support/Contact** |
+| ----------- | --------- | --------- | ----------------- | ------------------- |
+| AllDebrid | [Terms](https://alldebrid.com/tos/) | [Privacy](https://alldebrid.com/privacy/) | [Within 14 days if no data was downloaded](https://alldebrid.com/tos/) | [Contact](https://alldebrid.com/contact/) |
+| Real-Debrid | [Terms](https://real-debrid.com/terms) | [Privacy](https://real-debrid.com/privacy) | [Unused accounts: up to 7 days](https://real-debrid.com/terms) | [Support](https://real-debrid.com/support) |
+| LinkSnappy | [Terms](https://linksnappy.com/tos) | [Privacy](https://linksnappy.com/privacy-policy) | [Refund policy](https://linksnappy.com/refund-policy) | [Support](https://support.linksnappy.com/support/tickets/new) |
+| TorBox | [Current Terms](https://torbox.app/policies/terms) | [Current Privacy Policy](https://torbox.app/policies/privacy) | [Terms / refund provisions](https://torbox.app/policies/terms) | [Support](https://support.torbox.app/) |
+| Debrid-Link | [Terms](https://debrid-link.com/tos) | [Privacy](https://debrid-link.com/privacy) | [Unused accounts: up to 14 days](https://debrid-link.com/tos) | [Contact](https://debrid-link.com/contact) |
+| Premiumize | [Legal](https://www.premiumize.me/legal#tos) | [Privacy](https://www.premiumize.me/privacy) | [Refund terms](https://www.premiumize.me/legal#refund) | [Help](https://www.premiumize.me/help) |
+| Mega-Debrid | [Conditions](https://www.mega-debrid.eu/index.php?page=conditionsutilisation&lang=en) | [Privacy](https://www.mega-debrid.eu/index.php?page=privacy) | No public refund terms verified | Not publicly available (Freshdesk portal suspended) |
+| Deepbrid | [Terms](https://www.deepbrid.com/page/terms) | [Privacy](https://www.deepbrid.com/page/privacy) | [Refund policy](https://www.deepbrid.com/page/refund-policy) | [Helpdesk (login required)](https://www.deepbrid.com/helpdesk) |
+| High-Way | [Terms](https://high-way.me/help/terms) | [Privacy](https://high-way.me/help/privacy-policy) | [14-day withdrawal information](https://high-way.me/help/widerrufsbelehrung/) | [Contact](https://high-way.me/help/contact/) |
 
 
 
 > [!TIP]
-> If a link returns 404, try the site’s footer “Legal/Help” links or contact support.
+> Some support portals require an account. Mega-Debrid’s linked Freshdesk portal currently reports that the support portal is suspended; its public contact page returned the homepage, and no working public replacement was verified. Deepbrid’s helpdesk sends visitors to sign-in.
 
 <div align="right">
 
@@ -781,7 +783,7 @@ For a more accurate assessment, follow these steps:
 
 | App | Platforms | Debrid Support |
 | :--- | :--- | :--- |
-| **[Stremio](https://www.stremio.com/downloads)** | Windows, macOS, Linux, Android, iOS, Fire TV | ✅ Via Add-ons |
+| **[Stremio](https://www.stremio.com/downloads)** | Windows, macOS, Linux, Android, Android TV, iOS (limited; full app in select regions) | ✅ Via Add-ons |
 | **[Kodi](https://kodi.tv/)** | Windows, macOS, Linux, Android, iOS, Fire TV | ✅ Via Add-ons |
 | **[Plex](https://www.plex.tv/)** | All platforms | ✅ Via Zurg/Rclone |
 | **[Jellyfin](https://jellyfin.org/)** | All platforms | ✅ Via Zurg/Rclone |
@@ -800,8 +802,8 @@ For a more accurate assessment, follow these steps:
 | **[Comet](https://github.com/g0ldyy/comet)** | Cache-first debrid search; often delivers cleaner results than Torrentio |
 | **[MediaFusion](https://github.com/mhdzumair/MediaFusion)** | Universal add-on for Movies, Series, Sports &amp; Live TV; supports private trackers via Jackett |
 | **[Jackettio](https://github.com/arvida42/jackettio)** | Integrates Jackett with debrid for private tracker support inside Stremio |
-| **[StremThru](https://github.com/aymene69/stremthru)** | Self-hostable proxy that tunnels Stremio add-on requests through your own server |
-| **[Annatar](https://github.com/Spuxy/Annatar)** | Self-hosted media discovery add-on with advanced search capabilities |
+| **[StremThru](https://github.com/MunifTanjim/stremthru)** | Self-hostable proxy that tunnels Stremio add-on requests through your own server |
+| **[Annatar](https://github.com/g0ldyy/annatar)** | Self-hosted media discovery add-on with advanced search capabilities |
 
 
 <br>
@@ -814,7 +816,7 @@ For a more accurate assessment, follow these steps:
 | :--- | :---------- |
 | **[Debrid Media Manager](https://debridmediamanager.com/)** | Web UI to browse, manage, and stream your debrid torrent library with Trakt integration |
 | **[CineSync](https://github.com/sureshfizzy/CineSync)** | Automated media organization and symlink manager for Plex/Jellyfin/Emby with Bazarr support |
-| **[Zurg](https://github.com/debridmediamanager/zurg-testing)** | Mounts Real-Debrid library as a local WebDAV filesystem; essential for Plex/Jellyfin setups |
+| **[Zurg](https://github.com/debridmediamanager/zurg-public)** | Self-hosted Real-Debrid WebDAV server; can be paired with Rclone for media libraries |
 | **[Rclone](https://rclone.org/)** | Mounts Zurg/debrid WebDAV storage as a local drive; use VFS cache for optimal Plex performance |
 | **[Riven](https://github.com/rivenmedia/riven)** | Automated media manager; symlinks debrid content into organized Plex/Jellyfin libraries - replaces Sonarr/Radarr workflow |
 | **[CLI-Debrid](https://github.com/godver3/cli_debrid)** | Lightweight CLI-based debrid downloader and media manager; alternative to Riven |
@@ -830,7 +832,7 @@ For a more accurate assessment, follow these steps:
 | Tool | Description |
 | :--- | :---------- |
 | **[RDT Client](https://github.com/rogerfar/rdt-client)** | Web-based torrent client for Real-Debrid, AllDebrid, and Premiumize with Sonarr/Radarr integration |
-| **[Decypharr](https://github.com/decypharr/decypharr)** | Modern debrid download manager with web UI; supports multiple services and automated workflows |
+| **[Decypharr](https://github.com/sirrobot01/decypharr)** | Modern debrid download manager with web UI; supports multiple services and automated workflows |
 | **[Seanime](https://github.com/5rahim/seanime)** | Self-hosted anime media server with AniList integration and auto-download features |
 | **[pyLoad](https://github.com/pyload/pyload)** | Free and open-source download manager supporting 100+ file hosts with plugin system |
 | **[JDownloader](https://jdownloader.org/)** | Popular download manager with extensive host support and automatic link extraction |
@@ -843,7 +845,7 @@ For a more accurate assessment, follow these steps:
 
 | Tool | Description |
 | :--- | :---------- |
-| **[Magnetar](https://github.com/fuwn/magnetar)** | Open-source browser extension for adding magnet/torrent links to debrid services; supports RD, AD, DL, PM, TB |
+| **[Magnetar](https://github.com/ArrCee76/magnetar)** | Open-source browser extension for adding magnet/torrent links to debrid services; supports RD, AD, DL, PM, TB |
 | **[Real-Debrid Torrent Plugin](https://chromewebstore.google.com/detail/real-debrid-extension/oefkkgfcahbeccgckjgbnfclcmnjgidg)** | One-click torrent adding with context menu integration for Chrome and Firefox |
 | **[AllDebrid Helper](https://alldebrid.com/tools/)** | Quick link unrestrict with clipboard monitoring and browser notifications |
 | **[Deepbrid Extension](https://chromewebstore.google.com/detail/deepbrid-%E2%80%93-browser-extens/ampccappllebdaplacfcopfdgofmohmh)** | Browser extension for easy link unrestricting and download management |
@@ -856,15 +858,15 @@ For a more accurate assessment, follow these steps:
 
 | App | Platform | Description |
 | :-- | :------- | :---------- |
-| **[Stremio](https://www.stremio.com/downloads)** | Android, iOS | Cross-platform streaming app with debrid add-on support and device sync |
+| **[Stremio](https://www.stremio.com/downloads)** | Android; limited iOS web version, with the full version offered via AltStore PAL in Europe, Brazil, and Japan | Streaming app with debrid add-on support; availability varies by platform and region |
 | **[Syncler](https://syncler.net/)** | Android | Streaming app with native debrid support |
 | **[Unchained](https://github.com/LivingWithHippos/unchained-android)** | Android | Community-driven Real-Debrid app for managing downloads |
-| **[Debrify](https://github.com/its-Dhruv/Debrify)** | Android | Modern debrid client for Android with Material You design |
-| **[Ferrite](https://github.com/FerriteApp/Ferrite)** | Android, iOS | Open-source media player with native debrid integration |
+| **[Debrify](https://github.com/varunsalian/debrify)** | Android, Android TV, iOS, Windows, macOS, Linux | Open-source personal media hub with a built-in player |
+| **[Ferrite](https://github.com/Ferrite-iOS/Ferrite)** | iOS, iPadOS | Open-source media search engine with debrid support |
 | **[AllDebrid App](https://alldebrid.com/m/)** | All browsers (PWA) | Official AllDebrid PWA for link management and downloads |
 | **[TorBox PWA](https://torbox.app/)** | All browsers (PWA) | TorBox's official Progressive Web App |
-| **[Premiumize App](https://www.premiumize.me/apps)** | Android, iOS | Official mobile app for Premiumize |
-| **[VLC](https://play.google.com/store/apps/details?id=org.videolan.vlc)** | Android, iOS | Universal media player with direct link playback and subtitle support |
+| **[Premiumize Web](https://www.premiumize.me/features)** | Web | Official cloud and feature information; a current native-app download page was not verified |
+| **[VLC for iOS](https://www.videolan.org/vlc/download-ios.html)** | Android, iOS | Free media player; [Android download](https://play.google.com/store/apps/details?id=org.videolan.vlc) and [official iOS download](https://www.videolan.org/vlc/download-ios.html) |
 
 <br>
 
@@ -874,10 +876,10 @@ For a more accurate assessment, follow these steps:
 
 | Tool | Description |
 | :--- | :---------- |
-| **[MediaFlow Proxy](https://github.com/mhdzumair/MediaFlow)** | High-performance proxy designed for debrid streaming; bypass IP restrictions and ISP throttling |
-| **[StremThru](https://github.com/aymene69/stremthru)** | Self-hostable proxy for Stremio add-on requests; enhances privacy and reliability |
+| **[MediaFlow Proxy](https://github.com/mhdzumair/mediaflow-proxy)** | High-performance proxy designed for debrid streaming; bypass IP restrictions and ISP throttling |
+| **[StremThru](https://github.com/MunifTanjim/stremthru)** | Self-hostable proxy for Stremio add-on requests; enhances privacy and reliability |
 | **[Rclone](https://rclone.org/)** | Mounts debrid WebDAV storage as local drive; use with VFS cache for optimal Plex/Jellyfin performance |
-| **[DavDebrid](https://github.com/jeremyb/sys/blob/main/davdebrid)** | Lightweight WebDAV bridge for debrid services; simple alternative to Zurg for basic mounting |
+| **[DavDebrid](https://github.com/arvida42/davdebrid)** | Lightweight WebDAV bridge for debrid services; simple alternative to Zurg for basic mounting |
 
 <div align="right">
 
@@ -891,7 +893,7 @@ For a more accurate assessment, follow these steps:
 ## Community Resources
 
 > [!TIP]
-> **Get help faster:** Check Reddit communities and GitHub discussions for setup guides, troubleshooting, and service updates.
+> **Get help faster:** Check Reddit communities for community tips and GitHub Issues for project questions, corrections, and broken links.
 
 ### Reddit Communities
 
@@ -916,14 +918,14 @@ For a more accurate assessment, follow these steps:
 *Guides, tools, and service monitoring*
 
 - [Awesome Debrid](https://github.com/debridmediamanager/awesome-debrid) - Curated list of tools and resources
-- [StreamStack](https://streamstack.me/) - Debrid streaming setup guides and tools
-- [Savvy Guides](https://savvyguides.dev/) - Step-by-step tutorials for debrid media server setups
-- [Stremio Addons Directory](https://stremio-addons.com/) - Community-driven directory of Stremio add-ons
+- [StreamStack](https://streamstack.media/) - Debrid streaming setup guides and tools
+- [Savvy Guides](https://savvyguides.wiki/) - Step-by-step tutorials for debrid media server setups
+- [Stremio Addons Directory](https://stremio-addons.net/) - Community-driven directory of Stremio add-ons
 - [LeechListing](https://leechlisting.com/) - Tools and resources for debrid and Usenet automation
 - [TorrentFreak](https://torrentfreak.com/) - News and updates
-- [GitHub Discussions](https://github.com/fynks/debrid-services-comparison/discussions) - Ask questions and share experiences
+- [GitHub Issues](https://github.com/fynks/debrid-services-comparison/issues) - Report questions, corrections, and broken links
 - [Is Real-Debrid Down](https://debridmediamanager.com/is-real-debrid-down-or-just-me) - Service status checker
-- [Real-Debrid Account Rules](https://torentio.com/real-debrid-account-rules/) - Unofficial list of Real-Debrid account rules and limitations
+- [Real-Debrid Terms of Service](https://real-debrid.com/terms) - Official account-use, sharing, and service terms
 
 > [!TIP]
 > Join multiple communities to get diverse perspectives and faster support responses!
@@ -944,9 +946,9 @@ For a more accurate assessment, follow these steps:
 <details>
 <summary><strong>What exactly is a debrid service?</strong></summary>
 
-A **debrid service** (also called a "multi-hoster") is a paid intermediary between you and file-hosting sites or torrent networks. You submit a link or magnet → the service fetches and caches the content on its own high-bandwidth servers → you get a fast, ad-free direct download or stream link.
+A **debrid service** (also called a "multi-hoster") is a paid intermediary between you and file-hosting sites or torrent networks. You submit a supported link or magnet → the service may fetch the content or return a cached item → you receive a direct download or stream link. Speed, cache availability, ads, and host restrictions vary by service, plan, and source.
 
-Instead of connecting directly to a slow, throttled, or ad-ridden file host, the debrid service uses its own premium infrastructure and delivers content straight to you - with no waiting, no captchas, and no throttling.
+Instead of connecting directly to a file host, a debrid service may use its own infrastructure to return a supported link. This can avoid some host-side waits or restrictions, but it does not guarantee instant access, no ads, or no throttling; results depend on the host, plan, cache, and network.
 
 </details>
 
@@ -958,14 +960,14 @@ Instead of connecting directly to a slow, throttled, or ad-ridden file host, the
 | Use Case | Recommended |
 |:---------|:-----------|
 | Best overall / Stremio + Kodi | **Premiumize** (quality seeders/hosters, 1TB cloud storage, Usenet) |
-| Usenet + torrents combo | **Premiumize** (TorBox Pro ⚠️ still offers it - [see warning](#-whats-happening-with-torbox-in-2026)) |
+| Usenet + torrents combo | **Premiumize** (TorBox Pro ⚠️ still offers it - [see warning](#️-whats-happening-with-torbox-in-2026)) |
 | Persistent cloud storage | **Premiumize** |
 | Free to start, no card needed | **AllDebrid 7-day trial** (phone verification required) / TorBox free tier ⚠️ |
 | Legacy/niche content (fallback) | **Real-Debrid** ⚠️ - [see warning](#real-debrid-2026-changes) |
 
-> ⚠️ **Real-Debrid (2025–2026):** Real-Debrid has been actively removing cached files flagged for copyright infringement, causing widespread broken streams in Stremio and Kodi. It also enforces a strict single-IP policy that can trigger account suspension when used across multiple locations.
+> ⚠️ **Real-Debrid (2025–2026):** The copyright-related cache claims above are based on the linked reporting and community observations; official terms state that services and hosts may change. Separately, its terms require personal account use and prohibit account or generated-link sharing; connections are recorded to detect sharing. See [official terms](https://real-debrid.com/terms).
 
-> ⚠️ **TorBox (July 2026):** A TOS overhaul and declining reliability have made TorBox a risky pick - see the [full advisory](#️-whats-happening-with-torbox-in-2026). **Premiumize** is now the most commonly recommended replacement for privacy-conscious users.
+> **TorBox policy/status (checked October 2, 2026):** Review its current [Terms](https://torbox.app/policies/terms), [Privacy Policy](https://torbox.app/policies/privacy), and [status page](https://status.torbox.app/) before choosing or renewing. Its status page reported all services online at the October 2 update and lists scheduled APAC maintenance for October 8–9. The [full advisory](#️-whats-happening-with-torbox-in-2026) summarizes the published policy and retention categories.
 
 Use our **[comparison table](https://debridcompare.pages.dev/)** to filter by features and supported hosts.
 
@@ -988,8 +990,8 @@ Since May 2026, Real-Debrid has been applying a **keyword-based content filter**
 - **4K vs 1080p:** The filter primarily targets files with "WEB-DL", "WEBRip", "AMZN" etc. in the filename. 1080p releases are less likely to use these naming patterns, so many 1080p streams still work while 4K/HDR streams are heavily affected
 - **New torrents blocked:** Users report that even newly added torrents are automatically flagged as infringing and cannot be cached
 - **Silent treatment:** RD's official social media has been silent for over 6 months. The r/RealDebrid subreddit removed its megathread and now requires moderator approval for all posts
-- **Log retention:** Real-Debrid retains user logs (including IP and activity) for up to 6 months after account cancellation
-- **Single-IP policy:** RD enforces a strict single-IP policy that can trigger account suspension when used across multiple locations
+- **Privacy policy:** Downloaded links are erased within one month; site requests are stored for one year. [Official privacy policy](https://real-debrid.com/privacy)
+- **Account sharing:** Terms say accounts are for personal use, connections are recorded to detect sharing, and account or generated-link sharing may lead to suspension. [Official terms](https://real-debrid.com/terms)
 
 **Current state (June 2026):** Real-Debrid still works for some content (particularly 1080p non-WEB releases and older/niche cache), but its reliability for mainstream streaming is severely degraded.
 
@@ -1004,32 +1006,19 @@ Since May 2026, Real-Debrid has been applying a **keyword-based content filter**
 <details>
 <summary><strong>Click here for details</strong></summary>
 
-On **July 31, 2026**, TorBox replaced its Terms of Service and Privacy Policy with versions that fundamentally changed the service's legal posture. Key changes ([source: TROYPOINT analysis](https://troypoint.com/torbox-changes-their-terms-of-service/), [TorBox Policies](https://torbox.app/policies)):
+TorBox’s current public documents are the [Terms of Service](https://torbox.app/policies/terms), last updated July 31, 2026, and the [Privacy Policy](https://torbox.app/policies/privacy), last updated August 24, 2026. The Terms identify Anonymous Systems FZ-LLC as the operator and say certain legal, billing, payment, compliance, and administrative functions may be handled by ReAnonymous LLC.
 
-- **Opaque ownership**: The core service is now operated by **Anonymous Systems FZ-LLC**, registered in a Ras Al Khaimah (UAE) free-trade zone where beneficial ownership need not be publicly disclosed. Billing, legal, and DMCA inquiries are handled by a separate Delaware entity (**ReAnonymous LLC**).
-- **Expanded telemetry**: Users consent to collection of IP addresses, device identifiers, precise IP-based geolocation, and full session-replay data (cursor movements, clicks, scrolling, taps) - a major departure from the previous "minimal data / no PII" policy.
-- **Broad disclosure rights**: Data may be handed over to comply with law, respond to "governmental requests," or "protect TorBox, users, third parties, or the public."
-- **Indefinite data retention**: The previous promise that deleting your history or account erases associated data has been downgraded to "where reasonably feasible." Data may persist indefinitely in caches, logs, backups, payment/security/abuse/legal/DMCA records - with **no retention timeline**.
-- **Full user liability**: TorBox now defines itself as a "neutral technology service," and its terms push 100% of legal liability for submitted/cached content onto users.
+- **Information described:** The Privacy Policy covers account, login, payment, technical, usage, download-request, cache, API, and support data. It lists IP addresses, device identifiers, approximate IP-derived location, pages/features used, and session information.
+- **Support recordings:** The policy describes support recordings and diagnostic information submitted for troubleshooting, including screen/cursor details through Jam.dev. This is not evidence of blanket automatic session replay during ordinary use.
+- **Retention:** Periods differ by category. The policy lists bandwidth/usage data up to 30 days; some payment/fraud-linked IP, device, and connection identifiers up to one year; download information while an account is active or until removal; and legal/security records as reasonably necessary. Backups may persist for a limited period, and deleting an item may not immediately delete all related records.
+- **Disclosure:** The policy says information may be preserved or disclosed for legal process, governmental requests, enforcement, fraud/abuse prevention, or protection of TorBox, users, third parties, or the public.
+- **Account security:** The Terms describe account activity as the account holder’s responsibility and prohibit sharing accounts, credentials, and API keys. The Terms generally do not refund the current billing period; some one-time, cryptocurrency, or voucher purchases have additional restrictions.
 
-### ⚠️ Reliability & Outages (Mid-2026)
+### Reliability & official status
 
-TorBox's service stability has also degraded noticeably. Users on [r/TorBoxApp](https://www.reddit.com/r/TorBoxApp/) report frequent outages - including a widely-shared thread complaining about [six outages within four days](https://www.reddit.com/r/TorBoxApp/comments/1vu6t54/for_the_6th_time_in_the_last_4_days_torbox_is/) in August 2026. The official [status page](https://status.torbox.app/incidents) confirms a heavy incident load:
+The official [status page](https://status.torbox.app/) records service incidents and maintenance. Its history includes API timeouts on August 18, general-outage intervals on August 19–21, and later maintenance/outage entries in September. At its last update on **October 2, 2026 at 07:40 EDT**, it reported **all services online**. It also lists [APAC network maintenance](https://status.torbox.app/maintenance/1078821) scheduled for October 8, 2026 at 5:00pm EDT through October 9 at 3:00am EDT.
 
-| Date | Incident | Notes |
-|:-----|:---------|:------|
-| **Aug 19–21, 2026** | General outage | Major multi-day instability; API down repeatedly with multiple "we're back" / "still stabilising" flip-flops over ~38 hours before resolution ([incident](https://status.torbox.app/incident/1022223)) |
-| **Aug 18, 2026** | API timeouts | Database hit by an attacker; TorBox stated it would "look further into protecting ourselves" ([incident](https://status.torbox.app/incident/1019820)) |
-| **Aug 8, 2026** | General outage | ~30 min downtime |
-| **Aug 3, 2026** | General outage | Connection issues between TorBox and upstream providers (Cloudflare/Supabase tickets opened) |
-| **Jul 14–21, 2026** | Sparse outage, APAC fallback, partial SNAM outage | Regional degradation across several locations |
-| **Jun 2–16, 2026** | Multiple API error waves, WEUR mitigation, network events | Repeated instability across regions |
-
-Third-party monitoring put availability at roughly **95% over the trailing 30 days (as of Aug 22, 2026)** with a dozen incidents that month - well below what users expect from a paid service.
-
-**Community response:** [TROYPOINT removed all TorBox tutorials, reviews, and rankings](https://troypoint.com/best-debrid-services/) from its websites on August 9, 2026, citing the operators' refusal to answer questions about the new TOS/ownership. Other community outlets have followed suit or issued warnings.
-
-**Current state (August 2026):** TorBox remains functional when online (torrents, Usenet on Pro, free tier, multi-IP sharing), but its former privacy-first reputation no longer holds and its reliability has degraded with frequent outages. **Verify the current policies before subscribing or renewing**, monitor [status.torbox.app](https://status.torbox.app), use a VPN, and consider **Premiumize** as the leading alternative for privacy-focused users.
+**Current state (October 2, 2026):** TorBox remains functional when online (torrents, Usenet on Pro, free tier); its current Terms prohibit account/API-key sharing. Check the [current policies](https://torbox.app/policies) and [status page](https://status.torbox.app/) before subscribing or renewing.
 
 </details>
 
@@ -1040,9 +1029,9 @@ Third-party monitoring put availability at roughly **95% over the trailing 30 da
 
 Yes - a few options to test before paying:
 
-- **TorBox** - Permanent free tier, no credit card required. Limited speed and concurrent slots but fully functional for testing.
-- **AllDebrid** - 7-day free trial (requires phone number verification).
-- **Debrid-Link** - Limited free trial tier.
+- **TorBox** - The public pricing page lists a $0/month plan; see its published limits on the [official pricing page](https://torbox.app/pricing).
+- **AllDebrid** - A 7-day free tryout for new members; SMS verification and fair-use limits apply.
+- **Deepbrid** - Its current homepage and FAQ say free accounts can fetch up to five cloud-provider links per day; limits and available features can change ([official site](https://www.deepbrid.com/home)).
 
 > Always test with a free or short-term plan before committing to a long-term subscription.
 
@@ -1053,13 +1042,13 @@ Yes - a few options to test before paying:
 <details>
 <summary><strong>Do debrid services support torrents?</strong></summary>
 
-Most do. Instead of downloading P2P from seeders, you submit a magnet link to the debrid service - it fetches the torrent remotely on its own servers and gives you a direct download link. Your IP is never exposed to the torrent swarm.
+For a supported magnet or torrent, a debrid service may fetch it using its own infrastructure and return a direct link. This can keep your client IP out of peer traffic for that fetch, but it is not anonymity: account, request, and connection data may still be processed under the provider’s policies. Seeding behavior depends on the service and plan.
 
 | | Traditional P2P | Via Debrid |
 |---|---|---|
-| **Speed** | Throttled by ISP/seeders | Full bandwidth |
-| **IP exposure** | Your IP in swarm | Debrid's IP only |
-| **Seeding required** | Yes | No |
+| **Speed** | Depends on peers, ISP, and network | Depends on provider, plan, source, and network |
+| **IP exposure** | Your client IP may be visible to peers | The provider may make the peer request; this is not a privacy guarantee |
+| **Seeding required** | Depends on client and torrent settings | Depends on provider and plan |
 
 **Services with torrent support:** Real-Debrid, AllDebrid, TorBox, Premiumize, Debrid-Link, Mega-Debrid, Deepbrid, High-Way ✅  
 **No torrent support:** LinkSnappy ❌
@@ -1087,9 +1076,9 @@ Usenet is a separate decentralised network - no P2P exposure, no seeding require
 <details>
 <summary><strong>What is torrent caching / "instant" availability?</strong></summary>
 
-When any previous user has downloaded a torrent through a debrid service, it gets stored ("cached") on the service's servers. Cached content is served to you instantly - no waiting for peers or seeders. In Stremio add-ons like Torrentio or Comet, cached results appear with a **⚡** icon.
+A provider may return a matching item from its cache if it is still available and retained. If it is not cached, the provider may need to fetch it, so completion time and availability vary. An add-on’s **⚡** marker is an indicator from that add-on, not a guarantee of availability or instant playback.
 
-Cache hit rates vary by service and content popularity.
+Cache results and retention vary by provider, plan, and content.
 
 > **Note:** Real-Debrid's cache coverage has been significantly reduced by its ongoing copyright filter. TorBox currently has no equivalent filter, but see its [TOS warning](#️-whats-happening-with-torbox-in-2026).
 
@@ -1145,8 +1134,8 @@ This creates an effectively unlimited media server backed by debrid cloud storag
 
 Policies vary by service:
 
-- **TorBox** ⚠️ - Still technically allows sharing across multiple devices and locations, but review the [July 2026 TOS changes](#-whats-happening-with-torbox-in-2026) - expanded telemetry now ties shared usage to collected IP/geolocation data
-- **Real-Debrid** ❌ - Does not allow sharing; actively monitors for multi-IP usage and enforces bans
+- **TorBox** ⚠️ - Current Terms prohibit sharing accounts/API keys. Review the [current Terms](https://torbox.app/policies/terms) and [Privacy Policy](https://torbox.app/policies/privacy) before using the account across devices or locations.
+- **Real-Debrid** ❌ - Terms say the account is for personal use, connections are recorded to detect sharing, and account/generated-link sharing may lead to suspension ([official Terms](https://real-debrid.com/terms))
 - **AllDebrid / Premiumize / Debrid-Link** ⚠️ - Check each service's current Terms of Service
 
 </details>
@@ -1156,9 +1145,9 @@ Policies vary by service:
 <details>
 <summary><strong>Are debrid services legal?</strong></summary>
 
-Debrid services are legal tools - they act as technical intermediaries providing faster access to file-hosting infrastructure. What content you access through them may be legally questionable depending on your country and local copyright law. You are responsible for complying with all applicable laws and terms of service.
+The legal status of a service and a particular use depends on jurisdiction, content, authorization, and other facts. This comparison is informational, not legal advice. Read the provider’s terms and consult qualified counsel for a specific situation.
 
-We do not endorse copyright infringement. See our [Disclaimer](https://debridcompare.pages.dev/) for full details.
+We do not endorse copyright infringement. See our [Disclaimer](#disclaimer).
 
 </details>
 
@@ -1167,7 +1156,7 @@ We do not endorse copyright infringement. See our [Disclaimer](https://debridcom
 <details>
 <summary><strong>Do debrid services offer refunds?</strong></summary>
 
-Most services have **no public refund policy** or only refund for technical failures on their end. Always verify the refund policy before purchasing and start with a free tier or short-term plan to test compatibility in your region first.
+Refund terms differ and are conditional. For example, the linked official policies include unused-account refund windows for AllDebrid (14 days), Real-Debrid (7 days), and Debrid-Link (14 days); LinkSnappy and Deepbrid publish separate conditions. See the [Policies table](#policies) and read the provider’s terms before purchase.
 
 </details>
 
@@ -1183,7 +1172,7 @@ Most services have **no public refund policy** or only refund for technical fail
 | r/Piracy | https://www.reddit.com/r/Piracy/ |
 | TorBox Discord | https://discord.gg/torbox |
 | Real-Debrid Forum | https://forum.real-debrid.com/ |
-| GitHub Discussions | https://github.com/fynks/debrid-services-comparison/discussions |
+| GitHub Issues | https://github.com/fynks/debrid-services-comparison/issues |
 
 </details>
 
@@ -1207,7 +1196,7 @@ This project aims to provide accurate and up-to-date information, but the debrid
 - **Data accuracy**: Data is community-sourced and not guaranteed for accuracy, uptime, or feature availability.
 - **No affiliation**: This project is independent and not affiliated with any listed service.
 - **Use at your own discretion**: Choose and use debrid services at your own discretion; test with short-term plans first.
-- **Legal responsibility**: Debrid services are tools. You are responsible for complying with copyright laws and terms of use when accessing content.
+- **Legal information**: Laws and outcomes depend on jurisdiction and facts. This guide is not legal advice; review local law and provider terms.
 
 > [!IMPORTANT]
 > **This is an open-source, community-maintained guide. It does not endorse or promote unauthorized file sharing.**
@@ -1249,7 +1238,7 @@ We welcome contributions from the community:
 
 ## Support This Project
 
-> ✨ This guide is **free, open-source, and community-run**. If it helped: starring, reporting corrections, or using a referral link helps sustain maintenance (at no extra cost to you).
+> ✨ This guide is **free, open-source, and community-run**. Starring or reporting corrections helps sustain maintenance. Some links are referrals and may provide a benefit to the project if you sign up; the provider sets the price, and ordinary taxes, payment fees, or currency conversion may still apply.
 
 | Service     | Referral Link                                           | Direct Signup                                                    |
 | :---------- | :------------------------------------------------------ | :--------------------------------------------------------------- |

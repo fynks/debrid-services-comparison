@@ -1,9 +1,9 @@
 import type { PricingRow, ServiceId } from '@/types/data';
 
 /**
- * Pricing table content copied verbatim from the original index.html
- * pricing table. Currency symbols are preserved exactly as displayed
- * historically (€ for EUR, $ for USD).
+ * Public prices verified against official provider pages on 2026-10-02.
+ * Omitted cells mean no current public price was verified for that exact term;
+ * they do not imply that a service or plan is unavailable.
  */
 
 export const PRICING_SERVICES: ServiceId[] = [
@@ -21,8 +21,8 @@ export const PRICING_ROWS: PricingRow[] = [
   {
     plan: 'Free / Trial',
     cells: {
-      AllDebrid: '7 days*',
-      TorBox: 'Free tier',
+      AllDebrid: '7-day trial (SMS required)',
+      TorBox: 'Free plan ($0/mo)',
       Deepbrid: 'Limited Hosts',
     },
   },
@@ -35,19 +35,16 @@ export const PRICING_ROWS: PricingRow[] = [
   {
     plan: '15 Days',
     cells: {
-      AllDebrid: '€2.99',
-      'Real-Debrid': '€3',
+      AllDebrid: '€2.99 (one-time)',
       'Debrid-Link': '€3',
-      Deepbrid: '€4.50',
     },
   },
   {
     plan: '30 Days',
     cells: {
-      AllDebrid: '€2.99/mo (Recur) / €3.99 (One-time)',
-      Premiumize: '€9.99',
-      'Real-Debrid': '€4',
-      TorBox: 'Essential $3 / Standard $5 / Pro $10',
+      AllDebrid: '€2.99 / 30d recurring · €3.99 one-time',
+      Premiumize: '€9.99 / US$11.99',
+      TorBox: 'Essential $3 / Standard $5 / Pro $10 per month',
       'Debrid-Link': '€4',
       LinkSnappy: '$12.99 USD',
       'Mega-Debrid': '€4',
@@ -58,9 +55,7 @@ export const PRICING_ROWS: PricingRow[] = [
   {
     plan: '90 Days',
     cells: {
-      AllDebrid: '€8.99 (One-time)',
-      Premiumize: '$29.99',
-      'Real-Debrid': '€9',
+      AllDebrid: '€8.99 (one-time)',
       'Debrid-Link': '€9',
       LinkSnappy: '$29.99 USD',
       'Mega-Debrid': '€9',
@@ -70,10 +65,9 @@ export const PRICING_ROWS: PricingRow[] = [
   {
     plan: '180 Days',
     cells: {
-      AllDebrid: '€15.99 (One-time)',
-      'Real-Debrid': '€16',
+      AllDebrid: '€15.99 (one-time)',
       'Debrid-Link': '€16',
-      LinkSnappy: '$54.99',
+      LinkSnappy: '$54.99 USD',
       'Mega-Debrid': '€16',
       Deepbrid: '€19.99',
     },
@@ -81,15 +75,14 @@ export const PRICING_ROWS: PricingRow[] = [
   {
     plan: '300 Days',
     cells: {
-      AllDebrid: '€24.99 (One-time)',
+      AllDebrid: '€24.99 (one-time)',
       'Debrid-Link': '€25',
     },
   },
   {
     plan: '365 Days',
     cells: {
-      Premiumize: '€69.99',
-      TorBox: 'Essential $33 / Pro $110',
+      Premiumize: '€69.99 / US$79.99',
       Deepbrid: '€32.99',
     },
   },
@@ -103,26 +96,26 @@ export const REFERRAL_LINKS: Array<{
   {
     service: 'AllDebrid',
     url: 'https://alldebrid.com/?uid=3wvya&lang=en',
-    benefit: 'From €2.99/month',
+    benefit: '€2.99 / 30 days recurring',
   },
   {
     service: 'Real-Debrid',
     url: 'https://real-debrid.com/?id=10990901',
-    benefit: 'From €3/month',
+    benefit: 'Price not verified',
   },
   {
     service: 'LinkSnappy',
     url: 'https://linksnappy.com/?ref=774668',
-    benefit: 'From $12.99/month',
+    benefit: '$4.99 / 7 days',
   },
   {
     service: 'Debrid-Link',
     url: 'https://debrid-link.com/id/7B3BO',
-    benefit: 'From €3/month',
+    benefit: '€3 / 15 days',
   },
   {
     service: 'Deepbrid',
     url: 'https://www.deepbrid.com/aff/go/upward1971',
-    benefit: 'From €4.50/month',
+    benefit: '€4.99 / 30 days',
   },
 ];
