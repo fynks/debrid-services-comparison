@@ -2,6 +2,7 @@
 // progressive enhancement and shouldn't break the page.
 
 export function registerServiceWorker() {
+  if (import.meta.env.DEV) return;
   if (!('serviceWorker' in navigator)) return;
   window.addEventListener('load', () => {
     navigator.serviceWorker
