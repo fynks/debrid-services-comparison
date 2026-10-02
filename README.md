@@ -4,8 +4,8 @@
   <p>Compare various debrid services across 300+ file hosts, pricing, policies, and tools.</p>
 
   <p>
-    <a href="https://debridcompare.pages.dev"><img alt="Web App" src="https://img.shields.io/badge/Open_Interactive-Web_App_↗-green?style=for-the-badge&logo=google-chrome&logoColor=white"></a>
-    <br>
+    <a href="https://debridcompare.pages.dev"><img alt="Web App" src="https://img.shields.io/badge/Click_to_Open-Web_App_↗-green?style=for-the-badge&logo=google-chrome&logoColor=white"></a>
+    <br><br>
     <a href="https://github.com/fynks/debrid-services-comparison/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/fynks/debrid-services-comparison?style=for-the-badge&logo=github"></a>
     <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/fynks/debrid-services-comparison?style=for-the-badge"></a>
     <a href="#available-hosts"><img alt="Tracked Services" src="https://img.shields.io/badge/Services-9-4caf50?style=for-the-badge&logo=rocket&logoColor=white"></a>
