@@ -76,12 +76,6 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 </p>
 <br>
 
-> [!TIP]
-> Think of debrid services as a **premium bridge** between you and file-hosting sites. A matching cached item may be available quickly, but speed and availability depend on the provider, plan, source, and cache state.
-
----
-
-
 ## Choosing the Right Service
 
 ### Core Features Matrix
@@ -112,8 +106,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 <a id="torbox-note"></a>
 
-> [!WARNING]
-> **TorBox:** Its Terms changed to prohibit account/API-key sharing, and the service has had multiple downtime incidents. Review the current [Terms](https://torbox.app/policies/terms) and [status page](https://status.torbox.app/) before subscribing or renewing.
+> **Warning:** TorBox changed its Terms to prohibit account/API-key sharing, and it has had multiple downtime incidents. Review the current [Terms](https://torbox.app/policies/terms) and [status page](https://status.torbox.app/) before subscribing or renewing.
 
 <details>
 <summary><strong>🤔 Still not sure? Click here for personalized recommendations</strong></summary>
@@ -183,8 +176,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 ## Pricing Comparison
 
-> [!TIP]
-> Check provider pricing pages before purchase; VAT and other fees may apply.
+Prices change frequently, so verify the current offer and any VAT or regional fees on each provider’s official pricing page before purchasing.
 
 ### Price Comparison Table
 
@@ -211,8 +203,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 ### Up-to-date Pricing
 
-> [!TIP]  
-> *Always verify prices on official sites as they change frequently.*
+Always verify prices on the official sites because they change frequently.
 
 <details><summary>👉 Click to expand</summary>
 
@@ -250,12 +241,9 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 </div><br>
 
-> [!WARNING]
-> Real-Debrid has started returning copyright-infringement errors on many cached torrents. Read more on: [Torrent Freak](https://torrentfreak.com/real-debrids-renewed-piracy-crackdown-follows-corporate-restructuring/) 
+Real-Debrid has started returning copyright-infringement errors on many cached torrents. See the reporting from [Torrent Freak](https://torrentfreak.com/real-debrids-renewed-piracy-crackdown-follows-corporate-restructuring/).
 
-
-> [!NOTE]
-> Even though Rapidgator is listed as a supported file hoster for Torbox, it is constantly "Offline". For more details visit this [Issue](https://github.com/fynks/debrid-services-comparison/issues/34)
+Rapidgator may appear as supported for TorBox, but it is frequently marked offline; see [issue #34](https://github.com/fynks/debrid-services-comparison/issues/34) for details.
 
 ### Complete Host List
 
@@ -641,9 +629,7 @@ Comprehensive list of all supported file hosts across all services.
 
 ### Usenet Support
 
-> [!TIP]
-> **What is Usenet?** A distributed system for discussion and file articles, not a peer-to-peer swarm. Speed, completion, retention, privacy, and logging depend on the news provider, debrid plan, and requested articles; check the provider’s current terms.
-
+Usenet is a separate discussion/file-article network rather than a peer-to-peer swarm. Speed, completion, retention, privacy, and logging depend on the news provider, debrid plan, and requested articles.
 
 | Service         | AllDebrid | TorBox | Premiumize | Real-Debrid | Debrid-Link | LinkSnappy | Mega-Debrid | Deepbrid | High-Way |
 |-----------------|:---------:|:------:|:----------:|:-----------:|:-----------:|:----------:|:-----------:|:--------:|:--------:|
@@ -662,8 +648,7 @@ Comprehensive list of all supported file hosts across all services.
 
 ### Live Status
 
-> [!TIP]
-> Service availability and host support can change often. Use official status pages to check current status.
+Host availability changes often, so use the official status pages for the latest information.
 
 | **Service**     | **Live Host Status Page**                                                         |
 | :-------------- | :-------------------------------------------------------------------------------- |
@@ -688,10 +673,7 @@ Comprehensive list of all supported file hosts across all services.
 
 ## Policies
 
-**💡 Official *Terms*, *Privacy*, *Refund*, and *Support* pages for each provider.**
-
-> [!WARNING]
-> Refund eligibility varies widely; always verify before purchase.
+Official *Terms*, *Privacy*, *Refund*, and *Support* pages for each provider are the source of truth. Refund eligibility varies widely, so verify current policy details before purchase.
 
 | **Service** | **Terms** | **Privacy** | **Refund Policy** | **Support/Contact** |
 | ----------- | --------- | --------- | ----------------- | ------------------- |
@@ -705,8 +687,7 @@ Comprehensive list of all supported file hosts across all services.
 | Deepbrid | [Terms](https://www.deepbrid.com/page/terms) | [Privacy](https://www.deepbrid.com/page/privacy) | [Refund policy](https://www.deepbrid.com/page/refund-policy) | [Helpdesk (login required)](https://www.deepbrid.com/helpdesk) |
 | High-Way | [Terms](https://high-way.me/help/terms) | [Privacy](https://high-way.me/help/privacy-policy) | [14-day withdrawal information](https://high-way.me/help/widerrufsbelehrung/) | [Contact](https://high-way.me/help/contact/) |
 
-> [!TIP]
-> Some support portals require an account.
+*Some support portals require an account*
 
 <div align="right">
 
@@ -718,15 +699,7 @@ Comprehensive list of all supported file hosts across all services.
 
 ## Speed Test
 
-> [!IMPORTANT]
-> **Speed varies by:**
-> - Your geographical location
-> - Time of day (peak vs. off-peak)
-> - Target file host server load
-> - Your ISP routing and connection
->
-> **Always test before buying long-term plans!**
-
+Speed varies by location, time of day, target host load, and your ISP routing. Test before committing to a long-term plan.
 
 ### Official Speed Tests
 
@@ -757,8 +730,7 @@ For a more accurate assessment, follow these steps:
 </details>
 <br>
 
-> [!WARNING] 
-> Advertised "unlimited" speeds may be subject to fair-use policies or soft caps under heavy usage.
+*Advertised "unlimited" speeds can still be subject to fair-use or soft-cap policies under heavy usage*
 
 <div align="right">
 
@@ -895,8 +867,7 @@ For a more accurate assessment, follow these steps:
 
 ## Community Resources
 
-> [!TIP]
-> **Get help faster:** Check Reddit communities for community tips and GitHub Issues for project questions, corrections, and broken links.
+For the fastest help, check community subreddits and the project’s GitHub issues for questions, corrections, and broken links.
 
 ### Reddit Communities
 
@@ -930,9 +901,7 @@ For a more accurate assessment, follow these steps:
 - [Is Real-Debrid Down](https://debridmediamanager.com/is-real-debrid-down-or-just-me) - Service status checker
 - [Real-Debrid Terms of Service](https://real-debrid.com/terms) - Official account-use, sharing, and service terms
 
-> [!TIP]
-> Join multiple communities to get diverse perspectives and faster support responses!
-
+Joining multiple communities can help you get faster answers and broader perspectives on service changes.
 
 <div align="right">
 
@@ -1060,7 +1029,7 @@ A provider may return a matching item from its cache if it is still available an
 
 Cache results and retention vary by provider, plan, and content.
 
-> **Note:** Real-Debrid's cache coverage has been significantly reduced by its ongoing copyright filter.
+Real-Debrid's cache coverage has been significantly reduced by its ongoing copyright filter.
 
 </details>
 
@@ -1075,7 +1044,7 @@ Cache results and retention vary by provider, plan, and content.
 3. Paste your API key during the add-on configuration and click **Install**
 4. Cached links will appear marked with ⚡ when you search for content
 
-> **Tip:** AIOStreams supports multiple debrid providers simultaneously - useful for maximising cache coverage across services.
+AIOStreams supports multiple debrid providers simultaneously, which can help maximize cache coverage across services.
 
 </details>
 
