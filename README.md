@@ -325,9 +325,11 @@ Comprehensive list of all supported file hosts across all services.
 | Ddl | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Ddl.to | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Ddownload | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ |
+| Ddownload / ddl.to | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Depositfiles | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Deviantart | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
 | Dfiles | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Discord | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
 | Discovery channel | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
 | Dotsub | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
 | Driveseed | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
@@ -353,6 +355,7 @@ Comprehensive list of all supported file hosts across all services.
 | File | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | File.al | ❌ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
 | File4safe | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Fileal | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
 | Fileaxa | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Fileblade | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Filecat | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
@@ -373,6 +376,7 @@ Comprehensive list of all supported file hosts across all services.
 | Filespace | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ |
 | Filestank | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
 | Filestore | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ |
+| Filestore.me | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
 | Filextras | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Filezip | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
 | Fireget | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
@@ -392,6 +396,7 @@ Comprehensive list of all supported file hosts across all services.
 | Google drive | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
 | Gorillavid | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
 | Hexload | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| Hexupload | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
 | Hexupload / hexload | ❌ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
 | Hitfile | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ |
 | Hitomi | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
@@ -408,6 +413,7 @@ Comprehensive list of all supported file hosts across all services.
 | Indishare | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
 | Infrastructure | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Instagram | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ |
+| Isra | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
 | Isra.cloud | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ |
 | Isracloud | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
 | Issuu | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
@@ -418,6 +424,7 @@ Comprehensive list of all supported file hosts across all services.
 | K2s (keep2share) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Karrierevideos | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
 | Katfile | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ |
+| Katfile.com | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Keek | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
 | Keep2share | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Kenfiles | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
@@ -493,6 +500,7 @@ Comprehensive list of all supported file hosts across all services.
 | Salefiles | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Scribd | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ |
 | Send | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| Send.cm / send.now | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Sendit | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
 | Sendspace | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
 | Servers | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
@@ -525,12 +533,14 @@ Comprehensive list of all supported file hosts across all services.
 | Techtalks | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
 | Ted | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
 | Telebruxelles | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| Telegram | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
 | Terabox | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
 | Terabytez | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
 | Tezfiles | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Tiktok | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
 | Tlc | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
 | Transfer.it | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| Transfernow | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
 | Transfert.free | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Trilulilu | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
 | Tubitv | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
@@ -541,6 +551,7 @@ Comprehensive list of all supported file hosts across all services.
 | Tweakers | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
 | Twitch | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ |
 | Twitter | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| Up4ever | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
 | Upload42 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
 | Uploadbank | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
 | Uploadbox | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
@@ -590,17 +601,6 @@ Comprehensive list of all supported file hosts across all services.
 | Yandex video | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
 | Youku | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
 | Youtube | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Fileal | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
-| Hexupload | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
-| Isra | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
-| Ddownload / ddl.to | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Send.cm / send.now | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Katfile.com | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| Discord | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Filestore.me | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Telegram | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Transfernow | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Up4ever | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
 
 <br>
 </details>
