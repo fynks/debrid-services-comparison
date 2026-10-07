@@ -246,7 +246,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 <div align="center">
 
-> **💡 Pro Tip:** Use the [**interactive web app ↗**](https://debridcompare.pages.dev) for advanced search, filters, and side-by-side comparison!
+> **💡 Pro Tip:** Click to open [**interactive web app ↗**](https://debridcompare.pages.dev) for advanced search, filters, and side-by-side comparison!
 
 </div><br>
 
