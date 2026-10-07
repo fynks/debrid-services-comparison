@@ -665,8 +665,6 @@ Comprehensive list of all supported file hosts across all services.
 > [!TIP]
 > Service availability and host support can change often. Use official status pages to check current status.
 
-<details><summary>👉 <strong>Click to view all status page links</strong></summary>
-
 | **Service**     | **Live Host Status Page**                                                         |
 | :-------------- | :-------------------------------------------------------------------------------- |
 | **AllDebrid**   | [alldebrid.com/status/](https://alldebrid.com/status/)                            |
@@ -679,8 +677,6 @@ Comprehensive list of all supported file hosts across all services.
 | **Deepbrid**    | [deepbrid.com/status](https://www.deepbrid.com/status)                            |
 | **High-Way**    | [high-way.me/pages/status](https://high-way.me/pages/status)                      |
 
-</details>
-<br>
 
 <div align="right">
 
