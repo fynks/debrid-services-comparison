@@ -80,14 +80,14 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 ### Core Features Matrix
 
-| Feature | Real-Debrid | AllDebrid | Premiumize | TorBox | Debrid-Link | LinkSnappy | Others |
-|:--------|:-----------:|:---------:|:----------:|:------:|:-----------:|:----------:|:------:|
-| **Torrent Support** | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
-| **Usenet Access** | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | Platform Dependent |
-| **Free Trial/Tier** | ❌ | ✅ <br> (7-day) | ❌ | ✅ | ❌ | ❌ | Varies |
-| **API Access** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Mobile Apps** | 3rd-party | PWA | Official | Official | Web | Web | Varies |
-| **Cloud Storage** | Temp cache | Temp cache | Yes | Yes | Temp cache | Temp cache | Varies |
+| Feature | Real-Debrid | AllDebrid | Premiumize | TorBox | Debrid-Link | LinkSnappy | World-Debrid | Others |
+|:--------|:-----------:|:---------:|:----------:|:------:|:-----------:|:----------:|:------------:|:------:|
+| **Torrent Support** | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | Yes <br> (Premium) | ✅ |
+| **Usenet Access** | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | No | Platform Dependent |
+| **Free Trial/Tier** | ❌ | ✅ <br> (7-day) | ❌ | ✅ | ❌ | ❌ | Yes <br> (1 link/month) | Varies |
+| **API Access** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | Not stated | ✅ |
+| **Mobile Apps** | 3rd-party | PWA | Official | Official | Web | Web | Web | Varies |
+| **Cloud Storage** | Temp cache | Temp cache | Yes | Yes | Temp cache | Temp cache | Not stated | Varies |
 
 <br>
 
@@ -180,17 +180,17 @@ Prices change frequently, so verify the current offer and any VAT or regional fe
 
 ### Price Comparison Table
 
-| **Plan Duration** | **AllDebrid** | **Premiumize** | **Real-Debrid** | **TorBox** | **Debrid-Link** | **LinkSnappy** | **Mega-Debrid** | **Deepbrid** | **High-Way** |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Free / Trial** | [7-day trial¹](#footnote-1) | ❌ | - | [Free tier²](#footnote-2) | ❌ | ❌ | ❌ | Limited hosts only | [Limited Hosts³](#footnote-3) |
-| **7 Days** | ❌ | ❌ | - | - | ❌ | $4.99 USD | ❌ | ❌ | ❌ |
-| **14 Days** | - | - | - | - | - | - | - | [€4.50](https://www.deepbrid.com/signup) | - |
-| **15 Days** | [€2.99 (one-time)⁴](#footnote-4) | ❌ | €3.00 | - | €3.00 | ❌ | ❌ | - | ❌ |
-| **30 Days** | €2.99 recurring / [€3.99 one-time⁴](#footnote-4) | €9.99 / US$11.99 | €4.00 | Essential $3 / Standard $5 / Pro $10 | €4.00 | $12.99 USD | €4.00 | €4.99 | Premium €5.99 / Unlimited €9.99[⁵](#footnote-5) |
-| **90 Days** | [€8.99 (one-time)⁴](#footnote-4) | - | €9.00 | - | €9.00 | $29.99 USD | €9.00 | €12.99 | Premium €15.99 / Unlimited €24.99[⁵](#footnote-5) |
-| **180 Days** | [€15.99 (one-time)⁴](#footnote-4) | - | €16.00 | - | €16.00 | $54.99 USD | €16.00 | €19.99 | Premium €29.99 / Unlimited €44.99[⁵](#footnote-5) |
-| **300 Days** | [€24.99 (one-time)⁴](#footnote-4) | - | - | - | €25.00 | ❌ | ❌ | ❌ | ❌ |
-| **365 Days / 1 Year** | ❌ | €69.99 / US$79.99 (€5.75 / US$6.57 per month) | - | - | ❌ | ❌ | ❌ | €32.99 | Premium €47.99 / Unlimited €71.99[⁵](#footnote-5) |
+| **Plan Duration** | **AllDebrid** | **Premiumize** | **Real-Debrid** | **TorBox** | **Debrid-Link** | **LinkSnappy** | **Mega-Debrid** | **Deepbrid** | **High-Way** | **World-Debrid** |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Free / Trial** | [7-day trial¹](#footnote-1) | ❌ | - | [Free tier²](#footnote-2) | ❌ | ❌ | ❌ | Limited hosts only | [Limited Hosts³](#footnote-3) | [Free tier⁶](#footnote-6) |
+| **7 Days** | ❌ | ❌ | - | - | ❌ | $4.99 USD | ❌ | ❌ | ❌ | - |
+| **14 Days** | - | - | - | - | - | - | - | [€4.50](https://www.deepbrid.com/signup) | - | - |
+| **15 Days** | [€2.99 (one-time)⁴](#footnote-4) | ❌ | €3.00 | - | €3.00 | ❌ | ❌ | - | ❌ | €2.49 (one-time) |
+| **30 Days** | €2.99 recurring / [€3.99 one-time⁴](#footnote-4) | €9.99 / US$11.99 | €4.00 | Essential $3 / Standard $5 / Pro $10 | €4.00 | $12.99 USD | €4.00 | €4.99 | Premium €5.99 / Unlimited €9.99[⁵](#footnote-5) | €2.79 recurring / €3.49 one-time |
+| **90 Days** | [€8.99 (one-time)⁴](#footnote-4) | - | €9.00 | - | €9.00 | $29.99 USD | €9.00 | €12.99 | Premium €15.99 / Unlimited €24.99[⁵](#footnote-5) | €9.99 (one-time) |
+| **180 Days** | [€15.99 (one-time)⁴](#footnote-4) | - | €16.00 | - | €16.00 | $54.99 USD | €16.00 | €19.99 | Premium €29.99 / Unlimited €44.99[⁵](#footnote-5) | €14.99 (one-time) |
+| **300 Days** | [€24.99 (one-time)⁴](#footnote-4) | - | - | - | €25.00 | ❌ | ❌ | ❌ | ❌ | €23.99 (one-time) |
+| **365 Days / 1 Year** | ❌ | €69.99 / US$79.99 (€5.75 / US$6.57 per month) | - | - | ❌ | ❌ | ❌ | €32.99 | Premium €47.99 / Unlimited €71.99[⁵](#footnote-5) | - |
 
 > [!NOTE]
 > - <span id="footnote-1">**¹ AllDebrid Free Tryout**</span>: 7 days, SMS verification, new members only, subject to fair-use limits. [Official offer →](https://alldebrid.com/offer/)
@@ -198,6 +198,7 @@ Prices change frequently, so verify the current offer and any VAT or regional fe
 > - <span id="footnote-3">**³ High-Way free access**</span>: Limited hoster access and free MB through forum activity. [Verify details →](https://high-way.me/pages/tariffs/)
 > - <span id="footnote-4">**⁴ AllDebrid one-time plans**</span>: These plans are non-recurring; the recurring 30-day plan is separate. [Official offer →](https://alldebrid.com/offer/)
 > - <span id="footnote-5">**⁵ High-Way packages**</span>: The table shows the lowest listed 250GB/month packages. Larger volume packages cost more. [Premium packages](https://high-way.me/choosep.php) · [Unlimited packages](https://high-way.me/chooseu.php)
+> - <span id="footnote-6">**⁶ World-Debrid free tier**</span>: Free account with 1 unlocked link per month, no credit card. The 30-day plan also exists as a monthly subscription; the other plans are one-time payments. Torrents are Premium only. [Official offer →](https://world-debrid.com/plans)
 >
 > **Price legend:** A dash (-) means no price is listed for that term. Confirm current offers before purchase.
 
@@ -218,6 +219,7 @@ Always verify prices on the official sites because they change frequently.
 | Mega-Debrid | [mega-debrid.eu/offres](https://www.mega-debrid.eu/index.php?page=offres)  |
 | Deepbrid    | [Official homepage / pricing](https://www.deepbrid.com/home)                |
 | High-Way    | [Official tariffs](https://high-way.me/pages/tariffs/)                     |
+| World-Debrid | [world-debrid.com/plans](https://world-debrid.com/plans) |
 
 </details><br>
 
@@ -686,6 +688,7 @@ Official *Terms*, *Privacy*, *Refund*, and *Support* pages for each provider are
 | Mega-Debrid | [Conditions](https://www.mega-debrid.eu/index.php?page=conditionsutilisation&lang=en) | [Privacy](https://www.mega-debrid.eu/index.php?page=privacy) | No public refund terms verified | [Help](https://help.mega-debrid.eu/) |
 | Deepbrid | [Terms](https://www.deepbrid.com/page/terms) | [Privacy](https://www.deepbrid.com/page/privacy) | [Refund policy](https://www.deepbrid.com/page/refund-policy) | [Helpdesk (login required)](https://www.deepbrid.com/helpdesk) |
 | High-Way | [Terms](https://high-way.me/help/terms) | [Privacy](https://high-way.me/help/privacy-policy) | [14-day withdrawal information](https://high-way.me/help/widerrufsbelehrung/) | [Contact](https://high-way.me/help/contact/) |
+| World-Debrid | [Terms](https://world-debrid.com/terms) | [Privacy](https://world-debrid.com/privacy) | [Within 14 days if no link was unlocked](https://world-debrid.com/terms) | [Support](https://world-debrid.com/support) |
 
 *Some support portals require an account*
 
@@ -824,6 +827,7 @@ For a more accurate assessment, follow these steps:
 | **[Real-Debrid Torrent Plugin](https://chromewebstore.google.com/detail/real-debrid-extension/oefkkgfcahbeccgckjgbnfclcmnjgidg)** | One-click torrent adding with context menu integration for Chrome and Firefox |
 | **[AllDebrid Helper](https://alldebrid.com/tools/)** | Quick link unrestrict with clipboard monitoring and browser notifications |
 | **[Deepbrid Extension](https://chromewebstore.google.com/detail/deepbrid-%E2%80%93-browser-extens/ampccappllebdaplacfcopfdgofmohmh)** | Browser extension for easy link unrestricting and download management |
+| **[World-Debrid Extension](https://chromewebstore.google.com/detail/world-debrid/ccegpimidfpanbifnoonpjlgainfjloi)** | Official extension for Chrome and [Firefox](https://addons.mozilla.org/firefox/addon/world-debrid/); adds a button next to compatible links and magnets |
 
 <br>
 
