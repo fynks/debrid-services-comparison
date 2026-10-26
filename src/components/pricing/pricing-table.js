@@ -63,7 +63,7 @@ export function initPricingTable(slot) {
           'No price listed for this term'
         );
         const dash = document.createElement('span');
-        dash.className = 'text-muted-foreground/40';
+        dash.className = 'text-muted-foreground';
         dash.textContent = '-';
         dash.setAttribute('aria-hidden', 'true');
         dash.title = 'No price listed for this term';
@@ -136,7 +136,7 @@ function th(label, extra = '') {
   const t = document.createElement('th');
   t.scope = 'col';
   t.className = cn(
-    'px-3 py-2 text-left text-xs font-medium uppercase tracking-wider text-muted-foreground',
+    'px-3 py-2 text-left text-xs font-medium text-muted-foreground',
     extra
   );
   t.textContent = label;

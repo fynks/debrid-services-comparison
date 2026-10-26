@@ -39,7 +39,7 @@ export function initHostSupportTable(slot, { source, data, initialLimit = 60 } =
   const searchPlaceholder =
     source === 'adult'
       ? 'Search adult hosts or paste a URL…'
-      : `Search ${hostCount}+ hosts or paste a URL…`;
+      : `Search ${hostCount} hosts or paste a URL…`;
 
   let state = {
     search: '',
@@ -204,7 +204,7 @@ export function initHostSupportTable(slot, { source, data, initialLimit = 60 } =
   dash.className = 'text-xs font-semibold';
   dash.textContent = '-';
   legend.appendChild(
-    legendItem('Not supported', dash, 'bg-muted text-muted-foreground/70')
+    legendItem('Not supported', dash, 'bg-muted text-muted-foreground')
   );
 
   legend.appendChild(
@@ -240,7 +240,7 @@ export function initHostSupportTable(slot, { source, data, initialLimit = 60 } =
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.className = cn(
-      'inline-flex items-center gap-1 rounded text-xs uppercase tracking-wider hover:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring',
+      'inline-flex items-center gap-1 rounded text-xs hover:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring',
       isActive && 'text-foreground'
     );
     btn.appendChild(document.createTextNode(label));
@@ -410,9 +410,9 @@ export function initHostSupportTable(slot, { source, data, initialLimit = 60 } =
       } else {
         // The dash *is* the cell content, so style the <td> directly instead of
         // nesting a presentational <span> — one less element per unsupported
-        // cell across a 328-row table. Putting `aria-label` on the <td> is also
+        // cell across the table. Putting `aria-label` on the <td> is also
         // more correct: a `cell` supports accessible naming, a bare span does not.
-        td.className += ' text-muted-foreground/30 select-none';
+        td.className += ' text-muted-foreground select-none';
         td.setAttribute(
           'aria-label',
           `${host} not supported by ${service}`

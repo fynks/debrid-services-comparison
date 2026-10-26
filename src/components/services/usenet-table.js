@@ -17,14 +17,14 @@ export function initUsenetTable(slot) {
   const thService = document.createElement('th');
   thService.scope = 'col';
   thService.className =
-    'sticky left-0 z-20 border-r border-border bg-muted px-3 py-2 text-left text-xs font-medium uppercase tracking-wider text-muted-foreground';
+    'sticky left-0 z-20 border-r border-border bg-muted px-3 py-2 text-left text-xs font-medium text-muted-foreground';
   thService.textContent = 'Service';
   trh.appendChild(thService);
   for (const { service } of USENET_SUPPORT) {
     const th = document.createElement('th');
     th.scope = 'col';
     th.className =
-      'px-3 py-2 text-center text-xs font-medium uppercase tracking-wider text-muted-foreground';
+      'px-3 py-2 text-center text-xs font-medium text-muted-foreground';
     th.textContent = SERVICES[service].name;
     trh.appendChild(th);
   }
@@ -53,7 +53,7 @@ export function initUsenetTable(slot) {
     } else {
       td.appendChild(
         icon('x', {
-          class: 'mx-auto h-4 w-4 text-muted-foreground/40',
+          class: 'mx-auto h-4 w-4 text-muted-foreground',
           'aria-label': `${name} does not support Usenet`,
         })
       );

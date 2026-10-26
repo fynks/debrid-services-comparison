@@ -11,7 +11,7 @@ export const RESOURCE_GROUPS: ResourceGroup[] = [
         name: 'Stremio',
         url: 'https://www.stremio.com/downloads',
         description:
-          'Modern media center with debrid add-on ecosystem for seamless streaming',
+          'Modern media center with a large debrid add-on ecosystem for streaming',
         tags: ['All Platforms', 'Add-ons'],
       },
       {
@@ -109,8 +109,8 @@ export const RESOURCE_GROUPS: ResourceGroup[] = [
         name: 'Comet',
         url: 'https://github.com/g0ldyy/comet',
         description:
-          "Stremio's fastest torrent/debrid add-on with CometNet P2P, proxy, and 10+ scraper support",
-        tags: ['Stremio', 'Fastest'],
+          'Torrent/debrid add-on for Stremio with CometNet P2P, proxy, and 10+ scraper support',
+        tags: ['Stremio', 'P2P'],
       },
       {
         name: 'AIOStreams',

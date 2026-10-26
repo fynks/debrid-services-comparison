@@ -33,13 +33,9 @@ import { initDisclaimerCards } from './components/common/disclaimer-cards.js';
 // ---- 1. Fill in the static counts (hero, hosts heading) ----
 const fileCount = Object.keys(fileHosts.supported).length;
 const adultCount = Object.keys(adultHosts.supported).length;
-const servicesCount = fileHosts.services.length;
 
 for (const el of document.querySelectorAll('[data-mount="hero-host-count"]')) {
   el.textContent = String(fileCount);
-}
-for (const el of document.querySelectorAll('[data-mount="hosts-count"]')) {
-  el.textContent = String(servicesCount);
 }
 const yearEl = document.querySelector('[data-current-year]');
 if (yearEl) yearEl.textContent = String(new Date().getFullYear());

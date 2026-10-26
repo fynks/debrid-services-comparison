@@ -38,13 +38,12 @@ export interface FontTarget {
 }
 
 /**
- * Only the two Latin subsets ship. The rest of the fontsource subsets
- * (cyrillic, greek, vietnamese, …) are never matched by this site's content,
- * and the browser only ever downloaded `latin` from Google Fonts anyway.
+ * Only the `latin` subset ships. `latin-ext` was audited against every
+ * character rendered by the site (index.html, src/, data/*.json) and none
+ * falls into its unicode-range; browser/system fonts cover the emoji glyphs.
  */
 export const DEFAULT_FONT_TARGETS: FontTarget[] = [
   { source: 'inter-latin-wght-normal.woff2', output: 'inter-latin.woff2' },
-  { source: 'inter-latin-ext-wght-normal.woff2', output: 'inter-latin-ext.woff2' },
 ];
 
 export interface SyncFontResult {

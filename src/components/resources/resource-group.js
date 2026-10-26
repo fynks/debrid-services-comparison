@@ -30,7 +30,7 @@ function buildGroup(group, initialOpen) {
 
   const title = document.createElement('h3');
   title.className =
-    'flex-1 text-2xs font-semibold uppercase tracking-wider text-muted-foreground sm:text-xs';
+    'flex-1 text-2xs font-semibold text-muted-foreground sm:text-xs';
   title.textContent = group.title;
   summary.appendChild(title);
 

@@ -277,7 +277,7 @@ function statCard(label, value, classes) {
   d.className = cn('rounded-md border p-3', classes);
   const p = document.createElement('p');
   p.className =
-    'text-2xs font-semibold uppercase tracking-wider text-muted-foreground';
+    'text-2xs font-semibold text-muted-foreground';
   p.textContent = label;
   d.appendChild(p);
   const v = document.createElement('p');
@@ -291,7 +291,7 @@ function th(label, extra = '') {
   const t = document.createElement('th');
   t.scope = 'col';
   t.className = cn(
-    'px-3 py-2 text-left text-xs font-medium uppercase tracking-wider text-muted-foreground',
+    'px-3 py-2 text-left text-xs font-medium text-muted-foreground',
     extra
   );
   t.textContent = label;
@@ -327,7 +327,7 @@ function cell(supported, service, host) {
   } else {
     td.appendChild(
       icon('x', {
-        class: 'mx-auto h-4 w-4 text-muted-foreground/40',
+        class: 'mx-auto h-4 w-4 text-muted-foreground',
         'aria-label': `${host} not supported by ${name}`,
       })
     );
