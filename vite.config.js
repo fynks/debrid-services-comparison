@@ -4,17 +4,15 @@ import { createHash } from 'node:crypto';
 import { existsSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { DEFAULT_TARGETS, optimizeAllHosts, optimizeHostsFile } from './scripts/optimize-json.ts';
-import { syncAllFonts } from './scripts/sync-fonts.ts';
 
 /**
  * Vite plugin that:
  * 1. Keeps `src/json/*-optimized.json` synchronized with `data/*.json` on
  *    both `vite dev` and `vite build` (with HMR on source JSON edits).
- * 2. Copies the self-hosted Inter woff2 subsets into `public/fonts/`.
- * 3. Compacts inline JSON-LD and strips HTML comments/indentation in production builds.
- * 4. Inlines the built stylesheet into <head> so first paint needs no
+ * 2. Compacts inline JSON-LD and strips HTML comments/indentation in production builds.
+ * 3. Inlines the built stylesheet into <head> so first paint needs no
  *    render-blocking extra request.
- * 5. Emits a lightweight, self-contained `dist/sw.js` keyed by the build's
+ * 4. Emits a lightweight, self-contained `dist/sw.js` keyed by the build's
  *    content hash (replacing the external `workbox-cli` build step and 16 KB workbox runtime).
  */
 function buildPipelinePlugin() {
@@ -30,7 +28,6 @@ function buildPipelinePlugin() {
     },
     buildStart() {
       optimizeAllHosts();
-      syncAllFonts({ quiet: !isBuild });
     },
     configureServer(server) {
       for (const inputPath of inputToOutput.keys()) {

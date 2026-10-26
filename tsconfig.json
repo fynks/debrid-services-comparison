@@ -31,7 +31,6 @@
   "include": [
     "src",
     "scripts/optimize-json.ts",
-    "scripts/sync-fonts.ts",
     "vite.config.js"
   ],
   "exclude": ["node_modules", "dist"]
