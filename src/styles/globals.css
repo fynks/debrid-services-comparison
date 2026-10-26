@@ -125,10 +125,24 @@
   }
 
   html {
+    /* Root size 17px instead of the browsers' default 16px: the type scale and
+       all rem-based spacing scale up ~6%, and long table/paragraph text stops
+       feeling cramped. Also above iOS's 16px input-zoom threshold, so the
+       search input never triggers a font-size zoom on focus. */
+    font-size: 17px;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
+  }
+
+  /* The search input keeps type="search" (iOS shows a Search key), but the
+     native WebKit ✕ cancel button is hidden — the table ships its own clear
+     button, and showing both renders two overlapping crosses. */
+  input[type='search']::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
   }
 
   body {

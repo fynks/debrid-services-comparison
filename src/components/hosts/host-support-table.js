@@ -100,7 +100,10 @@ export function initHostSupportTable(slot, { source, data, initialLimit = 60 } =
   row.appendChild(searchWrap);
 
   const counter = document.createElement('p');
-  counter.className = 'text-center text-xs text-muted-foreground tabular-nums';
+  // The count is the table's status line, so it carries chip styling that
+  // matches the card frame below it instead of floating as bare text.
+  counter.className =
+    'mx-auto w-fit rounded-full border border-border bg-card px-3 py-0.5 text-center text-xs text-muted-foreground tabular-nums';
   counter.setAttribute('aria-live', 'polite');
   row.appendChild(counter);
 
@@ -316,8 +319,8 @@ export function initHostSupportTable(slot, { source, data, initialLimit = 60 } =
       filtered.length <= initialLimit;
 
     counter.textContent = state.debounced
-      ? `${filtered.length} of ${hostCount} hosts`
-      : `${hostCount} hosts`;
+      ? `${filtered.length} of ${hostCount} host${filtered.length === 1 ? '' : 's'}`
+      : `${hostCount} host${hostCount === 1 ? '' : 's'} · ${services.length} services`;
 
     // Rebuild thead
     const trh = document.createElement('tr');
