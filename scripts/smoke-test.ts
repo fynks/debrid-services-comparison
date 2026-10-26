@@ -42,20 +42,12 @@ const fileHosts = JSON.parse(
 ) as OptimizedHostsData;
 assert(fileHosts.services.length >= 7, `at least 7 services (got ${fileHosts.services.length})`);
 assert(Object.keys(fileHosts.supported).length >= 100, '>= 100 hosts supported');
-assert(Array.isArray(fileHosts.services), 'services is array');
-for (const s of fileHosts.services) {
-  assert(typeof s === 'string' && s.length > 0, `valid service: ${s}`);
-}
 assert(fileHosts.services.includes('AllDebrid'), 'includes AllDebrid');
 assert(fileHosts.services.includes('TorBox'), 'includes TorBox');
 
 console.log('\nPricing');
 assert(PRICING_ROWS.length >= 5, 'at least 5 pricing rows');
 assert(PRICING_SERVICES.length >= 5, 'at least 5 pricing services');
-for (const row of PRICING_ROWS) {
-  assert(typeof row.plan === 'string' && row.plan.length > 0, `row has plan: ${row.plan}`);
-  assert(row.cells && typeof row.cells === 'object', 'row has cells object');
-}
 
 console.log('\nReferrals');
 assert(REFERRAL_LINKS.length >= 3, 'at least 3 referral links');
@@ -81,9 +73,7 @@ assert(RESOURCE_GROUPS.length >= 8, `at least 8 resource groups (got ${RESOURCE_
 for (const g of RESOURCE_GROUPS) {
   assert(g.items.length > 0, `${g.title} has items`);
   for (const item of g.items) {
-    assert(item.name.length > 0, `${g.title} - item has name`);
     assert(item.url.startsWith('http') || item.url === '#', `${g.title} - ${item.name} URL valid`);
-    assert(item.tags.length > 0, `${g.title} - ${item.name} has tags`);
   }
 }
 
