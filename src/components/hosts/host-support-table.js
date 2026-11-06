@@ -69,6 +69,8 @@ export function initHostSupportTable(slot, { source, data, initialLimit = 60 } =
 
   const input = document.createElement('input');
   input.type = 'search';
+  input.id = `${source}-host-search`;
+  input.name = `${source}-host-search`;
   input.className =
     'flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 pl-8 pr-8 text-sm shadow-none transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1';
   input.placeholder = searchPlaceholder;
