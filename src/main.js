@@ -31,8 +31,8 @@ import { initResourceGroups } from './components/resources/resource-group.js';
 import { initDisclaimerCards } from './components/common/disclaimer-cards.js';
 
 // ---- 1. Fill in the static counts (hero, hosts heading) ----
-const fileCount = Object.keys(fileHosts.supported).length;
-const adultCount = Object.keys(adultHosts.supported).length;
+const fileCount = fileHosts.hostCount;
+const adultCount = adultHosts.hostCount;
 
 for (const el of document.querySelectorAll('[data-mount="hero-host-count"]')) {
   el.textContent = String(fileCount);

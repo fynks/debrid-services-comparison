@@ -18,6 +18,8 @@ export type ServiceId =
 /** Optimized JSON shape produced by scripts/optimize-json.ts */
 export interface OptimizedHostsData {
   services: ServiceId[];
+  /** Number of entries in `supported`, baked in at build time. */
+  hostCount: number;
   /**
    * Bitmask per host: bit `i` (`1 << i`) is set when `services[i]` supports the host.
    */

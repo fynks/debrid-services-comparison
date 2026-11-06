@@ -104,6 +104,7 @@ export function optimizeHostsFile(
 
   const outputData: OptimizedHostsData = {
     services,
+    hostCount: sortedHosts.length,
     supported,
   };
 

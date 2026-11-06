@@ -41,7 +41,8 @@ const fileHosts = JSON.parse(
   readFileSync(resolve(ROOT, 'src/json/file-hosts-optimized.json'), 'utf8'),
 ) as OptimizedHostsData;
 assert(fileHosts.services.length >= 7, `at least 7 services (got ${fileHosts.services.length})`);
-assert(Object.keys(fileHosts.supported).length >= 100, '>= 100 hosts supported');
+assert(fileHosts.hostCount === Object.keys(fileHosts.supported).length, 'baked hostCount matches supported map');
+assert(fileHosts.hostCount >= 100, '>= 100 hosts supported');
 assert(fileHosts.services.includes('AllDebrid'), 'includes AllDebrid');
 assert(fileHosts.services.includes('TorBox'), 'includes TorBox');
 
@@ -86,7 +87,8 @@ assert(
   adult.services.every((s, idx) => s === fileHosts.services[idx] && s in SERVICES),
   'adult and file hosts share canonical SERVICE_ORDER and valid ServiceIds',
 );
-assert(Object.keys(adult.supported).length > 10, 'adult hosts > 10');
+assert(adult.hostCount === Object.keys(adult.supported).length, 'baked adult hostCount matches supported map');
+assert(adult.hostCount > 10, 'adult hosts > 10');
 
 console.log('\n---');
 if (failures > 0) {

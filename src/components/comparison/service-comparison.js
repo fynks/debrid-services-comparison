@@ -12,13 +12,11 @@ export function initServiceComparison(slot, { data } = {}) {
   if (!slot) return;
   const services = data.services;
   const serviceToBit = new Map(services.map((s, idx) => [s, 1 << idx]));
-  const hostEntries = Object.entries(data.supported).map(([host, mask]) => ({
-    host,
-    mask,
-  }));
+  let hostEntries;
 
-  let a = readInitialSelection(services)[0];
-  let b = readInitialSelection(services)[1];
+  const [initialA, initialB] = readInitialSelection(services);
+  let a = initialA;
+  let b = initialB;
 
   const root = document.createElement('div');
   root.className = 'space-y-6 pb-4 sm:pb-6';
@@ -98,6 +96,10 @@ export function initServiceComparison(slot, { data } = {}) {
     const aBit = serviceToBit.get(a) ?? 0;
     const bBit = serviceToBit.get(b) ?? 0;
     if (!aBit || !bBit) return [];
+    hostEntries ??= Object.entries(data.supported).map(([host, mask]) => ({
+      host,
+      mask,
+    }));
     return hostEntries.map(({ host, mask }) => ({
       host,
       a: (mask & aBit) !== 0,
@@ -206,22 +208,15 @@ export function initServiceComparison(slot, { data } = {}) {
 
   function syncUrl() {
     if (typeof window === 'undefined') return;
-    const url = new URL(window.location.href);
-    if (a) url.searchParams.set('compare', a);
-    else url.searchParams.delete('compare');
-    if (b) url.searchParams.set('with', b);
-    else url.searchParams.delete('with');
-    window.history.replaceState(null, '', url);
-  }
-
-  if (typeof window !== 'undefined') {
-    window.addEventListener('deep-link:compare', (e) => {
-      const { compare, with: withP } = e.detail || {};
-      if (compare && services.includes(compare)) a = compare;
-      if (withP && services.includes(withP)) b = withP;
-      syncUrl();
-      render();
-    });
+    const params = new URLSearchParams(window.location.search);
+    if (a) params.set('compare', a);
+    else params.delete('compare');
+    if (b) params.set('with', b);
+    else params.delete('with');
+    const query = params.toString();
+    const hash = window.location.hash;
+    const next = query ? `?${query}${hash}` : `${window.location.pathname}${hash}`;
+    window.history.replaceState(null, '', next);
   }
 
   render();

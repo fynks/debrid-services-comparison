@@ -5,6 +5,27 @@ import { existsSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'no
 import path from 'node:path';
 import { DEFAULT_TARGETS, optimizeAllHosts, optimizeHostsFile } from './scripts/optimize-json.ts';
 
+const HTML_COMMENT_RE = /<!--[\s\S]*?-->/g;
+const JSON_LD_SCRIPT_RE = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/g;
+const LEADING_INDENT_RE = /^[ \t]+/gm;
+const BLANK_LINES_RE = /\n{2,}/g;
+const ENTRY_SCRIPT_RE = /<script type="module"[^>]*src="([^"]+)"[^>]*>/;
+const FONT_PRELOAD_RE = /<link rel="preload" as="font"[^>]*>/;
+const CROSSORIGIN_RE = /\bcrossorigin\b/;
+const STYLE_CLOSE_RE = /<\/style/i;
+const APP_STYLES_RE = /<meta name="app-styles"[^>]*>/;
+
+/** Remove the tag containing `needle` without building a per-file RegExp. */
+function removeTagContaining(html, needle) {
+  const needleAt = html.indexOf(needle);
+  if (needleAt === -1) return html;
+  const start = html.lastIndexOf('<', needleAt);
+  const end = html.indexOf('>', needleAt);
+  if (start === -1 || end === -1) return html;
+  if (html.indexOf('>', start) < needleAt) return html;
+  return html.slice(0, start) + html.slice(end + 1);
+}
+
 /**
  * Vite plugin that:
  * 1. Keeps `src/json/*-optimized.json` synchronized with `data/*.json` on
@@ -44,14 +65,14 @@ function buildPipelinePlugin() {
     transformIndexHtml(html) {
       if (!isBuild) return html;
       return html
-        .replace(/<!--[\s\S]*?-->/g, '')
+        .replace(HTML_COMMENT_RE, '')
         .replace(
-          /<script type="application\/ld\+json">([\s\S]*?)<\/script>/g,
+          JSON_LD_SCRIPT_RE,
           (_, json) =>
             `<script type="application/ld+json">${JSON.stringify(JSON.parse(json))}</script>`
         )
-        .replace(/^[ \t]+/gm, '')
-        .replace(/\n{2,}/g, '\n')
+        .replace(LEADING_INDENT_RE, '')
+        .replace(BLANK_LINES_RE, '\n')
         .trim();
     },
     closeBundle() {
@@ -72,6 +93,24 @@ function buildPipelinePlugin() {
       const swCode = `const CACHE_VERSION='debrid-v-${version}';
 const STATIC_CACHE=CACHE_VERSION+'-static';
 const HTML_CACHE=CACHE_VERSION+'-html';
+const STATIC_EXT_RE=/\\.(?:png|jpg|jpeg|gif|webp|svg|ico|woff2?|ttf|otf)$/i;
+const FALLBACK_ICON_RE=/\\.(?:png|jpg|jpeg|gif|webp|svg|ico)$/i;
+function respondWithHtml(e,req){
+  e.respondWith((async()=>{
+    const cachePromise=caches.open(HTML_CACHE);
+    try{
+      const ctrl=new AbortController();
+      const timer=setTimeout(()=>ctrl.abort(),3000);
+      const res=await fetch(req,{signal:ctrl.signal});
+      clearTimeout(timer);
+      if(res&&res.ok)(await cachePromise).put(req,res.clone());
+      return res;
+    }catch{
+      const cache=await cachePromise;
+      return (await cache.match(req))||(await cache.match('/'))||Response.error();
+    }
+  })());
+}
 self.addEventListener('install',()=>{self.skipWaiting()});
 self.addEventListener('activate',e=>{
   e.waitUntil(
@@ -83,27 +122,19 @@ self.addEventListener('activate',e=>{
 self.addEventListener('fetch',e=>{
   const req=e.request;
   if(req.method!=='GET')return;
+  if(req.mode==='navigate'){
+    respondWithHtml(e,req);
+    return;
+  }
   const url=new URL(req.url);
-  if(req.mode==='navigate'||url.pathname.endsWith('.html')){
-    e.respondWith((async()=>{
-      const cache=await caches.open(HTML_CACHE);
-      try{
-        const ctrl=new AbortController();
-        const timer=setTimeout(()=>ctrl.abort(),3000);
-        const res=await fetch(req,{signal:ctrl.signal});
-        clearTimeout(timer);
-        if(res&&res.ok)cache.put(req,res.clone());
-        return res;
-      }catch{
-        return (await cache.match(req))||(await cache.match('/'))||Response.error();
-      }
-    })());
+  if(url.pathname.endsWith('.html')){
+    respondWithHtml(e,req);
     return;
   }
   const isStatic=
     url.pathname.startsWith('/assets/')||
     url.pathname.startsWith('/fonts/')||
-    /\\.(?:png|jpg|jpeg|gif|webp|svg|ico|woff2?|ttf|otf)$/i.test(url.pathname);
+    STATIC_EXT_RE.test(url.pathname);
   if(isStatic){
     e.respondWith((async()=>{
       const cache=await caches.open(STATIC_CACHE);
@@ -114,7 +145,7 @@ self.addEventListener('fetch',e=>{
         if(res&&(res.ok||res.type==='opaque'))cache.put(req,res.clone());
         return res;
       }catch{
-        if(/\\.(?:png|jpg|jpeg|gif|webp|svg|ico)$/i.test(url.pathname)){
+        if(FALLBACK_ICON_RE.test(url.pathname)){
           return (await cache.match('/favicon.svg'))||Response.error();
         }
         return Response.error();
@@ -148,16 +179,15 @@ function preloadEntryScript(distDir) {
   const html = readFileSync(htmlPath, 'utf8');
   if (html.includes('rel="modulepreload"')) return;
 
-  const entry = html.match(/<script type="module"[^>]*src="([^"]+)"[^>]*>/);
-  const anchor = /<link rel="preload" as="font"[^>]*>/;
-  if (!entry || !anchor.test(html)) return;
+  const entry = html.match(ENTRY_SCRIPT_RE);
+  if (!entry || !FONT_PRELOAD_RE.test(html)) return;
 
   // Credentials mode must match the script tag or the preload is discarded and
   // the module is fetched twice.
-  const crossorigin = /\bcrossorigin\b/.test(entry[0]) ? ' crossorigin' : '';
+  const crossorigin = CROSSORIGIN_RE.test(entry[0]) ? ' crossorigin' : '';
   const link = `<link rel="modulepreload"${crossorigin} href="${entry[1]}">`;
 
-  writeFileSync(htmlPath, html.replace(anchor, (match) => match + link), 'utf8');
+  writeFileSync(htmlPath, html.replace(FONT_PRELOAD_RE, (match) => match + link), 'utf8');
   console.log(`[modulepreload] ${entry[1]} → preloaded from the top of <head>`);
 }
 
@@ -185,31 +215,29 @@ function inlineStylesheets(distDir) {
   let html = readFileSync(htmlPath, 'utf8');
 
   for (const file of readdirSync(cssDir).filter((f) => f.endsWith('.css')).sort()) {
-    const href = `/assets/css/${file}`;
-    const linkPattern = new RegExp(`<link[^>]*href="${href.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"[^>]*>`);
-    if (!linkPattern.test(html)) continue;
+    const hrefNeedle = `href="/assets/css/${file}"`;
+    if (!html.includes(hrefNeedle)) continue;
 
     const css = readFileSync(path.join(cssDir, file), 'utf8');
-    if (/<\/style/i.test(css)) {
+    if (STYLE_CLOSE_RE.test(css)) {
       // Would terminate the <style> element early and corrupt the page.
       throw new Error(
         `[inline-css] ${file} contains "</style", which cannot be inlined safely.`
       );
     }
 
-    html = html.replace(linkPattern, '');
+    html = removeTagContaining(html, hrefNeedle);
 
     // Inline at the `<meta name="app-styles">` marker, which sits immediately
     // after the font preload and entry script. Anchoring there keeps those two
     // requests at the very top of the document — if the sheet went in first,
     // the parser would have to consume ~36 KB of CSS before it ever saw them.
-    const anchor = /<meta name="app-styles"[^>]*>/;
-    if (!anchor.test(html)) {
+    if (!APP_STYLES_RE.test(html)) {
       throw new Error(
         '[inline-css] could not find <meta name="app-styles"> to inline the stylesheet into.'
       );
     }
-    html = html.replace(anchor, `<style>${css}</style>`);
+    html = html.replace(APP_STYLES_RE, `<style>${css}</style>`);
 
     rmSync(path.join(cssDir, file));
     console.log(
