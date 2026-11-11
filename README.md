@@ -197,7 +197,7 @@ Prices change frequently, so verify the current offer and any VAT or regional fe
 > - <span id="footnote-2">**² TorBox Free Tier**</span>: The official page lists 1 concurrent slot, 10 downloads/month, a 10GB maximum download size, and 250Mbps. See current limits on [TorBox pricing](https://torbox.app/pricing).
 > - <span id="footnote-3">**³ High-Way free access**</span>: Limited hoster access and free MB through forum activity. [Verify details →](https://high-way.me/pages/tariffs/)
 > - <span id="footnote-4">**⁴ AllDebrid one-time plans**</span>: These plans are non-recurring; the recurring 30-day plan is separate. [Official offer →](https://alldebrid.com/offer/)
-> - <span id="footnote-5">**⁵ High-Way plans**</span>: Monthly or yearly subscriptions. File host traffic per month: Basic 200GB, Pro 1TB, Unlimited fair use; Usenet, torrents and the TV recorder do not count toward it. One-time traffic without expiry from €9.99/250GB. [Official tariffs →](https://cloud.high-way.me/tarife.php)
+> - <span id="footnote-5">**⁵ High-Way plans**</span>: Monthly or yearly subscriptions. File host traffic per month: Basic 200GB, Pro 1TB, Unlimited fair use; Usenet, torrents and the TV recorder do not count toward it. One-time traffic without expiry from €9.99/250GB; without a subscription it also pays for Usenet, torrents and TV, and finished downloads are deleted after 2 weeks. [Official tariffs →](https://cloud.high-way.me/tarife.php)
 >
 > **Price legend:** A dash (-) means no price is listed for that term. Confirm current offers before purchase.
 
