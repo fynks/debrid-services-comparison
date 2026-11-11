@@ -90,7 +90,7 @@ export const SERVICES: Record<ServiceId, ServiceInfo> = {
     statusPage: 'https://high-way.me/pages/status/',
     tagline: 'Niche multi-hoster',
     hasFreeTier: false,
-    hasUsenet: false,
+    hasUsenet: true,
   },
 };
 

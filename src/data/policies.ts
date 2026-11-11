@@ -115,7 +115,7 @@ export const USENET_SUPPORT: Array<{ service: ServiceId; supported: boolean }> =
   { service: 'LinkSnappy', supported: false },
   { service: 'Mega-Debrid', supported: false },
   { service: 'Deepbrid', supported: true },
-  { service: 'High-Way', supported: false },
+  { service: 'High-Way', supported: true },
 ];
 
 export const STATUS_LINKS: Array<{
