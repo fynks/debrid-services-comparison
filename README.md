@@ -635,7 +635,7 @@ Host availability changes often, so use the official status pages for the latest
 | **Debrid-Link** | [debrid-link.com/webapp/status](https://debrid-link.com/webapp/status)            |
 | **Mega-Debrid** | [mega-debrid.eu/hebergeurs](https://www.mega-debrid.eu/index.php?page=hebergeurs) |
 | **Deepbrid**    | [deepbrid.com/status](https://www.deepbrid.com/status)                            |
-| **High-Way**    | [high-way.me/pages/status](https://high-way.me/pages/status)                      |
+| **High-Way**    | [cloud.high-way.me/service-status.php](https://cloud.high-way.me/service-status.php) |
 
 
 <div align="right">
