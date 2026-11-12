@@ -87,10 +87,10 @@ export const SERVICES: Record<ServiceId, ServiceInfo> = {
     id: 'High-Way',
     name: 'High-Way',
     website: 'https://high-way.me',
-    statusPage: 'https://high-way.me/pages/status/',
+    statusPage: 'https://cloud.high-way.me/service-status.php',
     tagline: 'Niche multi-hoster',
     hasFreeTier: false,
-    hasUsenet: false,
+    hasUsenet: true,
   },
 };
 

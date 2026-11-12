@@ -186,18 +186,18 @@ Prices change frequently, so verify the current offer and any VAT or regional fe
 | **7 Days** | ❌ | ❌ | - | - | ❌ | $4.99 USD | ❌ | ❌ | ❌ |
 | **14 Days** | - | - | - | - | - | - | - | [€4.50](https://www.deepbrid.com/signup) | - |
 | **15 Days** | [€2.99 (one-time)⁴](#footnote-4) | ❌ | €3.00 | - | €3.00 | ❌ | ❌ | - | ❌ |
-| **30 Days** | €2.99 recurring / [€3.99 one-time⁴](#footnote-4) | €9.99 / US$11.99 | €4.00 | Essential $3 / Standard $5 / Pro $10 | €4.00 | $12.99 USD | €4.00 | €4.99 | Premium €5.99 / Unlimited €9.99[⁵](#footnote-5) |
-| **90 Days** | [€8.99 (one-time)⁴](#footnote-4) | - | €9.00 | - | €9.00 | $29.99 USD | €9.00 | €12.99 | Premium €15.99 / Unlimited €24.99[⁵](#footnote-5) |
-| **180 Days** | [€15.99 (one-time)⁴](#footnote-4) | - | €16.00 | - | €16.00 | $54.99 USD | €16.00 | €19.99 | Premium €29.99 / Unlimited €44.99[⁵](#footnote-5) |
+| **30 Days** | €2.99 recurring / [€3.99 one-time⁴](#footnote-4) | €9.99 / US$11.99 | €4.00 | Essential $3 / Standard $5 / Pro $10 | €4.00 | $12.99 USD | €4.00 | €4.99 | Basic €6.99 / Pro €9.99 / Unlimited €14.99[⁵](#footnote-5) |
+| **90 Days** | [€8.99 (one-time)⁴](#footnote-4) | - | €9.00 | - | €9.00 | $29.99 USD | €9.00 | €12.99 | - |
+| **180 Days** | [€15.99 (one-time)⁴](#footnote-4) | - | €16.00 | - | €16.00 | $54.99 USD | €16.00 | €19.99 | - |
 | **300 Days** | [€24.99 (one-time)⁴](#footnote-4) | - | - | - | €25.00 | ❌ | ❌ | ❌ | ❌ |
-| **365 Days / 1 Year** | ❌ | €69.99 / US$79.99 (€5.75 / US$6.57 per month) | - | - | ❌ | ❌ | ❌ | €32.99 | Premium €47.99 / Unlimited €71.99[⁵](#footnote-5) |
+| **365 Days / 1 Year** | ❌ | €69.99 / US$79.99 (€5.75 / US$6.57 per month) | - | - | ❌ | ❌ | ❌ | €32.99 | Basic €69 / Pro €99 / Unlimited €149[⁵](#footnote-5) |
 
 > [!NOTE]
 > - <span id="footnote-1">**¹ AllDebrid Free Tryout**</span>: 7 days, SMS verification, new members only, subject to fair-use limits. [Official offer →](https://alldebrid.com/offer/)
 > - <span id="footnote-2">**² TorBox Free Tier**</span>: The official page lists 1 concurrent slot, 10 downloads/month, a 10GB maximum download size, and 250Mbps. See current limits on [TorBox pricing](https://torbox.app/pricing).
 > - <span id="footnote-3">**³ High-Way free access**</span>: Limited hoster access and free MB through forum activity. [Verify details →](https://high-way.me/pages/tariffs/)
 > - <span id="footnote-4">**⁴ AllDebrid one-time plans**</span>: These plans are non-recurring; the recurring 30-day plan is separate. [Official offer →](https://alldebrid.com/offer/)
-> - <span id="footnote-5">**⁵ High-Way packages**</span>: The table shows the lowest listed 250GB/month packages. Larger volume packages cost more. [Premium packages](https://high-way.me/choosep.php) · [Unlimited packages](https://high-way.me/chooseu.php)
+> - <span id="footnote-5">**⁵ High-Way plans**</span>: Monthly or yearly subscriptions. File host traffic per month: Basic 200GB, Pro 1TB, Unlimited fair use; Usenet, torrents and the TV recorder do not count toward it. One-time traffic without expiry from €9.99/250GB; without a subscription it also pays for Usenet, torrents and TV, and finished downloads are deleted after 2 weeks. [Official tariffs →](https://cloud.high-way.me/tarife.php)
 >
 > **Price legend:** A dash (-) means no price is listed for that term. Confirm current offers before purchase.
 
@@ -217,7 +217,7 @@ Always verify prices on the official sites because they change frequently.
 | Debrid-Link | [debrid-link.com/premium](https://debrid-link.com/premium)                 |
 | Mega-Debrid | [mega-debrid.eu/offres](https://www.mega-debrid.eu/index.php?page=offres)  |
 | Deepbrid    | [Official homepage / pricing](https://www.deepbrid.com/home)                |
-| High-Way    | [Official tariffs](https://high-way.me/pages/tariffs/)                     |
+| High-Way    | [Official tariffs](https://cloud.high-way.me/tarife.php)                   |
 
 </details><br>
 
@@ -608,7 +608,7 @@ Usenet is a separate discussion/file-article network rather than a peer-to-peer 
 
 | Service         | AllDebrid | TorBox | Premiumize | Real-Debrid | Debrid-Link | LinkSnappy | Mega-Debrid | Deepbrid | High-Way |
 |-----------------|:---------:|:------:|:----------:|:-----------:|:-----------:|:----------:|:-----------:|:--------:|:--------:|
-| **Usenet**      |    ❌     |   ✅   |     ✅     |      ❌     |      ❌     |     ❌     |      ❌     |    ✅    |    ❌    |
+| **Usenet**      |    ❌     |   ✅   |     ✅     |      ❌     |      ❌     |     ❌     |      ❌     |    ✅    |    ✅    |
 
 
 ---
@@ -635,7 +635,7 @@ Host availability changes often, so use the official status pages for the latest
 | **Debrid-Link** | [debrid-link.com/webapp/status](https://debrid-link.com/webapp/status)            |
 | **Mega-Debrid** | [mega-debrid.eu/hebergeurs](https://www.mega-debrid.eu/index.php?page=hebergeurs) |
 | **Deepbrid**    | [deepbrid.com/status](https://www.deepbrid.com/status)                            |
-| **High-Way**    | [high-way.me/pages/status](https://high-way.me/pages/status)                      |
+| **High-Way**    | [cloud.high-way.me/service-status.php](https://cloud.high-way.me/service-status.php) |
 
 
 <div align="right">
@@ -988,8 +988,9 @@ Only a few services offer Usenet support:
 
 - ✅ **TorBox Pro** - Full Usenet support included
 - ✅ **Premiumize** - Full Usenet support with 1 TB cloud storage
+- ✅ **High-Way** - Usenet included in all plans (25 connections, 50 with Unlimited)
 
-**No Usenet support:** Real-Debrid, AllDebrid, Debrid-Link, LinkSnappy, Mega-Debrid, Deepbrid, High-Way ❌
+**No Usenet support:** Real-Debrid, AllDebrid, Debrid-Link, LinkSnappy, Mega-Debrid, Deepbrid ❌
 
 Usenet is a separate decentralised network - no P2P exposure, no seeding required, and consistently high speeds. Worth considering if DMCA-driven torrent cache removals are a concern.
 
@@ -1174,7 +1175,7 @@ We welcome contributions from the community:
 | Debrid-Link | [Use Referral](https://debrid-link.com/id/7B3BO)         | [Direct Signup](https://debrid-link.com/webapp/register)         |
 | Mega-Debrid | –                                                       | [Direct Signup](https://www.mega-debrid.eu/index.php?page=freeregister) |
 | Deepbrid    | [Use Referral](https://www.deepbrid.com/aff/go/upward1971) | [Direct Signup](https://www.deepbrid.com/signup)                 |
-| High-Way    | –                                                       | [Direct Signup](https://high-way.me/login/login)                 |
+| High-Way    | –                                                       | [Direct Signup](https://high-way.me/register/)                   |
 
 </div>
 <br>

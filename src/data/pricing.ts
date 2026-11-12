@@ -53,7 +53,7 @@ export const PRICING_ROWS: PricingRow[] = [
       LinkSnappy: '$12.99 USD',
       'Mega-Debrid': '€4.00',
       Deepbrid: '€4.99',
-      'High-Way': 'Premium €5.99 / Unlimited €9.99',
+      'High-Way': 'Basic €6.99 / Pro €9.99 / Unlimited €14.99',
     },
     isHighlight: true,
   },
@@ -66,7 +66,6 @@ export const PRICING_ROWS: PricingRow[] = [
       LinkSnappy: '$29.99 USD',
       'Mega-Debrid': '€9.00',
       Deepbrid: '€12.99',
-      'High-Way': 'Premium €15.99 / Unlimited €24.99',
     },
   },
   {
@@ -78,7 +77,6 @@ export const PRICING_ROWS: PricingRow[] = [
       LinkSnappy: '$54.99 USD',
       'Mega-Debrid': '€16.00',
       Deepbrid: '€19.99',
-      'High-Way': 'Premium €29.99 / Unlimited €44.99',
     },
   },
   {
@@ -93,7 +91,7 @@ export const PRICING_ROWS: PricingRow[] = [
     cells: {
       Premiumize: '€69.99 / US$79.99 (€5.75 / US$6.57 per month)',
       Deepbrid: '€32.99',
-      'High-Way': 'Premium €47.99 / Unlimited €71.99',
+      'High-Way': 'Basic €69 / Pro €99 / Unlimited €149',
     },
   },
 ];
