@@ -13,7 +13,8 @@ export type ServiceId =
   | 'LinkSnappy'
   | 'Mega-Debrid'
   | 'Deepbrid'
-  | 'High-Way';
+  | 'High-Way'
+  | 'World-Debrid';
 
 /** Optimized JSON shape produced by scripts/optimize-json.ts */
 export interface OptimizedHostsData {

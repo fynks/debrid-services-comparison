@@ -92,6 +92,15 @@ export const SERVICES: Record<ServiceId, ServiceInfo> = {
     hasFreeTier: false,
     hasUsenet: true,
   },
+  'World-Debrid': {
+    id: 'World-Debrid',
+    name: 'World-Debrid',
+    website: 'https://world-debrid.com',
+    statusPage: 'https://world-debrid.com/en/statut',
+    tagline: 'Free tier (1 link per month), low-cost plans',
+    hasFreeTier: true,
+    hasUsenet: false,
+  },
 };
 
 export const SERVICE_ORDER: ServiceId[] = [
@@ -104,4 +113,5 @@ export const SERVICE_ORDER: ServiceId[] = [
   'Mega-Debrid',
   'Deepbrid',
   'High-Way',
+  'World-Debrid',
 ];

@@ -101,6 +101,17 @@ export const POLICY_ROWS: PolicyRow[] = [
     support: 'https://high-way.me/help/contact/',
     supportLabel: 'Contact',
   },
+  {
+    service: 'World-Debrid',
+    terms: 'https://world-debrid.com/en/terms',
+    termsLabel: 'Terms',
+    privacy: 'https://world-debrid.com/en/privacy',
+    privacyLabel: 'Privacy',
+    refund: 'https://world-debrid.com/en/terms',
+    refundLabel: 'Within 14 days if no link was unlocked',
+    support: 'https://world-debrid.com/en/support',
+    supportLabel: 'Support',
+  },
 ];
 
 export const POLICY_SERVICES: ServiceId[] = POLICY_ROWS.map((r) => r.service);
@@ -116,6 +127,7 @@ export const USENET_SUPPORT: Array<{ service: ServiceId; supported: boolean }> =
   { service: 'Mega-Debrid', supported: false },
   { service: 'Deepbrid', supported: true },
   { service: 'High-Way', supported: true },
+  { service: 'World-Debrid', supported: false },
 ];
 
 export const STATUS_LINKS: Array<{
