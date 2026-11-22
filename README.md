@@ -296,7 +296,6 @@ Comprehensive list of all supported file hosts across all services.
 
 | **Service Name** | **TorBox** | **Premiumize** | **AllDebrid** | **Deepbrid** | **Real-Debrid** | **High-Way** | **Mega-Debrid** | **Debrid-Link** | **LinkSnappy** | **World-Debrid** | **Torrin** | **Cocoleech** |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-
 | 1Fichier | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | 1Tv | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | 2Giga.link | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
