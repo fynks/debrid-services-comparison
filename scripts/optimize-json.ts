@@ -6,13 +6,10 @@
 
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve, basename, extname } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { SERVICES, SERVICE_ORDER } from '../src/data/services.ts';
 import type { OptimizedHostsData, ServiceId } from '../src/types/data.ts';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const ROOT = resolve(__dirname, '..');
+const ROOT = resolve(import.meta.dirname, '..');
 
 /** Known aliases in raw source files mapped to canonical ServiceId. */
 const SERVICE_ALIASES: Record<string, ServiceId> = {
@@ -87,7 +84,7 @@ export function optimizeHostsFile(
   let totalSupported = 0;
 
   for (const host of sortedHosts) {
-    const hostData = rawData[host];
+    const hostData = rawData[host] ?? {};
     let mask = 0;
     for (const [rawService, value] of Object.entries(hostData)) {
       if (value === '✅' || value === true || value === 1) {
@@ -158,22 +155,18 @@ export function optimizeAllHosts(options: { quiet?: boolean } = {}): OptimizeRes
 }
 
 // Run as CLI when executed directly.
-const isDirectRun =
-  process.argv[1] &&
-  resolve(process.argv[1]) === __filename;
-
-if (isDirectRun) {
-  const args = process.argv.slice(2);
-  if (args.length === 0) {
+if (import.meta.main) {
+  const [inputArg, outputArg] = process.argv.slice(2);
+  if (!inputArg) {
     optimizeAllHosts();
   } else {
-    const inputPath = resolve(process.cwd(), args[0]);
+    const inputPath = resolve(process.cwd(), inputArg);
     const defaultOutput = (() => {
       const ext = extname(inputPath) || '.json';
       const base = basename(inputPath, ext);
       return resolve(process.cwd(), `${base}-optimized${ext}`);
     })();
-    const outputPath = args[1] ? resolve(process.cwd(), args[1]) : defaultOutput;
+    const outputPath = outputArg ? resolve(process.cwd(), outputArg) : defaultOutput;
     optimizeHostsFile(inputPath, outputPath);
   }
 }

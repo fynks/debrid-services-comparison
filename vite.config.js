@@ -269,7 +269,7 @@ export default defineConfig({
     emptyOutDir: true,
     sourcemap: false,
     cssCodeSplit: true,
-    target: 'es2020',
+    target: 'es2025',
     modulePreload: false,
     rolldownOptions: {
       output: {

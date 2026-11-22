@@ -1,7 +1,6 @@
 // Data and utility tests. Run with `bun test`.
 import { readFileSync } from 'node:fs';
-import { resolve, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { resolve } from 'node:path';
 import { describe, expect, it } from 'bun:test';
 
 import {
@@ -16,7 +15,7 @@ import { SERVICE_LIMITS } from '../src/data/limits';
 import { RESOURCE_GROUPS } from '../src/data/resources';
 import type { OptimizedHostsData } from '../src/types/data';
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const ROOT = resolve(import.meta.dirname, '..');
 const read = (path: string) => readFileSync(resolve(ROOT, path), 'utf8');
 const loadHosts = (name: string): OptimizedHostsData =>
   JSON.parse(read(`src/json/${name}-optimized.json`));
