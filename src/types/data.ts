@@ -14,7 +14,12 @@ export type ServiceId =
   | 'Mega-Debrid'
   | 'Deepbrid'
   | 'High-Way'
-  | 'World-Debrid';
+  | 'World-Debrid'
+  | 'Offcloud'
+  | 'PikPak'
+  | 'put.io'
+  | 'Torrin'
+  | 'Cocoleech';
 
 /** Optimized JSON shape produced by scripts/optimize-json.ts */
 export interface OptimizedHostsData {
@@ -80,6 +85,17 @@ export interface ReferralEntry {
   url: string;
   /** Display text e.g. "From €2.99/month" */
   benefit: string;
+}
+
+/** One row of the per-service limits and restrictions comparison. */
+export interface ServiceLimitRow {
+  service: ServiceId;
+  slots: string;
+  maxSize: string;
+  caps: string;
+  ipPolicy: string;
+  freeTier: string;
+  apiLimits: string;
 }
 
 /** Resource / tool / community entry. */

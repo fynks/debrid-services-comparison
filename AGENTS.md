@@ -15,7 +15,7 @@ Bun is the package manager. Use `bun run <script>` for anything in `package.json
 
 - `index.html`: static copy, SEO metadata, inline `#i-*` SVG sprite, `[data-mount]` slots.
 - `src/main.js`: mount order matters. Counts and components mount before scroll spy measures offsets.
-- `src/data/*.ts`: typed source for service metadata, pricing, policies, resources (`src/types/data.ts`).
+- `src/data/*.ts`: typed source for service metadata, pricing, limits, policies, resources (`src/types/data.ts`).
 - `data/*.json` → `scripts/optimize-json.ts` → `src/json/*-optimized.json`. Edit the raw `data/` files only; the optimized files are generated before `typecheck`.
 - `src/components/`: tables and cards; `src/lib/`: theme, fuzzy search, nav, scroll spy, hash links, service worker.
 - `src/styles/globals.css`: Tailwind 4 + theme tokens; theme flips via `data-theme` on `<html>`.
@@ -27,5 +27,5 @@ Bun is the package manager. Use `bun run <script>` for anything in `package.json
 - Stay factual and neutral. Back every price, host, or policy change with an official source; prices change often, so recheck before editing.
 - Report user-reported problems as a `role="alert"` warning linking to the GitHub issue (see the Deepbrid/issue #43 warning), not as established fact.
 - Reuse the existing `#i-*` icons and `warning` / `info` / `primary` token classes instead of inventing new styling.
-- Adding or renaming a service means updating `src/data/services.ts` (`SERVICE_ORDER`), the raw host JSON, the pricing/policy data, and the README/Adult-hosts tables, then running `bun run verify`.
+- Adding or renaming a service means updating `src/data/services.ts` (`SERVICE_ORDER`), the raw host JSON, the pricing/limits/policy data, and the README/Adult-hosts tables, then running `bun run verify`.
 - Service IDs are canonical strings; the alias map in `optimize-json.ts` handles legacy names from raw data.

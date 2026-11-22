@@ -427,6 +427,43 @@ export const RESOURCE_GROUPS: ResourceGroup[] = [
         description: 'Syncler streaming app community',
         tags: ['Reddit'],
       },
+      {
+        name: 'r/aiostreams',
+        url: 'https://www.reddit.com/r/aiostreams/',
+        description: 'AIOStreams help and configuration',
+        tags: ['Reddit', 'Add-ons'],
+      },
+      {
+        name: 'r/Nuvio',
+        url: 'https://www.reddit.com/r/Nuvio/',
+        description: 'Open-source Stremio add-on player community',
+        tags: ['Reddit', 'Apps'],
+      },
+      {
+        name: 'r/DebridVault',
+        url: 'https://www.reddit.com/r/DebridVault/',
+        description: 'Debrid Vault and Eclipse media apps',
+        tags: ['Reddit', 'Apps'],
+      },
+    ],
+  },
+  {
+    id: 'guides',
+    title: 'Guides',
+    icon: 'FileText',
+    items: [
+      {
+        name: 'Viren070 Guides',
+        url: 'https://guides.viren070.me/',
+        description: 'Stremio and debrid setup guides',
+        tags: ['Guide', 'Stremio'],
+      },
+      {
+        name: 'Stremio Perfect Setup',
+        url: 'https://luckynumb3rs.github.io/stremio-perfect-setup/',
+        description: 'Beginner guide to Stremio with debrid and AIOStreams',
+        tags: ['Guide', 'Beginner'],
+      },
     ],
   },
   {
@@ -490,6 +527,24 @@ export const RESOURCE_GROUPS: ResourceGroup[] = [
         url: 'https://real-debrid.com/terms',
         description: 'Official account-use, sharing, and service terms',
         tags: ['Official', 'Terms'],
+      },
+      {
+        name: 'TorBox Help Center',
+        url: 'https://support.torbox.app/en/',
+        description: 'Official answers on TorBox limits, features, and troubleshooting',
+        tags: ['Official', 'Documentation'],
+      },
+      {
+        name: 'TorBox Post-Mortems',
+        url: 'https://github.com/TorBox-App/torbox-post-mortems',
+        description: 'Official write-ups of the April and June 2026 outages',
+        tags: ['Official', 'Incidents'],
+      },
+      {
+        name: 'open-alldebrid',
+        url: 'https://github.com/pierre-emmanuelJ/open-alldebrid',
+        description: 'OpenAPI spec of the AllDebrid API with SDKs in several languages',
+        tags: ['API', 'Open-source'],
       },
     ],
   },

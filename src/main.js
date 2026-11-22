@@ -24,6 +24,7 @@ import { initHostSupportTable } from './components/hosts/host-support-table.js';
 import { initServiceComparison } from './components/comparison/service-comparison.js';
 import { initPricingTable } from './components/pricing/pricing-table.js';
 import { initReferralLinks } from './components/pricing/pricing-table.js';
+import { initLimitsTable } from './components/services/limits-table.js';
 import { initUsenetTable } from './components/services/usenet-table.js';
 import { initPoliciesTable } from './components/services/policies-table.js';
 import { initStatusGrid, initSpeedTestGrid } from './components/services/status-grid.js';
@@ -60,6 +61,7 @@ mountPointsByHostSource('adult').forEach((slot) => {
 
 initServiceComparison(mountPoint('service-comparison'), { data: fileHosts });
 initPricingTable(mountPoint('pricing-table'));
+initLimitsTable(mountPoint('limits-table'));
 initReferralLinks(mountPoint('referral-links'));
 initUsenetTable(mountPoint('usenet-table'));
 initPoliciesTable(mountPoint('policies-table'));

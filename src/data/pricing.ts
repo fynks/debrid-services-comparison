@@ -11,6 +11,11 @@ export const PRICING_SERVICES: ServiceId[] = [
   'Deepbrid',
   'High-Way',
   'World-Debrid',
+  'Offcloud',
+  'PikPak',
+  'put.io',
+  'Torrin',
+  'Cocoleech',
 ];
 
 export const PRICING_ROWS: PricingRow[] = [
@@ -22,6 +27,10 @@ export const PRICING_ROWS: PricingRow[] = [
       Deepbrid: 'Limited hosts only',
       'High-Way': 'Limited hosts',
       'World-Debrid': 'Free tier (1 link per month)',
+      PikPak: '6 GB storage',
+      'put.io': 'US$0.99 1-day trial',
+      Torrin: '3-day trial',
+      Cocoleech: '1 free download / 30 days',
     },
   },
   {
@@ -58,6 +67,10 @@ export const PRICING_ROWS: PricingRow[] = [
       Deepbrid: '€4.99',
       'High-Way': 'Basic €6.99 / Pro €9.99 / Unlimited €14.99',
       'World-Debrid': '€2.79 recurring / €3.49 one-time',
+      Offcloud: '$5.95 for 30 days (one-time)',
+      PikPak: '$3.09 first month / $4.79 one-time (regional); $8.09 / $9.49 (global)',
+      'put.io': 'Casual $9.99 / Seeder $19.99',
+      Torrin: '$2.99 / $5.99 / $11.99',
     },
     isHighlight: true,
   },
@@ -71,6 +84,7 @@ export const PRICING_ROWS: PricingRow[] = [
       'Mega-Debrid': '€9.00',
       Deepbrid: '€12.99',
       'World-Debrid': '€9.99 (one-time)',
+      Cocoleech: '$29.99 (one-time)',
     },
   },
   {
@@ -99,6 +113,11 @@ export const PRICING_ROWS: PricingRow[] = [
       Premiumize: '€69.99 / US$79.99 (€5.75 / US$6.57 per month)',
       Deepbrid: '€32.99',
       'High-Way': 'Basic €69 / Pro €99 / Unlimited €149',
+      Offcloud: '€40/year auto-renew (€3.29/mo); $49.95 one-time ($4.11/mo)',
+      PikPak: '$30.29 first year then $43.19 / $33.59 one-time (regional); $57.59 / $63.99 (global)',
+      'put.io': 'Casual $99 / Seeder $199',
+      Torrin: '$28.70 / $57.50 / $115',
+      Cocoleech: '$79.99 (one-time)',
     },
   },
 ];

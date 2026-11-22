@@ -112,6 +112,57 @@ export const POLICY_ROWS: PolicyRow[] = [
     support: 'https://world-debrid.com/en/support',
     supportLabel: 'Support',
   },
+  {
+    service: 'Offcloud',
+    terms: 'https://offcloud.com/terms',
+    termsLabel: 'Terms',
+    privacy: 'https://offcloud.com/privacy',
+    privacyLabel: 'Privacy',
+    refund: 'No refund policy stated',
+    refundLabel: 'No refund policy stated',
+  },
+  {
+    service: 'PikPak',
+    terms: 'https://mypikpak.com/en-US/policy/user-agreement',
+    termsLabel: 'User Agreement',
+    privacy: 'https://mypikpak.com/en-US/policy/privacy-policy',
+    privacyLabel: 'Privacy',
+    refund: 'https://mypikpak.com/en-US/help-center/premium/refund/how_to',
+    refundLabel: 'Refund guide',
+    support: 'https://mypikpak.com/en-US/contact-us',
+    supportLabel: 'Contact',
+  },
+  {
+    service: 'put.io',
+    terms: 'https://put.io/terms-of-service',
+    termsLabel: 'Terms',
+    privacy: 'https://put.io/privacy-policy',
+    privacyLabel: 'Privacy',
+    refund: 'https://put.io/refund-policy',
+    refundLabel: 'First week money-back',
+    support: 'https://help.put.io/en/',
+    supportLabel: 'Help',
+  },
+  {
+    service: 'Torrin',
+    privacy: 'https://torrin.app/privacy',
+    privacyLabel: 'Privacy',
+    refund: 'Not stated',
+    refundLabel: 'Not stated',
+    support: 'mailto:contact@torrin.app',
+    supportLabel: 'Email',
+  },
+  {
+    service: 'Cocoleech',
+    terms: 'https://members.cocoleech.com/terms',
+    termsLabel: 'Terms',
+    privacy: 'https://members.cocoleech.com/privacy',
+    privacyLabel: 'Privacy',
+    refund: 'https://members.cocoleech.com/refund-policy',
+    refundLabel: '14-day money-back',
+    support: 'https://members.cocoleech.com/support',
+    supportLabel: 'Support',
+  },
 ];
 
 export const POLICY_SERVICES: ServiceId[] = POLICY_ROWS.map((r) => r.service);
@@ -128,6 +179,11 @@ export const USENET_SUPPORT: Array<{ service: ServiceId; supported: boolean }> =
   { service: 'Deepbrid', supported: true },
   { service: 'High-Way', supported: true },
   { service: 'World-Debrid', supported: false },
+  { service: 'Offcloud', supported: false },
+  { service: 'PikPak', supported: false },
+  { service: 'put.io', supported: false },
+  { service: 'Torrin', supported: true },
+  { service: 'Cocoleech', supported: false },
 ];
 
 export const STATUS_LINKS: Array<{
@@ -169,6 +225,21 @@ export const STATUS_LINKS: Array<{
     service: 'Mega-Debrid',
     url: 'https://www.mega-debrid.eu/index.php?page=hebergeurs',
     description: 'Check supported file hosts',
+  },
+  {
+    service: 'put.io',
+    url: 'https://status.put.io',
+    description: 'Official put.io status page',
+  },
+  {
+    service: 'Torrin',
+    url: 'https://status.torrin.app',
+    description: 'Official Torrin status page',
+  },
+  {
+    service: 'Cocoleech',
+    url: 'https://members.cocoleech.com/hosts',
+    description: 'Host availability and daily quotas',
   },
 ];
 

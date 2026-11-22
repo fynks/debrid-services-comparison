@@ -101,6 +101,46 @@ export const SERVICES: Record<ServiceId, ServiceInfo> = {
     hasFreeTier: true,
     hasUsenet: false,
   },
+  Offcloud: {
+    id: 'Offcloud',
+    name: 'Offcloud',
+    website: 'https://offcloud.com/',
+    tagline: 'Torrents, direct links and cloud upload',
+    hasFreeTier: false,
+    hasUsenet: false,
+  },
+  PikPak: {
+    id: 'PikPak',
+    name: 'PikPak',
+    website: 'https://mypikpak.com/',
+    tagline: 'Torrent cloud with large WebDAV storage',
+    hasFreeTier: false,
+    hasUsenet: false,
+  },
+  'put.io': {
+    id: 'put.io',
+    name: 'put.io',
+    website: 'https://put.io/',
+    tagline: 'Torrent cloud with private-tracker seeding',
+    hasFreeTier: false,
+    hasUsenet: false,
+  },
+  Torrin: {
+    id: 'Torrin',
+    name: 'Torrin',
+    website: 'https://torrin.app/',
+    tagline: 'Open-source debrid with a built-in Stremio addon',
+    hasFreeTier: true,
+    hasUsenet: false,
+  },
+  Cocoleech: {
+    id: 'Cocoleech',
+    name: 'Cocoleech',
+    website: 'https://cocoleech.com/',
+    tagline: 'Hosters with per-host quotas and VPN included',
+    hasFreeTier: false,
+    hasUsenet: true,
+  },
 };
 
 export const SERVICE_ORDER: ServiceId[] = [
@@ -114,4 +154,9 @@ export const SERVICE_ORDER: ServiceId[] = [
   'Deepbrid',
   'High-Way',
   'World-Debrid',
+  'Offcloud',
+  'PikPak',
+  'put.io',
+  'Torrin',
+  'Cocoleech',
 ];
