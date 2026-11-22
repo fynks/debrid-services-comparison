@@ -234,6 +234,23 @@ export const RESOURCE_GROUPS: ResourceGroup[] = [
           },
         ],
       },
+      {
+        name: 'World-Debrid Extension',
+        url: '#',
+        description:
+          'Official extension that adds a button next to compatible links and magnets',
+        tags: ['Chrome', 'Firefox'],
+        extraLinks: [
+          {
+            label: 'Chrome',
+            url: 'https://chromewebstore.google.com/detail/world-debrid/ccegpimidfpanbifnoonpjlgainfjloi',
+          },
+          {
+            label: 'Firefox',
+            url: 'https://addons.mozilla.org/firefox/addon/world-debrid/',
+          },
+        ],
+      },
     ],
   },
   {

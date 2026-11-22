@@ -10,6 +10,7 @@ export const PRICING_SERVICES: ServiceId[] = [
   'Mega-Debrid',
   'Deepbrid',
   'High-Way',
+  'World-Debrid',
 ];
 
 export const PRICING_ROWS: PricingRow[] = [
@@ -20,6 +21,7 @@ export const PRICING_ROWS: PricingRow[] = [
       TorBox: 'Free tier',
       Deepbrid: 'Limited hosts only',
       'High-Way': 'Limited hosts',
+      'World-Debrid': 'Free tier (1 link per month)',
     },
   },
   {
@@ -40,6 +42,7 @@ export const PRICING_ROWS: PricingRow[] = [
       AllDebrid: '€2.99 (one-time)',
       'Real-Debrid': '€3.00',
       'Debrid-Link': '€3.00',
+      'World-Debrid': '€2.49 (one-time)',
     },
   },
   {
@@ -54,6 +57,7 @@ export const PRICING_ROWS: PricingRow[] = [
       'Mega-Debrid': '€4.00',
       Deepbrid: '€4.99',
       'High-Way': 'Basic €6.99 / Pro €9.99 / Unlimited €14.99',
+      'World-Debrid': '€2.79 recurring / €3.49 one-time',
     },
     isHighlight: true,
   },
@@ -66,6 +70,7 @@ export const PRICING_ROWS: PricingRow[] = [
       LinkSnappy: '$29.99 USD',
       'Mega-Debrid': '€9.00',
       Deepbrid: '€12.99',
+      'World-Debrid': '€9.99 (one-time)',
     },
   },
   {
@@ -77,6 +82,7 @@ export const PRICING_ROWS: PricingRow[] = [
       LinkSnappy: '$54.99 USD',
       'Mega-Debrid': '€16.00',
       Deepbrid: '€19.99',
+      'World-Debrid': '€14.99 (one-time)',
     },
   },
   {
@@ -84,6 +90,7 @@ export const PRICING_ROWS: PricingRow[] = [
     cells: {
       AllDebrid: '€24.99 (one-time)',
       'Debrid-Link': '€25.00',
+      'World-Debrid': '€23.99 (one-time)',
     },
   },
   {
