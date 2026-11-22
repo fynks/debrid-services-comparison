@@ -87,8 +87,8 @@ export function levenshteinDistance(a, b) {
   if (!a.length) return b.length;
   if (!b.length) return a.length;
 
-  const prev = new Array(b.length + 1);
-  const curr = new Array(b.length + 1);
+  const prev = Array.from({ length: b.length + 1 });
+  const curr = Array.from({ length: b.length + 1 });
   for (let j = 0; j <= b.length; j++) prev[j] = j;
 
   for (let i = 1; i <= a.length; i++) {

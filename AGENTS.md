@@ -6,7 +6,8 @@ Static, backend-free Vite site comparing debrid services. `index.html` is the sh
 
 - `bun install`
 - `bun run dev`: local dev server
-- `bun run verify`: build + typecheck + smoke test; run before any PR
+- `bun test`: Bun's built-in test runner
+- `bun run verify`: typecheck + tests + build; run before any PR
 - `bun run build` / `bun run preview`: production build and preview
 
 Bun is the package manager. Use `bun run <script>` for anything in `package.json`. Toolchain versions are pinned in `.bun-version` (1.4.4) and `.nvmrc` / `.node-version` (26).

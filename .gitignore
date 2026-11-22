@@ -25,3 +25,5 @@ yarn-error.log*
 coverage/
 .eslintcache
 image-search/
+
+bun.lock

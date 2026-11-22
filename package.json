@@ -6,21 +6,20 @@
   "description": "Compare leading debrid / multi-hoster services for pricing, host coverage, policies & tools.",
   "scripts": {
     "dev": "vite",
-    "optimize-json": "tsx scripts/optimize-json.ts",
+    "optimize-json": "bun scripts/optimize-json.ts",
     "pretypecheck": "bun run optimize-json",
     "typecheck": "tsc --noEmit",
-    "smoke-test": "tsx scripts/smoke-test.ts",
-    "test": "bun run typecheck && bun run smoke-test",
-    "verify": "bun run build && bun run test",
+    "pretest": "bun run optimize-json",
+    "test": "bun test",
+    "verify": "bun run typecheck && bun run test && bun run build",
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.3.3",
-    "@types/node": "^26.6.5",
-    "tailwindcss": "^4.3.3",
-    "tsx": "^4.23.15",
+    "@tailwindcss/vite": "^4.3.5",
+    "@types/node": "^26.6.6",
+    "tailwindcss": "^4.3.5",
     "typescript": "^7.0.2",
-    "vite": "^8.3.5"
+    "vite": "^8.3.8"
   }
 }
