@@ -1,17 +1,31 @@
 # debrid-services-comparison
 
-Agent guidance for working in this repository.
+Static, backend-free Vite site comparing debrid services. `index.html` is the shell; `src/main.js` fills its `[data-mount]` slots with components and wires up interactions.
 
-<!-- antislop:start -->
-## antislop
-For UI, copy, people, mobile layout, or code comments work, read `antislop.md` (core) and then the skill for the task:
-- UI / visual: `skills/antislop-ui/SKILL.md`
-- Copy & text: `skills/antislop-copywriting/SKILL.md`
-- People: `skills/antislop-human/SKILL.md`
-- Mobile / responsive: `skills/antislop-layoutmobile/SKILL.md`
-- Code comments: `skills/antislop-code/SKILL.md`
-Before starting, follow the core's "Two Usage Modes" section in strict order: explicit session instruction first, then global preference, then ask. A session instruction always wins. For a resolved mode, say `antislop active: <mode> (session override).` or `antislop active: <mode> (global preference).` once before presenting findings or making edits, using the actual mode and source. Acknowledging the user's request without naming the source does not replace this notice.
-Only an explicit choice of antislop during or after selects a session mode. A request to review, audit, or avoid file edits does not select a mode; read the global preference in that case. Another skill's mode does not select antislop's mode.
-If the mode is unresolved, ask during/after and end the response; wait for the answer before any UI review, planning, or concept. For read-only tasks, put the active-mode notice only at the start of the final answer, never in progress messages. For editing tasks, announce before the first edit and omit it from the final answer.
-To update antislop later: download `antislop.md` again, or run `npx antislop-ai --update` if it was installed as skill folders.
-<!-- antislop:end -->
+## Commands
+
+- `bun install`
+- `bun run dev`: local dev server
+- `bun run verify`: build + typecheck + smoke test; run before any PR
+- `bun run build` / `bun run preview`: production build and preview
+
+Bun is the package manager. Use `bun run <script>` for anything in `package.json`. Toolchain versions are pinned in `.bun-version` (1.4.4) and `.nvmrc` / `.node-version` (26).
+
+## Where things live
+
+- `index.html`: static copy, SEO metadata, inline `#i-*` SVG sprite, `[data-mount]` slots.
+- `src/main.js`: mount order matters. Counts and components mount before scroll spy measures offsets.
+- `src/data/*.ts`: typed source for service metadata, pricing, policies, resources (`src/types/data.ts`).
+- `data/*.json` → `scripts/optimize-json.ts` → `src/json/*-optimized.json`. Edit the raw `data/` files only; the optimized files are generated before `typecheck`.
+- `src/components/`: tables and cards; `src/lib/`: theme, fuzzy search, nav, scroll spy, hash links, service worker.
+- `src/styles/globals.css`: Tailwind 4 + theme tokens; theme flips via `data-theme` on `<html>`.
+- `README.md`, `Adult-hosts.md`: hand-maintained tables. Keep them in sync with `src/data/` and `data/`, and update the "Last updated" line.
+- `dist/`: generated output, never edit directly.
+
+## Conventions
+
+- Stay factual and neutral. Back every price, host, or policy change with an official source; prices change often, so recheck before editing.
+- Report user-reported problems as a `role="alert"` warning linking to the GitHub issue (see the Deepbrid/issue #43 warning), not as established fact.
+- Reuse the existing `#i-*` icons and `warning` / `info` / `primary` token classes instead of inventing new styling.
+- Adding or renaming a service means updating `src/data/services.ts` (`SERVICE_ORDER`), the raw host JSON, the pricing/policy data, and the README/Adult-hosts tables, then running `bun run verify`.
+- Service IDs are canonical strings; the alias map in `optimize-json.ts` handles legacy names from raw data.
