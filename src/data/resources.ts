@@ -42,13 +42,6 @@ export const RESOURCE_GROUPS: ResourceGroup[] = [
           'Premium Apple media player with WebDAV debrid streaming',
         tags: ['Apple TV', 'iOS/macOS'],
       },
-      {
-        name: 'Syncler',
-        url: 'https://syncler.net/',
-        description:
-          'Android TV app with native debrid support and Netflix-like UI',
-        tags: ['Android/ATV', 'Debrid Native'],
-      },
     ],
   },
   {
@@ -144,8 +137,8 @@ export const RESOURCE_GROUPS: ResourceGroup[] = [
         name: 'StremThru',
         url: 'https://github.com/MunifTanjim/stremthru',
         description:
-          'Proxy middleware wrapping Stremio addons; supports RD, AD, TB, PM, DL, Offcloud',
-        tags: ['Proxy', 'Multi-Debrid'],
+          'Wraps Stremio add-ons, proxies streams and manages debrid libraries across services; supports RD, AD, TB, PM, DL',
+        tags: ['Proxy', 'Multi-Debrid', 'Stremio'],
       },
     ],
   },
@@ -259,13 +252,6 @@ export const RESOURCE_GROUPS: ResourceGroup[] = [
     icon: 'Smartphone',
     items: [
       {
-        name: 'Stremio',
-        url: 'https://www.stremio.com/downloads',
-        description:
-          'Streaming app with debrid add-ons; iOS availability is limited and varies by region',
-        tags: ['Cross-platform', 'Streaming'],
-      },
-      {
         name: 'Syncler',
         url: 'https://syncler.net/',
         description:
@@ -326,13 +312,6 @@ export const RESOURCE_GROUPS: ResourceGroup[] = [
         description:
           'High-performance proxy for HTTP(S)/HLS/DASH streams with DRM decryption',
         tags: ['Proxy', 'DRM'],
-      },
-      {
-        name: 'StremThru',
-        url: 'https://github.com/MunifTanjim/stremthru',
-        description:
-          'Wraps Stremio addons, proxies streams, manages debrid library across services',
-        tags: ['Proxy', 'Multi-Debrid'],
       },
       {
         name: 'Rclone',

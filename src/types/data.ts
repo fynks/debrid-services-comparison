@@ -15,9 +15,6 @@ export type ServiceId =
   | 'Deepbrid'
   | 'High-Way'
   | 'World-Debrid'
-  | 'Offcloud'
-  | 'PikPak'
-  | 'put.io'
   | 'Torrin'
   | 'Cocoleech';
 

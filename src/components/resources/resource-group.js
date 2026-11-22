@@ -15,6 +15,7 @@ export function initResourceGroups(slot) {
 
 function buildGroup(group, initialOpen) {
   const details = document.createElement('details');
+  details.id = group.id;
   details.className = 'group rounded-lg border border-border bg-card open:bg-card';
   if (initialOpen) details.open = true;
 
