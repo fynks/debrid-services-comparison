@@ -45,22 +45,24 @@ function card(iconName, title, body) {
   const el = document.createElement('article');
   el.className = 'rounded-lg border border-border bg-card p-4';
   const SVG_NS = 'http://www.w3.org/2000/svg';
+  const head = document.createElement('div');
+  head.className = 'flex items-center gap-2';
   const svg = document.createElementNS(SVG_NS, 'svg');
   svg.setAttribute('class', 'h-4 w-4 shrink-0 text-muted-foreground');
   svg.setAttribute('aria-hidden', 'true');
   const use = document.createElementNS(SVG_NS, 'use');
   use.setAttribute('href', `#i-${iconName}`);
   svg.appendChild(use);
-  el.appendChild(svg);
+  head.appendChild(svg);
 
   const h = document.createElement('h3');
-  h.className =
-    'mt-3 text-sm font-semibold leading-tight tracking-tight text-foreground';
+  h.className = 'text-sm font-semibold leading-tight tracking-tight text-foreground';
   h.textContent = title;
-  el.appendChild(h);
+  head.appendChild(h);
+  el.appendChild(head);
 
   const p = document.createElement('p');
-  p.className = 'mt-1.5 text-sm leading-relaxed text-muted-foreground';
+  p.className = 'mt-2 text-sm leading-relaxed text-muted-foreground';
   p.textContent = body;
   el.appendChild(p);
   return el;
