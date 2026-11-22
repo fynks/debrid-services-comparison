@@ -22,6 +22,9 @@
 
 </div><br>
 
+> [!IMPORTANT]
+> Coding is AI-assisted with human supervision. A human makes the final call: pricing, host support, and policies are checked manually before committing.
+
 ## Table of Contents
 
 <details><summary>👉 Click to expand</summary>
