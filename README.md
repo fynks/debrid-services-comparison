@@ -971,9 +971,7 @@ Joining multiple communities can help you get faster answers and broader perspec
 <details>
 <summary><strong>What exactly is a debrid service?</strong></summary>
 
-A **debrid service** (also called a "multi-hoster") is a paid intermediary between you and file-hosting sites or torrent networks. You submit a supported link or magnet → the service may fetch the content or return a cached item → you receive a direct download or stream link. Speed, cache availability, ads, and host restrictions vary by service, plan, and source.
-
-Instead of connecting directly to a file host, a debrid service may use its own infrastructure to return a supported link. This can avoid some host-side waits or restrictions, but it does not guarantee instant access, no ads, or no throttling; results depend on the host, plan, cache, and network.
+A **debrid service** (also called a "multi-hoster") is a paid intermediary between you and file-hosting sites or torrent networks. You submit a supported link or magnet → the service may fetch the content or return a cached item → you receive a direct download or stream link. Its own infrastructure may replace a direct host connection, which can avoid some host-side waits, but there is no guarantee of instant access, no ads, or no throttling. Speed, cache availability, ads, and restrictions vary by service, plan, host, and source.
 
 </details>
 
@@ -990,11 +988,7 @@ Instead of connecting directly to a file host, a debrid service may use its own 
 | Free to start, no card needed | **AllDebrid 7-day trial** (phone verification required) / TorBox free tier |
 | Legacy/niche content (fallback) | **Real-Debrid** ⚠️ - [see warning](#real-debrid-2026-changes) |
 
-> ⚠️ **Real-Debrid (2025–2026):** The copyright-related cache claims above are based on the linked reporting and community observations; official terms state that services and hosts may change. Separately, its terms require personal account use and prohibit account or generated-link sharing; connections are recorded to detect sharing. See [official terms](https://real-debrid.com/terms).
-
-> For the terms change and downtime history, see the [TorBox note](#torbox-note).
-
-Use our **[comparison table](https://debridcompare.pages.dev/)** to filter by features and supported hosts.
+> ⚠️ **Real-Debrid:** Copyright filtering has reduced its cache, and its terms require personal use with no account or link sharing. Details are in [Real-Debrid 2026 changes](#real-debrid-2026-changes); see also [official terms](https://real-debrid.com/terms) and the [TorBox note](#torbox-note).
 
 </details>
 
@@ -1035,8 +1029,6 @@ Yes - a few options to test before paying:
 - **AllDebrid** - A 7-day free tryout for new members; SMS verification and fair-use limits apply.
 - **Deepbrid** - Its current homepage and FAQ say free accounts can fetch up to five cloud-provider links per day; limits and available features can change ([official site](https://www.deepbrid.com/home)).
 
-> Always test with a free or short-term plan before committing to a long-term subscription.
-
 </details>
 
 ---
@@ -1052,7 +1044,7 @@ For a supported magnet or torrent, a debrid service may fetch it using its own i
 | **IP exposure** | Your client IP may be visible to peers | The provider may make the peer request; this is not a privacy guarantee |
 | **Seeding required** | Depends on client and torrent settings | Depends on provider and plan |
 
-**Services with torrent support:** Real-Debrid, AllDebrid, TorBox, Premiumize, Debrid-Link, Mega-Debrid, Deepbrid, High-Way, World-Debrid (Premium only) ✅  
+**Services with torrent support:** AllDebrid, Deepbrid, High-Way, Mega-Debrid, Offcloud, PikPak, Premiumize, put.io, Real-Debrid, TorBox, Torrin, World-Debrid (Premium only) ✅  
 **No torrent support:** LinkSnappy ❌
 
 </details>
@@ -1062,13 +1054,12 @@ For a supported magnet or torrent, a debrid service may fetch it using its own i
 <details>
 <summary><strong>Which debrid services support Usenet?</strong></summary>
 
-Only a few services offer Usenet support:
-
 - ✅ **TorBox Pro** - Full Usenet support included
 - ✅ **Premiumize** - Full Usenet support with 1 TB cloud storage
 - ✅ **High-Way** - Usenet included in all plans (25 connections, 50 with Unlimited)
+- ✅ **Deepbrid** and **Torrin** - Usenet/NZB support
 
-**No Usenet support:** Real-Debrid, AllDebrid, Debrid-Link, LinkSnappy, Mega-Debrid, Deepbrid, World-Debrid ❌
+**No Usenet support:** AllDebrid, Cocoleech, Debrid-Link, LinkSnappy, Mega-Debrid, Offcloud, PikPak, put.io, Real-Debrid, World-Debrid ❌
 
 Usenet is a separate decentralised network - no P2P exposure, no seeding required, and consistently high speeds. Worth considering if DMCA-driven torrent cache removals are a concern.
 
@@ -1079,11 +1070,7 @@ Usenet is a separate decentralised network - no P2P exposure, no seeding require
 <details>
 <summary><strong>What is torrent caching / "instant" availability?</strong></summary>
 
-A provider may return a matching item from its cache if it is still available and retained. If it is not cached, the provider may need to fetch it, so completion time and availability vary. An add-on’s **⚡** marker is an indicator from that add-on, not a guarantee of availability or instant playback.
-
-Cache results and retention vary by provider, plan, and content.
-
-Real-Debrid's cache coverage has been significantly reduced by its ongoing copyright filter.
+A provider may return a matching item from its cache if it is still available and retained. If it is not cached, the provider may need to fetch it, so completion time and availability vary by provider, plan, and content. An add-on’s **⚡** marker is an indicator from that add-on, not a guarantee of availability or instant playback. Real-Debrid's cache coverage has been significantly reduced by its ongoing copyright filter.
 
 </details>
 
