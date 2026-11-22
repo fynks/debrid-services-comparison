@@ -1,0 +1,22 @@
+# Debrid Services Comparison
+
+> Compare pricing, 329 supported file hosts, Usenet, refund policies, speed tests and published limits across 12 debrid services. Interactive web app with open-source, human-verified data.
+
+## Site
+
+- [Services and benefits](https://debridcompare.pages.dev/#what-are-debrid-services): what a debrid service is and what it does.
+- [Choosing a service](https://debridcompare.pages.dev/#choosing-the-right-service): feature matrix and quick decision table.
+- [Pricing](https://debridcompare.pages.dev/#debrid-pricing-comparison): prices by provider and subscription term.
+- [Service limits](https://debridcompare.pages.dev/#service-limits): slots, size limits, traffic caps, IP rules and free tiers.
+- [Supported hosts](https://debridcompare.pages.dev/#supported-file-hosts): search which services support a host or pasted URL.
+- [Usenet support](https://debridcompare.pages.dev/#usenet-support): services that accept NZBs.
+- [Adult hosts](https://debridcompare.pages.dev/#adult-content-file-hosts): adult host support by service.
+- [Policies](https://debridcompare.pages.dev/#refund-policies-legal): official terms, privacy and refund links.
+- [Speed tests](https://debridcompare.pages.dev/#debrid-speed-test): official provider speed-test pages.
+- [Tools and apps](https://debridcompare.pages.dev/#debrid-resources-tools): media centers, add-ons, managers and proxies.
+- [Important information](https://debridcompare.pages.dev/#disclaimers): accuracy notes and disclaimers.
+
+## Source
+
+- [GitHub repository](https://github.com/fynks/debrid-services-comparison): data files, contribution guide and issue tracker.
+- [README](https://github.com/fynks/debrid-services-comparison/blob/main/README.md): full written reference.
