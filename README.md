@@ -50,6 +50,7 @@
   - [📥 Download Managers](#-download-managers)
   - [🌐 Browser Extensions](#-browser-extensions)
   - [📱 Mobile Applications](#-mobile-applications)
+  - [🔧 Proxy \& Infrastructure](#-proxy--infrastructure)
 - [Community Resources](#community-resources)
   - [Reddit Communities](#reddit-communities)
   - [Guides](#guides)
@@ -98,7 +99,7 @@ Debrid ("multi-hoster") services act as paid aggregation layers between you and 
 
 <br>
 
-### 📌 Quick Decision Matrix:
+### Quick Decision Matrix
 
 | Your Priority | Recommended Service | See Details |
 |:-------------|:-------------------|:-----------|
@@ -232,9 +233,7 @@ Always verify prices on the official sites because they change frequently.
 
 </details><br>
 
-
-
-<br>
+**Jump to:** [Service limits](#service-limits) · [Host support](#available-hosts) · [Usenet](#usenet-support) · [Policies](#policies) · [Speed tests](#speed-test)
 
 <div align="right">
 
