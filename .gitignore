@@ -1,5 +1,9 @@
 node_modules
 
+# Bun lockfile is generated locally and not tracked
+bun.lock
+bun.lockb
+
 # Build output (Vite builds to dist/)
 /dist/
 
@@ -25,5 +29,3 @@ yarn-error.log*
 coverage/
 .eslintcache
 image-search/
-
-bun.lock

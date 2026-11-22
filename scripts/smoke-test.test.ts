@@ -9,7 +9,7 @@ import {
   normalizeHostname,
   levenshteinDistance,
 } from '../src/lib/fuzzy.js';
-import { PRICING_SERVICES, REFERRAL_LINKS } from '../src/data/pricing';
+import { PRICING_ROWS, PRICING_SERVICES, REFERRAL_LINKS } from '../src/data/pricing';
 import { POLICY_ROWS, STATUS_LINKS, USENET_SUPPORT } from '../src/data/policies';
 import { SERVICES, SERVICE_ORDER } from '../src/data/services';
 import { SERVICE_LIMITS } from '../src/data/limits';
@@ -73,6 +73,16 @@ describe('Service references', () => {
       ...REFERRAL_LINKS.map((r) => r.service),
     ];
     for (const id of ids) expect(id in SERVICES).toBe(true);
+    for (const row of PRICING_ROWS) {
+      for (const id of Object.keys(row.cells)) expect(id in SERVICES).toBe(true);
+    }
+  });
+
+  it('has complete limit rows', () => {
+    const keys = ['slots', 'maxSize', 'caps', 'ipPolicy', 'freeTier', 'apiLimits'] as const;
+    for (const row of SERVICE_LIMITS) {
+      for (const key of keys) expect(typeof row[key]).toBe('string');
+    }
   });
 
   it('keeps policy, status and limits rows aligned with the roster', () => {
