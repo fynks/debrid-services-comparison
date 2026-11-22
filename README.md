@@ -247,6 +247,8 @@ Real-Debrid has started returning copyright-infringement errors on many cached t
 
 Rapidgator may appear as supported for TorBox, but it is frequently marked offline; see [issue #34](https://github.com/fynks/debrid-services-comparison/issues/34) for details.
 
+> **Warning:** Deepbrid users report downloads capped to a single connection that cannot resume, and some hosts listed as supported, such as Rapidgator, may not work. See [issue #43](https://github.com/fynks/debrid-services-comparison/issues/43) for details.
+
 ### Complete Host List
 
 Comprehensive list of all supported file hosts across all services.
