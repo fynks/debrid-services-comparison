@@ -44,7 +44,7 @@ jobs:
           key: ${{ runner.os }}-bun-${{ hashFiles('package.json') }}
           restore-keys: ${{ runner.os }}-bun-
       - run: bun install
-      - run: bun test --coverage
+      - run: bun run test --coverage
 
   build:
     runs-on: ubuntu-latest
