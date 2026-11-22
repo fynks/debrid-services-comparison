@@ -72,7 +72,7 @@ export function initHostSupportTable(slot, { source, data, initialLimit = 60 } =
   input.id = `${source}-host-search`;
   input.name = `${source}-host-search`;
   input.className =
-    'flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 pl-8 pr-8 text-sm shadow-none transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1';
+    'flex h-11 w-full rounded-md border border-input bg-background px-3 py-1 pl-8 pr-8 text-sm shadow-none sm:h-9 transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1';
   input.placeholder = searchPlaceholder;
   input.setAttribute('aria-label', resultsLabel);
   input.setAttribute('aria-controls', `${source}-hosts-region`);
@@ -81,7 +81,7 @@ export function initHostSupportTable(slot, { source, data, initialLimit = 60 } =
   const clearBtn = document.createElement('button');
   clearBtn.type = 'button';
   clearBtn.className =
-    'absolute right-1.5 top-1/2 inline-flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded text-muted-foreground hover:bg-muted hover:text-foreground';
+    'absolute right-0 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded text-muted-foreground hover:bg-muted hover:text-foreground sm:right-1.5 sm:h-6 sm:w-6';
   clearBtn.setAttribute('aria-label', 'Clear search');
   clearBtn.style.display = 'none';
   clearBtn.appendChild(icon('x', { class: 'h-3.5 w-3.5', 'aria-hidden': 'true' }));
@@ -160,7 +160,7 @@ export function initHostSupportTable(slot, { source, data, initialLimit = 60 } =
     const confirmAge = document.createElement('button');
     confirmAge.type = 'button';
     confirmAge.className =
-      'inline-flex min-h-9 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:opacity-90';
+      'inline-flex min-h-11 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium sm:min-h-9 text-primary-foreground hover:opacity-90';
     confirmAge.textContent = 'I am 18 or older';
     confirmAge.addEventListener('click', () => {
       region.classList.remove('blur-sm');
@@ -394,7 +394,7 @@ export function initHostSupportTable(slot, { source, data, initialLimit = 60 } =
           a.target = '_blank';
           a.rel = 'noopener noreferrer';
           a.className =
-            'inline-flex h-7 w-7 items-center justify-center rounded-md text-success transition-colors hover:bg-success-muted hover:text-success focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2';
+            'inline-flex h-11 w-11 items-center justify-center rounded-md text-success sm:h-7 sm:w-7 transition-colors hover:bg-success-muted hover:text-success focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2';
           a.setAttribute(
             'aria-label',
             `${host} supported by ${service}. Open status page`
@@ -414,7 +414,7 @@ export function initHostSupportTable(slot, { source, data, initialLimit = 60 } =
         }
       } else {
         // The dash *is* the cell content, so style the <td> directly instead of
-        // nesting a presentational <span> — one less element per unsupported
+        // nesting a presentational <span>, saving one element per unsupported
         // cell across the table. Putting `aria-label` on the <td> is also
         // more correct: a `cell` supports accessible naming, a bare span does not.
         td.className += ' text-muted-foreground select-none';

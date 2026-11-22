@@ -73,7 +73,7 @@ export function initServiceComparison(slot, { data } = {}) {
   const resetBtn = document.createElement('button');
   resetBtn.type = 'button';
   resetBtn.className =
-    'inline-flex h-8 shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-md px-3 text-xs font-medium text-muted-foreground hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1';
+    'inline-flex h-11 shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-md px-3 text-xs font-medium sm:h-8 text-muted-foreground hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1';
   resetBtn.appendChild(icon('rotate-ccw', { class: 'h-3.5 w-3.5', 'aria-hidden': 'true' }));
   resetBtn.appendChild(document.createTextNode('Reset'));
   resetBtn.addEventListener('click', () => {
@@ -242,7 +242,7 @@ function createSelect(value, services, id, label, onChange) {
   sel.id = id;
   sel.setAttribute('aria-label', label);
   sel.className =
-    'flex h-9 w-full appearance-none rounded-md border border-input bg-background px-3 py-1 pr-8 text-sm shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50';
+    'flex h-11 w-full appearance-none rounded-md border border-input bg-background px-3 py-1 pr-8 text-sm shadow-none sm:h-9 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50';
 
   const placeholder = document.createElement('option');
   placeholder.value = '';
@@ -363,7 +363,7 @@ function warningAlert(message) {
     'flex items-start gap-3 rounded-md border border-warning/40 bg-warning-muted/70 px-4 py-3 text-sm leading-relaxed text-foreground';
   wrap.appendChild(
     icon('alert-triangle', {
-      class: 'mt-0.5 h-4 w-4 shrink-0 text-warning',
+      class: 'h-5 w-5 shrink-0 text-warning',
       'aria-hidden': 'true',
     })
   );

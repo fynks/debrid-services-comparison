@@ -41,14 +41,11 @@ function statusCard(service, url, description) {
   name.textContent = SERVICES[service].name;
   head.appendChild(name);
 
-  const live = document.createElement('span');
-  live.className =
-    'inline-flex items-center gap-1 rounded-md border border-transparent bg-success-muted px-2 py-0.5 text-2xs font-medium text-success';
-  live.appendChild(
-    icon('activity', { class: 'h-3 w-3', 'aria-hidden': 'true' })
-  );
-  live.appendChild(document.createTextNode('Live'));
-  head.appendChild(live);
+  const official = document.createElement('span');
+  official.className =
+    'inline-flex items-center rounded-md border border-border bg-muted px-2 py-0.5 text-2xs font-medium text-muted-foreground';
+  official.textContent = 'Official';
+  head.appendChild(official);
   a.appendChild(head);
 
   const desc = document.createElement('p');
